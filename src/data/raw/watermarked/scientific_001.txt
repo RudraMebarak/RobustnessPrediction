@@ -1,0 +1,7 @@
+Gradient descent is an optimization algorithm used in machine learning to minimize the loss or cost function of a predictive model. The goal of this process is to adjust the parameters (weights) of the model so that it fits the training data as closely as possible while reducing the error between predictions and actual outcomes.
+
+The mathematical foundation for gradient descent comes from calculus. It relies on understanding the concept of derivatives. In machine learning, these derivatives represent the slope of the loss function at each point along the decision boundary between classes. Higher derivative values indicate steeper slopes where the prediction line will move more significantly if altered; lower values suggest slower changes.
+
+At its core, gradient descent works through an iterative update rule based on the current estimates of the weights. Each iteration involves calculating both the partial derivatives (gradients) of the loss function with respect to each weight, then adjusting those weights in the direction opposite to the gradients. This means moving towards points in parameter space where future errors would be smaller or nonexistent under the new estimate.
+
+Learning rate (α) plays a crucial role. It controls how quickly the algorithm moves toward minimizing the loss. A too high value can result in oscillation around local minima rather than converging to the global minimum, whereas a low learning rate

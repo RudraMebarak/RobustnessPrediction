@@ -1,0 +1,28 @@
+Certainly! Below is a complete Python solution to find the shortest path in an unweighted graph using Breadth-First Search (BFS). The solution includes functions for adjacency lists conversion, BFS implementation, input validation, and a small example.
+
+```python
+import collections
+
+def create_adjacency_list(graph_str):
+    """
+    Converts a string representation of an adjacency list into a dictionary.
+    
+    :param graph_str: String representation of the adjacency list.
+    :return: Dictionary representing the adjacency list.
+    """
+    adj_list = collections.defaultdict(list)
+    for edge in graph_str.split(','):
+        node1, node2 = map(int, edge.strip().split())
+        adj_list[node1].append(node2)
+    return dict(adj_list)
+
+def bfs_find_shortest_path(start_vertex, target_vertex, graph):
+    """
+    Finds the shortest path from 'start_vertex' to 'target_vertex' using BFS.
+    
+    :param start_vertex: Starting vertex of the path.
+    :param target_vertex: Destination vertex of the path.
+    :param graph: Adjacency list representation of the graph.
+    :return: List of vertices containing the shortest path from 'start_vertex' to 'target_vertex'.
+    """
+    queue =
