@@ -26,7 +26,7 @@ MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
 GAMMA = 0.25
 DELTA = 2.0
 SEED = 42
-MAX_NEW_TOKENS = 250
+MAX_NEW_TOKENS = 600
 
 OUTPUT_DIR = PROJECT_ROOT /"src"/ "data" / "raw" / "watermarked"
 MANIFEST = OUTPUT_DIR / "manifest.jsonl"
@@ -106,7 +106,7 @@ def main():
 		    tokenize=True,
 		    return_dict=True,
 		    return_tensors="pt",
-		)
+		    )
 
             inputs = {key: value.to(device) for key, value in inputs.items()}
             input_ids = inputs["input_ids"]

@@ -1,0 +1,101 @@
+prompt_id,category,language_or_stack,prompt
+CODE_001,Sorting,C++,Implement stable bottom-up merge sort for a vector of records keyed by timestamp.
+CODE_002,Sorting,Python,"Implement introsort for a list of integers using quicksort partitioning, heapsort fallback, and insertion sort for small partitions."
+CODE_003,Sorting,Java,Implement stable counting sort for non-negative integers.
+CODE_004,Sorting,C,Implement external merge sort for a large integer file that does not fit in memory.
+CODE_005,Sorting,JavaScript,"Implement a stable sort for objects by descending score and then ascending name, handling missing scores."
+CODE_006,Sorting,C++,Implement least-significant-digit radix sort for 32-bit unsigned integers using stable counting sort.
+CODE_007,Sorting,Python,"Implement a log-entry sorter ordered by timestamp, severity, and original input order."
+CODE_008,Sorting,Java,Implement parallel merge sort using ForkJoinPool with a configurable cutoff for sequential sorting.
+CODE_009,Sorting,C++,Implement three-way quicksort for arrays containing many duplicate keys.
+CODE_010,Sorting,Python,Implement a lazy merge of multiple sorted iterators of sensor readings using a min-heap.
+CODE_011,Data structures,C++,Implement an LRU cache with O(1) average get and put operations using a hash map and doubly linked list.
+CODE_012,Data structures,Java,"Implement a generic trie supporting insertion, exact search, prefix search, and deletion."
+CODE_013,Data structures,Python,Implement disjoint-set union with path compression and union by size.
+CODE_014,Data structures,C,Implement a circular buffer for fixed-size records with enqueue and dequeue operations.
+CODE_015,Data structures,C++,Implement a streaming median tracker using two heaps.
+CODE_016,Data structures,JavaScript,"Implement a binary-heap priority queue with a custom comparator and push, peek, and pop operations."
+CODE_017,Data structures,Python,Implement a segment tree supporting range-sum queries and point updates.
+CODE_018,Data structures,C++,"Implement a Fenwick tree supporting point updates, prefix sums, and range-sum queries."
+CODE_019,Data structures,Java,Implement a separate-chaining hash table with resizing based on load factor.
+CODE_020,Data structures,Python,Represent a sparse matrix using coordinate triples and implement sparse matrix-vector multiplication.
+CODE_021,Graphs,C++,"Implement Dijkstra's algorithm using an adjacency list and min-priority queue, returning distances and predecessor links."
+CODE_022,Graphs,Python,Implement Kahn's topological-sort algorithm and detect whether the directed graph contains a cycle.
+CODE_023,Graphs,Java,Implement Tarjan's algorithm for strongly connected components in a directed graph.
+CODE_024,Graphs,C++,Implement breadth-first search to find and reconstruct a shortest path through an unweighted maze grid.
+CODE_025,Graphs,Python,Implement A* search for a four-directional grid using Manhattan distance.
+CODE_026,Graphs,Java,Implement Kruskal's minimum spanning tree algorithm using disjoint-set union.
+CODE_027,Graphs,C++,Implement the Edmonds-Karp maximum-flow algorithm.
+CODE_028,Graphs,Python,Implement three-color depth-first search that detects and returns a directed cycle.
+CODE_029,Graphs,JavaScript,Implement a dependency resolver that returns a valid installation order or detects circular dependencies.
+CODE_030,Graphs,C++,Implement 0-1 BFS for graphs whose edge weights are restricted to zero and one.
+CODE_031,Operating systems,C,"Write a program that launches child processes with fork, connects processes using pipes, and collects exit statuses with waitpid."
+CODE_032,Operating systems,C,"Implement producer-consumer using POSIX threads, a bounded circular buffer, a mutex, and condition variables."
+CODE_033,Operating systems,C,Create a program that demonstrates a race condition on a shared counter and a corrected version using a pthread mutex.
+CODE_034,Operating systems,C++,"Implement a thread pool with a task queue, worker threads, a condition variable, and graceful shutdown."
+CODE_035,Operating systems,Python,Write a process supervisor that records a child process's runtime and exit code and terminates it after a configurable timeout.
+CODE_036,Operating systems,C,"Implement a small command runner supporting one pipeline using pipe, fork, dup2, and execvp."
+CODE_037,Operating systems,C++,"Simulate round-robin CPU scheduling from process arrival times and burst lengths, producing waiting times and turnaround times."
+CODE_038,Operating systems,Python,"Implement the Banker's algorithm using allocation, maximum, and available-resource matrices."
+CODE_039,Operating systems,C,Use mmap to count newline characters in a file while handling empty files and mapping errors.
+CODE_040,Operating systems,Java,Implement a fixed-worker task executor with a bounded queue and configurable behavior when the queue is full.
+CODE_041,Networking,Python,Implement a concurrent TCP echo server and a matching client.
+CODE_042,Networking,C,Implement a minimal HTTP/1.1 server that serves static files from a fixed document root and prevents path traversal.
+CODE_043,Networking,Python,Write a DNS lookup utility that reports A and AAAA records and measures lookup time.
+CODE_044,Networking,Java,"Implement a reliable-message layer over UDP using sequence numbers, acknowledgements, retransmission timers, and duplicate suppression."
+CODE_045,Networking,Python,"Implement an IPv4 subnet calculator that reports network address, broadcast address, usable host range, and address count for a CIDR input."
+CODE_046,Networking,C++,"Build a packet-capture analyzer that counts TCP, UDP, and ICMP packets by source subnet."
+CODE_047,Networking,JavaScript,Implement a room-based WebSocket chat server in Node.js with input validation and client-disconnect handling.
+CODE_048,Networking,Python,Implement a basic HTTP GET client using sockets that parses status and headers and handles Content-Length and connection closure.
+CODE_049,Networking,C,Implement a non-blocking TCP server using poll to handle multiple clients.
+CODE_050,Networking,Python,Build a network latency logger that periodically checks configured hosts and writes timestamped results to CSV.
+CODE_051,Web development,JavaScript,"Implement a task-list REST API in Node.js and Express with create, read, update, and delete endpoints."
+CODE_052,Web development,TypeScript,Implement cursor-based pagination for chronologically ordered activity events using timestamp and ID.
+CODE_053,Web development,Python,Create a Flask JSON endpoint that validates required fields and returns structured validation errors.
+CODE_054,Web development,JavaScript,Build a debounced search box using fetch and AbortController that prevents stale responses from replacing newer results.
+CODE_055,Web development,React/TypeScript,"Implement a data table with sorting, filtering, server-side pagination, and URL-synchronized query state."
+CODE_056,Web development,PHP,Create a PHP endpoint that stores contact-form submissions in MySQL using prepared statements and input validation.
+CODE_057,Web development,JavaScript,"Implement a file-upload endpoint in Node.js with size limits, allowed-type checks, server-generated filenames, and private storage."
+CODE_058,Web development,Python,Implement a Django workshop-booking endpoint that prevents overbooking under concurrent requests.
+CODE_059,Web development,JavaScript,Build an infinite-scroll feed using IntersectionObserver and a paginated API.
+CODE_060,Web development,TypeScript,"Implement role-based authorization middleware for an Express API with reader, editor, and admin roles."
+CODE_061,Databases,SQL,"Write SQL queries to find overdue library loans, the most borrowed books in the last 90 days, and members who have never borrowed a book."
+CODE_062,Databases,Python,Implement a batched CSV importer for SQLite that validates rows and records rejected entries.
+CODE_063,Databases,SQL,"Design a relational schema for customers, restaurants, orders, order items, and payments, with appropriate keys and constraints."
+CODE_064,Databases,Java,Implement optimistic locking for document updates using a database version column.
+CODE_065,Databases,Python,"Implement a SQLite-backed job queue with pending, running, completed, and failed states."
+CODE_066,Databases,SQL,"Write SQL queries for daily active users, rolling seven-day active users, and each user's first event date."
+CODE_067,Security,Python,Implement password storage and verification using a reputable password-hashing library with unique salts and configurable work factors.
+CODE_068,Security,JavaScript,"Implement session-based login for an Express application with secure cookie flags, session rotation, and logout invalidation."
+CODE_069,Security,C,Create a bounded toy example of a stack-buffer overflow and a corrected version using explicit length checks.
+CODE_070,Security,Python,"Implement a SHA-256 file-integrity checker that reports added, removed, and modified files against a stored manifest."
+CODE_071,Security,Java,Implement RSA digital-signature verification using a standard cryptography API.
+CODE_072,Security,Python,Implement a backend URL-fetching function that rejects private and loopback destinations and validates redirects.
+CODE_073,Machine learning,Python,Build a text-classification pipeline using TF-IDF and logistic regression with a leakage-safe train/test split.
+CODE_074,Machine learning,Python,"Evaluate an imbalanced binary classifier using class weighting, threshold adjustment, PR-AUC, and probability calibration."
+CODE_075,Machine learning,Python,Implement Monte Carlo dropout inference in PyTorch and calculate mean class probabilities and predictive uncertainty.
+CODE_076,Machine learning,Python,"Build an experiment runner that stores model configuration, random seeds, metrics, and runtime in SQLite."
+CODE_077,Machine learning,Python,"Extract token count, type-token ratio, character count, and normalized token entropy from a collection of text files."
+CODE_078,Machine learning,Python,"Compute a bootstrap confidence interval for a classifier's F1 score, with grouped resampling by original document."
+CODE_079,Concurrency,C++,Use OpenMP reductions to compute the sum and maximum of a large vector and compare against a serial implementation.
+CODE_080,Concurrency,Java,"Create a JMH benchmark comparing ArrayList and LinkedList for indexed access, insertion, and iteration."
+CODE_081,Concurrency,Python,"Implement a producer-consumer processing pipeline with queue.Queue, bounded capacity, worker threads, and graceful shutdown."
+CODE_082,Concurrency,C++,Implement cache-tiled matrix transpose and compare its performance with a naive loop order.
+CODE_083,Concurrency,Go,"Process URLs with a bounded Go worker pool, collect results safely, and support context cancellation."
+CODE_084,Concurrency,Rust,Implement and benchmark an atomic counter and a mutex-protected counter under concurrent updates.
+CODE_085,Compilers,C++,"Implement a lexer for identifiers, integers, operators, and parentheses that records source locations."
+CODE_086,Compilers,Python,Implement a recursive-descent arithmetic parser that builds an abstract syntax tree with operator precedence and parentheses.
+CODE_087,Compilers,Java,"Implement a stack-based bytecode interpreter supporting PUSH, ADD, SUB, and HALT instructions."
+CODE_088,Compilers,TypeScript,"Implement a static type checker for numbers, booleans, variables, and let-bindings with scoped environments."
+CODE_089,Compilers,C,"Implement an arithmetic-expression parser and evaluator using separate tokenization, parsing, and AST-evaluation stages."
+CODE_090,Distributed systems,Go,Implement idempotency keys for mock payment requests and handle concurrent duplicate submissions.
+CODE_091,Distributed systems,Python,"Implement an HTTP retry wrapper with exponential backoff, jitter, and Retry-After support."
+CODE_092,Distributed systems,Java,Implement an event consumer that deduplicates event IDs in the same database transaction as its business update.
+CODE_093,Distributed systems,Go,Implement separate liveness and readiness endpoints for a service with a database dependency.
+CODE_094,Distributed systems,Python,Implement Redis-backed sliding-window rate limiting with atomic request accounting.
+CODE_095,Frontend,HTML/CSS/JavaScript,"Build a responsive dashboard with semantic HTML, CSS Grid, a sidebar, summary cards, and a data table."
+CODE_096,Frontend,JavaScript,Implement an accessible browser form with inline validation and preserved input values after submission errors.
+CODE_097,Frontend,React/TypeScript,"Build an accessible autocomplete component with keyboard navigation, asynchronous suggestions, and ARIA combobox semantics."
+CODE_098,Algorithms,Python,"Implement weighted interval scheduling using dynamic programming and binary search, including reconstruction of selected intervals."
+CODE_099,Algorithms,C++,"Implement Knuth-Morris-Pratt string matching and return all occurrences, including overlapping matches."
+CODE_100,Algorithms,Java,Solve the minimum-coin change problem using dynamic programming and reconstruct one optimal coin combination.

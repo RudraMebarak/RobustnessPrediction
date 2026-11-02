@@ -1,0 +1,68 @@
+```javascript
+// Import required modules
+const express = require('express');
+const bodyParser = require('body-parser');
+
+// Initialize Express app
+const app = express();
+
+// Middleware to parse incoming JSON request bodies
+app.use(bodyParser.json());
+
+// Sample task list data
+let tasks = [
+  { id: '1', text: 'Buy groceries', done: false },
+  { id: '2', text: 'Clean room', done: true }
+];
+
+// Create endpoint for GET /api/tasks - returns all tasks
+app.get('/api/tasks', (req, res) => {
+  res.status(200).json(tasks);
+});
+
+// Update endpoint for PUT /api/tasks/:id - updates a single task by ID if found
+app.put('/api/tasks/:id', (req, res) => {
+  const taskId = req.params.id;
+  let updatedTask;
+
+  // Find the task by ID
+  tasks.forEach((task) => {
+    if (task.id === parseInt(taskId)) {
+      updatedTask = Object.assign({}, task, req.body); // Update the task's properties from request body
+    }
+  });
+
+  // Check if task was successfully updated
+  if (updatedTask) {
+    res.status(204).end(); // No Content response
+  } else {
+    res.status(404).json({ error: 'Task not found' });
+  }
+});
+
+// Delete endpoint for DELETE /api/tasks/:id - removes a specific task by ID if it exists
+app.delete('/api/tasks/:id', (req, res) => {
+  const taskId = req.params.id;
+  let index;
+
+  // Remove task by matching its ID in an array of task objects
+  tasks.forEach((item, i) => {
+    if (i !== 0 && item.id === parseInt(taskId)) {
+      index = i; // Store index of task to remove after loop ends
+    }
+  });
+
+  // If task is deleted, replace rest of array elements with last element before deletion
+  if (index < tasks.length) {
+    tasks[index] = tasks[tasks.length - 1]; // Replace current position with last remaining element
+    tasks.pop(); // Remove last element (because no more needed)
+  }
+
+  // Respond based on status of task being removed
+  res.status(!tasks.includes(parseInt(taskId)) ? 204 : 200).end();
+});
+
+// Start server on port 3000
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+```
