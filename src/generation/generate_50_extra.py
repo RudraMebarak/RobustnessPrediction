@@ -127,7 +127,7 @@ def main():
             prompt_text = prompt_row["prompt"].strip()
             prompt_language = prompt_row["language_or_stack"].strip()
             sample_seed = BASE_SEED + index - 1
-            filename = f"code_sample_{index}.txt"
+            filename = f"code_extra_{index}.txt"
             text_path = OUTPUT_DIR / filename
             prompt_text= prompt_text + f"Use Language: {prompt_language}]"
             print(f"\n[{index}/50] {prompt_id}: {prompt_row['category']} / "
