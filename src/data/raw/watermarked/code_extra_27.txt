@@ -1,0 +1,70 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Registration Page</title>
+<style>
+    body { font-family: Arial, sans-serif; }
+    h1, p { text-align: center; }
+    .form-group input[type=text], select { width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; box-sizing: border-box; }
+    label { display: block; margin-bottom: 15px; }
+    button { background-color: #4CAF50; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; }
+    button:hover { cursor: pointer; }
+    hr { border-top: 1px solid #f1f1f1; }
+</style>
+</head>
+<body>
+
+<h1>Event Registration Form</h1>
+
+<form action="/submit-form" method="post">
+<label for="name">Name:</label>
+<input type="text" id="name" name="name">
+
+<label for="email">Email:</label>
+<input type="email" id="email" name="email">
+<br><br>
+
+<label for="tickets">Number of Tickets:</label>
+<select id="tickets" name="tickets">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+</select>
+
+<div class="form-group">
+<label for="dietary">Dietary Requirements (e.g., Vegetarian/Non-Veg, Gluten-Free):</label>
+<textarea id="dietary" name="dietary"></textarea>
+</div>
+
+<div class="form-group form-actions">
+<button type="submit">Submit</button>
+</div>
+</form>
+
+<p>Order Summary:</p>
+<hr>
+
+<!-- This section will dynamically show based on selected values -->
+<span id="orderSummary">Please provide your order details.</span>
+
+<script>
+// Simulate submitting data from server-side processing
+window.onload = function() {
+  document.getElementById('submitForm').addEventListener('click', function(event) {
+    event.preventDefault();
+    
+    // Simulating AJAX request to fetch processed data from backend
+    setTimeout(() => {
+      let formData = new FormData(form);
+      document.querySelector('#orderSummary').innerText = JSON.stringify(formData.getAll(), null, 2);
+    }, 2000); // Replace this time constant with actual processing time
+  });
+}
+</script>
+
+</body>
+</html>
+```

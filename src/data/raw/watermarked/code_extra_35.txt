@@ -1,0 +1,81 @@
+```jsx
+import React, { useState } from 'react';
+
+// Define the ExpenseItem component to display transaction details
+const ExpenseItem = ({ id, description, amount }) => (
+  <div>
+    <h3>{description}</h3>
+    <p>Amount: ${amount.toFixed(2)}</p>
+  </div>
+);
+
+// Define the Categories component to show category names
+const Categories = ({ categories }) => {
+  return (
+    <div>
+      {Object.keys(categories).map((category) => (
+        <span key={category} className={`category ${categories[category].active ? "active" : ""}`}>
+          {category}
+        </span>
+      ))}
+    </div>
+  );
+};
+
+// Define the AddExpenseForm component to handle expense addition
+const AddExpenseForm = ({ onAdd }) => (
+  <form onSubmit={(e) => e.preventDefault()}>
+    <label htmlFor="description">Description:</label>
+    <input type="text" id="description" name="description"></input>
+    <label htmlFor="amount">Amount (USD):</label>
+    <input type="number" id="amount" name="amount"></input>
+    <button type="submit">Add Expense</button>
+  </form>
+);
+
+// Define the ExpensesList component to display all expenses in the list format
+const ExpensesList = ({ expenses, filtered }) => (
+  <ul>
+    {expenses.map((expense) => (
+      <li key={expense.id}>
+        <ExpenseItem {...expense} />
+      </li>
+    ))}
+  </ul>
+);
+
+// Define the MonthlyTotals component to display summary of each month's total expenditures
+const MonthlyTotals = ({ monthsData }) => {
+  const dataByMonth = Object.values(monthsData);
+  const formattedData = dataByMonth.map((data) => ({
+    ...data,
+    year: new Date(data.date).getFullYear(),
+  }));
+
+  const monthsArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const groupedMonths = {};
+
+  monthsArray.forEach((month) => {
+    let sum = 0;
+    formattedData.forEach((item) => {
+      if (item.month === month.toLowerCase()) {
+        sum += item.total || 0;
+      }
+    });
+
+    groupedMonths[month] = sum > 0 ? sum.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) : '--';
+  });
+
+  return (
+    <>
+      <h2>Total Expenditures by Month:</h2>
+      {Object.entries(groupedMonths).map(([month, total]) => (
+        <div key={month}>
+          <strong>{month}: </strong> {total}
+        </div>
+      ))}
+    </>
+  );
+};
+
+// Define the App component that manages state, props
