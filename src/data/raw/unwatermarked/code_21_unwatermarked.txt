@@ -1,0 +1,100 @@
+```java
+import java.util.*;
+
+class Graph {
+    private Map<Integer, List<Edge>> adjList;
+
+    public Graph(Map<Integer, List<Edge>> adj) {
+        this.adjList = adj;
+    }
+
+    void dijkstra(int src) {
+        int n = adjList.size();
+        boolean[] visited = new boolean[n];
+        PriorityQueue<Node> pq = new PriorityQueue<>(Comparator.comparingInt(node -> node.distance));
+
+        for (int i = 0; i < n; i++) {
+            if (!visited[i]) {
+                Node startNode = new Node(i);
+                pq.offer(startNode);
+                startNode.distance = 0;
+            }
+        }
+
+        while (!pq.isEmpty()) {
+            Node currNode = pq.poll();
+            int currVertex = currNode.vertex;
+
+            if (visited[currVertex])
+                continue;
+
+            System.out.println(currVertex + " : Distance=" + currNode.distance);
+
+            visited[currVertex] = true;
+
+            for (Edge e : adjList.get(currVertex)) {
+                int nextVertex = e.nextVertex;
+                double weight = e.weight;
+                double newDistance = currNode.distance + weight;
+
+                if (!visited[nextVertex]) {
+                    Node newNode = new Node(nextVertex, newDistance, currVertex);
+                    pq.offer(newNode);
+                } else if (newDistance < currNode.distance) {
+                    // Update distance
+                    Node oldNode = adjList.get(currVertex).stream()
+                            .filter(e -> e.destination == currVertex)
+                            .findFirst().get();
+
+                    oldNode.distance = newDistance;
+                    oldNode.predecessor = currVertex;
+                }
+            }
+        }
+    }
+
+    class Node {
+        int vertex;
+        double distance;
+        String predecessor;
+
+        Node(int v) {
+            vertex = v;
+        }
+
+        Node(int v, double d, String p) {
+            vertex = v;
+            distance = d;
+            predecessor = p;
+        }
+    }
+
+    static class Edge {
+        int destination;
+        double weight;
+
+        Edge(int d, double w) {
+            destination = d;
+            weight = w;
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Map<Integer, List<Edge>> graph = new HashMap<>();
+        graph.put(0, Arrays.asList(new Edge(1, 2), new Edge(4, 5)));
+        graph.put(1, Arrays.asList(new Edge(2, 3), new Edge(3, 6)));
+        graph.put(2, Arrays.asList());
+        graph.put(3, Arrays.asList());
+        graph.put(4, Arrays.asList());
+        graph.put(5, Arrays.asList(new Edge(6, 7)));
+
+        Graph g = new Graph(graph);
+        g.dijkstra(0); // Start from vertex 0
+
+        System.out.println("Predecessors:");
+        g.printPredecessors();
+    }
+
+    static void printPredecessors(Graph g

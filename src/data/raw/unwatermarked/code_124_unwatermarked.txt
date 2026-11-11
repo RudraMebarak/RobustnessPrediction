@@ -1,0 +1,86 @@
+```cpp
+#include <iostream>
+#include <vector>
+
+// Sparse Matrix Class using Compressed Sparse Row (CSR) Storage
+
+class SparseMatrix {
+public:
+    int rows;
+    int cols;
+    std::vector<int> indices;
+    std::vector<double> values;
+
+    // Constructor to initialize with dimensions
+    SparseMatrix(int r, int c)
+        : rows(r), cols(c), indices(), values() {}
+
+    // Destructor to clear memory when object is destroyed
+    ~SparseMatrix() {
+        for (int i = 0; i < values.size(); ++i) {
+            delete[] values.data();
+        }
+        values.clear();
+    }
+
+    // Resize function to change dimensions of the matrix
+    void resize(int new_rows, int new_cols) {
+        if (new_rows == 0 || new_cols == 0) return;
+
+        if (rows != 0 && cols != 0) {
+            delete[] values.data();
+        }
+
+        rows = new_rows;
+        cols = new_cols;
+        values.resize(rows * cols);
+    }
+
+    // Matrix-Vector Multiplication
+    double* mul(double* v, bool transposed = false) {
+        if (transposed) {
+            if (cols != v[0]) throw "Matrix size mismatch in matrix-matrix multiplication";
+        } else {
+            if (rows != v.length()) throw "Matrix size mismatch in matrix-matrix multiplication";
+        }
+
+        std::vector<double*> vv(v, v + cols);
+
+        double* res = new double[rows];
+        for (int i = 0; i < rows; ++i) {
+            for (int j = 0; j < cols; ++j) {
+                res[i] += this->values[i * cols + j] * vv[j](i);
+            }
+        }
+
+        return res;
+    }
+
+    // Transpose Operation
+    SparseMatrix transpose() {
+        SparseMatrix temp(cols, rows);
+        for (size_t i = 0; i < cols; ++i) {
+            for (size_t j = 0; j < rows; ++j) {
+                temp.values[(i * rows) + j] = this->values[(j * cols) + i];
+            }
+        }
+        return temp;
+    }
+
+    // Dimension Validation Function
+    bool validateDimensions(SparseMatrix& other) const {
+        return rows == other.rows && cols == other.cols;
+    }
+
+private:
+    // Method to get elements at specific indices
+    double& operator()(int r, int c) {
+        return this->values[r * cols + c];
+    }
+};
+
+// Example Usage
+void print_matrix(const SparseMatrix& m) {
+    for (int i = 0; i < m.rows; ++i) {
+        for (int j = 0; j < m.cols; ++j) {
+            std::cout << m(i, j) << "

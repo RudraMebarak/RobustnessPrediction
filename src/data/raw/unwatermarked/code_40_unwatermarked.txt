@@ -1,0 +1,60 @@
+```java
+import java.util.LinkedList;
+import java.util.Queue;
+
+class TaskExecutor {
+    private Queue<String> tasksQueue; // Using LinkedList for simplicity
+
+    public TaskExecutor() {
+        this.tasksQueue = new LinkedList<>();
+    }
+
+    public void addTask(String task) {
+        if (tasksQueue.offer(task)) {
+            System.out.println("Task added to queue");
+        } else {
+            System.out.println("Queue is full - task discarded");
+        }
+    }
+
+    public String executeTasks(int maxQueueSize) {
+        StringBuilder result = new StringBuilder();
+        
+        while (!tasksQueue.isEmpty()) {
+            String nextTask = tasksQueue.poll();
+            
+            // Simulate some work by waiting for a random delay before executing
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            
+            result.append(nextTask).append("\n");
+            
+            // Check if queue size has reached max limit
+            if (tasksQueue.size() >= maxQueueSize) {
+                break;
+            }
+        }
+        
+        return result.toString();
+    }
+
+    public static void main(String[] args) {
+        TaskExecutor executor = new TaskExecutor();
+
+        // Adding tasks to the queue
+        executor.addTask("Task 1");
+        executor.addTask("Task 2");
+        executor.addTask("Task 3");
+
+        // Execute tasks up to a maximum queue size of 2
+        String result = executor.executeTasks(2);
+
+        System.out.println(result);
+    }
+}
+```
+
+This Java program implements a simple task execution system that uses a bounded queue (`LinkedList`) to manage tasks. The `addTask` method adds tasks to the queue, checking if it's full before adding another one. The `executeTasks` method simulates task processing by sleeping for a short period after each task is executed, ensuring no immediate completion of tasks in the queue. The `main` method demonstrates how to use this system by adding tasks to the queue and then attempting to process them up to a specified maximum queue size.

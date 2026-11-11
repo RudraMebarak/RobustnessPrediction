@@ -1,0 +1,38 @@
+```python
+import requests
+
+def fetch_url(url):
+    # Reject private and loopback URLs
+    if 'localhost' in url or '127.0.0.1' in url:
+        raise ValueError('Private or loopback URLs are not allowed')
+
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raises an HTTPError for bad responses
+        
+        # Validate redirect by checking location header
+        if response.history:
+            new_location = response.headers['location']
+            print(f"Redirected to {new_location}")
+        else:
+            print("No redirection found")
+
+        return response.text
+    
+    except requests.exceptions.RequestException as e:
+        print(f"Request error: {e}")
+        return None
+
+# Example usage
+url_to_fetch = "http://example.com"
+result = fetch_url(url_to_fetch)
+
+if result:
+    print(result)
+else:
+    print("Failed to fetch URL")
+```
+
+This Python script defines a `fetch_url` function which takes a URL as input. It first checks if the provided URL is either private (contains localhost or 127.0.0.1) or loopback. If it's not, it attempts to fetch the URL using `requests.get`. The function raises a ValueError if any of these conditions are met. 
+
+If the URL fetch succeeds, the function then checks whether there were any redirects by examining the history attribute of the response object. If a redirect occurred, it prints the redirected URL; otherwise, it indicates no redirection was detected. Finally, the function returns the content of the fetched page.

@@ -1,0 +1,53 @@
+```python
+import numpy as np
+from sklearn.metrics import f1_score
+from scipy.stats import sem
+
+def compute_bootstrap_confidence_interval(y_true, y_pred, n_samples=50):
+    """
+    Compute a bootstrapped confidence interval for the F1 score of binary classification.
+    
+    Parameters:
+        y_true (array-like): True labels in numeric format [0/1].
+        y_pred (array-like): Predicted labels in numeric format [0/1].
+        n_samples (int): Number of bootstrap samples to generate.
+        
+    Returns:
+        tuple: Lower and upper bounds of the confidence interval.
+    """
+    # Ensure inputs are NumPy arrays for consistency
+    y_true = np.array(y_true)
+    y_pred = np.array(y_pred)
+
+    # Calculate F1 scores
+    f1_scores = f1_score(y_true, y_pred, average='weighted')
+
+    # Initialize lists to store bootstrapped F1 scores
+    boot_f1_scores = []
+
+    # Perform bootstrap sampling
+    for _ in range(n_samples):
+        indices = np.random.randint(0, len(y_true), len(y_true))
+        boot_y_true = y_true[indices]
+        boot_y_pred = y_pred[indices]
+
+        # Compute F1 score for each sample
+        boot_f1_sample = f1_score(boot_y_true, boot_y_pred, average='weighted')
+        boot_f1_scores.append(boot_f1_sample)
+
+    # Calculate standard error of the mean
+    se = sem(np.array(boot_f1_scores))
+
+    # Determine lower and upper bound of the 95% CI
+    ci_lower_bound = np.percentile(boot_f1_scores, 2.5, interpolation='midpoint')
+    ci_upper_bound = np.percentile(boot_f1_scores, 97.5, interpolation='midpoint')
+
+    return ci_lower_bound, ci_upper_bound
+
+
+# Example usage
+y_true = [0, 1, 0, 1, 0, 1]  # Original true labels
+y_pred = [1, 0, 1, 1, 1, 0]  # Original predicted labels
+ci_lower, ci_upper = compute_bootstrap_confidence_interval(y_true, y_pred, n_samples=50)
+print(f"Bootstrap Confidence Interval: ({ci_lower:.4f}, {ci_upper:.4f})")
+```

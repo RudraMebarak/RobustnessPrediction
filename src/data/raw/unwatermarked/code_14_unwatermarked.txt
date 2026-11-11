@@ -1,0 +1,36 @@
+```java
+import java.util.LinkedList;
+
+class CircularBuffer {
+    private LinkedList<String> queue;
+    private int maxSize;
+    private int currentSize;
+    private final int DEFAULT_MAX_SIZE = 10; // Default maximum size of the buffer
+
+    public CircularBuffer(int maxBufferSize) {
+        if (maxBufferSize <= 0) throw new IllegalArgumentException("Max size must be positive.");
+        this.maxSize = maxBufferSize;
+        this.queue = new LinkedList<>();
+        this.currentSize = 0;
+    }
+
+    // Enqueue operation
+    public synchronized void enqueue(String data) throws InterruptedException {
+        while (currentSize == maxSize)
+            wait();
+        queue.add(data);
+        currentSize++;
+        notifyAll();
+    }
+
+    // Dequeue operation
+    public synchronized String dequeue() throws InterruptedException {
+        while (currentSize == 0)
+            wait();
+        String result = queue.pollFirst(); // Assuming first element is FIFO in Java queues
+        currentSize--;
+        notifyAll();
+        return result;
+    }
+}
+```

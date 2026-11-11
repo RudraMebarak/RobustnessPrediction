@@ -1,0 +1,33 @@
+```python
+from django.http import JsonResponse
+from .models import WorkshopBooking
+
+def book_workshop(request):
+    if request.method == 'POST':
+        # Get workshop details from POST data
+        workshop_id = int(request.POST.get('workshop_id'))
+        num_participants = int(request.POST.get('num_participants'))
+
+        try:
+            # Fetch available slots for the workshop
+            available_slots = WorkshopBooking.objects.filter(workshop=workshop_id).filter(date=request.POST['date']).count()
+
+            # Check if there are enough slots available
+            if available_slots >= num_participants:
+                # Book the requested number of participants
+                workshop_booking = WorkshopBooking(
+                    workshop=workshop_id,
+                    date=request.POST['date'],
+                    num_participants=num_participants
+                )
+                workshop_booking.save()
+                return JsonResponse({'message': 'Workshop booked successfully'})
+            else:
+                return JsonResponse({'error': 'Sorry! There is no available slot'}, status=400)
+        
+        except Exception as e:
+            print(e)
+            return JsonResponse({'error': str(e)}, status=500)
+
+    return JsonResponse({'error': 'Invalid request method'}, status=405)
+```

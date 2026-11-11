@@ -1,0 +1,43 @@
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"sync"
+)
+
+type Worker struct {
+	urls     []string
+	poolSize int
+	wg       sync.WaitGroup
+}
+
+func (w *Worker) ProcessUrls(ctx context.Context) {
+	for _, url := range w.urls {
+		if ctx.Err() != nil {
+			return
+		}
+		go func(url string) {
+			defer wg.Done()
+			fmt.Printf("Processing %s\n", url)
+		}(url)
+	}
+	wg.Wait()
+}
+
+// Example usage:
+func main() {
+	ctx := context.Background()
+
+	w := &Worker{
+		urls:     []string{"http://example.com", "http://example.org"},
+		poolSize: 3,
+	}
+
+	ctx, cancel := context.WithCancel(ctx)
+	defer cancel() // Ensure to cancel the context if needed
+
+	go w.ProcessUrls(ctx)
+} 
+```

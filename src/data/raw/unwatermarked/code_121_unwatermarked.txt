@@ -1,0 +1,83 @@
+```cpp
+#include <vector>
+#include <queue>
+#include <unordered_map>
+
+// Define an abstract Graph class with methods to support BFS, DFS, and Dijkstra's algorithm.
+class AbstractGraph {
+public:
+    virtual ~AbstractGraph() {}
+    // Adds an edge between two vertices.
+    void add_edge(int u, int v) = 0;
+    // Retrieves all edges connected to vertex u.
+    std::vector<int> get_neighbors(int u) = 0;
+};
+
+// A concrete implementation of AbstractGraph using an adjacency list.
+class AdjacencyListGraph : public AbstractGraph {
+private:
+    std::vector<std::unordered_map<int, bool>> adj_list;
+
+public:
+    AdjacencyListGraph() {}
+
+    ~AdjacencyListGraph() override {
+        for (auto &list : adj_list) {
+            list.clear();
+        }
+    }
+
+    void add_edge(int u, int v) override {
+        if (!adj_list[u].count(v)) {
+            adj_list[u][v] = true;
+        }
+    }
+
+    std::vector<int> get_neighbors(int u) override {
+        return adj_list[u].keys();
+    }
+};
+
+// Function to perform Breadth-First Search (BFS).
+void bfs(AbstractGraph& graph, int start_vertex) {
+    std::queue<int> q;
+    std::unordered_set<int> visited;
+
+    q.push(start_vertex);
+    visited.insert(start_vertex);
+
+    while (!q.empty()) {
+        auto current_vertex = q.front();
+        q.pop();
+
+        for (int neighbor : graph.get_neighbors(current_vertex)) {
+            if (!visited.count(neighbor)) {
+                q.push(neighbor);
+                visited.insert(neighbor);
+            }
+        }
+    }
+}
+
+// Function to perform Depth-First Search (DFS).
+void dfs(AbstractGraph& graph, int start_vertex) {
+    std::unordered_set<int> visited;
+
+    std::stack<int> stack;
+    stack.push(start_vertex);
+    visited.insert(start_vertex);
+
+    while (!stack.empty()) {
+        auto current_vertex = stack.top();
+        stack.pop();
+
+        for (int neighbor : graph.get_neighbors(current_vertex)) {
+            if (!visited.count(neighbor)) {
+                stack.push(neighbor);
+                visited.insert(neighbor);
+                break; // To avoid cycles
+            }
+        }
+    }
+}
+```

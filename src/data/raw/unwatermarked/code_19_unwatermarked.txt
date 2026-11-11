@@ -1,0 +1,66 @@
+```python
+
+class Node:
+    def __init__(self, key):
+        self.key = key
+        self.next = None
+
+
+class SeparateChainingHashTable:
+    def __init__(self, size=10):
+        self.size = size
+        self.table = [None] * size
+
+    def _hash(self, key):
+        return sum(ord(c) for c in key) % self.size
+
+    def insert(self, key):
+        index = self._hash(key)
+        if self.table[index] is None:
+            self.table[index] = Node(key)
+        else:
+            current = self.table[index]
+            while current.next is not None and current.key != key:
+                current = current.next
+            if current.key == key:
+                print("Duplicate key detected.")
+                return
+            new_node = Node(key)
+            new_node.next = current.next
+            current.next = new_node
+
+    def search(self, key):
+        index = self._hash(key)
+        current = self.table[index]
+        while current is not None:
+            if current.key == key:
+                return True
+            current = current.next
+        return False
+
+    def delete(self, key):
+        index = self._hash(key)
+        current = self.table[index]
+        previous = None
+        while current is not None:
+            if current.key == key:
+                break
+            previous = current
+            current = current.next
+        if current is None:
+            print(f"Key '{key}' not found.")
+            return
+        elif previous is None:
+            self.table[index] = current.next
+        else:
+            previous.next = current.next
+
+# Example usage:
+
+table = SeparateChainingHashTable()
+table.insert('apple')
+table.insert('banana')
+print(table.search('apple'))  # Output: True
+table.delete('apple')
+print(table.search('apple'))  # Output: False
+```

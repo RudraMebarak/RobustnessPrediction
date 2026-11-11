@@ -1,0 +1,46 @@
+```javascript
+const express = require('express');
+const multer = require('multer');
+const fs = require('fs');
+
+// Initialize Express app
+const app = express();
+app.use(express.json());
+
+// Set up Multer to handle file uploads
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/');
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random()*1000);
+    cb(null, file.fieldname + '-' + uniqueSuffix);
+  }
+});
+
+const upload = multer({ storage });
+
+// Endpoint for uploading files
+app.post('/upload', upload.single('file'), async (req, res) => {
+  if (!req.file || !req.body.type.includes(req.file.mimetype)) {
+    return res.status(400).send("Invalid type");
+  }
+
+  // Check file size limit
+  if (req.file.size > 1024 * 1024 * 5) { // 5MB
+    return res.status(413).send("File too large");
+  }
+
+  try {
+    await fs.renameSync(`uploads/${req.file.filename}`, `private/${req.file.filename}`);
+    res.send("File uploaded successfully");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error while storing file");
+  }
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+```

@@ -1,0 +1,77 @@
+```java
+import java.io.*;
+import java.util.*;
+
+class ExternalMergeSort {
+    static class SegmentTreeNode<T> {
+        T value;
+        int leftChildIndex;
+        int rightChildIndex;
+        
+        public SegmentTreeNode(T value) {
+            this.value = value;
+            this.leftChildIndex = -1;
+            this.rightChildIndex = -1;
+        }
+    }
+
+    private static class SegmentTree<T> {
+        SegmentTreeNode<T>[] nodes;
+
+        public SegmentTree(int n) {
+            nodes = new SegmentTreeNode[4 * (int)Math.ceil(Math.log(n)/Math.log(2))];
+        }
+
+        public void insert(T value) {
+            if (value == null)
+                return;
+
+            int nodeIdx = findNextOpenNode();
+            nodes[nodeIdx] = new SegmentTreeNode<>(value);
+            build(nodeIdx, 0, nodes.length - 1, 0);
+        }
+
+        public List<T> query(int start, int end) {
+            List<T> result = new ArrayList<>();
+            buildQuery(start, end, 0, 0, nodes.length - 1, result);
+            return result;
+        }
+
+        private void buildQuery(int start, int end, int currentStart, int currentEnd, int currentIdx, List<T> result) {
+            if (currentStart <= start && end <= currentEnd) {
+                if (!result.isEmpty())
+                    return; // If there's already an answer, no need to propagate it further
+
+                result.add(nodes[currentIdx].value);
+            } else {
+                int mid = (currentStart + currentEnd) / 2;
+                if (start > mid) {
+                    buildQuery(start, end, currentStart, mid, currentIdx * 2 + 1, result);
+                } else if (end < mid) {
+                    buildQuery(start, end, mid, currentEnd, currentIdx * 2 + 2, result);
+                } else {
+                    buildQuery(start, end, currentStart, mid, currentIdx * 2 + 1, result);
+                    buildQuery(start, end, mid, currentEnd, currentIdx * 2 + 2, result);
+                }
+            }
+        }
+
+        private int findNextOpenNode() {
+            for (int i = nodes.length - 1; i >= 0; i--) {
+                if (nodes[i] != null) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        private void build(int idx, int start, int end, int parentIdx) {
+            if (start == end) {
+                nodes[idx] = new SegmentTreeNode<>(nodes[parentIdx].value);
+                return;
+            }
+            
+            int mid = (start + end) / 2;
+            nodes[idx] = new SegmentTreeNode<>(nodes[parentIdx].value);
+            build(idx * 2 + 1, start, mid, parentIdx);
+            build(idx * 2

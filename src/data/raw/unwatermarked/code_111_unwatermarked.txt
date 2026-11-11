@@ -1,0 +1,76 @@
+```jsx
+import React, { useState } from 'react';
+
+const FileExplorer = () => {
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [foldersExpanded, setFoldersExpanded] = useState({
+    root: false,
+    currentFolder: false
+  });
+
+  const handleExpand = (folderName) => {
+    if (folderName === "root") return;
+    setFoldersExpanded((prevState) => ({
+      ...prevState,
+      [folderName]: !prevState[folderName]
+    }));
+  };
+
+  const handleSelect = (fileOrFolder) => {
+    setSelectedFile(fileOrFolder);
+  };
+
+  const renderItem = (item, depth) => (
+    <div key={item.name} className={`item ${depth * 2 + 1}`}>
+      {item.isFile ? (
+        <span>{item.name}</span>
+      ) : (
+        <>
+          <button onClick={() => handleExpand(item.name)}>+</button>
+          <div className="sub-item">
+            <div onClick={() => handleSelect(item)}>
+              {item.name}
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+
+  const breadcrumbItems = [];
+  let folderPath = ["root"];
+  while (folderPath.length > 0) {
+    const lastFolder = folderPath.pop();
+    const isRoot = lastFolder === "";
+    const hasChildren = Object.keys(foldersExpanded).some(folder => folder !== lastFolder && foldersExpanded[folder]);
+    if (hasChildren || (!isRoot && !foldersExpanded[lastFolder])) {
+      breadcrumbItems.push(
+        <li key={lastFolder}>
+          {lastFolder.charAt(0).toUpperCase() + lastFolder.slice(1)}
+          {foldersExpanded[lastFolder] && foldersExpanded[lastFolder].name !== "" ?
+            (<></>) :
+            (<button onClick={() => handleExpand(lastFolder)}><i class="fas fa-plus"></i></button>)
+          }
+        </li>
+      );
+    }
+  }
+
+  return (
+    <div className="file-explorer">
+      <ul className="breadcrumb">
+        {breadcrumbItems.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+      <div className="content" style={{ display: selectedFile ? "block" : "none" }}>
+        <h3>Selected File: {selectedFile?.name}</h3>
+        <p>Content of selected file</p>
+      </div>
+      <ul className="folders">
+        {Object.keys(foldersExpanded).map((folderName) => (
+          <li key={folderName} onClick={() => handleExpand(folderName)}>
+            {folderName.charAt(0).toUpperCase() + folderName.slice(1)}
+            {foldersExpanded[folderName] && foldersExpanded[folderName].name !== "" ?
+              (<></>) :
+              (<button onClick={() => handleExpand(folder

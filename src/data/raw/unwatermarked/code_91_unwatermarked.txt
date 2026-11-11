@@ -1,0 +1,42 @@
+```python
+import time
+from typing import Callable
+
+class HttpRetryWrapper:
+    def __init__(self, max_retries: int = 3, initial_delay: float = 1):
+        self.max_retries = max_retries
+        self.current_delay = initial_delay
+        self.retry_attempts = 0
+        
+    def _retry(self, func: Callable) -> None:
+        while True:
+            try:
+                func()
+                break
+            except Exception as e:
+                if self._should_retry(e):
+                    delay = self._calculate_delay()
+                    print(f"Retrying in {delay:.2f} seconds...")
+                    time.sleep(delay)
+                    self._reset_retry_attempts()
+
+    def _should_retry(self, exception: Exception) -> bool:
+        # Implement your logic to decide whether a retry is needed based on the exception type or other criteria.
+        return False  # Placeholder for actual implementation
+    
+    def _calculate_delay(self) -> float:
+        # Implement your algorithm to calculate the delay between retries.
+        # This can be based on the current number of retries, success rate, etc.
+        return self.current_delay * (2 ** self.retry_attempts) + round((time.time() - start_time), 6)  # Example calculation
+        # return self.current_delay * (2 ** self.retry_attempts)
+
+    def _reset_retry_attempts(self) -> None:
+        self.retry_attempts = 0
+
+# Usage example
+def my_http_request():
+    raise Exception("Test error")
+
+http_retry_wrapper = HttpRetryWrapper(max_retries=4, initial_delay=5)
+http_retry_wrapper._retry(my_http_request)
+```

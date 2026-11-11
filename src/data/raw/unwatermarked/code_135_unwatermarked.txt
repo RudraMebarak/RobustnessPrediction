@@ -1,0 +1,84 @@
+```jsx
+import React, { useState } from 'react';
+
+const ExpenseTracker = () => {
+    const [transactions, setTransactions] = useState([]);
+    const [categoryFilter, setCategoryFilter] = useState('');
+    const [monthlyTotals, setMonthlyTotals] = useState({});
+    
+    // Function to add new transaction
+    const addTransaction = (transaction) => {
+        if (!transaction.name || !transaction.amount) return;
+        
+        setTransactions([...transactions, { ...transaction, id: Math.random().toString() }]);
+        setCategoryFilter('');
+    };
+    
+    // Function to update selected category filter
+    const handleFilterChange = (e) => {
+        setCategoryFilter(e.target.value);
+    };
+
+    // Function to calculate total amount by category
+    const calculateTotalByCategory = () => {
+        let totalByCategory = {};
+        transactions.forEach((t) => {
+            const catKey = t.category.toLowerCase();
+            if (totalByCategory[catKey]) {
+                totalByCategory[catKey].amount += parseFloat(t.amount);
+                totalByCategory[catKey].count++;
+            } else {
+                totalByCategory[catKey] = {
+                    name: t.category,
+                    amount: parseFloat(t.amount),
+                    count: 1,
+                };
+            }
+        });
+        setMonthlyTotals(totalByCategory);
+    };
+
+    // Function to clear all categories after adding a new one
+    const clearCategoriesAfterAddingNewOne = () => {
+        Object.keys(monthlyTotals).forEach((key) => {
+            monthlyTotals[key].amount = 0;
+            monthlyTotals[key].count = 0;
+        });
+        setMonthlyTotals(Object.assign({}, monthlyTotals));
+    };
+
+    // Render Transactions
+    const renderTransactions = transactions.map((t, i) => (
+        <div key={t.id}>
+            <h3>{t.name}</h3>
+            <p>${parseFloat(t.amount).toFixed(2)}</p>
+            <button onClick={() => removeTransaction(i)}>Remove</button>
+        </div>
+    ));
+
+    // Remove Transaction function
+    const removeTransaction = (index) => {
+        setTransactions(transactions.filter((_, j) => j !== index));
+        clearCategoriesAfterAddingNewOne();
+    };
+
+    // Calculate Monthly Totals
+    useEffect(() => {
+        calculateTotalByCategory();
+    }, [transactions]);
+
+    // Category Filters
+    return (
+        <div className="expense-tracker">
+            <input
+                type="text"
+                placeholder="Search..."
+                value={categoryFilter}
+                onChange={handleFilterChange}
+            />
+            
+            {/* Monthly Totals */}
+            <ul>
+                {Object.entries(monthlyTotals).map(([category, data], idx) => (
+                    <li key={idx} style={{ display: category === categoryFilter ? 'block' : 'none' }}>
+                        <span>{category}: ${data.amount.toFixed(

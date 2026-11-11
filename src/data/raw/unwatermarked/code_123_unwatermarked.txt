@@ -1,0 +1,67 @@
+```cpp
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+// Define the data structure to store memory access history
+class MemoryAccess {
+public:
+    int index;
+    MemoryAccess(int idx) : index(idx) {}
+};
+
+// Define the Cache class with different replacement policies
+class Cache {
+private:
+    int size; // Size of the cache
+    unordered_map<int, MemoryAccess> cache; // Map to hold cache entries
+    int hits = 0; // Counter for number of hits
+    int misses = 0; // Counter for number of misses
+
+public:
+    Cache(int capacity) : size(capacity) {}
+
+    void insert(MemoryAccess mem_access) {
+        if (cache.find(mem_access.index) != cache.end()) { // Check if the entry is in the cache
+            ++hits; // Increment hit counter
+            return;
+        }
+        if (cache.size() == size) { // If cache is full
+            MemoryAccess oldest = *cache.begin(); // Get the least recently used element
+            cache.erase(oldest.index); // Remove it from the map
+            --misses; // Decrement miss counter
+        }
+        cache[mem_access.index] = mem_access; // Insert new entry into the cache
+        ++misses; // Increment miss counter
+    }
+
+    int getMissCount() const { return misses; } // Return the total number of misses
+};
+
+int main() {
+    // Example usage
+    Cache fifo_cache(3);
+    fifo_cache.insert({1});
+    fifo_cache.insert({2});
+    fifo_cache.insert({3});
+    fifo_cache.insert({4}); // Misses will be reported here
+
+    Cache lru_cache(3);
+    lru_cache.insert({1});
+    lru_cache.insert({2});
+    lru_cache.insert({3});
+    lru_cache.insert({4}); // Hits will be reported here
+
+    Cache lfu_cache(3);
+    lfu_cache.insert({1});
+    lfu_cache.insert({2});
+    lfu_cache.insert({3});
+    lfu_cache.insert({4}); // Misses will be reported here
+
+    cout << "FIFO Miss Count: " << fifo_cache.getMissCount() << endl;
+    cout << "LRU Miss Count: " << lru_cache.getMissCount() << endl;
+    cout << "LFU Miss Count: " << lfu_cache.getMissCount() << endl;
+
+    return 0;
+}
+```

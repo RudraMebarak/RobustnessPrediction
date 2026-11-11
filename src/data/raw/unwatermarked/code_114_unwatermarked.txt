@@ -1,0 +1,42 @@
+```jsx
+import React, { useState } from 'react';
+
+const MultiSelectDropdown = () => {
+  const [selectedValues, setSelectedValues] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const filteredOptions = options.filter((option) =>
+    option.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  return (
+    <div className="multi-select-dropdown">
+      <input
+        type="text"
+        placeholder="Filter..."
+        value={searchQuery}
+        onChange={handleSearchChange}
+      />
+      <ul>
+        {filteredOptions.map((option) => (
+          <li key={option} onClick={() => setSelectedValues([option])}>
+            {option}
+          </li>
+        ))}
+      </ul>
+      <button
+        onClick={() => setSelectedValues([])}
+        aria-label="Remove all selections"
+      >
+        Clear Selections
+      </button>
+    </div>
+  );
+};
+
+export default MultiSelectDropdown;
+```

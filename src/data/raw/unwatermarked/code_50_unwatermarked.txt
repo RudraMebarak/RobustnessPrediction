@@ -1,0 +1,36 @@
+```python
+import os
+import time
+from datetime import datetime
+
+# Configuration settings (adjust as needed)
+CHECK_HOSTS = ['example.com', 'another.example.com']
+LOG_PATH = '/path/to/logfile.csv'
+INTERVAL_IN_SECONDS = 60  # Check interval in seconds
+
+def log_latency(host):
+    """
+    Log the latency for a given host.
+    
+    :param host: The hostname or IP address of the target.
+    """
+    response_time = get_response_time_from_host(host)  # Function to retrieve actual response time
+    with open(LOG_PATH, mode='a') as file:
+        file.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}|{host}|{response_time}\n")
+
+def check_hosts():
+    """
+    Periodically check all configured hosts and log their latencies.
+    """
+    while True:
+        for host in CHECK_HOSTS:
+            log_latency(host)
+        print("Latency logged.")
+        time.sleep(INTERVAL_IN_SECONDS)
+
+if __name__ == "__main__":
+    try:
+        check_hosts()
+    except KeyboardInterrupt:
+        print("\nProgram interrupted by user. Logging completed.")
+```

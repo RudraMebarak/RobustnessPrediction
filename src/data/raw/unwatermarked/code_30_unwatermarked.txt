@@ -1,0 +1,49 @@
+```python
+
+from collections import defaultdict
+
+def bfs(graph, start):
+    visited = set()
+    queue = [start]
+    
+    while queue:
+        node = queue.pop(0)
+        
+        if node not in visited:
+            visited.add(node)
+            
+            # Get adjacent nodes with their distances from start
+            neighbors_with_distance = []
+            for neighbor, distance in graph[node].items():
+                if neighbor not in visited:
+                    neighbors_with_distance.append((neighbor, distance))
+            
+            # Sort by distance (ascending) then by alphabetical order of node names
+            sorted_neighbors_with_distance = sorted(neighbors_with_distance, key=lambda x: (x[1], x[0]))
+            
+            # Add unvisited neighbors to the queue
+            for neighbor, _ in sorted_neighbors_with_distance:
+                if neighbor not in visited:
+                    queue.append(neighbor)
+
+# Example usage:
+graph = {
+    'A': {'B': 1, 'C': 2},
+    'B': {'A': 1, 'D': 3},
+    'C': {'A': 2, 'E': 4},
+    'D': {'B': 3, 'F': 5},
+    'E': {'C': 4, 'G': 6},
+    'F': {'D': 5, 'H': 7},
+    'G': {'E': 6, 'I': 8},
+    'H': {'F': 7, 'J': 9},
+    'I': {'G': 8, 'K': 10},
+    'J': {'H': 9, 'L': 11},
+    'K': {'I': 10, 'M': 12},
+    'L': {'J': 11, 'N': 13},
+    'M': {'K': 12, 'O': 14},
+    'N': {'L': 13, 'P': 15}
+}
+
+bfs(graph, 'A')
+
+```

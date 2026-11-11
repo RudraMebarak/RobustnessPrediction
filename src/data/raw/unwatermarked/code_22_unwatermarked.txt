@@ -1,0 +1,64 @@
+```python
+from collections import deque
+
+def kahn_toposort(graph):
+    """
+    Perform Topological Sorting using Kahn's Algorithm.
+    
+    Args:
+        graph (dict): An adjacency list representation of the directed graph.
+        
+    Returns:
+        list: A list of vertices in order from which no cycles are detected.
+            If there is a cycle, returns None.
+    """
+
+    # Initialize indegree for all nodes
+    indegree = {node: 0 for node in graph}
+    
+    # Build the indegree dictionary
+    for neighbor in graph.values():
+        for node in neighbor:
+            if node in indegree:
+                indegree[node] += 1
+    
+    # Initialize queue with nodes having zero in-degree
+    queue = deque([node for node in graph if indegree[node] == 0])
+    
+    topo_sort = []
+    visited = set()
+    
+    while queue:
+        current_node = queue.popleft()
+        topo_sort.append(current_node)
+        visited.add(current_node)
+        
+        for neighbor in graph[current_node]:
+            indegree[neighbor] -= 1
+            if indegree[neighbor] == 0:
+                queue.append(neighbor)
+                
+    if len(topo_sort) != len(graph):
+        return None  # Graph has a cycle
+    else:
+        return topo_sort
+
+
+# Example usage
+if __name__ == "__main__":
+    G = {
+        'A': ['B', 'C'],
+        'B': ['D'],
+        'C': ['E'],
+        'D': [],
+        'E': ['F'],
+        'F': []
+    }
+    
+    result = kahn_toposort(G)
+    
+    if result:
+        print("Topological sort:", result)
+    else:
+        print("Graph contains a cycle.")
+```

@@ -1,0 +1,52 @@
+```python
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import roc_auc_score, classification_report, confusion_matrix
+
+# Generate a synthetic dataset for demonstration purposes
+X, y = make_classification(n_samples=1000, n_features=20, n_classes=2, weights=[0.95, 0.05], random_state=42)
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Initialize logistic regression model with class weights
+logreg_class_weighted = LogisticRegression(class_weight='balanced', max_iter=10000)
+
+# Fit the model to the training data
+logreg_class_weighted.fit(X_train, y_train)
+
+# Predict probabilities on the test set
+probs = logreg_class_weighted.predict_proba(X_test)[:, 1]
+
+# Calculate AUC-PR score
+auc_pr = roc_auc_score(y_test, probs)
+
+# Classify predictions based on a custom threshold
+threshold_adjusted_probs = probs[probs >= 0.5]
+y_pred_threshold = (threshold_adjusted_probs > 0.5).astype(int)
+
+# Evaluate performance metrics
+print("AUC-PR:", auc_pr)
+print("\nClassification Report:\n", classification_report(y_test, y_pred_threshold))
+print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred_threshold))
+
+# Calibrate probabilities using Platt's method
+from sklearn.calibration import PlattClassifierCalibratedCV
+calibrator = PlattClassifierCalibratedCV(base_estimator=logreg_class_weighted, cv=5)
+calibrated_logreg = calibrator.fit(X_train, y_train)
+
+# Use calibrated probabilities for better prediction
+calibrated_probs = calibrated_logreg.predict_proba(X_test)[:, 1]
+
+# Recalculate AUC-PR score after calibration
+auc_pr_calibrated = roc_auc_score(y_test, calibrated_probs)
+
+# Adjust final decision threshold if needed
+final_decision_threshold = 0.6
+y_final_pred = (calibrated_probs >= final_decision_threshold).astype(int)
+
+# Evaluate final performance metrics
+print("\nFinal AUC-PR:", auc_pr_calibrated)
+print("\nFinal Classification Report:\n", classification_report(y_test, y_final_pred))
+```

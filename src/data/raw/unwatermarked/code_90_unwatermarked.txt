@@ -1,0 +1,30 @@
+```java
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class PaymentRequest {
+
+    private String key = "idempotencyKey";
+
+    public void processPayment(HttpServletRequest request, HttpServletResponse response) {
+        // Generate a unique ID based on the current timestamp and random number generator
+        long currentTimeMillis = System.currentTimeMillis();
+        int randomNumber = (int)(Math.random() * 1000);
+        
+        String generatedId = Long.toString(currentTimeMillis + randomNumber);
+
+        if (!request.getParameter(key).equals(generatedId)) {
+            throw new RuntimeException("Duplicate submission detected");
+        }
+
+        // Process the payment logic here
+
+        // Store the processed information in session to avoid redundant calls
+        HttpSession session = request.getSession();
+        session.setAttribute("paymentStatus", "processed");
+
+        // Return success message or redirect accordingly
+        response.sendRedirect("/success?orderId=" + generatedId);
+    }
+}
+```

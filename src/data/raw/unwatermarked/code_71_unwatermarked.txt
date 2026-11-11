@@ -1,0 +1,40 @@
+```java
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+
+public class RSAVerification {
+
+    private static final String ALGORITHM = "HmacSHA256";
+    private static final String KEY = "YourSecretKeyHere";
+
+    public boolean verifyDigitalSignature(String message, byte[] signature) {
+        try {
+            // Create an hmac object with SHA-256 hashing algorithm
+            Mac mac = Mac.getInstance(ALGORITHM);
+            
+            // Set key to hmac secret key in hex format
+            SecretKeySpec secretKey = new SecretKeySpec(KEY.getBytes(), ALGORITHM);
+            mac.init(secretKey);
+            
+            // Verify the signature against the provided message and signature bytes
+            return mac.doFinal(message.getBytes()) == signature;
+        } catch (NoSuchAlgorithmException | InvalidKeyException e) {
+            throw new RuntimeException("Error verifying digital signature", e);
+        }
+    }
+
+    public static void main(String[] args) {
+        RSAVerification verifier = new RSAVerification();
+        
+        // Example usage
+        boolean isCorrectlySignedMessage = verifier.verifyDigitalSignature(
+                "This is the original message that was signed.", 
+                // Replace this with actual signature bytes if available.
+                new byte[]{0x01, 0x02, 0x03, 0x04, 0x05});
+        
+        System.out.println("Is correctly signed message? " + isCorrectlySignedMessage);
+    }
+}
+```

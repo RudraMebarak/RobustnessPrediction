@@ -1,0 +1,83 @@
+```java
+import java.util.concurrent.*;
+
+public class ThreadPool {
+    private final int corePoolSize;
+    private final BlockingQueue<Runnable> workQueue;
+    private final Condition notEmpty = workQueue.isEmpty() ? null : workQueue.newCondition();
+    private final Condition notFull = getWorkExecutor().isShutdown() ? null : getWorkExecutor().newCondition();
+
+    public ThreadPool(int corePoolSize) {
+        this.corePoolSize = corePoolSize;
+        workQueue = new LinkedBlockingDeque<>();
+        getWorkExecutor().execute(() -> {
+            try {
+                while (true) {
+                    Runnable runnable = workQueue.take();
+                    if (!runnable.run()) {
+                        return; // ignore any failed tasks
+                    }
+                }
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        });
+    }
+
+    private ExecutorService getWorkExecutor() {
+        // implementation to create an ExecutorService for running work
+        throw new UnsupportedOperationException("Not implemented");
+    }
+
+    /**
+     * Adds a task to the queue.
+     *
+     * @param task The task to be added.
+     */
+    public void addTask(Runnable task) {
+        workQueue.put(task);
+        notEmpty.signalAll();
+    }
+
+    /**
+     * Closes the thread pool gracefully by signaling all waiting workers and stopping them.
+     */
+    public synchronized void close() throws InterruptedException {
+        if (getWorkExecutor().isTerminated()) {
+            return;
+        }
+
+        // Signal that no more tasks are being added
+        notFull.signalAll();
+        getWorkExecutor().shutdownNow();
+        waitUntilClosed();
+    }
+
+    private void waitUntilClosed() {
+        try {
+            getWorkExecutor().awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    // Example usage
+    public static void main(String[] args) throws Exception {
+        ThreadPool pool = new ThreadPool(3);
+
+        // Simulate adding tasks to the pool
+        for (int i = 0; i < 10; i++) {
+            pool.addTask(() -> System.out.println("Task " + i));
+        }
+
+        // Wait for some time before closing the pool
+        Thread.sleep(5000);
+
+        // Close the pool gracefully
+        pool.close();
+
+        // Check if the pool is closed
+        System.out.println(pool.isShutdown());
+    }
+}
+```

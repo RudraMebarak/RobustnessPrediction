@@ -1,0 +1,63 @@
+```cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+// Define a structure to hold the record data
+struct Record {
+    int integer_field;
+    std::string string_field;
+    bool optional_field;
+
+    // Constructor initializes the record fields
+    Record(int i, const std::string& s) : integer_field(i), string_field(s), optional_field(false) {}
+};
+
+// Function to serialize the Record into a compact binary format
+void serializeRecord(Record r, char* buffer) {
+    unsigned int size = sizeof(r.integer_field) + r.string_field.size() + (r.optional_field ? 1 : 0);
+    auto pos = buffer;
+    *pos++ = static_cast<char>(size); // Write length of record in bytes
+    memcpy(pos, &r.integer_field, sizeof(r.integer_field)); // Copy integer field
+    pos += sizeof(r.integer_field);
+    if (!r.string_field.empty()) {
+        size_t strSize = r.string_field.size();
+        *pos++ = static_cast<char>(strSize); // Write length of string field in bytes
+        memcpy(pos, r.string_field.c_str(), strSize); // Copy string field
+        pos += strSize;
+    }
+    if (r.optional_field) {
+        *pos++ = 'Y'; // Optional field is set, mark as such
+    } else {
+        *pos++ = 'N'; // Optional field is unset
+    }
+}
+
+// Function to deserialize a Record from a compact binary format
+Record deserializeRecord(char* buffer, size_t bufferSize) {
+    Record r;
+    size_t size = 0;
+    while (buffer[size] != '\0') { // Skip past the first byte indicating record size
+        ++size;
+    }
+
+    auto endPtr = buffer + bufferSize - size; // Pointer to the end of the buffer
+
+    // Deserialize integer field
+    r.integer_field = *reinterpret_cast<int*>(buffer);
+
+    // Check for empty string field
+    if (buffer[size++] == '\0') {
+        r.string_field = ""; // Empty string
+    } else {
+        size_t strSize = *(reinterpret_cast<const int*>(buffer));
+        r.string_field.resize(strSize);
+        std::memcpy(&r.string_field[0], buffer + size, strSize); // Copy string field
+    }
+
+    // Deserialize optional field flag
+    r.optional_field = (buffer[size++] == 'Y'); // Optional field is set, true otherwise false
+
+    return r;
+}
+```

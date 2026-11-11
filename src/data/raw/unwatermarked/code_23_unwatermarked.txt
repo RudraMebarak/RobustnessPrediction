@@ -1,0 +1,57 @@
+```java
+import java.util.*;
+
+public class StronglyConnectedComponents {
+    public static void main(String[] args) {
+        // Example graph represented as an adjacency list
+        Map<Integer, List<Integer>> graph = new HashMap<>();
+        graph.put(0, Arrays.asList(1, 2));
+        graph.put(1, Arrays.asList(3, 4));
+        graph.put(2, Arrays.asList());
+        graph.put(3, Arrays.asList(5));
+        graph.put(4, Arrays.asList());
+        graph.put(5, Arrays.asList());
+
+        // Function to find SCCs using Tarjan's Algorithm
+        int[] disc = new int[graph.size()];
+        int[] low = new int[graph.size()];
+        boolean[] visited = new boolean[graph.size()];
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = 0; i < graph.size(); i++) {
+            if (!visited[i]) {
+                dfs(i, graph, disc, low, visited, stack);
+            }
+        }
+
+        while (!stack.isEmpty()) {
+            System.out.println(stack.pop() + " ");
+        }
+    }
+
+    private static void dfs(int u, Map<Integer, List<Integer>> graph, int[] disc, int[] low, boolean[] visited, Stack<Integer> stack) {
+        visited[u] = true;
+        disc[u] = low[u] = time++;
+
+        for (Integer v : graph.get(u)) {
+            if (!visited[v]) {
+                dfs(v, graph, disc, low, visited, stack);
+                low[u] = Math.min(low[u], low[v]);
+            } else if (v != parent[u]) {
+                low[u] = Math.min(low[u], disc[v]);
+            }
+        }
+
+        if (low[u] == disc[u] && !parent[u].equals(-1)) {
+            while (true) {
+                int temp = stack.pop();
+                System.out.print(temp + " ");
+                parent[temp] = -1;
+                if (temp == u) break;
+            }
+        }
+    }
+
+    private static int time = 0;
+}
+```

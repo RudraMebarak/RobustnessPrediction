@@ -1,0 +1,59 @@
+```sql
+-- Daily Active Users
+SELECT 
+    DATE(datetime) AS 'Date', 
+    COUNT(DISTINCT user_id) AS 'Daily Active Users'
+FROM 
+    events
+GROUP BY 
+    DATE(datetime)
+ORDER BY 
+    Date;
+
+-- Rolling Seven-Day Active Users
+WITH daily_active_users AS (
+    SELECT 
+        DATE(datetime) AS 'Date', 
+        COUNT(DISTINCT user_id) AS 'Daily Active Users'
+    FROM 
+        events
+    GROUP BY 
+        DATE(datetime)
+),
+rolling_7d AS (
+    SELECT 
+        DateDiff('day', MAX(Date), GETDATE()) + 1 as 'Rolling 7 Day Start',
+        MAX(UserId) as 'LastUser'
+    FROM 
+        events
+    GROUP BY 
+        DateDiff('day', MAX(Date), GETDATE()) + 1
+)
+SELECT 
+    da.Date,
+    SUM(CASE WHEN ra.LastUser = da.UserID THEN 1 ELSE 0 END) / COUNT(ra.LastUser) * 100 AS 'Rolling 7 Day Active Percentage'
+FROM 
+    daily_active_users da
+JOIN 
+    (SELECT 
+        DateDiff('day', MAX(Date), GETDATE()) + 1 as 'Rolling 7 Day Start',
+        MAX(UserId) as 'LastUser'
+     FROM 
+         events
+     GROUP BY 
+         DateDiff('day', MAX(Date), GETDATE()) + 1
+    ) ra ON da.Date = ra.Rolling 7 Day Start AND ra.LastUser IS NOT NULL
+GROUP BY 
+    da.Date;
+    
+-- Each User's First Event Date
+SELECT 
+    u.user_id, 
+    MIN(e.event_date) AS 'First_Event_Date'
+FROM 
+    users u
+LEFT JOIN 
+    events e ON u.user_id = e.user_id
+GROUP BY 
+    u.user_id; 
+```

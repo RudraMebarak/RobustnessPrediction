@@ -1,0 +1,67 @@
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cctype>
+
+class Shell {
+public:
+    std::string exec(const std::vector<std::string>& args) {
+        if (args.size() == 0) return "No commands provided.";
+        
+        for (const auto& arg : args) {
+            if (arg[0] != '$' && !arg.empty()) { // If it's an argument with $ in it, expand env vars
+                size_t pos = 0;
+                while ((pos = arg.find('$', pos)) != std::string::npos) {
+                    int index = std::stoi(arg.substr(pos + 1, pos - (pos + 1)));
+                    if (index >= 0 && index < argc) {
+                        arg.replace(pos, 2, argv[index]);
+                    } else {
+                        arg.replace(pos, 2, "$");
+                    }
+                    pos += 2; // Skip over space after $
+                }
+            }
+
+            if (arg[0] == '|') {
+                // Start of pipeline
+                int next_pos = arg.find(' ');
+                if (next_pos != std::string::npos) {
+                    const std::string cmd = arg.substr(1, next_pos - 1);
+                    const std::string next_arg = arg.substr(next_pos + 1);
+                    
+                    std::cout << "Executing: " << cmd << " <(" << next_arg << ")> ";
+                    
+                    std::vector<std::string> sub_args;
+                    sub_args.push_back(cmd); // Add current cmd to sub-args
+                    
+                    if (!sub_args.empty()) {
+                        sub_args.insert(sub_args.end(), split(next_arg));
+                    }
+                    
+                    std::string result = exec(sub_args);
+                    return result;
+                } else {
+                    std::cerr << "Error: Command cannot be empty." << std::endl;
+                    return "";
+                }
+            } else if (arg[0] == '>') {
+                // Redirect output
+                std::ofstream out_file(arg.substr(1));
+                if (out_file.is_open()) {
+                    std::cout << "Redirecting output to file: " << arg.substr(1) << "\n";
+                    out_file << std::flush;
+                    return "";
+                } else {
+                    std::cerr << "Failed to open file for writing: " << arg.substr(1) << std::endl;
+                    return "";
+                }
+            } else if (arg[0] == '<') {
+                // Redirect input
+                std::ifstream in_file(arg.substr(1));
+                if (in_file.is_open()) {
+                    std::cout << "Redirecting input from file: " << arg.substr(1) << "\n";
+                    std::cin.rdbuf(in_file.rdbuf());
+                    return "";
+                } else {
+                    std::cerr << "Failed to open file for reading: " << arg.substr(1) << std

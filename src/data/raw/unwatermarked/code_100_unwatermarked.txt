@@ -1,0 +1,24 @@
+```python
+def min_coins(coins, amount):
+    """
+    Finds the minimum number of coins required to make up an exact value 'amount'.
+    
+    :param coins: List[int], a list of coin denominations.
+    :param amount: int, the target amount to be made with coins.
+    :return: int, the minimum number of coins needed to make up the given amount.
+    """
+    dp = [float('inf')] * (amount + 1)
+    dp[0] = 0  # Base case: 0 coins are needed for 0 amount
+
+    for i in range(1, amount + 1):  # Iterate through each possible amount from 1 to total amount
+        for coin in coins:
+            if i - coin >= 0 and dp[i - coin] != float('inf'):
+                dp[i] = min(dp[i], dp[i - coin] + 1)
+
+    return dp[amount] if dp[amount] != float('inf') else None
+
+# Example usage
+coins = [1, 2, 5]
+target_amount = 11
+print(f"Minimum coins needed for {target_amount}: {min_coins(coins, target_amount)}")
+```

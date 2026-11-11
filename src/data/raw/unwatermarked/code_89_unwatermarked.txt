@@ -1,0 +1,89 @@
+```python
+
+class Token:
+    def __init__(self, type_, value):
+        self.type = type_
+        self.value = value
+
+class Lexer:
+    def tokenize(self, expression):
+        tokens = []
+        i = 0
+        
+        while i < len(expression):
+            if expression[i].isdigit():
+                num_str = ""
+                while i < len(expression) and (expression[i].isdigit() or expression[i] == '.'):
+                    num_str += expression[i]
+                    i += 1
+                
+                if '.' in num_str:
+                    tokens.append(Token('FLOAT', float(num_str)))
+                else:
+                    tokens.append(Token('INT', int(num_str)))
+                
+                continue
+            
+            if expression[i] == '+' or expression[i] == '-':
+                tokens.append(Token('OP', expression[i]))
+            
+            i += 1
+        
+        return tokens
+
+
+def parse(tokens):
+    stack = []
+    
+    for token in tokens:
+        if token.type == 'INT' or token.type == 'FLOAT':
+            stack.append(token)
+        
+        elif token.type == 'OP':
+            op2 = stack.pop()
+            op1 = stack.pop()
+            
+            # Perform operation based on operator type
+            if op1.type == 'INT' and op2.type == 'INT':
+                result = int(op1.value + op2.value)
+            else:
+                result = float(op1.value + op2.value)
+            
+            stack.append(Token('INT', result))
+        
+        else:
+            raise ValueError(f"Unknown token '{token}'")
+    
+    return stack[0]
+
+
+def evaluate(ast_node):
+    if ast_node.type == 'INT':
+        return ast_node.value
+    
+    if ast_node.type == 'FLOAT':
+        return ast_node.value
+    
+    if ast_node.type == 'OP':
+        op1 = evaluate(ast_node.children[0])
+        op2 = evaluate(ast_node.children[1])
+        
+        if op1 is None or op2 is None:
+            raise ValueError("Invalid operation with null values")
+        
+        if op1.type == 'INT' and op2.type == 'INT':
+            return eval(str(op1.value) + str(op2.value))
+        else:
+            return eval(str(op1.value) + op2.value)
+
+
+# Example usage
+if __name__ == "__main__":
+    lexer = Lexer()
+    tokens = lexer.tokenize("(3+5)*2-4/2")
+    
+    parser = Parse(tokens)
+    ast_node = parser.parse()
+    
+    print(evaluate(ast_node))  # Output should be 8.0
+```

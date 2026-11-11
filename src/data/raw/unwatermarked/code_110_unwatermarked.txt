@@ -1,0 +1,64 @@
+```jsx
+import React, { useState } from 'react';
+
+const ShoppingCart = () => {
+    const [items, setItems] = useState([]);
+    const [emptyCart, setEmptyCart] = useState(true);
+
+    // Function to add an item to the cart
+    const addItem = (item) => {
+        setItems([...items, item]);
+        updateSubtotal();
+    };
+
+    // Function to remove an item from the cart
+    const removeItem = (index) => {
+        setItems(items.filter((_, i) => i !== index));
+        updateSubtotal();
+    };
+
+    // Function to calculate the subtotal of items in the cart
+    const updateSubtotal = () => {
+        let total = 0;
+        items.forEach(item => total += item.price);
+        return total;
+    };
+
+    // Function to handle clearing the cart
+    const clearCart = () => {
+        setItems([]);
+        setEmptyCart(true);
+        resetTotal();
+    };
+
+    // Function to reset the total price when the cart is cleared
+    const resetTotal = () => {
+        setEmptyCart(false);
+    };
+
+    // Helper function to display each item in the cart
+    const renderCartItem = ({ id, name, price }) => (
+        <div>
+            <p>{name}</p>
+            <span>Price: ${price.toFixed(2)}</span>
+            <button onClick={() => removeItem(id)}>Remove</button>
+        </div>
+    );
+
+    return (
+        <>
+            <h1>Shopping Cart</h1>
+            {!emptyCart && (
+                <ul>
+                    {items.map(renderCartItem)}
+                </ul>
+            )}
+            <button onClick={addItem}>Add Item</button>
+            <button onClick={clearCart}>Clear Cart</button>
+            <h3>Total Subtotal: ${updateSubtotal().toFixed(2)}</h3>
+        </>
+    );
+};
+
+export default ShoppingCart;
+```

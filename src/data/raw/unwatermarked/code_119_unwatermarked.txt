@@ -1,0 +1,84 @@
+```cpp
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <map>
+
+// Function to parse an HTTP access log record into key-value pairs
+std::map<std::string, std::string> parseLogRecord(const std::string& line) {
+    std::istringstream iss(line);
+    std::map<std::string, std::string> parsed;
+    std::string key, value;
+
+    while (iss >> key >> value) {
+        if (!key.empty()) { // Ensure we don't store empty keys
+            parsed[key] = value;
+        }
+    }
+
+    return parsed;
+}
+
+// Function to count requests per day
+void countRequestsPerDay(std::map<std::string, int>& requestCounts, const std::string& endpoint, const std::string& dateStr) {
+    auto it = requestCounts.find(dateStr);
+
+    if (it == requestCounts.end()) {
+        it = requestCounts.insert({dateStr, 0}).first;
+    }
+
+    ++(*it).second;
+}
+
+int main() {
+    // Example input file path
+    const std::string inputFile = "access.log";
+    
+    // Open the file for reading
+    std::ifstream file(inputFile);
+    
+    if (!file.is_open()) {
+        std::cerr << "Error opening file." << std::endl;
+        return -1;
+    }
+
+    std::map<std::string, int> requestCounts; // Maps endpoints to total requests
+
+    std::string line;
+    while (getline(file, line)) {
+        std::map<std::string, std::string> parts = parseLogRecord(line);
+
+        if (parts.count("Date") && parts.count("Status")) {
+            const std::string& dateStr = parts["Date"];
+            const std::string& statusCode = parts["Status"];
+
+            countRequestsPerDay(requestCounts, "GET", dateStr); // Assuming GET is the most common method
+
+            if (statusCode == "200 OK" || statusCode == "304 Not Modified") {
+                ++requestCounts[statusCode];
+            }
+        } else if (parts.count("Method") && parts.count("URI")) {
+            const std::string& dateStr = parts["Date"];
+            const std::string& method = parts["Method"];
+            const std::string& uri = parts["URI"];
+
+            if (method == "POST" || method == "PUT") {
+                ++requestCounts[method];
+            }
+
+            if (uri == "/api/v1/data") {
+                ++requestCounts["200 OK"];
+            }
+        }
+    }
+
+    // Output results
+    std::cout << "Endpoint\tTotal Requests\n";
+    for (const auto& pair : requestCounts) {
+        std::cout << pair.first << "\t" << pair.second << std::endl;
+    }
+
+    return 0;
+}
+```

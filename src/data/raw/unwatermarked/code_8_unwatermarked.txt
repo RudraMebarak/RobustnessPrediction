@@ -1,0 +1,79 @@
+```java
+import java.util.List;
+import java.util.concurrent.ForkJoinPool;
+
+public class ParallelMergeSort {
+
+    private static final int SEQUENTIAL_THRESHOLD = 100; // Cutoff point for sequential sorting
+
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(12, 56, 34, 89, 23, 7, 1, 9);
+        
+        long startTime = System.currentTimeMillis();
+        
+        try {
+            forkJoin(numbers); // Use ForkJoinPool to perform the merge sort in parallel
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        
+        long endTime = System.currentTimeMillis();
+        
+        System.out.println("Total time taken: " + (endTime - startTime) + " milliseconds");
+    }
+
+    /**
+     * Uses ForkJoinPool to perform merge sort.
+     * @param input The list of integers to be sorted.
+     */
+    public static void forkJoin(List<Integer> input) throws InterruptedException {
+        if (input.size() <= SEQUENTIAL_THRESHOLD) {
+            // If size is less than or equal to threshold, use sequential sorting
+            sequential(input);
+            return;
+        }
+
+        // Create a new thread and pass it the half-sized array
+        ForkJoinPool pool = new ForkJoinPool();
+        pool.invoke(new MergeSortTask(input.subList(0, input.size() / 2)));
+        
+        // Wait for the thread to finish its work
+        pool.shutdown();
+        
+        // Continue with the second half of the list
+        forkJoin(input.subList(input.size() / 2, input.size()));
+    }
+
+    /**
+     * Performs merge sort on the given sublist.
+     * @param subList The sublist to be sorted.
+     */
+    private static void mergeSort(List<Integer> subList) {
+        int n = subList.size();
+
+        // Base case: if the list has zero or one element, it's already sorted
+        if (n <= 1) {
+            return;
+        }
+
+        // Split the list into two halves
+        int mid = n / 2;
+        List<Integer> leftHalf = subList.subList(0, mid);
+        List<Integer> rightHalf = subList.subList(mid, n);
+
+        // Recursively sort both halves
+        mergeSort(leftHalf);
+        mergeSort(rightHalf);
+
+        // Merge the sorted halves
+        merge(subList, leftHalf, rightHalf);
+    }
+
+    /**
+     * Merges two sorted lists into one sorted list.
+     * @param mergedList The resulting list that will contain the elements from both inputs.
+     * @param left The first sorted list.
+     * @param right The second sorted list.
+     */
+    private static void merge(List<Integer> mergedList, List<Integer> left, List<Integer> right) {
+        int i = 0, j = 0, k = 

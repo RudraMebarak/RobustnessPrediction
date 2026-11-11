@@ -1,0 +1,91 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory Management</title>
+    <style>
+        /* Basic styling for better UI */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        h1, h3 {
+            color: #555;
+        }
+        input[type="text"], select, textarea {
+            width: calc(100% - 6px);
+            padding: 4px;
+            box-sizing: border-box;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        .low-stocks {
+            text-align: center;
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Inventory Management System</h1>
+    
+    <!-- Filter Form -->
+    <form action="/filter" method="get">
+        <label for="search">Search:</label><br>
+        <input type="text" id="search" name="search"><br><br>
+        
+        <label for="min_stock">Minimum Stock Level:</label><br>
+        <select id="min_stock" name="min_stock">
+            <option value="">All Products</option>
+            <option value="10">10 or More</option>
+            <option value="5">5 to 9</option>
+            <option value="1">Less than 1</option>
+        </select><br><br>
+        
+        <button type="submit">Filter</button>
+    </form>
+    
+    <!-- Product Table -->
+    <div class="table-container">
+        <h3>List of Inventory Items</h3>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Status</th>
+            </tr>
+            <!-- Data will be fetched here -->
+        </table>
+    </div>
+    
+    <!-- Low Stock Indicators -->
+    <div class="table-container low-stocks">
+        <h3>Products With Low Stock Levels</h3>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Quantity</th>
+            </tr>
+            <!-- Low stocks data will be displayed

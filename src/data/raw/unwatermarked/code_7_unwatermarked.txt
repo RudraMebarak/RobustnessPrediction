@@ -1,0 +1,43 @@
+```java
+import java.util.Comparator;
+import java.util.List;
+
+class LogEntry {
+    String timestamp;
+    int severity;
+    String input;
+
+    public LogEntry(String timestamp, int severity, String input) {
+        this.timestamp = timestamp;
+        this.severity = severity;
+        this.input = input;
+    }
+
+    @Override
+    public String toString() {
+        return "LogEntry{" +
+                "timestamp='" + timestamp + '\'' +
+                ", severity=" + severity +
+                ", input='" + input + '\'' +
+                '}';
+    }
+}
+
+public class LogEntrySorter {
+
+    private static final Comparator<LogEntry> LOG_ENTRY_COMPARATOR =
+            (log1, log2) -> {
+                if (!log1.timestamp.equals(log2.timestamp)) {
+                    return log1.timestamp.compareTo(log2.timestamp);
+                } else if (log1.severity != log2.severity) {
+                    return Integer.compare(log1.severity, log2.severity);
+                } else {
+                    return log1.input.compareTo(log2.input);
+                }
+            };
+
+    public List<LogEntry> sortLogs(List<LogEntry> logs) {
+        return logs.stream().sorted(LOG_ENTRY_COMPARATOR).collect(Collectors.toList());
+    }
+}
+```

@@ -1,0 +1,86 @@
+```java
+import org.javatuples.Pair;
+
+class Parser {
+    private String input;
+    private int index = 0;
+
+    public Pair<Symbol, Object> parse() {
+        return new Pair<>(this, this.parseExpression());
+    }
+
+    protected Symbol symbol(String token) {
+        // Implement logic to handle symbols like '+' and '*'
+        throw new UnsupportedOperationException("Not implemented");
+    }
+
+    protected Object operand() {
+        return this.symbol(this.input.charAt(index));
+    }
+
+    protected Pair<Object, Object> parseExpression() {
+        if (index >= input.length()) {
+            return new Pair<>(null, null);
+        }
+        
+        Pair<Object, Object> result = parseTerm();
+        while (this.index < input.length() && this.input.charAt(this.index) == ' ') {
+            this.index++;
+        }
+        if (this.input.charAt(this.index) == '+') {
+            this.index++;
+            result = pair(result.getValue(0), parseTerm());
+        } else if (this.input.charAt(this.index) == '-') {
+            this.index++;
+            result = pair(parseTerm(), result.getValue(1).negate());
+        } else if (this.input.charAt(this.index) == '(') {
+            this.index++;
+            Pair<Object, Object> subResult = parseExpression();
+            if (!subResult.getValue(0).equals('(')) {
+                throw new IllegalArgumentException("Unbalanced parentheses in expression.");
+            }
+            this.index++;
+            result = pair(subResult.getValue(0), subResult.getValue(1));
+        }
+        return result;
+    }
+
+    private Pair<Object, Object> parseTerm() {
+        if (index >= input.length()) {
+            return new Pair<>(null, null);
+        }
+        
+        Pair<Object, Object> result = parseFactor();
+        while (this.index < input.length() && this.input.charAt(this.index) == '*' || this.input.charAt(this.index) == '/') {
+            switch (this.input.charAt(this.index++)) {
+                case '*':
+                    result = pair(result.getValue(0), parseFactor());
+                    break;
+                case '/':
+                    result = pair(result.getValue(0).divide((Number)result.getValue(1)), parseFactor());
+                    break;
+            }
+        }
+        return result;
+    }
+
+    private Pair<Object, Object> parseFactor() {
+        if (index >= input.length()) {
+            return new Pair<>(null, null);
+        }
+        
+        if (this.input.charAt(this.index) == '-' || this.input.charAt(this.index) == '+') {
+            this.index++;
+        }
+        if (Character.isDigit(this.input.charAt(this.index)) || this.input.charAt(this.index) == '.') {
+            return parseNum();
+        }
+        if (this.input.charAt(this.index) == '(') {
+            return parseExpression();
+        }
+        return new Pair<>(null, null);
+    }
+
+    private Pair<Object, Object> parseNum() {
+        StringBuilder number = new StringBuilder();
+        while (index < input.length() &&

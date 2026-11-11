@@ -1,0 +1,30 @@
+```python
+import torch
+
+def monte_carlo_dropout_inference(model, data_loader):
+    model.eval()  # Set the model to evaluation mode
+    
+    total_probabilities = []
+    for batch in data_loader:
+        inputs, labels = batch
+        
+        with torch.no_grad():  # Turn off gradient computation during predictions
+            outputs = model(inputs)
+            
+            # Calculate log probability of each label given input
+            log_probs = torch.nn.functional.log_softmax(outputs, dim=1)
+            
+            # Get top k predicted classes (k is typically small for classification tasks)
+            _, indices = torch.topk(log_probs, 5)  # Change 5 to your desired number
+            
+            # Sum log probabilities for each row across all classes
+            row_log_probs_sum = log_probs.sum(dim=1).mean()
+            
+            total_probabilities.append(row_log_probs_sum.item())
+    
+    return sum(total_probabilities) / len(data_loader.dataset)
+
+# Example usage:
+# Assuming `model` is a pre-trained neural network model and `data_loader` is a DataLoader object
+predicted_mean_class_probabilities = monte_carlo_dropout_inference(model, data_loader)
+```

@@ -1,0 +1,61 @@
+```php
+<?php
+
+// Database connection parameters
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "contact_form_db";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Function to validate form inputs
+function validateFormData($formData)
+{
+    if (empty($formData['email'])) {
+        return false;
+    }
+    if (!filter_var($formData['email'], FILTER_VALIDATE_EMAIL)) {
+        return false;
+    }
+    return true;
+}
+
+// Endpoint to store form data
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve submitted form data
+    $formData = $_POST;
+
+    // Validate form inputs
+    if (!validateFormData($formData)) {
+        http_response_code(400); // Bad Request
+        echo json_encode(['error' => 'Invalid form submission']);
+        exit();
+    }
+
+    // Prepare SQL statement for insert
+    $sql = "INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    
+    // Bind variables to prevent SQL injection
+    $stmt->bind_param("sss", $formData['name'], $formData['email'], $formData['message']);
+
+    // Execute the query
+    if ($stmt->execute()) {
+        http_response_code(201); // Created
+        echo json_encode(['success' => 'Form submission successful']);
+    } else {
+        http_response_code(500); // Internal Server Error
+        echo json_encode(['error' => 'Failed to save form data']);
+    }
+    
+    $stmt->close();
+    $conn->close();
+}
+?>
+```

@@ -1,0 +1,78 @@
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class ModalManager extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isOpen: false };
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  openModal() {
+    this.setState({ isOpen: true });
+  }
+
+  closeModal() {
+    this.setState({ isOpen: false });
+  }
+
+  render() {
+    const { isOpen } = this.state;
+
+    return (
+      <div>
+        <button onClick={this.openModal}>Open Modal</button>
+        <Modal isModalOpen={isOpen} />
+      </div>
+    );
+  }
+}
+
+class Modal extends React.Component {
+  componentDidMount() {
+    if (document.activeElement && document.activeElement.tagName === 'BUTTON') {
+      document.activeElement.blur();
+    }
+  }
+
+  componentWillUnmount() {
+    window.addEventListener('focus', () => {
+      document.body.classList.add('modal-active');
+    });
+
+    window.removeEventListener('blur', () => {
+      document.body.classList.remove('modal-active');
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.isModalOpen !== this.props.isModalOpen) {
+      document.body.classList[this.props.isModalOpen ? 'add' : 'remove']('modal-active');
+    }
+  }
+
+  handleEscapePress(event) {
+    if (event.key === 'Escape') {
+      this.props.onClose();
+    }
+  }
+
+  render() {
+    const { children, isModalOpen } = this.props;
+    
+    return (
+      <div className="modal" role="dialog">
+        <div className={`modal-content ${isModalOpen ? 'active' : ''}`}>
+          <h2>{children}</h2>
+          <button onClick={() => this.props.onClose()}>Close</button>
+        </div>
+        <div className="overlay"></div>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<ModalManager />, document.getElementById('root'));
+```

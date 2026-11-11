@@ -1,0 +1,75 @@
+```python
+from collections import deque
+
+def bfs(graph, start, sink):
+    visited = [False] * len(graph)
+    queue = deque([start])
+    level = [-1] * len(graph)
+
+    while queue:
+        u = queue.popleft()
+        if u == sink:
+            return True
+        
+        for v in graph[u]:
+            if not visited[v] and graph[u][v] > 0:
+                level[v] = level[u] + 1
+                queue.append(v)
+        
+        visited[u] = True
+    
+    return False
+
+def edmonds_karp(graph, capacity, source, sink):
+    max_flow = 0
+    
+    while bfs(graph, source, sink):
+        path_flow = float("Inf")
+        s = sink
+        while s != source:
+            path_flow = min(path_flow, graph[s][predecessor[s]])
+            s = predecessor[s]
+        
+        flow = min(capacity[predecessor[sink]][sink], path_flow)
+        
+        # Update residual capacities
+        for i in range(len(predecessor)):
+            residual_capacity = graph[source][i] - graph[source][i] + capacity[source][i]
+            
+            # Update residual capacities
+            if residual_capacity < 0:
+                residual_capacity += 2*capacity[source][i]
+                
+            graph[source][i] -= flow
+            
+            if i == sink:
+                break
+                
+            graph[i][sink] += flow
+        
+        max_flow += flow
+    
+    return max_flow
+
+
+# Example usage:
+graph = [
+    [[5, 10, -5],
+     [3, 4, 6]],
+    
+    [[-5, 7],
+     [9]]
+]
+
+source = 0
+sink = 1
+
+capacity = [
+    [float('inf'), 3, float('inf')],
+    [float('inf'), float('inf'), 4]
+]
+
+print(edmonds_karp(graph, capacity, source, sink))
+```
+
+This Python script implements the Edmonds-Karp algorithm to find the maximum flow from a given source node to a given sink node in a directed graph with non-negative edge capacities. The `bfs` function performs a breadth-first search to find augmenting paths, and the `edmonds_karp` function applies the Ford-Fulkerson method using BFS to maximize flow until no more augmenting paths can be found.

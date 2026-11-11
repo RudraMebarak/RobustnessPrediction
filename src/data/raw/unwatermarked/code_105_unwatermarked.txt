@@ -1,0 +1,85 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Media Gallery</title>
+    <style>
+        /* Basic styling for accessibility */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .gallery-container {
+            width: 50%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .figcaption {
+            color: #333;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+        button[type='button'] {
+            cursor: pointer;
+        }
+        .controls input[type='range'] {
+            -webkit-appearance: none; /* Remove default slider appearance */
+            width: 100%; /* Full width of container */
+            background-image: linear-gradient(135deg, transparent 50%, rgba(255, 255, 255, 0.1) 50%);
+            background-size: 20px;
+            background-position: 10px center;
+            outline: none;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .controls label {
+            white-space: nowrap;
+            margin: 0;
+        }
+        .controls input[type='checkbox'], .controls select {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+<div class="gallery-container">
+    <!-- Add your images here -->
+    <div class="figure" id="image1">
+        <img src="path/to/image1.jpg" alt="Image Description">
+        <figcaption>A description of Image 1</figcaption>
+    </div>
+    
+    <div class="figure" id="image2">
+        <img src="path/to/image2.jpg" alt="Image Description">
+        <figcaption>A description of Image 2</figcaption>
+    </div>
+    
+    <!-- Repeat above structure for additional images -->
+</div>
+
+<!-- Audio/Video player control buttons -->
+<div class="controls">
+    <label><input type="radio" name="audio-video-toggle">Audio</label>
+    <label><input type="radio" name="audio-video-toggle">Video</label>
+</div>
+
+<script>
+    // Example event listener to

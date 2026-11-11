@@ -1,0 +1,41 @@
+```python
+
+def three_way_quicksort(arr):
+    """
+    Sorts an array using the 3-way Quicksort algorithm.
+    
+    This version of quicksort handles cases where there are many duplicate elements in the array,
+    ensuring that sorting is efficient even when some elements are identical to each other.
+    
+    Args:
+        arr (list): The list to sort.
+        
+    Returns:
+        None: The function sorts the input list and does not return anything.
+    """
+    if len(arr) <= 1:
+        return
+    
+    pivot = arr[0]
+    less_than_pivot, equal_to_pivot, greater_than_pivot = [], [], []
+    
+    for element in arr:
+        if element < pivot:
+            less_than_pivot.append(element)
+        elif element == pivot:
+            equal_to_pivot.append(element)
+        else:
+            greater_than_pivot.append(element)
+    
+    # Recursively apply 3-way Quicksort on subarrays with different partitions
+    three_way_quicksort(less_than_pivot)
+    three_way_quicksort(greater_than_pivot)
+    three_way_quicksort(equal_to_pivot)
+
+# Example usage:
+arr_example = [9, 5, 4, 8, 7, 2, 6, 1, 1, 2, 5, 7]
+three_way_quicksort(arr_example)
+print("Sorted Array:", arr_example)
+
+
+```

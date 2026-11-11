@@ -1,0 +1,47 @@
+```cpp
+#include <mutex>
+#include <condition_variable>
+
+class ThreadSafeBoundedQueue {
+public:
+    explicit ThreadSafeBoundedQueue(size_t max_size) : size(max_size), count(0) {}
+
+    // Enqueues an item into the queue
+    void enqueue(const std::string& item) {
+        std::lock_guard<std::mutex> lock(mutex);
+        if (count >= size) {
+            cond.wait(lock);
+        }
+        items[count++] = item;
+        cond.notify_one();
+    }
+
+    // Dequeues an item from the queue
+    bool dequeue(std::string* item) {
+        std::unique_lock<std::mutex> lock(mutex);
+        while (count == 0 && !closed.load()) {
+            cond.wait(lock);
+        }
+        *item = items[--count];
+        return count != 0;
+    }
+
+private:
+    std::size_t size;
+    std::size_t count;
+    mutable std::mutex mutex;
+    std::condition_variable cond;
+
+    bool closed; // Set to true when the queue should be closed
+
+    ~ThreadSafeBoundedQueue() { close(); } // Destructor will call close()
+
+protected:
+    void close() {
+        closed.store(true);
+        cond.notify_all();
+    }
+
+    std::vector<std::string> items; // Internal storage for items in the queue
+};
+```

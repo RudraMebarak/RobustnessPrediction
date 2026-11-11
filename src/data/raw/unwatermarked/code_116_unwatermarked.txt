@@ -1,0 +1,42 @@
+```jsx
+import React from 'react';
+import { useState } from 'react';
+
+const NetworkStatusPanel = () => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  // Simulate fetching data
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://api.example.com/status');
+      if (!response.ok) throw new Error('Network response was not ok');
+      setData(await response.json());
+    } catch (err) {
+      console.error('There has been a problem with your fetch operation:', err.message);
+      setError(true);
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return (
+    <div>
+      <h2>Network Status</h2>
+      {loading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>Error occurred while fetching data.</p>
+      ) : (
+        <>{JSON.stringify(data)}</>
+      )}
+    </div>
+  );
+};
+
+export default NetworkStatusPanel;
+```

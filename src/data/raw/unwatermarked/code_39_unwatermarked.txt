@@ -1,0 +1,52 @@
+```c
+#include <sys/mman.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#define FILENAME "example.txt"
+
+int main() {
+    int fd;
+    size_t len = 0;
+    
+    // Open the file for reading
+    if ((fd = open(FILENAME, O_RDONLY)) == -1) {
+        perror("Error opening file");
+        exit(EXIT_FAILURE);
+    }
+    
+    // Get the length of the file
+    fstat(fd, &len);
+
+    // Map the file into memory using mmap with MAP_PRIVATE flag
+    char *addr = (char *)mmap(NULL, len, PROT_READ, MAP_PRIVATE, fd, 0);
+
+    // Count newline characters
+    int newline_count = 0;
+    char *endptr;
+    for (size_t i = 0; i < len; ++i) {
+        endptr = memchr(addr + i, '\n', len - i);
+        if (endptr != NULL) {
+            newline_count += endptr - addr - i;
+        } else {
+            break; // Reached the end of the file
+        }
+    }
+
+    // Unmap the file
+    if (munmap(addr, len) == -1) {
+        perror("Error unmapping file");
+        close(fd);
+        return EXIT_FAILURE;
+    }
+
+    // Close the file descriptor
+    close(fd);
+
+    // Print the result
+    printf("Number of newlines: %d\n", newline_count);
+
+    return 0;
+}
+```

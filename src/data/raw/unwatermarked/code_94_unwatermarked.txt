@@ -1,0 +1,37 @@
+```java
+import redis.clients.jedis.Jedis;
+import org.springframework.data.redis.core.RedisTemplate;
+
+public class SlidingWindowRateLimiter {
+
+    private final Jedis jedis;
+    private final long windowDuration;
+    private final int maxRequestsPerWindow;
+
+    public SlidingWindowRateLimiter(RedisTemplate<String, Long> redisTemplate) {
+        this.jedis = redisTemplate.getJedis();
+        this.windowDuration = redisTemplate.getMessageTTLInSeconds();
+        this.maxRequestsPerWindow = redisTemplate.getMaxRequestsPerWindow();
+    }
+
+    public void limitRequest(String key) throws InterruptedException {
+        long currentTime = System.currentTimeMillis();
+        
+        // Check if there are requests in the current window
+        String nowKey = "requests:" + key + ":" + (currentTime / windowDuration);
+        String countKey = "counts:" + key;
+        long currentCount = jedis.incrementCounter(countKey);
+        
+        // Calculate next available slot based on time and max requests per window
+        long nextAvailableSlot = Math.min(currentTime - windowDuration * maxRequestsPerWindow, currentTime);
+
+        // If no requests were made within the window, decrement to 0
+        if (nextAvailableSlot > currentTime && currentCount == maxRequestsPerWindow) {
+            jedis.decrement(countKey);
+        }
+        
+        // Set new value for current slot
+        jedis.set(nowKey, String.valueOf(nextAvailableSlot));
+    }
+}
+```

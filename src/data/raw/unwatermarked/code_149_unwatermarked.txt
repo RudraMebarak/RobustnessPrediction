@@ -1,0 +1,75 @@
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <unistd.h>
+#include <poll.h>
+
+#define BUFFER_SIZE 1024
+
+class ChatServer {
+public:
+    ChatServer(int port) : _port(port), _server_fd(-1), _client_fds(), _max_clients(5) {}
+
+    void start() {
+        int client_fd;
+        struct sockaddr_in address;
+        bzero((char *) &address, sizeof(address));
+        address.sin_family = AF_INET;
+        address.sin_addr.s_addr = INADDR_ANY;
+        address.sin_port = htons(_port);
+
+        _server_fd = socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK, 0);
+        if (_server_fd == -1) {
+            std::cerr << "Error creating socket." << std::endl;
+            return;
+        }
+
+        if (bind(_server_fd, (struct sockaddr *) &address, sizeof(address)) == -1) {
+            close(_server_fd);
+            std::cerr << "Error binding socket." << std::endl;
+            return;
+        }
+
+        listen(_server_fd, SOMAXCONN);
+
+        while (true) {
+            _client_fds.push_back(Pollfd());
+            _client_fds.back().fd = _server_fd;
+            _client_fds.back().events = POLLIN;
+
+            int max_fd = _server_fd + 1;
+            for (int i = 0; i < _max_clients; ++i) {
+                client_fd = accept(_server_fd, nullptr, nullptr);
+                if (client_fd >= 0) {
+                    _client_fds.push_back(Pollfd());
+                    _client_fds.back().fd = client_fd;
+                    _client_fds.back().events = POLLOUT;
+                    max_fd = std::max(max_fd, client_fd);
+                }
+            }
+
+            Poll(pollfds_, _max_clients + 1, -1); // Wait for new connections
+
+            for (Pollfd& fd : _client_fds) {
+                if ((fd.revents & POLLIN) && fd.fd != _server_fd) { // New connection from a client
+                    char buffer[BUFFER_SIZE];
+                    memset(buffer, 0, BUFFER_SIZE);
+                    recv(fd.fd, buffer, BUFFER_SIZE, 0);
+                    printf("Received message from %d: %s\n", fd.fd, buffer);
+                    sendAllClients(fd.fd, buffer); // Broadcast received message to all connected clients
+                } else if ((fd.revents & POLLHUP) || (fd.revents & POLLERR)) { // Client disconnected or error occurred
+                    close(fd.fd);
+                    _client_fds.erase(std::remove(_client_fds.begin(), _client_fds.end(), fd), _client_fds.end());
+                    break;
+                }
+            }
+        }
+    }
+
+private:
+    const int _port;
+    int _server_fd;
+   

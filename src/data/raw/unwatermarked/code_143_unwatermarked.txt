@@ -1,0 +1,74 @@
+```cpp
+#include <iostream>
+#include <fstream>
+#include <vector>
+
+// Memory-mapped file I/O structure
+class MMFile {
+public:
+    MMFile(const std::string& filename) : fd(-1), size(0), buffer(nullptr) {
+        fd = open(filename.c_str(), O_RDONLY);
+        if (fd == -1) throw "Could not open file";
+        seekg(0L, ios_base::beg);
+        size_t bytes_read;
+        while ((bytes_read = read(fd, &header[0], sizeof(header))) > 0) {
+            header.resize(bytes_read);
+            data.resize((size_t)(sizeof(header) + header.size() * sizeof(record)));
+            for (int i = 0; i < header.size(); ++i)
+                read(fd, &data[i * sizeof(record)], sizeof(record));
+            break;
+        }
+        close(fd);
+
+        // Check for errors
+        if (header.size() != (size_t)data.size()) throw "Malformed file";
+        for (record* rec = header.data(); rec < header.data() + header.size(); ++rec)
+            if (rec->len != sizeof(record)) throw "Truncated file";
+
+        // Initialize index with all records
+        for (record* rec = header.data(); rec < header.data() + header.size(); ++rec)
+            entries.push_back({rec->key, rec});
+    }
+
+    void insert(record* new_rec) {
+        int idx = lower_bound(entries.begin(), entries.end(), new_rec->key, [](const auto& e, const auto& k) { return strcmp(e.key, k); });
+        if (idx >= entries.size())
+            entries.emplace_back(new_rec->key, new_rec);
+        else
+            entries[idx] = *new_rec;
+    }
+
+private:
+    int fd;
+    std::ifstream ifs;
+    char header[4];
+    std::vector<record> data;
+    std::vector<std::pair<char*, record>> entries;
+
+    template<typename T>
+    static inline bool cmp(T& x, T& y) { return strcmp(x, y); }
+
+    int seekg(size_t offset, std::ios_base::seekdir dir = std::ios_base::beg) {
+        int ret = ifs.seekg(offset, dir);
+        return ret;
+    }
+
+    void read(void* buf, size_t num_bytes) {
+        ifs.read(reinterpret_cast<char*>(buf), num_bytes);
+    }
+};
+
+// Record definition
+struct record {
+    char key[8]; // Assuming fixed-width keys
+    uint32_t len; // Length of the record in bytes
+
+    record(char k[], uint32_t l) : key(k), len(l) {}
+};
+
+int main() {
+    try {
+        MMFile mmfile("input.txt");
+        mmfile.insert(&mmfile.entries.back()); // Insert an entry to test insertion
+
+        // Look up by key

@@ -1,0 +1,51 @@
+```python
+import socket
+
+def count_packets_by_subnet(source_ip):
+    # Create a socket object to listen for incoming packets on port 53 (DNS)
+    sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_IP)
+
+    try:
+        # Receive packets from any interface
+        while True:
+            raw_packet, addr = sock.recvfrom(65535)
+            
+            # Parse the IP header to get the source IP address
+            ip_header = raw_packet[0:20]
+            iph = socket.inet_ntoa(ip_header[2:4])
+            
+            if iph == source_ip:
+                print(f"Packet received from {iph}:")
+                
+                # Extract TCP, UDP, and ICMP headers
+                tcp_headers = []
+                udp_headers = []
+                icmp_headers = []
+                
+                # Iterate over each byte in the packet to find headers
+                for i in range(len(raw_packet)):
+                    if raw_packet[i] & 0x80 != 0:
+                        if raw_packet[i:i+2] == b'\xff\xfe':
+                            continue
+                        elif raw_packet[i:i+2] == b'\xc0\xa8' or raw_packet[i:i+2] == b'\xc7\xa8':
+                            tcp_headers.append(i + 1)  # Assuming TCP starts after this header
+                        elif raw_packet[i:i+2] == b'\xc0\xa8' or raw_packet[i:i+2] == b'\xc7\xa8':
+                            udp_headers.append(i + 1)  # Assuming UDP starts after this header
+                        else:
+                            icmp_headers.append(i + 1)
+                
+                # Count packets of different protocols based on their headers
+                num_tcp_pkts = len(tcp_headers)
+                num_udp_pkts = len(udp_headers)
+                num_icmp_pkts = len(icmp_headers)
+                
+                print(f"\nTCP Packets: {num_tcp_pkts}")
+                print(f"UDP Packets: {num_udp_pkts}")
+                print(f"ICMP Packets: {num_icmp_pkts}")
+                
+    finally:
+        sock.close()
+
+# Example usage with source IP "192.168.1.1"
+count_packets_by_subnet("192.168.1.1")
+```

@@ -1,0 +1,44 @@
+```python
+import ipaddress
+
+def calculate_subnet(cidr):
+    """
+    This function takes a CIDR notation (e.g., /24) as input,
+    calculates the network address, broadcast address,
+    usable host range, and number of addresses in a subnet.
+    
+    :param cidr: str - CIDR notation representing the subnet mask
+    :return: tuple - containing:
+        net_address (str): Network Address
+        broadcast_address (str): Broadcast Address
+        hosts_range (list): List of usable IP addresses
+        addr_count (int): Number of available IPs
+    """
+
+    # Parse the CIDR notation to get prefix length
+    prefix_length = int(cidr[1:])
+    network = ipaddress.IPv4Network(f'0.0.0.0/{prefix_length}')
+
+    # Calculate the network address
+    net_address = str(network.network_address)
+
+    # Calculate the broadcast address
+    broadcast_address = str(network.broadcast_address)
+
+    # Create list of all usable addresses in this subnet
+    hosts_range = [ip for ip in network if ip.version == 4]
+
+    # Count number of valid addresses in this subnet
+    addr_count = len(hosts_range)
+
+    return net_address, broadcast_address, hosts_range, addr_count
+
+
+# Example usage
+cidr_input = "/24"
+net_address, broadcast_address, hosts_range, addr_count = calculate_subnet(cidr_input)
+print("Network Address:", net_address)
+print("Broadcast Address:", broadcast_address)
+print("Usable Host Range:", hosts_range)
+print("Number of Addresses:", addr_count)
+```

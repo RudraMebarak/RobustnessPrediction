@@ -1,0 +1,66 @@
+```c
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+void run_command(char **argv) {
+    char *pipe_line[] = {"/bin/ls", "-l"};
+    
+    // Fork process to execute first part of pipeline
+    pid_t child_pid = fork();
+    if (child_pid == 0) {
+        // Child process - Execute ls command
+        execlp("/bin/ls", "ls", "-l", NULL);
+        perror("execlp");
+        _exit(1); 
+    } else if (child_pid > 0) {
+        // Parent process - Wait for child to finish
+        wait(NULL);
+        
+        // Create a new pipe for the next stage in pipeline
+        int pipefd[2];
+        if (pipe(pipefd) == -1) {
+            perror("pipe");
+            exit(EXIT_FAILURE);
+        }
+        
+        // Duplicate stdin and stdout from parent to child
+        if (dup2(pipefd[0], STDIN_FILENO) == -1 || dup2(pipefd[1], STDOUT_FILENO) == -1) {
+            perror("dup2");
+            close(pipefd[0]);
+            close(pipefd[1]);
+            exit(EXIT_FAILURE);
+        }
+        
+        // Close unused end of the new pipe
+        close(pipefd[0]);
+        close(pipefd[1]);
+        
+        // Fork again to execute second part of pipeline
+        child_pid = fork();
+        if (child_pid == 0) {
+            // Second child process - Execute cat command
+            execlp("/bin/cat", "cat", pipe_line[1], NULL);
+            perror("execlp");
+            _exit(1);
+        } else if (child_pid > 0) {
+            // Parent process - Wait for both children to finish
+            wait(NULL);
+            wait(NULL);
+            
+            printf("All commands executed successfully.\n");
+        } else {
+            perror("fork");
+            return;
+        }
+    } else {
+        perror("fork");
+        return;
+    }
+}
+
+int main(int argc, char *argv[]) {
+    run_command(argv);
+    return 0;
+}
+```

@@ -1,0 +1,28 @@
+```jsx
+import React, { useState } from 'react';
+import TaskCard from './TaskCard'; // Assume this is a separate component
+
+const KanbanBoard = () => {
+  const [tasks, setTasks] = useState([
+    { id: 1, text: "Task 1", column: "To-Do" },
+    { id: 2, text: "Task 2", column: "In Progress" }
+  ]);
+  
+  const columns = ["To-Do", "In Progress", "Done"];
+  
+  return (
+    <div className="kanban-board">
+      {columns.map(column => (
+        <div key={column} className={`column ${column}`}>
+          {tasks.filter(task => task.column === column).map((task) => (
+            <TaskCard key={task.id} task={task} />
+          ))}
+        </div>
+      ))}
+      {/* Add more functionality as needed */}
+    </div>
+  );
+};
+
+export default KanbanBoard;
+```

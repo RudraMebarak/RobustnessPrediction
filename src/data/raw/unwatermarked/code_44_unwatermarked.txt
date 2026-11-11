@@ -1,0 +1,71 @@
+```python
+import socket
+
+class ReliableUDP:
+    def __init__(self):
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.sequence_numbers = 0
+        self.send_buffer = []
+        self.retransmission_timer = None
+        self.dup_ack_count = 0
+
+    def send_message(self, message):
+        # Set up initial sequence number
+        self.sequence_numbers += 1
+        seq_num = self.sequence_numbers
+        
+        # Send packet with sequence number
+        data = str(seq_num) + b' ' + message.encode()
+        self.socket.sendto(data, ('localhost', 8080))
+
+        # Add to buffer for sending next message
+        if len(message) > 0:
+            self.send_buffer.append((seq_num, message))
+    
+    def receive_response(self):
+        while True:
+            try:
+                msg_type, (address, port) = self.socket.recvfrom(4096)
+                if msg_type == b'S':
+                    return msg_type, address, port
+                elif msg_type == b'D':
+                    print("Duplicate ACK received")
+                    self.dup_ack_count += 1
+                else:
+                    raise ValueError(f"Unknown message type {msg_type}")
+            except socket.timeout:
+                pass
+    
+    def handle_packet(self, packet):
+        seq_num, payload = packet.split(b' ', 1)
+        
+        # Check if it's our message
+        if int(seq_num) != self.sequence_numbers:
+            print(f"Ignoring non-acknowledged message from {addr}:{port}")
+            return
+            
+        # Acknowledge receipt
+        ack_payload = f"A{seq_num}".encode()
+        self.socket.sendto(ack_payload, addr)
+        self.sequence_numbers += 1
+    
+    def start_reliable_udp(self):
+        self.retransmission_timer = threading.Timer(5.0, self.handle_retransmissions)
+        self.retransmission_timer.start()
+
+    def stop_reliable_udp(self):
+        self.retransmission_timer.cancel()
+        
+    def handle_retransmissions(self):
+        self.retransmission_timer = None
+        self.socket.sendto(str(self.sequence_numbers).encode(), ('localhost', 8080))
+        self.handle_packet(self.socket.recvfrom(2**16)[0])
+
+if __name__ == "__main__":
+    rudp = ReliableUDP()
+    rudp.start_reliable_udp()
+    rudp.send_message('Hello')
+    response = rudp.receive_response()
+    print(response)
+
+```

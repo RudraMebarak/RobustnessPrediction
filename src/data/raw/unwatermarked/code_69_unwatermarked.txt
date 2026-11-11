@@ -1,0 +1,40 @@
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_BUFFER_SIZE 10
+
+// Stack-based buffer overflow example without length check
+void vulnerableFunction(char *buffer) {
+    int n;
+    printf("Enter number to copy (max %d): ", MAX_BUFFER_SIZE - 1);
+    scanf("%d", &n);
+    strcpy(buffer, "Hello World\n");
+}
+
+int main() {
+    char buffer[MAX_BUFFER_SIZE];
+    vulnerableFunction(buffer);
+    return 0;
+}
+```
+
+```c
+// Corrected version with explicit length check
+void correctVulnerableFunction(char *buffer) {
+    int n;
+    printf("Enter number to copy (max %d): ", MAX_BUFFER_SIZE - 1);
+    scanf("%d", &n);
+    if(n > MAX_BUFFER_SIZE - 1) {
+        fprintf(stderr, "Input exceeds maximum buffer size!\n");
+        exit(1); // Exit program on error
+    }
+    strcpy(buffer, "Hello World\n");
+}
+
+int main() {
+    char buffer[MAX_BUFFER_SIZE];
+    correctVulnerableFunction(buffer);
+    return 0;
+}
+```

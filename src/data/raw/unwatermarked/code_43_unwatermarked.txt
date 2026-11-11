@@ -1,0 +1,53 @@
+```bash
+#!/bin/bash
+
+# Function to perform DNS lookups and measure their times
+dns_lookup_and_measure() {
+    local domain=$1
+    local dns_query_type="A"
+    local timeout=5 # seconds
+    local start_time=$(date +%s)
+    
+    if ping -c 1 $domain > /dev/null; then
+        echo "DNS query for A record of $domain:"
+        
+        while true; do
+            echo ""
+            echo "Waiting for DNS response..."
+            
+            if ! ping -c 1 -W 10 $domain &> /dev/null; then
+                break
+            fi
+            
+            current_time=$(date +%s)
+            elapsed=$((current_time - start_time))
+            
+            if [ $elapsed -lt $timeout ]; then
+                sleep $(echo "$timeout - $elapsed" | bc)
+            else
+                echo "Timeout exceeded after $timeout seconds."
+                return 1
+            fi
+        done
+        
+        echo "Response received from $domain in $elapsed seconds."
+        
+        # Retrieve A record data
+        local a_record_data=$(dig +short $dns_query_type @$(hostname) $domain 2>/dev/null)
+        echo "A Record Data: $a_record_data"
+        
+        # Check if AAAA record exists
+        if dig +short AAAA @$domain &> /dev/null; then
+            echo "AAAa Record Exists!"
+        else
+            echo "No AAAA Record Found!"
+        fi
+    else
+        echo "Domain does not exist or is unreachable."
+    fi
+}
+
+# Example usage:
+# dns_lookup_and_measure "example.com"
+
+```

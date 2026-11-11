@@ -1,0 +1,66 @@
+```python
+import sqlite3
+from collections import OrderedDict
+
+class ExperimentRunner:
+    def __init__(self):
+        self.db_name = 'experiment_runner.db'
+        
+        # Connect to the database
+        self.conn = sqlite3.connect(self.db_name)
+        self.c = self.conn.cursor()
+        
+        # Create table if it doesn't exist
+        self.create_table()
+    
+    def create_table(self):
+        self.c.execute('''
+            CREATE TABLE IF NOT EXISTS experiments (
+                id INTEGER PRIMARY KEY,
+                config TEXT,
+                seed INT,
+                metrics JSON,
+                start_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                end_time TIMESTAMP
+            )
+        ''')
+        self.conn.commit()
+
+    def add_experiment(self, config, seed, metrics=None):
+        """Add a new experiment entry."""
+        if metrics is None:
+            metrics = {}
+        
+        data = {'config': str(config), 
+                'seed': seed,
+                'metrics': metrics}
+        
+        query = "INSERT INTO experiments (config, seed, metrics) VALUES (?, ?, ?)"
+        self.c.execute(query, tuple(data.values()))
+        self.conn.commit()
+
+    def get_metrics(self, experiment_id):
+        """Get metrics for a specific experiment."""
+        query = "SELECT * FROM experiments WHERE id=?"
+        self.c.execute(query, (experiment_id,))
+        result = self.c.fetchone()
+        return result[2] if result else {}
+
+    def close_connection(self):
+        """Close the database connection."""
+        self.conn.close()
+
+
+# Example usage:
+
+runner = ExperimentRunner()
+
+# Add some experiments
+runner.add_experiment({'model': 'RNN', 'epochs': 10}, 42, {'loss': 0.5})
+runner.add_experiment({'model': 'LSTM'}, 47, {'accuracy': 0.9})
+
+# Get metrics of an experiment
+print(runner.get_metrics(1))  # Output: {'config': 'RNN', 'seed': 42, 'metrics': {'loss': 0.5}}
+
+runner.close_connection()
+```

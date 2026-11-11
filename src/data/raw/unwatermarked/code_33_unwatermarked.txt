@@ -1,0 +1,46 @@
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+
+// Shared variable for counting
+int counter = 0;
+
+// Function to increment the count
+void* incrementCounter(void* arg) {
+    int id = (int)arg;
+    while(1) {
+        // Increment counter atomically
+        __sync_add_and_fetch(&counter, 1);
+        
+        // Wait before next iteration
+        sleep(1); // Simulating some work
+    }
+}
+
+int main() {
+    pthread_t threads[2]; // Array to hold thread IDs
+
+    // Create two threads
+    for(int i = 0; i < 2; ++i) {
+        if(pthread_create(&threads[i], NULL, incrementCounter, (void*)i) != 0) {
+            perror("Error creating thread");
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    // Join all threads
+    for(int i = 0; i < 2; ++i) {
+        if(pthread_join(threads[i], NULL) != 0) {
+            perror("Error joining thread");
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    printf("Final counter value: %d\n", counter);
+
+    return 0;
+}
+```
+
+This C program creates two threads that attempt to increment a shared `counter` variable simultaneously. The use of `__sync_add_and_fetch()` ensures atomicity in updating the counter, preventing race conditions where one thread increments it too early while another is still writing to it.

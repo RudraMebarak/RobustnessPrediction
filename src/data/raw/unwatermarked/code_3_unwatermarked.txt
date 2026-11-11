@@ -1,0 +1,33 @@
+```python
+def stable_counting_sort(arr):
+    """
+    Sorts an array of non-negative integers in ascending order using stable counting sort algorithm.
+    
+    :param arr: List[int] - The list of non-negative integers to be sorted.
+    :return: List[int] - Sorted list of integers.
+    """
+
+    if not arr:
+        return []
+
+    max_val = max(arr)
+    count_arr = [0] * (max_val + 1)
+
+    # Count occurrences of each number
+    for num in arr:
+        count_arr[num] += 1
+
+    # Reconstruct the sorted array
+    sorted_arr = []
+    for i, freq in enumerate(count_arr):
+        sorted_arr.extend([i] * freq)
+
+    return sorted_arr
+
+# Example usage
+if __name__ == "__main__":
+    example_array = [4, 2, 2, 8, 3, 3, 1]
+    print("Original Array:", example_array)
+    sorted_array = stable_counting_sort(example_array)
+    print("Sorted Array:", sorted_array)
+```

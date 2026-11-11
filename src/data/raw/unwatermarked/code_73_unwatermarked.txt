@@ -1,0 +1,32 @@
+```python
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+
+# Load your dataset into a DataFrame
+df = pd.read_csv('your_data.csv')
+
+# Split data into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(df['text'], df['label'], test_size=0.2, random_state=42)
+
+# Initialize TF-IDF Vectorizer
+vectorizer = TfidfVectorizer()
+
+# Fit the vectorizer to the training data and transform both training and testing data
+X_train_tfidf = vectorizer.fit_transform(X_train)
+X_test_tfidf = vectorizer.transform(X_test)
+
+# Initialize Logistic Regression model
+model = LogisticRegression(solver='liblinear', C=1.0, multi_class='ovr')
+
+# Train the model on the training data
+model.fit(X_train_tfidf, y_train)
+
+# Make predictions on the test set
+predictions = model.predict(X_test_tfidf)
+
+# Evaluate the model (replace this part with actual evaluation metrics you want to use)
+accuracy = sum(predictions == y_test) / len(y_test)
+print(f'Accuracy of the model is {accuracy}')
+```

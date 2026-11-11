@@ -1,0 +1,43 @@
+```python
+import collections
+
+def isDirectedCycle(graph):
+    def has_cycle(node, visited, stack):
+        # Mark node as visited and add to stack
+        visited[node] = True
+        stack[node] = True
+        
+        # Recur for all adjacent nodes
+        for neighbor in graph[node]:
+            if not visited[neighbor]:
+                if has_cycle(neighbor, visited, stack):
+                    return True
+            elif stack[neighbor]:
+                return True
+                
+        # Remove node from stack after recursion
+        stack[node] = False
+        return False
+    
+    visited = [False] * len(graph)
+    stack = [False] * len(graph)
+
+    for node in range(len(graph)):
+        if not visited[node]:
+            if has_cycle(node, visited, stack):
+                return True
+            
+    return False
+
+
+# Example usage:
+graph = {
+    0: [1],
+    1: [2],
+    2: [3],
+    3: [4],
+    4: [],
+}
+
+print(isDirectedCycle(graph))  # Output: False
+```

@@ -1,0 +1,52 @@
+```python
+import nltk
+from collections import Counter
+
+def extract_statistics(file_path):
+    """
+    Extracts token counts, types, type-token ratio (TTR), 
+    character count, and normalized token entropy.
+    
+    Parameters:
+        file_path (str): The path to the text file.
+        
+    Returns:
+        dict: A dictionary containing extracted statistics.
+    """
+    # Initialize counters for tokens and types
+    tokens = []
+    types = []
+
+    with open(file_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+        words = nltk.word_tokenize(content)
+        tokens.extend(words)
+
+        types_set = set(tokens)
+        types.extend(types_set)
+
+    # Calculate Token Count and Types
+    num_tokens = len(tokens)
+    num_types = len(types)
+
+    # Calculate Type-Token Ratio (TTR)
+    ttr = num_types / num_tokens if num_tokens > 0 else 0
+
+    # Character Count
+    char_count = sum(len(word) for word in tokens)
+
+    # Normalized Token Entropy
+    nte = -sum((freq/num_tokens)**2 * math.log((freq/num_tokens)**2, 2) for freq in Counter(tokens).values()) / math.log(2)
+
+    return {
+        "Token Count": num_tokens,
+        "Type Count": num_types,
+        "Type-Tokens Ratio (TTR)": ttr,
+        "Character Count": char_count,
+        "Normalized Token Entropy": nte
+    }
+
+# Example usage
+file_stats = extract_statistics("path_to_your_text_file.txt")
+print(file_stats)
+```

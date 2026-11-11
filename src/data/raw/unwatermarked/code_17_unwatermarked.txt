@@ -1,0 +1,59 @@
+```python
+class SegmentTree:
+    def __init__(self, arr):
+        self.n = len(arr)
+        self.tree = [0] * (4 * self.n)  # Initialize with extra capacity for easier range updates
+    
+    def build(self, node=1, start=0, end=self.n-1):
+        if start == end:
+            self.tree[node] = arr[start]
+            return
+        
+        mid = (start + end) // 2
+        self.build(node*2, start, mid)  # Left child
+        self.build(node*2+1, mid+1, end)  # Right child
+        self.tree[node] = self.tree[node*2] + self.tree[node*2+1]
+
+    def query(self, node=1, start=0, end=self.n-1, l=0, r=None):
+        if r is None:
+            r = end
+
+        if l > r:
+            return 0  # Out of bounds
+        elif l <= start and end <= r:
+            return self.tree[node]
+        
+        mid = (start + end) // 2
+        left_sum = self.query(node*2, start, mid, l, min(r, mid))
+        right_sum = self.query(node*2+1, mid+1, end, max(l, mid+1), r)
+        return left_sum + right_sum
+
+    def update(self, i, val, node=1, start=0, end=self.n-1):
+        if start == end:
+            self.tree[node] = val
+            return 
+        
+        mid = (start + end) // 2
+        if i < mid:
+            self.update(i, val, node*2, start, mid)
+        else:
+            self.update(i, val, node*2+1, mid+1, end)
+        self.tree[node] = self.tree[node*2] + self.tree[node*2+1]
+
+
+# Example usage:
+arr = [1, 3, 5, 7, 9]
+seg_tree = SegmentTree(arr)
+
+# Building the segment tree from an array
+seg_tree.build()
+
+# Querying the sum between indices 1 to 3
+print(seg_tree.query(1, 3))  # Output will be 1 + 3 = 4
+
+# Updating the value at index 1 to 6
+seg_tree.update(1, 6)
+
+# Re-querying the updated sum
+print(seg_tree.query(1, 3))  # Output should now be 4 because it's now 6 - 1 = 5
+```

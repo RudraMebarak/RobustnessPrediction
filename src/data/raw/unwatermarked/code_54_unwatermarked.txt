@@ -1,0 +1,57 @@
+```java
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+
+import javax.swing.*;
+import java.io.IOException;
+import java.net.URI;
+import java.nio.charset.StandardCharsets;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
+public class DebouncedSearchBox {
+
+    private final String SEARCH_URL = "https://example.com/search";
+    private static final int ABORT_TIMEOUT_MS = 1000; // Timeout for aborting requests in milliseconds
+
+    public void performSearch(String query) throws InterruptedException, ExecutionException, TimeoutException {
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        URI uri = new URI(SEARCH_URL);
+        HttpRequest request = HttpRequest.newBuilder(uri)
+                .POST(HttpRequest.BodyPublishers.ofString(query))
+                .build();
+
+        AbortController controller = new AbortController();
+        boolean isAbortRequested = false;
+        long timeoutNanos = TimeUnit.MILLISECONDS.toNanos(ABORT_TIMEOUT_MS);
+
+        try (CloseableHttpResponse response = httpClient.send(request, HttpResponse.BodyHandlers.ofString())) {
+            if (!isAbortRequested && response.getStatusLine().getStatusCode() == 200) {
+                System.out.println("Search successful: " + EntityUtils.toString(response.getEntity()));
+            }
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        controller.signal(); // Signal to cancel any pending requests
+        Thread.sleep(timeoutNanos); // Wait for all aborted requests to finish gracefully
+
+        while (true) {
+            try {
+                HttpResponse response = httpClient.execute(request);
+                if (response.getStatusLine().getStatusCode() != 200 || !isAbortRequested) break;
+                System.out.println("Aborted request received: " + EntityUtils.toString(response.getEntity()));
+            } catch (InterruptedException | ExecutionException | IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        httpClient.close();
+        controller.cancel(true);
+    }
+}
+```

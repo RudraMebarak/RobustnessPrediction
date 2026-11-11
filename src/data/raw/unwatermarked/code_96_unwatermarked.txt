@@ -1,0 +1,68 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Form</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Us</h1>
+    
+    <!-- Input fields -->
+    <form id="contactForm" onsubmit="return validateForm()">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><span class="error"></span><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><span class="error"></span><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message"></textarea><span class="error"></span><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // Function to validate the form
+        function validateForm() {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageTextArea = document.getElementById('message');
+
+            let isValid = true;
+
+            if (nameInput.value.trim().length === 0) {
+                nameInput.classList.add('error');
+                isValid = false;
+            } else {
+                nameInput.classList.remove('error');
+            }
+
+            if (!emailPattern.test(emailInput.value)) {
+                emailInput.classList.add('error');
+                isValid = false;
+            } else {
+                emailInput.classList.remove('error');
+            }
+
+            if (messageTextArea.value.trim().length === 0) {
+                messageTextArea.classList.add('error');
+                isValid = false;
+            } else {
+                messageTextArea.classList.remove('error');
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+</html>
+```

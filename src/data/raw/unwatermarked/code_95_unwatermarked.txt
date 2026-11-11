@@ -1,0 +1,99 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <h2>Sidebar Content</h2>
+        <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Container -->
+    <main>
+        <!-- Summary Cards -->
+        <section id="summary-cards">
+            <h2>Summary Cards</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Card Title 1</h3>
+                    <p>Description of Card 1</p>
+                </div>
+                <div class="card">
+                    <h3>Card Title 2</h3>
+                    <p>Description of Card 2</p>
+                </div>
+                <div class="card">
+                    <h3>Card Title 3</h3>
+                    <p>Description of Card 3</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Table -->
+        <section id="data-table">
+            <h2>Data Table</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>User A</td>
+                        <td>30</td>
+                        <td>userA@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>User B</td>
+                        <td>25</td>
+                        <td>userB@example.com</td>
+                    </tr>
+                    <tr>
+                        <td>User C</td>
+                        <td>40</td>
+                        <td>userC@example.com</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Dashboard</p>
+    </footer>
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
+```
+
+### styles.css (for styling)
+```css
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+   

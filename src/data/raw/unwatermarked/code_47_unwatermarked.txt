@@ -1,0 +1,39 @@
+```javascript
+const WebSocket = require('ws');
+const wss = new WebSocket.Server({ port: 8080 });
+
+wss.on('connection', (ws) => {
+    console.log("Client connected");
+
+    ws.on('message', (message) => {
+        const data = JSON.parse(message);
+        
+        if (!data || typeof data !== 'object') return; // Invalid message
+        
+        switch (data.type) {
+            case 'join':
+                handleJoin(ws, data.roomName);
+                break;
+            case 'send':
+                handleSend(ws, data.text);
+                break;
+            default:
+                console.error(`Unknown command type: ${data.type}`);
+        }
+    });
+    
+    ws.on('close', () => {
+        console.log("Client disconnected");
+    });
+});
+
+function handleJoin(ws, roomName) {
+    // Join logic here for the given room name
+}
+
+function handleSend(ws, text) {
+    // Send logic here to all clients in the specified room
+}
+```
+
+This is an implementation of a simple room-based WebSocket chat server using Node.js. It listens on port `8080` and handles messages from clients. The `handleJoin` function should implement logic to join rooms based on received commands, and the `handleSend` function should send messages to all clients within a specified room. Input validation and error handling are implemented by checking that incoming messages are valid JSON objects before processing them. Client disconnections are logged when a connection is closed.

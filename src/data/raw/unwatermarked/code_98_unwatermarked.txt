@@ -1,0 +1,50 @@
+```python
+def find_max_weight_intervals(weights, durations):
+    n = len(durations)
+    
+    # Initialize DP table where dp[i][j] represents maximum weight ending at duration i with weights up to j
+    dp = [[0 for _ in range(len(weights))] for _ in range(n)]
+    max_end_index = [0 for _ in range(n)]
+    
+    # Calculate the sum of all weights
+    total_weight = sum(weights)
+
+    # Fill the DP table
+    for j in range(total_weight + 1):
+        for i in range(n - 1, -1, -1):
+            if j >= weights[i]:
+                dp[i][j] = max(dp[i + 1][j], dp[i + 1][j - weights[i]] + durations[i])
+                max_end_index[i] = i
+    
+    # Find the maximum weight interval
+    max_weight_interval_start = 0
+    max_weight_interval_end = 0
+    
+    current_weight = 0
+    while current_weight < total_weight:
+        index = max_end_index[0]
+        
+        # Check if we can extend the current interval
+        while index > 0 and dp[index][current_weight] == dp[index - 1][current_weight - weights[index]]:
+            index -= 1
+        
+        # Update the start and end indices
+        if index != 0:
+            max_weight_interval_start += weights[index]
+            max_weight_interval_end += durations[index]
+            current_weight += weights[index]
+            
+            # Move the index back one step to check other possibilities
+            index -= 1
+            
+        else:
+            break
+    
+    return (max_weight_interval_start, max_weight_interval_end)
+
+# Example usage
+weights = [3, 2, 4, 5, 6]
+durations = [1, 2, 3, 4, 5]
+result = find_max_weight_intervals(weights, durations)
+print(result)  # Output should be (9, 13)
+```

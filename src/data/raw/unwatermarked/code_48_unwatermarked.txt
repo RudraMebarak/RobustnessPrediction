@@ -1,0 +1,83 @@
+```python
+import socket
+
+class SimpleHTTPClient:
+    def __init__(self):
+        self.socket = None
+    
+    def connect(self, host, port):
+        """Connect to the server."""
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.socket.connect((host, port))
+    
+    def send_request(self, request):
+        """Send a request to the server and receive response."""
+        self.socket.sendall(request.encode('utf-8'))
+        
+    def close_connection(self):
+        """Close the connection with the server."""
+        self.socket.close()
+    
+    def handle_response(self):
+        """Parse the received data for status and headers."""
+        # Assuming we are expecting an HTTP response in the form of bytes
+        response_bytes = b''
+        while True:
+            chunk = self.socket.recv(4096)
+            if not chunk:
+                break
+            response_bytes += chunk
+        
+        # Implement your own logic here to parse the response (status line, headers, content, etc.)
+        # For simplicity, let's assume we got '200 OK' as the first byte.
+        status_code = response_bytes[0]
+        
+        # Parse headers
+        headers = {}
+        header_start = 1
+        while header_start < len(response_bytes) - 2:
+            colon_index = response_bytes.find(b':', header_start)
+            if colon_index == -1:
+                break
+            
+            key = response_bytes[header_start:colon_index].decode('utf-8').strip()
+            value = response_bytes[colon_index + 2:].decode('utf-8').strip()
+            headers[key] = value
+            header_start = colon_index + 3
+        
+        return status_code, headers, response_bytes[header_start:]
+    
+    def get_content_length(self):
+        """Get the Content-Length from the headers."""
+        content_length_header = next(iter(self.headers.get('Content-Length', '')))
+        return int(content_length_header)
+    
+    def read_content(self):
+        """Read the content after parsing headers."""
+        content_length = self.get_content_length()
+        return self.socket.recv(content_length)
+
+def main():
+    client = SimpleHTTPClient()
+    client.connect("www.example.com", 80)
+    
+    # Construct a simple GET request
+    request = "GET /index.html HTTP/1.1\r\nHost: www.example.com\r\nConnection: close\r\n\r\n"
+    
+    client.send_request(request)
+    
+    # Read the response
+    status_code, headers, body = client.handle_response()
+    
+    print(f"Status Code: {status_code}")
+    print("Headers:")
+    for key, value in headers.items():
+        print(f"{key}: {value}")
+    
+    # Read and print the content
+    content = client.read_content()
+    print("\nContent:\n")
+    print(content.decode('utf-8'))
+
+if __name__ == "__main__":
+    main

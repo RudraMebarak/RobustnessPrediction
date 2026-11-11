@@ -1,0 +1,114 @@
+```cpp
+#include <iostream>
+#include <vector>
+#include <set>
+#include <unordered_map>
+
+// Define a structure to represent a key-value pair
+struct KeyValue {
+    std::string key;
+    int value;
+};
+
+// In-memory map to hold the key-value pairs
+std::unordered_map<std::string, int> keyValueStore;
+
+void insertKeyValue(std::string key, int value) {
+    if (keyValueStore.find(key) == keyValueStore.end()) {
+        keyValueStore[key] = value;
+    } else {
+        // If key already exists, increment its value by 1
+        keyValueStore[key]++;
+    }
+}
+
+int getKeyValue(std::string key) {
+    auto it = keyValueStore.find(key);
+    return (it != keyValueStore.end()) ? it->second : -1; // Return -1 if key doesn't exist
+}
+
+void removeKey(std::string key) {
+    keyValueStore.erase(key); // Remove key from the map
+}
+
+// Function to handle tombstones
+bool deleteTombstone(std::string key) {
+    if (key.empty()) {
+        throw std::invalid_argument("Empty key is not allowed for tombstone");
+    }
+
+    auto iter = keyValueStore.find(key);
+
+    if (iter != keyValueStore.end() && iter->second > 0) {
+        iter->second--;
+        return true; // Tombstone deleted successfully
+    } else {
+        return false; // Key does not exist or tombstone cannot be removed
+    }
+}
+
+// Log entry struct
+struct LogEntry {
+    std::string key;
+    bool isNew;
+};
+
+// Append-only log implementation using vector
+class Log {
+public:
+    void appendLogEntry(LogEntry entry) {
+        logs.push_back(entry);
+    }
+
+    std::vector<LogEntry> fetchLogs() const {
+        return logs;
+    }
+
+private:
+    std::vector<LogEntry> logs;
+};
+
+// Index implementation using set
+class Index {
+public:
+    void insertIndexEntry(KeyValue kv) {
+        indices.insert(kv.key);
+    }
+
+    std::set<std::string> fetchIndices() const {
+        return indices;
+    }
+
+private:
+    std::set<std::string> indices;
+};
+
+// Main class that combines all functionalities
+class LocalKVStore {
+public:
+    void insert(const KeyValue& kv) {
+        insertKeyValue(kv.key, kv.value);
+    }
+
+    int get(const std::string& key) {
+        return getKeyValue(key);
+    }
+
+    void remove(const std::string& key) {
+        removeKey(key);
+    }
+
+    bool deleteTombstone(const std::string& key) {
+        return deleteTombstone(key);
+    }
+
+    Log appendOnlyLog() {
+        Log entry;
+        entry.key = "append_only_log_entry"; // Just an example key
+        entry.isNew = true;
+        appendLogEntry(entry);
+        return entry;
+    }
+
+    Log fetchLog() {
+       

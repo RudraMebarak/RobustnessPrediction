@@ -1,0 +1,86 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Transport Timetable</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .tabset {
+            display: flex;
+            justify-content: space-around;
+        }
+        .route-tab {
+            padding: 10px;
+            border: none;
+            background-color: #f4f4f4;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .service-alert {
+            color: red;
+            font-weight: bold;
+        }
+        .accessible-label {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="tabset">
+    <!-- Tab buttons will be added dynamically -->
+</div>
+
+<script>
+// JavaScript to initialize the tab functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const routes = ['Route A', 'Route B', 'Route C'];
+    let activeTabIndex = 0;
+
+    // Function to handle click events on tab buttons
+    function updateActiveTabIndex(tabId) {
+        if (activeTabIndex === tabId) return; // Prevent switching back to previous index
+
+        document.querySelectorAll('.route-tab').forEach((tab) => {
+            tab.classList.remove('active');
+        });
+
+        document.getElementById(tabId).classList.add('active');
+
+        activeTabIndex = tabId;
+    }
+
+    // Initialize tabs when DOM is fully loaded
+    updateActiveTabIndex(routes[activeTabIndex]);
+
+    // Handle click event on tab buttons
+    Array.from(document.querySelectorAll('.tab-button')).forEach(button => {
+        button.addEventListener('click', () => {
+            const id = button.getAttribute('data-route-id');
+            updateActiveTabIndex(id);
+        });
+    });
+});
+</script>
+
+<!-- Dynamic route tabs will be inserted here -->
+<div id="tabs-container"></div>
+
+<script>
+// Example data structure for route details
+const routesData = [
+    { id: 1, name: 'Route A', schedule: ['06:00', '07:00', '08:00'], alerts: [] },
+    { id: 2, name: 'Route B', schedule: ['05:30', '06:30', '07:30'], alerts: [] },
+    { id: 3, name: 'Route C', schedule: ['04:00', '05:00', '06:00'], alerts: [] }
+];
+
+// Create dynamic tab elements based on route data
+routesData.forEach(route => {
+    const div = document.createElement('div');
+    div.className = '

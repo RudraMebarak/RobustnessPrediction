@@ -1,0 +1,49 @@
+```python
+import subprocess
+
+class ProcessSupervisor:
+    def __init__(self, timeout_seconds):
+        self.timeout_seconds = timeout_seconds
+    
+    def start_process(self, command):
+        try:
+            # Start the process with timeout
+            result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=self.timeout_seconds)
+            
+            if result.returncode == 0:
+                print("Process completed successfully.")
+                return True
+            else:
+                print(f"Process failed with error: {result.stderr.decode('utf-8')}")
+                return False
+        except subprocess.TimeoutExpired:
+            print("Timeout occurred while waiting for process to finish")
+            return None
+            
+def record_runtime_and_exit(process):
+    import os
+    pid = os.getpid()
+    
+    print(f"Recording process '{process}'...")
+    while True:
+        if os.kill(pid, 0):  # Check if process is still running
+            break
+        
+        time.sleep(1)
+        
+    print(f"Terminating process '{process}'...")
+    os.kill(pid, signal.SIGKILL)  # Forcefully terminate process
+        
+    exit_code = os.wait()  # Wait for process to exit
+    print(f"Process '{process}' exited with status {exit_code[1]}")
+
+if __name__ == "__main__":
+    command = ["echo", "Hello, World!"]
+    supervisor = ProcessSupervisor(timeout_seconds=5)
+    success = supervisor.start_process(command)
+    
+    if success:
+        record_runtime_and_exit("echo Hello, World!")
+```
+
+This Python script defines a `ProcessSupervisor` class that starts a specified command in a separate process and monitors its runtime using a timeout feature. If the process fails within the given time frame, it will be terminated forcefully. The `record_runtime_and_exit` function records the process's runtime and then immediately terminates it.

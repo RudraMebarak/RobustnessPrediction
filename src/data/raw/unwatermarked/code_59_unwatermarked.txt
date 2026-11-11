@@ -1,0 +1,98 @@
+```java
+import org.w3c.dom.events.Event;
+import org.w3c.fetch.RequestInit;
+
+import java.util.List;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
+public class InfiniteScrollFeed {
+
+    private static final int FETCH_COUNT = 10; // Fetch count for each scroll
+
+    ConcurrentLinkedQueue<FetchTask> fetchTasks = new ConcurrentLinkedQueue<>();
+
+    public void startInfiniteScroll() {
+        fetchNextPage();
+    }
+
+    private void fetchNextPage() {
+        RequestInit requestInit = new RequestInit().setMethod("GET").setURL("https://example.com/api/feed?page=1");
+        fetchTasks.add(new FetchTask(requestInit));
+        if (fetchTasks.size() >= FETCH_COUNT) {
+            fetchAllPages();
+        }
+    }
+
+    private void fetchAllPages() {
+        List<RequestInit> requests = fetchTasks.stream()
+                .map(fetchTask -> fetchTask.getRequest())
+                .collect(Collectors.toList());
+        fetchManager.executeRequests(requests);
+    }
+
+    private class FetchTask extends EventListener {
+        private final RequestInit request;
+
+        FetchTask(RequestInit request) {
+            this.request = request;
+        }
+
+        @Override
+        public void handleEvent(Event event) throws Exception {
+            Response response = fetcher.send(request).get();
+            parseResponse(response);
+        }
+    }
+
+    private class FetchManager {
+        private final ExecutorService executorService = Executors.newFixedThreadPool(2);
+
+        public void executeRequests(List<RequestInit> requests) {
+            executorService.invokeAll(requests, TimeValue.timeValueSeconds(5L));
+        }
+    }
+
+    private class Fetcher implements Client {
+        @Override
+        public <T> T send(HttpRequest<T> request) {
+            // Simulate fetching from API
+            return null;
+        }
+    }
+
+    private interface HttpRequest<T> {
+        HttpGet get();
+    }
+
+    private interface HttpResponse<T> {
+        T body();
+    }
+
+    private interface HttpClient {
+        <T> T send(HttpRequest<T> request);
+    }
+
+    private interface HttpGet {
+        GetResult get();
+    }
+
+    private interface GetResult {
+        String body();
+    }
+
+    private enum StatusCodes {
+        OK(200),
+        BAD_REQUEST(400);
+
+        private final int value;
+
+        StatusCodes(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
+    }
+}
+```

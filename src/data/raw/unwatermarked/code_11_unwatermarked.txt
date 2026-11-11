@@ -1,0 +1,93 @@
+```python
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        self.capacity = capacity
+        self.cache = {}
+        self.head = Node(None, None)
+        self.tail = Node(None, None)
+
+        # Link head and tail nodes together
+        self.head.next = self.tail
+        self.tail.prev = self.head
+
+    class Node:
+        def __init__(self, key=None, value=None):
+            self.key = key
+            self.value = value
+            self.prev = None
+            self.next = None
+
+    def get(self, key: int) -> int:
+        if key in self.cache:
+            node = self.cache[key]
+            
+            # Move the accessed node to the front of the list
+            self.moveToHead(node)
+            return node.value
+        
+        return -1
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.cache:
+            old_node = self.cache[key]
+            old_node.value = value
+            
+            # Move the accessed node to the front of the list
+            self.moveToHead(old_node)
+        
+        else:
+            new_node = self.Node(key, value)
+            
+            if len(self.cache) < self.capacity:
+                # Cache is under capacity, add new node
+                self.cache[key] = new_node
+                
+                # Add new node at the front of the list
+                self.addToFront(new_node)
+                
+            else:
+                # Cache is full, remove the least recently used node (tail)
+                lru_node = self.removeTail()
+                
+                # Remove the removed node from the cache dictionary
+                del self.cache[lru_node.key]
+                
+                # Add the new node
+                self.cache[key] = new_node
+                
+                # Add new node at the front of the list
+                self.addToFront(new_node)
+        
+    def moveToHead(self, node):
+        node.prev.next = node.next
+        node.next.prev = node.prev
+        
+        node.prev = self.head
+        node.next = self.head.next
+        
+        self.head.next.prev = node
+        self.head.next = node
+    
+    def addToFront(self, node):
+        node.prev = self.head
+        node.next = self.head.next
+        
+        self.head.next.prev = node
+        self.head.next = node
+    
+    def removeTail(self):
+        node = self.tail.prev
+        
+        # Unlink the removed node from its previous and next references
+        node.prev.next = node.next
+        node.next.prev = node.prev
+        
+        # Return the value of the removed node
+        result_value = node.value
+        del self.cache[node.key]
+        
+        return result_value
+```
+
+This Python implementation uses a doubly linked list for efficient insertion and deletion operations, combined with a hash map for quick access. The `LRUCache` class manages the cache by storing data as nodes in the linked list, where each node holds both the key-value pair and points

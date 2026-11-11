@@ -1,0 +1,46 @@
+```python
+import socket
+import select
+
+# Function to handle client connections
+def handle_client(client_socket):
+    while True:
+        try:
+            data = client_socket.recv(1024)
+            if not data:
+                break
+            print(f"Received from {client_socket.getpeername()}: {data.decode('utf-8')}")
+            # Send response back to the client
+            client_socket.sendall(b'Hello, client!')
+        except Exception as e:
+            print(f"Error handling connection with {client_socket.getpeername()}:", e)
+            break
+    client_socket.close()
+    print(f"Connection closed with {client_socket.getpeername()}")
+
+# Create TCP/IP socket
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Bind the socket to the address and port
+server_address = ('localhost', 9999)
+server_socket.bind(server_address)
+
+# Listen for incoming connections
+server_socket.listen(5)
+print("Server is listening on localhost:9999")
+
+while True:
+    readable, _, _ = select.select([server_socket], [], [])
+    
+    if server_socket in readable:
+        client_socket, client_address = server_socket.accept()
+        print(f"Accepted connection from {client_address}")
+        
+        # Start thread to handle this client
+        import threading
+        client_thread = threading.Thread(target=handle_client, args=(client_socket,))
+        client_thread.daemon = True
+        client_thread.start()
+```
+
+This Python script creates a simple non-blocking TCP server that listens for incoming connections on `localhost` at port `9999`. It uses the `select` module to monitor for new connections and active sockets. When a new client connects, it spawns a separate thread to handle communication with that client. The server can accept multiple clients simultaneously by spawning new threads for each one.

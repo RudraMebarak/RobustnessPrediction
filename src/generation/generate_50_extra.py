@@ -15,7 +15,6 @@ KGW_DIR = Path.home() / "kgw-test" / "lm-watermarking"
 sys.path.insert(0, str(SRC_DIR))
 sys.path.insert(0, str(KGW_DIR))
 
-from extended_watermark_processor import WatermarkDetector, WatermarkLogitsProcessor
 
 # Model and KGW configuration: kept consistent with the single-sample script.
 MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"

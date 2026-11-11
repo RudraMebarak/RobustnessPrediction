@@ -1,0 +1,83 @@
+```cpp
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Record structure with key (timestamp) and value (data)
+struct Record {
+    int timestamp;
+    string data;
+};
+
+bool compareByTimestamp(const Record& r1, const Record& r2) {
+    return r1.timestamp < r2.timestamp; // Default comparison based on timestamp
+}
+
+void merge(vector<Record>& arr, int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+
+    // Temporary arrays to hold elements from both halves
+    vector<Record> L(n1), R(n2);
+
+    // Copy data to temporary vectors L[] and R[]
+    for (int i = 0; i < n1; i++)
+        L[i] = arr[left + i];
+    for (int j = 0; j < n2; j++)
+        R[j] = arr[mid + 1 + j];
+
+    // Merge the temporary arrays back into arr[l..r]
+    int i = 0; // Initial index for L[]
+    int j = 0; // Initial index for R[]
+    int k = left; // Initial index for arr[]
+
+    while (i < n1 && j < n2) {
+        if (L[i].timestamp <= R[j].timestamp) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    // Copy any remaining elements of L[], if there are any
+    while (i < n1) {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+
+    // Copy any remaining elements of R[], if there are any
+    while (j < n2) {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+}
+
+void bottomUpMergeSort(vector<Record>& arr, int low, int high, bool (*cmp)(const Record&, const Record&)) {
+    if (high > low) {
+        int mid = low + (high - low) / 2;
+        bottomUpMergeSort(arr, low, mid, cmp);
+        bottomUpMergeSort(arr, mid + 1, high, cmp);
+        merge(arr, low, mid, high);
+    }
+}
+
+void printVector(const vector<string>& vec) {
+    for (auto str : vec) {
+        cout << str << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    vector<Record> arr = {{3, "A"}, {1, "B"}, {4, "C"}, {2, "D"}};
+    
+    // Sort the array using bottom-up merge sort
+    bottomUpMergeSort(arr, 0, arr.size() - 1, compareByTimestamp);
+
+    // Print sorted array

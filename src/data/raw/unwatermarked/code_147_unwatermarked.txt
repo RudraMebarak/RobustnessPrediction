@@ -1,0 +1,65 @@
+```cpp
+#include <iostream>
+#include <map>
+
+// Define the TokenBucket structure to represent tokens in a bucket.
+struct TokenBucket {
+    int capacity; // Maximum number of tokens that can be stored
+    int refill_rate; // Rate at which new tokens are added (tokens per second)
+    int current_tokens; // Current number of tokens available
+
+    TokenBucket(int cap, int refRate) : capacity(cap), refill_rate(refRate), current_tokens(0) {}
+
+    void addTokens() {  // Add tokens based on refill rate
+        if (current_tokens + refill_rate <= capacity) {
+            current_tokens += refill_rate;
+        }
+    }
+
+    bool removeTokens(int amount) {  // Remove tokens until the limit is reached
+        while (amount > current_tokens && refill_rate > 0) {
+            current_tokens = 0;
+            refill_rate -= refill_rate;
+        }
+        return current_tokens >= amount;
+    }
+};
+
+// Define the LeakyBucket structure to represent tokens leaking out over time.
+struct LeakyBucket {
+    int capacity; // Maximum number of tokens that can be drained
+    double drain_rate; // Rate at which tokens are leaked out (per second)
+
+    LeakyBucket(int cap, double drate) : capacity(cap), drain_rate(drate) {}
+};
+
+class RateLimiter {
+private:
+    std::map<std::string, TokenBucket> buckets; // Map for different types of tokens (e.g., requests)
+    std::map<std::string, LeakyBucket> leakers; // Map for different types of leaks
+
+public:
+    RateLimiter() {}
+
+    // Method to configure a bucket policy.
+    void configure(const std::string& name, const TokenBucket& config) {
+        buckets[name] = config;
+    }
+
+    // Method to configure a leak policy.
+    void configureLeak(const std::string& name, const LeakyBucket& config) {
+        leakers[name] = config;
+    }
+
+    // Function to check whether an action should be allowed.
+    bool allowAction(const std::string& name, int amount) {
+        auto it = buckets.find(name);
+        if (it != buckets.end()) {
+            it->second.addTokens();
+            return it->second.removeTokens(amount);
+        } else {
+            throw std::runtime_error("No such bucket named " + name);
+        }
+    }
+};
+```

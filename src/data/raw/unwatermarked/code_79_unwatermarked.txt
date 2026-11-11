@@ -1,0 +1,54 @@
+```cpp
+#include <iostream>
+#include <omp.h>
+
+// Serial function for comparison
+int serial_sum(int* arr, int size) {
+    int sum = 0;
+    #pragma omp parallel for reduction(+:sum)
+    for (int i = 0; i < size; ++i) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+// Parallel function using OpenMP
+void parallel_sum(int* arr, int size) {
+    #pragma omp parallel for reduction(+:sum)
+    for (int i = 0; i < size; ++i) {
+        sum += arr[i];
+    }
+}
+
+int main() {
+    const int SIZE = 1e7;
+    int arr[SIZE];
+
+    // Initialize array with values from 1 to SIZE
+    for (int i = 0; i < SIZE; ++i) {
+        arr[i] = i + 1;
+    }
+
+    int sum_serial = serial_sum(arr, SIZE);
+    int sum_parallel = 0;
+
+    #pragma omp parallel 
+    {
+        int sum = 0;
+        parallel_sum(&arr[0], SIZE);
+
+        #pragma omp single
+        {
+            sum = sum;
+        }
+    }
+
+    if (sum_serial == sum_parallel && sum_serial > 0) {
+        std::cout << "Sum is correct and positive." << std::endl;
+    } else {
+        std::cerr << "Error in parallel sum computation." << std::endl;
+    }
+
+    return 0;
+}
+```

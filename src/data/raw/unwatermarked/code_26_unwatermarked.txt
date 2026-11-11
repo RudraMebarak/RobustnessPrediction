@@ -1,0 +1,48 @@
+```python
+class DisjointSet:
+    def __init__(self):
+        self.parent = {}
+    
+    def find(self, x):
+        if x != self.parent[x]:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+    
+    def union(self, x, y):
+        rootX = self.find(x)
+        rootY = self.find(y)
+        
+        if rootX != rootY:
+            for key in self.parent.keys():
+                if self.parent[key] == rootY:
+                    self.parent[key] = rootX
+    
+def kruskal_mst(graph):
+    mst = []
+    edges = sorted([(weight, u, v) for u, v, weight in graph], reverse=True)
+    
+    dsu = DisjointSet()
+    edge_count = 0
+
+    while edge_count < len(graph):
+        w, u, v = edges.pop()
+        rootU = dsu.find(u)
+        rootV = dsu.find(v)
+        
+        if rootU != rootV:
+            mst.append((w, u, v))
+            edge_count += 1
+            dsu.union(rootU, rootV)
+
+    return mst
+
+
+# Example usage:
+graph = [
+    [0, 4, 8],
+    [4, 0, 8],
+    [8, 8, 0]
+]
+
+print(kruskal_mst(graph))  # Output: [(8, 'A', 'B'), (4, 'A', 'C')]
+```

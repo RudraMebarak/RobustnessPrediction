@@ -1,0 +1,61 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Examination</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: auto; padding: 20px; }
+        h1 { text-align: center; }
+        input[type=radio] { display: none; }
+        label.radio { display: block; margin-top: 15px; }
+        button.submit { width: 100%; background-color: #4CAF50; color: white; border: none; padding: 10px; cursor: pointer; }
+        .timer { text-align: center; }
+        .message { margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<h1>Online Examination</h1>
+
+<div class="container">
+    <form id="examForm">
+        <!-- Question Navigation -->
+        <p><input type="radio" name="question1" value="a"> Question 1 - What is your favorite color?</p>
+        <p><input type="radio" name="question1" value="b"> Question 1 - What is your favorite animal?</p>
+        <p><input type="radio" name="question1" value="c"> Question 1 - What is your favorite food?</p>
+
+        <!-- Countdown Display -->
+        <div class="timer">
+            <span id="timeLeft">30 minutes remaining...</span>
+        </div>
+
+        <!-- Submission Form -->
+        <button type="submit" class="submit">Submit Answers</button>
+    </form>
+    
+    <div class="message"></div>
+</div>
+
+<script>
+// Example of timer function (replace this with actual timer logic)
+function startTimer() {
+    var time = document.getElementById('timeLeft').textContent;
+    if (time >= '1 minute') {
+        time -= 1;
+        document.getElementById('timeLeft').textContent = time;
+    } else {
+        alert("Time's up!");
+        // Handle submission here
+    }
+}
+
+window.onload = function() {
+    startTimer();
+}
+</script>
+
+</body>
+</html>
+```

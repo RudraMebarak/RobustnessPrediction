@@ -1,0 +1,82 @@
+```java
+import java.util.Comparator;
+
+// Define a class for a Binary Heap Priority Queue
+public class PriorityQueue<T> {
+    private T[] elements;
+    private Comparator<? super T> comparator;
+    
+    // Constructor to initialize the heap with a given comparator
+    public PriorityQueue(Comparator<? super T> comparator) {
+        this.comparator = comparator;
+        this.elements = (T[]) new Object[1];
+    }
+    
+    // Method to insert an element into the heap
+    public void enqueue(T value) {
+        int index = elements.length - 1;
+        elements[index] = value;
+        
+        while (index > 0 && comparator.compare(elements[parent(index)], elements[index]) < 0) {
+            swap(index, parent(index));
+            index = parent(index);
+        }
+    }
+    
+    // Method to remove the root of the heap (peek)
+    public T dequeue() {
+        if (isEmpty()) throw new NoSuchElementException("Cannot dequeue from empty queue");
+        
+        T value = elements[0];
+        elements[0] = elements[--elements.length]; // Replace root with last item
+        
+        siftDown(0); // Sift down the new root
+        
+        return value;
+    }
+    
+    // Utility method to check if the queue is empty
+    private boolean isEmpty() {
+        return elements.length == 0 || elements[0] == null;
+    }
+    
+    // Method to get the size of the queue
+    public int size() {
+        return elements.length - 1; // Subtract one because array starts at 0
+    }
+    
+    // Helper method to find the parent index
+    private int parent(int index) {
+        return (index - 1) / 2;
+    }
+    
+    // Helper method to find the left child index
+    private int leftChildIndex(int index) {
+        return 2 * index + 1;
+    }
+    
+    // Helper method to find the right child index
+    private int rightChildIndex(int index) {
+        return 2 * index + 2;
+    }
+    
+    // Swap two elements in the array
+    private void swap(int i, int j) {
+        T temp = elements[i];
+        elements[i] = elements[j];
+        elements[j] = temp;
+    }
+    
+    // Sift down the node at the given index until it reaches its correct position
+    private void siftDown(int index) {
+        while (leftChildIndex(index) < elements.length) {
+            int maxChildIndex = Math.max(leftChildIndex(index), rightChildIndex(index));
+            
+            if (comparator.compare(elements[maxChildIndex], elements[index]) >= 0) break;
+            
+            swap(maxChildIndex, index);
+            index = maxChildIndex;
+        }
+    }
+}
+```

@@ -1,0 +1,42 @@
+```jsx
+import React from 'react';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+
+const MyAutocomplete = ({ options, onChange }) => {
+  return (
+    <Autocomplete
+      id="my-autocomplete"
+      options={options}
+      getOptionLabel={(option) => option.text}
+      value={value || ''}
+      onChange={onChange}
+      renderInput={(params) => (
+        <div {...params} className="custom-input">
+          <input {...params.inputProps} placeholder="Search..." />
+        </div>
+      )}
+      style={{ width: 300 }}
+      openOnFocus
+      open={!value && true}
+      filterSelectedOptions
+      noOptionsText="No results found"
+      disableCloseOnSelect
+      getOptionDisabled={(option) => !option.disabled}
+      renderOption={(props, option, { selected }) => (
+        <li {...props} className={`option ${selected ? 'selected' : ''}`}>
+          {option.label}
+        </li>
+      )}
+      renderTags={(tags, { addTag }) => (
+        <ul>
+          {tags.map((tag) => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
+      )}
+    />
+  );
+};
+
+export default MyAutocomplete;
+```

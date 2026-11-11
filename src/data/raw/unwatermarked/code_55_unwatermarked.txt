@@ -1,0 +1,38 @@
+```java
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.ui.ModelMap;
+
+// Assuming Spring Data JPA is used for database operations
+public class DataTableController {
+
+    private UserRepository userRepository; // Assume this interface exists
+
+    public void sortTable(ModelMap model) {
+        String sortBy = (String) model.get("sortBy");
+        Pageable pageable = new PageRequest(0, 10, Sort.by(sortBy).ascending()); // Default to ascending order
+        model.put("data", userRepository.findAll(pageable));
+    }
+
+    public void filterTable(ModelMap model) {
+        String filterValue = (String) model.get("filterValue");
+        if (!filterValue.isEmpty()) {
+            model.put("data", userRepository.findByField(filterValue)); // Replace findByField with actual method name
+        } else {
+            model.put("data", userRepository.findAll());
+        }
+    }
+
+    public void paginateTable(ModelMap model) {
+        Long page = Long.parseLong(model.get("page").toString());
+        int size = Integer.parseInt(model.get("size").toString());
+        model.put("data", userRepository.findAll(PageRequest.of(page - 1, size))); // Adjusting for zero-based index
+    }
+
+    public void syncQueryState(ModelMap model) {
+        Object[] params = {model.get("sortBy"), model.get("filterValue")};
+        model.put("queryParams", params); // Pass parameters to controller action
+    }
+
+}
+```

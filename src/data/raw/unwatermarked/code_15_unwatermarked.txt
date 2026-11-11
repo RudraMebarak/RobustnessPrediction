@@ -1,0 +1,47 @@
+```java
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+public class StreamingMedianTracker {
+    private PriorityQueue<Integer> maxHeap; // For storing lower half of elements
+    private Queue<Integer> minHeap; // For storing upper half of elements
+
+    public StreamingMedianTracker() {
+        maxHeap = new PriorityQueue<>((a, b) -> (b - a)); // Max heap for lower half
+        minHeap = new ArrayDeque<>();
+    }
+
+    public double findMedian() {
+        if (maxHeap.isEmpty()) return minHeap.peek();
+        
+        int size = maxHeap.size() + minHeap.size();
+        if (size % 2 == 0) {
+            return (maxHeap.peek() + minHeap.peek()) / 2.0;
+        } else {
+            return maxHeap.peek();
+        }
+    }
+
+    public void insert(int num) {
+        if (maxHeap.isEmpty() || num <= maxHeap.peek()) {
+            maxHeap.offer(num);
+        } else {
+            minHeap.add(num); // Move to maxHeap
+            maxHeap.offer(minHeap.poll());
+        }
+    }
+
+    public static void main(String[] args) {
+        StreamingMedianTracker tracker = new StreamingMedianTracker();
+
+        tracker.insert(3);
+        System.out.println(tracker.findMedian()); // Output: 3
+
+        tracker.insert(1);
+        System.out.println(tracker.findMedian()); // Output: 2
+
+        tracker.insert(-1);
+        System.out.println(tracker.findMedian()); // Output: 0
+    }
+}
+```

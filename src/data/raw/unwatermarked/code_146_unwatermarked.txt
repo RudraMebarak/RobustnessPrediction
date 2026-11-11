@@ -1,0 +1,72 @@
+```cpp
+#include <iostream>
+#include <vector>
+
+// Define structure for B+ Tree nodes
+struct Node {
+    int key;
+    std::vector<int> children; // Children pointers
+
+    bool is_leaf;
+    size_t n;
+
+    Node(int k) : key(k), n(0), is_leaf(true) {}
+};
+
+// Insert function to add a new key into the tree
+void insert(Node* root, int key) {
+    if (!root->is_leaf) {
+        int i = 0;
+        while (i + 1 < root->n && root->children[i] <= key)
+            ++i;
+        
+        // Split existing child when necessary
+        Node* split_child = new Node(root->key);
+        root->key = key;
+        root->children.push_back(split_child->key);
+
+        int j = i - 1;
+        while (j >= 0 && root->children[j]->key > key) {
+            root->children[j + 1] = root->children[j];
+            --j;
+        }
+        root->children[j + 1] = split_child;
+
+        Node* parent = static_cast<Node*>(root->children[0]);
+        parent->n += 2;
+    } else {
+        Node* newNode = new Node(key);
+        root->children.push_back(newNode);
+        root->n++;
+    }
+
+    root->is_leaf = false;
+}
+
+// Point lookup function to find an element with given key in the tree
+int search(Node* root, int key) {
+    if (root->is_leaf)
+        return root->children[key].n != 0 ? key : -1;
+
+    auto it = lower_bound(root->children.begin(), root->children.end(), key);
+    
+    if (*it == key)
+        return *it;
+    
+    return search(static_cast<Node*>(*(--it)), key);
+}
+
+// Range query implementation
+std::vector<int> range_query(Node* root, int lo, int hi) {
+    if (!root->is_leaf)
+        for (auto c : root->children)
+            range_query(c, lo, hi);
+    
+    std::vector<int> result;
+    for (size_t i = 0; i < root->n; ++i)
+        if (root->children[i]->key >= lo && root->children[i]->key <= hi)
+            result.push_back(root->children[i]->key);
+
+    return result;
+}
+```

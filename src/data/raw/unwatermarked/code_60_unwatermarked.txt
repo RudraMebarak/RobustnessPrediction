@@ -1,0 +1,22 @@
+```java
+import org.springframework.security.core.Authentication;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+
+public class RoleBasedAuthorizationFilter extends SecurityContextLogoutHandler {
+    private static final String ADMIN_ROLE = "ROLE_ADMIN";
+    private static final String EDITOR_ROLE = "ROLE_EDITOR";
+
+    @Override
+    public void logout(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
+        super.logout(request, response, authentication);
+        
+        if (authentication.getAuthorities().contains(ADMIN_ROLE)) {
+            // Handle admin-specific logic
+        } else if (authentication.getAuthorities().contains(EDITOR_ROLE)) {
+            // Handle editor-specific logic
+        } else {
+            // Default action for regular users
+        }
+    }
+}
+```

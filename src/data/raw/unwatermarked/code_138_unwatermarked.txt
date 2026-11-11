@@ -1,0 +1,25 @@
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Editor from './Editor';
+
+const App = () => {
+  return (
+    <div>
+      <div className="file-tab-bar">
+        <button>File</button>
+        <button>Edit</button>
+        <button>Run</button>
+      </div>
+      <div className="source-pane">
+        <Editor />
+      </div>
+      <div className="output-panel" style={{display: "none"}}>
+        Output goes here
+      </div>
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```

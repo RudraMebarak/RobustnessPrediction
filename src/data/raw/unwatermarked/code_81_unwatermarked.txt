@@ -1,0 +1,54 @@
+```python
+import time
+from collections import deque
+
+class ProducerConsumerPipeline:
+    def __init__(self, max_size):
+        self.max_size = max_size
+        self.queue = deque()
+    
+    def produce(self, item):
+        if len(self.queue) >= self.max_size:
+            raise ValueError("Queue is full")
+        
+        # Simulate some work
+        time.sleep(1)
+        
+        self.queue.append(item)
+        print(f"Produced {item}")
+    
+    def consume(self):
+        if not self.queue:
+            raise ValueError("No items to consume")
+        
+        # Simulate some work
+        time.sleep(2)
+        
+        item = self.queue.popleft()
+        print(f"Consumed {item}")
+        return item
+    
+    def start_workers(self, num_workers):
+        for _ in range(num_workers):
+            t = threading.Thread(target=self.worker_thread)
+            t.start()
+
+    def worker_thread(self):
+        while True:
+            try:
+                item = self.consume()
+                time.sleep(0.5)
+            except Exception as e:
+                print(e)
+                break
+
+# Example usage
+pipeline = ProducerConsumerPipeline(max_size=3)
+
+for i in range(6):  # Produce 6 items
+    pipeline.produce(i)
+
+pipeline.start_workers(num_workers=2)  # Start 2 worker threads
+
+time.sleep(10)  # Give workers some time to process items
+```

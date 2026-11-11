@@ -1,0 +1,36 @@
+```python
+import pandas as pd
+
+def fetch_paginated_events(start_id, end_id, event_timestamps):
+    """
+    Fetches a paginated set of events based on their timestamps.
+    
+    Parameters:
+        start_id (int): The earliest id of an event to consider in the query.
+        end_id (int): The latest id of an event to consider in the query.
+        event_timestamps (list of tuples): A list of tuples where each tuple contains an event's id and its timestamp.
+        
+    Returns:
+        pandas.DataFrame: A DataFrame containing the fetched events with 'id' and 'timestamp'.
+    """
+    # Convert the event_timestamps into a dataframe for easier manipulation
+    df = pd.DataFrame(event_timestamps, columns=['id', 'timestamp'])
+    
+    # Filter the dataframe based on the range defined by start_id and end_id
+    filtered_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
+    
+    return filtered_df[['id', 'timestamp']]
+
+# Example usage
+event_data = [
+    (100, 1594562738), 
+    (101, 1594562739),
+    (102, 1594562740),
+    (103, 1594562741)
+]
+start_id = 100
+end_id = 102
+
+paginated_events = fetch_paginated_events(start_id, end_id, event_data)
+print(paginated_events)
+```

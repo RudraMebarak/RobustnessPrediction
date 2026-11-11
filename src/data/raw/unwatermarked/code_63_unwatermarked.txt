@@ -1,0 +1,37 @@
+```sql
+CREATE TABLE Customers (
+    customer_id INT PRIMARY KEY,
+    name VARCHAR(255),
+    address VARCHAR(255),
+    phone_number VARCHAR(15)
+);
+
+CREATE TABLE Restaurants (
+    restaurant_id INT PRIMARY KEY,
+    name VARCHAR(255),
+    cuisine_type VARCHAR(255)
+);
+
+CREATE TABLE Orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    restaurant_id INT,
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
+    FOREIGN KEY (restaurant_id) REFERENCES Restaurants(restaurant_id)
+);
+
+CREATE TABLE Order_Items (
+    item_id INT PRIMARY KEY,
+    order_id INT,
+    quantity INT,
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id)
+);
+
+CREATE TABLE Payments (
+    payment_id INT PRIMARY KEY,
+    order_id INT,
+    amount DECIMAL(10, 2),
+    payment_date DATE,
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id)
+);
+```

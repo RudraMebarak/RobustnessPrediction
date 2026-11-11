@@ -1,0 +1,73 @@
+```python
+def banker_algorithm(allocations, max_resources, available):
+    # Check if all processes can be allocated resources without causing deadlock
+    while True:
+        safe_sequence = check_safety(allocations, max_resources, available)
+        
+        if len(safe_sequence) == len(max_resources):  # If all processes are allocated safely
+            print("System is safe.")
+            break
+        
+        for process in range(len(max_resources)):
+            if process not in safe_sequence:  # Find a process that cannot allocate its required resources
+                unsafe_sequence = find_unsafe_sequence(process, allocations, max_resources, available)
+                
+                if len(unsafe_sequence) != len(max_resources):  # If there exists an unsafe sequence
+                    print("A deadlock has been detected!")
+                    return False
+
+                else:
+                    remove_process_from_safe_sequence(process, safe_sequence)
+    
+    print("No deadlocks detected.")
+
+# Function to check safety of system allocation
+def check_safety(allocations, max_resources, available):
+    return set(range(len(max_resources))) == set(check_allocations(allocations))
+
+# Function to generate an unsafe sequence based on a given unsafe sequence
+def find_unsafe_sequence(process, allocations, max_resources, available):
+    unsafe_sequence = []
+    total_required_resources = sum(allocations[process])
+    free_resources = [max - a for (a, m), max in zip(sorted(zip(available, max_resources)), sorted(max_resources))]
+
+    current_allocated_resources = 0
+    current_free_resources = free_resources.copy()
+
+    while current_allocated_resources < total_required_resources:
+        min_available_resource = min(current_free_resources)
+        resource_to_add = min_available_resource
+        index = next((i for i, r in enumerate(current_free_resources) if r >= resource_to_add), None)
+
+        if index is None:
+            unsafe_sequence.append(process)
+            break
+
+        alloc_index = next((i for i, r in enumerate(allocations) if r[process] + resource_to_add <= r[process]), None)
+
+        if alloc_index is not None:
+            allocations[alloc_index][process] += resource_to_add
+            current_allocated_resources += resource_to_add
+            current_free_resources[index] -= resource_to_add
+            continue
+
+        unsafe_sequence.append(process)
+        break
+    
+    return unsafe_sequence
+
+# Helper function to add a process to the safe sequence
+def add_process_to_safe_sequence(process, safe_sequence):
+    safe_sequence.add(process)
+
+# Helper function to remove a process from the safe sequence
+def remove_process_from_safe_sequence(process, safe_sequence):
+    safe_sequence.remove(process)
+
+# Example usage
+allocations = [[1, 2], [3, 4]]
+max_resources = [5, 6]
+available = [4, 5]
+
+banker_algorithm(allocations, max_resources, available)
+```

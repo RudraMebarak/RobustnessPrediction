@@ -1,0 +1,38 @@
+```python
+import random
+
+def simulate_round_robin(processes):
+    total_time = 0
+    
+    for i in range(len(processes)):
+        current_time = 1
+        while True:
+            if len(processes) == i + 1:
+                break
+            
+            next_process = processes[(i + 1) % len(processes)]
+            
+            # Calculate time slice (burst length)
+            if current_time <= next_process['burst']:
+                current_time += 1
+                
+                if current_time > next_process['arrival'] + next_process['burst']:
+                    print(f"Process {next_process['id']} finished.")
+                    total_time += (current_time - next_process['arrival'])
+                    
+                    if len(processes) != i + 2:
+                        break
+                    else:
+                        break
+                    
+            else:
+                current_time += next_process['burst']
+                
+    return total_time
+
+# Example usage:
+processes = [{'id': 'P1', 'arrival': 5, 'burst': 7}, {'id': 'P2', 'arrival': 8, 'burst': 3}]
+round_robin_turnaround_time = simulate_round_robin(processes)
+
+print(f"Total Round-Robin Turnaround Time: {round(round_robin_turnaround_time)} seconds")
+```

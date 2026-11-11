@@ -1,0 +1,65 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipal Issue Reporting Portal</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container {
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+        }
+        h1 { text-align: center; }
+        label { display: block; margin-top: 15px; }
+        input[type="text"], textarea { width: 90%; margin-bottom: 10px; }
+        button { background-color: #4CAF50; color: white; border: none; padding: 10px 20px; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Report an Issue</h1>
+        <form action="/submit_issue" method="POST">
+            <label for="reporter_name">Reporter's Name:</label><br>
+            <input type="text" id="reporter_name" name="reporter_name"><br>
+
+            <label for="issue_location">Issue Location:</label><br>
+            <input type="text" id="issue_location" name="issue_location"><br>
+
+            <label for="category_select">Select Category:</label><br>
+            <select id="category_select" name="category_select">
+                <option value="potholes">Potholes</option>
+                <option value="street_lights">Street Lights</option>
+                <option value="parking_barricades">Parking Barricades</option>
+                <!-- Add more options as needed -->
+            </select><br>
+
+            <button type="submit">Submit Report</button>
+        </form>
+    </div>
+
+    <!-- For displaying recent reports -->
+    <h2>Recently Reported Issues</h2>
+    <ul id="recent_issues_list"></ul>
+
+    <script>
+        // JavaScript to fetch and display recent reports (placeholder)
+        document.addEventListener('DOMContentLoaded', function() {
+            const recentIssuesList = document.getElementById('recent_issues_list');
+            fetch('/get_recent_reports')
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(issue => {
+                        const li = document.createElement('li');
+                        li.textContent = `${issue.reporter} reported a ${issue.category}: ${issue.description}`;
+                        recentIssuesList.appendChild(li);
+                    });
+                })
+                .catch(error => console.error('Error fetching recent reports:', error));
+        });
+
+        // Example event listener for reporting new issues (replace with actual implementation)
+        document.querySelector('form').addEventListener('submit', function(event) {

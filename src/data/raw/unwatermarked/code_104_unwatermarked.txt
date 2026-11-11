@@ -1,0 +1,63 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Course Catalogue</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 1200px; margin: auto; padding: 20px; }
+        .search-form { text-align: center; margin-bottom: 30px; }
+        .card-container { display: flex; justify-content: space-around; flex-wrap: wrap; }
+        .card { border: 1px solid #ccc; padding: 20px; width: 350px; background-color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .card h2 { margin-top: 0; }
+        .credit-info { margin-top: 20px; }
+        .pagination { text-align: center; margin-top: 30px; }
+        .pagination li { list-style-type: none; display: inline-block; margin-right: 10px; cursor: pointer; transition: color 0.3s ease;
+            &.active { color: #ff9900; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <form class="search-form">
+        <input type="text" id="searchInput" placeholder="Search courses...">
+        <button type="submit">Search</button>
+    </form>
+    
+    <div class="card-container">
+        <!-- Cards will be dynamically populated here -->
+    </div>
+    
+    <div class="card-container">
+        <!-- Credit info will be added here -->
+    </div>
+    
+    <nav aria-label="Pagination">
+        <ul class="pagination">
+            <li><a href="#">« Previous</a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">Next »</a></li>
+        </ul>
+    </nav>
+</div>
+
+<script>
+// Example script to populate cards (will need AJAX for actual data)
+const cardContainer = document.querySelector('.card-container');
+fetch('courses.json')
+    .then(response => response.json())
+    .then(data => {
+        const cardsHTML = data.map(course => `
+            <div class="card">
+                <h2>${course.name}</h2>
+                <p>Course ID: ${course.id}, Credits: ${course.credits}</p>
+            </div>
+        `).join('');
+        cardContainer.innerHTML += cardsHTML;
+    });
+

@@ -1,0 +1,80 @@
+```java
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.Fork;
+import org.openjdk.jmh.annotations.Measurement;
+import org.openjdk.jmh.annotations.Mode;
+import org.openjdk.jmh.annotations.OutputTimeUnit;
+import org.openjdk.jmh.annotations.Scope;
+import org.openjdk.jmh.annotations.Setup;
+import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.annotations.TearDown;
+import org.openjdk.jmh.annotations.Warmup;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+@State(Scope.Thread)
+public class CollectionBenchmark {
+
+    private List<Integer> list = new ArrayList<>();
+    private List<Integer> linkedList = new LinkedList<>();
+
+    @Setup
+    public void setup() {
+        // Initialize lists with some data
+        for (int i = 0; i < 10_000; i++) {
+            list.add(i);
+            linkedList.add(i);
+        }
+    }
+
+    @TearDown
+    public void teardown() {
+        // Clear the lists after each run
+        list.clear();
+        linkedList.clear();
+    }
+
+    @Warmup(iterations = 5)
+    @Measurement(iterations = 5)
+    @Fork(1) // Run in parallel
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    public long getIndexedAccess(ArrayList<Integer> collection) {
+        int index = 2000;
+        return System.nanoTime() - collection.get(index).getNanoTime();
+    }
+
+    @Warmup(iterations = 5)
+    @Measurement(iterations = 5)
+    @Fork(1)
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    public long insertAtIndex(ArrayList<Integer> collection) {
+        int index = 4000;
+        collection.add(index, 3000);
+        return System.nanoTime() - collection.get(index).getNanoTime();
+    }
+
+    @Warmup(iterations = 5)
+    @Measurement(iterations = 5)
+    @Fork(1)
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    public long iterateCollection(ArrayList<Integer> collection) {
+        for (Integer element : collection) {
+            if (element.equals(3000)) {
+                break;
+            }
+        }
+        return System.nanoTime() - collection.get(collection.size() - 1).getNanoTime();
+    }
+
+    @Warmup(iterations = 5)
+    @Measurement(iterations = 5)
+    @Fork(1)
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    public long insertAndIterate(ArrayList<Integer>

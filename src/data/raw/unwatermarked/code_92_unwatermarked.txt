@@ -1,0 +1,36 @@
+```java
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+public class EventConsumer {
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    public void consumeEvent(YourEventDTO event) {
+        String eventId = event.getEventID();
+
+        // Check if event ID already exists in the database
+        Optional<Event> existingEvent = entityManager.createQuery("SELECT e FROM Event e WHERE e.eventId = :eventId", Event.class)
+                .setParameter("eventId", eventId)
+                .getResultList()
+                .stream()
+                .findFirst();
+
+        if (existingEvent.isPresent()) {
+            throw new RuntimeException("Duplicate event ID detected!");
+        }
+
+        try (EntityManager txManager = entityManager.getTransaction().begin()) {
+            // Perform business logic for updating the event
+
+            // Commit the transaction after performing the business operation
+            txManager.commit();
+        } catch (Exception ex) {
+            // Rollback the transaction on error
+            txManager.rollback();
+            throw new RuntimeException(ex);
+        }
+    }
+}
+```

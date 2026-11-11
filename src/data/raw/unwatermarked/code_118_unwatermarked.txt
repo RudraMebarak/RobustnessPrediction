@@ -1,0 +1,80 @@
+```c++
+#include <iostream>
+#include <fstream>
+#include <vector>
+
+using namespace std;
+
+// Function prototypes
+void merge(vector<int>& sortedArray, int leftIndex, int midIndex, int rightIndex);
+int partition(vector<int>& array, int low, int high);
+
+struct Record {
+    int id;
+    string data;
+};
+
+int main() {
+    vector<Record> records = { /* Populate with your records */ };
+
+    int chunkSize = 1024; // Size of each chunk
+
+    if (records.size() <= chunkSize) {
+        cout << "Records are small enough to be sorted in memory." << endl;
+        return 0;
+    }
+
+    int numChunks = records.size() / chunkSize + ((records.size() % chunkSize > 0) ? 1 : 0); // Calculate number of chunks
+
+    for (int i = 0; i < numChunks; ++i) {
+        int startIdx = i * chunkSize;
+        int endIdx = min((i + 1) * chunkSize - 1, records.size() - 1); // Ensure we don't exceed the size of the record vector
+
+        vector<int> tempArray(chunkSize); // Temporary array to store merged results
+
+        for (int j = startIdx; j <= endIdx; ++j) {
+            tempArray[j - startIdx] = records[j].id; // Copy ID into temporary array
+        }
+
+        sort(tempArray.begin(), tempArray.end()); // Sort the temporary array
+
+        for (int k = startIdx, j = 0; k <= endIdx && j < chunkSize; ++k, ++j) {
+            records[k].id = tempArray[j]; // Copy sorted IDs back to original vector
+        }
+    }
+
+    return 0;
+}
+
+void merge(vector<int>& sortedArray, int leftIndex, int midIndex, int rightIndex) {
+    int n1 = midIndex - leftIndex + 1;
+    int n2 = rightIndex - midIndex;
+
+    vector<int> L(n1), R(n2);
+
+    for (int i = 0; i < n1; i++)
+        L[i] = sortedArray[leftIndex + i];
+
+    for (int j = 0; j < n2; j++)
+        R[j] = sortedArray[midIndex + 1 + j];
+
+    int i = 0, j = 0, k = leftIndex;
+
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            sortedArray[k] = L[i];
+            i++;
+        } else {
+            sortedArray[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n1) {
+        sortedArray[k] = L[i];
+        i++;
+        k++;
+    }
+
+    while (j

@@ -1,0 +1,70 @@
+```jsx
+import React from 'react';
+import { useState } from 'react';
+
+// Step 1 Component
+const Step1 = () => {
+    const [step1Data, setStep1Data] = useState({ name: '', email: '' });
+
+    // Function to handle input changes in Step 1
+    const handleChangeStep1 = (e) => {
+        e.preventDefault();
+        setStep1Data(prevState => ({ ...prevState, [e.target.name]: e.target.value }));
+    };
+
+    return (
+        <form onSubmit={handleChangeStep1}>
+            <label>
+                Name:
+                <input type="text" name="name" value={step1Data.name} onChange={handleChangeStep1} />
+            </label><br/>
+            <label>Email:
+                <input type="email" name="email" value={step1Data.email} onChange={handleChangeStep1} />
+            </label><br/>
+            <button type="submit">Next</button>
+        </form>
+    );
+};
+
+// Step 2 Component
+const Step2 = () => {
+    const [step2Data, setStep2Data] = useState({ address1: '', address2: '', city: '', state: '', zipCode: '' });
+
+    // Function to handle input changes in Step 2
+    const handleChangeStep2 = (e) => {
+        e.preventDefault();
+        setStep2Data(prevState => ({ ...prevState, [e.target.name]: e.target.value }));
+    };
+
+    return (
+        <form onSubmit={handleChangeStep2}>
+            <label>
+                Address Line 1:
+                <input type="text" name="address1" value={step2Data.address1} onChange={handleChangeStep2} />
+            </label><br/>
+            <label>Address Line 2:</label>
+            <input type="text" name="address2" value={step2Data.address2} onChange={handleChangeStep2} /><br/>
+            <label>City:
+                <input type="text" name="city" value={step2Data.city} onChange={handleChangeStep2} />
+            </label><br/>
+            <label>State:
+                <input type="text" name="state" value={step2Data.state} onChange={handleChangeStep2} />
+            </label><br/>
+            <label>Zip Code:
+                <input type="text" name="zipCode" value={step2Data.zipCode} onChange={handleChangeStep2} />
+            </label><br/>
+            <button type="submit">Review Order</button>
+        </form>
+    );
+};
+
+// Main Checkout Component
+const Checkout = () => {
+    const handleSubmitOrder = async (event) => {
+        event.preventDefault();
+        
+        try {
+            // Simulate API call for Step 1 validation
+            if (!isValidStep1(step1Data)) throw new Error('Invalid data at Step 1');
+
+            // Simulate API call

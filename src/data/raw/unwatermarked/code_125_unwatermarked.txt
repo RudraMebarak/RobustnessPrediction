@@ -1,0 +1,94 @@
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+#include <thread>
+
+class TcpClient {
+public:
+    TcpClient(const std::string& host, int port) : host(host), port(port) {}
+
+    void send(const std::string& message) {
+        // Send message with proper length prefix
+        std::cout << "Sending message: " << message << std::endl;
+        write(message);
+    }
+
+private:
+    const std::string host;
+    int port;
+
+    void write(const std::string& data) {
+        struct sockaddr_in addr;
+        socklen_t len = sizeof(addr);
+
+        if (connect(socketfd, reinterpret_cast<struct sockaddr*>(&addr), len) != 0) {
+            perror("connect");
+            return;
+        }
+
+        char* ptr = static_cast<char*>(data.data());
+        while (*ptr != '\0') {
+            ssize_t sent = write(socketfd, ptr, strlen(ptr));
+            if (sent <= 0) {
+                perror("write");
+                break; // Connection reset by peer
+            }
+            ptr += sent;
+        }
+    }
+
+    void read() {
+        while (true) {
+            std::string msg;
+            ssize_t bytes_read = recv(socketfd, &msg[0], MSG_WAITALL, 0); // Wait for all data
+
+            if (bytes_read > 0) {
+                std::cout << "Received: " << msg << std::endl;
+                // Process received message here...
+            } else if (bytes_read == 0) { // Connection closed cleanly
+                std::cout << "Connection was closed." << std::endl;
+                break;
+            } else {
+                std::cerr << "Error reading from socket" << std::endl;
+                break;
+            }
+        }
+    }
+
+    void connect() {
+        socketfd = socket(AF_INET, SOCK_STREAM, 0);
+        if (socketfd == -1) {
+            perror("Socket creation failed");
+            exit(EXIT_FAILURE);
+        }
+
+        memset(&addr, 0, sizeof(addr)); // Zero out address structure
+        addr.sin_family = AF_INET;
+        addr.sin_port = htons(port);
+        inet_pton(AF_INET, host.c_str(), &addr.sin_addr.s_addr); // Set IP address
+
+        if (connect(socketfd, reinterpret_cast<sockaddr*>(&addr), sizeof(addr)) == -1) {
+            perror("Connect failed");
+            close(socketfd);
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    void disconnect() {
+        close(socketfd);
+        std::cout << "Disconnected from server." << std::endl;
+    }
+
+private:
+    int socketfd;
+    struct sockaddr_in addr;
+};
+
+int main(int argc, char** argv) {
+    if (argc != 3) {
+        std::cerr << "Usage: ./tcp_client hostname port" << std::endl;
+        return EXIT_FAILURE;
+    }
+
+   

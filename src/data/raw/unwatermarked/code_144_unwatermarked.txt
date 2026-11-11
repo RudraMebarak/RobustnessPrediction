@@ -1,0 +1,69 @@
+```cpp
+#include <iostream>
+#include <vector>
+#include <thread>
+#include <mutex>
+
+// Simulate a thread-safe mutex for shared resources
+std::mutex mtx;
+
+// Function to simulate reading from a log file and parsing events
+void readLogEvents(const std::string& fileName) {
+    // Simulate processing each line of the log file
+    std::ifstream file(fileName);
+    if (!file.is_open()) {
+        throw std::runtime_error("Failed to open file");
+    }
+
+    int count = 0;
+    while (file >> count) {
+        std::cout << "Processing event with count: " << count << "\n";
+    }
+}
+
+// Function to parse an event into a string representation
+std::string parseEvent(int count) {
+    return "Processed event: Count=" + std::to_string(count);
+}
+
+// Function to aggregate counts by event type
+void aggregateCounts() {
+    std::vector<int> processedCounts(10); // Assuming there are at most 10 different event types
+
+    for (int i = 0; i < processedCounts.size(); ++i) {
+        std::unique_lock<std::mutex> lock(mtx);
+
+        // Simulate reading events from multiple threads
+        for (int j = 0; j < 5; ++j) {
+            readLogEvents("log_file.txt"); // Replace with actual file name
+        }
+
+        // Simulate some time-consuming work after reading
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+        // Aggregating parsed data
+        for (auto& c : processedCounts) {
+            c += 1; // Simplified aggregation logic
+        }
+    }
+}
+
+int main() {
+    try {
+        std::thread t1(&readLogEvents, "log_file.txt");
+        std::thread t2(&aggregateCounts);
+
+        t1.join();
+        t2.join();
+
+        // Output aggregated results here
+        for (const auto& count : processedCounts) {
+            std::cout << "Aggregated count: " << count << "\n";
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << "\n";
+    }
+
+    return 0;
+}
+```

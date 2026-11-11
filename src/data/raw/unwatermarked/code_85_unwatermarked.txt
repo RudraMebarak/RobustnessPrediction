@@ -1,0 +1,42 @@
+```java
+import org.javatuples.Pair;
+
+public class Lexer {
+    private int line;
+    private int column;
+    private String input;
+
+    public Lexer(String input) {
+        this.input = input;
+        this.line = 1;
+        this.column = 0;
+    }
+
+    // Method to consume characters from the input string based on the specified type.
+    public void consume(char type) throws Exception {
+        if (input.length() <= column || input.charAt(column) != type) throw new Exception("Invalid character");
+        column++;
+    }
+
+    // Method to return the current token's type.
+    public Pair<String, Integer> getTokenType() {
+        char c = input.charAt(column);
+        switch (c) {
+            case '(': return Pair.with("(", column++);
+            case ')': return Pair.with(")", column++);
+            default:
+                try {
+                    String identifier = "";
+                    while (column < input.length()) {
+                        c = input.charAt(column++);
+                        if (!Character.isLetterOrDigit(c)) break;
+                        identifier += c;
+                    }
+                    return Pair.with(identifier, column - 1);
+                } catch (Exception e) {
+                    return Pair.with(e.getMessage(), column - 1);
+                }
+        }
+    }
+}
+```

@@ -1,0 +1,49 @@
+```go
+package main
+
+import (
+	"fmt"
+	"net/http"
+)
+
+type Service struct {
+	DB *DBInterface // Database interface to be injected
+}
+
+func (s *Service) Start() error {
+	fmt.Println("Starting service")
+	return nil
+}
+
+func (s *Service) Stop() error {
+	fmt.Println("Stopping service")
+	return nil
+}
+
+// Liveness endpoint checks if the service is ready to serve requests.
+func (s *Service) Liveness(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Service is healthy!")
+}
+
+// Readiness endpoint confirms that the service can handle incoming requests.
+func (s *Service) Readiness(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Service is ready")
+}
+
+// DBInterface represents an interface for interacting with the database.
+type DBInterface interface {
+	GetData() []string
+}
+
+// Example implementation of DBInterface using SQLite
+type SqliteDB struct{}
+
+func NewSqliteDB() *SqliteDB {
+	return &SqliteDB{}
+}
+
+func (db *SqliteDB) GetData() []string {
+	// Simulate fetching data from the database
+	return []string{"data1", "data2"}
+}
+```

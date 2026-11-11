@@ -1,0 +1,65 @@
+```java
+import java.util.Comparator;
+import java.util.List;
+
+class ScoreComparator implements Comparator<Object> {
+    @Override
+    public int compare(Object o1, Object o2) {
+        if (o1 instanceof ScoredObject && o2 instanceof ScoredObject) {
+            ScoredObject so1 = (ScoredObject) o1;
+            ScoredObject so2 = (ScoredObject) o2;
+            
+            // Compare scores in descending order
+            int scoreCompare = Integer.compare(so1.getScore(), so2.getScore());
+            if (scoreCompare != 0) return scoreCompare;
+            
+            // If scores are equal, compare names in ascending order
+            return String.CASE_INSENSITIVE_ORDER.compare(so1.getName(), so2.getName());
+        }
+        
+        throw new IllegalArgumentException("Objects must be instances of ScoredObject");
+    }
+
+    static class ScoredObject {
+        private final String name;
+        private final int score;
+
+        public ScoredObject(String name, int score) {
+            this.name = name;
+            this.score = score;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public int getScore() {
+            return score;
+        }
+    }
+}
+
+public class StableSorter {
+    public static <T extends Comparable<T>> void stableSort(List<T> list) {
+        list.sort(new ScoreComparator());
+    }
+
+    public static void main(String[] args) {
+        List<ScoredObject> data = Arrays.asList(
+                new ScoredObject("Alice", 95),
+                new ScoredObject("Bob", 85),
+                new ScoredObject("Charlie", 75)
+        );
+        
+        System.out.println("Original Data:");
+        data.forEach(System.out::println);
+        
+        stableSort(data);
+        
+        System.out.println("\nStable Sorted Data:");
+        data.forEach(System.out::println);
+    }
+}
+```
+
+This Java program defines a `ScoreComparator` to handle sorting an unsorted list of objects based on their scores in descending order, followed by their names in ascending order when scores are identical. It includes a custom `ScoredObject` class with methods to retrieve its name and score, which is used as the basis for comparison in the comparator. The `stableSort` method sorts the given list using the `ScoreComparator`.

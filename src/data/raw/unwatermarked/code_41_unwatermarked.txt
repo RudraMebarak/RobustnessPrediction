@@ -1,0 +1,52 @@
+```java
+import java.io.*;
+import java.net.*;
+
+public class EchoServer {
+    public static void main(String[] args) throws IOException {
+        int port = 12345;
+        ServerSocket ss = new ServerSocket(port);
+        System.out.println("Echo Server Started at " + port);
+
+        while (true) {
+            Socket socket = ss.accept();
+            Runnable task = () -> {
+                try (BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                     PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
+
+                    String inputLine;
+                    while ((inputLine = in.readLine()) != null) {
+                        System.out.println(inputLine);
+                        out.println(inputLine);
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            };
+            Thread thread = new Thread(task);
+            thread.start();
+        }
+    }
+}
+
+class EchoClient {
+    public static void main(String[] args) throws IOException {
+        String host = "localhost";
+        int port = 12345;
+
+        Socket s = new Socket(host, port);
+        PrintWriter out = new PrintWriter(s.getOutputStream(), true);
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        
+        while (true) {
+            System.out.print("Enter message to send: ");
+            String msg = in.readLine();
+            if (msg.equalsIgnoreCase("exit")) break;
+            
+            out.println(msg);
+            System.out.println("Message sent successfully.");
+        }
+    }
+}
+```

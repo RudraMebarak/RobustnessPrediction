@@ -1,0 +1,47 @@
+```jsx
+import React, { useState } from 'react';
+
+function NotificationCenter() {
+    const [unreadCount, setUnreadCount] = useState(0);
+    const [categoryFilter, setCategoryFilter] = useState('all');
+    const [isClearAllOpen, setIsClearAllOpen] = useState(false);
+
+    // Example function to simulate fetching notifications data
+    async function fetchNotifications(category) {
+        // Simulate API call for demonstration purposes
+        await new Promise(resolve => setTimeout(() => resolve({ unreadCount }), 1000));
+        if (category === 'all') return;
+        if (category !== 'other' && !['urgent', 'important'].includes(category)) return;
+
+        // More complex logic to filter notifications based on category
+        let filteredUnreadCount = 0;
+        if (category === 'urgent') filteredUnreadCount += 3;
+        else if (category === 'important') filteredUnreadCount += 2;
+        else filteredUnreadCount += 1;
+
+        return { unreadCount: filteredUnreadCount };
+    }
+
+    return (
+        <div>
+            <button onClick={() => setIsClearAllOpen(true)}>Clear All</button>
+            <input
+                type="text"
+                value={categoryFilter}
+                onChange={(e) => setCategoryFilter(e.target.value)}
+            />
+            <ul className={`notifications ${isClearAllOpen ? 'open' : ''}`}>
+                <li>Notification 1 - Urgent</li>
+                <li>Notification 2 - Important</li>
+                <li>Notification 3 - Normal</li>
+            </ul>
+            {unreadCount > 0 && (
+                <p className="unread-count">You have {unreadCount} unread notifications.</p>
+            )}
+            <button onClick={() => setUnreadCount(unreadCount + 1)}>Mark as Read</button>
+        </div>
+    );
+}
+
+export default NotificationCenter;
+```

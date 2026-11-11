@@ -1,0 +1,84 @@
+```jsx
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const ImageUploader = () => {
+  const [files, setFiles] = useState([]);
+  const [uploadingFile, setUploadingFile] = useState(null);
+  const [error, setError] = useState('');
+  
+  const handleFileChange = (event) => {
+    setFiles((prevFiles) => [...prevFiles, ...event.target.files]);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    
+    if (!files.length) return;
+    
+    try {
+      const formData = new FormData();
+      
+      // Loop through each file in the selected files array
+      await Promise.all(
+        files.map(async (file) => {
+          let response;
+          
+          // Upload each file individually
+          response = await axios.post('https://api.example.com/upload', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+            onUploadProgress: (progressEvent) => {
+              uploadingFile && (uploadingFile.progress = Math.round((100 * (progressEvent.loaded / progressEvent.total)) / files.length));
+            }
+          });
+          
+          // Update state after successful upload
+          setFiles(files.filter(file => file !== file));
+          setError('');
+        })
+      );
+      
+      // Handle success
+      console.log('All files uploaded successfully');
+    } catch (error) {
+      setError(error.response ? error.response.data : 'An error occurred during file upload.');
+    }
+  };
+
+  const handleRemove = (index) => {
+    const updatedFiles = [...files];
+    updatedFiles.splice(index, 1);
+    setFiles(updatedFiles);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="file" multiple onChange={handleFileChange} />
+      <button disabled={!files.length || uploadingFile}>Upload</button>
+      {uploadingFile &&
+        <>
+          <p>Uploading...</p>
+          <progress value={uploadingFile.progress} max="100"></progress>
+        </>
+      }
+      {error &&
+        <div className="alert alert-danger">{error}</div>
+      }
+      <ul>
+        {files.map((file, index) => (
+          <li key={index}>
+            <img src={`data:image/jpeg;base64,${btoa(file.previewBase64())}`} alt="" onClick={() => handleRemove(index)} />
+            <span>{file.name}</span>
+          </li>
+        ))}
+      </ul>
+    </form>
+  );
+};
+
+export default ImageUploader;
+```
+
+Note: This code is simplified for demonstration purposes and does not include all possible edge cases or security considerations. In production, you should validate user input more rigorously and ensure proper handling of errors to prevent potential security vulnerabilities like XSS attacks.

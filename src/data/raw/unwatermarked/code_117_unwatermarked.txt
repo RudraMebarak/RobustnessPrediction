@@ -1,0 +1,86 @@
+```cpp
+#include <iostream>
+#include <map>
+#include <string>
+
+// Define TrieNode structure
+struct TrieNode {
+    std::map<std::string, TrieNode*> children;
+    bool isEndOfWord = false;
+
+    // Function to add new word to Trie
+    void insert(const std::string& word) {
+        if (word.empty()) return; // Handle empty word case
+
+        auto it = children.find(word[0]);
+        if (it == children.end()) {
+            children[word[0]] = new TrieNode();
+        }
+
+        insert(word.substr(1), *it->second);
+    }
+
+    // Recursive function to find node corresponding to given word
+    TrieNode* searchPrefix(const std::string& word) const {
+        if (word.empty()) return this;
+
+        auto it = children.find(word[0]);
+        if (it == children.end()) return nullptr;
+
+        return searchPrefix(word.substr(1), *it->second);
+    }
+};
+
+class AutoCompleteEngine {
+private:
+    TrieNode* root = new TrieNode();
+
+public:
+    // Add entry into dictionary
+    void addEntry(const std::string& key) {
+        root->insert(key);
+    }
+
+    // Search for an entry with given prefix
+    std::vector<std::string> search(const std::string& prefix) {
+        TrieNode* current = root->searchPrefix(prefix);
+
+        if (!current) return {};
+
+        std::vector<std::string> result;
+        dfsSearch(current, "", &result);
+        return result;
+    }
+
+    // Depth-first search for all matching words
+    void dfsSearch(TrieNode* node, const std::string& prefix, std::vector<std::string>* out) {
+        if (node->isEndOfWord) out->push_back(prefix);
+
+        for (auto child : node->children) {
+            dfsSearch(child.second, prefix + child.first, out);
+        }
+    }
+
+    // Delete entry from dictionary
+    void deleteEntry(const std::string& key) {
+        root->deleteKey(root, key);
+    }
+
+    // Helper function for deleting key in TrieNode
+    void deleteKey(TrieNode*& node, const std::string& key) {
+        if (key.empty()) return;
+
+        auto it = node->children.find(key[0]);
+        if (it != node->children.end()) {
+            deleteKey(it->second, key.substr(1));
+            if (it->second->children.size() == 0) {
+                node->children.erase(it);
+            } else if (it->second->children.size() > 1) {
+                for (auto ch : it->second->children) {
+                    ch.second->parent = NULL;
+                }
+                delete it->second;
+                it->second = NULL;
+            }
+        } else if (!node->children.empty()) { // Key doesn't exist
+            node->is

@@ -1,0 +1,100 @@
+```java
+import java.util.*;
+
+class TrieNode {
+    public boolean isWord;
+    public Map<Character, TrieNode> children;
+
+    public TrieNode() {
+        this.isWord = false;
+        this.children = new HashMap<>();
+    }
+}
+
+public class CustomTrie {
+
+    private static final char END_SYMBOL = '#';
+    private TrieNode root;
+
+    /**
+     * Inserts a word into the trie.
+     *
+     * @param word The word to insert.
+     */
+    public void insert(String word) {
+        if (word == null || word.isEmpty()) return;
+
+        TrieNode current = root;
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+            if (!current.children.containsKey(c)) {
+                current.children.put(c, new TrieNode());
+            }
+            current = current.children.get(c);
+        }
+        current.isWord = true;
+    }
+
+    /**
+     * Searches for a word in the trie.
+     *
+     * @param word The word to search for.
+     * @return True if found, False otherwise.
+     */
+    public boolean contains(String word) {
+        if (word == null || word.isEmpty()) return false;
+
+        TrieNode current = root;
+        for (char c : word.toCharArray()) {
+            if (!current.children.containsKey(c)) return false;
+            current = current.children.get(c);
+        }
+        return current != null && current.isWord;
+    }
+
+    /**
+     * Returns all words that start with the given prefix.
+     *
+     * @param prefix The prefix to find words starting with.
+     * @return A list of matching words.
+     */
+    public List<String> startsWith(String prefix) {
+        if (prefix == null || prefix.isEmpty()) return Collections.emptyList();
+
+        TrieNode node = getPrefix(prefix);
+        if (node == null) return Collections.emptyList();
+
+        LinkedList<StringBuilder> stack = new LinkedList<>();
+        dfs(node, "", stack);
+
+        return new ArrayList<>(stack);
+    }
+
+    private void dfs(TrieNode node, String path, LinkedList<StringBuilder> result) {
+        if (node.isWord) {
+            StringBuilder sb = new StringBuilder(path);
+            result.add(sb.toString());
+        }
+        for (Map.Entry<Character, TrieNode> entry : node.children.entrySet()) {
+            dfs(entry.getValue(), path + entry.getKey(), result);
+        }
+    }
+
+    /**
+     * Deletes the specified word from the trie.
+     *
+     * @param word The word to delete.
+     */
+    public void delete(String word) {
+        delete(word.toCharArray(), 0, root);
+    }
+
+    private int delete(char[] chars, int index, TrieNode node) {
+        if (index == chars.length) {
+            node.isWord = false;
+            return 1;
+        }
+        if (!node.children.containsKey(chars[index])) {
+            return 0;
+        }
+        int deletedChars = delete(chars, index + 1

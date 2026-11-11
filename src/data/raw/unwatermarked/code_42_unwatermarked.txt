@@ -1,0 +1,52 @@
+```java
+import java.io.*;
+import javax.servlet.http.*;
+import java.net.*;
+
+public class MinimalHttpServer extends HttpServlet {
+
+    private static final String DOCUMENT_ROOT = "path/to/document/root";
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Set up basic response headers
+        response.setContentType("text/html");
+        response.setCharacterEncoding("UTF-8");
+
+        // Check if the requested file exists in the root directory
+        File requestedFile = new File(DOCUMENT_ROOT + request.getPathInfo());
+
+        // Serve the file directly if it exists
+        if (requestedFile.exists()) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(requestedFile))) {
+                PrintWriter out = response.getWriter();
+                char[] buffer = new char[4096];
+                int bytesRead;
+                while ((bytesRead = reader.read(buffer)) != -1) {
+                    out.write(buffer, 0, bytesRead);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e); // For simplicity, we just log the exception here.
+            }
+        } else {
+            // If the file doesn't exist, return an error page
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            PrintWriter out = response.getWriter();
+            out.println("<html><body>File Not Found</body></html>");
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        ServerSocket serverSocket = new ServerSocket(8080);
+        System.out.println("Listening on port 8080...");
+        
+        while (true) {
+            Socket clientSocket = serverSocket.accept();
+            System.out.println("Client connected.");
+
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/error.html");
+            dispatcher.forward(clientSocket.getInputStream(), clientSocket.getOutputStream());
+        }
+    }
+}
+```
