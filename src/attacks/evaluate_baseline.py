@@ -9,62 +9,97 @@ from transformers import AutoTokenizer
 PROJECT_ROOT = Path.home()/ "majorproject"/"RobustnessPrediction"/"src"
 KGW_DIR = Path.home() / "kgw-test" / "lm-watermarking"
 
-INPUT_DIR = PROJECT_ROOT / "data" / "raw" / "watermarked"
-MANIFEST_PATH = INPUT_DIR / "manifest.jsonl"
-OUTPUT_DIR = PROJECT_ROOT / "data" / "processed"
-OUTPUT_PATH = OUTPUT_DIR / "baseline_detection.jsonl"
+INPUT_DIR = PROJECT_ROOT / "data1"
+OUTPUT_DIR = PROJECT_ROOT / "data1" 
+OUTPUT_PATH = OUTPUT_DIR / "baseline_detection_data1.jsonl"
+MANIFEST_PATH = PROJECT_ROOT / "data1" / "paired_dataset.jsonl"
 
 sys.path.insert(0, str(KGW_DIR))
 from extended_watermark_processor import WatermarkDetector
 
 # Match generation configuration
-MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
 GAMMA = 0.25
 DELTA = 2.0
 SEEDING_SCHEME = "selfhash"
 SELECT_GREEN_TOKENS = True
 Z_THRESHOLD = 4.0
-
+MODEL_1 = "Qwen/Qwen2.5-1.5B-Instruct"
+MODEL_2 = "meta-llama/Llama-3.2-1B-Instruct"
+MODEL_3 = "HuggingFaceTB/SmolLM3-3B"
 
 def main():
-    if not MANIFEST_PATH.exists():
-        raise FileNotFoundError(f"Manifest not found: {MANIFEST_PATH}")
-
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
     with MANIFEST_PATH.open("r", encoding="utf-8") as f:
         manifest = [json.loads(line) for line in f if line.strip()]
-
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"Device: {device}")
-    print(f"Loading tokenizer: {MODEL_NAME}")
+    print(f"Loading tokenizers")
 
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+    tokenizer1 = AutoTokenizer.from_pretrained(MODEL_1)
+    tokenizer2 = AutoTokenizer.from_pretrained(MODEL_2)
+    tokenizer3 = AutoTokenizer.from_pretrained(MODEL_3)
 
-    detector = WatermarkDetector(
-        vocab=list(tokenizer.get_vocab().values()),
+    detector1 = WatermarkDetector(
+        vocab=list(tokenizer1.get_vocab().values()),
         gamma=GAMMA,
         delta=DELTA,
         seeding_scheme=SEEDING_SCHEME,
         select_green_tokens=SELECT_GREEN_TOKENS,
         device=device,
-        tokenizer=tokenizer,
+        tokenizer=tokenizer1,
         z_threshold=Z_THRESHOLD,
         normalizers=[],
         ignore_repeated_ngrams=False,
     )
+    detector2 = WatermarkDetector(
+            vocab=list(tokenizer2.get_vocab().values()),
+            gamma=GAMMA,
+            delta=DELTA,
+            seeding_scheme=SEEDING_SCHEME,
+            select_green_tokens=SELECT_GREEN_TOKENS,
+            device=device,
+            tokenizer=tokenizer2,
+            z_threshold=Z_THRESHOLD,
+            normalizers=[],
+            ignore_repeated_ngrams=False,
+        )
+    detector3 = WatermarkDetector(
+            vocab=list(tokenizer3.get_vocab().values()),
+            gamma=GAMMA,
+            delta=DELTA,
+            seeding_scheme=SEEDING_SCHEME,
+            select_green_tokens=SELECT_GREEN_TOKENS,
+            device=device,
+            tokenizer=tokenizer3,
+            z_threshold=Z_THRESHOLD,
+            normalizers=[],
+            ignore_repeated_ngrams=False,
+        )
+    
 
     results = []
 
     for record in manifest:
-        filename = record["filename"]
-        text_path = INPUT_DIR / filename
+        if (record["watermarked"] == False):
+            continue
+        fpath = record["text_file"]
+        text_path = INPUT_DIR / fpath
 
         if not text_path.exists():
             print(f"WARNING: Missing file: {text_path}")
             continue
 
         text = text_path.read_text(encoding="utf-8").strip()
+        if (record["model_id"]==MODEL_1):
+            detector = detector1
+        elif (record["model_id"]==MODEL_2):
+            detector = detector2
+        elif (record["model_id"]==MODEL_3):
+            detector = detector3
+        else:
+            print(f"WARNING: Unknown model ID: {record['model_id']}")
+            continue
 
         scores = detector.detect(
             text=text,
@@ -74,9 +109,9 @@ def main():
         )
 
         result = {
-            "document_id": record["document_id"],
-            "domain": record["domain"],
-            "filename": filename,
+            "sample_id": record["sample_id"],
+            "domain": record["category"],
+            "file_path": fpath,
             "character_count": len(text),
             "num_tokens_scored": scores["num_tokens_scored"],
             "num_green_tokens": scores["num_green_tokens"],
@@ -95,7 +130,7 @@ def main():
         results.append(result)
 
         print(
-            f"{filename}: "
+            f"{record['sample_id']}: "
             f"z={scores['z_score']:.3f}, "
             f"green_fraction={scores['green_fraction']:.3f}, "
             f"detected={scores['prediction']}"

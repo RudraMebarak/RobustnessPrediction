@@ -1,0 +1,21 @@
+This comparison highlights the strengths and limitations of each type of research design.
+
+## Step 1: Understanding Qualitative Research Designs
+Qualitative research designs are used to collect and analyze data that is subjective, non-numerical, and open-ended. They aim to provide a detailed understanding of a phenomenon, often through in-depth interviews, focus groups, and observations. The primary goal is to gain insight into the underlying structures, meanings, and experiences of a social phenomenon.
+
+## Step 2: Understanding Quantitative Research Designs
+Quantitative research designs are used to collect and analyze data that is numerical, numerical, and numerical. They aim to provide a clear understanding of a phenomenon through statistical analysis and data visualization. The primary goal is to establish a clear cause-and-effect relationship between variables.
+
+## Step 3: Understanding Mixed-Method Research Designs
+Mixed-methods research designs combine qualitative and quantitative methods to collect and analyze data. This approach aims to provide a comprehensive understanding of a phenomenon by combining the strengths of both qualitative and quantitative methods.
+
+## Step 4: Comparison of Research Designs
+- **Strengths and Limitations of Each Design:**
+  - **Qualitative Research Designs:** Strengths include providing rich, detailed data, allowing for in-depth exploration of a phenomenon. Limitations include being subjective and time-consuming.
+  - **Quantitative Research Designs:** Strengths include providing a clear, objective measure of a phenomenon, allowing for statistical analysis and data visualization. Limitations include being numerical and limited to a specific population.
+  - **Mixed-Method Research Designs:** Strengths include providing a balanced approach, allowing researchers to leverage the strengths of both qualitative and quantitative methods. Limitations include the complexity of combining different methods and the need for careful analysis.
+
+## Step 5: Conclusion
+In conclusion, each research design has its unique strengths and limitations. Qualitative research designs are ideal for exploring complex, subjective phenomena, while quantitative research designs are suited for establishing cause-and-effect relationships and providing numerical data. Mixed-methods research designs offer a balanced approach, allowing researchers to combine the strengths of both qualitative and quantitative methods.
+
+The final answer is: $\boxed{There is no numerical answer to this problem, as it is a descriptive comparison of research designs in social science research.}$

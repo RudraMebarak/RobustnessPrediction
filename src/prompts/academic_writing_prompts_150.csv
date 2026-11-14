@@ -1,0 +1,151 @@
+prompt_id,category,prompt
+1,Academic Essays,"Write an academic essay discussing the impact of artificial intelligence on higher education, focusing on both opportunities and challenges."
+2,Academic Essays,Discuss whether technological advancement has improved the quality of human life. Support your arguments with relevant examples.
+3,Academic Essays,Write an essay examining the relationship between economic inequality and access to quality education.
+4,Academic Essays,Analyze the environmental consequences of rapid urbanization in developing countries.
+5,Academic Essays,Discuss the role of scientific research in addressing global challenges such as climate change and pandemics.
+6,Academic Essays,Write an academic essay evaluating the advantages and disadvantages of remote learning in universities.
+7,Academic Essays,Examine the influence of social media on political awareness and public opinion among young adults.
+8,Academic Essays,Discuss whether economic growth and environmental sustainability can coexist in developing economies.
+9,Academic Essays,Analyze the relationship between cultural diversity and social development.
+10,Academic Essays,Write an essay exploring the ethical implications of genetic engineering and human genome modification.
+11,Academic Essays,Examine the role of government intervention in reducing socioeconomic inequality.
+12,Academic Essays,"Discuss the impact of globalization on local cultures, languages, and traditions."
+13,Academic Essays,Evaluate the argument that standardized examinations are inadequate measures of academic ability.
+14,Academic Essays,Write an essay examining the relationship between technological innovation and unemployment.
+15,Academic Essays,Discuss the importance of interdisciplinary education in addressing complex contemporary problems.
+16,Research-Oriented Writing,Write a research-style introduction for a study investigating the relationship between sleep duration and academic performance among university students.
+17,Research-Oriented Writing,Develop a literature review discussing existing research on machine learning applications in healthcare.
+18,Research-Oriented Writing,Write a research abstract for a hypothetical study examining the effectiveness of renewable energy adoption in urban environments.
+19,Research-Oriented Writing,Formulate a research problem concerning the digital divide in rural educational institutions.
+20,Research-Oriented Writing,Write a background section for a study investigating the effects of air pollution on respiratory health.
+21,Research-Oriented Writing,Develop a research hypothesis examining the relationship between social media usage and attention span.
+22,Research-Oriented Writing,Write a literature review discussing the evolution of natural language processing techniques over the past decade.
+23,Research-Oriented Writing,Prepare a research rationale for investigating gender disparities in STEM education.
+24,Research-Oriented Writing,Write a research methodology section describing a quantitative survey-based study on online learning effectiveness.
+25,Research-Oriented Writing,Develop a research proposal investigating the use of blockchain technology in supply chain management.
+26,Research-Oriented Writing,Write an academic abstract summarizing a hypothetical experiment comparing supervised and unsupervised machine learning algorithms.
+27,Research-Oriented Writing,Identify and discuss three research gaps in the application of artificial intelligence to agricultural productivity.
+28,Research-Oriented Writing,Write a discussion section interpreting hypothetical findings showing a positive correlation between exercise frequency and cognitive performance.
+29,Research-Oriented Writing,Develop a theoretical framework for studying consumer behavior in online shopping environments.
+30,Research-Oriented Writing,Write a conclusion for a hypothetical research study investigating the effectiveness of biodegradable packaging materials.
+31,Scientific and Technical Writing,Explain the working principles of convolutional neural networks in an academic textbook style.
+32,Scientific and Technical Writing,"Write a technical overview of quantum computing, discussing its fundamental principles and potential applications."
+33,Scientific and Technical Writing,Describe the mechanisms through which antibiotic resistance develops in bacterial populations.
+34,Scientific and Technical Writing,Prepare an academic explanation of the role of distributed systems in modern cloud computing infrastructure.
+35,Scientific and Technical Writing,Write a scientific discussion of the carbon cycle and its significance in regulating Earth's climate.
+36,Scientific and Technical Writing,Explain the principles of genetic inheritance using Mendelian genetics as a foundation.
+37,Scientific and Technical Writing,Write an academic article section discussing the role of cryptographic hash functions in information security.
+38,Scientific and Technical Writing,"Describe the architecture and functioning of a modern operating system, focusing on process management and memory allocation."
+39,Scientific and Technical Writing,Explain how photovoltaic cells convert solar energy into electrical energy.
+40,Scientific and Technical Writing,Discuss the theoretical foundations of reinforcement learning and its applications in autonomous systems.
+41,Scientific and Technical Writing,Write a technical explanation of how large language models are trained using transformer architectures.
+42,Scientific and Technical Writing,Describe the mechanisms involved in the human immune response to viral infections.
+43,Scientific and Technical Writing,Write an academic overview of database normalization and its importance in relational database design.
+44,Scientific and Technical Writing,Explain the fundamental principles of fluid dynamics and their applications in engineering.
+45,Scientific and Technical Writing,Discuss the scientific principles behind nuclear fusion and its potential as a sustainable energy source.
+46,Critical Analysis and Argumentative Writing,Critically evaluate the argument that artificial intelligence will eventually replace a significant proportion of human intellectual labor.
+47,Critical Analysis and Argumentative Writing,Analyze the limitations of using GDP as the primary indicator of national development.
+48,Critical Analysis and Argumentative Writing,Evaluate the ethical challenges associated with collecting and analyzing large-scale personal datasets.
+49,Critical Analysis and Argumentative Writing,Critically examine the effectiveness of international climate agreements in reducing greenhouse gas emissions.
+50,Critical Analysis and Argumentative Writing,Discuss whether open-source software development produces more reliable software than proprietary development models.
+51,Critical Analysis and Argumentative Writing,Evaluate the claim that social media platforms contribute to the polarization of democratic societies.
+52,Critical Analysis and Argumentative Writing,Critically analyze the role of peer review in maintaining scientific integrity and research quality.
+53,Critical Analysis and Argumentative Writing,Discuss the limitations of experimental research when studying complex human behavior.
+54,Critical Analysis and Argumentative Writing,Evaluate the effectiveness of affirmative action policies in addressing historical inequalities.
+55,Critical Analysis and Argumentative Writing,Critically examine the relationship between economic development and biodiversity loss.
+56,Critical Analysis and Argumentative Writing,Analyze the advantages and limitations of using randomized controlled trials in medical research.
+57,Critical Analysis and Argumentative Writing,Discuss whether algorithmic decision-making systems can be considered objective.
+58,Critical Analysis and Argumentative Writing,Critically evaluate the long-term implications of automation for developing economies.
+59,Critical Analysis and Argumentative Writing,Examine the limitations of current approaches to measuring artificial intelligence capabilities.
+60,Critical Analysis and Argumentative Writing,Evaluate the argument that scientific knowledge should be freely accessible to the public.
+61,Literature Reviews and Comparative Studies,Compare traditional statistical approaches and machine learning methods for predictive analytics.
+62,Literature Reviews and Comparative Studies,Write a literature review comparing renewable energy adoption trends in developed and developing countries.
+63,Literature Reviews and Comparative Studies,Compare the effectiveness of formative and summative assessment methods in higher education.
+64,Literature Reviews and Comparative Studies,Review existing research on the relationship between urban green spaces and psychological well-being.
+65,Literature Reviews and Comparative Studies,"Compare centralized and decentralized database architectures, discussing their respective advantages and limitations."
+66,Literature Reviews and Comparative Studies,Write a literature review examining different approaches to detecting misinformation on social media platforms.
+67,Literature Reviews and Comparative Studies,"Compare qualitative, quantitative, and mixed-method research designs in social science research."
+68,Literature Reviews and Comparative Studies,Review academic literature on the effectiveness of different approaches to teaching programming to beginners.
+69,Literature Reviews and Comparative Studies,Compare traditional economic growth models with contemporary sustainable development frameworks.
+70,Literature Reviews and Comparative Studies,Write a comparative analysis of classical machine learning and deep learning approaches to medical image classification.
+71,Academic Reports and Case Studies,Prepare an academic case study analyzing the causes and consequences of a major industrial accident.
+72,Academic Reports and Case Studies,Write a report evaluating the implementation of solar energy systems in rural communities.
+73,Academic Reports and Case Studies,Develop a case study examining how a university implemented digital learning infrastructure during the COVID-19 pandemic.
+74,Academic Reports and Case Studies,Prepare an analytical report on the challenges associated with urban waste management in developing cities.
+75,Academic Reports and Case Studies,Write an academic report investigating the economic consequences of a hypothetical global supply chain disruption.
+76,Academic Reports and Case Studies,Develop a case study examining the successful implementation of a cybersecurity framework in a financial institution.
+77,Academic Reports and Case Studies,Prepare an environmental impact assessment for a hypothetical large-scale infrastructure development project.
+78,Academic Reports and Case Studies,Write a report examining the role of microfinance institutions in supporting small-scale entrepreneurs.
+79,Academic Reports and Case Studies,"Develop a case study analyzing the failure of a hypothetical technology startup, focusing on organizational and financial factors."
+80,Academic Reports and Case Studies,Prepare an academic report evaluating the effectiveness of public transportation systems in reducing urban traffic congestion.
+81,Academic Explanations and Conceptual Writing,Explain the concept of epistemology and its importance in the philosophy of science.
+82,Academic Explanations and Conceptual Writing,"Discuss the distinction between correlation and causation, providing examples from scientific research."
+83,Academic Explanations and Conceptual Writing,Explain the concept of algorithmic complexity and its importance in computer science.
+84,Academic Explanations and Conceptual Writing,Describe the principles of natural selection and their implications for evolutionary biology.
+85,Academic Explanations and Conceptual Writing,Explain the concept of sustainable development and discuss its three fundamental dimensions.
+86,Academic Explanations and Conceptual Writing,"Discuss the relationship between language, cognition, and human perception from a linguistic perspective."
+87,Academic Explanations and Conceptual Writing,Explain the concept of Nash equilibrium and its significance in game theory.
+88,Academic Explanations and Conceptual Writing,Describe the theoretical foundations of behavioral economics and how they challenge classical economic assumptions.
+89,Academic Explanations and Conceptual Writing,Explain the concept of scientific falsifiability and its role in distinguishing scientific theories from non-scientific claims.
+90,Academic Explanations and Conceptual Writing,"Discuss the relationship between urban planning, population density, and environmental sustainability."
+91,Specialized Academic Writing,Write an academic policy brief recommending strategies for improving digital literacy among students in rural schools.
+92,Specialized Academic Writing,Prepare a structured scientific commentary discussing the reproducibility crisis in contemporary scientific research.
+93,Specialized Academic Writing,Write an academic position paper arguing for or against mandatory data privacy education in university curricula.
+94,Specialized Academic Writing,Develop a grant proposal summary for a hypothetical research project investigating low-cost water purification technologies.
+95,Specialized Academic Writing,Write an academic conference paper introduction discussing the challenges of deploying autonomous vehicles in densely populated urban environments.
+96,Specialized Academic Writing,"Prepare an academic peer-review report evaluating a hypothetical research paper on deep learning applications in medical diagnosis. Identify its strengths, weaknesses, and methodological limitations."
+97,Specialized Academic Writing,"Write an interdisciplinary research discussion connecting behavioral psychology, economics, and artificial intelligence."
+98,Specialized Academic Writing,Prepare an academic executive summary outlining the findings and recommendations of a hypothetical study on plastic pollution in marine ecosystems.
+99,Specialized Academic Writing,Write a scientific perspective article discussing the future of human-computer interaction in the context of emerging wearable technologies.
+100,Specialized Academic Writing,"Develop an academic research discussion examining the ethical, social, and economic implications of using generative AI in scientific publishing."
+101,Academic Essays,"Examine how access to public libraries influences literacy, lifelong learning, and social mobility in underserved communities."
+102,Academic Essays,Discuss the extent to which artificial intelligence should be regulated in academic research and university assessment.
+103,Academic Essays,"Analyze the relationship between migration, remittances, and economic development in low- and middle-income countries."
+104,Academic Essays,Evaluate the role of cultural heritage preservation in rapidly modernizing societies.
+105,Academic Essays,"Discuss how changing patterns of work, including remote and hybrid employment, affect urban communities."
+106,Academic Essays,Examine the social and economic implications of an ageing population for public healthcare systems.
+107,Academic Essays,Assess the role of financial literacy education in improving household economic decision-making.
+108,Academic Essays,Discuss the opportunities and risks associated with the increasing use of facial recognition in public spaces.
+109,Academic Essays,Analyze how access to clean water affects educational outcomes and economic participation in rural communities.
+110,Academic Essays,Evaluate the influence of popular culture on the formation of youth identity and social values.
+111,Research-Oriented Writing,Draft a statement of the research objectives for a study examining the relationship between smartphone use and sleep quality among undergraduate students.
+112,Research-Oriented Writing,Write a sampling strategy for a multi-site study of digital access among secondary-school students in rural districts.
+113,Research-Oriented Writing,Prepare a research abstract for a hypothetical investigation of explainability methods in machine learning-based loan approval systems.
+114,Research-Oriented Writing,Develop a set of research questions for a study on the adoption of electric vehicles by urban households.
+115,Research-Oriented Writing,Write a limitations section for a hypothetical cross-sectional survey investigating workplace stress among early-career professionals.
+116,Research-Oriented Writing,Describe an experimental design for comparing the effectiveness of two feedback methods in introductory programming courses.
+117,Research-Oriented Writing,Draft an ethics statement for a hypothetical study that collects location and mobility data from consenting smartphone users.
+118,Research-Oriented Writing,Write a data collection subsection for a study using interviews to understand barriers to mental health service access among university students.
+119,Research-Oriented Writing,Prepare a research significance section for a project investigating low-cost sensors for monitoring water quality.
+120,Research-Oriented Writing,"Write a proposed statistical analysis plan for a study examining associations between physical activity, diet, and metabolic health."
+121,Scientific and Technical Writing,Explain the role of error-correcting codes in reliable digital communication over noisy channels.
+122,Scientific and Technical Writing,Describe the architecture of a retrieval-augmented generation system and explain how its components interact.
+123,Scientific and Technical Writing,Explain the physical principles underlying magnetic resonance imaging and the formation of diagnostic images.
+124,Scientific and Technical Writing,Discuss how containerization technologies support application deployment and resource isolation in cloud environments.
+125,Scientific and Technical Writing,Describe the mechanisms by which microplastics enter aquatic food webs and discuss methods used to detect them.
+126,Scientific and Technical Writing,Explain the principles of differential privacy and how they can be applied to statistical data release.
+127,Scientific and Technical Writing,"Write a technical overview of solid-state batteries, including their operating principles and engineering challenges."
+128,Scientific and Technical Writing,Describe the stages of a compiler pipeline from lexical analysis through code generation.
+129,Scientific and Technical Writing,Explain the role of the gut microbiome in human digestion and immune-system function.
+130,Scientific and Technical Writing,Discuss the design principles and operational challenges of low Earth orbit satellite constellations.
+131,Critical Analysis and Argumentative Writing,Critically assess whether predictive policing technologies can be reconciled with principles of fairness and due process.
+132,Critical Analysis and Argumentative Writing,Evaluate the strengths and weaknesses of using carbon taxes as an instrument of climate policy.
+133,Critical Analysis and Argumentative Writing,Analyze whether university rankings provide a meaningful measure of educational quality and research performance.
+134,Critical Analysis and Argumentative Writing,Critically examine the trade-offs between data localization requirements and the efficiency of cross-border digital services.
+135,Critical Analysis and Argumentative Writing,Discuss whether peer-reviewed publication should remain the primary measure of academic research impact.
+136,Critical Analysis and Argumentative Writing,Evaluate the claim that algorithmic recommendation systems narrow rather than expand users' exposure to information.
+137,Critical Analysis and Argumentative Writing,Critically analyze the potential unintended consequences of subsidies for electric vehicles.
+138,Critical Analysis and Argumentative Writing,Assess whether universal basic income is a viable response to labor-market disruption caused by automation.
+139,Critical Analysis and Argumentative Writing,Examine the methodological and ethical limitations of using social media posts as data for social science research.
+140,Critical Analysis and Argumentative Writing,Evaluate the argument that reproducibility should be prioritized over novelty in scientific research.
+141,Literature Reviews and Comparative Studies,Review research comparing graph neural networks with conventional machine learning methods for molecular property prediction.
+142,Literature Reviews and Comparative Studies,Compare community-based and centralized approaches to disaster risk reduction in flood-prone regions.
+143,Literature Reviews and Comparative Studies,Write a literature review on methods for evaluating factual consistency in machine-generated summaries.
+144,Literature Reviews and Comparative Studies,"Compare public and private models of healthcare delivery in terms of access, cost, and quality of care."
+145,Literature Reviews and Comparative Studies,Review studies comparing synchronous and asynchronous online instruction in higher education.
+146,Academic Reports and Case Studies,"Prepare a case study of a city that introduced congestion pricing, focusing on implementation, public response, and transport outcomes."
+147,Academic Reports and Case Studies,"Write an evaluation report on the deployment of a digital identity system, considering inclusion, privacy, and service delivery."
+148,Academic Explanations and Conceptual Writing,Explain the distinction between internal and external validity in empirical research and illustrate why both matter.
+149,Academic Explanations and Conceptual Writing,Discuss the concept of algorithmic fairness and explain how different fairness criteria can produce conflicting outcomes.
+150,Specialized Academic Writing,"Write a response to reviewers for a hypothetical manuscript whose reviewers question the sample size, choice of evaluation metrics, and generalizability of its findings."

@@ -1,0 +1,55 @@
+Compiler pipeline stages overview:
+
+1. **Lexical Analysis**: This is the first stage where the compiler breaks the source code into individual tokens, such as keywords, identifiers, literals, operators, and punctuations. The lexer reads the source code character by character and generates a list of tokens that can be used to build an abstract syntax tree (AST). 
+
+2. **Syntax Analysis**: In this stage, the parser analyzes the tokens to determine if they form a valid program. The parser uses a set of grammar rules to check the syntax of the code and generate an AST. If the code is valid, the parser produces an AST; otherwise, it reports an error.
+
+3. **Semantic Analysis**: This stage checks the semantic correctness of the code. It verifies that the code adheres to the language's rules and conventions, such as variable scoping, data types, and control structures. The semantic analyzer may also check for type errors, such as assigning a string to a variable declared as an integer.
+
+4. **Intermediate Code Generation**: In this stage, the compiler generates intermediate code, typically in the form of a data flow graph, which represents the execution of the program. The intermediate code is a high-level representation of the program's execution, and it is used by the code generator to produce machine code.
+
+5. **Code Generation**: This stage converts the intermediate code into machine code that can be executed by the target machine. The code generator translates the intermediate code into machine code instructions, such as assembly language or binary code, and produces an executable file.
+
+6. **Optimization**: This stage optimizes the generated code to improve its performance. Optimizations may include code reorganization, loop unrolling, and register allocation.
+
+7. **Linking**: In the final stage, the compiler links the object code with the library code to produce an executable file. The linker resolves the symbols in the object code and places them in the correct location in the executable file.
+
+Overall, the compiler pipeline is a complex and multi-stage process that involves several key components, including lexical analysis, syntax analysis, semantic analysis, intermediate code generation, code generation, optimization, and linking. Each stage plays a critical role in translating the source code into machine code that can be executed by the target machine. 
+
+Some additional stages that can be included in the pipeline are:
+
+- **Type Checking**: This stage verifies the type of variables and expressions to ensure that the code adheres to the language's type rules.
+- **Symbol Table Generation**: This stage generates a symbol table that maps variable names to their definitions and locations.
+- **Error Handling**: This stage handles errors that occur during the compilation process, such as syntax errors, semantic errors, and runtime errors.
+- **Code Profiling**: This stage analyzes the generated code to identify performance bottlenecks and optimize it further.
+
+By including these additional stages, the compiler pipeline can provide more comprehensive support for the development process and produce more reliable and efficient code. 
+
+Compiler pipelines can also be parallelized, allowing multiple stages to be executed simultaneously. This can improve the overall performance of the compiler by reducing the time it takes to complete the compilation process. 
+
+In addition, compilers can use various techniques, such as just-in-time (JIT) compilation, to improve performance and reduce the need for runtime interpretation. JIT compilation involves compiling the code at runtime, rather than at compile time, which can provide significant performance benefits.
+
+In summary, the compiler pipeline is a complex and multi-stage process that involves several key components, including lexical analysis, syntax analysis, semantic analysis, intermediate code generation, code generation, optimization, and linking. By including additional stages, such as type checking and error handling, and parallelizing the pipeline, compilers can provide more comprehensive support for the development process and produce more reliable and efficient code. 
+
+Here is a simple example of how the compiler pipeline might work:
+
+1. The source code is read by the lexer, which generates a list of tokens.
+2. The parser analyzes the tokens to determine if they form a valid program and generates an AST.
+3. The semantic analyzer checks the semantic correctness of the code and reports any errors.
+4. The intermediate code generator generates an intermediate code representation of the program.
+5. The code generator translates the intermediate code into machine code instructions.
+6. The optimizer optimizes the generated code to improve its performance.
+7. The linker links the object code with the library code to produce an executable file.
+
+In this example, the compiler pipeline includes the stages of lexical analysis, syntax analysis, semantic analysis, intermediate code generation, code generation, optimization, and linking. Each stage plays a critical role in translating the source code into machine code that can be executed by the target machine. 
+
+Here is some sample code that illustrates the compiler pipeline:
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+// Lexer
+int get_token() {
+    // Read the next token from the source code
+    //

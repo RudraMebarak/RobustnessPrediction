@@ -1,0 +1,68 @@
+**Prerequisites:**
+
+* Familiarity with a billing system or subscription platform
+* Basic understanding of recurring subscriptions
+* Ability to access your subscription information
+
+**Step-by-Step Guide:**
+
+1. **Gather Information**
+	* Log in to your subscription platform
+	* Navigate to the "Subscriptions" or "Billing" section
+	* Look for the "Recurring Subscriptions" or "Subscription History" section
+	* Identify the subscriptions you want to track
+2. **Verify Subscription Completion**
+	* Check the "Active" status for each subscription
+	* Look for any "Paid" or "Completed" notifications
+	* Verify that the subscription has been active for at least 30 days
+3. **Create a List**
+	* Create a list of recurring subscriptions you want to track
+	* Include the subscription name, description, and payment method
+	* Note the subscription start date and end date (if applicable)
+4. **Analyze Subscription History**
+	* Review the subscription history for each recurring subscription
+	* Look for any recurring charges or payments
+	* Identify any recurring subscriptions that are no longer active
+5. **Determine Which Subscriptions to Cancel**
+	* Review the subscription list and identify any recurring subscriptions that:
+		+ Are no longer active
+		+ Have been inactive for over 90 days
+		+ Have a payment method that is no longer active
+	* Consider canceling any subscriptions that are not being used or are no longer needed
+6. **Verify Completion**
+	* Check the "Active" status for each subscription to confirm it has been canceled
+	* Verify that the subscription has been removed from the list
+
+**Example:**
+
+Suppose you have the following recurring subscriptions:
+
+* Amazon Prime
+* Netflix
+* Spotify Premium
+* Apple Music
+
+You want to track these subscriptions and decide which ones to cancel. Here's how you would follow the steps:
+
+1. Gather Information:
+	* Log in to your Amazon Prime subscription platform
+	* Navigate to the "Subscriptions" or "Billing" section
+	* Identify the Amazon Prime subscription
+2. Verify Subscription Completion:
+	* Check the "Active" status for Amazon Prime
+	* Look for any "Paid" or "Completed" notifications
+	* Verify that the subscription has been active for at least 30 days
+3. Create a List:
+	* Create a list of recurring subscriptions: Amazon Prime, Netflix, Spotify Premium, Apple Music
+4. Analyze Subscription History:
+	* Review the subscription history for each recurring subscription
+	* Look for any recurring charges or payments
+	* Identify any recurring subscriptions that are no longer active
+5. Determine Which Subscriptions to Cancel:
+	* Netflix and Spotify Premium are no longer active, so you cancel them
+	* Apple Music is still active, so you keep it
+6. Verify Completion:
+	* Check the "Active" status for each subscription to confirm it has been canceled
+	* Verify that the subscriptions have been removed from the list
+
+By following these steps, you can easily track recurring subscriptions, identify which ones to cancel, and ensure you are paying for the subscriptions you need.

@@ -1,0 +1,31 @@
+**Prerequisites:**
+
+* Familiarity with a project management tool (e.g., Trello, Asana, Jira)
+* Basic understanding of task management terminology
+
+**Step-by-Step Guide:**
+
+1. **Identify the task and its status**: Recognize the task you want to update and note its current status (e.g., "Project: XYZ, Task: Development, Status: In Progress").
+2. **Check the task's due date and any relevant deadlines**: Verify if the task has a due date or if there are any specific deadlines mentioned.
+3. **Determine the required actions**: Decide on the necessary actions to update the task's status, such as sending an email, creating a new task, or updating the project's calendar.
+4. **Create a new task or update an existing one**: Use your project management tool to create a new task or update the existing one with the updated information.
+5. **Verify completion**: Double-check that the task is now marked as complete.
+
+**Example:**
+
+Suppose you're a project manager for a marketing campaign, and you need to update the status of the "Social Media Advertising" task.
+
+1. **Identify the task and its status**: Recognize the task you want to update, "Social Media Advertising", and note its current status, "In Progress".
+2. **Check the task's due date and any relevant deadlines**: Verify that the task's due date is tomorrow and that there are no specific deadlines mentioned.
+3. **Determine the required actions**: Decide on the necessary actions to update the task's status, such as sending an email to the team or creating a new task in the project's calendar.
+4. **Create a new task or update an existing one**: Use the project management tool to create a new task with the updated information, "Social Media Advertising: In Progress (Tomorrow)".
+5. **Verify completion**: Double-check that the task is now marked as complete.
+
+**Tips and Variations:**
+
+* Use a standardized format for task updates to ensure consistency across the project.
+* Consider adding a brief description or note to the task update to provide context or additional information.
+* If you're using a tool like Trello, you can use the "Check Off" feature to mark the task as complete.
+* If you're using a tool like Asana, you can use the "Update Task" feature to update the task's status.
+
+By following these steps, you'll be able to create concise status updates on ongoing tasks and keep your project on track. Remember to always verify the task's completion to ensure that your updates are accurate and effective.

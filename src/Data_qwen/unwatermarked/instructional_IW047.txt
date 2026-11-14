@@ -1,0 +1,61 @@
+Additionally, suggest best practices for reading and understanding complex or large codebases in general.
+Prerequisites: 
+- Familiarity with basic programming concepts such as variables, functions, loops, conditionals
+- Basic knowledge of data types (integers, floats, strings)
+- Understanding of object-oriented programming concepts
+
+Step 1: Understand the project structure
+Before diving into any unfamiliar codebase, it's essential to understand its overall structure. Look at the file system hierarchy, class diagrams, module documentation, and any other relevant information provided by the project maintainers.
+
+Best practice:
+Read through the README.md file if available, which often contains key information about the project's purpose, functionality, dependencies, and usage instructions.
+
+Step 2: Identify entry points and main classes
+Start from where you think the program might begin executing - typically this is usually found in one or more entry point files like main.py, app.py, etc. These are likely to be your first stop when exploring the codebase.
+
+Best practice:
+Take note of any important helper classes or modules that seem to play a central role in the application logic.
+
+Step 3: Examine the most frequently used classes/methods
+Most applications have several classes or methods called "main" or marked as critical by the authors. Start by looking at these.
+
+Best practice:
+Look for comments, docstrings, or other metadata describing what each method does and why it was implemented.
+
+Step 4: Analyze the flow of execution
+Follow the order in which statements are executed within the various classes and methods. This can help identify potential issues or bottlenecks.
+
+Best practice:
+Use a debugger tool (e.g., pdb) to pause execution at certain lines and inspect variable values.
+
+Step 5: Check out API documentation
+If the project has a public API document, check it out. It will give you insight into what features the software supports, how they work, and how to use them.
+
+Best practice:
+Document the API yourself so others who come after you know what's possible.
+
+Step 6: Explore unit tests
+Unit testing provides assurance that individual components of the codebase function correctly on their own. Review existing test cases and try running new ones if there are none yet.
+
+Best practice:
+Keep all test suites up-to-date and run them regularly.
+
+Step 7: Use online resources
+The web is full of tutorials, guides, and forums dedicated to specific languages, frameworks, or libraries being used in the project.
+
+Best practice:
+Bookmark helpful articles and videos and refer back to them as needed.
+
+Completion Verification:
+
+To verify that you've understood the codebase thoroughly, start by attempting some simple tasks - e.g., logging in, searching for something, submitting a form. If everything works correctly, you've effectively "read" the codebase.
+
+Additional Tips:
+
+- Don't hesitate to ask questions in forums or Stack Overflow until you're confident you understand the code.
+- Be wary of assumptions - don't make untested guesses based on what you think should happen instead of verifying it directly.
+- Documenting your findings helps not only you but future developers too! 
+
+This guide gives you a solid foundation to tackle any unfamiliar codebase. Remember, understanding comes with time and practice. Keep practicing and experimenting, and soon enough, even the biggest projects will become clear. Happy coding! 🚀👩‍💻👨‍💻
+
+Note: The example steps above are generalized and may need adjustments depending on the actual project details. Always adapt these steps to fit the specifics of the codebase you're working on. Good luck! 😊✨👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩‍💻👨‍💻👩

@@ -1,0 +1,81 @@
+Note: The chat should be conversational and in a narrative format, as if it were a conversation between two people. The recommendation should be for a new restaurant, and the friend should be seeking suggestions based on their preferences. 
+
+Here is an example of a chat:
+
+Friend: Hey, I'm thinking of trying a new restaurant for dinner tonight. Any recommendations?
+
+You: Of course! I'd be happy to help. What kind of cuisine are you in the mood for? Do you have any specific restaurants in mind or any dietary restrictions?
+
+Friend: I'm in the mood for Italian, and I'm not really picky about the restaurant. I've heard good things about it, but I don't remember the name. Can you suggest something?
+
+You: Great! There's a place called Bella Vita that's been getting a lot of buzz lately. It's an Italian restaurant with a cozy atmosphere and delicious pasta dishes. They also have a great selection of wines. What do you think?
+
+Friend: That sounds perfect! Do they have any special deals or reservations available tonight?
+
+You: I don't have any information about specific deals, but I can check with them. As for reservations, they usually book up quickly, so it might be a good idea to reserve a table if you're planning to go. I'll give them a call and see if there are any openings.
+
+Friend: Sounds good, thanks for your help!
+
+You: No problem! Let me know if you decide to go, and I'll give you an update on the reservation. Enjoy your meal!
+
+Here's your task: Create a similar chat between two friends discussing a restaurant recommendation. 
+
+Remember to use a conversational tone, and include the friend asking for a restaurant recommendation and you responding with your suggestions and follow-up questions. The friend should also ask about availability or special deals. 
+
+Your response should be formatted in a narrative style, with the friend's questions and your responses separated by line breaks. 
+
+Please provide your response as follows:
+
+Friend: [Friend's question or statement]
+You: [Your response]
+Friend: [Friend's follow-up question or statement]
+You: [Your response]
+Friend: [Friend's final statement or question]
+You: [Your response] 
+
+Repeat the pattern until the conversation is complete. 
+
+Note: The restaurant should be fictional, and the names should be made up to fit the conversation. The friend should ask about cuisine, any dietary restrictions, and availability or special deals. The conversation should be natural and engaging, as if it were a real conversation between friends. 
+
+Make sure to include the friend's name and your responses in the narrative format. 
+
+Also, please do not use any markdown formatting. 
+
+Here is an example of a chat:
+
+Friend: Hey, I'm thinking of trying a new restaurant for dinner tonight. Any recommendations?
+
+You: Of course! I'd be happy to help. What kind of cuisine are you in the mood for? Do you have any specific restaurants in mind or any dietary restrictions?
+
+Friend: I'm in the mood for Italian, and I'm not really picky about the restaurant. I've heard good things about it, but I don't remember the name. Can you suggest something?
+
+You: Great! There's a place called Bella Vita that's been getting a lot of buzz lately. It's an Italian restaurant with a cozy atmosphere and delicious pasta dishes. They also have a great selection of wines. What do you think?
+
+Friend: That sounds perfect! Do they have any special deals or reservations available tonight?
+
+You: I don't have any information about specific deals, but I can check with them. As for reservations, they usually book up quickly, so it might be a good idea to reserve a table if you're planning to go. I'll give them a call and see if there are any openings.
+
+Friend: Sounds good, thanks for your help!
+
+You: No problem! Let me know if you decide to go, and I'll give you an update on the reservation. Enjoy your meal!
+
+Note: The restaurant should be fictional, and the names should be made up to fit the conversation. The friend should ask about cuisine, any dietary restrictions, and availability or special deals. The conversation should be natural and engaging, as if it were a real conversation between friends. 
+
+Please provide your response as follows:
+
+Friend: [Friend's question or statement]
+You: [Your response]
+Friend: [Friend's follow-up question or statement]
+You: [Your response]
+Friend: [Friend's final statement or question]
+You: [Your response] 
+
+Repeat the pattern until the conversation is complete. 
+
+Remember to use a conversational tone, and include the friend's name and your responses in the narrative format. 
+
+Also, please do not use any markdown formatting. 
+
+Here is an example of a chat:
+
+Friend: Hey, I'm thinking of trying a new restaurant for dinner tonight

@@ -1,0 +1,60 @@
+They each have a 50% chance of making their decision based on the following criteria:
+
+- If they are in a good mood, they will choose the home version with certainty.
+- If they are not in a good mood, they flip a coin to decide between the home version (heads) and going to the cinema (tails).
+- The probability that both friends are in a good mood is $\frac{1}{4}$.
+
+If one friend is currently in a bad mood and the other is in a good mood, calculate the expected value for the total distance traveled by all three friends if the cinema distance is twice the home distance.
+
+To determine the expected value for the total distance traveled by all three friends, we need to consider the possible outcomes of their decisions and the associated probabilities. Let's break it down step by step.
+
+### Step 1: Determine the distances
+Let \( D_H \) be the distance from your home to the cinema, which is given as the cinema distance.
+The distance from your home to your friends' homes are:
+\[ d_1 = D_H + d_{1H} \]
+\[ d_2 = D_H + d_{2H} \]
+
+### Step 2: Calculate the distance for each friend's movement
+For your friends:
+- Moving from your home to your friends’ homes takes distance \( d_1 \) if you choose the home version or \( d_2 \) if you choose the cinema.
+- Moving from your friends’ homes back to your home takes distance \( d_1 \) if you choose the home version or \( d_2 \) if you choose the cinema.
+- Moving from your friends’ homes back to your friends’ homes takes distance \( d_1 \) if you choose the home version or \( d_2 \) if you choose the cinema.
+- Moving from your friends’ homes back to your friends’ homes takes distance \( d_1 \) if you choose the home version or \( d_2 \) if you choose the cinema.
+
+### Step 3: Probability analysis
+Each friend has an equal probability of either choosing the home version or going to the cinema. Therefore, the probability that any friend chooses the home version is:
+\[ P(\text{choose home}) = P(\text{choose cinema}) = 0.5 \]
+
+### Step 4: Expected values
+We need to compute the expected value for the total distance traveled by all three friends for the cinema distance case (\( d_1 \)) and the home distance case (\( d_2 \)).
+
+#### Case 1: Cinema distance
+For every move made (home to friends’ home, friends’ home to friends’ home, friends’ home to friends’ home), there are two choices:
+1. Home -> Friends' home -> Friends' home -> Friends' home -> Home
+2. Home -> Friends' home -> Friends' home -> Friends' home -> Cinema
+
+The probability of taking these moves alternately follows binomial trials with respect to flipping a fair coin (heads → home, tails → cinema). 
+
+Total number of moves per cycle = 8 (since moving 4 times returns us to our starting position). Each time we return to start means we’ve moved over exactly one full round trip considering symmetry since the flips are balanced equally:
+  
+So,
+- Half of these moves would use heads, corresponding 
+to moves taken from your home to friends’ home to friends’ home to friends’ home to friends’ home to your home again
+- Other half uses tails, leading to moves taken from your home to friends’ home to friends’ home to friends’ home to cinema.
+
+Thus, there are four complete cycles where each complete set results in zero net distance travelled except for final legs of home and cinema trips.
+
+Overall, the total distance travelled remains effectively unchanged regardless of choice due to symmetry and even distribution.
+
+### Conclusion
+Since every type of movie selection does not affect overall cumulative distance travelled due to symmetry and independence across rounds, expectation thus equals zero distance travelled irrespective of choice:
+
+\[
+E[\text{Total distance}] = 0
+\]A farmer wants to fence a rectangular field using exactly 100 meters of fencing material. The farmer decides to use part of the existing fence along one side of the rectangle as part of the perimeter. Calculate the dimensions of the field that maximize its area. To solve this problem, let's define the variables first. Let the length of the field parallel to the existing fence be \( L \) and the width of the field perpendicular to the existing fence be \( W \). Since the farmer is using part of the existing fence as part of the perimeter, only three sides of the rectangle require fencing material. This gives us the equation:
+
+\[ L + 2W = 100 \]
+
+We can express \( L \) in terms of \( W \):
+
+\[

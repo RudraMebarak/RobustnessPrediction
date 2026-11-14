@@ -1,0 +1,54 @@
+The conversation should include at least three different types of resources (e.g., books, online courses, apps). End the conversation with the exact sentence: "Thanks for all the suggestions! I'll definitely start with the Python course." 
+
+Note: Ensure that each participant's response is in the form of a question, followed by their recommendation, except for the last response which should be the exact ending sentence. 
+
+Example of how the conversation could start:
+Person A: I'm new to programming and I'm looking for a good resource to get started with Python.
+Person B: What level are you starting from? There are many beginner-friendly resources out there. 
+Person A: I'm a complete beginner. Can you recommend something?
+Person B: [recommendation] 
+
+Person C: That sounds great! What about online courses? I've heard some are really helpful.
+Person B: [recommendation] 
+
+Person A: Thanks! I've heard of a few apps too. Can you suggest any?
+Person B: [recommendation] 
+
+Person C: Great, I'll check those out. Thanks again!
+Person A: Thanks for all the suggestions! I'll definitely start with the Python course. 
+
+Make sure each participant's response is in the form of a question, followed by their recommendation, except for the last response which should be the exact ending sentence. Also, ensure that each recommendation is a different type of resource (book, online course, app). 
+
+Here's the conversation following the guidelines:
+Person A: I'm new to programming and I'm looking for a good resource to get started with Python.
+Person B: What level are you starting from? There are many beginner-friendly resources out there. 
+Person A: I'm a complete beginner. Can you recommend something?
+Person B: [recommendation] The "Python Crash Course" by Eric Matthes is a great beginner's guide. It covers the basics and has exercises to practice.
+
+Person C: That sounds great! What about online courses? I've heard some are really helpful.
+Person B: [recommendation] Codecademy's Python course is excellent for beginners. It's interactive and provides a hands-on learning experience.
+
+Person A: Thanks! I've heard of a few apps too. Can you suggest any?
+Person B: [recommendation] The "Python for Everybody" course on Coursera is a great choice. It's taught by Dr. Charles Severance and covers the fundamentals of Python.
+
+Person C: Great, I'll check those out. Thanks again!
+Person A: Thanks for all the suggestions! I'll definitely start with the Python course. 
+
+Note: Make sure to replace [recommendation] with the actual resource name and a brief description for each recommendation. Also, ensure that each recommendation is a different type of resource (book, online course, app). In this example, the resources are a book, an online course, and another online course. If you want to include a different type of resource, such as an app, you can do so. For instance, "The Python Cookbook" by David Beazley and Brian K. Jones is a great resource for more advanced Python topics, but for beginners, the book by Eric Matthes is more suitable. However, if you want to include an app, you could mention "Pythonista" as an app for learning Python on the go. Just make sure to follow the format and guidelines provided. 
+
+Here's another example conversation following the guidelines:
+Person A: I'm new to programming and I'm looking for a good resource to get started with Python.
+Person B: What level are you starting from? There are many beginner-friendly resources out there. 
+Person A: I'm a complete beginner. Can you recommend something?
+Person B: [recommendation] The "Python for Beginners" book by Michael T. R. Jones is a good starting point. It covers the basics and includes exercises to practice.
+
+Person C: That sounds great! What about online courses? I've heard some are really helpful.
+Person B: [recommendation] Udemy's "Python Programming for Beginners" course is excellent. It's structured and provides a comprehensive learning experience.
+
+Person A: Thanks! I've heard of a few apps too. Can you suggest any?
+Person B: [recommendation] The "Pythonista" app is a great choice for learning Python on the go. It offers interactive lessons and exercises.
+
+Person C: Great, I'll check those out. Thanks again!
+Person A: Thanks for all the suggestions! I'll definitely start with the Python course. 
+
+Note: Make sure to replace [recommendation] with the actual resource name and a brief description for each recommendation. Also, ensure that each recommendation is a different type of resource (book, online course, app). In this example, the resources are a book, an online course, and an app. If you want to include another type

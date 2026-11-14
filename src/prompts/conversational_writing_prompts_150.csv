@@ -1,0 +1,151 @@
+﻿prompt_id,category,prompt
+CV001,Everyday conversations,Write a casual conversation between two friends deciding what to do on a free weekend.
+CV002,Everyday conversations,Create a dialogue between roommates discussing how to divide everyday household responsibilities.
+CV003,Everyday conversations,Write a conversation between two classmates catching up after missing several lectures.
+CV004,Everyday conversations,Imagine two friends debating whether to watch a film at home or go to a cinema.
+CV005,Everyday conversations,Write a relaxed conversation between neighbors meeting for the first time.
+CV006,Everyday conversations,Create a dialogue between siblings planning a surprise for a family member.
+CV007,Everyday conversations,Write a conversation in which two friends compare how their daily routines have changed.
+CV008,Everyday conversations,Create a casual exchange between friends trying to choose a place to eat.
+CV009,Personal anecdotes,Tell a friend about a small embarrassing incident that became funny later.
+CV010,Personal anecdotes,Write an informal account of a time when a simple plan went completely wrong.
+CV011,Personal anecdotes,Describe a memorable first attempt at learning a new hobby in a conversational tone.
+CV012,Personal anecdotes,Share a story about getting lost somewhere unfamiliar and what happened afterward.
+CV013,Personal anecdotes,Write a casual recollection of an unexpectedly enjoyable day.
+CV014,Personal anecdotes,Tell a friend about a time you misunderstood someone's message.
+CV015,Personal anecdotes,Describe a minor everyday inconvenience that turned into an amusing story.
+CV016,Personal anecdotes,Write about a childhood memory that seems funny from an adult perspective.
+CV017,Opinions and preferences,Write a casual message explaining why you prefer reading physical books or digital books.
+CV018,Opinions and preferences,Discuss with a friend whether living in a large city or a small town is better.
+CV019,Opinions and preferences,Write an informal opinion about whether people should plan their days in detail.
+CV020,Opinions and preferences,Explain conversationally why a popular movie or show did not appeal to you.
+CV021,Opinions and preferences,Discuss whether social media makes it easier or harder to maintain friendships.
+CV022,Opinions and preferences,Write a relaxed argument about whether mornings or late nights are more productive.
+CV023,Opinions and preferences,Share your thoughts on whether travelling alone is better than travelling with friends.
+CV024,Opinions and preferences,Explain to a friend why you enjoy or dislike trying unfamiliar food.
+CV025,Advice between friends,Write a supportive message to a friend who is nervous about starting college.
+CV026,Advice between friends,Respond conversationally to a friend who feels overwhelmed by too many commitments.
+CV027,Advice between friends,Give a friend practical suggestions for getting back into a neglected hobby.
+CV028,Advice between friends,Write a thoughtful reply to someone unsure whether to join a new social group.
+CV029,Advice between friends,Help a friend think through whether to accept an unfamiliar opportunity.
+CV030,Advice between friends,Write a reassuring conversation with someone who made a small but frustrating mistake.
+CV031,Advice between friends,Suggest ways a friend can make a long commute feel less tiring.
+CV032,Advice between friends,Respond to a friend who is struggling to maintain a study routine.
+CV033,Text messages and chats,Create a realistic group chat in which friends try to coordinate a last-minute meetup.
+CV034,Text messages and chats,Write a short text exchange where one person misunderstands an autocorrected message.
+CV035,Text messages and chats,Create a friendly chat between two people planning a shared shopping trip.
+CV036,Text messages and chats,Write a sequence of messages between friends reacting to an unexpected announcement.
+CV037,Text messages and chats,Create a group chat where everyone has a different suggestion for dinner.
+CV038,Text messages and chats,Write a casual exchange in which someone politely cancels plans and suggests another day.
+CV039,Text messages and chats,Create a chat between siblings sharing updates about their family.
+CV040,Text messages and chats,Write a conversation over text where two friends try to remember the name of a place they visited.
+CV041,Campus and student life,Write a conversation between students discussing how they are preparing for an upcoming exam.
+CV042,Campus and student life,Create a casual exchange about finding a quiet place to study on campus.
+CV043,Campus and student life,Write a dialogue between friends deciding whether to attend a college event.
+CV044,Campus and student life,Imagine students discussing an unexpectedly difficult assignment after class.
+CV045,Campus and student life,Write a conversation between a senior and a junior about adjusting to college life.
+CV046,Campus and student life,Create a discussion among classmates about choosing a topic for a group project.
+CV047,Campus and student life,Write a casual account of a funny incident during a college club meeting.
+CV048,Campus and student life,"Create a conversation about balancing coursework, hobbies, and social life."
+CV049,Work and collaboration,Write a friendly conversation between coworkers coordinating a shared task.
+CV050,Work and collaboration,Create an informal exchange about how to make a team meeting less repetitive.
+CV051,Work and collaboration,Write a chat between teammates clarifying an ambiguous project requirement.
+CV052,Work and collaboration,Create a conversation in which a colleague asks for help with a task they have not done before.
+CV053,Work and collaboration,Write a casual discussion about dividing work fairly in a small team.
+CV054,Work and collaboration,Imagine coworkers discussing what went well and what went wrong in a recent project.
+CV055,Work and collaboration,Write a friendly message asking a teammate for an update without sounding impatient.
+CV056,Work and collaboration,Create a conversation between colleagues sharing useful shortcuts or tools.
+CV057,Hobbies and interests,Write a conversation between two people comparing the hobbies they picked up recently.
+CV058,Hobbies and interests,Create a casual discussion about whether learning an instrument is harder than learning a language.
+CV059,Hobbies and interests,Write a dialogue between friends recommending books they recently enjoyed.
+CV060,Hobbies and interests,Imagine two people discussing how they got interested in hiking.
+CV061,Hobbies and interests,Write a conversation about starting a small creative project just for fun.
+CV062,Hobbies and interests,Create an informal exchange about the appeal of collecting unusual objects.
+CV063,Hobbies and interests,Write a chat between friends comparing their favorite games.
+CV064,Hobbies and interests,Discuss casually whether watching tutorials is as useful as learning by doing.
+CV065,Travel and local experiences,Write a conversation between friends comparing two places they visited recently.
+CV066,Travel and local experiences,Create a casual exchange about planning a low-budget weekend trip.
+CV067,Travel and local experiences,Write a dialogue about a memorable meal someone had while travelling.
+CV068,Travel and local experiences,Imagine two travelers discussing an unexpected change to their itinerary.
+CV069,Travel and local experiences,Write a conversation about the best way to explore an unfamiliar neighborhood.
+CV070,Travel and local experiences,Create a chat where friends exchange recommendations for a first visit to a city.
+CV071,Travel and local experiences,Write an informal account of a local market that left a strong impression.
+CV072,Travel and local experiences,Create a conversation about whether a long train journey can be enjoyable.
+CV073,Technology and digital life,Write a casual conversation about switching to a new phone and getting used to it.
+CV074,Technology and digital life,Create a dialogue between friends comparing the apps they use most often.
+CV075,Technology and digital life,Discuss informally whether people rely too much on navigation apps.
+CV076,Technology and digital life,Write a conversation about an online trend that two friends do not understand in the same way.
+CV077,Technology and digital life,Create a chat about trying to fix a minor computer problem without technical support.
+CV078,Technology and digital life,Write an informal discussion about whether AI tools make everyday tasks easier.
+CV079,Technology and digital life,Imagine friends debating whether to take a short break from social media.
+CV080,Technology and digital life,Write a conversation about an unexpectedly useful feature in a familiar app.
+CV081,Food and everyday choices,Write a conversation between friends arguing playfully about the best comfort food.
+CV082,Food and everyday choices,Create a casual exchange about learning to cook a dish from a family member.
+CV083,Food and everyday choices,Write a dialogue about choosing between ordering food and cooking at home.
+CV084,Food and everyday choices,Imagine two people comparing their experiences with unfamiliar street food.
+CV085,Food and everyday choices,Write a friendly conversation about planning a shared meal with different dietary preferences.
+CV086,Food and everyday choices,Create a chat about a café that someone thinks is underrated.
+CV087,Food and everyday choices,Discuss informally whether breakfast is really the most important meal of the day.
+CV088,Food and everyday choices,Write a conversation about a cooking attempt that did not go as expected.
+CV089,Light disagreements,Write a respectful conversation between friends who disagree about how early to arrive for an event.
+CV090,Light disagreements,Create a dialogue about whether it is better to save money or spend it on experiences.
+CV091,Light disagreements,Write a friendly debate about whether spoilers ruin the enjoyment of a story.
+CV092,Light disagreements,Imagine two friends disagreeing about the best way to spend a holiday.
+CV093,Light disagreements,Create a conversation where one person changes their mind after hearing a friend's reasoning.
+CV094,Light disagreements,Write an exchange about whether people should reply to messages immediately.
+CV095,Light disagreements,Create a playful disagreement about which season has the best weather.
+CV096,Light disagreements,Write a conversation about whether competition helps people improve.
+CV097,Small talk and first meetings,Create a natural first conversation between two people seated next to each other at an event.
+CV098,Small talk and first meetings,Write a friendly exchange between people introduced by a mutual friend.
+CV099,Small talk and first meetings,Create a conversation between two people making small talk while waiting in a queue.
+CV100,Small talk and first meetings,Write a dialogue where a conversation moves from the weather to a shared interest.
+CV101,Small talk and first meetings,"Imagine two new neighbors introducing themselves in a casual, slightly awkward way."
+CV102,Small talk and first meetings,Write a conversation between participants meeting before a community workshop.
+CV103,Small talk and first meetings,Create a friendly exchange between two people who discover they attended the same school.
+CV104,Small talk and first meetings,Write a short conversation between a guest and a host at a casual gathering.
+CV105,Plans and invitations,Write a casual invitation asking a friend to join a weekend activity.
+CV106,Plans and invitations,Create a conversation in which friends try to find a date that works for everyone.
+CV107,Plans and invitations,Write a friendly reply declining an invitation while showing genuine interest in meeting later.
+CV108,Plans and invitations,Create a chat about organizing a spontaneous day out with a limited budget.
+CV109,Plans and invitations,Write a conversation about changing plans because the weather has turned bad.
+CV110,Plans and invitations,Imagine friends coordinating transport and meeting points for a concert.
+CV111,Plans and invitations,Write a message inviting a new acquaintance to join a hobby group.
+CV112,Plans and invitations,Create a conversation about choosing a simple activity for a group with different interests.
+CV113,Reflective conversations,Write a thoughtful but informal conversation about how someone's priorities have changed over time.
+CV114,Reflective conversations,Create a dialogue between friends discussing what makes a day feel meaningful.
+CV115,Reflective conversations,Write a conversation about learning to be comfortable with not having everything figured out.
+CV116,Reflective conversations,Imagine two friends reflecting on how their friendship has changed since school.
+CV117,Reflective conversations,Create an informal discussion about the difference between confidence and competence.
+CV118,Reflective conversations,Write a conversation about whether people need a clear long-term plan to make progress.
+CV119,Reflective conversations,Create a dialogue about how a small habit can gradually change someone's life.
+CV120,Reflective conversations,Write a conversation about the value of spending time away from screens.
+CV121,Humor and playful banter,Write a playful conversation between friends trying to invent increasingly ridiculous excuses for being late.
+CV122,Humor and playful banter,Create a chat where two people take a minor everyday problem far too seriously.
+CV123,Humor and playful banter,Write a humorous exchange about someone who keeps buying notebooks but never uses them.
+CV124,Humor and playful banter,Create a conversation in which friends misunderstand a common saying literally.
+CV125,Humor and playful banter,Write a playful debate about an extremely unimportant topic treated as a major issue.
+CV126,Humor and playful banter,Imagine a group chat reacting to a friend's unusually specific food preference.
+CV127,Humor and playful banter,Write a funny conversation between someone who loves planning and someone who improvises everything.
+CV128,Humor and playful banter,Create a dialogue about a household object that nobody knows how to operate.
+CV129,Online communities,Write a friendly discussion thread where people share tips for getting started with a new hobby.
+CV130,Online communities,Create an informal exchange between members of a gaming community planning a group session.
+CV131,Online communities,Write a comment conversation in which people recommend beginner-friendly learning resources.
+CV132,Online communities,Create a respectful discussion between online community members with different experiences.
+CV133,Online communities,Write a casual post asking for recommendations for a useful everyday tool.
+CV134,Online communities,Create a discussion where users share small productivity habits that actually work for them.
+CV135,Online communities,"Write an informal exchange about a book, show, or game that deserves more attention."
+CV136,Online communities,Create a conversation where a newcomer asks basic questions and regular members respond warmly.
+CV137,Conversational storytelling,"Tell a friend about an unusual coincidence, using a natural spoken storytelling style."
+CV138,Conversational storytelling,Narrate a small adventure as if recounting it to friends over dinner.
+CV139,Conversational storytelling,Write an informal story about a plan that succeeded for an unexpected reason.
+CV140,Conversational storytelling,Describe a memorable encounter using natural digressions and personal reactions.
+CV141,Conversational storytelling,"Tell a story about a mistake that taught you something useful, without making it sound like a formal lesson."
+CV142,Conversational storytelling,Write a casual account of a day when several unrelated things went surprisingly well.
+CV143,Conversational storytelling,Narrate an amusing misunderstanding as if sharing it in a voice message.
+CV144,Conversational storytelling,Tell a friend about a place you would happily visit again and explain why.
+CV145,Everyday conversations,Write a conversation between a student and a friend about an unexpectedly busy day.
+CV146,Opinions and preferences,Discuss whether handwritten notes are still useful in a digital world.
+CV147,Text messages and chats,Create a realistic chat where a friend asks for a quick recommendation.
+CV148,Campus and student life,Write a dialogue between friends discussing internship applications.
+CV149,Technology and digital life,Create a friendly exchange about keeping digital photos organized.
+CV150,Conversational storytelling,Write an informal recollection of a time when a stranger helped you.
