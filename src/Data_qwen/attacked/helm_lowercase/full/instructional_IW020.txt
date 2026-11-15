@@ -1,0 +1,52 @@
+provide clear language with examples where necessary.
+
+### onboarding guide for a new team member in a small project
+
+#### prerequisites:
+1. **basic understanding**: the team member should have some basic understanding of your project's goals, deliverables, and workflow.
+2. **access**: they need access to all project tools and resources including project management software (e.g., trello, asana), communication platforms (slack or microsoft teams), and any specific applications needed (like a code editor like visual studio code).
+3. **communication channels**: familiarity with email and other forms of communication within your organization is recommended but not mandatory.
+
+### step-by-step onboarding:
+
+**1. welcome meeting**
+   - **objective**: introduce the team member to their role, responsibilities, expectations, and key contacts.
+   - **action steps:**
+     1. **introduction**: host an informal meet-and-greet at your workspace to welcome them.
+     2. **roles and responsibilities**: explain what they are expected to do on a daily basis and outline their main tasks and projects.
+     3. **expectations and support**: discuss what’s important and what might be challenging during the first few weeks, along with ways you can help them if needed (e.g., available mentors, virtual meetings).
+     4. **key contacts**: list out who to reach out to directly in case of urgent questions.
+   - **verification**: review notes from this meeting together to ensure everything was covered.
+
+**2. training sessions**
+   - **objective**: equip them with the knowledge and skills required to complete their tasks effectively.
+   - **action steps:**
+     1. **workshop or video tutorial**: attend training sessions or watch short videos covering essential topics related to the project (e.g., project planning, coding basics, or use cases).
+     2. **hands-on practice**: if possible, schedule time for practical training where they can practice using tools or following through tasks directly under supervision.
+   - **verification**: check if they understand by asking open-ended questions or giving simple tasks for them to try independently.
+
+**3. setup their workspace**
+   - **objective**: ensure they are comfortable and efficient in their working environment.
+   - **action steps:**
+     1. **software installation/setup**: assist with installing necessary software and configuring settings as per guidelines provided.
+     2. **configuration files**: help configure any initial files or templates needed for specific programming environments.
+     3. **resource access**: make sure they have access to all necessary resources (files, databases, etc.) via shared folders or cloud storage services.
+   - **verification**: confirm that everything is set up correctly and check logs or outputs regularly to make adjustments as needed.
+
+**4. communication setup**
+   - **objective**: establish clear lines of communication between the team member and the rest of the team.
+   - **action steps:**
+     1. **set up direct messages or private chats**: use slack or another private messaging tool so they can communicate with others privately.
+     2. **regular check-ins**: arrange regular one-on-one check-in calls every week or fortnight to discuss progress and address any issues immediately.
+   - **verification**: observe if there are no delays or misunderstandings in communications over time.
+
+**5. performance metrics**
+   - **objective**: establish methods for tracking performance and providing feedback.
+   - **action steps:**
+     1. **weekly reviews**: set aside time weekly to review progress against timelines and objectives.
+     2. **feedback loop**: create channels or spaces where they can share concerns or successes with the rest of the team.
+     3. **goal setting**: encourage setting individual goals and review progress towards these monthly or quarterly.
+   - **verification**: track improvements made by the team member over time based on feedback.
+
+### final note
+regularly review progress and adaptments throughout the onboarding process. be flexible when problems arise, ensuring everyone feels supported and engaged. happy onboarding! 🚀👩‍💻👨‍💼👨‍🔧👨‍🔬👨‍💻👨‍💼👨‍🔧👨‍🔬👨‍💻👨‍💼👨‍🔧👨‍🔬👨‍💻👨‍💼👨‍🔧👨‍🔬👨‍💻👨‍💼👨‍🔧👨‍🔬👨‍💻👨‍💼👨‍🔧👨‍🔬👨‍💻👨‍💼👨‍🔧👨‍🔬👨‍💻👨‍💼👨‍🔧👨‍🔬👨‍💻👨‍💼👨‍🔧👨‍🔬👨‍💻👨‍💼👨‍🔧👨‍🔬👨‍💻👨‍💼👨‍🔧👨‍🔬

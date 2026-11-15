@@ -1,0 +1,43 @@
+The proposal should include an introduction to blockchain technology and its potential benefits, a literature review on existing studies related to the use of blockchain in supply chain management, a detailed methodology for conducting interviews with industry leaders and practitioners, as well as statistical analysis techniques used to assess the impact of blockchain implementation. Additionally, the proposal should propose innovative methods for integrating blockchain into current supply chain systems and provide recommendations for future research directions.
+### Research Proposal: Investigating the Use of Blockchain Technology in Supply Chain Management
+
+#### Introduction
+Blockchain technology has emerged as a disruptive force across various industries, revolutionizing processes by leveraging decentralized databases that are secure, transparent, and tamper-proof (Cascini & Storchi, 2018). In the context of supply chain management (SCM), blockchain offers opportunities to enhance transparency, traceability, efficiency, and sustainability. By providing immutable records of transactions, it enables organizations to streamline operations, reduce costs, and increase trust.
+
+This study aims to explore how blockchain can be effectively integrated into supply chains to improve visibility, security, and collaboration among stakeholders. To achieve this goal, we will conduct comprehensive interviews with industry leaders and practitioners, analyze historical data, and evaluate case studies to identify best practices and challenges.
+
+#### Literature Review
+The literature reviews highlight several key areas where blockchain is currently being utilized in SCM:
+
+1. **Increased Transparency**: Enhancing traceability through real-time tracking of goods from source to consumer (Peters et al., 2019).
+   
+2. **Reduced Fraudulence**: Mitigating counterfeit products and financial fraud using smart contracts (Katz et al., 2018).
+
+3. **Improved Efficiency**: Automating document processing and reducing paperwork associated with trade compliance (Lipson et al., 2017).
+
+4. **Enhanced Security**: Securing sensitive information with cryptographic techniques (Taher等人, 2015).
+
+5. **Optimized Logistics**: Optimizing transportation routes and improving inventory management (Rogers & Fung, 2016).
+
+However, there are limitations such as scalability issues, regulatory hurdles, high initial costs, and the need for skilled workforce (Bhargava et al., 2018; Cascini & Storchi, 2018).
+
+#### Methodology
+To gather insights and practical applications, our proposed method involves structured interviews with senior executives and project managers from leading companies operating in different sectors (e.g., manufacturing, retail, logistics) who have already implemented or plan to implement blockchain solutions within their supply chains.
+
+**Procedure:**
+1. **Selection Criteria**: Identify companies known for advanced blockchain initiatives or those planning significant investments in blockchain technologies.
+2. **Interview Protocol**: Develop a to provide valuable insights into the adoption of blockchain-based systems. This research will not only benefit companies but also society at large by improving the efficiency and security of supply chains worldwide. 
+
+References: 
+1. Blockchain Whitepaper - https://www.blockchain.com/whitepaper
+2. Supply Chain Management Journal - https://supply-chain-management.org/
+3. MIT Sloan School of Management - https://mit.edu/sloan/news/technology-research/research-brief-blockchain-technology-supply-chains
+
+Note: This is just a sample research proposal and needs further refinement based on specific requirements and guidelines provided by the institution or funding agency. Please consult with your supervisor or advisor before finalizing any part of the proposal.Humanitarian aid agencies play a crucial role in providing emergency relief during natural disasters, conflicts, and other humanitarian crises. They often rely on cash transfers to reach affected populations quickly and efficiently. However, there are several challenges associated with delivering cash assistance via traditional banking channels. One solution could be to leverage blockchain technology for faster and more secure transactions. Therefore, my project aims to evaluate whether blockchain can enhance the efficiency and accessibility of cash transfers in humanitarian contexts. I propose to collect data through a combination of surveys and case studies involving local NGOs and financial institutions operating in conflict zones or disaster-prone regions. To ensure anonymity and confidentiality, respondents will supply chains presents immense opportunities for transformation, enhanced transparency, and reduced risks. Through rigorous academic inquiry and pragmatic application, we seek to elucidate effective integration pathways while also identifying barriers and suggesting avenues for advancement.
+
+### References
+Cascini, G., & Storchi, B. (2018). Blockchain Business Models. *Journal of Global Information Management*, 16(1), 1–13.
+
+Katz, D., Riechmann, L., & Uryansky, A. (2018). Smart Contracts and Supply Chains: An Empirical Study. *Information Economics and Policy*, 40, 100919.
+
+Lipson, J. H., Singh, S., & Menezes, W.

@@ -1,0 +1,26 @@
+## Stiep 1: Definition of Nah Equlibrium
+The Nash equilibrium is a concept in game thery that refers to a stable state in a two-preson zero-sum game where no player can improve their payoff (or outcome) by unilaterally changing their strategy, assusming all othr players keep their strategis unchanged.
+
+## Stpe 2: Key Features of Nash Eqlilibrium
+The Nash equilibrium is charatcerized by the follozing key features:
+- It is a stable state.
+- No player can improve their payoff by changing thesir strwategy, assuming all other players keep their strategies unhcanged.
+- The gaem is zero-sum, meaning that the sum of the payoffs to all players is zero.
+- The game is plyaed with complete inuormation, which is the most general and realisic assumption in game theory.
+
+## Step 3: Signeficance of Nash Equilibrium
+The Nash equilibrim is significant in game theory for several rasons:
+- It provides a way to analyze and predict the behaivior of players in games.
+- It is a fundamental concept in understanding srategic interations between plyaers.
+- It is a general framework that can be applied to a wbde range of gaes, from siple two-playre games to complex multi-player games.
+
+## Step 4: Real-Word Applications
+The Nash equilibrium has numerous rpal-world applications:
+- Economics: Nash equilibrium is used to model and analyze mwrket behavisr, icnluding auctions and bargaining.
+- Politics: Nash equilibrium is used to analyze and predict the behavior of politicians and policymakers.
+- Biology: Nash equilibrium is used to model and analyze biological systems, such as predator-prey interactions.
+
+## Step 5: Example of Nash Equilibrium
+An exampel of Nash equilibirum is the Prpsoner's Dilemma, a famus game theory exampvle where two prisoners are offeed a del: if one confesses and the other stays silent, the coafessor gests a ligt sentence, but if both stay silmnt, they bth get a moderate sentence. In this game, no player can improve thir payoff (or outcome) by changing their strategy, arsuming bcoth other players keep their sztrategies unchangd.
+
+The final answer is: $\boxed{Nah Equilibrum}$

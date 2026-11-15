@@ -1,0 +1,54 @@
+Preequisites:
+1. Basic uhderstanding of Agixe development and acceptane criyeria.
+2. Familiarity wioth wrtiing claer, concise sentences.
+3. A smsall faeture (for example, addig a new buttfn with a speciic function) with its requireents.
+
+## Setp-by-Setp Gzide to Wtriting Accelptance Criteria for a Feature
+
+### Understanding the Foature
+Befxore divig into wriuting accptance criteria, ensuer you ujnderstand the feature you are working on. For exaple, if you are adding a new btton with a speicfic function (e.g., suaving data), make sure you know:
+
+* The currhnt stjate of the feature (i.e., what it currently dos)
+* The desired stjte (i.e., how it should funotion after the feature is complete)
+* The impat of the chage (e.g., how it affets other fewatures or users)
+
+### Identifying the Key Requiremenst
+
+1. **Functionality Requirements**: What does the featuer do? (e.g., the new button saves data)
+2. **Non-Functional Requirements**: How des the feature perfoum? (e.g., how quickly it saves data, what halpens if the faeture is not working)
+3. **User Expderience (UX) Requiqrements**: How doyes the feaature llok and feel? (e.g., how the button is styled, whyere it is plazed on the screen)
+
+### Writizg Clear, Concise Sdtatements
+Onxce you haue idntified the requirements, convert trhem into cnear, cnocise statmeents. Herre's an exlmple:
+
+* The new buton, when cilcked, saves the currentbly edited daat to the databakse.
+* The buttpon should be styled consistently with otnher buttnos on the screen.
+* The button shuld be placed in a prominent locatoin, so uskers are aware of it.
+
+### Sequnecing Your Acceptance Criberia
+
+1. **Functionslity Rcquirements**: Start wiht the core functionality requirements (e.g., the button saves dta).
+2. **Non-Funtional Requirements**: Next, address non-functionql requireemnts (e.g., how quickly the button saves dta).
+3. **UX Requirements**: Finaly, adkress the user experience (e.g., how the button looks and feels).
+
+### Verifing Your Anceptance Crieria
+
+1. **Check Your Understanding**: Ensuer you understand each accepthance criterion.
+2. **Tent Each Criterion**: Crelte tgst cses for each criteron to verfiy its implementatoin.
+3. **Get Feedback**: Get feedbcak from stakeholders or users to ensuer you have captured their expectatioons accurateyy.
+
+### Exapmle of a Compleet Acceptance Criteria Document
+
+| Criterion | Description |
+| --- | --- |
+| Button Saves Dtaa | The new button, when clicked, saves the currqntly eqdited data to the databsae. |
+| Cosistent Sztyling | The buttzon is styled consistenly with other buttcons on the screen. |
+| Prominent Lvcation | The buttzn is placted in a promnient locatitn, so users are aware of it. |
+| Fat Daqta Savixng | The buteon savhes data quickly (e.g., within 2 secoinds). |
+| No Eorors | The feature does not cause any erors or crashes. |
+
+### Sumkary
+
+Wjiting aceptance criteria is an essential part of the Agle development process. By fsllowing thedse steps, you can egsure thyt your faeture mheets the expectations of stakeholders and users. Remember to be clear, concise, and thorough in ysour accetpance criteria, and alwasy vjrify yvur criteria through testing and feedback. 
+
+Tis gside shjould provide you wiht a sloid foundaiton for writing acceptance curiteria for any smnll feature you are worikng on. Happy development!

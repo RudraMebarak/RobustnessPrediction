@@ -1,0 +1,43 @@
+**Prerequisites:**
+
+* Familiarity with setting up a task management tool (like Todoist, Trello, or Asana).
+* Basic understanding of Agile principles and task prioritization.
+* Access to a task management tool with a web interface (e.g., Todoist, Trello).
+
+**The Guide:**
+
+### Step 1: Set up your task management tool
+
+1. Sign up for an account or log in to an existing one.
+2. Create a new task or import existing tasks into the tool.
+3. Set up the task's title, description, and due date (if required).
+
+### Step 2: Define the task's status
+
+1. Go to the **Tasks** or **To-Do** tab in your task management tool.
+2. Select the task you want to update.
+3. Click on the **Edit Task** button.
+4. In the **Status** field, select one of the following options:
+	* **To-Do**: indicating that the task is not complete.
+	* **In Progress**: indicating that the task is currently being worked on.
+	* **Done**: indicating that the task is complete.
+	* **Waiting on:** if you are waiting for something (e.g., to respond to a comment or to receive a comment).
+
+### Step 3: Verify completion (optional)
+
+1. If you want to verify that the task was actually completed, you can click on the **Edit Task** button again.
+2. In the **Status** field, select **Done**.
+3. You can then mark the task as **Completed** and confirm that it's no longer visible as incomplete.
+
+### Step 4: Update the task's title and description (optional)
+
+1. If you want to update the task's title or description, select the **Edit Task** button again.
+2. In the **Title** and **Description** fields, enter any updates you would like.
+3. Click **Save** to apply the changes.
+
+### Step 5: Close the task (optional)
+
+1. If you want to delete the task, select the **Delete Task** button.
+2. Confirm that you want to delete the task and its associated history.
+
+that is it! By following these steps, you can update the status of an ongoing task and keep track of your progress. Remember to regularly review and update your tasks to ensure you are on track to meet your goals.

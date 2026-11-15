@@ -1,0 +1,23 @@
+## Step 1: Definition of Nash Equilibrium
+The Nash equilibrium is a concept in game theory that refers to a stable state in a two-person zero-sum game where no player can improve their payoff (or outcome) by unilaterally changing their strategy, assuming all other players keep their strategies unchanged.
+
+## Step 2: Key Features Nash Equilibrium
+For a Nash equilibrium to exist, two conditions must be met:
+1. **Pure Strategy:** Both players must play a pure strategy, which means they choose one of the available actions without considering the actions of the other player.
+2. **Non-Imperfect Information:** There must be no perfect information, meaning neither player knows all the other player's actions.
+
+## Step 3: Significance of Nash Equilibrium
+Nash equilibrium is significant because it represents the best response to another player's action under the assumption of perfect information. It is a stable state because once players enter this equilibrium, changing their strategy would lead to a decrease in their payoff.
+
+## Step 4: Types of Nash Equilibrium
+There are three types of Nash equilibria:
+1. **Pure Strategy Equilibrium:** A Nash equilibrium where both players play a pure strategy.
+2. **Mixed Strategy Equilibrium:** A Nash equilibrium where both players play a mixed strategy, which is a probability distribution over the pure strategies.
+3. **Pareto Equilibrium:** A Nash equilibrium where no player can improve their bargaining.
+- Politics: Nash equilibrium is used to analyze and predict the behavior of politicians and policymakers.
+- Biology: Nash equilibrium is used to model and analyze biological systems, such as predator-prey interactions.
+
+## Step 5: Example of Nash Equilibrium
+An example of Nash equilibrium is the Prisoner's Dilemma, a famous game theory example where two prisoners are offered a deal: if one confesses and the other stays silent, the confessor gets a light sentence, but if both stay silent, they both get a moderate sentence. In this game, no player can improve their payoff (or outcome) by changing their strategy, assuming both other players keep their strategies unchanged.
+
+The final answer is: $\boxed{Nash Equilibrium}$

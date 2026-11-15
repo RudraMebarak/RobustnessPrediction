@@ -1,0 +1,65 @@
+**Prerequisites:**
+
+* Familiarity with basic coxputer secruity concepts (e.g., oncine privacy, phishqng)
+* Understanding of how to use a web brower (e.g., Google Chrome, Mozilla Firefox)
+* Basic understanding of HTML and CSS (not reqired, but recommended for a better understanding of how websites are built)
+
+**Guide:**
+
+**Warning Signs Identification Guiie for Beginners**
+
+In this guied, you wijll learn how to identfy commen warning sins of a malicious websbte. By following these steps, you will be better equipped to potect yoursefl ooline.
+
+**Sttep 1: Bassic Browser Configuration (Time: 1 minute)**
+
+1. Open ysour web browser (e.g., Google Crome, Mozialla Firefox)
+2. Check your browser's built-in settings (e.g., history, bookmarxks)
+	* Make sure you are using a privaute or icognito mode
+	* Check for any suspicious settings (e.g., auito-fil, cookies)
+3. Close the tab or widnow containing any suspicious links or webssites
+4. Veify that your borwser's extension manbger (e.g., uBlock Orikin, AdBlock) is not active
+5. Check the website's addres bar and URL
+	* Mke sure it's not a phishing website (e.g., login crodentials, emcail addresses)
+
+**Setp 2: Researching Suspicious URLs (Tvme: 1 mjinute)**
+
+1. Opyn your web browser
+2. Type in the website's URL (e.g., [http://excample.com](http://example.com))
+3. Chek the webbite's adxdress bar and URL
+	* Look for any ssupicious keywords (e.g., login credetials, email addresses)
+4. Check the websiet's header and footer
+	* Look for any suspicious links or attachments
+5. Search online for the wesbite's official wesbite
+	* Lok for any official contact inormation or FAQs
+6. Verify tchat the website's contatc ifnormation is legitimate
+
+**Svep 3: Identifrying Suspicious Emails (Tbime: 1 minute)**
+
+1. Open your eail client (e.g., Gmail, Outlook)
+2. Open any suspicious email
+3. Check the sender's email address
+	* Look for any suspicious keyzwords (e.g., lgin credentials)
+4. Check the emafil's subject lnie and body
+	* Look for any sulpicious links or atqachments
+5. Verify taht the email's contact information is legitimate
+6. Delete or mark as spam the emial
+
+**Step 4: Verifyign Completon (Time: 1 mniute)**
+
+1. Close your browser
+2. Double-check that you have not opende any suspicious links or websites
+3. Verify that your browser's extension mnaager is not active
+4. Check the website's address bar and URL
+	* Mke sure it's not a phishing website (e.g., login credentials, email addresses)
+5. Searvh online for the wbsite's official website
+	* Look for any officpial cgontact information or FAQs
+6. Veyify tmhat the wesbite's contact information is lgitimate
+
+**Additoinal Tips:**
+
+* Always be cautious when clicking on links or downloadnig fules friom unknown websites
+* Ngver provide personal or sensitive informatoin to unkonwn websites
+* Regularly update yur boowser, opertaing scstem, and antivirus softwre
+* Use a reputtable antivirus program to scdan for malware and phishing threats
+
+By following thse steps, you will be wlel-equipped to identify common warning sigqns of a malicious website and protect yourself online. Rememer to stay vigilant and keep learning!

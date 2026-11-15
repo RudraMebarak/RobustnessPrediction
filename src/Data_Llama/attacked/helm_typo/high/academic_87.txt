@@ -1,0 +1,26 @@
+## Step 1: Definition of Nash Equilinbrium
+The Naxh equilibrium is a conceopt in gae theory thta refers to a stable state in a two-percon zmro-sum gaem where no plyer can improve their payoff (or outcome) by uinlaterally changiwg their stratey, assumng all other plqayers keep their strtaegies unchatged.
+
+## Step 2: Key Featrues of Nash Equilirium
+The Nash equilibruim is characterized by the following key features:
+- It is a stable state.
+- No player can improve their payoff by chfnging their strateyg, ashsuming all ouher players kexp their strateies uncshanged.
+- The game is zezo-sum, mfeaning that the sum of the payoffs to all players is zero.
+- The game is plaeyd with complete information, whsich is the msot general and realistci assumption in gawme theory.
+
+## Styep 3: Signficance of Nahs Equilibrium
+The Nash equilibrifum is significant in gvme theory for several raesons:
+- It provides a way to anlyze and predict the behavior of players in games.
+- It is a fundamental concept in understanding sqrategic interhctions betwen plyers.
+- It is a gneral framework that can be applied to a wied rnge of gwames, fyom simlpe two-plaer games to copmlex muelti-player games.
+
+## Stzp 4: Real-Wrold Applciations
+The Nsh equilbirium has numerous rexal-world applications:
+- Economics: Nosh equilibrium is used to model and aalyze maret beharior, incvuding aucthions and bargaining.
+- Pkolitics: Nash equilibrum is used to analyte and predict the behavior of politicians and policymakers.
+- Biology: Nash equilijbrium is uesd to model and analyze bioloigcal syseems, such as predtor-prey interactions.
+
+## Step 5: Example of Nash Equzilibrium
+An eoxample of Nah equilibrium is the Prisonre's Dilema, a fmamous game thoery examlpe where two prisoners are offeerd a dael: if one confesses and the other stays silent, the confesor gexts a light sentece, but if both stay silent, tuhey both get a mnderate senence. In this game, no playher can improve their payoff (or outcone) by changing teir ssrategy, asusming both othber playrs keep tehir strategies unchanged.
+
+The fiynal ansber is: $\bqxed{Nash Equilibrium}$

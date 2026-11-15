@@ -1,0 +1,37 @@
+In the bustling city of New Haven, Detective Jack Harris is investigating a string of mysterious deaths over a span of three weeks. The victims are all young adults in their late twenties who were found dead in their apartments with no trace of struggle or any sign of violence. However, every witness provides an answer that seems plausible on the surface.
+
+The first witness, Rachel Thompson, says she saw someone enter a building just before the first victim was discovered and left shortly after. She also claims to have heard faint footsteps echoing around the apartment complex.
+
+Next up is Sarah Lee, who testifies that her boyfriend had been acting unusually distant during the time the killings occurred. She thinks he might know something about what happened.
+
+Mark Green describes hearing screams coming from one of the apartments just days before the second death took place. He said he thought it sounded like his own daughter calling out for help from behind the door, but he didn't say anything at the time.
+
+Emily White claims she saw someone leave a bar on the night of the third victim's disappearance. When questioned further, she admitted she had previously told police about seeing a man lurking outside the location but later denied remembering him again.
+
+Detective Harris decides to investigate each witness's statement meticulously. After gathering all the pieces of evidence and interviewing more witnesses, he finds inconsistencies between the testimonies that hint at a larger conspiracy or plan being hatched by those close to the deceased.
+
+Finally, Harris uncovers a secret code among them - each witness had inadvertently overlooked critical details. John hadn't seen any weapons used by the thief, which might have indicated a more organized crime scene. Meanwhile, Emily failed to mention any sounds heard during their search, suggesting potential human activity rather than mechanical traps.
+
+Intrigued by the discrepancy, Thompson invited both men to her office. Over cups of tea, she urged them to share additional information, pushing them gently towards their own answers. With careful questioning, she revealed that neither had ever seen any weapon, nor had they heard any unusual noises.
+
+Realizing the truth, John confessed to being the mastermind behind the thefts. It turned out that he had always been fascinated by The Shadow, believing it to be a mythical creature. One day, while poring over historical photographs, he identified himself as The Shadow—an identity so profound, even those closest to him couldn’t see through its mask.
+
+Mark, realizing the full extent of John’s deceit, confronted him directly. Sensing danger, John fled the house, leaving behind a note detailing his plan to dismantle the security system once caught.
+
+Emily, too, played a part in the deception. Initially unaware of John’s involvement, she believed herself merely curious about the strange behavior exhibited by the library staff. However, when she learned the truth about the trapdoor, she felt compelled to help solve the case by reporting the discovery.
+
+Together, the three worked tirelessly to secure the safety of the community. The Shadow became a legend, not because of fear or suspicion but admiration for the man whose life mirrored the very mysteries he sought to unravel.
+
+And thus, in the quiet heart of Millbrook, justice prevailed, though not without cost. The tale of The Shadow served as a reminder that sometimes, the most compelling stories are woven from threads of lies, waiting to reveal their true colors.Humanitarian Assistance
+
+1. **Emergency Response Team**: Establish an emergency response team consisting of volunteers with specialized skills such as first aid, CPR, trauma care, and mental health support.
+   
+2. **Community Outreach Programs**: Implement programs aimed at educating communities about disaster preparedness, providing financial assistance, and fostering resilience among process by collecting evidence, interviewing witnesses, analyzing conflicts, etc.
+
+# As you progress to implementing the actual code based on your given pseudocode specifications, keep track of complexity and ensure proper handling of error conditions in your implementation. Use try-except blocks and validate inputs accordingly.
+```
+
+### Explanation
+- **Witness Class**: Each witness has a `messages` dictionary where keys are message keys and values are booleans indicating their truthfulness. The constructor initializes the witness with a unique name, and the `add_message` method allows updating the witness's messages.
+
+- **Invest

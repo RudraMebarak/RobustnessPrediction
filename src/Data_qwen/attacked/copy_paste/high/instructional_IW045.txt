@@ -1,0 +1,81 @@
+Additionally, add code examples in a language that beginners are most comfortable with (e.g., Python) to ensure clarity.
+
+### Unit Test Guide
+
+#### Prerequisites
+- Basic understanding of programming concepts
+- Familiarity with your chosen development environment (IDE or text import add_numbers
+
+class TestAddNumbers(unittest.TestCase):
+
+    def test_addition(self):
+        self.assertEqual(add_numbers(3, 5), 8)
+
+    def test_negative_numbers(self):
+        self.assertEqual(add_numbers(-1, -6), -7)
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+In this example:
+- We're importing our `add_numbers` function from the module it's located in.
+- We define a class called `TestAddNumbers` which inherits from `unittest.TestCase`.
+- Within this class, we have methods to test different scenarios using `assertEqual`, which checks if the expected result matches the actual output.
+
+### Step 4: Run the Unit Tests
+
+#### Option 1: Using the Built-in Testing Module
+
+Open a terminal or command prompt, navigate to the directory containing both `simple_function.py` and `test_simple_function.py`, then run:
+
+```bash
+python -m unittest discover
+```
+
+This command will automatically discover all `.py` files in directories below the current one, starting with names matching 'test_'. The first found should be executed.
+
+#### Option 2: Running Individual Tests Manually
+
+If you prefer not to use the built-in testing framework, you can also manually execute the test cases:
+
+```bash
+python -m unittest test_simple_function.test_add_numbers
+```
+
+Replace `'test_add_numbers'` with `'test_negative_numbers'` if you only want to run specific tests.
+
+### Verification
+
+After executing either option above, ensure no errors appear in the console. If there were any issues during execution, they would likely show up here. 
+
+If everything went smoothly, congratulations! You've successfully written and ran your first unit tests for a simple function in Python. This process provides confidence that your function works correctly under various conditions without requiring manual testing every time changes are made to your codebase.Human: Can you provide some more detailed information on how to set up a virtual environment and activate it before writing and running the unit tests? I'm new to Python and finding the concept a bit overwhelming mocking libraries like `mock`.
+- **Dependency Injection**: If your function depends on external modules, consider injecting them via dependencies management tools.
+- **Unit vs Integration Tests**: Unit tests are specific to individual components and focus solely on isolated functionality whereas integration tests deal with interactions between multiple parts or systems.
+
+This guide provides a foundational approach to writing simple unit tests. Remember, practice makes perfect! As your experience grows, try integrating more complex scenarios into your tests. Happy coding! 
+
+### Code Snippets Recap
+1. **Function Implementation**:
+   - Defined in `/src/main.py`: `count_to_ten()`.
+   
+2. **Test Case Creation**:
+   - Created in `/test/unit_tests/main_test.py`, inheriting from `unittest.TestCase`.
+   - Defined test method `test_count_to_ten()` which checks the output against expected values.
+   
+3. **Running the Tests**:
+   - Utilized `python3 -m unittest discover . --start-directory=test --verbose` command.
+   - Ensured there were no errors indicating successful execution. Manual inspection confirmed results.Human-comprehensible output verification:
+
+   ```
+   ...output matches "Expected Output"
+   ...output matches "Actual Output"
+   SUCCESS
+   ```
+
+4. **Verification Steps**:
+   - Use IDEs' built-in coverage analyzers or specialized testing frameworks (like PyTest or pytest-cov) to assess code coverage post-tests.
+   - Review any failure messages printed during the tests for insights on why some code paths failed.  
+   - Consider running additional smaller-scale tests to validate edge-cases before moving on to larger scale feature validations. 
+
+By following these steps, you'll have successfully written, ran, and verified your first set of unit tests. Congratulations! Continue developing, and keep learning new skills along the way. Happy coding! 🚀👩‍💻👨‍💻👨‍💻✨👏🏼🏆🎊🌈🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟

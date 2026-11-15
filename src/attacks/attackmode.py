@@ -6,7 +6,7 @@ per-document deterministic seeds, output files, and a resumable CSV manifest.
 Place this file beside:
     dilution_cp.py
     helm.py
-    paraphrase_pegasus.py
+    paraphrase_humarin.py
     synonym_attack(1).py   (or synonym_attack.py)
 
 Supported input formats: .jsonl, .json, .csv, .txt, or a directory containing them.
@@ -32,7 +32,7 @@ low/medium/high experimental ladder. It is NOT asserted to be WaterPark's
 exact published schedule. HELM's lowercase/contraction/expansion functions
 are whole-text deterministic transforms in the supplied implementation,
 so those are run once at "full" intensity. HELM typo/misspelling and
-synonym attacks use the probability ladder. Pegasus uses its own presets.
+synonym attacks use the probability ladder. Humarin uses chunked document-level paraphrasing.
 """
 
 from __future__ import annotations
@@ -216,8 +216,8 @@ def build_attacks(args):
     helm = load_module("attackmode_helm", root / "helm.py")
     # Optional/heavy attack modules are imported only if selected.
     synonym_mod = None
-    pegasus_module = None
-    pegasus_objects = None
+    humarin_module = None
+    humarin_objects = None
     synonym_objects = {}
 
     def get_synonym_module():
@@ -294,24 +294,26 @@ def build_attacks(args):
             })
             return attack_obj.warp(text, p=probability, seed=seed), probability, params
 
-        if attack_name == "pegasus":
-            nonlocal pegasus_module, pegasus_objects
-            if pegasus_module is None:
-                pegasus_module = load_module("attackmode_pegasus", root / "paraphrase_pegasus.py")
-                pegasus_objects = pegasus_module.load_model(args.pegasus_model)
-            tokenizer, model, device = pegasus_objects
-            # 512 avoids the source module's very short default max_length=60.
-            max_length = args.pegasus_max_length
-            result_list = pegasus_module.paraphrase(
+        if attack_name == "humarin":
+            nonlocal humarin_module, humarin_objects
+            if humarin_module is None:
+                humarin_module = load_module("attackmode_humarin", root / "paraphrase_humarin.py")
+                humarin_objects = humarin_module.load_model(args.humarin_model)
+            tokenizer, model, device = humarin_objects
+            max_length = args.humarin_max_length
+            chunk_size = args.humarin_chunk_size
+            result_list = humarin_module.paraphrase(
                 text=text, tokenizer=tokenizer, model=model, device=device,
                 intensity=intensity, num_return_sequences=1,
-                max_length=max_length, seed=seed,
+                max_length=max_length, seed=seed, chunk_size=chunk_size,
             )
             params.update({
-                "model_id": args.pegasus_model,
+                "model_id": args.humarin_model,
                 "num_return_sequences": 1,
                 "max_length": max_length,
-                "decoding_preset": pegasus_module.INTENSITY_PRESETS[intensity],
+                "chunk_size": chunk_size,
+                "decoding_preset": humarin_module.INTENSITY_PRESETS[intensity],
+                "chunking": "sentence-aware token chunks, reassembled in original order",
             })
             return result_list[0] if result_list else text, None, params
 
@@ -336,12 +338,15 @@ def main():
     parser.add_argument("--attacks", nargs="+", default=[
         "copy_paste",
         "helm_lowercase", "helm_contraction", "helm_expansion", "helm_misspelling", "helm_typo",
-        "synonym_wordnet", "synonym_llm", "pegasus",
+        "synonym_wordnet", "humarin",
     ], help="Attack names. Default: all implemented attacks.")
     parser.add_argument("--synonym-model", default="Qwen/Qwen2.5-1.5B-Instruct")
     parser.add_argument("--synonym-max-new-tokens", type=int, default=80)
-    parser.add_argument("--pegasus-model", default="tuner007/pegasus_paraphrase")
-    parser.add_argument("--pegasus-max-length", type=int, default=512)
+    parser.add_argument("--humarin-model", default="humarin/chatgpt_paraphraser_on_T5_base")
+    parser.add_argument("--humarin-max-length", type=int, default=512,
+                        help="Maximum new tokens generated per Humarin chunk.")
+    parser.add_argument("--humarin-chunk-size", type=int, default=500,
+                        help="Requested source-token chunk size for Humarin.")
     parser.add_argument("--device", default=None, help="Optional device for synonym LLM (e.g. cuda or cpu).")
     parser.add_argument("--overwrite", action="store_true", help="Regenerate existing output files.")
     args = parser.parse_args()
@@ -361,6 +366,9 @@ def main():
         donors = index_donors(donor_records, args.donor_id_field, args.donor_text_field)
 
     manifest = output_root / "attack_settings.csv"
+    if "synonym_llm" in args.attacks:
+        parser.error("synonym_llm has been removed. Use synonym_wordnet instead.")
+
     run_attack = build_attacks(args)
 
     completed = 0

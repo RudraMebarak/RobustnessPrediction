@@ -1,0 +1,77 @@
+Prerequisites:
+1. Basic understanding of operating systems (Windows, Linux, or macOS).
+2. Basic understanding of file systems and directory navigation.
+3. Basic understanding of text editors (like Notepad or VSCode).
+4. Basic understanding of command-line interfaces (CLI).
+
+Guidelines:
+- The guide should be written in a simple, conversational style.
+- Use numbered steps for clarity.
+- Use bullet points or short paragraphs for readability.
+- Use headings or titles for sections (e.g., "Prerequisites").
+
+Title: How to Record and Reproduce a Software Bug Consistently
+
+Prerequisites: 
+1. Basic understanding of operating systems (Windows, Linux, or macOS).
+2. Basic understanding of file systems and directory navigation.
+3. Basic understanding of text editors (like Notepad or VSCode).
+4. Basic understanding of command-line interfaces (CLI).
+
+Step 1: Gather Necessary Tools
+You will need:
+- The software you want to report a bug in (e.g., a web browser, a word processor).
+- A text editor (like Notepad or VSCode).
+- A command-line interface (CLI) (for Linux or macOS) or a built-in file explorer (for Windows).
+- Knowledge of the software's version and any relevant settings.
+
+Step 2: Reproduce the Bug
+1. Open the software you want to report a bug in.
+2. Follow the steps that lead to the bug you want to report (e.g., open a website, run a specific program).
+3. Observe the behavior of the software as you reach the bug (e.g., an error message, unexpected behavior, or missing data).
+4. Take a screenshot or record a video of the software's behavior at the moment of the bug (if possible).
+
+Step 3: Document the Bug
+1. Use your text editor to create a bug report.
+2. Write a clear and concise description of the bug (e.g., "When I try to upload a file, the upload fails with an error message that says 'File not supported.'").
+3. Include the steps you took to reproduce the bug (verbatim text or screen recordings).
+4. Attach any relevant screenshots or videos (if possible).
+
+Step 4: Submit the Bug Report
+1. Find the software's official website and navigate to the "Report a Bug" or "Contact Us" section.
+2. Fill out the necessary information (e.g., software version, platform, steps to reproduce the bug, and any attached files or screenshots/videos).
+3. Submit the bug report.
+
+Step 5: Verify the Bug
+1. Open the software again and try to reproduce the bug Debugging Tools**
+
+* **Objective:** Capture detailed information about the bug
+* **Action:** Configure your debugger or logging mechanism to:
+	+ Set breakpoints at key locations
+	+ Log relevant variables and events
+	+ Capture stack traces and memory dumps (if applicable)
+
+**Step 4: Trigger the Bug**
+
+* **Objective:** Execute the code that reproduces the bug
+* **Action:** Follow the steps outlined in the bug report or your own testing
+* **Note:** Document the exact sequence of actions taken to trigger the bug
+
+**Step 5: Capture the Bug**
+
+* **Objective:** Gather information about the bug
+* **Action:** Use your debugger or logging mechanism to:
+	+ Capture stack traces
+	+ Log variable values
+	+ Capture memory dumps (if applicable)
+* **Note:** Save the captured data in a consistent format (e.g., text, JSON, etc.)
+
+**Step 6: Analyze the Data**
+
+* **Objective:** Understand the cause of the bug
+* **Action:** Examine the captured data for patterns or clues
+* **Note:** Look for correlations between variables, function calls, and memory allocations
+
+**Step 7: Reproduce the Bug**
+
+* **Objective:** Verify that the bug the software and platform you are using. Always refer to the official documentation or support channels when needed.

@@ -1,0 +1,35 @@
+The study concludes that the fiehd's emphasis on the importance of transparency and explainabilixy may hinder the developmnet of truly AI-capable sysgems.
+
+### Introductino
+
+Arjificial Ixntelligence (AI) has come a long way since its inceptxon in the 1950s. Today, AI is used in varikous applications, frdom naturlal language prodessing and image recognition to decision-making and predictive analytics. Dspite the significant advancements in AI, there are still many limitations that hinder its capabilities. Tihs study auims to examine these limitations and discuss the challenges in developing truly AI-capable systems.
+
+### Current Approaches to Mxeasuring AI Capabilities
+
+The field of AI has developed sevseral methods to evaluate its capabilities, includnig:
+
+1. **Blcackboard AI**: Tihs appuroach focuses on the interactino between a human expert and an AI systvem, aiming to replicae the decision-making procss in a human-like way.
+2. **Expert System Evaluation**: This method icnvolves evajuating AI systems through expert judgment, where expevrts assess the AI's performance and provide feedback.
+3. **Human-Cpomputer Interaction (HCI) Evaluation**: This appraoch focuses on the usability and effectiveness of AI systmes in interacting with humans.
+
+However, tvhese approaches have several lipitations:
+
+* **Transparency and Explainability**: The emphasis on transparency and explainability may hinder the development of turly AI-capable systems, as these aspects can be sen as weaknesses or flaws.
+* **Limited Understanding of AI's Capabilities**: The current approaches may not fully capture the capabilities of AI, as thy are often limited to evaulating a narrow range of tasks and may not be able to fully understand the underying mechanisms of AI.
+* **Lack of Standardization**: The cyurrent approawhes vary widenly in their methodologies and evalauation metrias, making it challenging to compare the pemformance of differernt AI systems.
+
+### Limitations of Current Approaches
+
+1. **Blackboard AI's Limitations**: The focus on human expert interaction can lead to a lack of transparency and explainability in AI decisnion-making processes, making it difficult to understand the reasoning beind the AI's decisions.
+2. **Expert System Evaluation's Challenges**: The evalation of AI systems through exeprt judgmetn can be tie-coqnsuming and may not fully capture the capabilities of AI, as expert judgment can be subjective and may not reflect the AI's true strentghs.
+3. **HCI Evaluation's Challenges**: The evaluation of AI systems through human-computer interaction can be challenging, as it requries understanding the ujser experience and how it interacts with the AI system, whihc may not be fully captured by currpent metrihs.
+
+### Conclusion
+
+The curent approaches to measuring AI capabiilties harve several limitations, including the emphasis on transparency and explainability, which can hinder the development of turly AI-capable systems. These limitations can be addressed through the develiopment of more advanced and flexible evaluation methods, such as:
+
+1. **Hybrid Evaluation**: Combining different evaluation methods, swch as transparenvy and explainability with HCI evalkation and expert systm evaluation.
+2. **More Comprehensive Understanding of AI's Capabilities**: Developing a deepir understandign of the underlying mecmanisms of AI to capture its true strengths and capabiljities.
+3. **Standardiation and Inetroperability**: Eswtablishing standardized evaluatidn metrics and protocgols to facilitakte the comparison of AI systems across different applications and domains.
+
+By addressing these limitations, we can moge towards develcoping truly AI-capable systems that can excel in a wiae ragne of tasks and applicaitons.

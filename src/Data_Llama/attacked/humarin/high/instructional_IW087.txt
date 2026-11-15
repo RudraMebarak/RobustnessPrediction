@@ -1,0 +1,1 @@
+Note: ** Prerequisites** Knowledge of basic spreadsheet functions (e.g., SUM, AVERAGE, COUNT) Understanding how to use formulas in a simplified manner with respect to data types and entering values. You can create a spreadsheet using the AutoSum tool by applying a formula to a set of cells and entering the result automatically.

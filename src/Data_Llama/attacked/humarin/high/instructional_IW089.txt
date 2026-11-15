@@ -1,0 +1,1 @@
+For a complete understanding of the data model and its requirements, one must first examine the dataset in either a spreadsheet or a relational database. To ensure consistency across the dataset, it is important to document all columns and their respective data types to match the dataset.

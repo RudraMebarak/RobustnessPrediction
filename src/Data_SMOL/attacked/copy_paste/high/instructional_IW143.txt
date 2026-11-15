@@ -1,0 +1,81 @@
+Prerequisites:
+1. Basic understanding of Microsoft Word.
+2. The ability to collaborate on a document with others.
+
+Step 1: Open the Shared Document
+Start by opening the shared document you are working on. You can do this by clicking on the document's tab at the bottom of the screen or by searching for it in your file explorer. 
+
+Step 2: Review the Conflicting Edits
+Look through the document for any changes that contradict what you've made or want to maintain. Conflicting edits could include different fonts, formatting styles, or even different versions of the same collaborators.
+
+**Prerequisites:**
+
+* A shared document with multiple collaborators
+* Basic knowledge of document editing tools (e.g., Microsoft Word, Google Docs)
+* Ability to communicate with collaborators
+
+**Step-by-Step Guide:**
+
+1. **Identify the Conflict:**
+	* Review the document for conflicting edits. Look for changes that contradict each other or change the original text.
+	* Note the conflicting edits, including the author's name, the location of the edit, and the nature of the conflict.
+2. **Communicate with Collaborators:**
+	* Contact the collaborators involved in the conflicting edits to discuss the issue.
+	* Ask for their input on the best way to resolve the conflict.
+	* Encourage open communication and collaboration to find a mutually acceptable solution.
+3. **Determine the Original Intent:**
+	* Review the original text and the context in which it was written.
+	* Identify the intended meaning or message of the original text.
+	* Use this information to inform your decision on how to resolve the conflict.
+4. **Propose a Solution:**
+	* Based on the original intent and the discussions with collaborators, propose a solution to the conflict.
+	* Consider the pros and cons of each potential solution.
+	* Ensure that the proposed solution is fair, reasonable, and aligns with the original intent.
+5. **Implement the Solution:**
+	* Update the document to reflect the proposed solution.
+	* Make sure that all collaborators are aware of the changes and the reasoning behind them.
+6. **Verify Completion:**
+	* Check that the document is updated and that the conflicting edits have been resolved.
+	* Review the document to ensure that the proposed solution is accurate and consistent.
+	* Confirm that all collaborators agree with the final decision.
+
+**Example:**
+
+Suppose you are working on a shared document with two collaborators, John and Sarah. You notice that John has edited a sentence to change "The project will be completed by the end of the quarter" to "The project will be completed by the end of the month." Sarah has also made a similar edit to change "The project will be completed by the end of the month" to "The project will be completed by the end of the week." To resolve the conflict, you could propose the following solution:
+
+* Keep the original sentence as it was initially written by the author.
+* If the author is unsure about the original intent, consider asking for clarification.
+* If the author is confident in the original intent, suggest that John
+- Regularly save your changes so you don't lose them. If you're collaborating with others, make sure you're saving regularly to avoid data loss.
+
+---
+
+## Troubleshooting Common Issues in Collaborative Document Editing
+
+1. **Unintended Changes**
+- This might happen when you or another author accidentally changes something you want to keep. Use the Eraser Tool or Track Changes to find these unintended changes.
+
+2. **Conflicting Fonts and Formatting**
+- This can happen when multiple people work on the same section. Make sure you check over changes carefully or use the Eraser Tool to correct these.
+
+3. **Lost Changes**
+- This might happen if you're collaborating over a network or if your document gets corrupted. Regularly save changes and keep a trusted version of the document.
+
+4. **Slow Load Times**
+- This might happen when you're working on a large document with many revisions. Close unnecessary programs or try to work offline if possible.
+
+5. **Display Issues**
+- This might happen if you're using an older version of Word or if you have a slow computer. Update your Word version or try to work on a faster computer.
+
+6. **Difficult to Read**
+- This might happen if you're working on a very large document with many changes. Consider breaking the document into sections or using a different editing tool.
+
+---
+
+## Conclusion
+
+Collaborating on a document can be a challenge, but with these steps and tips, you should be able to manage conflicts and work effectively with others. Remember to regularly save your changes, use the tools at your disposal, and communicate clearly with your collaborators. With these strategies, you'll be able to work through any obstacles and create a polished final document. 
+
+Remember, the key to successful collaboration is understanding who's working on the document, understanding their changes, and working together to find a solution. 
+
+Happy document

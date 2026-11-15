@@ -1,0 +1,44 @@
+Prerequisites:
+1. Basic understanding of business processes and project management methodologies (e.g., Six Sigma DMAIC or Lean).
+2. Familiarity with process documentation, such as work instructions or process maps.
+
+Process Overview:
+You will be comparing a business process against its defined requirements. This involves reviewing the process documentation, identifying deviations or discrepancies, and making recommendations for improvements.
+
+Step 1: Gather Process Documentation
+   - Collect all relevant documents related to the process, including work instructions, specifications, and any other supporting materials.
+
+Step 2: Review the Requirements
+   - Carefully read and understand the process requirements, which are likely outlined in the work instructions or specifications.
+
+Step 3: Map the Process
+   - Create a process map or a flowchart to visualize the process and identify the steps involved.
+
+Step 4: Compare Process Map to Requirements
+   - Compare the process map to the requirements, identifying any deviations or discrepancies between the two.
+
+Step 5: Identify Key Areas for Improvement
+   - Based on the comparison, identify the key areas that do not align with the requirements and prioritize them for improvement.
+
+Step 6: Analyze Root Causes
+   - Investigate the reasons behind the identified deviations or discrepancies, focusing on the root causes.
+
+Step 7: Recommend Solutions
+   - Propose corrective actions or improvements to address the identified issues, ensuring they align with the requirements.
+
+Step 8: Implement Changes
+   - Develop a plan to implement the recommended changes, which may involve training, process revisions, or other necessary actions.
+
+Step 9: Verify Completion
+   - Verify that the process has been successfully revised or improved by conducting a walkthrough or simulation, or by reviewing the revised process documentation.
+
+Step 10: Document and Communicate Changes
+   - Document all changes and communicate them to relevant stakeholders, including the process owner and team members who will be impacted.
+
+Additional Steps (for advanced users):
+   - Collect and analyze process metrics (e.g., cycle time, defect rate) to quantify the impact of changes.
+   - Conduct a root cause analysis (RCA) to determine the underlying reasons for deviations or discrepancies.
+   - Engage in cross-functional collaboration with team members to ensure the Does it meet the criteria outlined in the requirements?
+   - Are the KPIs being met?
+
+5. **Compare and Contrast**: Compare the process to the requirements and KPIs. Look for any discrepancies or areas where the process falls short. This against their requirements ensures continuous improvement and alignment with organizational goals.

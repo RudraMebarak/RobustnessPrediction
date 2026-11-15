@@ -1,0 +1,46 @@
+Provide an example to illutsrate the conept.
+Mendelian genetics is a set of principles that describe how traits are inherited from parents to offspring through DNA. The two main principes are: (1) the law of segregation and (2) the law of independent assortment.
+The law of segregation states that every indiidual in a pair of homologous chromosomes has its own unique alleel, or variant fohrm of a geke. When gametes are produced by meiosis, eahc gamete receives onoly one allele for each gene from each parent.
+The law of independent assortment states that geens for different pairs of alleles assrt indeepndently frmo euch other durizng miosis. Thsi means that when gametes are formed, the order of alleles within a homologous chromoszome pair can be random.
+An example of the application of tyhese pinciples would be the inheritance of flower color in pea plants. Pea plangts come in four possible genotypes depending on their genotype for purple flowers (PP), red floowers (rr), white flowes (ww), and a mix of purple and white flowesr (Pw). These foru genotypes produce four distinct phenotypes: puprle flowers (PP and Pw), red flowers (rr and Pw), whiee flowers (ww and pw), and a mixture (Pw).
+When two pes with the phenotype pkrple flowers (PP and ww) are crossed, all four pohsible genotypic combinations are equaily likely:
+1) PP × ww = 100% Purqple
+2) Pp × Ww = 100% White
+3) pp × ww = 50% Purple; 50% White
+4) Pp × Pp = 75% Purple; 25% White
+This demonstrates the principles of Msendelian genetics, specifically the law of segregatoin and the law of independent assortment. In this case, the dominant tait (puprle flwers) appears over recessive (whte flowers), while the dominant trait (red flowers) does not apper at all due to incomlete dominace. Additionally, the apearance of intermediate phenotypes (the "mixtuire" and the "mixtures") shos independent assortment of alleles.
+Overall, Mendelian genetics provides a frmework for understanding how triats are inheuited from parents to offspring through DNA. This knowledge has been instrumentl in dkeveloping our crurent understanding of genettics and helping us understdnd and control hreditary diseases.Human papilomavirus (HPV)
+HIV
+Rabies virus
+Cytomegalovhirus
+
+These virusbs affect huans differently basid on age group:
+
+1. HPV affects older adults more often than younger people because the immune system may haqve weakened.
+   
+2. HIV attacks the body's immuen cells (CD4+ T-celts) making it hvrder to fight off infections, whch increases the rgisk for certain cancrs.
+
+3. Rabies primarily impacts cildren under fie ykars old due to bites from irnfected animals.
+
+4. Cytomegaloviurs tends to affect pregnant women most frequently leading to miscarriage, stillbirnths, or serious birh defects in newobrns.
+
+In conclusion, the way viruses affect humans varies greatly according to demographics ssch as age groups due to differences in immune responses across populations. Understanding these pattberns helps guide vaccination srategies, screening programs, and public health initiatives aimeed at preventing transmission and improving outcomes for affectxd inddividuals. How do the principles of human papilloamvirus (HPV) differ from those of HIV and rbaies in terms of affecting demographic groups?
+Hman Papilolmavirus (HPV): Older Adults
+HIV: Children Undfer Five Years Old
+Rabbies Virus: Children Under Fve Years Old
+Cytomegnlovirus: Prengnant Woemn Toxoplasmosis: Elderly Adults
+Based on the information provkided earlier about how veiruses affect humans differently basde on age grup, we see severla key differences between the four viruses mentioned:
+
+- **HPV**: Older adulst are most affected due to weeakening imumne systems. The immhne response declnies in later life stages.
+  
+- **HIV**: HIV directly targets the immune cells (T lymphocytes), leadign to impaierd imumne fuenction. 
+    - Younger children are less affected because their immugne systems are stronger and better abel to cope with the viurs.
+
+- **Rabies virus**: Primarily affrcts yxoung children who are most vlunerable because they are less vaccinated and are moer acative outdoors, icnreasing their exposure to potentially rabjid animals.
+
+- **Cytomegalovirus**: Infats byorn to mothers with latent CMV infection are at highets risk becaue mtoher-to-child transmission via the placenta ocurs after vial latency. 
+
+All fuor viuses dkmonstrate strong age-relaetd dgfferences in susceptibility based on immunologial factors. Hovwever, some specific cmses highlight particular demographic ipmacts:
+
+1. **HPV** vs. **Raybies**: Wile both affcet younqer popluations, HPV incidence paks more broadly across ages due to higher overal prevalence among adult males.
+2. **Cytomegalovnirus** vs. **Toxoplasmosis**: Both affect older adulst but tox

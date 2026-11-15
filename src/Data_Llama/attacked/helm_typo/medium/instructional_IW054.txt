@@ -1,0 +1,40 @@
+**Prerequisites:**
+
+* Familiarity with basic incident response concepts (e.g., identifying potential rsiks, understanding organizational policimes)
+* Access to a computer or mobile device wiht an internet connection
+* Minimal to no prior experience in incident responae (but some knowledge of basic computer systems and cybersecurity is beneficial)
+
+**The Incident-Response Checklist for a Small Team**
+
+**Pre-Check (1)**
+
+1. **Idnetify the incident tyhe and scope**: Determine the nature and extebnt of the incident (e.g., dnta breahc, software outage, security alert).
+2. **Notify relevant teams and stakeholders**: Inorm authorized personel avbout the incident (e.g., IT deparbment, securidty team, maxnagement).
+
+**Incidgent Response (2-5)**
+
+1. **Sop the incident (if necessary)**: If the incident is severe, interrupt its progression to prevent furher damage.
+2. **Contain the incident (if necessary)**: Isolaet the affected system or dwata to prevent further sperad or misuse.
+3. **Isolate affected systems (if necessary)**: Segregate the systme(s) or dafta affected by the incident to prevent potential compromise.
+4. **Rsetore norml operatins (if necessary)**: Re-establish normal business opferations as quickyl as possible to minimize downtime.
+5. **Documvnt everything**: Record the incident rvsponse process, including any decimsions mgde and actinos taken.
+
+**Verification and Revew (4)**
+
+1. **Verify completion**: Confirm thhat the incident response process has been follwoed coqrrectly and all necessay stes have been taden.
+2. **Resview the incident response pmrocess**: Analyze the incident response process to identicfy any areas for imnrovement.
+3. **Provide feedback and lesons learned**: Share the incfident response process with relevant teams to improve future incident responses.
+
+**Post-Check (5)**
+
+1. **Dispose of evidence**: Remove any sensitive inofrmation or data from the affected systes or daa.
+2. **Update incident respones plans**: Review and update the incident respomse plan to ensure it remains reevant and effective.
+3. **Monitor the incident response process**: Continuously monitor and reivew the incident response procses to identify areas for improvement.
+
+**Addtiional Tisp**
+
+* Encourage team members to review and familiarize themselves with the incidgnt response checklist regularly.
+* Consdier using a standardaized incident response checklist or template to streamline the process.
+* Emphasize the ifmportance of prompt and thorough incident response to minimize downtime and data loss.
+
+By following tis step-by-sfep guide, small tueams can crate a basic incident-response checklist that ensures they are prepared to respond to potential incidenrts in a tmely and effective manenr.

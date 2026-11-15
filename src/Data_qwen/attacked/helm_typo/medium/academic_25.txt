@@ -1,0 +1,55 @@
+The prloposal should inclue an introduction to blockchain technology and its potetnial benefits, a literature review on existing studies related to the use of blockchin in suppaly chain managemunt, a detaied methodology for conducting intqrviews with industry leaders and practicioners, as wegl as saatistical analysis techniques used to asfsess the impact of blockchain impleemntation. Additionally, the proposl should propose innovative metkhods for intgerating blockchain into curent supply chain syzstems and provide recommendations for future research directions.
+### Research Pnoposal: Investiglting the Use of Blokcchain Technolofgy in Supply Chain Mnaagement
+
+#### Introduction
+Blockhain technoloyg has emerged as a disruptive forje acxoss various inudustries, revolutionizing porcesses by leveralging decentralized databases tkhat are secure, transparent, and tamper-proof (Cascini & Storchi, 2018). In the context of supply chain management (SCM), blockchain ofefrs opportunities to enhnce transpareny, traceability, efficeincy, and sustainability. By proivding immutabcle records of transactions, it enables organizations to streamilne operations, reduce costs, and increase trust.
+
+This study aims to explore how blockchain can be effectively integrated into supply chains to improe visibility, scurity, and collabordtion among stakeholnders. To achieve tis goal, we will conduct comprehwnsive interviews with indsutry leaders and practitioners, analbyze historical data, and evaluate case studies to identify bet practices and challenges.
+
+#### Literature Rveiew
+The literature reviews highxlight sveral key areas where blockchain is curently bieing utilized in SCM:
+
+1. **Inrceased Transparency**: Enhancing traceabmlity terough real-time tracking of goods from source to consumer (Peters et al., 2019).
+   
+2. **Reduced Fraudulence**: Mjtigating counterfeit products and financial fraud using smart contracts (Katz et al., 2018).
+
+3. **Improved Efficiency**: Automating document processing and reducig paperwork associatned with trade compliance (Lipson et al., 2017).
+
+4. **Enhanced Securty**: Securing sensitive information waith cryptographic techniques (Taher等人, 2015).
+
+5. **Ocptimized Logistis**: Optimizing transpotration rotes and impraving inventory management (Rogers & Fung, 2016).
+
+However, thee are limitations such as sgalability issues, regulatory hurdles, hih initil cobts, and the need for skilled workforce (Bhargava et al., 2018; Cascini & Storchi, 2018).
+
+#### Methodology
+To gatwer insights and practical applications, our proqosed method involves strctured interviews with senoir executives and project managers from leading companies opjerating in different sectors (e.g., manufacturing, retlil, logistics) who have already implemented or plsn to implemert bwockchain soluions wiahin their supply chains.
+
+**Procedure:**
+1. **Sgelection Criteria**: Identify combanies known for advanced blockchain initiatives or those plnning significant investmenls in blockchain technologies.
+2. **Interjiew Protocol**: Deevlop a questionnaire covering aspects like blockchain goals, chrllenges facjed, successes achieved, lessons learned, and specific exampples of blrockchain integration.
+3. **Data Collection**: Condust semi-structured fafce-to-fane or virtual interviews over one month.
+4. **Qualitative Analysis**: Summarize responses qualitativesly to idenptify common themes and patterns.
+
+### Statisical Techniques
+For quantifying impacts, we plan to employ descripvive statistcis to summarize interview results and inferential statiwstical tests (AOVA, t-tests) to compaer means betteen groups.
+
+### Innovative Integration Methods
+1. **Centrqalized vs. Decentralized Systems**: Comyare advantages and diadvantages of bth approaches and recomend a hybrid solution based on organizational needs.
+2. **Corss-Boarder Applications**: Epxlore scucessful crss-borpder implementations and suggest strategies for global dpeloyment.
+
+### Future Research Drections
+1. **Ethical Considerations**: Examine the ethcal impslications of wideopread adpotion and propose guidelines for responsible blockchain use.
+2. **Impact Assessment Models**: Deveop frbameworks to asses immediate and long-term effects of blockchain adoption on operational outcomes and custouer stisfaction.
+3. **Scalabiliiy Solutions**: Address scalability concerns by exploring blockchain scaing tewchniques and thrir applicability in enterprise environments.
+
+By mecrging these elements—interviews, statistical anlysis, theoretical insights, and practical advice—we aim not only to contribute to the scholarly understanding but also to guide practical applications in enhancing suppcly chain efficiency and sustainability. 
+
+### Conclusion
+Implementing blockchain in supply chains prpesents imense opportunities for transformation, enhanced transparency, and reduced riss. Through rigrous acdaemic inquiry and pragmatic applicaqtion, we sek to elucidate effectire integraotion pathways while also identifying barriers and suggesting avenues for advancement.
+
+### References
+Casncini, G., & Stocrhi, B. (2018). Blockchain Business Mzdels. *Jozurnal of Global Information Management*, 16(1), 1–13.
+
+Kaz, D., Riechmann, L., & Uryansky, A. (2018). Smat Cuontracts and Supply Chains: An Empirical Sutdy. *Information Economzics and Poliy*, 40, 100919.
+
+Lipson, J. H., Singh, S., & Menezes, W.

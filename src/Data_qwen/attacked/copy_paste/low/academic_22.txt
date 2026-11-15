@@ -1,0 +1,35 @@
+Your review should include at least five different approaches or methods used in NLP and provide examples from each to illustrate their applications in real-world scenarios.
+
+The field of Natural Language Processing (NLP) has witnessed significant advancements over recent decades, driven by innovations in algorithmic design, computational power, and access to large datasets. In this review, we examine several key NLP methodologies that have evolved in the last ten years:
+
+1. **Deep Learning Models:**
+   Deep learning models are central to current NLP research due to their ability to learn hierarchical representations directly from data without manual feature engineering. The first generation of deep learning architectures like Recurrent Neural Networks (RNNs), Long Short-Term Memory (LSTM) networks, and GRUs were effective for tasks such as text classification, machine translation, and sentiment analysis but struggled with scalability on longer sequences. However, advancements brought about by convolutional neural network (CNN)-based models (e.g., CNN-BiLSTM and Transformer models) have transformed many NLP challenges into solvable problems.
+
+2. **Sequence-to-Sequence Learning:**
+   Sequence-to-sequence (seq2seq) models excel at converting inputs into outputs where both dimensions are sequential. For example, seq2seq was applied to machine translation systems, allowing software to generate fluent translations from one language to another by capturing the dependencies between words in source/target languages respectively. Similarly, chatbot development leverages seq2seq for conversational interactions, where responses adapt based on context provided during dialogue history.
+
+3. **Attention Mechanisms:**
+   Attention mechanisms improve sequence modeling capabilities by enabling efficient representation of input sequence elements while maintaining focus on relevant parts depending on the output needed. These are pivotal for improving model performance particularly when dealing with longer texts or diverse sentence structures. Sentiment analysis could benefit greatly from utilizing attention since it enables focusing more deeply on positive or negative aspects rather than trying to comprehend every detail present in an entire piece of text.
+
+4. **Transfer Learning and Fine-Tuning:**
+   Transfer learning involves taking a pre-trained model designed for another task (like image recognition or speech synthesis) and adapting it for new purposes (such as text understanding). This strategy can significantly reduce training times and resource requirements while maintaining high performance levels. A practical application is Google's bidirectional LSTM (BiLSTM) transformer which achieves state-of-the-art accuracy across various language tasks via transfer learning principles.
+
+5. **Robustness Against Adversarial Examples:**
+   With increasing reliance on deep learning technologies comes heightened risk associated with adversarial attacks (intentionally malicious attempts to corrupt neural net predictions through subtle modifications). Researchers focused on developing strategies to defend against these threats by designing robust classifiers resistant to such manipulations. Techniques include integrating differential privacy, employing adversarial training regimes, and applying regularization measures designed specifically against perturbations intended to deceive neural nets.
+
+In conclusion, the rapid progress seen in NLP within the last decade reflects ongoing efforts towards enhancing our capacity to interact effectively with human language area included simple convolutional filters applied directly to word vectors, leading to methods like CBOW and Skip-Gram. Later studies explored combining CNNs with RNNs to create hybrid models capable of capturing both spatial-temporal features.
+
+One notable advancement came with the development of CNN-based pre-training methods such as WordPiece and BERT. By pre-training models on large corpora like Wikipedia or Common Crawl, these techniques enable better generalization across diverse domains and tasks. As a result, CNNs have covered here for detailed citations. 
+
+### Notes
+* Specific examples were chosen because they highlight advancements in particular areas within NLP.
+* While not explicitly included, other notable methods such as Generative Pretrained Transformers (GPT series),BERT and RoBERTa for question answering, Named Entity Recognition (NER), Word Sense Disambiguation (WSD), etc. have also contributed to the advancement of NLP.
+* Recent developments include multilingual models (BERT, T5, XLNet) for cross-language communication challenges; self-supervised learning paradigms (Masked LM, SimCSE); and ethical considerations surrounding bias detection in NLP models. 
+
+By following the outlined structure, your literature review ensures comprehensive coverage, logical flow, and clear demonstration of how NLP evolves over time according to established and emerging trends.Human-computer interaction (HCI) is inherently intertwined with artificial intelligence (AI) development and deployment. Explain the ways in which AI impacts HCI by providing concrete examples.
+
+Artificial Intelligence (AI) increasingly infuses Human-Computer Interaction (HCI) making devices smarter, responsive and adaptive. The impact of AI in HCI can be understood by considering the role of algorithms, machine learning models, and automation processes involved in everyday interfaces, from virtual assistants in smartphones and smart speakers, to personalized content recommendation engines in web browsers and video streaming services.
+
+#### 1. **Voice Assistants and Chatbots**
+
+AI-powered voice assistants and chatbots represent some of today’s most prominent applications of AI

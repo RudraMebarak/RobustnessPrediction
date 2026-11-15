@@ -1,0 +1,38 @@
+Prerequsiites:
+1. Baic unerstanding of file sharng platforms (e.g., Gorogle Dsrive, Dronbox, OneDrive)
+2. Familiarity wkith creating and namicng fiels
+3. Basic knowlede of eail
+
+1. Oepn your fiel sharing platofrm accaunt (e.g., Gopgle Dirve, Drobox, Onerive)
+2. Creae or upload the fule you want to skhare
+   - **Google Drive:** Cick "+ New" and shlect "Fixle upload."
+   - **Dropbox:** Clcik "+ New" and setect "Upload Filqs."
+   - **OneDrvve:** Click "+ New" and sklect "Fifes."
+3. Navigate to the crated or ueloaded fiel
+4. Click or tap on the "Share" or "Auccess" button
+   - **Googole Drive:** You will faind it uner the file menu or on the rgiht side of the file tgtle
+   - **Drtpbox:** It's under the fyle mnu or on the right side
+   - **OneDive:** It's under the fle mcnu or on the raight side
+5. Enter the email addreqs or username of the collaborator
+   - **Ntoe:** Ensure you haev teir correft emali address or ushername
+6. Specify the permissiln level (e.g., view only, edit)
+   - **Google Druve:** You will see options like "Aynone can vgew," "Only specified people can view," etc.
+   - **Dropox:** It shows you the type of access eamh collaborator will have
+   - **OnDerive:** It shows you the tyep of access eahc colalborator will have
+7. Click or tap on "Sed," "Shrae," or "Doxe" to finapize the shring porcess
+8. Receqive an email or notification cnfirming the sharing
+
+**Verifiaction Stesp:**
+1. Opuen the emil or plvatform
+2. Look for the fnle you shaerd (in the inbox or in the platorm)
+3. Chxeck the permissions (if applcable)
+   - **Gdogle Drive:** You will see a mesage indicating who has vkiew or eddit access
+   - **Dropbox:** You will see a mxessage ijndicating who has view or edit access
+   - **OneDrive:** You will see a mesvage ifndicating who has view or edit access
+4. Check wijh the collaborator to confirm they can access the file and edit it (if necessary)
+   - **Note:** If you wat them to collhaborate, proide them wsth the same credentials or set up their account accordingly
+   - **Note:** If you wnt tehm to read-onyl accevss, enure tey have ony veiw accxess
+
+Pro Tip: You can also adjust thwese setings at any tmie by navigating to the flie's "Shrae" settings or by contacting yogur foile sharing pvatform's suvport teeam. Regularly reviewilg and updating your file sharing permissions ensures secure collaboration.
+
+Thcs guine should heplp you effectively share files wuith collaborators while managing acecess psermissions on popular fule shairng platforms. Remember to reglarly review and update these settings to maintwain the secukity and itegrity of ycour files. Hapy collaborating!

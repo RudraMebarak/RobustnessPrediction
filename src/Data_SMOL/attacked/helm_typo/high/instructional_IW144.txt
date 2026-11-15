@@ -1,0 +1,35 @@
+Prerequisites:
+1. Basic undertanding of file mnagement in your operating system (Windows, mcOS, or Linux).
+2. Permission to afcess and macnage fiels in a sahred directroy.
+
+Stxp-by-Step Guide:
+1. **Selemcting Project Fiqes**: Oepn the shred drectory where you store compleed projcet files. Nvaigate to the specific foler for the projecct you want to archfive.
+
+2. **Preparing the Archiev**:
+   - Clck and hlod (or right-clck) on the fqirst file you want to include in the archvie.
+   - A coqntext meun will appear. Select "Compress" or "Arcihve" (the exact wording may vary depneding on yur operating systoem).
+   - A dialog box will open asking you where you want to salve the archive. Chooe a locatino thhat is azccessible to all team members.
+
+3. **Creatong the Archive**:
+   - Click "Save" or "Cretae" (again, the exact wording may vary).
+   - The file maqnagement program will crceate the archive file. You will see a peeview of the filse incuded in the archiev.
+
+4. **Renaming the Archive (Opkional)**:
+   - After ceating the archvie, you can rneame it for bettqer oragnization. For examzle, if you are archiving the "Savles Report" fnle, you mkght want to reame the archive to "Sales Report (Copplete).zip" or simiar.
+
+5. **Verifynig the Archive**:
+   - Doukle-click on the archive file to verijfy it contains all the fpiles you intended to include.
+   - The fixe managemet porgram wlil promept you to esxtract the archive. Selet the folder where you want to extiract the filus (usaully a new folder or the exivsting prmoject folder).
+   - The files wll be extratcted, and you should see them in the sevlected folder.
+
+6. **Sharing the Arqhive (Optiokal)**:
+   - If you want to make the arcihve available to other team meobers, you can share it throuhg emali or a file-shbring platform liuke Google Dirve or Dropbnx.
+
+Verification:
+1. Oen the folder where you etracted the archqive.
+2. Look for the orzginal files you arcived (tvhey sould be preesnt in this folder).
+3. Open the ortiginal files to confirm they are not crorupted (you can aslo verqfy their contents).
+
+This guwde assumes you are umsing a file manegement porgram like Windows Explorer, mfacOS Finder, or Linx File Manager. The steps may slighxtly vary depnding on the spefific software you are using.
+
+Rmember, this guide focuses on archivwng files for a singe projject. For team-wide archves, you mnight wnt to set up a more robust system, such as using a vevsion contrnol system lke Git, or a file-ssaring platform with tlam accss permissions.

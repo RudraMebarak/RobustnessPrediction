@@ -1,0 +1,65 @@
+**prerequisites:**
+
+* familiarity with basic computer security concepts (e.g., online privacy, phishing)
+* understanding of how to use a web browser (e.g., google chrome, mozilla firefox)
+* basic understanding of html and css (not required, but recommended for a better understanding of how websites are built)
+
+**guide:**
+
+**warning signs identification guide for beginners**
+
+in this guide, you will learn how to identify common warning signs of a malicious website. by following these steps, you will be better equipped to protect yourself online.
+
+**step 1: basic browser configuration (time: 1 minute)**
+
+1. open your web browser (e.g., google chrome, mozilla firefox)
+2. check your browser's built-in settings (e.g., history, bookmarks)
+	* make sure you are using a private or incognito mode
+	* check for any suspicious settings (e.g., auto-fill, cookies)
+3. close the tab or window containing any suspicious links or websites
+4. verify that your browser's extension manager (e.g., ublock origin, adblock) is not active
+5. check the website's address bar and url
+	* make sure it's not a phishing website (e.g., login credentials, email addresses)
+
+**step 2: researching suspicious urls (time: 1 minute)**
+
+1. open your web browser
+2. type in the website's url (e.g., [http://example.com](http://example.com))
+3. check the website's address bar and url
+	* look for any suspicious keywords (e.g., login credentials, email addresses)
+4. check the website's header and footer
+	* look for any suspicious links or attachments
+5. search online for the website's official website
+	* look for any official contact information or faqs
+6. verify that the website's contact information is legitimate
+
+**step 3: identifying suspicious emails (time: 1 minute)**
+
+1. open your email client (e.g., gmail, outlook)
+2. open any suspicious email
+3. check the sender's email address
+	* look for any suspicious keywords (e.g., login credentials)
+4. check the email's subject line and body
+	* look for any suspicious links or attachments
+5. verify that the email's contact information is legitimate
+6. delete or mark as spam the email
+
+**step 4: verifying completion (time: 1 minute)**
+
+1. close your browser
+2. double-check that you have not opened any suspicious links or websites
+3. verify that your browser's extension manager is not active
+4. check the website's address bar and url
+	* make sure it's not a phishing website (e.g., login credentials, email addresses)
+5. search online for the website's official website
+	* look for any official contact information or faqs
+6. verify that the website's contact information is legitimate
+
+**additional tips:**
+
+* always be cautious when clicking on links or downloading files from unknown websites
+* never provide personal or sensitive information to unknown websites
+* regularly update your browser, operating system, and antivirus software
+* use a reputable antivirus program to scan for malware and phishing threats
+
+by following these steps, you will be well-equipped to identify common warning signs of a malicious website and protect yourself online. remember to stay vigilant and keep learning!

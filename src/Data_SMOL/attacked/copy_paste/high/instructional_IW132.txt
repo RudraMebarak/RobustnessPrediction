@@ -1,0 +1,73 @@
+Prerequisites:
+1. Basic understanding of Agile development and acceptance criteria.
+2. Familiarity with writing clear, concise sentences.
+3. A small feature (for example, adding a new button with a specific function) with its requirements.
+
+## Step-by-Step Guide to Writing Acceptance Criteria for a Feature
+
+### Understanding the Feature
+Before diving into writing acceptance criteria, ensure you understand the feature you are working on. For example, if you are adding a new button with a specific function (e.g., saving data), make sure you know:
+
+* The current state of the feature (i.e., what it currently does)
+* The desired state (i.e., how it should function after the feature is complete)
+* The impact of the change (e.g., how it affects other features or users)
+
+### Identifying the Key Requirements
+
+1. **Functionality Requirements**: What does the feature do? (e.g., the new button saves data)
+2. **Non-Functional Requirements**: How does the feature perform? (e.g., how quickly it saves data, what happens if the feature is not working)
+3. **User Experience (UX) Requirements**: How does the feature look and feel? (e.g., how the button is styled, where it is placed on the screen)
+
+### Writing Clear, Concise Statements
+Once you have identified the requirements, convert them into clear, concise statements. Here's an example:
+
+* The new button, when clicked, saves the currently edited data to the database.
+* The button should be styled consistently with other buttons on the screen.
+* The button should be placed in a prominent location, so users are aware of it.
+
+### Sequencing Your Acceptance Criteria
+
+1: Define the Feature's Purpose
+
+Start by clarifying the feature's purpose and its impact on the overall product. Write a concise description that outlines the feature's functionality and benefits.
+
+### Step 2: Gather Stakeholder Input
+
+Schedule a meeting with stakeholders to discuss the feature's requirements. Ask questions like:
+
+* What are the feature's primary goals?
+* What are the expected outcomes?
+* How will the feature be used by the end-users?
+
+Take detailed notes during the meeting to ensure all stakeholders' requirements are captured.
+
+### Step 3: Identify Key Features
+
+Based on the discussions with stakeholders, identify the key features that need to be included in the feature. Consider the following:
+
+* Functional requirements: What does the feature do?
+* Non-functional requirements: How does the feature behave?
+* User requirements: How will the feature be used by the end-users?
+
+### Step 4: Write Acceptance Criteria
+
+Once you've identified the key features, start writing acceptance criteria for each one. Use the following structure:
+
+* **Feature Name**: Describe the feature in a concise manner.
+* **Expected Outcome**: Outline the desired outcome or behavior.
+* **Criteria**: Provide specific, measurable, achievable, relevant, and time-bound (SMART) criteria that stakeholders will use to verify the feature's completion.
+
+For example:
+
+**Feature Name**: User Profile Page
+
+**Expected Outcome**: Users can view their profile information.
+
+**Criteria**:
+* The user's name, email address, and profile picture are displayed.
+* The user's profile is editable by the user themselves.
+* The user's profile information is saved correctly to the database.
+
+### Step 5: Verify Completion
+
+After writing the acceptance criteria, verify working on. Happy development!

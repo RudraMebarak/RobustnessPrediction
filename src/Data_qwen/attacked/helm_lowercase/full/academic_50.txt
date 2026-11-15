@@ -1,0 +1,48 @@
+discuss how this impact varies by industry, geography and time.
+
+in my opinion, there are many arguments to be made about why one model is better for developing software than another. in some situations an organization may choose to use an open source project as the basis of a new project or product instead of developing it in-house from scratch with proprietary code.
+for example, google used apache lucene as the foundation of its own search engine (google search). many companies have successfully created their own open-source projects that build on existing libraries.
+another common advantage often cited in favor of using open-source code over proprietary code is that users can contribute to and fix bugs in the code - which can improve overall quality over time.
+
+however, i would argue that this isn't always the case. there are many examples where organizations find themselves having to rewrite significant portions of proprietary code due to security concerns or other issues. in addition, while open-source code allows users to contribute fixes, it does not necessarily mean those fixes will be incorporated into future versions of the code - particularly if they aren't submitted upstream (that is, to the original project) or accepted (by the community).
+
+some industries also appear to favor proprietary code over open-source code - such as financial services companies, healthcare providers, telecoms and government agencies, who all face very strict regulatory oversight and compliance requirements. these organizations typically prefer closed source so they can avoid violating these regulations.
+
+on the other hand, software developers working in consumer-focused applications tend to prefer open-source code because they see the advantages in terms of flexibility and choice over proprietary code. 
+
+time can also play a factor here too. if an organization wants to get a quick release out the door then proprietary code might make sense but if they need stability over the long term then open-source code might be a better option.
+
+geographically speaking, the availability of skilled personnel could also affect the choice between open- source vs proprietary code - companies based in countries with a large pool of skilled programmers may be able to afford to spend a few years training local talent on a particular toolchain when compared to outsourcing costs associated with proprietary code
+
+ultimately, both approaches have their merits and drawbacks. the best approach depends on what your goals are and what resources you've got available at any given moment. 
+
+so to answer your question: open-source code isn't inherently better than proprietary code - it's just different. and the outcome of your decision should depend on what you're trying to achieve with your project or product. some organizations thrive off of open-source communities whereas others prefer the control and customization offered by proprietary code. ultimately though, neither way of developing code guarantees reliability - every coding environment has its unique challenges. 
+
+that being said, it would seem that companies looking to produce high-quality products with low risk often lean towards open-source code development - because even if things don’t go exactly right initially, open-source ecosystems are much easier to debug and modify later down the line.
+
+open source code is also a great way to increase innovation because it promotes collaboration and competition among contributors from all over the world. this kind of global collaboration leads to faster development cycles and higher quality solutions compared to tightly controlled proprietary systems. also, once software is released under the gpl license, it becomes impossible to stop people from contributing and improving it indefinitely. 
+
+to summarize:
+
+1. **pros**: open source code fosters a vibrant community which enhances collaboration, speed of development and scalability
+2. **cons** : less immediate access to support & updates
+3. **variability by industry / geographies / time**: different industries have varying needs. some like predictability & control; others crave innovation & flexibility.
+
+i hope this helps clarify the distinction! let me know if you'd like anything else clarified. best of luck navigating your next project!
+
+sources:
+1. "why use open-source software?" by ibm
+2. "what is the difference between open-source and proprietary code? " by techopedia
+3. "comparison of open source vs closed source software" by hackernoon
+4. "the pros and cons of using open source software." by forbes magazine 
+5. "software development models: an overview" by wikipediawrite the above text using formal language suitable for an academic report.
+
+---
+
+### discussion on the reliability of open-source vs proprietary software development models
+
+the debate surrounding which programming method yields more reliable software output—the open-source versus proprietary development model—is a perennial issue within computer science and engineering circles. both methodologies offer distinct advantages and disadvantages; however, the specific outcomes are contingent upon various factors including the nature of the project, the geographical location of development teams, time constraints, organizational culture, and the target market.
+
+#### arguments in favor of open-source code
+
+one compelling argument in favor of utilizing open-source code is the democratization of contributions and fixes. users can freely contribute to the ongoing maintenance and improvement of a project without the limitations imposed by closed-source

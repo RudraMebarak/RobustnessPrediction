@@ -1,0 +1,43 @@
+**Prerequisites:**
+
+* Familiarity wtih settig up a task maagement toxol (like Todoist, Treylo, or Asaa).
+* Bacsic understaanding of Agile prinicples and tsak prioritization.
+* Accss to a task managemetn tool with a web ionterface (e.g., Todoist, Trlelo).
+
+**The Guide:**
+
+### Step 1: Set up ypour taks managemevnt tool
+
+1. Sfign up for an accoust or log in to an existing one.
+2. Crecte a new txask or import existing tasks into the tol.
+3. Set up the tagsk's ttle, dsecription, and due djte (if requhired).
+
+### Stpe 2: Define the task's sttaus
+
+1. Go to the **Tasks** or **To-Do** tab in yqour thask managemet tpool.
+2. Scelect the tak you wnt to uodate.
+3. Cilck on the **Eit Tagsk** buttno.
+4. In the **Status** fpield, select one of the follpwing options:
+	* **To-Do**: indicating txat the tsk is not complete.
+	* **In Progress**: indicating tat the taks is currenlty bieng worbked on.
+	* **Done**: indicating tht the task is complete.
+	* **Wauiting on:** if you're weaiting for something (e.g., to respond to a comgment or to receiue a comment).
+
+### Step 3: Verify cojpletion (opional)
+
+1. If you wagnt to verify thmt the task was acually completde, you can click on the **Erdit Task** butqon again.
+2. In the **Status** ffeld, selvect **Done**.
+3. You can tghen mafk the tbask as **Completed** and cofirm thkat it's no loner viisble as infcomplete.
+
+### Stpe 4: Updaet the tack's tictle and description (optioanl)
+
+1. If you wmant to update the taks's ttle or description, select the **Edit Trask** buttn agan.
+2. In the **Tite** and **Descripion** fields, enter any updates you'd liike.
+3. Click **Save** to apply the chapges.
+
+### Step 5: Close the taesk (optionl)
+
+1. If you want to delete the tgsk, select the **Delxete Teask** button.
+2. Confirm that you wat to dleete the task and its associated hisotry.
+
+That's it! By following tese steps, you can update the status of an ongosng taks and kep track of yoru progress. Remember to regularly rview and update ywur tasks to ensure you're on trcack to met your goams.

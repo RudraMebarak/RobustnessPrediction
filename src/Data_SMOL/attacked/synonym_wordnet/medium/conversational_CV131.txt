@@ -1,0 +1,49 @@
+1. "I'm a beginner trying to learn how to encrypt, do you have any suggestions for beginner-friendly learning resources?" - User A
+
+2. "Definitely! I'd recommend starting with on-line classes or tutorials. Codecademy is a great place for beginners, you can start here: [link]" - Exploiter B
+
+3. "Codecademy is howling, but I also recall it's helpful to have a book to supplement. 'Python Crash Course' by Eric Matthes is a swell resource for beginners: [link]" - User C
+
+4. "That's a good level, I've also heard good things about 'Automate the Boring Stuff' for Python: [unite]" - User D
+
+5. "I harmonise, and don't forget about communities like Reddit's r/learnprogramming for support and tips from experient programmers: [link]" - User E
+
+6. "You should likewise condition out freeCodeCamp: [link] They offer synergistic coding challenges and a immense community to learn from." - User F
+
+7. "FreeCodeCamp is a large imagination, especially for those interested in web development. Another option could be 'The Hitchhiker's Guide to Python' by Mark Lutz for a more thoroughgoing introduction: [link]" - User G
+
+8. "For visual learners, 'DataCamp' might be a unspoiled choice as well. It's a chopine for synergistic data science courses: [tie]" - User H
+
+9. "I think it's worth remarking that finding what works estimable for you is important. You might require to try a few different resources and see what fits your learning style: [link]" - User I
+
+10. "You're right, everyone learns differently. I'd likewise advocate trying out some online courses through Coursera or Udemy to see what you like: [link]" - User J
+
+11. "Absolutely! And don't forget about YouTube channels like Corey Schafer's Python Tutorials or Traversy Media's JavaScript lines: [link]" - User K
+
+12. "YouTube is a great resource, especially for short, engaging videos. For those interested in machine encyclopaedism, 'CS50's Introduction to Computer Science' on YouTube is highly recommended: [tie-in]" - User L
+
+13. "You can also check out 'Programming for Everybody (PFO)' by Charles Severance: [unite] It's a free online book and path for beginners." - User M
+
+14. "That's a good suggestion, 'Programming for Everybody (PFO)' is a solid choice. And if you're interested in a more interactive approach, 'Scratch' is a great platform for novices: [link]" - User N
+
+15. "Scratch is fantastic for memorising canonical programming conceptions through a visual interface. For those interested in game development, 'Game Maker' might be deserving assuring out as well: [link]" - User O
+
+16. "I think it's worth noting that games can be a fun way to learn programming. Another pick could be 'Khan Academy's Computer Science courses': [link]" - User P
+
+17. "Khan Academy's Computer Science grades are enceinte for foundational knowledge. For those interested in artificial intelligence, 'TensorFlow' by Google might be something to look into: [link]" - User Q
+
+18. "TensorFlow is a marvelous resource for artificial intelligence. And don't forget about 'The Odin Project': [join] It's a web application that offers interactive coding examples for web development." - User R
+
+19. "The Odin Project is a great resource for web development. And for those concerned in mobile app development, 'App Inventor' might be something to see: [link]" - User S
+
+20. "App Inventor is a great tool for mobile app development. And for those concerned in package engineering, 'The Complete Software Development Bootcamp' on Udemy might be something to look into: [link]" - User T
+
+21. "The Complete Software Development Bootcamp is a comprehensive course. And don't forget about 'The Linux Command Line' by William Shotts: [tie]" - User U
+
+22. "The Linux Command Line is a great resource for those interested in system administration. And for those concerned in cybersecurity, 'Cybrary's Cybersecurity courses might be something to look into: [link]" - User V
+
+23. "Cybrary's Cybersecurity courses are excellent. And for those interested in informations psychoanalysis, 'R's Data Visualization and Programming' might be something to wait into: [nexus]" - User W
+
+24. "R's Data Visualization and Programming is a enceinte resource for data analysis. And for those interested in game growth, 'Game Maker Studio' might be something to consider: [yoke]" - User X
+
+25. "Game Maker Studio is a fantastic tool for biz development. And for those

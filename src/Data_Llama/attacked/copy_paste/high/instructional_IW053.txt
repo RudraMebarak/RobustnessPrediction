@@ -1,0 +1,63 @@
+**Prerequisites:**
+
+* Familiarity with basic computer security concepts (e.g., online privacy, phishing)
+* Understanding of how to use a web browser (e.g., Google Chrome, Mozilla Firefox)
+* Basic understanding of HTML and CSS (not required, but recommended for a better understanding of how websites are built)
+
+report it to the website administrator or seek assistance
+* Download files from reputable sources only
+
+**Step 5: Check for transparency about data collection practices**
+
+* Research the website's data collection policies and terms of service
+* Look for clear and transparent information about how the website collects and uses user data
+* If the website appears to be collecting user data without clear consent or transparency, report it to the website administrator or seek assistance
+
+**Step 6: Verify the website's SSL/TLS certificate**
+
+* Check the website's SSL/TLS certificate to ensure it is valid and issued by a reputable Certificate Authority (CA)
+* If the certificate appears to be fake or expired, report it to the website administrator or seek assistance
+
+**Step 7: Use a reputable antivirus and firewall**
+
+* Install and regularly update a reputable antivirus and firewall software
+* Configure the software to block suspicious websites and online threats
+
+**Step 8: Use a web browser extension or add-on**
+
+* Install a reputable web browser extension or add-on that scans websites for malicious activity
+* Use the extension or add-on to scan websites before accessing them
+
+**Step 9: Stay informed and educated**
+
+* Regularly update your knowledge of common online threats and warning signs
+* Stay informed about the latest cybersecurity news and alerts
+
+**Verification:**
+
+* Go to a reputable website to test its security and warning signs
+* Verify that the website's URL, spelling, grammar, attachments, data collection practices, and suspicious keywords (e.g., login credentials)
+4. Check the email's subject line and body
+	* Look for any suspicious links or attachments
+5. Verify that the email's contact information is legitimate
+6. Delete or mark as spam the email
+
+**Step 4: Verifying Completion (Time: 1 minute)**
+
+1. Close your browser
+2. Double-check that you have not opened any suspicious links or websites
+3. Verify that your browser's extension manager is not active
+4. Check the website's address bar and URL
+	* Make sure it's not a phishing website (e.g., login credentials, email addresses)
+5. Search online for the website's official website
+	* Look for any official contact information or FAQs
+6. Verify that the website's contact information is legitimate
+
+**Additional Tips:**
+
+* Always be cautious when clicking on links or downloading files from unknown websites
+* Never provide personal or sensitive information to unknown websites
+* Regularly update your browser, operating system, and antivirus software
+* Use a reputable antivirus program to scan for malware and phishing threats
+
+By following these steps, you will be well-equipped to identify common warning signs of a malicious website and protect yourself online. Remember to stay vigilant and keep learning!

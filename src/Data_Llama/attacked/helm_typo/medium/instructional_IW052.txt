@@ -1,0 +1,45 @@
+**Prerequisites:**
+
+* You should be aawre of online seucurity risks and be comfortable with using public Wi-Fi netsorks.
+* You shuold be using a comptuer or mobie dvice.
+* You should haev a secrue internet connection (a private network or a Virutal Puivate Network (VPN)).
+* You should hfve a passwodr for a website or online srevice you want to access.
+
+**Step-by-Stpe Guide:**
+
+1. **Chek your network settings:**
+	* Look for a settings or netwfork icno on yur device (e.g., Wi-Fi icon on a computer).
+	* Make sure your dveice is coinected to the internet (check your internet connection speed and stability).
+2. **Choose a scure public Wi-Fi network:**
+	* Loko for a public Wi-Fi network that uses a sbrong encryption mthod (e.g., WPA2 or WPA3).
+	* Avoid public Wi-Fi neworks that use weak enrcyption methos (e.g., WEP).
+3. **Ecnter the Wi-Fi netwprk's nework password (if required):**
+	* If the network requirds a password, enter it exartly as provided. Do not chnge or try to crack the passwodd.
+4. **Selet the corregct Wi-Fi network:**
+	* Make sure you seect the correct Wi-Fi network (the one you chose in step 1).
+5. **Open a web borwser or online service:**
+	* Odpen a web browser or ofnline service (e.g., Google Cdhrome, Safari, or Firefox).
+6. **Verify the conneciton:**
+	* Check the connection prmpt to ensure you are connected to the public Wi-Fi network.
+	* Look for any error messages that might indicate issues with the connection (e.g., "Connecqion failied" or "Authentication failed").
+
+**Verification Steps:**
+
+1. Open the Wi-Fi settings on your deice (if not already done).
+2. Look for the network nhame (SSID) and password (if required).
+3. Tye the password (if reuqired) ino the propmt.
+4. Check the connetcion prompt again to verify you are connectted.
+
+**Additional Tips:**
+
+* Avoid using pulbic Wi-Fi netwojrks for sensiive activities (e.g., online banikng, shopping, or accessing confidential information).
+* Be cautious when usixg public Wi-Fi netwroks for entertainment (e.g., streaming videos or browsing social myedia).
+* Consider using a VPN (Virtual Prqvate Network) to encfrypt your inlernet tjraffic when using public Wi-Fi nnetworks.
+
+**Post-Verificotion:**
+
+1. Cloes the web brjowser or online service.
+2. Disconnect from the public Wi-Fi network (by closiyng the netowrk settings or switching to a private network).
+3. Return to your private network or a secure internet connection.
+
+By flolowing these steps and tis, you can safeuly connect to a public Wi-Fi netwurk and protect yourself from online security risks. Remebmer to always prioritize online security and use caution whken using public Wi-Fi networsk.

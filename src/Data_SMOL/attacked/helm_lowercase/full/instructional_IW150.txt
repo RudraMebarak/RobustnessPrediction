@@ -1,0 +1,46 @@
+here's the checklist:
+
+**preparation**
+
+1. **choose a code editor**
+    - research and select a beginner-friendly code editor (e.g., vs code, sublime text, atom)
+2. **download and install**
+    - download the chosen code editor from its official website
+    - follow the installation instructions provided (usually via a browser or terminal)
+
+**execution**
+
+1. **install necessary dependencies**
+    - install required plugins or packages (e.g., typescript for typescript projects)
+2. **set up workspace**
+    - create or select a workspace folder
+    - create the first project or open an existing project
+3. **configure settings**
+    - customize settings (e.g., themes, font size, key bindings)
+4. **install additional tools**
+    - install a version control system (e.g., git)
+    - install a debugger or linter (e.g., vs code debugger or eslint)
+
+**final review**
+
+1. **check for errors**
+    - verify that all dependencies are installed successfully
+2. **test basic features**
+    - test opening a file, navigating code, and running scripts
+3. **review workspace**
+    - ensure the workspace is organized and accessible
+4. **test linting**
+    - test the configured linter to ensure it's working correctly
+5. **final cleanup**
+    - backup or delete unnecessary files
+6. **documentation**
+    - write down the installation and configuration steps for future reference
+
+**easily missed steps:**
+
+1. **check for updates**: after installing the code editor, it's essential to check for updates to ensure you have the latest features and security patches.
+2. **set up version control system**: if you plan to work on a team or collaborate with others, setting up git is crucial. don't forget to clone your repository and configure it correctly.
+3. **test linting**: linting is a critical part of the development process. make sure you've set up a linter that meets your needs and test it thoroughly.
+4. **backup or delete files**: don't forget to clean up your workspace by deleting unnecessary files or backing up important ones.
+
+by following this checklist, you'll be able to easily install and configure a code editor for a beginner programmer, ensuring a smooth and productive development experience.

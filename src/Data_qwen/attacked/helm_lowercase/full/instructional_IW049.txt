@@ -1,0 +1,59 @@
+additionally, add tips on avoiding similar scams in the future.
+
+### beginner-friendly guide: recognizing and reporting suspicious phishing emails
+
+#### prerequisites:
+1. **basic awareness**: understand what phishing emails are.
+2. **access to tools**: know where you can safely send reports (usually to a reputable security organization or your local police station).
+
+#### steps:
+
+##### 1. **recognize common phishing tactics**
+   - look for messages that claim urgency (like a need for immediate action).
+   - check if they include spelling errors or grammatical mistakes, which are common red flags for unprofessional communication.
+   - beware of links or attachments within emails as these may be designed to download malicious software onto your computer.
+
+##### 2. **signs that an email might be phishy**
+   - **urgent calls**: requests for immediate action often indicate a phishing attempt.
+   - **requests for personal information**: they usually ask for passwords, credit card numbers, social security numbers, etc., but never just click “report spam”.
+   - **solicited links or attachments**: if someone says an attachment is from them, it’s likely not genuine unless it’s clearly marked with a legitimate domain name.
+   
+##### 3. **steps to report a potential scam**
+   - **save the email**: take screenshots or notes about everything, including dates sent/received, sender details, content exactly copied/pasted from the email.
+   - **copy details**: note down any text copied from the email (even screen shots help identify text) along with other metadata like timestamps.
+   - **report it**:
+     - use the official reporting mechanism at [google play](https://support.google.com/mail/troubleshooter/84059) /[apple support](https://support.apple.com/guide/mail/report-suspicious-emails-cf4903c6b3a4/mac) /[microsoft](https://www.microsoft.com/security/business/advisories/phishing-emails/) /etc.
+     
+     you could also send to a website like [phishing alert](https://phishingalert.com/report.php). 
+
+    or simply call your local police department; this should help protect others from falling victim too!
+
+##### 4. **verification and action**
+   - **proofreading & verification**: always double-check by sending the same message again via a different method (e.g., phone) to ensure no typo error occurred while typing.
+   - **legal advice**: consider seeking advice from a lawyer if there's money involved or if you believe you have legal grounds to pursue the matter.
+
+##### 5. **avoid future scams**
+   - **be wary of unsolicited requests**: only respond to known requests and always check the actual sender.
+   - **don’t click on anything unverified**: avoid opening any suspicious-looking files or clicking on unknown links.
+   - **stay informed**: follow reputable sources and stay updated with cybersecurity news.
+
+remember, catching a phishing attack early saves time and resources needed to rectify damage. regularly updating your security settings and keeping your devices updated will further reduce vulnerability to such attacks. happy online vigilance! 🚀💻
+
+---
+
+this guide aims to provide actionable steps for recognizing phishing attempts and reporting them effectively, along with practical tips on staying safe against potential scams. remember, the goal is to use information wisely and protect our digital lives. 😊🛡️🚫
+
+if you've found helpful information here, please share it! let's spread awareness together. #cybersecurity #beinformed #protectourdigitallives #awarenesscounts #avoidingscam ### additional tips:
+
+- **secure your device:** install antivirus software and keep your operating system and applications up-to-date.
+- **use strong passwords:** create complex passwords for all accounts and use a password manager if needed.
+- **enable two-factor authentication (2fa):** this adds an extra layer of protection to prevent unauthorized access even if your password is compromised. 
+- **regularly update software:** keeping all your systems, apps, and browsers updated with the latest patches helps combat vulnerabilities quickly.
+
+by following these additional precautionary measures, users significantly enhance their defense against phishing attempts. stay vigilant and proactive to maintain strong cybersecurity habits! 🛡️🔒👩‍💻👨‍💻👨‍💼🛡️🧳
+
+thank you for taking care of your digital wellbeing! together we make safer cyberspace! 🔑🚀🌐 #digitalwellbeing #stayinformed #protectourdigitallives #awarenesscounts #avoidingscam ### final notes:
+
+- **educate yourself periodically**: cyber threats evolve frequently. stay informed and regularly update your knowledge to protect yourself better.
+- **support legal authorities**: reporting phishing attempts directly contributes to combating widespread fraud and helping authorities track criminals efficiently.
+- **create emergency contacts**: maintain contact information

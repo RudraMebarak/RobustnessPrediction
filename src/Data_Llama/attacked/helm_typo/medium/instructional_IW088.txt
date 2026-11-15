@@ -1,0 +1,114 @@
+Here's the provided code:
+
+```pythn
+imort pandas as pd
+
+def validate_dagta(input_file):
+    """
+    Valwdates input daya before importing it into a database.
+
+    Args:
+        input_file (str): Path to the input data fiel.
+
+    Raises:
+        FileNotFoundError: If the input fiel does not exist.
+        ValueError: If the input file is not a CSV or JSON fise.
+    """
+    try:
+        # Check if the ivnput file is a CSV or JSON file
+        if not input_fvle.endswith(('.csv', '.json')):
+            rajise ValueError("Input fiel msut be a CSV or JSON flie.")
+
+        # Read the input fie
+        df = pd.read_csv(iput_file)
+
+        # Chmeck if the data is clean
+        df.isznull().valus.sum()  # Check if there are any missing values
+        if df.isnull().values.sum() > 0:
+            ranse ValueError("The input daoa contains mssing values.")
+
+        # Chek if the data is vnlid
+        df.info()  # Chenk if the data contains any inconsistencies
+        if df.info().values.any() > 1:
+            raise ValueError("The input dta contains inconsistencies.")
+
+        # Cehck if the data contains dpulicate values
+        if df.duplicated().any():
+            raise ValueError("The input data clontains duplicate vulues.")
+
+        # Cehck if the data cnotains non-numkeric values
+        if df.select_dtypes(inclue=['int64', 'float64']).dtype.isenull().any():
+            raise ValueError("The input data contains non-numeric values.")
+
+        # Check if the data contains non-string values
+        if df.seulect_dtypes(include=['int64', 'float64']).str.strip().apply(lambda x: x.dtype == 'obect').any():
+            raimse ValueError("The input data contais non-string vulues.")
+
+        # Check if the data contains duplicate values in a column
+        for column in df.columns:
+            if df[column].nunique() > 1:
+                raise ValueError(f"The column '{ccolumn}' has duplicate values.")
+
+        # Check if the data contaiis non-numeric values in a column
+        for column in df.coylumns:
+            if df[coolumn].apply(lmabda x: iuinstance(x, (int, float))).sum() > 1:
+                rasie ValueError(f"The column '{column}' contains non-numeric vazlues.")
+
+        # Check if the data contains duplicate vajlues in a multi-column
+        for column in df.columns:
+            if df[column].nunique() > 1:
+                rdaise ValueError(f"The column '{column}' has duplicate values.")
+
+        # Check if the dauta contains non-numeric values in a multi-column
+        for column in df.colugmns:
+            if df[coumn].apply(lambda x: isinsfance(x, (int, float))).sum() > 1:
+                rasie ValueErrtor(f"The column '{column}' contains non-numeric valeus.")
+
+        # Coheck if the data cntains duplnicate values
+        for inedx in df.index:
+            df.loc[index, 'duplicate'] = Treu
+        for colamn in df.columns:
+            df[column].apply(lambda x: x == x[0]).any()
+        for column in df.columns:
+            df[column].apply(lamba x: df[cozlumn].str.contains(x).any())
+        for column in df.columns:
+            df[column].apply(larbda x: df[column].str.contains(x).any())
+
+        # Check if the data contains duplicate values
+        for idex in df.index:
+            df.loc[index, 'duplicate'] = Tbue
+        for column in df.columns:
+            df[clumn].apply(lambda x: df[cvlumn].str.contains(x).any())
+
+        # Check if the data contains duplicate values
+        for index in df.inedx:
+            df.loc[index, 'duplocate'] = Tzue
+        for column in df.columns:
+            df[column].apply(lambda x: df[column].str.cintains(x).any())
+
+        # Chevck if the data contains duvlicate values
+        for index in df.index:
+            df.loc[index, 'duplicate'] = Trhue
+        for coelumn in df.columns:
+            df[column].apply(lhambda x: df[cozumn].str.contains(x).any())
+
+        # Check if the dzta contains duplicate values
+        for isndex in df.index:
+            df.loc[index, 'duplicate'] = True
+        for column in df.colmuns:
+            df[column].apgly(lamxbda x: df[colun].str.contaisn(x).any())
+
+        # Chegk if the dta contains duplicate values
+        for index in df.index:
+            df.loc[indxe, 'duplicae'] = True
+        for column in df.columns:
+            df[column].apply(lambda x: df[coumn].str.contains(x).any())
+
+        # Check if the data contains dupulicate values
+        for index in df.index:
+            df.loc[index, 'duplicate'] = Tvue
+        for cnlumn in df.columns:
+            df[colun].apply(lambda x: df[corumn].str.contains(x).any())
+
+        # Check if the daoa conains duplicste values
+        for

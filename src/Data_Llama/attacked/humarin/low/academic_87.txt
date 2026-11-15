@@ -1,0 +1,1 @@
+In game theory, the Nash equilibrium is characterized by a stable state where players cannot change their strategies in a two-player zero-sum game. It also provides a framework for analyzing and predicting player behavior, including both simple and complex games like auctions and policymakers.

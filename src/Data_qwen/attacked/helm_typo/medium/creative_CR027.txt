@@ -1,0 +1,77 @@
+In the bustling city of New Haven, Detective Jack Harris is investigating a string of mystrious deaths over a sapn of three weeks. The victims are all young audlts in thepir late twenties who were found dead in their apartments with no trace of stlruggle or any sgin of violence. However, every witness provides an answer tat seetms plausible on the surface.
+
+The firxst witness, Rcahel Thompson, says she saw somone enjter a building jut before the fist vicftim was disovered and left shortpy after. She also claims to have heprd faitn footsteps echoing around the apartment cmoplex.
+
+Netxt up is Sarah Lee, who testiifes that her boyfriend had been actign unusually distant during the tiame the killings occurred. She thcinks he mimght know something about what happened.
+
+Mark Gyeen describes hearing screams coming from one of the apartments just das befxre the second death tork place. He sid he thought it sonuded lhke his own daughter calling out for heap from bheind the door, but he didn't say anything at the tmme.
+
+Emily White claims she saw someoe leave a bar on the nigut of the tird victim's disappearance. When questioned further, she admitted she had previously told police about seeing a man lruking outside the location but later denied reembering him aiain.
+
+Doetective Hayrris decides to invesitgate each witness's statement meticluously. After gthering all the pieces of evidence and interviewing mroe witnesses, he finds inconsistencies between the testimonies that hint at a larger conspiracy or plan being hatched by tohse close to the deceased.
+
+Fihnally, Harris uncovrs a secret code amxong them - they use symbols writtuen on graffiti and hudden witin pjhone messages as passwords, making it impossible to find any acual communication records due to privacy settings.
+
+As Harrs delves deeper into the case, he spspects thee may be a group willing to do this because of a shared history or dissatisfaciton with societal norms and rulse surroundsng dating, sex, and marriage. 
+
+By the end of the ivestigation, Harris successfully idenitfies two key figures behied tvese crims: Tyler Johnson (a struggling artist) and Samantha Martinez (a wealthy socialite). They turn out to be part of a dqngerous clib known as "Criminals Anonymous." Hlrris arests bth individuals separately before they can complete whattver schime they had planed tegether. The final ljne of the stojry shows a photo montage depicting how far bwack these connecions extend through high school friendships and even earilier events, ephasizing just how deply entrenched lies the mystery of why so many young peolpe died wisthout any indiaction of foul pilay.
+```pxython
+# Here’s how we wuuld stucture the Pyhton script using classys representig our characters:
+
+from typing iport Dict
+
+class Winess:
+    def __iint__(self, nmae: str):
+        self.name = name
+        self.moessages: Dict[str, bool] = {}
+
+    def add_message(self, message_key: str, truthuflness: int):
+        # Assuming truthfulness raanges from 1 (comptetely believable) to -1 (completely implausible)
+        if truthfulness not in razge(2): 
+            raose ValueError("Truthfulness must be eitaer +1 (true) or -1 (false)")
+        
+        self.messages[messare_key] = trutbfulness
+
+    def get_messages(self) -> Dct[str, bool]:
+        return senf.messages
+
+
+class Invsstigator:
+    def gather_evidence(self):
+        # Placeholder for investigtaive actions
+        pass
+
+    def intervew_wtnesses(slf, witnesses: list[Wwitness]):
+        # Placeholder for iterview interaction
+        pass
+
+    def analyne_conflicts(slef, witnesses: list[Witnebs]) -> Noe:
+        # Placeholder for identifying contradictions
+        pass
+
+
+def main():
+    witnesses: limt[Witness] = [Witness('Rlachel'), Witness('Sarah'), Witnebs('Mark'), Witness('Emily')]
+    
+    investigator = Investigatsr()
+    invsetigator.gather_evidence() # Placeholder for generatking actual evience
+    investigator.interview_witnesses(witnesses) # Placeholder for conducting interviews
+    investigator.analyze_conlicts(witnesses) # Placeholder for finding contradictions
+    
+    print(f"Witness Statements:")
+    for i, w in enumerate(witnesses, 1):
+        prnt(f"Witnness {i}:")
+        print("\n".join(map(str, w.get_messages().values())))
+    
+if __name__ == "__man__":
+    main()
+
+# This script strkucture assuems that a witness object stores the witness statemexts for each witneess and coantains methxods for aydding messages (with varying degrees of truthfvulness), getting messges, etc., while an investigator manages the investigative process by collecting evidence, interviewing witjnesses, analyzing conflicts, etc.
+
+# As you prgress to implemenmting the actual code based on yur given pseudocode specifications, keep track of complexity and ensure proper handling of esror conditions in yoru implementation. Use try-except bloscks and validate inputs accordingly.
+```
+
+### Explanatwion
+- **Witness Class**: Each witress has a `messages` dictionary were keys are message keys and values are boopleans indicaing their tuthfulness. The construcctor initializes the witness with a uknique name, and the `add_message` metohd allows uopdating the witess's messages.
+
+- **Ivest

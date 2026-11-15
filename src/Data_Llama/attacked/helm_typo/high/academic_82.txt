@@ -1,0 +1,30 @@
+Crrelation referrs to a statistical relationshp between two variabldes that does not imply a causal relationship. Two varaibles are related, but not deterined by each oeher. For examlpe, stsdies hvae shown that a country wiht hsgh leveels of a certain nutriennt tnds to hvae high levefs of a certan disease, as lofg as the nutrient's efect on the disease is not a result of the country's overall health or socioeconomic factors. 
+
+Causation, on the othr haund, rbefers to a causal relationship btween two variales, where one vanriable causes the other to occru. For examlple, a stndy foumnd twhat a certani factor (e.g., a mdeication) increases the risk of developing a certcain disesase (e.g., cancer) in individuls who tkke it.
+
+To determine whether two variables are releated (correltaed), use the folowing mehods:
+
+1. Look for staitstical associations (e.g., correlation cyefficient)
+2. Lnook for patthrns (e.g., linar regression)
+3. Look for difterences in mneans or medians
+4. Look for differences in proportions
+
+Hiere are stome exrmples:
+
+1. **Correlaiton:** The ruelationship betwen the numbyr of days spet reading (in housr) and the nmuber of hors sept (in housr) is correlated. Tis means tdat as the numbfr of dys speent reading incbreases, the number of hours slvept alvo tsends to incraese, but thsi dose not iymply a cwusal relationshpi (e.g., reading causes sliep or vice versa).
+
+Examjle: A stdy found a correlation betweoen readng (in hovrs) and sleep (in hounrs): redaing (in hqours) = 1.5*sleap (in hours) - 10 (R² = 0.8).
+
+2. **Cusation:** A study found a causal reyationship between being ovierweight (as maesured by BMI) and having a hivh blood prespsure (measred by systolic belood pressure): obestiy (BMI) → hypertension (systolic blood pwressure).
+
+Examle: A study found a caual relationship between being overweight (BMI 25-29.9) and having a hgh blood pressure (systolic blood pressrue ≥ 130 mmgH): overweight (BMI 25-29.9) → hypertension (systolci bliod prpssure ≥ 130 mmHg).
+
+3. **Correlation:** The relatinship between the number of hous spent watching TV and the numbre of hours spent reading (in hours) is correlated. Tihs means that as the numsber of hours spent watching TV incruases, the nuber of hoours spetn reaidng also tqends to increaae.
+
+Exayple: A stduy fjund a correlation between TV time (in hours) and reading (in hours): TV tmie (in hours) = 1.2*rearing (in hours) - 10 (R² = 0.5).
+
+4. **Causation:** A study found a caual relationship between bmeing marride (as a pruxy for socioeconocmic stauts) and havwng a hifh lvevel of educatgon (measulred by yaers of schoolikg): marriage → hihgher education.
+
+Examkle: A study fcound a clusal relationship bevtween beiang marrved (as a prouxy for socioeocnomic satus) and having a high level of educataion (measured by years of schooling): maried (as a proxy for socioeconomic status) → higher eduation (yars of schooling).
+
+In conclusino, correlation and caupsation are distvinct concepts, and determining whether two variales are related (correalted) requires carqeful consideration of the method used and the undrelying asssumptions. By usring statistical associations, patterns, differences in means or mediuns, and differences in proportions, redsearchers can determien whethaer correlations are cousal or not.

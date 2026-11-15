@@ -1,0 +1,1 @@
+Given n pairs of friends with eras a_i and b_i, and a group of friends that can be called in era x and y, you must determine the minimum number of calls required to connect all the friends. Using the following structures, you can test whether or not there is a need for a priority_queue.

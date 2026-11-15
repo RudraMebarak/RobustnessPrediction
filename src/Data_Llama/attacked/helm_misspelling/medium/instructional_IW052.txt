@@ -1,0 +1,45 @@
+**Prerequisites:**
+
+* You should be aware of online security risks and be comfortable with using public Wi-Fi networks.
+* You should be using a computer or mobile device.
+* You should have a secure internet connection (a private network or a Virtual Private Network (VPN)).
+* You should have a password for a website or online service you want to access.
+
+**Step-by-Step Guide:**
+
+1. **Check your network settings:**
+	* Look for a settings or network icon on your device (e.g., Wi-Fi icon on a computer).
+	* Make sure your device is connected to the internet (check your internet connection speed and stability).
+2. **Choose a secure public Wi-Fi network:**
+	* Look for a public Wi-Fi network that uses a strong encryption method (e.g., WPA2 or WPA3).
+	* Avoid public Wi-Fi networks that use weak encryption methods (e.g., WEP).
+3. **Enter the Wi-Fi network's network password (if required):**
+	* If the network requires a password, enter it exactly as provided. Do not change or try to crack the password.
+4. **Select the correct Wi-Fi network:**
+	* Make sure you select the correct Wi-Fi network (the one you chose in step 1).
+5. **Open a web browser or online service:**
+	* Open a web browser or online service (e.g., Google Chrome, Safari, or Firefox).
+6. **Verify the connection:**
+	* Check the connection prompt to ensure you are connected to the public Wi-Fi network.
+	* Look for any error messages that might indicate issues with the connection (e.g., "Connection failed" or "Authentication failed").
+
+**Verification Steps:**
+
+1. Open the Wi-Fi settings on your device (if not already done).
+2. Look for the network name (SSID) and password (if required).
+3. Type the password (if required) into the prompt.
+4. Check the connection prompt again to verify you are connected.
+
+**Additional Tips:**
+
+* Avoid using public Wi-Fi networks for sensitive activities (e.g., online banking, shopping, or accessing confidential information).
+* Be cautious when using public Wi-Fi networks for entertainment (e.g., streaming videos or browsing social media).
+* Consider using a VPN (Virtual Private Network) to encrypt your internet traffic when using public Wi-Fi networks.
+
+**Post-Verification:**
+
+1. Close the web browser or online service.
+2. Disconnect from the public Wi-Fi network (by closing the network settings or switching to a private network).
+3. Return to your private network or a secure internet connection.
+
+By following these steps and tips, you can safely connect to a public Wi-Fi network and protect yourself from online security risks. Remember to always prioritize online security and use caution when using public Wi-Fi networks.

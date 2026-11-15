@@ -1,0 +1,38 @@
+Fluid dynamics is the study of fluids (liquids, gases) at rest and motion. The two main branches are statics and kinematics.
+
+1. Newton's First Law: An object remains at rest or in uniform linear motion unless a net force acts on it.
+2. Newton's Second Law: F=ma
+3. Bernoulli's Principle: As velocity increases, pressure decreases.
+4. Pascal's Principle: Pressure applied to an enclosed fluid can be transmitted undiminished to every part of the fluid.
+5. Torricelli's Theorem: When a right-angled triangle forms with one side parallel to water surface and lying flat at ground level, then height of liquid column formed will be equal to distance from top edge of container to highest point.
+
+Applications:
+
+1. Aerodynamics - Deals with flight and design of aircraft.
+   * Lift - Thrust due to shape and speed
+   * Drag - Resistance to movement
+
+2. Hydrodynamics - Deals with flow in pipes or through turbines etc.
+   * Flow rate Q = A × ρ × v / 2
+   * Hydraulic jump occurs when pipe diameter reduces suddenly
+
+3. Oceanography - Study of oceanic circulation and waves.
+   
+4. Environmental Engineering - Analyzing pollution sources like sewage, factories etc.
+
+Fluid mechanics concepts are also used extensively by mechanical engineers designing engines, pumps, turbines etc., aerospace engineers designing airplanes, ships, rockets etc., naval architects designing ships, bridge construction workers ensuring bridges are stable over rivers and other bodies of water, civil/structural engineers studying how buildings withstand wind loads as well as rain storms, and so many others!
+
+This makes fluid mechanics essential knowledge for almost any field related to technology! 
+
+To see practical examples of fluid dynamic principles in action:
+
+1. Watching aeroplanes take off & land (Bernoulli's principle)
+2. Driving over mountain passes (wind passing around hill creates low-pressure area)
+3. Flying boats (flow down the hull creates lift which keeps the plane flying)
+4. Jets vs propellers reactors, pumps, separators, filters, and other equipment used in chemical processes.
+
+4. Environmental science: Hydrodynamics studies how fluids move through natural environments, affecting weather patterns, river flows, ocean currents, and coastal erosion.
+
+5. Marine transportation: Engineers utilize fluid dynamics spaceships. It has real-world applications everywhere you look! 
+
+I hope this gives some insight into fluid dynamics fundamentals and why they are important across many industries and professions! If anything needs clarification please let me know. Happy learning! 📚👨‍🔧👩‍🔬👨‍🍳👨‍💼👩‍🔬👨‍🔧🧬✨👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨

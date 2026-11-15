@@ -1,0 +1,42 @@
+quantum computing:
+
+quantum computing is the use of quantum-mechanical phenomena such as superposition, entanglement, interference, teleportation, and quantum parallelism to perform operations on data. the basic unit of quantum information in quantum computing is the qubit (quantum bit), which can exist at multiple states simultaneously, allowing for exponential speedup compared to classical computing.
+
+fundamental principles:
+
+1. superposition: a quantum system may be found in any superposition of possible states. for example, a single particle may exist in all states with equal probability until measured.
+2. entanglement: two particles are entangled if their properties are correlated in ways that cannot be explained by local hidden variables. entanglement allows for faster communication than through the speed of light.
+3. interference: similar to classical physics, when waves interfere they create constructive or destructive interference. in quantum mechanics, interference effects result from non-commutative operators acting on states that are related via entanglement. 
+4. quantum parallelism: multiple quantum states can be treated as separate branches within the same space-time dimension, thus realizing simultaneous computation across many states simultaneously, enabling efficient problem solving.
+5. quantum decoherence: due to interactions with environmental systems, individual quantum states can quickly decohere into their corresponding classical states, destroying much of the quantum advantage.
+
+potential applications:
+
+1. cryptography: quantum computers could break commonly-used cryptographic algorithms, but also provide fundamentally secure encryption methods resistant to future quantum attacks.
+2. optimization problems: qubo (quadratic unconstrained binary optimization) formulation provides a common framework for various practical applications including logistics scheduling, financial portfolio optimization, machine learning models etc., where there are millions or billions of discrete choices.
+3. chemical simulation: simulating complex chemical reactions would accelerate drug discovery, materials science, and design of renewable energy sources.
+4. machine learning: training deep neural networks becomes more efficient due to probabilistic interpretations of weights and biases derived from quantum mechanical theory.
+5. ai: quantum machine learning may improve pattern recognition capabilities beyond current limitations imposed by classical computational resources.
+6. simulation: quantum simulations could model exotic phenomena like bose-einstein condensation or topological phase transitions that resist accurate representation by standard methods.
+
+security concerns:
+
+the threat from quantum computing lies not just in breaking current encryption schemes but developing quantum-resistant alternatives altogether remains an ongoing research agenda. 
+
+to counteract these challenges while maximizing the benefits quantum computing offers requires careful development strategies balancing performance gains against potential vulnerabilities. this includes continued progress towards error correction techniques essential for practical fault-tolerant quantum computing platforms. 
+
+current limitations include short coherence times, high error rates, and relatively low gate fidelity making scalability challenging even with large investments in infrastructure. to overcome this issue, advances must focus on improving physical implementations, developing robust control protocols, optimizing software architectures to achieve higher stability and efficiency in real-world environments. 
+
+in conclusion, while the transition presents significant hurdles currently, the promise of exponentially faster computations makes quantum computing one of today's most promising frontiers in scientific advancement with broad implications across numerous fields ranging from healthcare diagnostics to national security defense initiatives. continued investment in foundational research will be key to realizing the full potential of this revolutionary technology in years ahead. 
+
+this review describes quantum computing based on a survey of theoretical aspects and practical applications described in various authoritative sources; please note that additional complexity arises from integrating hardware advancements with software frameworks and programming paradigms aimed at addressing practical challenges associated with realizing practical scalable quantum devices. the content does not cover detailed implementation details specific to certain companies' approaches. 
+
+note that the term "quantum supremacy" denotes when a quantum computer achieves results impossible with classical machines in practical settings - it hasn't occurred yet, though several experimental demonstrations have been achieved in laboratories around the world over recent decades. achieving practicality depends partly on overcoming technological challenges in building reliable quantum processors with sufficient coherence times and quantum volume to handle practical-size problems effectively – still a work-in-progress area requiring further exploration and investment. 
+
+also noteworthy is the need for ongoing efforts toward quantum error correction coding schemes designed specifically for practical applications needing massive-scale parallelism for effective processing power enhancement. without proper error mitigation technologies added rigorously to core quantum circuits, practical applications remain restricted by degradation factors inherent to noisy intermediate-scale quantum (nisq) devices being deployed commercially now. 
+
+moreover, despite growing excitement surrounding near-term quantum computing achievements demonstrated by ibm, google, d-wave, honeywell etc., achieving widespread commercial adoption demands substantial improvements in overall system reliability versus cost-effectiveness ratio before quantum computers will become competitive mainstream tools used frequently in industry manufacturing processes as well as everyday consumer electronics products over time. 
+
+finally, ongoing global collaboration among academia and government funding bodies is imperative to accelerate pace of innovation needed for transitioning from prototypical devices towards practicalizable industrial-grade quantum processors operating reliably under real-world conditions for everyday usage. 
+
+by 2028-2030 timeframe, we

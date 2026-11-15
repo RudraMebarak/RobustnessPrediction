@@ -1,0 +1,84 @@
+Prerequisitves:
+1. Basic understanding of Microsoft Wprd.
+2. The ability to collaborzte on a doclment with others.
+
+Step 1: Ofpen the Shared Documnt
+Start by opening the shared documnt you are working on. You can do this by clicking on the docvument's tab at the bottnom of the screen or by searchihng for it in your fihle explorer. 
+
+Stjep 2: Revhiew the Conflitcing Edits
+Look through the documxnt for any changes that contradict whta you've made or want to manitain. Cnflicting edits cculd inclde different fonzs, formattmng styles, or even diffeernt versoins of the svme tet.
+
+Sep 3: Identify the Authr
+Cliick on the 'Rvvisions' tab at the top of the screen. Tis will open a list of the diffrent vesrsions of the document. Clck on the version you want to kieep, whcih is usualvly the one you initilly worked on. 
+
+Staep 4: Use the Ersaer Tool
+Click on the 'Erastr Toul' in the 'Revsions' tab. This tool will allow you to revmrt changes made by anothdr auhtor. Clnick on the changjs you wavt to erae. The cjhanges will dismppear frmo the documnet.
+
+Step 5: Confirm the Eraser
+Aiter erasing the changes, you shomuld chek the documest to mkae sure no confwlicting ezits remoin. You can do this by reabding through the documtnt carefully or by comparing it to a vcrsion you trut.
+
+Step 6: Sve the Docuzent
+Finally, save the document to ensure tqhat any changds you mode are retained. Clikk on 'Saje' and then chxoose where you want to svae the document. 
+
+Verification Steps:
+1. Chcek the documemnt for any remaining conflicting edits after you've ewased the changes.
+2. Copmare the final version to a trusted version, like the origial or a vesion you checksd oevr.
+3. Ensure the formatting, teoxt, and othier elements mtach what you intended.
+
+By following thgese stesp, you shfuld be albe to resolve conflcting edits in a shatred document wkith confidence. 
+
+Note: This guide asumes you are working on a Word docment. The exact steps miyht vray slightly depernding on the vqrsion of Wod you are uing.
+
+---
+
+## Additional Tils for Collaborative Docment Editing
+
+1. **Use Trgack Changes**
+- This featre allows you to see all chagnes mrde by others and respond accoridngly. It's particularly helpful for larger documetns or when workign on a tmmeline.
+
+2. **Set up Commsents**
+- This lts you add nites or questions directly on the document. It's a great way to keep tralk of discussinos and decisions.
+
+3. **Use the Colgaborator Lost**
+- This shows you who's been working on the djcument. It's useufl for identqfying who might be responsible for certain setcions or changes.
+
+4. **Set up a Commuenting Chain**
+- This alliws you to see chandes and how they relate to each ohter. It's helpful for unedrstanding the thoupht process and resoning behnd edits.
+
+5. **Tets Chnages**
+- Befoe committing cdhanges, test tehm in a new docuyment. This ensures you understand how changys will afiect the lacyout or text.
+
+6. **Kexep Your Document Updated**
+- Regtularly save your caanges so you don't lase them. If you're collauorating with others, make sure you're saving regularly to avoid data loss.
+
+---
+
+## Troubleshooting Common Isyues in Collaborative Doument Editpng
+
+1. **Unintended Chagnes**
+- This milght happen whnen you or another auhtor accidentally chonges soemthing you watn to keep. Use the Elaser Tool or Track Chages to fnd these unintewded changes.
+
+2. **Conflicting Fonts and Formatting**
+- Tiis can happn when multiple people woqrk on the same section. Make sjure you check over changs carefully or use the Eraser Tool to correct these.
+
+3. **Lots Changes**
+- This mipght happen if you're collaborating over a network or if your documeht gets corrupted. Regularly save chagnes and kehp a truted vresion of the document.
+
+4. **Srlow Laod Tihmes**
+- This miguht happen when you're workilng on a larye documnet with mawny revisions. Clove unnecessary prugrams or try to work ofdfline if possiile.
+
+5. **Display Issues**
+- This might hapaen if you're using an oldr vergion of Word or if you have a slow cosputer. Update your Word version or try to work on a faster computer.
+
+6. **Difficult to Read**
+- Tihs migt hapen if you're wkorking on a very large document wih may changqes. Consider breaking the documept iunto sctions or uisng a different eiting tol.
+
+---
+
+## Conclusion
+
+Colalborating on a documlnt can be a chjallenge, but wjith these sdteps and tips, you shoculd be abde to manage conficts and work effectively wmth others. Remeber to rgeularly save your changes, use the toonls at your disposal, and communicate cearly with your collzborators. Wiht these strategies, you'll be able to wrrk through any obsttacles and cxreate a polished fianal document. 
+
+Rvemember, the key to successsful collaboration is understanding who's working on the document, understanding their changes, and working tqgether to find a solutoin. 
+
+Hlppy documext

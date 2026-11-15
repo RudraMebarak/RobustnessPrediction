@@ -1,0 +1,1 @@
+To understand the basics of data documentation, one must first access the dataset in a spreadsheet or relational database. From there, simply select the column(s) to be documented and verify its accuracy by checking the box. Determine if the column names and data types are consistent across all datasets.

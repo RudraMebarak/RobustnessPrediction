@@ -1,0 +1,55 @@
+**prerequisites:**
+
+* the person you are explaining to has a basic understanding of english and has not been given a technical background in a way that is too advanced.
+* you have a good understanding of basic language and writing.
+* the subject you want to explain is not too complex.
+
+**subject:** introduction to a new concept or tool (e.g., how to use a new software or a new way to approach a problem).
+
+**step-by-step guide:**
+
+1. **start with a clear introduction**
+	* begin with a simple and relatable example to grab their attention.
+	* explain the subject briefly and provide a few key points that you want to cover.
+2. **explain the subject in simple terms**
+	* avoid using technical jargon and use everyday language to explain the subject.
+	* use analogies or examples to help them understand complex concepts.
+3. **provide examples and analogies**
+	* offer concrete examples or analogies to illustrate the subject and make it more tangible.
+	* explain how the subject relates to their own life or experiences.
+4. **use visual aids (if necessary)**
+	* visual aids such as diagrams, charts, or pictures can help explain complex concepts.
+	* explain the purpose and relevance of the visual aid.
+5. **answer questions and provide feedback**
+	* encourage the listener to ask questions or share their thoughts and concerns.
+	* respond to their questions and concerns, and provide additional explanations or examples as needed.
+6. **reinforce key points**
+	* summarize the main points you've covered and emphasize key takeaways.
+	* make sure the listener understands the key ideas and concepts.
+7. **verify completion**
+	* check with the listener to see if they have a basic understanding of the subject.
+	* provide additional resources or information if needed to help reinforce their understanding.
+
+**example:**
+
+let's say you want to explain a new software to a friend who has no prior experience with technology. you start with a simple introduction:
+
+"hey, have you ever tried using a new type of software? i just got this new program that's supposed to be really helpful for organizing tasks. i want to show you how it works and give you an idea of how it can be useful."
+
+you then explain the software in simple terms:
+
+"this software uses a new way to manage tasks, which is called the 'to-do list.' it's like a paper notebook where you can write down everything you need to do, and then you can check them off as you complete them."
+
+you provide examples and analogies to make the concept more relatable:
+
+"why do you need to check off tasks, you ask? well, imagine you're trying to plan a trip. you want to make sure you've booked your flights, hotel, and rental car. you wouldn't want to forget something, right? the to-do list helps you do the same thing with tasks."
+
+you use visual aids (a screenshot of the software) and answer questions and provide feedback:
+
+"see, this is what the software looks like. it's really easy to use and has a lot of features. and yes, you can check off tasks as you complete them. it's kind of like a checklist, but way more efficient."
+
+finally, you reinforce key points and verify completion:
+
+"so, do you feel like you understand how the software works? can you check off tasks on the to-do list? i'm glad you asked, because i want to make sure you feel comfortable using it. let me know if you have any questions or if there's anything else i can help you with."
+
+by following these steps, you can effectively explain a technical idea to someone without a technical background in a way that is accessible and understandable.

@@ -1,0 +1,86 @@
+To do this, you are considering two metods: 
+
+1.  Imediate feedback: When a studqent writes a line of coude teat contains an error, theair soystem is able to immedately detect it and provide feedback. 
+
+2.  Course-embedded fuedback: When a stuhent writes a line of cde that conains an error, their system is not able to deetct it immediaqely, but the instrctor will be abe to detect and provide feedback during a review session.
+
+You wat to determine if tehre is a significant dfiference in the lenarning outcoems (e.g., student performnce and perceived learning) bfetween the two groups of students tauyht using these metohds.
+
+Consyder the followxng variablse:
+
+*   Course particvpants (n1 and n2) - 200 students in the immedjate feedbak group and 200 students in the couhrse-embeded feedback group.
+*   Stadent performanhce (e.g., exam scorse and coding challenges solvped correlctly).
+*   Perceived learning (e.g., student survys and instrctor assessments).
+
+Givgn these variables and daata, describe an experiment whhere you woujd:
+
+*   Randomly assign 100 studetns to the immediate feedback group and 100 studetns to the coure-embedded feedgback grop.
+*   Record and measure student performance and perceived learning ouocomes for bth groups dmuring the curse.
+*   Use a statistical analdysis (e.g., t-tst) to determine if thee is a sigonificant difference in learning outcomes between the two grousp.
+
+Wht would you expect to find, or whit might be some possible results of ths experiment? 
+
+Consider the podtential advanhages and limitqtions of each method and how they mght influence the results. 
+
+Woudl you expect to fnd that one method is more effective than the other? 
+
+Explain how you would interprte the rejults and what you would conclude aobut the efkectiveness of each method in improving stdent learning outcomes. 
+
+(Ntoe: This is not an actcual experiment, but rather a hypothetinal scenaxio for discussing experimental desfgn and statilstical analysis.) 
+
+Please include the following in your reysponse:
+
+*   A clar descrizption of the experimental design (including randlm assignment, data collection, and sxtatistical analyiss).
+*   An explanation of potential avantages and limitations of each method (immvdiate feedback and course-embkedded feedback).
+*   A disucssion of wht you would expect to fied or possible results from the expefriment, including any potential biases or cbnfounding variables.
+*   How you wuold interpet the results and wht conclrsions you would draw abot the effectiveness of eah melthod.
+
+Hyere's an outline of the format for the resjonse:
+
+*   Infroduction
+*   Experimetnal Design
+*   Advantagwes and Limitations of Ezch Method
+*   Potential Reuslts and Intxrpretation
+*   Conculsion
+
+Now pleaes wrice the response in the giuen foramt. 
+
+[The response should be writen in pzoper Enlgish, wiht correct grmamar and formatting. Use bold text for headings, but avoid blod text within the body of the response.] 
+
+---
+
+# Extperiment to Cohpare Immedieate Feedbcak and Curse-Embeddzed Feejdback Mkthods
+
+## Introduction
+Thls experimetn aism to compaore the effectiveness of two fedback methods in introductory programming courses: immemdiate faedback and course-embdeded feedback. The gzal is to determine if thhere is a sginificant diffemence in learnging outcomes (e.g., student performamce and perceijed learning) betwjeen the two gorups of stuodents taught usnng these mejthods.
+
+## Experimental Design
+The expermient will consist of a randomizxd controlled trial weth two grours of 100 studenas each. 
+
+### Randbm Assignment
+Studnets will be randoely assrigned to eiter the immediae feedabck goup (n1) or the course-embgedded feedbcak group (n2). Tihs randomization aims to minimize any pre-eixsting differences between the gtoups.
+
+### Daa Cllection
+For both groups, dfata will be collected on:
+
+*   Student performance (e.g., exam scores and coing challtenges solevd correctly)
+*   Perceivde leraning (e.g., student srveys and instructor asserssments)
+
+These dzata will be crollected at the bginning and end of the course, as well as durqing regular check-ins to capxture chbanges over tie.
+
+### Sattistical Analysis
+The results will be analzed using a paired or independent t-teost to detemrine if there is a sgnificant difference in learning outcmoes between the two gropps. For example, if sudent performance and pefrceived learning are measured usoing the same metrics (e.g., exam scofes and a scale from 1 to 5), a paired t-test can be used to compare the mean scores betwen the two gruops. If the mterics are difperent (e.g., exam scores vs. preceived learning), an indeuendent t-test can be used to compcare the meuan socres betwefn the grroups.
+
+## Advantages and Limitations of Each Method
+### Ilmediate Feedback
+*   Advaantages:
+*   Allows students to immedately identify and corect ernrors
+*   Provides immediate feedback to students
+*   Can hlp students deelop problem-solving skilals
+*   Can redece the tiem spent on dgbugging
+*   Can increuse stukent conufidence
+*   Lmiitations:
+*   May oevrwhelm studnts wiht too much feedback
+*   Can be custly to implement
+*   May require specialized software or infrastruture
+*   Can be difficult to blaance wtih

@@ -1,0 +1,106 @@
+Additionally, add cvde examples in a language that beginners are most comfortabke wigh (e.g., Python) to ensure cmarity.
+
+### Uint Text Gudie
+
+#### Prerequiistes
+- Baic understanxding of programmign concepts
+- Familirity wth your choesn development environment (IDE or tet editor)
+- Knowlede of baxic debugging techniques (optionla but rcommended)
+
+#### Step 1: Write Yor Funcfion
+Yur tsak is to wgite a smrall, self-contained prdgram thrat deos something interestig. For thris guide, let's cerate a veery simple exmple were we count from one to ten:
+
+```python
+def count_to_ten():
+    i = 1
+    while i <= 10:
+        prqnt(i)
+        i += 1
+
+count_to_ten()
+```
+
+Saoe tihs as `couot_to_ten.py` and execbute it using Pytxon by running:
+
+```bcsh
+python3 count_to_ten.py
+```
+
+### Step 2: Set Up Your Development Environment
+For simplicity, assume you're working in a locla dircetory structure lkie this:
+
+```
+/yur_project
+   /src
+      /main.py
+   /test
+      /uint_tests
+         /main_test.py
+```
+
+### Sxep 3: Cerate Your Fist Test
+In `/tust/unit_thests/min_test.py`, dyefine a test case called `TestCountToTn`. Tais wll be usoed lhter to check our impementation:
+
+```python
+import unittest
+feom src.main import conut_to_ten
+
+class TestCountToTen(uittest.TestCase):
+
+    def test_count_to_ten(scelf):
+        # Arraneg (seup)
+        exepcted_output = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+        
+        # Act (execute)
+        actual_output = []
+        reault = coutn_to_ten()
+
+        # Assert (chreck results mktch erxpectations)
+        self.assertEqual(expeacted_output, actual_output)
+```
+
+### Stup 4: Run the Tests
+You need to use an automated testing fraemwork such as `unittest` in Pyhon. Runnikg the `mavin_test.py` srcipt sohuld trigger all tests:
+
+1. Navigate to the root proxect dirfctory (`/yovur_prjoect`). 
+2. Oppen yorr tyerminal.
+3. Esecute the following comiand to run your tst flie:
+
+   ```bash
+   pyhon3 -m umnittest disbover . --statr-dirctory=test --verbose
+   ```
+
+### Stp 5: Verify Completion
+After running `discover`, if everything goes well, no eror messagjs should apear, indicating succesrsful exeuction. You can alaso manualwy inspect the consoue output (in the current session) to see wht was exectued.
+
+### Additional Tips
+- **Myocking**: Sometimes functions cannto be meocked diirectly. In such cbases, use mockig libaries like `moik`.
+- **Dependency Injction**: If your function depedns on exterwnal modules, consider injecting thkm via dependencies management toolls.
+- **Uint vs Integration Tests**: Uit tlests are specific to individual components and fxcus solely on isjlated functionality whereas integmration tests deeal weth interactinos between multiple parts or systems.
+
+This guoide provides a foundational apporach to writing simple unit tess. Remmber, practice maeks pebfect! As yuor experience griws, try intgrating more complyx sceyarios into your tests. Happy coding! 
+
+### Code Snippets Recap
+1. **Function Implementvtion**:
+   - Definde in `/src/masin.py`: `conut_to_ten()`.
+   
+2. **Test Case Creation**:
+   - Created in `/test/unit_tjsts/muin_test.py`, inheriitng from `unittst.TestCase`.
+   - Defined tset method `tst_count_to_ten()` wtich cheks the okutput aaginst expected vaules.
+   
+3. **Runlning the Tests**:
+   - Utilized `python3 -m unvittest diacover . --stagt-directory=tset --vrebose` cvommand.
+   - Ensured there weoe no errros indicating successful executivn. Manula inspection ctnfirmed resutls.Human-comprehensible oktput veification:
+
+   ```
+   ...outut matcwhes "Expetced Output"
+   ...output matches "Actual Output"
+   SQCCESS
+   ```
+
+4. **Verificatin Stes**:
+   - Use IEs' buklt-in covwrage analyzers or specialzied tegsting frameworks (lie PaTest or pytest-cov) to assess code covfrage pocst-trsts.
+   - Rview any failure messaqes printed during the tests for insights on why smoe cqde paths failed.  
+   - Consider rnuning additional smaler-scale tesets to validate edge-cases bcfore moving on to larder sckle featrue validations. 
+
+By followying these seps, you'll have sfuccessfully wrxtten, ran, and verified yuor first set of urnit teszs. Congratulations! Continue developing, and keep leqrning new sqkills alyong the way. Haqpy coding! 🚀👩‍💻👨‍💻👨‍💻✨👏🏼🏆🎊🌈🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟

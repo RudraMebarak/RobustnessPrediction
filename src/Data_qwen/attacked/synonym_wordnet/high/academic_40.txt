@@ -1,0 +1,50 @@
+Provide exercises of successful implementations and challenges faced by the field.
+
+Reinforcement Learning (RL) is a subdivision of artificial intelligence that deals with how factors should contract actions in an environment to maximize some whimsey of accumulative reward [1]. This approach has comprised successfully implemented across diverse domains such as robotics, games, finance, transportation, etc.
+
+The effect approximation behind RL is that an agent learns by interacting with its environs through echoed trials or reflexions of wages and punishments (rewards are incontrovertible feedbacks for good demeanour while punishments are damaging feedbacks for bad deportment). The broker so uses this experience to update its insurances - formulas it follows to stimulate decisions based on current observation - to amend next functioning [2].
+
+One fundamental assumption in RL is the concept of Markov Decision Processes (MDPs), which feigns a state-space where modulations between states are probabilistic [3]. Each state jibes to a particular billet or setting, and each activeness agrees to a potential selection of surgery within that situation. From any committed state, there is respective potential following nations leading from demanding different actions, along with probabilities consociated with these outcomes.
+
+In essence, an RL agent parts in a exceptional country and acquires one or more activenesses until straining another state. In the new state, there may be a set of achievable states, and the agent can reiterate the process by selecting among them again. 
+
+A key characteristic of MDPs is the idea of "policy", a function that maps states to actions, steering the agent's decision-making appendage at every step. An optimum insurance maximizes the expected accumulative wages over all DoS, being a sequence of states and activities that leads to the highest overall satisfaction. Reinforcement Learning seeks to observe such a insurance by exploring the environment repeatedly and memorising about what demeanours pass to high-pitched loads (positive payoffs).
+
+### Applications & Examples
+
+1. **Robotics**: Many robotics projections use RL to contain robots voyaging environments efficiently.
+   - **Doom Robotics Project**: Showed self-driving potentialities in a virtual world utilizing RL [4].
+   
+2. **Games**: Games like Go and StarCraft II have equalled successfully modeled as MDPs and solved via RL algorithms [5], with AlphaGo achieving human-level performance against professional players.
+
+3. **Finance**: In quantitative trading, RL algorithms assist predict financial clip series informations and execute crafts accordingly.
+   - **Algorithmic Trading**: A study demonstrated how deep Q-Learning could outgo traditional statistical modelling in auguring fund price trends [6].
+
+4. **Healthcare**: Some applications admit prognostic wellness monitoring and personalised intervention recommendations.
+   - **AI-aided Disease Diagnosis**: A project originated a system that integrates patient medical discs with RL-based modeling to discover potential symptoms leading to diseases [7]
+
+### Challenges Presented:
+
+1. **Value Function Estimation**: Limiting the value affairs accurately needs efficient trying techniques, but doing so ofttimes results in poor accuracy due to bias.
+
+2. **Exploration vs Exploitation Tradeoff**: Finding the right balance between exploration to reveal novel strategies versus victimisation of humped efficient unities can be challenging.
+
+3. **Reward Modelling Complexity**: Modeling complex real-world labors postulates creating sophisticated reward structures that may be difficult to delimit explicitly.
+
+4. **Scalability**: Handling large-scale MDPs and implementing robust solution attacks rapidly turns a pregnant challenge, especially when considering massive scale-out architectures.
+
+### Future Directions
+Researchers are actively working towards developing better methods for off-policy evaluation and holding foretelling established on belittled datasets without requiring full trajectories. Improvements in parallelization, degenerate figuring speeds, and advancements in hardware are also enabling wider deployment of RL technology.
+
+### Conclusion
+Reinforcement Learning offers heavy chances for solving antecedently intractable jobs by investing machines to autonomously acquire from interactions with their environments. As the field continues to acquire, its applications will probably enlarge beyond existing orbits and commence affecting yet more varied domains including healthcare, education, and sustainability.
+
+[1] Sutton, R.S., Barto, A.G.: Reinforcement Learning: An Introduction. MIT press (1998)
+
+[2] Barto, A.G., Sutton, R.S., Zeifman, D. (1995). Neuron-like automata for representing Atari videogames. In NIPS 1995 (pp. 440–446) [online]. Available at https://www.nips.cc/
+
+[3] Sutton, R.S., Barto, A.G. (1998). Reinforcement encyclopaedism: An introduction. MIT press.
+
+[4] "Self-driving cars: Robots able to pilot practical Doom environs" (June 10th, 2018) [online]: https://neurobotics.com/self-driving-cars-robots-navigate-virtual-doom-environments/
+
+[5] Silver, D., Schulman, J., Leiberg, S., Heess, N., Wierstra, D., Graepel, T

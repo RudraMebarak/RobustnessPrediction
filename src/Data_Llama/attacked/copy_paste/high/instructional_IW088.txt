@@ -1,0 +1,100 @@
+Here's the provided code:
+
+```python
+import pandas as pd
+
+def validate_data(input_file):
+    """
+    Validates input data before importing it into a database.
+
+    Args:
+        input_file (str): Path to the input data file.
+
+    Raises:
+        FileNotFoundError: If the input file does not exist.
+        ValueError: If the input file is not a CSV or JSON file.
+    """
+    try:
+        # Check if the input file is a CSV or JSON file
+        if not input_file.endswith(('.csv', '.json')):
+            raise ValueError("Input file must be a CSV or JSON file.")
+
+        # Read the input file
+        df = pd.read_csv(input_file)
+
+        # Check if the data is clean
+        df.isnull().values.sum()  # Check if there are any missing values
+        if df.isnull().values.sum() > 0:
+            raise ValueError("The input data contains missing values.")
+
+        # Check if the data is valid
+        df.info()  # Check if the data contains any inconsistencies
+        if df.info().values.any() > 1:
+            raise ValueError("The input data contains inconsistencies.")
+
+        # Check if the data contains duplicate values
+        if df.duplicated().any():
+            raise ValueError("The input data contains duplicate values.")
+
+        the table structure (e.g., schema, column names)
+* Use a tool like `psycopg2` or `pandas` to validate the data structure and column names
+
+**Step 2: Import the Data into a Pandas DataFrame**
+
+* Import the data into a Pandas DataFrame using `pd.read_csv()`, `pd.read_json()`, or `pd.read_excel()`
+* Use the `validate_data` function from the `pandas` library to check for invalid data (e.g., missing values, duplicate rows)
+* Verify that the data is correctly formatted and consistent
+
+**Step 3: Validate Data Types and Column Names**
+
+* Use the `validate_data` function from the `pandas` library to check for invalid data types (e.g., non-numeric columns)
+* Verify that the column names match the expected schema
+
+**Step 4: Remove Invalid or Unwanted Data**
+
+* Use the `dropna()` function from the `pandas` library to remove rows with missing values
+* Use the `drop_duplicates()` function from the `pandas` library to remove duplicate rows
+
+**Step 5: Check for Duplicate Data**
+
+* Use the `groupby()` function from the `pandas` library to group the data by one or more columns and check for duplicate rows
+* Use the `value_counts()` function from the `pandas` library to count the number of occurrences of each value
+
+**Step 6: Verify Completion**
+
+* Verify that the data is complete and consistent
+* Use the `describe()` function from the `pandas` library to generate a summary of the data
+
+**Example Code:**
+```python
+import pandas as pd
+
+# Define the data source and table structure
+data_source = 'data.csv'
+table_structure = {
+    'id': ['A', 'B', 'C', 'D'],
+    'name': df.index:
+            df.loc[index, 'duplicate'] = True
+        for column in df.columns:
+            df[column].apply(lambda x: df[column].str.contains(x).any())
+
+        # Check if the data contains duplicate values
+        for index in df.index:
+            df.loc[index, 'duplicate'] = True
+        for column in df.columns:
+            df[column].apply(lambda x: df[column].str.contains(x).any())
+
+        # Check if the data contains duplicate values
+        for index in df.index:
+            df.loc[index, 'duplicate'] = True
+        for column in df.columns:
+            df[column].apply(lambda x: df[column].str.contains(x).any())
+
+        # Check if the data contains duplicate values
+        for index in df.index:
+            df.loc[index, 'duplicate'] = True
+        for column in df.columns:
+            df[column].apply(lambda x: df[column].str.contains(x).any())
+
+        # Check if the data contains duplicate values
+        for

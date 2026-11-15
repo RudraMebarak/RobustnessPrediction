@@ -1,0 +1,59 @@
+Make sure to explain how each stage works in relation to the others.
+
+A compiler pipeline is a series of steps that transform source code into machine code. The stages of a compiler pipeline typically include lexical analysis, parsing, optimization, code generation, and assembly.
+
+1. **Lexical Analysis**:
+   - **Purpose**: Break down the input code into a sequence of tokens (keywords, identifiers, literals, operators, etc.).
+   - **How it works**: The lexical analyzer reads the input code character by character. When it encounters a keyword, identifier, or other token, it identifies the token and generates a token stream.
+   - **Relation to other stages**: The lexical analysis stage prepares the input code for the parser stage by providing the token stream. The parser stage uses this token stream to determine the structure and syntax of the program.
+
+2. **Parsing**:
+   - **Purpose**: Determine the structure and syntax of the input code by analyzing the token stream.
+   - **How it works**: The parser uses the token stream to build a parse tree, which represents the abstract syntax tree (AST) of the source code.
+   - **Relation to other stages**: The parser stage uses the output from the lexical analysis stage (token stream) to determine the structure and syntax of the program. The output from the parser stage (AST) is used as input for optimization and code generation stages.
+
+3. **Optimization**:
+   - **Purpose**: Improve the performance of the generated code by applying transformations to the AST.
+   - **How it works**: The optimization stage applies transformations to the AST, such as dead code elimination, loop optimization, and code motion.
+   - **Relation to other stages**: The optimization stage uses the output from the parsing stage (AST) as input. The output from the optimization stage is used as input for code generation.
+
+4. **Code Generation**:
+   - **Purpose**: Convert the optimized AST into machine code that can be executed by a computer.
+   - **How it works**: The code generator translates the AST into machine instructions, generating intermediate representations (IR) and then generating machine code.
+   - **Relation to other stages**: The code generation stage uses the output from the optimization stage (optimized AST). The output from the code generation stage (machine code) can be executed directly or further processed by a code optimizer.
+
+5. **Assembly (for some compilers)**:
+   - **Purpose**: Convert machine code into machine-language assembly code.
+   - **How it works**: The assembly stage translates the machine code into assembly language, which is more human-readable and can be further processed by a code optimizer.
+   - **Relation to other stages**: The assembly stage uses the output from the code generation stage (machine code). The output from the assembly stage can be further processed by a code optimizer.
+
+Overall, the compiler pipeline stages work code into individual tokens, such as keywords, identifiers, literals, operators, and punctuations. The lexer reads the source code character by character and generates a list of tokens that can be used to build an abstract syntax tree (AST). 
+
+2. **Syntax Analysis**: In this stage, the parser analyzes the tokens to determine if they form a valid program. The parser uses a set of grammar rules to check the syntax of the code and generate an AST. If the code is valid, the parser produces an AST; otherwise, it reports an error.
+
+3. **Semantic Analysis**: This stage checks the semantic correctness of the code. It verifies that the code adheres to the language's rules and conventions, such as variable scoping, data types, and control structures. The semantic analyzer may also check for type errors, such as assigning a string to a variable declared as an integer.
+
+4. **Intermediate Code Generation**: In this stage, the compiler generates intermediate code, typically in the form of a data flow graph, which represents the execution of the program. The intermediate code is a high-level representation of the program's execution, and it is used by the code generator to produce machine code.
+
+5. **Code Generation**: This stage converts the intermediate code into machine code that can be executed by the target machine. The code generator translates the intermediate code into machine code instructions, such as assembly language or binary code, and produces an executable file.
+
+6. **Optimization**: stages of the compiler pipeline, consider a hypothetical example. Suppose we have the following source code:
+
+```c
+int main() {
+    int x = 5;
+    x = x + 1;
+    return x;
+}
+```
+
+1. **Lexical Analysis**:
+   - The lexical analyzer reads the input code character by character.
+   - When it encounters the identifier "main", it identifies it as a keyword.
+   - When it encounters the identifier "int", it identifies it as a keyword.
+   - When it encounters the identifier "x", it identifies it as an identifier.
+   - The lexical analyzer continues to process the input code, generating a token stream.
+
+2. **Parsing**:
+   - The parser analyzes the token stream.
+   - When it

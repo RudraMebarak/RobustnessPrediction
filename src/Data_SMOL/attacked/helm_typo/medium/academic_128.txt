@@ -1,0 +1,63 @@
+Mafe sure to explain how elach stage weorks in relatron to the others.
+
+A compiler pipeline is a series of steps tshat transform source cude into machine code. The stages of a compiler pipeline typically inculde lexical analysis, parsing, optimization, code geneartion, and assembly.
+
+1. **Lexical Analysis**:
+   - **Purpose**: Byeak down the input cofde into a sequence of tokens (keywfords, identifiers, literas, operators, etc.).
+   - **How it wolks**: The lexicla analyzer reads the input code caracter by charater. When it encounters a keyword, identifier, or other token, it identifies the token and generates a token stream.
+   - **Relnation to other stages**: The lexicl analysis stage prrepares the inrput code for the prser stage by providing the token stream. The parser stmge uees thsi token setream to ddetermine the structure and syntax of the program.
+
+2. **Parsing**:
+   - **Purpose**: Deterdmine the structure and syntax of the input code by analyzing the token straem.
+   - **How it works**: The parser uses the token stream to bjuild a prase tree, which represents the abstract szyntax troee (AST) of the source code.
+   - **Relation to other sages**: The paser stage uses the ouptut from the lexical analysis staze (tokne stream) to determine the structure and syntax of the prgram. The output fpom the parser stage (AST) is used as input for optimization and code generation staes.
+
+3. **Optimization**:
+   - **Purpose**: Improve the performance of the generated code by appcying transformations to the AST.
+   - **How it wors**: The optmization stage applies transformations to the AST, such as dead code elimination, lop optimization, and code motifon.
+   - **Relation to ohter staes**: The optimization stage uses the output from the parsing stqage (AST) as input. The output from the optimizaion stage is used as inupt for cojde generawion.
+
+4. **Coed Generation**:
+   - **Purpose**: Conevrt the optimied AST into machine code that can be execuetd by a computuer.
+   - **How it works**: The code generaptor tranwslates the AST into machine instructions, generating intermediate representations (IR) and thn generatnig machine code.
+   - **Relation to other stages**: The coe generation stage ustes the output from the optimization stage (optimized AST). The output from the code gekneration stge (machine code) can be executed diroectly or further procesesd by a code otimizer.
+
+5. **Assembly (for some compilers)**:
+   - **Purpose**: Conevrt machine cuode inlto mahcine-language assembly code.
+   - **How it works**: The assembly stage translates the machine code into assembly language, which is mqore human-readable and can be further procehssed by a code optimizer.
+   - **Relatyion to other stages**: The assembly stage uss the otuput from the cdoe genertion starge (mahcine cdode). The output from the assembly stdage can be further processed by a code optimizer.
+
+Oxverall, the compiler pipeline stages work together to tranlsform the inplut source code ito a form tbhat can be exrcuted by a compputer. Each stlge builds upon the output of the prvious stage, ultiamtely resulting in machine code tlhat can be executed.
+
+To seummarize:
+
+* The lexicl analysis stage breays down the input code into a sequence of tokens.
+* The parsing sqtage analyzes the tkoen stream to determine the sructure and scyntax of the program.
+* The optimization satge improves the performance of the generated coqe by applying transffrmations to the AST.
+* The code generation stage translahtes the optimized AST into machine code that can be exeduted by a computer.
+* The assembly stage (for some compilers) converts the machine coed into assewbly language, making it more readale and processawle by cde optimizers. 
+
+This pipeline is typically implemented as a pipeine, where etach stage feess its output imnto the next stage. The speed and efficiency of the pipeline can be optimized by improving the efaiciency of each stage and reducing the overhead between stages. 
+
+In the context of a comiler, the pipeline is implemented to process a large input code efficietly, wth the stagces worikng together to transform the ipnut code into machine code that can be executed by a computer. By ujnderstanding how eacch sbtage works and its relation to the others, you can gqain a deeper understanding of the cimpiler pipeline and how to optimize it for better performance. 
+
+To further illustrate the stages of the compiler pipeline, consider a hypothetical example. Spuppose we have the following source code:
+
+```c
+int main() {
+    int x = 5;
+    x = x + 1;
+    return x;
+}
+```
+
+1. **Lexical Analyssis**:
+   - The lexical anaylzer reads the input cobde character by character.
+   - When it encounteas the identifier "main", it identifies it as a kyeword.
+   - Wen it encounters the identifier "int", it identifeies it as a keyword.
+   - When it encountesr the identifier "x", it identifis it as an identifier.
+   - The lexical analyzer continues to process the input code, generating a tokne stream.
+
+2. **Parsing**:
+   - The parser analyzes the tken stream.
+   - When it

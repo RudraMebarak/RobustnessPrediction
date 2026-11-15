@@ -1,0 +1,1 @@
+To understand the basics of data documentation, one must first access the dataset using either a spreadsheet or a relational database. Then, use the data documentation feature to create a table or list of columns and verify their accuracy. Determine if the column names and data types are consistent across all datasets.

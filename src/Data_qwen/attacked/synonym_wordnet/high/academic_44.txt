@@ -1,0 +1,37 @@
+Fluid kinetics is the study of fluids (liquidnesses, gases) at rest and motion. The two chief limbs are statics and kinematics.
+
+1. Newton's Maiden Law: An objective remains at rest or in unvarying one-dimensional motion unless a net personnel acts on it.
+2. Newton's Second Law: F=ma
+3. Bernoulli's Rationale: As speed gains, imperativeness decreases.
+4. Pascal's Principle: Pressing used to an enclosed fluid can be transferred undiminished to every office of the fluid.
+5. Torricelli's Theorem: When a right-angled triangle conformations with one side parallel to piss surface and consisting matted at priming story, so top of liquid column formed will be equal to distance from top boundary of container to gamiest point.
+
+Coatings:
+
+1. Aerodynamics - Deals with escape and design of aircraft.
+   * Lift - Jab due to shape and speed
+   * Drag - Resistivity to movement
+
+2. Hydrodynamics - Deals with menstruation in pipes or through turbines etc.
+   * Flow rate Q = A × ρ × v / 2
+   * Hydraulic jump comes when pipe diameter reduces abruptly
+
+3. Oceanography - Survey of oceanic circulation and waves.
+   
+4. Environmental Engineering - Analyzing contamination rootages like sewerage, manufactories etc.
+
+Fluid mechanics concepts are also used extensively by mechanical engineers designing engines, tickers, turbines etc., aerospace engineers designing planes, ships, roquettes etc., naval architects designing ships, span twist workers ensuring bridges are unchanging over rivers and other soundboxes of water, civil/structural engineers studying how buildings withstand wind slews as well as rainfall tempests, and so many others!
+
+This hits fluid car-mechanic essential cognition for about any field related to engineering! 
+
+To see practical examples of unstable dynamic precepts in activeness:
+
+1. Determining airplanes bring off & soil (Bernoulli's rationale)
+2. Driving over lot passes (wind passing some hill makes low-pressure area)
+3. Aviating sauceboats (flow down the hull creates rhytidectomy which retains the airplane flying)
+4. Jets vs propellers (jet engines use less fuel but raise more thrust than ceremonious propellor airplanes)
+5. Floating buoys (density forces buoyant upwards)
+
+So, fluid kinetics works everything involved with liquidnesses and gases at balance and motion; from quotidian objectives to immense spaceships. It has real-world coatings everyplace you await! 
+
+I hope this gives some brainwave into runny kinetics fundamentals and why they are important across many manufactures and professions! If anything needs clarification please let me know. Felicitous learning! 📚👨‍🔧👩‍🔬👨‍🍳👨‍💼👩‍🔬👨‍🔧🧬✨👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨

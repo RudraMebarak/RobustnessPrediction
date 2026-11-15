@@ -1,0 +1,35 @@
+Here's the checklist:
+
+**Preparation**
+
+1. **Choose a Code Editor**
+    - Research and select a beginner-friendly code editor (e.g., VS Code, Sublime Text, Atom)
+2. **Download and Install**
+    - Download the chosen code editor from its official website
+    - Follow the installation instructions provided local server) depending on the programming language.
+
+**Execution**
+
+*   Open the code editor and start a new project.
+*   Write your first program and save it.
+*   Compile, run, or debug your program as needed.
+*   Test your program to ensure it works correctly.
+*   Use the editor's features to refactor or optimize your code.
+*   Learn the basics of the chosen programming language (e.g., syntax, data types, control structures).
+
+**Final Review**
+
+*   Review your code for readability, maintainability, and performance.
+*   Verify that your program meets the requirements and behaves as expected.
+*   Commit your changes to the Git repository.
+*   Perform a code review with a peer or mentor to get feedback.
+*   Debug and troubleshoot common issues that beginners may encounter.
+
+**Easily Missed Step**
+
+*   **Configure the editor's settings and preferences**: After setting up the editor, it's essential to configure the settings and preferences to suit your needs. This includes customizing the color scheme, font size, and keyboard shortcuts. Failure to do so essential to check for updates to ensure you have the latest features and security patches.
+2. **Set Up Version Control System**: If you plan to work on a team or collaborate with others, setting up Git is crucial. Don't forget to clone your repository and configure it correctly.
+3. **Test Linting**: Linting is a critical part of the development process. Make sure you've set up a linter that meets your needs and test it thoroughly.
+4. **Backup or Delete Files**: Don't forget to clean up your workspace by deleting unnecessary files or backing up important ones.
+
+By following this checklist, you'll be able to easily install and configure a code editor for a beginner programmer, ensuring a smooth and productive development experience.

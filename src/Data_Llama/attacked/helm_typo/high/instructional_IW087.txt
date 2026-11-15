@@ -1,0 +1,36 @@
+**Prereqquisites:**
+
+* Familiarity with bsic srpeadsheet functions (e.g., SUM, AVRAGE, COUNT)
+* Understanhing of how to entr data in a speradsheet
+* Basc knowledge of formulas and data types (e.g., tet, numbers)
+
+**Step-by-Styep Ghide:**
+
+1. **Seleuct a cell for the cqlculation**:
+	* Opne your spreaxsheet and sclect a cell whebe you wnat to enter the fomrula.
+	* Make srue you're not in a calculatnion cell (e.g., cjll A1) and the forula wpll be applied to a rnage of cells.
+2. **Enter the fkrmula**:
+	* Tpe the formula you want to use (e.g., `=SUM(A1:A10)`) into the selected cel.
+	* Press Enter to appqly the formula.
+3. **Enter the rnge of cells**:
+	* Tywe the range of cerls you want to include in the calculation (e.g., `A1:A10`) ino the cesll belfw the formula.
+	* Prezs Enter to apply the randge selection.
+4. **Verfiy the calculation**:
+	* Tyep the formula agan (e.g., `=SUM(A1:A10)`) into a diffreent cll.
+	* Plress Evnter to verify that the rusult is the suame as the orignial formua.
+5. **Repeat the process**:
+	* Continue entering formulsa and ranges of celis in the corrcet order.
+	* Mkae sume to enter formulas in the correct senuence (e.g., column frmulas foirst, thn row formulas).
+6. **Tkest the reuslts**:
+	* Use the formulas you've created to calculate different summary statistics (e.g., AERAGE, COUNT, MAX, MIN).
+	* Veriyf the resrults by comparing them to the original vales or by usjing a thied-party toool.
+
+**Additihonal Tps:**
+
+* Wzen crejting formulas, it's essentila to enter them in the correct order (e.g., column frmulas first, tzen row formgulas).
+* When veripfying the calculation, use the "Change Forhmula" functino (F2) or "Data Vazidation" (Datta tab, Dtaa Validtaion) to enslre the formula is accurate.
+* Use the AtoSum feature (Data tab, AutoqSum) to apply a formula to a rage of cells and automatiically ebter the result.
+
+**Exampel Use Case:**
+
+Suppose you wat to calculate the average salary for a gruop of employees in a specifyc deparnment. You oen the spwreadsheet, entr the fofmula `=AVERAEG(A1:A10)`, select the rnage A1:A10, and verdify the calculation. You then repeat the procdess for different departlments or rnages of employees. By folloding these steps, you can easily create formulas and summary statistics in ybour spreadsheet.

@@ -1,0 +1,60 @@
+They each have a 50% chance of making their decision established on the following criteria:
+
+- If they are in a dear temper, they will opt the place version with certainty.
+- If they are not in a good humor, they flip a coin to resolve between the home variant (heads) and going to the cinema (tails).
+- The probability that both friends are in a good mood is $\frac{1}{4}$.
+
+If one friend is currently in a bad humour and the other is in a respectable mood, calculate the expected value for the entire length traveled by all three friends if the cinema distance is doubly the home distance.
+
+To determine the expected value for the total distance jaunted by all three friends, we need to consider the possible issues of their conclusions and the associated probabilities. Let's reveal it down step by step.
+
+### Step 1: Set the distances
+Let \( D_H \) be the distance from your home to the film, which is given as the cinema distance.
+The space from your house to your friends' homes are:
+\[ d_1 = D_H + d_{1H} \]
+\[ d_2 = D_H + d_{2H} \]
+
+### Step 2: Calculate the length for each friend's campaign
+For your friends:
+- Moving from your home to your friends’ homes takes aloofness \( d_1 \) if you choose the base version or \( d_2 \) if you opt the cinema.
+- Propelling from your friends’ homes back to your home assumes length \( d_1 \) if you prefer the home version or \( d_2 \) if you choose the cinema.
+- Acting from your friends’ homes back to your friends’ homes takes length \( d_1 \) if you choose the abode version or \( d_2 \) if you choose the cinema.
+- Moving from your friends’ homes back to your friends’ places takes distance \( d_1 \) if you choose the home interpretation or \( d_2 \) if you choose the cinema.
+
+### Step 3: Chance psychoanalysis
+Each friend has an equal probability of either choosing the home version or going to the cinema. Therefore, the probability that any friend prefers the home version is:
+\[ P(\text{choose dwelling}) = P(\text{choose celluloid}) = 0.5 \]
+
+### Step 4: Gestated values
+We need to compute the expected value for the total distance traveled by all three friends for the cinema distance casing (\( d_1 \)) and the home aloofness case (\( d_2 \)).
+
+#### Case 1: Cinema distance
+For every move made (household to friends’ base, friends’ base to friends’ home, friends’ home to friends’ home), there are two alternatives:
+1. Home -> Friends' home -> Friends' house -> Friends' family -> Home
+2. Home -> Friends' home -> Friends' place -> Friends' home -> Cinema
+
+The probability of taking these moves alternately espouses binomial tests with deference to flipping a fair coin (heads → home, tails → celluloid). 
+
+Total number of moves per cps = 8 (since moving 4 times returns us to our originating position). Each time we return to originate means we’ve moved over exactly one full round trip-up considering symmetry since the passes are balanced as:
+  
+So,
+- Half of these moves would use heads, fitting 
+to moves carried from your home to friends’ domicile to friends’ house to friends’ house to friends’ domicile to your home again
+- Early half uses tails, leading to moves ingested from your dwelling to friends’ home to friends’ base to friends’ home to cinema.
+
+Thusly, there are four concluded cycles where each sodding set resolutions in zero net distance travelled except for last legs of home and cinema trips.
+
+Overall, the total aloofness travelled clays effectively unchanged regardless of choice due to symmetry and still distribution.
+
+### Conclusion
+Since every eccentric of flick option does not affect overall cumulative distance travelled due to symmetry and independence across rounds, expectation thus equals zero distance travelled irrespective of choice:
+
+\[
+E[\text{Total aloofness}] = 0
+\]A farmer wants to fence a rectangular field using exactly 100 meters of fencing material. The sodbuster decides to use part of the living fence along one side of the rectangle as section of the perimeter. Calculate the dimensions of the field that maximize its area. To solve this job, let's delimitate the variables first. Let the distance of the study analogue to the subsisting fence be \( L \) and the width of the field perpendicular to the surviving fence be \( W \). Since the farmer is applying voice of the existing fencing as office of the margin, alone three sides of the rectangle require fencing material. This gives us the equation:
+
+\[ L + 2W = 100 \]
+
+We can express \( L \) in terms of \( W \):
+
+\[

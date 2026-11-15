@@ -1,0 +1,68 @@
+Additionally, add tips on avoiding similar scams in the future.
+
+### Beginner-Friendly Guide: Recognizing and Reporting Suspicious Phishing Emails
+
+#### Prerequisites:
+1. **Basic Awareness**: Understand what phishing emails are.
+2. **Access to Tools**: Know where you can safely send reports (usually to a reputable security organization or your local police station).
+
+#### Steps:
+
+##### 1. **Recognize Common Phishing Tactics**
+   - Look for messages that claim urgency (like a need for immediate action).
+   - Check if they include spelling errors or grammatical mistakes, which are common red flags for unprofessional communication.
+   - Beware of links or attachments within emails as these may be designed to download malicious software onto your computer.
+
+##### 2. **Signs That An Email Might Be Phishy**
+   - **Urgent Calls**: Requests for immediate action often indicate a phishing attempt.
+   - **Requests For Personal Information**: They usually ask for passwords, credit card numbers, social security numbers, etc., but never just click “report spam”.
+   - **Solicited Links or Attachments**: If someone says an attachment is from them, it’s likely not genuine unless it’s clearly marked with a legitimate domain name.
+   
+##### 3. **Steps To Report A Potential Scam**
+   - **Save The Email**: Take screenshots or notes about everything, including dates sent/received, sender details, content exactly copied/pasted from the email.
+   - **Copy Details**: Note down any text copied from the email (even screen shots help identify text) along with other metadata like timestamps.
+   - **Report It**:
+     - Use the official reporting mechanism at [Google Play](https://support.google.com/mail/troubleshooter/84059) /[Apple Support](https://support.apple.com/guide/mail/report-suspicious-emails-cf4903c6b3a4/mac) /[Microsoft](https://www.microsoft.com/security/business/advisories/phishing-emails/) /etc.
+     
+     You could also send to a website like [Phishing Alert](https://phishingalert.com/report.php). 
+
+    Or simply call your local police department; this should help protect others from falling victim too!
+
+##### 4. **Verification And Action**
+   - **Proofreading & Verification**: Always double-check by sending the same message again via a different method (e.g., phone) to ensure no typo error occurred while typing.
+   - **Legal Advice**: Consider seeking advice from a lawyer if there's money involved or if you believe you have legal grounds to pursue the matter.
+
+##### 5. **Avoid Future Scams**
+   - **Be Wary Of Unsolicited Requests**: Only respond to known requests and always check the actual sender.
+   - **Don’t Click On Anything Unverified**: Avoid opening any suspicious-looking files or clicking on unknown links.
+   - **Stay Informed**: Follow reputable sources and stay updated with cybersecurity news.
+
+Remember, catching a phishing attack early saves time and resources needed to rectify damage. Regularly updating your security settings and keeping your devices updated will further reduce vulnerability to such attacks. Happy online vigilance! 🚀💻
+
+---
+
+This where the link leads. It should match the actual website.
+2. **Look at Header:** The header will show the sender’s name and company. If it seems fake, it is likely a scam.
+
+### Step 3: Respond Appropriately
+
+1. **Do Not Click:** Never open attachments or click on links provided in an unsolicited email.
+2. **Delete Immediately:** If unsure about the email, delete it without opening anything inside.
+
+### Step 4: Report Suspicious Activity
+
+1. **Use Email Security Tools:** Many devices come with built-in security features that can flag potentially dangerous messages.
+2. **Report to the Company:** Most businesses have customer service numbers for such issues.
+   - Example: *If you suspect a bank email:* Go to the bank’s website, find help, then contact fraud department.
+   
+3. **Contact Authorities:** If you’re still unsure or if the issue isn’t resolved quickly, call local law enforcement:
+   - Contact your nearest police station.
+   - In some cases, there could also be dedicated IT hotlines specific to phishing scams.
+
+### Verification of Completion
+
+You've successfully recognized a phishing email by following these steps. Always remember to stay vigilant and keep your digital habits safe!
+
+This guide simplifies the process your knowledge to protect yourself better.
+- **Support Legal Authorities**: Reporting phishing attempts directly contributes to combating widespread fraud and helping authorities track criminals efficiently.
+- **Create Emergency Contacts**: Maintain contact information

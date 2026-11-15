@@ -1,0 +1,1 @@
+Basic knowledge of spreadsheet operations (e.g., SUM, AVERAGE, COUNT) * Understanding of how to enter data in a spreadsheet by selecting a cell where you want to enter the formula. By using the AutoSum tool, you can apply a formula to a group of cells and enter the result automatically.

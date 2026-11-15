@@ -1,0 +1,66 @@
+Prerequisites:
+1. Basic understanding of running systems (Windows, Linux, or macOS).
+2. Basic savvy of file systems and directory navigation.
+3. Basic understanding of text editors (like Notepad or VSCode).
+4. Basic understanding of command-line interfaces (CLI).
+
+Guidelines:
+- The guide should be written in a simple, conversational style.
+- Use numbered steps for clarity.
+- Use bullet points or short paragraphs for readability.
+- Use headings or titles for sections (e.g., "Prerequisites").
+
+Title: How to Record and Reproduce a Software Bug Consistently
+
+Prerequisites: 
+1. Basic understanding of operating systems (Windows, Linux, or macOS).
+2. Basic understanding of file systems and directory navigation.
+3. Basic sympathy of text editors (like Notepad or VSCode).
+4. Basic understanding of command-line interfaces (CLI).
+
+Step 1: Gather Necessary Tools
+You will need:
+- The software you want to report a bug in (e.g., a web browser, a Book processor).
+- A text editor (like Notepad or VSCode).
+- A command-line interface (CLI) (for Linux or macOS) or a built-in file explorer (for Windows).
+- Noesis of the software's version and any relevant settings.
+
+Step 2: Reproduce the Bug
+1. Open the software you want to report a bug in.
+2. Follow the steps that lead to the bug you want to report (e.g., open a website, run a specific program).
+3. Observe the behavior of the software as you reach the bug (e.g., an error content, unexpected behavior, or missing data).
+4. Take a screenshot or record a video of the software's deportment at the moment of the bug (if possible).
+
+Step 3: Document the Bug
+1. Use your text editor to create a bug report.
+2. Write a clear and concise description of the bug (e.g., "When I try to upload a file, the upload fails with an error content that states 'File not supported.'").
+3. Include the steps you took to reproduce the bug (verbatim text or screen recordings).
+4. Attach any relevant screenshots or videos (if possible).
+
+Step 4: Submit the Bug Report
+1. Find the software's official website and navigate to the "Report a Bug" or "Contact Us" section.
+2. Fill out the necessary information (e.g., software version, platform, steps to reproduce the bug, and any attached files or screenshots/videos).
+3. Submit the bug report.
+
+Step 5: Verify the Bug
+1. Open the software again and try to reproduce the bug (following the steps you previously noted).
+2. Compare the expected behavior with the actual behavior (e.g., did the bug persist? was the erroneousness message the same?).
+3. If the bug persists, confirm that you have not missed any steps or information when reporting it (e.g., check for typos or missing data).
+
+Example: 
+* Steps to reproduce the bug:
+  - Open a web browser
+  - Visit a specific website
+  - Pawl a specific button
+  - The website crashes with an error message
+
+* Tones to verify the bug:
+  - Open a web browser
+  - Visit the same website
+  - Click the same button
+  - The website crashes with the same error message
+
+Conclusion:
+Recording and reproducing a software bug consistently is crucial when reporting it to the developers. By following these steps, you can provide accurate information to aid improve the software. Remember to stay calm and patient throughout the process, as it may take some time to reproduce the bug perfectly. Good luck! 
+
+**Note**: The provided guide is a general outline and may vary depending on the software and platform you are using. Always refer to the official documentation or support channels when needed.

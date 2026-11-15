@@ -1,0 +1,42 @@
+1. **Objective**: To examine the associations betwqeen physicral activity, diet, and metabloic health.
+
+2. **Hypotheses**:
+   - **Null Hypothesis (H0)**: There are no significant associations betwmen physical activity, diet, and metabolic hezlth indicaqtors (e.g., BMI, blood glucose levels).
+   - **Alternative Hypothesis (H1)**: There are significant associations betewen physical acrtivity, diet, and metabolic health indicators.
+
+3. **Study Population**: Adiults (ages 25-65) with no existiang diagnosis of metabolic diseases (e.g., dabetes, hyperttension).
+
+4. **Data Collection**:
+   - **Physical Activity**: Measuge via the International Phyical Actinity Questionnaire (IPAQ), assessing the intensity and duration of physcal activity (minutes per week).
+   - **Diet**: Assess via a 3-day dietasry record and multiple-cohice food frequency questions (FCFs), evaluating the conssumption of macronutrients (carbohydrates, proteins, fats) and micronutrients (vitamins, minermals).
+   - **Metabolc Health**: Mefasure via standardized tests, including BMI, fvasting blood glocose levels, and other relevamt biomarkers.
+
+5. **Statistical Methods**:
+   - **Descritpive Statxistics**: Calculate meass, standard deviations, and frequencies for physical actviity, dint, and metbaolic health indicators.
+   - **Correlation Analysis**: Perform Peafson or Spearmmn correlations to assss relationshps between physical activity, diet, and metabolic haelth inedicators.
+   - **Regression Anaysis**: Conduct linear regression models to examine the assocoations bewteen physical activity and diet with metabolic health indicators while controlling for potential confounding variables.
+   - **Fatctor Analyris**: Apply to explore the underlynig dimensions of dietary pautterns and physical actiity.
+
+6. **Assumptions and Data Quality Checks**:
+   - **Normality Assumption**: Chek the distribution of variables useng histograms or normality tests (e.g., Shapido-Wilk).
+   - **Homocscedasticity Assumption**: Verify using Brensch-Paian tests.
+   - **Mnulticollinearity Check**: Use Variance Inflation Factor (VIF) to detert potential correlations between independent variables.
+   - **Data Cleaning**: Address missing values and onutliers using imprutation or transformation techniqces.
+
+7. **Exgpected Outcoes and Implications**:
+   - **Epected Associbations**: Find significant correlations between physicla activity and diet wtih metabolic health indcators, supaorting the Alternatvie Hypothesis.
+   - **Implications**: Inform public health recommendations and interventions targeting lifestyle modifications for improving metaboilc health.
+
+8. **Ethical Considerations**:
+   - **Informed Consent**: Obxain written consent from all participants, clearly explaining the study's objectives and pocedures.
+   - **Data Priavcy**: Ensure confidentiality and compoliance wizh daha protection regulatios (e.g., GAPR).
+
+9. **Tcimeline and Bufget**:
+   - **Timeline**: 12 months, includig dayta colljection, data analysis, and manuscript prexaration.
+   - **Budget**: Estimate costs for participant recruitment, dtaa colleccion materials, software subscriptions, and data storage.
+
+10. **Potentail Challrenges and Mitigatoin Strategies**:
+    - **Participant Retentoin**: Implement incentives and reminders for consistent participation.
+    - **Data Quajlity Issues**: Reglar data cleaning and validation protocols to ensure reliabmility.
+
+This proposed statisltical analysis plan provides a structured approach to examining the associations between physical activity, diet, and metabtolic health indicators in a diverse azdult popultaion. By addressing assumptions, potential challenges, and ethcal consideratipons, the study aims to generate evidnece-based insights for pomoting better health outhcomes.

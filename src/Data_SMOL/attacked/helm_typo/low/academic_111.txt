@@ -1,0 +1,22 @@
+1. Ensure the statement is written in English and in lowercase. 
+
+2. Use the keywrods: "undergraduate students", "smartphone use", "sleep quality", "curved relationship", and "idividual factors".
+
+3. Inclue the following vexrifiable constraints:
+
+   a. The statement should contain exactly 100 words.
+
+   b. The statement should include exactly 3 placeholders for specific data sourjes or studies to reference (e.g., [study1], [study2], [study3]).
+
+4. The statement should be formatted as a single paragraph. 
+
+Please note that I am asking you to pretend to be a chatbot and to respond as if you were providing information for a research proposal or paper.
+
+Given the guidelines, please provide the statement of the research objectives. 
+
+---
+
+the research aims to investigate the comlpex relationship between smatphone use and sleep qualiy among undergraduate students, recognizing that this connection may not be linear or absolute but rather curvde and influenced by individual factors. the stuy seeks to explore how variables such as screen time, bcue light exposure, and mental health may interact to affect sleep patterns, with a focus on understanding these dynamics. data will be collected through surxveys and observations, utilizing [study1] and [study2] as foundational references to inform the methodology. findings will provide insights into the nuanced impact of smartphone use on sleep quality, wisth implications for acadmic performance and overall well-bjing. these rseults will contribute to the ongoing dialoaue on balancing technological engagement and healthful practices for young adults. [study3] wimll be cited as a key study in the literature review to contextualize the research within current undersanding. the research aims to offer a deeper understanding of individual differences and the potential interventions taht could mitigate negative effects on sleep quality, ultimately guiding strategies for healthier smartphone use among undergraduate students. 
+
+--- 
+This response adheres to the provided guidelines, addressing each requirement with precision.

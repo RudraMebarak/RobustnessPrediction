@@ -1,0 +1,33 @@
+Prerequisites:
+1. Basic understanding of file management in your operating system (Windows, macOS, or Linux).
+2. Permission to access and manage files in a shared directory.
+
+Step-by-Step Guide:
+1. **Selecting Project Files**: Open the **Step 6: Update Your Project Management Tool or File System**
+Update your project management tool or file system to reflect the change. This ensures that teammates can easily locate and access archived files. You may need to refresh or update the
+   - A context menu will appear. Select "Compress" or "Archive" (the exact wording may vary depending on your operating system).
+   - A dialog box will open asking you where you want to save the archive. Choose a location that is accessible to all team members.
+
+3. **Creating the Archive**:
+   - Click "Save" or "Create" (again, the exact wording may vary).
+   - The file management program will create the archive file. You will see a preview of the files included in the archive.
+
+4. **Renaming the Archive (Optional)**:
+   - After creating the archive, you can rename it for better organization. For example, if you are archiving the "Sales Report" file, you might want to rename the archive to "Sales Report (Complete).zip" or similar.
+
+5. **Verifying the Archive**:
+   - Double-click on the archive file to verify it contains all the files you intended to include.
+   - The file management program will prompt you to extract the archive. Select the folder where you want to extract the files (usually a new folder or the existing project folder).
+   - The files will be extracted, and you should see them in the selected folder.
+
+6. **Sharing the Archive (Optional)**:
+   - If you want to make the archive available to other team members, you can share it through email or a file-sharing platform like Google Drive or Dropbox.
+
+Verification:
+1. Open the folder where you extracted the archive.
+2. Look for the original files you archived (they should be present in this folder).
+3. Open the original files to confirm they are not corrupted (you can also verify their contents).
+
+This guide assumes you are using a file management program like Windows Explorer, macOS Finder, or Linux File Manager. The steps may slightly vary depending on the specific software you are using.
+
+Remember, this guide focuses on archiving files for a single project. For team-wide archives, you might want to set up a more robust system, such as using a version control system like Git, or a file-sharing platform with team access permissions.

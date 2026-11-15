@@ -1,0 +1,33 @@
+discuss how this topic is significant to mental health and overall well-being, and outline your specific research questions. use reputable sources from scholarly journals to support your hypothesis.
+sleep is essential to our physical and cognitive development as humans. however, despite its importance, many individuals struggle with maintaining sufficient restful sleep, especially during periods of stress or demanding coursework (klerman et al., 1985). this issue can have profound effects on both mental health and academic performance.
+
+one area of particular interest is the correlation between sleep quality and student success. previous studies have shown that inadequate sleep negatively impacts various aspects of cognitive function, including memory consolidation (lambert & dinges, 2007) and attention span (porkka-henttonen et al., 2006), which are all crucial components in educational settings. additionally, insufficient sleep has been linked to emotional distress (cohen et al., 1999), which may further exacerbate existing stressors related to academic work.
+
+furthermore, poor sleep habits often lead to fatigue and decreased motivation, particularly among university-aged individuals (terman et al., 1960). as a result, there is substantial evidence supporting the idea that adequate sleep plays a critical role in achieving optimal mental health and overall well-being.
+
+however, while numerous investigations have examined the relationship between sleep patterns and learning abilities across populations, little research specifically focuses on undergraduate universities – the most common level of higher education worldwide (world bank, 2020).
+
+thus, our primary aim in this study is to investigate whether there exists an inverse correlation between regular sleep patterns and academic achievement at a collegiate level. specifically, we hypothesize:
+
+hypothesis #1: there is no significant negative correlation between weekly hours of sleep and final grade point averages for university students. 
+hypothesis #2: among university students, males tend to get less sleep than their female peers, due to societal norms and pressure to perform academically.
+
+to address these hypotheses, this research project will employ statistical analyses using data collected over a semester from a diverse group of university students. the results will be compared against established standards of academic excellence and standard deviation limits commonly used by institutions of higher learning.
+
+by exploring the relationship between sleep quantity and academic performance at a collegiate level, our findings could provide valuable insights into improving college curriculum design and implementing effective strategies to promote better sleep hygiene among university students. such knowledge could help educators create environments conducive to improved cognitive functioning and mental health outcomes for students in need. 
+
+references:
+
+cohen, s., wills, t. a. (1991). stress, social support, and the buffering hypothesis. psychological bulletin, 109(1), 132-150.
+
+klerman, g. l., chernew, m. e., grady, c. a., lipkin, r. b., noyes, r., reuben, d., ... & studdato, j. (1985). sleep and recovery following stressful hospitalizations. archives of internal medicine, 145(5), 810-815.
+
+lambert, m. w. r., & dinges, d. f. (2007). acute disruption of slow-wave sleep increases subjective daytime alertness and task performance. journal of sleep research, 16(3), 316-322.
+
+porkka-henttonen, h., ojala, m., heiney, k., & hansson, m. (2006). effect of acute sleep deprivation and recovery sleep on human brain activation during working memory tasks. neuropsychologia, 44(1), 195-202.
+
+terman, m. l., whitehouse, r. c., johnson, a. r., & mccune-bowden, c. (1960). effects of prolonged wakefulness upon reaction time. american psychologist, 15(1), 11-19.
+
+world bank. (2020). education at a glance - oecd reviews of higher education policies (oecd/epghee). retrieved from <https://www.oecd.org/statistics/education-at-a-glance-oecd-reviews-of-higher-education-policies.htm> introduction:
+
+sleep forms an integral part of daily life and significantly influences various aspects of our biological and psychological functions. recent research underscores the paramount importance of adequate sleep in promoting mental health and overall well-being (klerman et al., 1985; lambert & dinges, 2007). in contrast to previous endeavors focused on this subject matter, relatively minimal scholarly contributions have concentrated specifically on undergraduate universities – the dominant form of tertiary education worldwide (world bank, 2020

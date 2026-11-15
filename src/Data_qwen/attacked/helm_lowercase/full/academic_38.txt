@@ -1,0 +1,50 @@
+provide examples of how linux or macos use these features.
+modern operating systems are complex software that manages hardware resources such as cpu, ram, disk, network interfaces, display, etc., to efficiently run applications and services. the kernel is the core component responsible for managing processes (threads), allocating virtual memory, interrupt handling, device drivers, file systems, networking stacks, security policies, and more.
+
+process management:
+
+1. process creation: a new process is created by calling the `fork()` function in c language. this creates an exact copy of the parent process with its own stack and code segment.
+   
+2. process communication: two processes can communicate through messages via shared memory regions, pipes, sockets, semaphores, or queues.
+
+3. scheduling: processes are scheduled based on priorities, time slices, priority weights, job age, user id, or thread counts depending on the scheduler's strategy (preemptive vs non-preemptive).
+
+4. exit status: upon exit, a process writes this status into standard error (`stderr` if not redirected) using `%d`.
+
+memory allocation:
+
+1. virtual memory: modern oss employ virtual memory where a process maps files or executable code segments into "virtual" space managed by the os, separated from actual physical ram by the page table structure.
+
+2. paging: when memory paging (also known as swapping) is enabled, the os swaps out less frequently used pages onto secondary storage devices (swap space / hard drives) when there is insufficient real-time ram available.
+
+3. thread local storage (tls): for multi-threaded applications, each thread maintains local copies of global variables and object members which don't need synchronization mechanisms.
+
+4. memory limits: by default, oss limit resource usage with limits.conf file entries controlling maximum number of open files per user account, total amount of ram, swap size, stack depth, etc.
+
+here's a high-level view of linux or macos process management with their respective libraries:
+
+1. linux
+
+- `fork()`, `execve()`: used to create a child process
+- `mmap()`, `munmap()`, `mprotect()`: handle memory mappings & protection flags 
+- `pthread_create()`, `pthread_join()`: create/terminate threads
+- `sigaction()`, `signal()`: manage signal handlers and timing events
+- `shm_open()`, `shmdt()`: manage shared memory regions
+- `sem_open()`, `semctl()`: handle semaphore objects for mutual exclusion
+- `ftruncate()`, `fsync()`: modify i/o attributes for filesystems 
+
+2. macos
+
+- `spawn()`, `spawnl()` (various): create children
+- `kalloc()`, `kfree()`: allocate/deallocate memory
+- `thr_create()`, `thr_detach()` (multithreading): thread initialization/uninit
+- `semaphore_open()`, `sem_destroy()`: semaphore objects
+- `key_create()`, `key_free()`: key objects (for locks)
+- `file_info_getattr()`, `file_info_setattr()`: file system operations
+
+the above operations together manage threads (a subclass of process) and allocate/reallocate virtual memory across various underlying abstractions like memory mapping, semaphores, signals, mutexes, and filesystems. these operations are implemented at low level within the kernel layer of both linux and macos architectures respectively. the os makes it very easy for developers to utilize these features without having to deeply understand them, providing abstraction over low-level details. in contrast, users often interact directly with memory (using apis like `malloc()`, `realloc()`, `free()`). lastly, modern oss also support virtualization (e.g., kvm in linux) to allow running multiple guest environments on one host machine. each guest environment runs isolated from others by sharing hardware but still interacting seamlessly with the host's kernel infrastructure. these advanced technologies enhance flexibility for parallelism, cloud computing, containerization, and other high-demand workloads. 
+
+note: the code snippets shown here represent only minimal parts of what typically happens under the hood. in practice, numerous subroutines are utilized throughout every operation mentioned. also, the specific interface names may vary slightly between different kernels due to ongoing changes over time. further research would be required to study those differences thoroughly. 
+
+to wrap up:
+a modern os orchestrates all aspects related to creating, managing, allocating, deallocating, and cleaning up processes along with other associated tasks, while keeping track of individual threads and allocating dynamic virtual memory accordingly. both linux and macos achieve this by integrating intricate layers of code and functionality provided by essential kernel modules alongside higher-level programming constructs accessible via api functions/libraries offered by the unix/linux foundation. such an architecture provides a flexible yet efficient runtime environment suitable for any computing task.human-computer interaction has evolved significantly since its inception in the 1950s, transforming our

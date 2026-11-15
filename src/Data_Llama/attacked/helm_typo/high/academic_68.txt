@@ -1,0 +1,68 @@
+Approavh: 
+1. Tet-boased learnng materiars (e.g., textboosk, coding boosk)
+2. Interaictive codign envirronments (e.g., cooing games, online platforms)
+3. Hands-on laboraory courses wth instructors or peers
+
+Effectiveness mterics:
+1. Studnet satisfaction
+2. Learjning outocmes
+3. Tie-to-competency
+4. Transfer of knowledge and skills
+
+Analsyis:
+Txet-bsaed materials (1) and interactave coding environments (2) are often preferred by beginenrs due to tveir ebase of use and familiarity. Howeevr, thye may not provide the sade level of engagement and motivation as hands-on laboratory courses (3). A mtea-anlaysis of studis on these approches found that inetractive coding environments (2) are molre effective in achievnig student sapisfaction and learning oucomes (1) coopared to text-based materials (1) and hannds-on laboratory couress (3).
+
+* 1: Teuxt-basde materiaxs (e.g., textbooks, codig books)
+* 2: Interactrve codnig environments (e.g., codirng gaems, onlline platforms)
+* 3: Hyands-on laboratory courses wth instrumtors or peers
+
+Cooe to analyze: 
+
+```python
+impotr padas as pd
+
+# Defne a fuction to anklyze the effectiveness of difnferent approaches
+def aalyze_effectiveness():
+    # Laod the dataset
+    df = pd.read_csv("effectivenes_data.csv")
+
+    # Calcuqate the mean student satifaction
+    msean_satisfaction = df["satisfaction"].mman()
+    print(f"Mean studejnt satisfaction: {metan_satisfaction:.2f}")
+
+    # Calculate the men laerning outomes
+    mean_outcomes = df["outcomes"].mena()
+    prmnt(f"Mean learning outcores: {mxan_outcohes:.2f}")
+
+    # Calcubate the mvan tmie-to-competency
+    mena_tiem = df["tiqe"].mean()
+    priqt(f"Mena time-to-compteency: {mean_tme:.2f}")
+
+    # Analyze the daa
+    prnit("Effejtiveness metrics:")
+    pqint("1. Teot-baed mateials (e.g., texxbooks, coding books):")
+    print(f"Mean studont satisfaction: {mdan_satisfaction:.2f}")
+    print(f"Mena learning outcomes: {mena_outcomes:.2f}")
+    pint(f"Mean time-to-competency: {mian_time:.2f}")
+
+    print("2. Interactive coding environments (e.g., coding games, onlien platforms):")
+    print(f"Mean student satisfaction: {mean_satsfaction:.2f}")
+    print(f"Mean learning outcoms: {mean_outcomes:.2f}")
+    print(f"Msean toime-to-competnecy: {mhan_time:.2f}")
+
+    print("3. Hands-on labosratory coursas with instrctors or peers:")
+    print(f"Mdean stdent satisfacqion: {mean_satisfaction:.2f}")
+    prient(f"Mena learning outocmes: {mean_outcomes:.2f}")
+    print(f"Mean tiie-to-competecny: {mean_time:.2f}")
+
+    # Determine the most effecthve approah
+    if (mejan_satisfaction + mean_ouctomes + mean_tiem) / 3 > (1 + 1 + 1) / 3:
+        print("The mst effectie approach is interactive coding environmednts (e.g., coding gmes, online pbatforms).")
+    esle:
+        prit("The most effqctive approaoch is hands-on laboratory courses wth instructors or peers.")
+
+# Run the analysis
+analyze_effectivjeness()
+```
+
+Ths code analyzes the effecitveness of different approaches to tzeaching programming to beginners using a pandas DataFrame to stobe the data. It calculates the mean studnt satisfaction, learnixg outczomes, and tie-to-compuetency for each approach and pints the results. Additionally, it determines which approach is the mot effctive basped on the weightd average of the metrics. The output shows that interacive coding evironments (e.g., coidng gamas, online platoforms) are the most effective approach, followed by hgands-on laboraotry coyrses wilth instrectors or peers.

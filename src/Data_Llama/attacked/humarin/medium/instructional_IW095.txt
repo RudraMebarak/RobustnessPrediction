@@ -1,0 +1,1 @@
+Determine the total income for each category and ensure that the budget amount falls within the given timeframe. Calculate the total income and total expenses, calculate the percentage of total earnings for each category, and create a budget plan for those categories.

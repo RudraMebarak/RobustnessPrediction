@@ -1,0 +1,30 @@
+Correlativity refers to a statistical relationship between two variables that does not imply a causal relationship. Two variables are related, but not determined by each other. For example, disciplines have shown that a country with high levels of a sure nutrient tends to have high levels of a certain disease, as long as the nutrient's effect on the disease is not a result of the country's overall health or socioeconomic factors. 
+
+Causation, on the other hand, refers to a causal kinship between two variables, where one variable causes the other to occur. For example, a sketch found that a certain agent (e.g., a medication) increases the risk of developing a certain disease (e.g., Crab) in individuals who take it.
+
+To determine whether two variables are related (correlated), use the following methods:
+
+1. Look for statistical associations (e.g., correlation coefficient)
+2. Look for patterns (e.g., linear regression)
+3. Look for differences in means or medians
+4. Look for differences in proportions
+
+Here are some examples:
+
+1. **Correlation:** The relationship between the number of days spent reading (in hours) and the number of hours slept (in hours) is correlated. This means that as the number of days spent reading increases, the number of hrs slept also tends to increase, but this does not imply a causal relationship (e.g., reading campaigns slumber or vice versa).
+
+Example: A study found a correlation between reading (in hours) and sleep (in hours): reading (in hours) = 1.5*sleep (in hours) - 10 (R² = 0.8).
+
+2. **Causation:** A study found a causal relationship between being heavy (as measured by BMI) and having a high blood pressure (measured by systolic blood pressure): obesity (BMI) → hypertension (systolic blood pressure).
+
+Example: A study found a causal relationship between being overweight (BMI 25-29.9) and having a high blood pressure (systolic blood pressure ≥ 130 mmHg): overweight (BMI 25-29.9) → hypertension (systolic blood pressure ≥ 130 mmHg).
+
+3. **Correlation:** The relationship between the number of hours spent watching TV and the number of hours spent reading (in minutes) is correlated. This means that as the number of hours spent following TV increases, the number of minutes spent reading also tends to increase.
+
+Example: A study found a correlation between TV time (in hours) and reading (in hours): TV time (in hours) = 1.2*reading (in hours) - 10 (R² = 0.5).
+
+4. **Causation:** A discipline found a causal relationship between being married (as a proxy for socioeconomic status) and having a high level of breeding (measured by years of schooling): marriage → higher education.
+
+Example: A study found a causal relationship between being conjoined (as a proxy for socioeconomic status) and having a high level of education (measured by years of schooling): wedded (as a placeholder for socioeconomic status) → higher education (years of schooling).
+
+In conclusion, correlation and causation are distinct concepts, and determining whether two variables are related (correlated) requires measured consideration of the method habituated and the underlying assumptions. By using statistical associations, patterns, differences in means or medians, and differences in proportions, investigators can determine whether correlations are causal or not.

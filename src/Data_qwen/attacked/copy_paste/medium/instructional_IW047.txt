@@ -1,0 +1,90 @@
+Additionally, add tips on common challenges you might encounter during this process.
+
+Prerequisites:
+
+1. Basic understanding of computer programming concepts
+2. Familiarity with at least one programming language
+3. The ability to use a text editor (like Notepad or Visual Studio Code) 
+
+Steps:
+
+1. **Initial Assessment:** Begin by scanning the codebase for familiar structures such as loops or functions. Look through the code looking for keywords like `return`, `if`, `else` etc., which are commonly used in most programming languages. This will help you identify the language being used.
+
+2. **Start Locally:** Open your text editor locally to access all the files in the codebase easily.
+
+3. **Understand Documentation:** Read up about the project’s purpose and its design principles from official documentation or README files if available. These resources should give insights into what was originally intended with the code.
+
+4. **Interpret Structure:** Analyze the structure of the code - is it object-oriented? Functional? Try breaking down complex sections into simpler components. Focus on identifying where classes are defined and objects instantiated, which are key elements in object-oriented coding.
+
+5. **Read Lines Carefully:** Each line of code is a small instruction that can be understood alone or as part of larger logic. Start by reading every line of code thoroughly so you grasp exactly how each piece works. Sometimes context clues are provided with comments or other lines of code right before them.
+
+6. **Test Segments:** As soon as you've grasped a concept, try implementing small pieces yourself to check your comprehension. Use your local machine's IDE/Editor to write some code based on what you learned from the codebase.
+
+7. **Seek Additional Help:** Don’t hesitate to ask when things don't make sense – peers could provide invaluable feedback.
+
+8. **Review and Iterate:** Keep refining your understanding until you feel comfortable navigating and modifying the codebase effectively.
+
+Verification: You have successfully navigated the codebase properly once you can confidently navigate through multiple levels of code without getting stuck or confused.
+
+Common Challenges:
+- Lack of documentation.
+- Differences in syntax between the source code and another language.
+- Complex codebases which are hard to comprehend due to size and intricacy.
+- structure
+Before diving into any unfamiliar codebase, it's essential to understand its overall structure. Look at the file system hierarchy, class diagrams, module documentation, and any other relevant information provided by the project maintainers.
+
+Best practice:
+Read through the README.md file if available, which often contains key information about the project's purpose, functionality, dependencies, and usage instructions.
+
+Step 2: Identify entry points and main classes
+Start from where you think the program might begin executing - typically this is usually found in one or more entry point files like main.py, app.py, etc. These are likely to be your first stop when exploring the codebase.
+
+Best practice:
+Take note of any important helper classes or modules that seem to play a central role in the application logic.
+
+Step 3: Examine the most frequently used classes/methods
+Most applications have several classes or methods called "main" or marked as critical by the authors. Start by looking at these.
+
+Best practice:
+Look for comments, docstrings, or other metadata describing what each method does and why it was implemented.
+
+Step 4: Analyze the flow of execution
+Follow the order in which statements are executed within the various classes and methods. This can help identify potential issues or bottlenecks.
+
+Best practice:
+Use a debugger tool (e.g., pdb) to pause execution at certain lines
+    
+    # Extract data
+    title = soup.find('title').text.strip()
+    paragraphs = [p.text for p in soup.select('p')]
+
+    return {
+        "title": title,
+        "paragraphs": paragraphs
+    }
+```
+
+### Step-by-Step Guide:
+
+#### 1. Initial Assessment
+   - In this case, let's assume we're trying to figure out why `requests.get()` fails.
+     ```python
+     r = requests.get("http://example.com")
+     ```
+
+#### 2. Start Locally
+   - Open Notepad or Visual Studio Code.
+
+#### 3. Understand Documentation
+   - For this project, start by checking the official Facebook Pythons GitHub repository (<https://github.com/python/cpython>). Look for the documentation section and search for `get_page_data`.
+
+#### 4. Interpret Structure
+   - The code snippet is already quite clear. It defines a function `get_page_data` which takes a URL as input and returns a dictionary containing the page title and a list of paragraph texts.
+
+#### 5. Read Lines Carefully
+   - First, note the imports at the top:
+     ```python
+     import requests
+     from bs4 import BeautifulSoup
+     ```
+   - Then notice

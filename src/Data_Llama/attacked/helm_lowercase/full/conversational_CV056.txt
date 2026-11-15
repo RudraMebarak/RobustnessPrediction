@@ -1,0 +1,37 @@
+**john:** hey guys, i wanted to share a few shortcuts i've learned that i think you'd all find useful. 
+
+**emily:** what's up, john? i'd love to hear. what are these shortcuts? 
+
+**john:** well, i've been using a lot of markdown files for my work, and i think it's worth mentioning. instead of typing out the entire table header, you can use `|` to create a horizontal rule. for example: 
+
+```
+| column 1 | column 2 | column 3
+```
+
+**sarah:** that's a game-changer! i've been using it all the time for tables too. 
+
+**john:** right? and i also find myself using the `ctrl + shift + i` shortcut to open the about box in visual studio code. 
+
+**david:** that's a lifesaver! i've been using it to open up settings or debugging information. 
+
+**emily:** how long have you been using these shortcuts? i feel like i've missed out on something. 
+
+**john:** honestly, i've been using them for a few months now, but i think it's only gotten better over time. i've also started using a keyboard shortcut for saving files: `ctrl + s`. 
+
+**sarah:** that's so convenient! i've been using `ctrl + c` to copy and paste files, but i want to try the keyboard shortcut. 
+
+**david:** i've also been using the `ctrl + z` shortcut to undo actions. it's been a big time-saver. 
+
+**john:** it's amazing how these little things can make a big difference in our productivity. 
+
+**emily:** definitely agree! it's always about finding those tiny shortcuts that make us more efficient. 
+
+**sarah:** i'm definitely going to start using these shortcuts now. thanks for sharing, john! 
+
+**david:** yeah, no problem! i'm always here to help. 
+
+**john:** appreciate it, guys! it's always a pleasure to share these little gems with the team. 
+
+---
+
+in this conversation, john shares two useful shortcuts that emily and sarah find helpful. emily and sarah then share their own experiences and find new shortcuts to use, demonstrating the value of finding and sharing these tiny productivity boosts with colleagues. the conversation highlights the importance of finding shortcuts that work for everyone and sharing them with others to increase productivity and efficiency.

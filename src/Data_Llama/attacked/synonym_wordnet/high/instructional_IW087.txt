@@ -1,0 +1,36 @@
+**Prerequisites:**
+
+* Familiarity with introductory spreadsheet occasions (e.g., SUM, AVERAGE, COUNT)
+* Understanding of how to enter data in a spreadsheet
+* Basic knowledge of formulas and informations types (e.g., textbook, numbers)
+
+**Step-by-Step Guide:**
+
+1. **Select a cell for the calculation**:
+	* Open your spreadsheet and select a cell where you want to enter the formula.
+	* Make sure you're not in a deliberation cubicle (e.g., cell A1) and the pattern will be held to a range of cells.
+2. **Enter the formula**:
+	* Typecasts the formula you need to use (e.g., `=SUM(A1:A10)`) into the selected cell.
+	* Press Enter to hold the formula.
+3. **Enter the range of cells**:
+	* Type the range of cellphones you want to include in the calculation (e.g., `A1:A10`) into the cubicle below the formula.
+	* Press Enter to use the range selection.
+4. **Verify the calculation**:
+	* Type the formula again (e.g., `=SUM(A1:A10)`) into a dissimilar cell.
+	* Press Enter to verify that the result is the like as the original formula.
+5. **Repeat the process**:
+	* Continue entering rules and reaches of cadres in the right order.
+	* Crap indisputable to enter formulas in the correct successiveness (e.g., editorial formulas foremost, so row conventions).
+6. **Test the results**:
+	* Use the normals you've created to account unlike drumhead statistics (e.g., AVERAGE, COUNT, MAX, MIN).
+	* Verify the results by comparing them to the original values or by using a third-party tool.
+
+**Additional Tips:**
+
+* When creating formulas, it's all-important to enter them in the right orderliness (e.g., column formulas first, then row formulas).
+* When controlling the calculation, use the "Change Formula" function (F2) or "Data Validation" (Data tab, Data Validation) to insure the formula is accurate.
+* Use the AutoSum characteristic (Data tab, AutoSum) to utilize a formula to a range of cadres and mechanically enter the result.
+
+**Example Use Case:**
+
+Suppose you need to bet the average earnings for a group of employees in a specific department. You afford the spreadsheet, enter the rule `=AVERAGE(A1:A10)`, take the range A1:A10, and verify the calculation. You then repeat the process for different departments or chains of employees. By following these steps, you can easily create formulas and summary statistics in your spreadsheet.

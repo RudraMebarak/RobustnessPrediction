@@ -1,0 +1,40 @@
+**Prerequisites:**
+
+* Familiarity with canonic incident reception concepts (e.g., discovering possible hazards, understanding organisational insurances)
+* Access to a computer or mobile device with an internet connection
+* Minimal to no prior experience in incident response (but some knowledge of canonical estimator systems and cybersecurity is good)
+
+**The Incident-Response Checklist for a Small Team**
+
+**Pre-Check (1)**
+
+1. **Identify the incident type and scope**: Limit the nature and extent of the incident (e.g., informations break, package outage, security alarm).
+2. **Notify relevant squads and stakeholders**: Inform authorized personnel about the incident (e.g., IT department, certificate team, management).
+
+**Incident Response (2-5)**
+
+1. **Stop the incident (if necessary)**: If the incident is grievous, disturb its procession to forbid farther damage.
+2. **Contain the incident (if necessary)**: Isolate the moved system or data to prevent farther spread or misuse.
+3. **Isolate affected schemes (if necessary)**: Segregate the arrangement(s) or data struck by the incident to prevent potential compromise.
+4. **Restore normal operations (if necessary)**: Re-establish normal occupation operations as promptly as potential to derogate downtime.
+5. **Document everything**: Record the incident response procedure, including any decisions made and activenesses taken.
+
+**Verification and Review (4)**
+
+1. **Verify completion**: Confirm that the incident response process has been observed right and all necessary steps have lived taken.
+2. **Review the incident response process**: Study the incidental reaction process to identify any areas for improvement.
+3. **Provide feedback and morals learned**: Parcel the incident reaction process with relevant teams to improve succeeding incident responses.
+
+**Post-Check (5)**
+
+1. **Dispose of evidence**: Remove any sore entropy or datum from the touched systems or data.
+2. **Update incident answer plans**: Followup and update the incident response plan to control it remains relevant and effective.
+3. **Monitor the incident response process**: Unceasingly monitor and review the incidental response summons to identify areas for improvement.
+
+**Additional Tips**
+
+* Encourage team phalli to review and familiarise themselves with the incident response checklist regularly.
+* Consider using a standardized incident answer checklist or template to streamline the process.
+* Emphasize the grandness of prompting and thorough incident reply to minimize downtime and data loss.
+
+By following this step-by-step templet, small squads can create a canonical incident-response checklist that ensures they are inclined to respond to possible incidents in a timely and good manner.

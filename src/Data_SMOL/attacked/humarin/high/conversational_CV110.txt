@@ -1,0 +1,1 @@
+To determine the minimum number of calls needed to connect all n pairs of friends. The score is 100 in this case, provided that the output is between 2.5 and 8 times the correct answer. If the response is even but not longer than 8 times its value, there will be a perfect score of 5 for each friend. What is the purpose of using structures like priority_queue in a context?

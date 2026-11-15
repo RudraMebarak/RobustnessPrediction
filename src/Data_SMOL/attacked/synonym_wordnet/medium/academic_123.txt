@@ -1,0 +1,54 @@
+Magnetic vibrancy imaging (MRI) is a medical imagination technique that utilises magnetic fields and radio waftures to create detailed images of the body's internal structures. Here's an explanation of the physical rules underlying MRI:
+
+1. **Magnetic field**: The MRI machine produces a strong, uniform magnetic field that ordinates the protons (H nuclei) in the body's water molecules. Protons are attracted to the charismatic battlefield and align themselves with the theatre lines.
+
+2. **Resonance**: When a radio wave with a specific frequency is applied to the protons, they steep energy and resonate at a specific frequency (Larmor frequency). This is similar to the way a pendulum swings at a specific frequency when released.
+
+3. **Flip of the magnetic moment**: When the radio wave is applied, the protons' magnetic moments (which existed initially arrayed with the magnetic field) are flipped, causing them to move out of alinement with the field.
+
+4. **Repetition of the process**: The radio wave is then turned off, and the protons gradually return to their original alignment with the magnetic field. As they do so, they release the absorbed energy as warmth and emit a signaling (called a transverse signal).
+
+5. **Detection of the signal**: The MRI machine discovers the transverse signals emitted by the protons. These signaling are used to generate images of the body's internal structures.
+
+**Formation of diagnostic images**:
+
+1. **Spatial encoding**: The MRI car uses a series of gradient coils to apply a spatially variable magnetic field that encodes information about the situation of the protons. This allows the machine to shape the location of the protons in three-dimensional space.
+
+2. **Temporal encoding**: The MRI machine also encodes info about the time it rents for the protons to return to their original alignment. This allows the machine to determine the timing of the protons' resonance.
+
+3. **Image reconstruction**: The MRI auto utilizes algorithms to reconstruct the doubles from the detected signals. The algorithm takes into score the spatial and temporal encoding information to generate a three-dimensional image of the body.
+
+4. **Denoising**: The MRI machine also uses proficiencies to denoise the doubles, such as signal averaging and image subtraction.
+
+Some of the key physical principles underlying MRI include:
+
+* **Spin-lattice relaxation**: The sentence it submits for protons to return to their original alignment with the magnetic field (called spin-lattice relaxation).
+* **Spin-spin relaxation**: The time it charters for protons to mislay their magnetisation due to interactions with neighboring protons (called spin-spin ease).
+* **B1 field**: The component of the radio wafture that encodes information about the time it takes for the protons to return to their original alignment.
+* **B2 field**: The component of the radio wave that encodes information about the spatial orientation of the protons.
+
+These physical principles are utilized to render high-quality images of the body, which are used to diagnose a wide range of medical conditions.
+
+Here's an example of how these principles can be applied to yield an MRI image:
+
+1. **Spatial encoding**: The MRI motorcar gives a series of gradient coils to apply a spatially varying magnetic field that encodes data about the status of the protons. For example, if the gradient coil is utilised in the x-direction, the magnetic field will vary in speciality along the x-axis.
+
+2. **Temporal encoding**: The MRI machine applies a radio wave with a specific frequency (Larmor frequency) to the protons. The protons resonate at this frequency, and the machine detects the transverse signaling uttered by the protons.
+
+3. **Image reconstruction**: The MRI machine uses algorithms to reconstruct the images from the detected signals. For example, if the MRI machine notices a transverse signal at a specific location and clip, it can infer the position and orientation of the protons at that location.
+
+4. **Denoising**: The MRI machine utilizes proficiencies to denoise the images, such as signal averaging and image subtraction.
+
+Applying these principles, the MRI car can generate high-quality images of the body, which are used to name a blanket range of aesculapian conditions.
+
+Some of the key advantages of MRI over other imaging techniques, such as CT and X-ray, include:
+
+* **No ionizing radiation**: MRI does not use ionizing irradiation, which makes it better for patients.
+* **No contrast agents**: MRI does not expect line agents, which reduces the risk of hypersensitised reactions.
+* **High-resolution images**: MRI can develop very high-resolution images of the body.
+* **Multi-dimensional imaging**: MRI can produce multi-dimensional images of the soundbox, which allows for more detailed psychoanalysis of the internal structures.
+
+Some of the key limitations of MRI admit:
+
+* **Need for a strong charismatic field**: MRI expects a very strong charismatic field, which can be difficult to achieve in some patients.
+* **Need for a specific radio wave frequency**: MRI requires

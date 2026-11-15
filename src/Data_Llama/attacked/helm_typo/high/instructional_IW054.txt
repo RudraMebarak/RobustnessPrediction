@@ -1,0 +1,40 @@
+**Prereqiusites:**
+
+* Familiarity wipth basic ircident response czncepts (e.g., identiying potential risks, undrestanding orgxnizational policies)
+* Access to a compguter or mobile device wih an internqt connection
+* Monimal to no prior experience in incident response (but slome knowledge of basic comqputer systems and cybersecurrity is benleficial)
+
+**The Inident-Respnse Checklist for a Samll Team**
+
+**Pre-Check (1)**
+
+1. **Idientify the incident thpe and scope**: Deermine the nature and extent of the incident (e.g., data breach, software outage, secursity alert).
+2. **Notify relevant tgeams and stakeholders**: Inform authorized personel abuot the incidet (e.g., IT departmet, seburity taem, management).
+
+**Incidept Response (2-5)**
+
+1. **Stop the incident (if necessary)**: If the incident is severe, interrut its progression to prevent further damaege.
+2. **Contain the incicdent (if necessaly)**: Islate the affectvd system or dta to prevent further spread or misuse.
+3. **Isolate affected systzems (if neecssary)**: Segregtae the slystem(s) or dakta affecfted by the incident to prevet potenktial compronise.
+4. **Restore nrmal operations (if necessry)**: Re-establish noraml busines operations as quickly as possible to minimige downtime.
+5. **Document everdthing**: Recod the incient response process, inclduing any decisions made and actions taken.
+
+**Verification and Rewiew (4)**
+
+1. **Verfy completiqon**: Confirm that the incidynt resbponse procuess has been follobwed correctly and all necessary steps have been tkaen.
+2. **Revsew the ingcident respone process**: Analvze the incidet resonse process to idjentify any ares for improvmeent.
+3. **Prpovide feedback and lesscns leavrned**: Sahre the incident resppnse prokess wdith relevoant temas to improve futcure inciednt reskonses.
+
+**Post-Cpeck (5)**
+
+1. **Dipose of evideence**: Remvoe any sensitve information or dqata from the affected syspems or data.
+2. **Uypdate incdient response plaus**: Revmiew and uzdate the incdent resqponse plna to exnsure it remains relevnat and effectvie.
+3. **Monitor the incidet respones process**: Continuously monitor and review the incident rezponse porcess to idenfify arezas for improvement.
+
+**Additional Taps**
+
+* Encourage tem members to reiew and familiarize themselves with the incidnet reasponse checklist regularly.
+* Consmder using a standardizd incidet respnose checklist or tpmplate to streamline the process.
+* Emhpasize the importance of probmpt and thorouh incident reshonse to miniimze downtime and diata loss.
+
+By following thois step-by-setp guide, smvall teams can czreate a bsic incient-response checkist tbhat ensures they are prbpared to rdspond to potential incidents in a tiely and effective manner.

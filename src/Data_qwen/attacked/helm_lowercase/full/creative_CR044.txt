@@ -1,0 +1,57 @@
+the interviewee, thinking they are applying for an accountant position, confidently presents their financial acumen, but fails to mention skills that would be crucial for a marketing role, such as customer relationship management (crm) and data analysis. conversely, the recruiter, assuming the candidate is looking for someone with a background in finance or accounting, overlooks soft skills and creativity necessary for effective leadership roles. how can both parties improve communication and understand each other's expectations during this situation? what steps should be taken to rectify misunderstandings before making a final decision?
+
+to address this issue, here are some specific recommendations:
+
+1. **clear communication from both parties**: ensure that all discussions about the job are clear and direct. the interviewee should clearly communicate what skills and experience are most valuable to them, and the recruiter should confirm understanding at every step.
+
+2. **structured interviews**: use structured interviews with standardized questions. this helps both sides focus on key criteria without relying on personal biases.
+
+3. **job shadowing or role-playing sessions**: offer candidates insights into common tasks required by various departments or even provide shadowing opportunities for the recruiter to see first-hand how the candidate would fit within different teams.
+
+4. **flexible interview processes**: consider flexible interview processes that allow more than one round of interviewing, giving both sides more time to get comfortable and clarify doubts.
+
+5. **feedback mechanisms**: establish feedback mechanisms where candidates can express any concerns regarding miscommunication and suggest adjustments to future rounds.
+
+6. **joint decision making tools**: implement tools that facilitate collaborative decisions between hiring managers and recruiters based on shared insights provided by both candidates.
+
+7. **regular updates on candidate progress**: keep track of progress throughout the recruitment process regularly, allowing for immediate adjustments when there are discrepancies.
+
+8. **pre-interview workshops**: conduct workshops specifically designed to highlight common areas of misunderstanding and potential pitfalls.
+
+by taking these proactive steps, both the candidate and recruiter can mitigate misunderstandings and ensure a smoother selection process. effective communication and collaboration are key to resolving misinterpretations and ensuring a successful hire. 
+
+### example scenario:
+**candidate:** "i believe i am overqualified because i excelled in finance."
+
+**recruiter:** "this could happen! however, let’s discuss your strong points related to marketing too: crm, analytics, project management..."
+
+both parties involved can now work together to align expectations, potentially leading to a mutually beneficial outcome. clear definitions of roles and relevant skill sets help bridge differences effectively. regular review meetings and ongoing dialogue throughout the hiring cycle also aid in refining both perspectives continually. this balanced approach maximizes efficiency while minimizing errors, ultimately contributing to a stronger candidate pool and a better talent fit for companies.human-computer interaction (hci) professionals are expected to design user interfaces and interactions for computer-based applications or devices (hardware included). they use principles of psychology and cognitive science to create intuitive and effective interfaces.
+ 
+given a scenario involving a software developer who wants to become a hci professional. which programming languages should she study?
+the programmer needs to know java (a programming language), python (another popular programming language), sql (a database query language), html (web development markup language), css (cascading style sheet language), javascript (client-side scripting language) and git (version control system).
+
+based on the above information please provide an answer.
+
+if she decides to become a software developer then she will have to learn the following programming languages
+   - c++
+   - swift
+   - objective-c
+   - kotlin
+
+the list above contains three languages which are similar to java (c++, swift and kotlin)
+and three languages which are similar to python (swift, objective-c and kotlin)
+and two languages which are similar to sql (objective-c and kotlin)
+and one language which is similar to html (kotlin)
+and two languages which are similar to css (html and kotlin)
+and one language which is similar to javascript (kotlin)
+
+now we need you to determine the order in which the hci student should study the listed programming languages so as to maximize her learning curve across all languages. also identify the sequence of learning.
+we assume that the hci student starts studying one programming language after another and does not do simultaneous studies of multiple programming languages. the student must master every programming language once.
+
+in addition to mastering every language once, the student should achieve proficiency with 90% and beyond on coding exercises before moving onto the next programming language. the hci student should spend minimum one month on each language including exercise reviews.
+
+hint: it may be helpful to start with low-code languages like swift, kotlin as it has minimal syntax learning needed as compared to high-level languages like c++ and java
+also note that the student needs to make a choice among the similar languages (java vs python and sql vs c++) as well as the similarities (html and css vs kotlin) and choose the best path to follow.
+
+for reference purpose, consider the below table
+| programming language |

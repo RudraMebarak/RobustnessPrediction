@@ -1,0 +1,57 @@
+provide clear language with multiple ways to express concepts for accessibility.
+
+### learning guide: understanding git (version control system)
+
+#### prerequisites:
+- basic familiarity with computer software.
+- familiarity with other version control systems (like svn or mercurial) if needed as you progress.
+
+#### step 1: setting up your environment
+1. **choose an ide**: use visual studio code (vscode) as it is very flexible and supports many programming languages including git directly from the interface.
+2. **download git**: visit [git website](https://git-scm.com/) to download git for your operating system.
+3. **install git**: follow installation instructions provided by the git website on your specific os.
+4. **initialize git repository**:
+   - create a directory for your project.
+   - in vscode, use file -> new folder to create this directory locally first.
+   - inside this folder, open terminal.
+   - run `git init` in terminal to initialize a local git repository.
+
+#### step 2: using git commands
+1. **staging changes**: add changes that need to be committed into staging area. open a file in vscode, make modifications, then go to **file -> stage selection** in the menu bar.
+2. **committing changes**: once you've staged all your changes, commit them with the following command in vscode’s terminal:
+   ```
+   git commit -m "your commit message"
+   ```
+3. **pushing changes**: after committing your code locally, push your changes to the remote server where others can also clone and see your updates. use the following command in vscode’s terminal:
+   ```
+   git push
+   ```
+
+#### practice questions:
+
+1. **create a git repository**: clone any sample project from github onto your machine. navigate through the project folders within the cloned repo.
+   - **solution**: visit [github](https://github.com/) and find a repository you are comfortable with like “hello world” or “my first project”. download and unzip this project onto your local machine, ensuring that the project has been cloned successfully.
+
+2. **stage and commit changes**: modify a text file in your project directory and then use vscode to add and commit those changes.
+   - **solution**: open your project in vscode, modify a text file (e.g., `index.html`). save your work, go back to the terminal (usually found at the bottom right corner after opening the project), navigate to your project’s root directory, and run `git add index.html`, followed by `git commit -m "initial commit"`. 
+
+3. **remote push**: on your local computer, connect your local project to its corresponding github repository and perform a pull request or simply add your project to the repository.
+
+4. **understanding branches (optional but recommended)**:
+   - create two branches named `feature`, and `hotfix`.
+   - checkout either branch by running `git checkout feature/` or `git checkout hotfix/` (replace with the actual branch names).
+   - make some changes in both the branches respectively.
+   - finally, merge these features and bugs together by checking out master, resolving conflicts if they arise, and finally merging your branch into master.
+   - **solution**: create branches for each change, make your edits, switch between branches to see what needs adjustments (using commands like `git checkout feature`, or `git checkout hotfix` respectively). if there are conflicts during merges, resolve them accordingly before integrating the branch back into `master`.
+
+by completing these steps and solving the practice questions, learners should have a solid grasp of git and understand how to manage their development projects efficiently. regularly practicing git commands will help maintain a comfortable flow when working on large-scale projects over time.
+
+### verification completion
+
+after completing all sections, try pushing your newly created project repository to github (or another platform). you should now have a project history showing commits made via git and branches developed and merged safely.
+
+this hands-on approach not only teaches git but also helps users apply practical coding principles learned throughout the course. happy coding! 🚀💻✨
+
+---
+
+remember, mastering git takes patience and consistent practice. the more frequently you dive deep into the command line and use git regularly, the quicker you'll feel comfortable managing your repositories. happy learning! 📐🌟👨‍💻👨‍🔬👨‍💼👨‍🔧👨‍🔬👨‍💻👨‍💼👨‍🔎👨‍💻👨‍💻👨‍🔎👨‍💻👨‍🔎👨‍💻👨‍💻👨‍🔎👨‍💻👨‍🔎👨‍💻👨‍💻👨‍🔎👨‍💻👨‍🔎👨‍💻👨‍💻👨‍🔎👨‍💻👨‍🔎👨‍💻

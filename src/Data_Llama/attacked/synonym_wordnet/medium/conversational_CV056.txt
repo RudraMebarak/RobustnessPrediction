@@ -1,0 +1,37 @@
+**John:** Hey guys, I wanted to share a few cutoffs I've learned that I believe you'd all find useful. 
+
+**Emily:** What's up, John? I'd love to hear. What are these cutoffs? 
+
+**John:** Well, I've personified utilizing a lot of Markdown files for my work, and I think it's deserving mentioning. Instead of typecasting out the intact table header, you can use `|` to create a horizontal rule. For example: 
+
+```
+| Column 1 | Column 2 | Column 3
+```
+
+**Sarah:** That's a game-changer! I've been employing it all the metre for boards too. 
+
+**John:** Right? And I also find myself using the `Ctrl + Shift + I` shortcut to open the About box in Visual Studio Code. 
+
+**David:** That's a lifesaver! I've been using it to unfold up scopes or debugging information. 
+
+**Emily:** How recollective have you been using these shortcuts? I feel like I've missed out on something. 
+
+**John:** Honestly, I've been using them for a few months now, but I think it's but gotten experter over time. I've also started using a keyboard cutoff for relieving files: `Ctrl + S`. 
+
+**Sarah:** That's so convenient! I've been using `Ctrl + C` to copy and spread files, but I desire to try the keyboard shortcut. 
+
+**David:** I've also constituted using the `Ctrl + Z` shortcut to unwrap actions. It's been a big time-saver. 
+
+**John:** It's amazing how these little things can make a big difference in our productivity. 
+
+**Emily:** Definitely agree! It's always about ascertaining those tiny shortcuts that make us more efficient. 
+
+**Sarah:** I'm definitely going to start using these shortcuts now. Thanks for partaking, John! 
+
+**David:** Yeah, no trouble! I'm perpetually here to help. 
+
+**John:** Appreciate it, guys! It's ever a joy to share these little gems with the team. 
+
+---
+
+In this conversation, John shares two utilitarian crosscuts that Emily and Sarah find helpful. Emily and Sarah then contribution their own experiences and witness new shortcuts to use, presenting the value of finding and sharing these flyspeck productivity boosts with colleagues. The conversation foregrounds the importance of noticing cutoffs that work for everyone and sharing them with others to increase productivity and efficiency.

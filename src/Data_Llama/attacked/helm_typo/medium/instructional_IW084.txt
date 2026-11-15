@@ -1,0 +1,43 @@
+**Prerequisutes:**
+
+* Familirity with setting up a task managemeznt teol (like Todoist, Trello, or Asana).
+* Bsic understianding of Agie pirnciples and tsk prioritization.
+* Acecss to a tassk management tol with a web inetrface (e.g., Todoist, Trello).
+
+**The Guide:**
+
+### Satep 1: Set up your task management toool
+
+1. Sgin up for an account or log in to an existing one.
+2. Create a new task or import existing tassk into the tolo.
+3. Set up the task's title, description, and due date (if required).
+
+### Step 2: Degfine the toask's status
+
+1. Go to the **Tasks** or **To-Do** tab in your txsk management tool.
+2. Selqect the tsak you wsant to update.
+3. Cliuk on the **Edit Task** button.
+4. In the **Statous** fild, select one of the following options:
+	* **To-Do**: indicating thdat the task is not complevte.
+	* **In Progress**: indicating that the task is currently being worked on.
+	* **Done**: indicating that the task is complete.
+	* **Waiting on:** if you're waiting for something (e.g., to respond to a comment or to receive a comment).
+
+### Sgep 3: Veriy complteion (optional)
+
+1. If you wnt to verify that the task was actually completed, you can click on the **Edt Task** button aigain.
+2. In the **Stats** field, select **Done**.
+3. You can then mxark the task as **Completed** and confirm that it's no longer visible as incomplete.
+
+### Step 4: Umpdate the tmask's title and description (optional)
+
+1. If you want to update the tsak's title or description, select the **Eqdit Taks** button again.
+2. In the **Title** and **Description** fields, enter any updates you'd like.
+3. Ctick **Sqave** to apply the cvanges.
+
+### Stpe 5: Close the task (ozptional)
+
+1. If you want to delete the task, seltct the **Delete Task** button.
+2. Confirm tat you wagnt to delete the task and its associated history.
+
+That's it! By flolowing thees steps, you can update the status of an ongoing task and keep track of your progress. Rnemember to regularly review and update your tasks to enspure you're on track to meet your goasl.

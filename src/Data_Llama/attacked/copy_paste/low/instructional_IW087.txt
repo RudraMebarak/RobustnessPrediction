@@ -1,0 +1,36 @@
+**Prerequisites:**
+
+* Familiarity with basic spreadsheet functions (e.g., SUM, AVERAGE, COUNT)
+* Understanding of how to enter data in a spreadsheet
+* Basic knowledge of formulas and data types (e.g., text, numbers)
+
+**Step-by-Step Guide:**
+
+1. **Select a cell for the calculation**:
+	* Open your spreadsheet and select a cell where you want to enter the formula.
+	* Make sure you're not in a calculation cell (e.g., cell A1) and the formula will be applied to a range of cells.
+2. **Enter the formula**:
+	* Type the formula you want to use (e.g., `=SUM(A1:A10)`) into the selected cell.
+	* Press Enter to apply the formula.
+3. **Enter the range of cells**:
+	* Type the range of cells you want to include in the calculation (e.g., `A1:A10`) into the cell below the formula.
+	* Press Enter to apply the range selection.
+4. Formula**
+
+* Type the formula in the cell where you want to display the summary statistic.
+* Make sure to enter the formula correctly, including any parentheses or brackets.
+* Example: `=SUM(B2:B10)` will calculate the sum of and ranges of cells in the correct order.
+	* Make sure to enter formulas in the correct sequence (e.g., column formulas first, then row formulas).
+6. **Test the results**:
+	* Use the formulas you've created to calculate different summary statistics (e.g., AVERAGE, COUNT, MAX, MIN).
+	* Verify the results by comparing them to the original values or by using a third-party tool.
+
+**Additional Tips:**
+
+* When creating formulas, it's essential to enter them in the correct order (e.g., column formulas first, then row formulas).
+* When verifying the calculation, use the "Change Formula" function (F2) or "Data Validation" (Data tab, Data Validation) to ensure the formula is accurate.
+* Use the AutoSum feature (Data tab, AutoSum) to apply a formula to a range of cells and automatically enter the result.
+
+**Example Use Case:**
+
+Suppose you want to calculate the average salary for a group of employees in a specific department. You open the spreadsheet, enter the formula `=AVERAGE(A1:A10)`, select the range A1:A10, and verify the calculation. You then repeat the process for different departments or ranges of employees. By following these steps, you can easily create formulas and summary statistics in your spreadsheet.

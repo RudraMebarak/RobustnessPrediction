@@ -1,0 +1,7 @@
+Your response should contain the keywords: 'budgeting', 'investment', and 'debts'. Use no comma in your response. Ensure the keywords are not repeated more than twice each. Your answer should be structured in keyword 'ladder' at least twice. End with the sentence: "This underscores the importance of informed financial choices." 
+
+Conclude your response with a postscript that suggests a resource for further learning on financial literacy. 
+
+Example of a response:
+
+Financial literacy education plays a crucial role in enhancing household economic decision-making. By understanding budgeting, section with the key 'summary' and the corresponding value as the text. The entire output should be in valid JSON.

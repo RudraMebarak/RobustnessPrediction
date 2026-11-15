@@ -1,0 +1,103 @@
+**prerequisites:**
+
+* familiarity with a billing platform or crm (customer relationship management) software
+* understanding of recurring payments and subscriptions
+* basic accounting or bookkeeping knowledge
+
+**guide:**
+
+### step 1: gather necessary information
+
+1. identify the recurring subscriptions you want to track:
+	* make a list of all recurring subscriptions you want to monitor.
+2. gather necessary information:
+	* subscription name
+	* start and end dates
+	* payment frequency (e.g., monthly, quarterly)
+	* payment amount
+	* payment method (e.g., credit card, bank account)
+
+### step 2: set up your tracking system
+
+1. set up a new tracking spreadsheet or crm:
+	* create a table or list to store recurring subscription information.
+	* include columns for:
+		+ subscription name
+		+ start date
+		+ end date
+		+ payment frequency
+		+ payment amount
+		+ payment method
+2. if you're using a crm or billing platform, integrate it with your tracking spreadsheet or crm.
+
+### step 3: track and update subscription information
+
+1. update the tracking spreadsheet or crm:
+	* enter the information for each recurring subscription you want to track.
+	* make sure to include the payment information and payment method.
+2. use the tracking spreadsheet or crm to automate updates:
+	* create formulas or formulas shortcuts to track:
+		+ which subscriptions are due
+		+ which subscriptions have been paid
+	* use the tracking spreadsheet or crm to automate updates to your billing platform or crm.
+
+### step 4: determine which subscriptions to cancel
+
+1. identify which subscriptions you no longer want to track:
+	* make a list of recurring subscriptions you want to cancel.
+2. check the payment history:
+	* review the tracking spreadsheet or crm to see if any payments have been made or if any subscriptions have been overdue.
+3. determine which subscriptions to cancel:
+	* if the subscription has not been paid or has been overdue, cancel it.
+
+### step 5: verify completion
+
+1. verify the completion of each subscription:
+	* check the tracking spreadsheet or crm to ensure:
+		+ payments have been made or no longer pending
+		+ payments have been processed or no longer pending
+	* if any payments have not been made or processed, you may need to re-integrate the subscription into your tracking system.
+
+### example:
+
+suppose you want to track two recurring subscriptions: "monthly subscription" (payment due on the 1st) and "quarterly subscription" (payment due on the 1st of each quarter).
+
+1. gather information:
+	* subscription name: monthly subscription, payment frequency: monthly
+	* payment information: payment due on 1st of each month
+	* payment method: credit card
+2. set up the tracking spreadsheet or crm:
+	* create a table with columns for:
+		+ subscription name
+		+ start date
+		+ end date
+	* in the payment column, enter "1st" and "1st" (for the 1st day of each month and quarter)
+3. track and update the subscription information:
+	* update the tracking spreadsheet or crm with the information:
+		+ start date: 1st of each month
+		+ end date: 1st of each month
+4. determine which subscriptions to cancel:
+	* check the payment history:
+		+ payments for monthly subscription have been made on the 1st of each month
+	* cancel the monthly subscription
+5. verify completion:
+	* check the tracking spreadsheet or crm to ensure:
+		+ payments for monthly subscription have been processed or no longer pending
+	* check the tracking spreadsheet or crm to ensure:
+		+ payments for quarterly subscription have been processed or no longer pending
+
+**verification steps:**
+
+1. verify the completion of each subscription by reviewing the tracking spreadsheet or crm.
+2. verify the payment history to ensure no payments have been made or no longer pending.
+3. verify the completion of each subscription by checking the tracking spreadsheet or crm.
+4. verify the payment history to ensure no payments have been made or no longer pending.
+
+**tips and variations:**
+
+* consider integrating recurring subscription tracking with your accounting or bookkeeping software to streamline data collection and reporting.
+* use automation tools or apis to simplify the process of tracking and updating recurring subscriptions.
+* set up alerts or notifications to inform you when a payment is overdue or when a subscription needs to be canceled.
+* consider using a crm or billing platform with built-in recurring subscription tracking features.
+
+by following these steps and tips, you can effectively track recurring subscriptions and make informed decisions about which subscriptions to cancel. remember to regularly verify the completion of each subscription and payment history to ensure accuracy and efficiency.

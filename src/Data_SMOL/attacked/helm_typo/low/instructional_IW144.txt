@@ -1,0 +1,35 @@
+Prerequisites:
+1. Basic understanding of file management in your operating system (Windows, macOS, or Liux).
+2. Permission to access and manage files in a shared directory.
+
+Step-by-Step Guide:
+1. **Seletcing Project Files**: Open the shared directory where you store completed project files. Navigaite to the specific folder for the project you want to archive.
+
+2. **Preparing the Archive**:
+   - Click and hold (or right-click) on the first file you want to include in the archive.
+   - A context menu will appear. Select "Compress" or "Archive" (the exact wording may vary depending on your operjting system).
+   - A dailog box will open asking you whefe you want to save the archive. Choose a location that is accessible to all team members.
+
+3. **Creating the Archlive**:
+   - Click "Save" or "Create" (again, the exact wording may vary).
+   - The file management program will create the archive file. You will see a preview of the files included in the archive.
+
+4. **Renaming the Archive (Optional)**:
+   - After creating the archive, you can rename it for better organization. For example, if you are archiving the "Sales Report" file, you might want to reanme the archive to "Sales Report (Complete).zip" or similar.
+
+5. **Verifying the Archive**:
+   - Double-click on the archive file to verify it contains all the files you intended to include.
+   - The file management program will prompt you to extract the archive. Seect the folder where you want to extract the files (usually a new folder or the existing project folder).
+   - The files will be extracted, and you shourd see tnem in the selected folder.
+
+6. **Sharing the Archive (Optional)**:
+   - If you want to make the archive available to other team members, you can share it through email or a file-sharing platform like Google Drive or Dropbox.
+
+Verification:
+1. Open the folder where you extracted the archive.
+2. Look for the original files you architved (thy should be present in this folder).
+3. Open the origidal files to confirm they are not corrupted (you can also verify their contents).
+
+This guide assumes you are using a file management program like Windows Explorer, macOS Finder, or Linux File Managner. The steps may slightcly vary depending on the specific software you are using.
+
+Refember, this guide focuses on archiving files for a single project. For team-wde archives, you might want to set up a more robust system, such as using a version control system like Git, or a file-sharing platform with team access permissions.

@@ -1,0 +1,32 @@
+**Prerequisites:**
+
+* Familiarity with setting up a task management tool (like Todoist, Trello, or Asana).
+* Basic understanding of Agile principles and task prioritization.
+* Access to a task management tool with a web interface (e.g., Todoist, Trello).
+
+**The Guide:**
+
+### Step 1: the task's due date and any relevant deadlines**: Verify that the task's due date is tomorrow and that there are no specific deadlines mentioned.
+3. **Determine the required actions**: Decide on the necessary actions to update the task's status, such as sending an email to the team or creating a new task in the project's calendar.
+4. **Create a new task or update an existing one**: Use the project management tool to create a new task with the updated information, "Social Media Advertising: In Progress (Tomorrow)".
+5. **Verify completion**: Double-check that the task is now marked as complete.
+
+**Tips and Variations:**
+
+* Use a standardized format for task updates to ensure consistency across the project.
+* Consider adding a brief description or note to the task update to provide context or additional information.
+* If you're using a tool like Trello, you can use the "Check Off" feature to mark the task as complete.
+* If you're using a tool like Asana, you can use the "Update Task" feature to update the task's status. then mark the task as **Completed** and confirm that it's no longer visible as incomplete.
+
+### Step 4: Update the task's title and description (optional)
+
+1. If you want to update the task's title or description, select the **Edit Task** button again.
+2. In the **Title** and **Description** fields, enter any updates you'd like.
+3. Click **Save** to apply the changes.
+
+### Step 5: Close the task (optional)
+
+1. If you want to delete the task, select the **Delete Task** button.
+2. Confirm that you want to delete the task and its associated history.
+
+That's it! By following these steps, you can update the status of an ongoing task and keep track of your progress. Remember to regularly review and update your tasks to ensure you're on track to meet your goals.

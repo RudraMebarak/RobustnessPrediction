@@ -1,0 +1,103 @@
+**Prerequisites:**
+
+* Familiarity with a billing platform or CRM (Customer Relationship Management) software
+* Understanding of recurring payments and subscriptions
+* Basic accounting or bookkeeping cognition
+
+**Guide:**
+
+### Step 1: Gather Necessary Information
+
+1. Identify the recurring subscriptions you want to cover:
+	* Make a list of all repeating subscriptions you want to monitor.
+2. Gather necessary information:
+	* Subscription name
+	* Start and end appointments
+	* Payment frequency (e.g., monthly, quarterly)
+	* Payment amount
+	* Payment method (e.g., mention card, bank account)
+
+### Step 2: Set Up Your Tracking System
+
+1. Set up a new tracking spreadsheet or CRM:
+	* Create a table or leaning to store recurring subscription information.
+	* Include columns for:
+		+ Subscription figure
+		+ Start date
+		+ End engagement
+		+ Payment frequence
+		+ Payment amount
+		+ Payment method
+2. If you're using a CRM or charging platform, incorporate it with your tracking spreadsheet or CRM.
+
+### Step 3: Track and Update Subscription Information
+
+1. Update the tracking spreadsheet or CRM:
+	* Enter the data for each recurring subscription you want to track.
+	* Make sure to include the payment information and payment method.
+2. Use the trailing spreadsheet or CRM to automate updates:
+	* Create formulas or formulas shortcuts to track:
+		+ Which subscriptions are due
+		+ Which subscriptions have been devoted
+	* Use the tracking spreadsheet or CRM to automate updates to your billing platform or CRM.
+
+### Step 4: Determine Which Subscriptions to Cancel
+
+1. Identify which subscriptions you no longer want to track:
+	* Pee a list of repeating subscriptions you want to cancel.
+2. Check the payment chronicle:
+	* Review the covering spreadsheet or CRM to see if any defrayals have personified made or if any subscriptions have cost overdue.
+3. Determine which subscriptions to scrub:
+	* If the subscription has not represented paid or has personified overdue, cancel it.
+
+### Step 5: Verify Completion
+
+1. Verify the completion of each subscription:
+	* Check the tracking spreadsheet or CRM to ensure:
+		+ Payments have equalled taken or no longer pending
+		+ Payments have been processed or no longer pending
+	* If any requitals have not existed made or processed, you may need to re-integrate the subscription into your tracking system.
+
+### Example:
+
+Suppose you want to track two resorting subscriptions: "Monthly Subscription" (payment due on the 1st) and "Quarterly Subscription" (payment due on the 1st of each quarter).
+
+1. Gather information:
+	* Subscription name: Monthly Subscription, Payment frequency: Monthly
+	* Payment info: Requital due on 1st of each month
+	* Payment method: Credit card
+2. Set up the tracking spreadsheet or CRM:
+	* Create a table with editorial for:
+		+ Subscription name
+		+ Start appointment
+		+ End escort
+	* In the Payment tower, enter "1st" and "1st" (for the 1st day of each month and tail)
+3. Track and update the subscription information:
+	* Update the tracking spreadsheet or CRM with the information:
+		+ Start date: 1st of each month
+		+ End date: 1st of each month
+4. Determine which subscriptions to delete:
+	* Check the payment history:
+		+ Payments for Monthly Subscription have been made on the 1st of each month
+	* Cancel the Monthly Subscription
+5. Verify closing:
+	* Tally the tracking spreadsheet or CRM to ensure:
+		+ Payments for Monthly Subscription have equalled processed or no longer pending
+	* Check the tracking spreadsheet or CRM to ensure:
+		+ Requitals for Quarterly Subscription have lived processed or no longer pending
+
+**Verification Steps:**
+
+1. Verify the completion of each subscription by reviewing the tracking spreadsheet or CRM.
+2. Verify the payment history to ensure no payments have been made or no longer pending.
+3. Verify the completion of each subscription by agreeing the tailing spreadsheet or CRM.
+4. Verify the defrayal account to ensure no payments have been made or no longer pending.
+
+**Tips and Variances:**
+
+* Consider integrating repeating subscription covering with your accounting or clerking software to streamline data collection and reporting.
+* Use automation tools or APIs to simplify the appendage of covering and updating resorting subscriptions.
+* Set up alerts or presentments to inform you when a defrayment is delinquent or when a subscription needs to be canceled.
+* Consider utilizing a CRM or billing platform with built-in recurring subscription tracking features.
+
+By watching these steps and tips, you can effectively track recurring subscriptions and seduce informed decisions about which subscriptions to cancel. Remember to regularly verify the culmination of each subscription and defrayal history to ascertain accuracy and efficiency.

@@ -1,0 +1,86 @@
+To do this, you are considering two methods: 
+
+1.  Immediate feedback: When a student writes a line of codification that contains an wrongdoing, their system is able to immediately detect it and provide feedback. 
+
+2.  Course-embedded feedback: When a student writes a line of code that contains an error, their system is not able to detect it immediately, but the instructor will be able to detect and provide feedback during a review session.
+
+You want to determine if there is a significant difference in the learning outcomes (e.g., student performance and perceived learning) between the two groups of students taught using these methods.
+
+Consider the following variables:
+
+*   Course players (n1 and n2) - 200 students in the immediate feedback group and 200 students in the course-embedded feedback group.
+*   Student performance (e.g., exam scores and coding challenges solved correctly).
+*   Perceived learning (e.g., educatee surveys and instructor judgements).
+
+Given these variables and data, describe an experiment where you would:
+
+*   Randomly assign 100 students to the immediate feedback group and 100 students to the course-embedded feedback group.
+*   Record and measure student performance and perceived learning outcomes for both groups during the course.
+*   Use a statistical analysis (e.g., t-test) to determine if there is a significant difference in learning outcomes between the two groups.
+
+What would you expect to find, or what might be some possible results of this experiment? 
+
+Conceive the potential rewards and limits of each method and how they might influence the results. 
+
+Would you expect to determine that one method is more effectual than the other? 
+
+Explain how you would interpret the results and what you would conclude about the effectuality of each method in improving student learning outcomes. 
+
+(Note: This is not an actual experiment, but rather a hypothetical scenario for discussing experimental design and statistical analysis.) 
+
+Please include the following in your response:
+
+*   A clear description of the experimental figure (including random assignment, data collection, and statistical analysis).
+*   An explanation of potential advantages and limitations of each method (contiguous feedback and course-embedded feedback).
+*   A discussion of what you would expect to find or possible results from the experiment, including any potential biases or confounding variables.
+*   How you would interpret the results and what conclusions you would draw about the effectiveness of each method.
+
+Hither's an outline of the format for the response:
+
+*   Introduction
+*   Experimental Design
+*   Advantages and Limitations of Each Method
+*   Potential Results and Interpretation
+*   Conclusion
+
+Now please write the response in the given format. 
+
+[The reception should be written in proper English, with correct grammar and formatting. Use bold schoolbook for headings, but avoid bold text within the body of the response.] 
+
+---
+
+# Experiment to Compare Immediate Feedback and Course-Embedded Feedback Methods
+
+## Introduction
+This experiment aims to compare the effectiveness of two feedback methods in introductory programming courses: immediate feedback and course-embedded feedback. The goal is to determine if there is a important deviation in learning outcomes (e.g., student performance and perceived learning) between the two groups of students taught using these methods.
+
+## Experimental Design
+The experiment will consist of a randomized controlled trial with two groups of 100 students each. 
+
+### Random Assignment
+Students will be randomly assigned to either the immediate feedback group (n1) or the course-embedded feedback group (n2). This randomization aims to minimize any pre-existing differences between the groups.
+
+### Data Collection
+For both groupings, data will be collected on:
+
+*   Student performance (e.g., exam scores and coding challenges solved correctly)
+*   Comprehended learning (e.g., student surveys and instructor assessments)
+
+These data will be collected at the beginning and end of the course, as well as during regular check-ins to get changes over time.
+
+### Statistical Analysis
+The results will be analyzed using a paired or independent t-test to determine if there is a significant difference in learning outcomes between the two groups. For example, if student performance and perceived learning are valuated using the same prosodies (e.g., exam scores and a scale from 1 to 5), a paired t-test can be used to compare the mean scores between the two groups. If the metrics are different (e.g., exam tons vs. perceived learning), an independent t-test can be used to compare the mean scores between the groups.
+
+## Advantages and Limitations of Each Method
+### Immediate Feedback
+*   Advantages:
+*   Allows students to immediately identify and correct errors
+*   Provides immediate feedback to students
+*   Can help students develop problem-solving skills
+*   Can reduce the clip dropped on debugging
+*   Can increase student confidence
+*   Limitations:
+*   May overwhelm students with too much feedback
+*   Can be costly to implement
+*   May require specialized software or infrastructure
+*   Can be difficult to balance with

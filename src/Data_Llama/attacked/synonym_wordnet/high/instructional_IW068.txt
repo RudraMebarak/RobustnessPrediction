@@ -1,0 +1,103 @@
+**Prerequisites:**
+
+* Familiarity with a billing platform or CRM (Customer Relationship Management) software
+* Understanding of resorting requitals and subscriptions
+* Canonic account or clerking knowledge
+
+**Guide:**
+
+### Step 1: Gather Necessary Information
+
+1. Identify the recurring subscriptions you want to track:
+	* Cause a list of all recurring subscriptions you want to monitor.
+2. Gather necessary info:
+	* Subscription gens
+	* Start and end dates
+	* Payment oftenness (e.g., monthly, quarterly)
+	* Payment amount
+	* Payment method (e.g., reference carte, camber invoice)
+
+### Step 2: Set Up Your Chasing System
+
+1. Set up a new trailing spreadsheet or CRM:
+	* Create a mesa or list to store recurring subscription information.
+	* Include columns for:
+		+ Subscription name
+		+ Start date
+		+ End date
+		+ Payment frequence
+		+ Payment amount
+		+ Payment method
+2. If you're practicing a CRM or charging chopine, desegregate it with your dogging spreadsheet or CRM.
+
+### Step 3: Raceway and Update Subscription Information
+
+1. Update the tracking spreadsheet or CRM:
+	* Enter the information for each resorting subscription you want to track.
+	* Make sure to admit the payment information and payment method.
+2. Use the dogging spreadsheet or CRM to automate updates:
+	* Create normals or formulas cutoffs to track:
+		+ Which subscriptions are due
+		+ Which subscriptions have been paid
+	* Use the tracking spreadsheet or CRM to automate updates to your charge chopine or CRM.
+
+### Step 4: Determine Which Subscriptions to Invalidate
+
+1. Identify which subscriptions you no longer want to trail:
+	* Make a leaning of resorting subscriptions you want to cancel.
+2. Check the payment story:
+	* Review the chasing spreadsheet or CRM to see if any payments have been held or if any subscriptions have equalled overdue.
+3. Determine which subscriptions to cancel:
+	* If the subscription has not been paid or has been delinquent, cancel it.
+
+### Step 5: Verify Completion
+
+1. Verify the windup of each subscription:
+	* Check the trailing spreadsheet or CRM to control:
+		+ Payments have comprised made or no longer pending
+		+ Payments have personified processed or no longer pending
+	* If any requitals have not constituted peed or sued, you may necessitate to re-integrate the subscription into your chasing system.
+
+### Instance:
+
+Suppose you want to chase two resorting subscriptions: "Monthly Subscription" (defrayment due on the 1st) and "Quarterly Subscription" (defrayal due on the 1st of each one-fourth).
+
+1. Gather information:
+	* Subscription epithet: Monthly Subscription, Payment oftenness: Monthly
+	* Payment info: Payment due on 1st of each month
+	* Payment method: Credit card
+2. Set up the tracking spreadsheet or CRM:
+	* Create a table with tower for:
+		+ Subscription name
+		+ Start engagement
+		+ End date
+	* In the Payment pillar, enter "1st" and "1st" (for the 1st day of each month and stern)
+3. Track and update the subscription data:
+	* Update the trailing spreadsheet or CRM with the information:
+		+ Start engagement: 1st of each month
+		+ End engagement: 1st of each month
+4. Determine which subscriptions to delete:
+	* Check the payment chronicle:
+		+ Requitals for Monthly Subscription have been made on the 1st of each month
+	* Cancel the Monthly Subscription
+5. Verify completion:
+	* Crack the tracking spreadsheet or CRM to ensure:
+		+ Defrayments for Monthly Subscription have been processed or no longer pending
+	* Check the tracking spreadsheet or CRM to check:
+		+ Requitals for Quarterly Subscription have been treated or no longer pending
+
+**Verification Steps:**
+
+1. Verify the closing of each subscription by retrospecting the tracking spreadsheet or CRM.
+2. Verify the payment story to control no payments have followed got or no longer pending.
+3. Verify the culmination of each subscription by seeing the tagging spreadsheet or CRM.
+4. Verify the payment story to ensure no defrayals have been gained or no recollective pending.
+
+**Tips and Fluctuations:**
+
+* Consider integrating repeating subscription tracking with your accounting or clerking package to streamline data accumulation and reporting.
+* Use automation tools or APIs to simplify the process of tracking and updating recurring subscriptions.
+* Set up alarms or presentments to inform you when a payment is delinquent or when a subscription needs to be canceled.
+* Consider utilising a CRM or charging platform with built-in resorting subscription tailing features.
+
+By following these steps and tips, you can efficaciously tag recurring subscriptions and make informed decisions about which subscriptions to cancel. Remember to regularly control the closing of each subscription and defrayment chronicle to control accuracy and efficiency.

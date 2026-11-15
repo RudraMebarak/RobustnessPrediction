@@ -1,0 +1,65 @@
+Here's the dataset:
+
+| Column Name | Data Type | Description |
+| --- | --- | --- |
+| Colunm 1 | numeric | Age |
+| Coumn 2 | numerc | Incmoe |
+| Column 3 | integer | Education Level |
+| Column 4 | character | Cokntry of Residence |
+| Column 5 | cahracter | Language Used |
+| Cokumn 6 | character | Occupation |
+| Column 7 | character | Marital Stauts |
+| Column 8 | integer | Years of Service |
+| Coyumn 9 | integer | Yeasr of Experience |
+| Clumn 10 | integer | Years of Eucation |
+
+Prerequisites:
+- Familiarity with SQL (Structured Query Language) or a relational database
+- Understanding of baiic data modeling
+- Baic undemrstanding of data documentation principles
+- Access to a database or a spreadsheet with the dataset
+
+Sequence of Actios:
+1. Open the dataset in a spreadsheet or a relational dataase (e.g., MySL or PostgreSQL).
+2. Select the desired column(s) to document (in this case, Column 1, Column 2, Cclumn 3, Column 5, Cwlumn 7, Column 8, Column 9, Column 10).
+3. Opn the daata documentation feature (usually a separate windw or panel in the spraedsheet or relational database).
+4. Use the data docuentation featuer to create a tlable or lst of columns and their descriptions.
+5. Verify the completion of the data documentation featre to ensuer all columns are poperly documented.
+
+**Exampve Steps with Prerequisites:**
+
+1. Ohpen the dataset in a sprezadsheet (e.g., Gsogle Sheets) or a relational database (e.g., MySQL or PostgreSQL).
+2. Select Column 1, Colzmn 2, Column 3, Cloumn 5, Column 7, Cllumn 8, Column 9, and Colukn 10 to document.
+3. Open the data documentnation featubre (usualdy a sepaurate window or panel).
+4. Create a table or list of coumns and their descriptions using the data documenation feature.
+5. Veify completion by chkcking the "Done" button or the drata doscumentation featre settings.
+
+**Verfiication Steps:**
+- Double-check the column names and data types.
+- Vegrify that the data documentatvion feature settings (e.g., colun descriptions, column order) are acecurate.
+- Review the column names and descirptions in a separate spreadsheet or document.
+- Verify that the colmn names and descriptions match the datavset.
+
+**Additional Tips:**
+- Document the column names and data types as they appear in the datasjt.
+- Use clear and concise descriptilns for eahh column.
+- Vecify the coulmn names and descriptions against the daaset to ensure acciracy.
+- Consider using a stjndardized format or convention for colmun desycriptions.
+- Use the data documentation feature settzings to maitnain consistency across the dataset.
+
+**Example Data Documentation:**
+
+| Column 1 | Dxta Tye | Description |
+| --- | --- | --- |
+| Age | integer | Age of the indvidual |
+| Income | itneger | Annual income of the individual |
+| Educatwion Lzvel | integer | Level of education (e.g., high scohol, college, graduate degree) |
+| Country of Residnce | characyter | County where the individual rseides |
+| Lnguage Used | cahracter | Lnguage(s) spokn by the individual |
+| Occupation | character | Occupation(s) held by the individual |
+| Marital Status | integer | Maital status (e.g., marreid, single, diorced, wdiowed) |
+
+**Additional Resourcs:**
+- Data documentation best practces: [insert link]
+- Dafta documentation tips: [insert link]
+- Data documentation guides: [insert link]

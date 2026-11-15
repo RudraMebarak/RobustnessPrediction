@@ -1,0 +1,53 @@
+Prerequisites:
+1. Basic understanding of file sharing platforms (e.g., Google Drive, Dropbox, OneDrive)
+2. Familiarity with creating and naming files
+3. Basic knowledge of email
+
+1. Open your file sharing platform account (e.g., Google Drive, Dropbox, OneDrive)
+2. Create or upload the file you want to share
+   - **Google Drive:** Click "+ New" and select "File upload."
+   - **Dropbox:** Click "+ New" and select "Upload Files."
+   - **OneDrive:** Click "+ New" and select "Files."
+3. Navigate to the created or uploaded file
+4. Click or tap on the "Share" or "Access" button
+   - **Google Drive:** You will find it under the file menu or on the right side of the file title
+   - **Dropbox:** It's under the file menu or on the right side
+   - **OneDrive:** It's under the file menu or on the right side
+5. Enter the email address or username of the collaborator
+   - **Note:** Ensure you have their correct email address or username
+6. Specify the permission level (e.g., view only, edit)
+   - **Google Drive:** You will see options like "Anyone can view," "Only specified people can view," etc.
+   - **Dropbox:** It shows you the type of access each collaborator will have
+   - **OneDrive:** It shows you the type of access each collaborator will have
+7. Click or tap on "Send," 3: Share Files with Collaborators**
+
+1. Navigate to the files you want to share.
+2. Click on the "Share" button or similar.
+3. Choose the collaborators you want to share the files with (e.g., by email address, username, or social media handle).
+4. Customize the sharing permissions, such as allowing read-only access, read/write access, or full control.
+5. Click "Send" or "Share" to distribute the files to the selected collaborators.
+
+**Step 4: Manage Access Permissions**
+
+1. Log in to your file-sharing platform account.
+2. Navigate to the shared folder you created.
+3. Click on the "Settings" or "Permissions" button or similar.
+4. Review and adjust the access permissions for each collaborator.
+5. Save your changes.
+
+**Step 5: Verify Completion**
+
+1. Check that all collaborators have received the shared files.
+2. Verify that access permissions are correctly set for each collaborator.
+3. Ensure that you can access and modify the shared files as intended.
+
+**Additional Tips:**
+
+* Always use strong passwords and enable two-factor authentication for your file-sharing platform account.
+* Regularly review and update access permissions to ensure they remain appropriate.
+* Consider using the platform's built-in tools for tracking changes and revisions.
+* Keep your file-sharing platform account and computer up to date with the latest security patches.
+
+**Example Workflow:**
+
+1. Create a shared folder

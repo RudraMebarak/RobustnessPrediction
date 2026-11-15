@@ -1,0 +1,34 @@
+Fluid dynamics is the study of fluids (liquids, gases) at rest and motion. The two main branches are statics and kinematics.
+
+1. Newton's First Law: An object remains at rest or in uniform linear motion unless a net force acts on it.
+2. Newton's Second Law: F=ma
+3. Bernoulli's Principle: As velocity increases, pressure decreases.
+4. Pascal's Principle: Pressure applied to an enclosed fluid can be transmitted undiminished to every part of the fluid.
+5. Torricelli's Theorem: When a right-angled triangle forms with one side parallel to water surface and lying flat at ground level, then height of liquid column formed will be equal to distance from top edge of container to highest point.
+
+Applications:
+
+1. Aerodynamics - Deals with dynamics include:
+
+1. Conservation of mass: This principle states that the amount of fluid passing through any point in a system at any given time must remain constant.
+
+2. Conservation of energy: This principle states that the total energy of a closed system remains constant over time, assuming no external work or heat transfer occurs.
+
+3. Continuity equation: This equation relates the mass flow rates of different fluids in a pipe or channel. It assumes that the fluid's velocity, cross-sectional area, and density do not change along its path.
+
+4. Bernoulli's principle: This principle states that an increase in the speed of a fluid occurs simultaneously with a decrease in pressure or elevation.
+
+5. Euler's equations: These equations describe the motion of an ideal fluid without frictional effects.
+
+Fluid dynamics has numerous practical applications in engineering fields, including:
+
+1. Aerospace engineering: Understanding fluid dynamics helps engineers design aircraft wings, jet engines, and spacecraft to operate efficiently and safely in various conditions.
+
+2. Hydraulic systems: Engineers use fluid dynamics principles to create hydraulic systems for lifting heavy objects, moving machinery, and controlling robotic devices.
+
+3. Chemical process engineering: Fluid dynamics plays a crucial role in designing less fuel but produce more thrust than conventional propeller planes)
+5. Floating buoys (density forces buoyant upwards)
+
+So, fluid dynamics studies everything involved with liquids and gases at rest and motion; from everyday objects to huge spaceships. It has real-world applications everywhere you look! 
+
+I hope this gives some insight into fluid dynamics fundamentals and why they are important across many industries and professions! If anything needs clarification please let me know. Happy learning! 📚👨‍🔧👩‍🔬👨‍🍳👨‍💼👩‍🔬👨‍🔧🧬✨👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨

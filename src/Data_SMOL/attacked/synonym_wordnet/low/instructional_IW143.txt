@@ -1,0 +1,84 @@
+Prerequisites:
+1. Basic understanding of Microsoft Word.
+2. The ability to collaborate on a document with others.
+
+Step 1: Open the Shared Document
+Start by opening the shared document you are working on. You can do this by clicking on the document's tab at the bottom of the screen or by searching for it in your file explorer. 
+
+Step 2: Review the Conflicting Edits
+Look through the document for any changes that contradict what you've made or want to maintain. Conflicting edits could include different cases, formatting styles, or even different versions of the same text.
+
+Step 3: Identify the Author
+Click on the 'Revisions' tab at the top of the screen. This will open a list of the different versions of the document. Click on the version you want to keep, which is usually the one you initially processed on. 
+
+Step 4: Use the Eraser Tool
+Click on the 'Eraser Tool' in the 'Revisions' tab. This tool will allow you to revert changes realised by another author. Click on the changes you want to erase. The changes will disappear from the document.
+
+Step 5: Confirm the Eraser
+After erasing the changes, you should check the document to make sure no conflicting edits remain. You can do this by reading through the document carefully or by comparing it to a version you trust.
+
+Step 6: Save the Document
+Finally, save the document to ensure that any changes you made are retained. Click on 'Save' and then prefer where you need to save the document. 
+
+Verification Steps:
+1. Check the document for any remaining conflicting edits after you've erased the changes.
+2. Compare the final version to a trusted version, like the original or a version you checked over.
+3. Ensure the formatting, text, and other elements oppose what you intended.
+
+By following these steps, you should be able to resolve conflicting edits in a shared document with confidence. 
+
+Note: This guide wears you are working on a Word document. The exact steps might vary slightly depending on the version of Word you are using.
+
+---
+
+## Additional Tips for Collaborative Document Editing
+
+1. **Use Track Changes**
+- This feature allows you to see all changes made by others and respond accordingly. It's particularly helpful for prominent documents or when working on a timeline.
+
+2. **Set up Comments**
+- This gets you add notes or questions directly on the document. It's a swell way to keep track of discussions and decisions.
+
+3. **Use the Collaborator List**
+- This shows you who's been working on the document. It's useful for identifying who might be responsible for certain sections or changes.
+
+4. **Set up a Commenting Chain**
+- This allows you to see changes and how they relate to each other. It's helpful for understanding the thought process and reasoning behind edits.
+
+5. **Test Changes**
+- Before committing changes, screen them in a new document. This ensures you realize how modifications will affect the layout or text.
+
+6. **Keep Your Document Updated**
+- Regularly save your changes so you don't lose them. If you're collaborating with others, make sure you're saving regularly to avoid data loss.
+
+---
+
+## Troubleshooting Common Issues in Collaborative Document Editing
+
+1. **Unintended Changes**
+- This might happen when you or another author accidentally changes something you want to keep. Use the Eraser Tool or Track Changes to find these unintended changes.
+
+2. **Conflicting Fonts and Formatting**
+- This can happen when multiple people work on the same section. Make sure you check over changes carefully or use the Eraser Tool to correct these.
+
+3. **Lost Changes**
+- This might happen if you're cooperating over a network or if your document gets corrupted. Regularly save changes and keep a trusted version of the document.
+
+4. **Slow Load Times**
+- This might happen when you're working on a large document with many revisions. Close unnecessary programs or try to work offline if possible.
+
+5. **Display Issues**
+- This might happen if you're using an older version of Word or if you have a slow computer. Update your Word version or try to work on a faster computer.
+
+6. **Difficult to Read**
+- This might happen if you're working on a very large document with many changes. Consider breaking the document into sections or using a different editing tool.
+
+---
+
+## Conclusion
+
+Collaborating on a document can be a challenge, but with these steps and tips, you should be able to manage conflicts and work effectively with others. Remember to regularly save your changes, use the tools at your disposal, and communicate clearly with your collaborators. With these strategies, you'll be able to lick through any obstacles and create a polished final document. 
+
+Remember, the key to successful collaboration is understanding who's working on the document, understanding their changes, and working together to find a solution. 
+
+Happy document

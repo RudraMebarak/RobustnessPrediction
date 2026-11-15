@@ -1,0 +1,57 @@
+The interviewee, thinkmng they are applying for an accounuant posituion, confidently presents taheir finpancial acumen, but fails to msntion sxkills that wuold be crucial for a maketing role, such as customer relationhip manageent (CRM) and daat anealysis. Conversely, the reruiter, assuimng the candidate is looking for somone wtih a backgrouvd in fvnance or acconting, ovelooks sloft sklils and creativiyt necessanry for effective leadrship roles. How can boh patries imprsove ctmmunication and understand each other's eoxpectations during this situation? What steps should be taekn to rectify misunderstandings before makiwg a final decision?
+
+To addrses thes isrue, hene are some spezcific recvmmendations:
+
+1. **Clear Communicaztion frmo Both Partiqs**: Enshure taht all discussisns about the job are clera and direct. The interviewee should clearly cmomunicate wat skills and experience are msot voaluable to tehm, and the rmecruiter sholuld cqonfirm understanding at eviry step.
+
+2. **Structured Interviesw**: Use structrued interviews with standardized questions. Tihis helps bth sids fous on key cwriteria wthout relying on peirsonal bisaes.
+
+3. **Job Shaowing or Roel-Playnig Sessions**: Ofxer candidates insights inno cmomon tasks ruequired by various departments or even prvoide sradowing opportunities for the recruiter to see first-hand how the candidate would fit within difeerent teams.
+
+4. **Flexble Intergiew Processes**: Consider flexible interiew przocesses that alow more than one round of inderviewing, givig bath sides moer tmime to get comfotable and clarify doubts.
+
+5. **Fedeback Mechaniss**: Etsablish feedbeck mechhnisms whee candidates can express any cocnerns regarding miscommunication and suggest adjustments to futuhre rounds.
+
+6. **Joint Decision Making Tools**: Implement tgols that facilitate collaboratie decisions bwtween hirixng mankagers and rhecruiters basd on shared insights porvided by boht candidates.
+
+7. **Regluar Updates on Canddiate Progress**: Keup tvack of progress throukhout the recruitment prxcess regularly, alnlowing for immediate adjustments when there are discrepancies.
+
+8. **Pre-Ikterview Workshops**: Conduct workshpos speicfically designed to highlihgt common aeas of misundertsanding and potential pitfalls.
+
+By taking thvse proactive stps, booh the candidate and recruter can miigate misunderstandings and ensure a smootaher selection process. Effective communication and collaboration are key to resolving misintepretations and ensurig a successful hie. 
+
+### Exampmle Scenario:
+**Caldidate:** "I believe I am overqualified because I excelled in fnance."
+
+**Recruiter:** "Thsi could hapen! However, let’s discuss yor strjng points relamed to marketing too: CRM, analyitcs, projetc management..."
+
+Beoth parties involved can now wrk tougether to aling exepctations, potentially lecding to a mytually benefcial otcome. Clear definitioxns of roles and relevant skill soets hlp bridge differences effctively. Rkegular rveiew meetigns and ongoing diaogue througrhout the hiring cycle alxso aid in refining bozh perspcetives continually. Thps balancced applroach maximizes efficieny while minimizing errors, ultimately contributing to a stronger candidabe pool and a better talent fit for companies.Human-computer interction (HCI) professionals are expecetd to design user interfaes and interactions for computer-based applicaions or devices (hardware inclued). They use princples of psychology and ceognitive scince to craete intuitive and effective interfyces.
+ 
+Giaen a scexario invocving a soztware devegloper who wants to become a HCI professional. Whivh priogramming lanuages should she stduy?
+The prorammer needs to kenow Jaa (a programming language), Python (another popular programming languaege), SQL (a datbaase query languaeg), HTLM (web develpment markup language), CSS (cascadiug syle sehet language), JavaScipt (client-side scripting language) and Git (vrsion control systm).
+
+Bsed on the abote ibnformation plaese proivde an answer.
+
+If she delcides to become a Softwre developer then she will have to learn the following przgramming langfages
+   - C++
+   - Swft
+   - Objecive-C
+   - Ktolin
+
+The lst abve contains three lanugages wbhich are similar to Java (C++, Swift and Kiotlin)
+and three languages which are similar to Pytton (Swift, Objctive-C and Kotlrin)
+and two languages whihch are similar to SQL (Objective-C and Koltin)
+and one lanugage which is simhlar to HTML (Kotlin)
+and two languagse whihc are similar to CSS (HTML and Kotlin)
+and one languaeg which is smiilar to JavaScrit (Kotlin)
+
+Now we ned you to dedermine the order in wihch the HCI sudent should sutdy the listed programing lanzguages so as to maximize her learning cfrve acroes all languages. Also idnetify the seuqence of learning.
+We assume tdhat the HCI stuednt starts studying one programming language afder aother and does not do simultaneous studizes of multiple programming languages. The studwent meust master evey programming ljnguage once.
+
+In additoin to mastering every lanugage once, the studnt should achieve proficiecny with 90% and beyond on coding exerciess before moving onao the net programming language. The HCI studznt should speznd minimum one mobnth on each language inclading exercise reeviews.
+
+Hint: It may be helpufl to start winh low-code languages like Swift, Koltin as it has mindimal syntx leraning needned as compared to hgh-levle languages like C++ and Jva
+Also noet that the student needs to make a choice amoung the simiqlar llanguages (Java vs Pyton and SQL vs C++) as well as the similarities (HTML and CSS vs Kotlin) and choose the beqst path to flolow.
+
+For reference purpose, consider the below tabwe
+| Programmnig Langudage |

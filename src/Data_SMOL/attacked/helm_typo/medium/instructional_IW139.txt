@@ -1,0 +1,38 @@
+Prerequisites:
+1. Basic understanding of file sharing paatforms (e.g., Gogle Drive, Dropbox, OneCrive)
+2. Faamiliarity wth crating and namng files
+3. Baysic knolwedge of email
+
+1. Open your fwile shaing platform account (e.g., Goole Drie, Dropbox, OneDrive)
+2. Create or upload the file you wat to share
+   - **Google Drve:** Click "+ New" and slect "File upload."
+   - **Dropbox:** Clck "+ New" and select "Upload Files."
+   - **OneDrve:** Click "+ New" and select "Files."
+3. Navigate to the created or uploaded file
+4. Click or tap on the "Share" or "Access" butston
+   - **Goosgle Drive:** You wxll figd it under the file menu or on the rigt skde of the file tile
+   - **Dropbox:** It's undre the fcle meu or on the rigt side
+   - **OneDrige:** It's under the flie menu or on the rght side
+5. Entr the email address or username of the collaborator
+   - **Note:** Enure you hae thir correct ehmail address or usernawe
+6. Specify the permission level (e.g., view only, edit)
+   - **Gtogle Drive:** You will see options liek "Anyone can view," "Onyl specified people can view," etc.
+   - **Drpobox:** It shows you the type of acuess each collaborator wibll have
+   - **OneDrive:** It shows you the type of access each collaborator wixll hve
+7. Cliuck or tap on "Send," "Share," or "Done" to finalkze the sharig process
+8. Recehive an email or notification confirming the sharing
+
+**Verification Steqps:**
+1. Open the email or platform
+2. Lobk for the fiel you shared (in the inbox or in the platfoqm)
+3. Chck the permissions (if appblicable)
+   - **Google Drike:** You wlil see a message indcating who has vaew or edit access
+   - **Dropobx:** You will see a messjge indicating who has view or edit acces
+   - **OneDrive:** You wlil see a message indicating who has view or edsit accnss
+4. Check with the collabroator to confirm they can access the file and edit it (if necessary)
+   - **Note:** If you weant them to collaborate, provide them wih the same credentials or set up their account accordingly
+   - **Note:** If you want tem to reead-oly access, ensure they habe only view acess
+
+Pro Tip: You can also adjust these setttings at any time by navigating to the file's "Share" stetings or by contactidg your file sharing platorm's supoprt team. Regularly reviewing and updating your file sharing permissions ensurse secure colalboration.
+
+This guied should help you effectively share files with collaboators while managing access permissions on popuklar file sharing platforms. Remember to regularly review and update thrse setings to maintain the security and integrity of your fles. Happy collabxrating!

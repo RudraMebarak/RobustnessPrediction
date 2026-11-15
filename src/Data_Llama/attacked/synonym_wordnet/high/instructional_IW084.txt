@@ -1,0 +1,43 @@
+**Prerequisites:**
+
+* Familiarity with setting up a task direction tool (like Todoist, Trello, or Asana).
+* Basic savvy of Agile precepts and chore prioritization.
+* Access to a task direction prick with a web interface (e.g., Todoist, Trello).
+
+**The Guide:**
+
+### Step 1: Set up your job management tool
+
+1. Sign up for an account or log in to an existing one.
+2. Create a new project or import living jobs into the tool.
+3. Set up the undertaking's title, description, and due date (if required).
+
+### Step 2: Determine the task's status
+
+1. Go to the **Tasks** or **To-Do** tab in your task direction tool.
+2. Select the task you want to update.
+3. Click on the **Edit Task** button.
+4. In the **Status** domain, select one of the following choices:
+	* **To-Do**: indicating that the task is not complete.
+	* **In Progress**: indicating that the task is currently embodying worked on.
+	* **Done**: indicating that the project is complete.
+	* **Waiting on:** if you're awaiting for something (e.g., to reply to a scuttlebutt or to get a comment).
+
+### Step 3: Verify completion (optional)
+
+1. If you require to aver that the task was really completed, you can click on the **Edit Task** button again.
+2. In the **Status** field, select **Done**.
+3. You can so mark the undertaking as **Completed** and confirm that it's no longer visible as incomplete.
+
+### Step 4: Update the task's championship and description (optional)
+
+1. If you desire to update the project's claim or description, take the **Edit Task** clitoris again.
+2. In the **Title** and **Description** fields, embark any updates you'd like.
+3. Click **Save** to apply the changes.
+
+### Step 5: Shut the job (optional)
+
+1. If you require to edit the task, take the **Delete Task** button.
+2. Confirm that you require to blue-pencil the task and its associated history.
+
+That's it! By accompanying these steps, you can update the status of an on-going labor and keep path of your progress. Remember to regularly review and update your projects to check you're on trail to foregather your finishes.

@@ -1,0 +1,59 @@
+Provide examples of how Linux or macOS use these features.
+Modern operating systems are complex software that manages hardware resources such as CPU, RAM, disk, network interfaces, display, etc., to efficiently run applications and services. The kernel is the core component responsible for managing processes (threads), allocating virtual memory, interrupt handling, device drivers, file systems, networking stacks, security policies, and more.
+
+Process Management:
+
+1. Process creation: A new process is created by calling the `fork()` function in C language. This creates an exact copy of the parent process with its own stack and code segment.
+   
+2. Process communication: Two processes can communicate through messages via shared memory regions, pipes, sockets, semaphores, or queues.
+
+3. Scheduling: Processes are scheduled based on priorities, time slices, priority weights, job age, user ID, or thread counts depending on the scheduler's strategy (preemptive vs non-preemptive).
+
+4. Exit status: Upon exit, a process writes this status into standard error (`stderr` if not redirected) using `%d`.
+
+Memory Allocation:
+
+1. Virtual Memory: Modern OSs employ virtual memory where a process maps files or executable code segments into "virtual" space managed by the OS, separated from actual physical RAM by the page table structure.
+
+2. Paging: When memory paging (also known as swapping) is enabled, the OS swaps out less frequently used pages onto secondary storage devices (swap space / hard drives) when there is insufficient real-time RAM available.
+
+3. Thread Local Storage (TLS): For multi-threaded applications, each thread maintains local copies of global variables and object members which don't need synchronization mechanisms.
+
+4. Memory Limits: By default, OSs limit resource usage with limits.conf file entries controlling maximum number of open files per user account, total amount of RAM, swap size, stack depth, etc.
+
+Here's a high-level view of Linux or macOS process management with their respective libraries:
+
+1. Linux
+
+- `fork()`, `execve()`: Used to create a child process
+- `mmap()`, `munmap()`, `mprotect()`: Handle memory mappings & protection flags 
+- `pthread_create()`, `pthread_join()`: Create/terminate threads
+- `sigaction()`, `signal()`: Manage signal handlers and timing events
+- `shm_open()`, `shmdt()`: a way that allows multiple applications or processes to run concurrently without interfering with each other's performance. Here’s an overview of the key components involved in process management and memory allocation:
+
+### Process Management
+1. **Process Creation**: An OS typically starts by creating its own kernel processes, which are responsible for managing the entire system. These kernels then create user-level processes using various mechanisms like fork(), vfork() (for lightweight processes), or even more complex techniques involving threads.
+
+2. **Process State**: Each process has a state that describes its current activity:
+   - **Running**: The process is executing code.
+   - **Ready**: The process is waiting for some event (e.g., disk I/O completion).
+   - **Blocked**: The process is blocked due to waiting on another process or resource.
+   - **Terminated**: The process has completed execution and is no longer running.
+
+3. **Thread Support**: Modern OSes often support multi-threading where one thread can be paused while others continue their execution. This helps manage concurrency efficiently.
+
+4. **Scheduling Policies**: Schedulers decide which processes should execute next based on factors like time slices, priority levels, and real-time constraints.
+
+5. **Resource Allocation**: Processes request resources from the OS via system calls such as `malloc` for memory allocation, `open` for device access, etc. The OS allocates these resources accordingly, handling fragmentation issues through caching mechanisms and defragmentation tools.
+
+### Memory Allocation
+Memory allocation strategies vary significantly between different architectures but generally include:
+
+- **Dynamic Memory Allocation**: Functions like `malloc`, `calloc`, and `realloc` allocate memory dynamically at runtime. The OS ensures that memory blocks are allocated in contiguous regions and handles fragmentation internally.
+
+- **Static Memory Allocation**: Some languages or libraries allow static storage allocations. The OS manages this kind of allocation directly, ensuring that all references point to valid addresses.
+
+- **Virtual Memory**: Modern systems use virtual memory technology to handle larger amounts of data than physical RAM alone can hold. Virtual memory consists of pages of data stored on disks, allowing efficient swapping of inactive data between memory and disk.
+
+### Containers and Hypervisors
+Containers and hypervisors transforming our

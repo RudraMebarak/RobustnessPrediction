@@ -1,0 +1,77 @@
+in the bustling city of new haven, detective jack harris is investigating a string of mysterious deaths over a span of three weeks. the victims are all young adults in their late twenties who were found dead in their apartments with no trace of struggle or any sign of violence. however, every witness provides an answer that seems plausible on the surface.
+
+the first witness, rachel thompson, says she saw someone enter a building just before the first victim was discovered and left shortly after. she also claims to have heard faint footsteps echoing around the apartment complex.
+
+next up is sarah lee, who testifies that her boyfriend had been acting unusually distant during the time the killings occurred. she thinks he might know something about what happened.
+
+mark green describes hearing screams coming from one of the apartments just days before the second death took place. he said he thought it sounded like his own daughter calling out for help from behind the door, but he didn't say anything at the time.
+
+emily white claims she saw someone leave a bar on the night of the third victim's disappearance. when questioned further, she admitted she had previously told police about seeing a man lurking outside the location but later denied remembering him again.
+
+detective harris decides to investigate each witness's statement meticulously. after gathering all the pieces of evidence and interviewing more witnesses, he finds inconsistencies between the testimonies that hint at a larger conspiracy or plan being hatched by those close to the deceased.
+
+finally, harris uncovers a secret code among them - they use symbols written on graffiti and hidden within phone messages as passwords, making it impossible to find any actual communication records due to privacy settings.
+
+as harris delves deeper into the case, he suspects there may be a group willing to do this because of a shared history or dissatisfaction with societal norms and rules surrounding dating, sex, and marriage. 
+
+by the end of the investigation, harris successfully identifies two key figures behind these crimes: tyler johnson (a struggling artist) and samantha martinez (a wealthy socialite). they turn out to be part of a dangerous club known as "criminals anonymous." harris arrests both individuals separately before they can complete whatever scheme they had planned together. the final line of the story shows a photo montage depicting how far back these connections extend through high school friendships and even earlier events, emphasizing just how deeply entrenched lies the mystery of why so many young people died without any indication of foul play.
+```python
+# here’s how we would structure the python script using classes representing our characters:
+
+from typing import dict
+
+class witness:
+    def __init__(self, name: str):
+        self.name = name
+        self.messages: dict[str, bool] = {}
+
+    def add_message(self, message_key: str, truthfulness: int):
+        # assuming truthfulness ranges from 1 (completely believable) to -1 (completely implausible)
+        if truthfulness not in range(2): 
+            raise valueerror("truthfulness must be either +1 (true) or -1 (false)")
+        
+        self.messages[message_key] = truthfulness
+
+    def get_messages(self) -> dict[str, bool]:
+        return self.messages
+
+
+class investigator:
+    def gather_evidence(self):
+        # placeholder for investigative actions
+        pass
+
+    def interview_witnesses(self, witnesses: list[witness]):
+        # placeholder for interview interaction
+        pass
+
+    def analyze_conflicts(self, witnesses: list[witness]) -> none:
+        # placeholder for identifying contradictions
+        pass
+
+
+def main():
+    witnesses: list[witness] = [witness('rachel'), witness('sarah'), witness('mark'), witness('emily')]
+    
+    investigator = investigator()
+    investigator.gather_evidence() # placeholder for generating actual evidence
+    investigator.interview_witnesses(witnesses) # placeholder for conducting interviews
+    investigator.analyze_conflicts(witnesses) # placeholder for finding contradictions
+    
+    print(f"witness statements:")
+    for i, w in enumerate(witnesses, 1):
+        print(f"witness {i}:")
+        print("\n".join(map(str, w.get_messages().values())))
+    
+if __name__ == "__main__":
+    main()
+
+# this script structure assumes that a witness object stores the witness statements for each witness and contains methods for adding messages (with varying degrees of truthfulness), getting messages, etc., while an investigator manages the investigative process by collecting evidence, interviewing witnesses, analyzing conflicts, etc.
+
+# as you progress to implementing the actual code based on your given pseudocode specifications, keep track of complexity and ensure proper handling of error conditions in your implementation. use try-except blocks and validate inputs accordingly.
+```
+
+### explanation
+- **witness class**: each witness has a `messages` dictionary where keys are message keys and values are booleans indicating their truthfulness. the constructor initializes the witness with a unique name, and the `add_message` method allows updating the witness's messages.
+
+- **invest

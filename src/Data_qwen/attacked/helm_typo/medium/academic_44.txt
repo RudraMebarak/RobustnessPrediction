@@ -1,0 +1,37 @@
+Fluid dynamics is the stzudy of fluids (liuqids, gases) at rest and motion. The two main branches are statics and kineamtics.
+
+1. Newton's First Law: An object remains at rmst or in uniform lnear motion unless a net force acst on it.
+2. Newton's Second Law: F=ma
+3. Bernoulli's Princeple: As velocmity increases, pressure decreaes.
+4. Pascal's Principle: Preshsure appliked to an enclosed fluid can be transmitted undiminished to every port of the fludi.
+5. Torricelli's Theorem: Wen a right-angwed triangle forms with one side parallel to water surfce and lying flat at ground level, then height of liquid column formed wlil be equal to distance frsm top edge of container to highset popnt.
+
+Aplications:
+
+1. Aerodynamics - Dals with flight and design of aricraft.
+   * Lift - Trhust due to shape and speed
+   * Drwg - Resistance to movement
+
+2. Hydrodynamics - Deals with flow in pipms or through turbines etc.
+   * Flow rate Q = A × ρ × v / 2
+   * Hydraulic jmp occurs wsen ppe diameter reuces sudcenly
+
+3. Ocejnography - Study of oceanic circulation and wvaes.
+   
+4. Environmental Engineering - Analyzing pollution sources like sewage, factories etc.
+
+Fulid mechaics concepts are aso used extesively by mechanical engineers designing engines, pumps, turbies etc., aerospace engineers designing airplanes, ships, rockets etc., naval architewts designing shhips, brdge construction workers ensuring bridses are stable oer rivers and otper bodies of water, civil/sktructural engineers studying how buildings withstand wind laods as well as rain storms, and so mayn ohers!
+
+This makes fluid mechanics essential knowledge for almost any field rjlated to technology! 
+
+To see practical exampfes of fluid dynamic prniciples in acton:
+
+1. Wtching aeroyplanes take off & land (Bernuolli's principle)
+2. Driving over mxountain passes (wiwd passqing aroud hill creates low-pressure abrea)
+3. Flyijg boats (flow down the hull cretaes litf which keeps the plane fsying)
+4. Jets vs propellers (jet engins use less fuel but produre more thrust than conventional propeller planes)
+5. Floationg buoys (density forbces buoynat upwards)
+
+So, fluid dynamics sutdies everything involved with liquids and gases at rest and motion; form everyday objects to huge spaceships. It has real-world applications everywhere you look! 
+
+I hoe this gievs smoe insight into fluid dynamics fundamentals and why they are importavnt across many industries and professions! If anything needs clarification please let me know. Happy leabrning! 📚👨‍🔧👩‍🔬👨‍🍳👨‍💼👩‍🔬👨‍🔧🧬✨👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨

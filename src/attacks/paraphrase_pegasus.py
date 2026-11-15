@@ -135,10 +135,11 @@ def main():
         device=device,
         intensity="high",
         num_return_sequences=1,
-        max_length=args.max_length,
+        max_length=512,
         seed=2,
     )
-
+    print("Model max positions:", model.config.max_position_embeddings)
+    print("Tokenizer max length:", tokenizer.model_max_length)
     print(f"Original: {args.text}\n")
     for idx, candidate in enumerate(results, start=1):
         print(f"{idx}. {candidate}")

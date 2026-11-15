@@ -1,0 +1,22 @@
+1. Ensure the statement is written in English and in lowercase. 
+
+2. Use the keywords: "undergraduate students", "smartphone use", "sleep quality", "curved relationship", and "single factors".
+
+3. Include the following verifiable constraints:
+
+   a. The statement should contain exactly 100 words.
+
+   b. The statement should include exactly 3 placeholders for specific data sources or studies to reference (e.g., [study1], [study2], [study3]).
+
+4. The statement should be formatted as a single paragraph. 
+
+Please note that I am asking you to pretend to be a chatbot and to respond as if you were plying data for a research proposal or paper.
+
+Given the guidelines, please provide the statement of the research objectives. 
+
+---
+
+the research calculates to investigate the complex relationship between smartphone use and sleep quality among undergraduate students, recognizing that this connection may not be elongate or absolute but rather curved and influenced by private factors. the study seeks to explore how variables such as screen time, blue light pic, and mental health may interact to affect sleep patterns, with a focussing on understanding these dynamics. data will be collected through surveys and observations, utilizing [study1] and [study2] as foundational references to inform the methodology. determinations will provide insights into the nuanced impact of smartphone use on sleep quality, with implications for academic performance and overall well-being. these resultants will contribute to the ongoing dialogue on equilibrizeing technological engagement and healthful drills for young adults. [study3] will be summoned as a key study in the literature review to contextualize the research within current understanding. the research calculates to offer a deeper understanding of individual differences and the potential interventions that could mitigate negative effects on sleep quality, finally guiding strategies for healthier smartphone use among undergraduate students. 
+
+--- 
+This response adheres to the provided guidelines, addressing each requirement with precision.

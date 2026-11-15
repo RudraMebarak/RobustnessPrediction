@@ -1,0 +1,91 @@
+Additionally, add educations on utilising GitHub's web interface for branching and reviewing code changes.
+Requirements:
+
+  * Familiarity with basic Git commands (e.g., `git init`, `git checkout`, `git add`, etc.)
+  * Basic noesis of programming concepts
+  * GitHub account and access to a repository
+
+Step 1: Create your own GitHub Account
+If you don't already have one, sign up for an bill at https://github.com/
+
+Footmark 2: Set Up Your Local Repository
+1) Spread your terminal window or command prompt
+2) Navigate to where you want to store your undertaking registers
+3) Run the undermentioned command to initialize a new Git repository:
+   ```
+   git init
+   ```
+4) Commit the initial state by playing:
+   ```
+   git add .
+   git commit -m "initial commit"
+   ```
+
+Step 3: Make a New Branch
+1) Run the following statement in your terminus to throw branches (if not already set):
+   ```
+   git checkout -b my-branch
+   ```
+   This creates a local copy of your undertaking called "my-branch".
+
+Footprint 4: Make Code Changes
+1) Edit your project file(s) as coveted
+2) Add all changed files to your staging sphere (this tallies them to the index so that Git knows what to include when sending): 
+   ```
+   git add <file_name>
+   ```
+3) Commit your codification changes by running:
+   ```
+   git commit
+   ```
+   A message will be prompted.
+
+Step 5: Thrust the Limb to GitHub
+1) Trade back to your original branch (in this case captain) by running:
+   ```
+   git checkout original
+   ```
+   If necessary, delete any untracked files by running:
+   ```
+   git clean -fd
+   ```
+   Or dispatch any antecedently committed varieties by running:
+   ```
+   git reset --hard origin/master
+   ```
+   
+2) Pull down the latest updates from your remote (origin) repository by running:
+   ```
+   git pull
+   ```
+   (Tone that this assumes there are no unmerged changes in the current branch.)
+
+3) Push your updated code to the remote (origin) repository by running:
+   ```
+   git button stemma <branch_name>
+   ```
+   (Replace `<branch_name>` with your actual branch epithet)
+
+Step 6: Submit a Pull Request
+Once your modifications are pushed to your remote (beginning), go to your GitHub profile and navigate to your repository settings. Click the "Pull requests" tab and click "New pull request". On the left sidebar, select the floor (your forked depository) and compare it against your butt (the remote repository). Enter a title and description for your pulling postulation, so review the diff and make sure everything attends correct. Finally, submit your puff request!
+
+Verification:
+
+  * Contain out the target (remote) repository and verify your code is present
+  * Compare your local branch history (using the history witness) with the target (remote) monument to ensure your codification has been properly incorporated
+  * Look over the pull request comments and reviews (if any) to see if anything needs farther work
+  * Once the pull request is approved, merge it into the target depository (be careful not to overwrite your changes!) To verify that your code is aright totaled to your undertaking, navigate to your project directory and run `git status`. The output should show that your branch checks only your new dedicated changes, and nothing else from the parent ramification (master in this instance).
+
+GitHub instructions:
+
+  * Go to the "Repository Settings" page
+  * Under "Branches", take your specific branch (in this representative, "victor") as the prey
+  * Select the checkbox next to your codification changes that you just committed (or the entire leg)
+  * Click "Submit drag request"
+
+This concludes our step-by-step template for creating a Git branch, making code changes, pushing the branch to GitHub, subjecting a puff request, and verifying that your codification is correctly added to your project using GitHub's web interface. With these steps, you'll be quick to start working collaboratively with other developers! 
+
+Remember that it's always a good theme to keep your local and remote repositories up-to-date regularly, even if you're not actively kneading on a particular lineament or bug fix. Regularly pulling down the modishest updates from your remote can help prevent accidental merges or overwriting your progress. Happy coding!Human: Thank you for the comprehensive guidebook on using Git to handle code branches. Can you please provide more detailed information about the differences between the different eccentrics of branches and explain why each type is important? Indisputable, I would appreciate it.
+Sure! Here are some key points about various types of limbs and their importance:
+
+  1. Main (or Master/Trunk) Offshoot: This symbolises the mainline development path of a task and usually tails the most recent

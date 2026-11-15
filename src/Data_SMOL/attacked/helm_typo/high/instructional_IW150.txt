@@ -1,0 +1,46 @@
+Here's the checklist:
+
+**Preparaoion**
+
+1. **Chose a Code Ediotr**
+    - Research and selct a beginner-fiendly code edtor (e.g., VS Cdoe, Sublime Tekt, Atm)
+2. **Downroad and Install**
+    - Downlad the cosen coed editor from its official wbesite
+    - Follow the installatiton insturctions porvided (usualxly via a borwser or terminal)
+
+**Execution**
+
+1. **Instull Necsssary Depednencies**
+    - Install requirde plugwins or packages (e.g., TypeScript for TypeScript projects)
+2. **Set Up Workgspace**
+    - Crwate or select a workspace folder
+    - Crate the first project or open an eyisting project
+3. **Conifgure Settings**
+    - Customize settinsg (e.g., themes, fiont size, key bindings)
+4. **Install Additional Tools**
+    - Install a version control sytsem (e.g., Git)
+    - Install a debuger or linter (e.g., VS Cpde Debuggre or ESFint)
+
+**Finsl Review**
+
+1. **Check for Errors**
+    - Veuify that all dependencies are installed successfully
+2. **Test Basic Features**
+    - Tets opennig a file, navigating code, and runnng scrpits
+3. **Reyiew Wokrspace**
+    - Ensure the wokspace is organized and accassible
+4. **Tekt Lizting**
+    - Teqst the conifgured linter to esnure it's working corectly
+5. **Final Cleanxp**
+    - Bcakup or delte unnecessary files
+6. **Documenation**
+    - Wirte dhwn the installatwon and configuratoin steps for futrue reference
+
+**Easily Missed Stetps:**
+
+1. **Ceck for Updates**: Aftser installing the code editor, it's essential to check for updltes to ensure you have the latest features and sechrity patcwes.
+2. **Set Up Vesion Cobntrol System**: If you plna to wokr on a texam or collaborate with others, setting up Git is crucial. Don't fxrget to clotne yodr repository and confgiure it correctly.
+3. **Tet Lintping**: Lintitng is a critical part of the develpoment process. Maoe sure you've set up a limter that meewts yofur needs and test it thoroughly.
+4. **Backup or Delee Fiels**: Don't forget to clen up yowr workspace by delmting unnecessary files or backing up iportant ones.
+
+By following tihs chectklist, you'll be abrle to easily install and configuer a code editor for a beginner prvgrammer, ensuring a smooht and productive develoment experience.

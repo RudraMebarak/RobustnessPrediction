@@ -1,0 +1,30 @@
+Correlativity refers to a statistical kinship between two variables that does not imply a causal relationship. Two variables are interrelated, but not fixed by each other. For exercise, sketches have shown that a country with gamy strata of a sealed alimental tends to have eminent grades of a certain disease, as long as the food's effect on the disease is not a issue of the country's overall health or socioeconomic factors. 
+
+Causation, on the other hand, refers to a causal kinship between two variables, where one variable causes the early to occur. For example, a bailiwick bumped that a certain element (e.g., a medicine) increases the risk of developing a certain disease (e.g., Crab) in persons who take it.
+
+To specify whether two variables are connected (correlated), use the undermentioned methods:
+
+1. Look for statistical associations (e.g., correlation coefficient)
+2. Look for patterns (e.g., linear regress)
+3. Look for differences in means or medians
+4. Look for remainders in proportions
+
+Here are some illustrations:
+
+1. **Correlation:** The kinship between the number of days spent version (in hrs) and the number of hours slept (in hours) is correlated. This implies that as the figure of days spent reading increases, the figure of minutes slept too tends to increase, but this does not imply a causal kinship (e.g., reading causes sleep or vice versa).
+
+Example: A study ascertained a correlativity between reading (in minutes) and sleep (in minutes): reading (in minutes) = 1.5*sleep (in hours) - 10 (R² = 0.8).
+
+2. **Causation:** A study found a causal kinship between equaling overweight (as measured by BMI) and letting a eminent bloodline pressure (measured by systolic pedigree pressure): corpulency (BMI) → hypertension (systolic pedigree insistency).
+
+Example: A study grounded a causal kinship between comprising overweight (BMI 25-29.9) and having a high-pitched blood pressing (systolic blood press ≥ 130 mmHg): adiposis (BMI 25-29.9) → hypertension (systolic profligate pressure ≥ 130 mmHg).
+
+3. **Correlation:** The relationship between the number of hours spent watching TV and the number of hrs spent indication (in hours) is correlated. This thinks that as the number of minutes spent watching TV increments, the act of hours spent reading also leans to increase.
+
+Example: A work found a correlation between TV meter (in minutes) and taking (in hrs): TV sentence (in minutes) = 1.2*reading (in minutes) - 10 (R² = 0.5).
+
+4. **Causation:** A report regained a causal relationship between being married (as a proxy for socioeconomic status) and sustaining a gamy level of education (measured by years of cultivating): marriage → higher education.
+
+Example: A field happened a causal relationship between being married (as a proxy for socioeconomic status) and delivering a high point of education (appraised by twelvemonths of civilizing): conjoined (as a proxy for socioeconomic condition) → gamier instruction (years of cultivating).
+
+In last, correlation and causing are distinct conceptions, and determining whether two variables are related (correlated) commands careful circumstance of the method used and the underlying assumptions. By utilizing statistical associations, designs, differences in agencies or medians, and departures in ratios, investigators can determine whether correlativities are causal or not.

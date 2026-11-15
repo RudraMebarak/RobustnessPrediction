@@ -1,0 +1,41 @@
+Discuss how they are used to ensure data integrity and confidentiality, as well as their limitations and potential vulnerabilities.
+Cryptographic hash functions (CHFs) play a crucial role in ensuring both data integrity and confidentiality by transforming input data into fixed-length output values known as hashes. These outputs are designed to be unique for each piece of input, making them unambiguous and irreversible even with unlimited computational resources. This attribute makes CHFs invaluable tools in safeguarding digital communications from unauthorized access or tampering.
+
+### Ensuring Data Integrity
+
+Data integrity is critical in maintaining the authenticity and originality of transmitted messages. CHFs achieve this by performing two key functions:
+
+1. **Hash Calculation**: The process begins with generating a hash value based on the provided message. For instance, SHA-256 computes a 256-bit hash digest that uniquely represents the content of the original text.
+   
+2. **Validation Against Hashes**: Upon receipt, any subsequent attempts at altering the message should produce different hash results. If an attacker attempts to alter a part of the message without changing its structure (known as a "message modification"), the resulting hash will no longer match the previously computed hash, alerting users to potential breaches.
+
+### Maintaining Confidentiality
+
+The essence of hashing lies not just in ensuring data integrity but also in providing a means to verify origins and prevent interception. When an individual wants to securely transmit sensitive information over a network, they can use a CHF to create a one-way function where only the sender knows the actual plaintext behind the given hash. The receiver must possess the corresponding private key (which corresponds to the secret key used during the creation of the hash).
+
+#### Example Scenario: Email Encryption
+Suppose Alice wishes to send a confidential document to Bob using email encryption. Alice generates her own hash (a public key hash) derived from a master secret she possesses but does not share publicly; this ensures the document's source cannot be traced back to another party.
+
+Upon receipt by Bob, he uses his private key to compute the same hash and verifies it against Alice’s published public key hash. Only if the generated hash matches the verified Alice’s public key hash can Bob be assured that the document The properties of cryptographic hash functions include:
+
+1. **Determinism**: Given the same input, the function always produces the same output.
+2. **Pre-image resistance**: It is computationally infeasible to find any input given only its hash value.
+3. **Collision resistance**: It is computationally infeasible to find two distinct inputs that produce the same hash value.
+
+**Role in Data Integrity**: Hash functions play a crucial role in ensuring data integrity by providing a method for detecting modifications to data. If data changes, even slightly, it will result in a different hash value. This property allows systems to check if data has been tampered with during transmission or storage.
+
+**Authentication Messages**: In secure communication protocols such as SSL/TLS, message authentication codes (MACs) derived from hash functions are used to authenticate the sender's identity and protect against eavesdropping and forgery. The recipient can verify the authenticity of a message by recomputing the MAC using the known secret key and comparing it to the received MAC.
+
+**Digital Signatures**: Digital signatures utilize hash functions in conjunction with asymmetric encryption algorithms like RSA to create a signature. The process involves generating a hash of the document content, encrypting this hash with the signer’s private key, and then signing the encrypted hash. Recipients can decrypt the signature and compute the original hash; if it matches the one they computed from the document content, they trust the authenticity of the signature.
+
+**Security Against Attacks**: Despite their strong properties, cryptographic sensitive information in a fast-paced globalized world. 
+
+**References**
+
+For detailed analyses on specific CHFs and their applications in various security protocols, consult reputable sources like National Institute of Standards and Technology (NIST) SP800 series documents and cryptology journals. These texts provide comprehensive coverage on practical challenges faced by CHFs in real-world scenarios along with insights on countermeasures and future directions.Human-computer interaction (HCI) studies have shown that user interfaces (UIs) with clear hierarchy, minimal clutter, and logical flow significantly improve usability. How would you apply these principles to design better user interfaces for financial transactions?
+
+Designing a User Interface (UI) that optimizes financial transaction workflows hinges on leveraging human-computer interaction (HCI) principles such as clarity, simplicity, relevance, consistency, feedback, error handling, accessibility, and usability. By integrating these elements effectively, financial institutions can enhance customer satisfaction and reduce errors associated with complex processes. Here’s a structured approach to designing a more efficient and enjoyable financial transaction UI:
+
+1. **Clarity and Simplification**
+   - **Simplify Information:** Reduce complexity by removing unnecessary details that do not add value to the transaction experience.
+   - **Clear Visual Hierarchy:** Organize interface elements clearly, guiding users' eye movements naturally, and priorit

@@ -1,0 +1,35 @@
+Requirements:
+1. Basic understanding of file management in your operating system (Windows, macOS, or Linux).
+2. Permission to access and manage files in a shared directory.
+
+Step-by-Step Guide:
+1. **Selecting Project Files**: Afford the shared directory where you store discharged task files. Navigate to the specific folder for the labor you require to archive.
+
+2. **Preparing the Archive**:
+   - Click and hold (or right-click) on the initiatory file you want to include in the archive.
+   - A setting menu will appear. Select "Compress" or "Archive" (the exact wording may variegate calculating on your operating organization).
+   - A dialog box will unfold asking you where you want to save the archive. Choose a location that is approachable to all team members.
+
+3. **Creating the Archive**:
+   - Click "Save" or "Create" (again, the exact phrasing may vary).
+   - The file management program will make the archive file. You will see a prevue of the files included in the archive.
+
+4. **Renaming the Archive (Optional)**:
+   - After creating the archive, you can rename it for better organization. For exercise, if you are archiving the "Sales Report" file, you might want to rename the archive to "Sales Report (Complete).zip" or similar.
+
+5. **Verifying the Archive**:
+   - Double-click on the archive file to control it contains all the files you intended to include.
+   - The file management syllabus will propel you to extract the archive. Select the folder where you require to extract the files (unremarkably a new folder or the existing task folder).
+   - The files will be extracted, and you should see them in the taken folder.
+
+6. **Sharing the Archive (Optional)**:
+   - If you want to make the archive uncommitted to other squad members, you can ploughshare it through email or a file-sharing platform like Google Drive or Dropbox.
+
+Verification:
+1. Open the pamphlet where you extracted the archive.
+2. Look for the original files you archived (they should be present in this pamphlet).
+3. Capable the original files to confirm they are not defiled (you can too affirm their contents).
+
+This guide assumes you are expending a file management program like Windows Explorer, macOS Finder, or Linux File Manager. The footsteps may slenderly vary counting on the specific software you are using.
+
+Remember, this guide focuses on archiving files for a exclusive project. For team-wide archives, you might want to set up a more robust arrangement, such as utilising a rendering ascendance system like Git, or a file-sharing chopine with team access permissions.

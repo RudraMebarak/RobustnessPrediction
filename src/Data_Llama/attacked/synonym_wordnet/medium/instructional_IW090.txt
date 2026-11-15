@@ -1,0 +1,31 @@
+**Prerequisites:**
+
+* Familiarity with Microsoft Excel 2013 (or newer) or a similar spreadsheet software.
+* Understanding of basic spreadsheet concepts (e.g., formulas, data types, informations ranges).
+
+**Step-by-Step Guide:**
+
+1. **Select a worksheet**: Afford the spreadsheet that contains the data you want to summarize.
+2. **Create a head row**: Create a header row to prepare your data. This row should admit the column headers (e.g., column A, column B, column C).
+3. **Enter data**: Enter the datum you want to summarize in a freestanding sheet or range (e.g., column A through editorial E).
+4. **Create a pivot table field**: Select a plain from the informations that you desire to use as the informations source for your pivot table (e.g., column A).
+5. **Select a pivot table field**: Select a field from the informations that you want to use as the data source for your pivot table (e.g., column B).
+6. **Drag the field to the "Summarize by" field**: Drag the field you want to use as the data source for your pivot table to the "Summarize by" field (e.g., column C).
+7. **Create the pivot table**: Click "Create PivotTable" or pressure F1 (Function Key 1) and take the "Summarize by" field as the data source.
+8. **Drag the field to the "Summarize values" field**: Tangle the field you desire to summarize (e.g., column C) to the "Summarize values" field (e.g., column D).
+9. **Customize the pivot table**: Customize the pivot table as desired (e.g., selecting the wanted layout, switching the sort edict).
+10. **Verify completion**: Aver that the pin table is complete and accurate.
+
+**Tips and Variants:**
+
+* To use the "Summarize by" field as a column, drag the domain to the "Summarize by" area instead of the "Summarize values" field.
+* To use the "Summarize values" field as a column, drag the battleground to the "Summarize values" arena rather of the "Summarize by" field.
+* To use the "Summarize by" orbit as a row, trail the field to the "Summarize by" field instead of the "Summarize values" field.
+* To use the "Summarize values" field as a row, drag the field to the "Summarize values" airfield alternatively of the "Summarize by" field.
+
+**Troubleshooting:**
+
+* If the pin table is not making, try editing the pivot table and starting over (or habituating the "Clear all" option).
+* If the pivot table is creating aright, but not showing the trusted data, try choosing a different field as the data source.
+
+By tracing these steps and tips, you should be capable to create a pivot table in Excel to summarize your data. Happy data summarizing!

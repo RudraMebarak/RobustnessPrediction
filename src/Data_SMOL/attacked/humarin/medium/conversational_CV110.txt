@@ -1,0 +1,1 @@
+Given a list of n pairs of friends with eras indicated by i and b, you must determine the minimum number of calls required to connect all the friends. Using the structure of priority_queue, it is possible to test various subtasks in a greedy context.

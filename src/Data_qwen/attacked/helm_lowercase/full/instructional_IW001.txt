@@ -1,0 +1,104 @@
+additionally, suggest software updates and additional security measures that should be performed regularly or on a schedule as per your needs.
+
+### setting up your new laptop for secure everyday use
+
+#### prerequisites
+1. **hardware**: a basic laptop with a modern operating system like windows 10 pro.
+2. **software**:
+   - basic antivirus like malwarebytes antivirus or microsoft defender
+   - firewall (built-in in windows) 
+3. **network setup**: an internet connection (preferably wi-fi)
+4. **account information**: create user accounts if needed, but keep passwords safe.
+
+### step-by-step guide to set up your laptop
+
+1. **initial setup**
+    - **start-up security check**
+        - turn off the "fast startup" feature while booting.
+          - press `shift` + `f10` during startup.
+        - enable automatic restart after 15 minutes.
+        - restart the computer.
+
+    - **defragmentation & virus scan (windows only)**
+        - right-click on “this pc” -> manage -> disk management
+        - find any corrupted files/disk spaces and fix them manually by dragging the partition over itself to defragment.
+        - use an online tool like malwarebytes' online scanner for a comprehensive checkup.
+
+    - **update drivers**
+        - visit [pcpartpicker](https://www.pcpartpicker.com/) to find compatible drivers.
+        - download from their official websites or trusted stores.
+        - for newer laptops, consider using the built-in device manager option.
+
+    - **secure boot mode activation (optional but recommended)**
+        - in bios settings, select uefi mode (advanced/bios > security).
+        - confirm secure boot is enabled. this prevents booting into malware-infected systems.
+
+2. **system software update**
+    - **automatic updates enabled**
+        - go to settings -> update & security -> windows update -> always get the latest available fixes (in the advanced tab).
+        
+    - **manual updates**
+        - open control panel > windows update > check for updates.
+        - if available, install updates immediately by clicking apply.
+
+3. **user accounts**
+    - **create accounts**
+        - click start > all apps > settings > account > family safety (optional).
+        - under user accounts section, click create account.
+        
+    - **password protection (recommended)**
+        - create complex password(s).
+        - keep it safe and secure; don’t share it publicly!
+
+4. **firewall configuration (built-in windows firewall)**
+    - **enable built-in firewalls**
+        - in system properties (right-click computer/my computer > properties), go to hardware tab -> devices -> network adapters -> select your adapter -> properties -> networking tab -> tcp/ip protocol -> change -> on local area connection -> ensure both boxes are checked -> ok -> close.
+
+5. **antivirus installation**
+    - **malwarebytes vs. others**
+        - download and install from the official website at [malwarebytes.com](http://malwarebytes.com).
+        - run the full scan daily.
+
+6. **regular maintenance**
+    - **clean ram**
+        - use third-party tools like memtest86++ (free download from site).
+
+    - **disk cleanup**
+        - right-click my computer > manage > disk management
+        - delete unused space to increase performance.
+
+### verification checklist
+1. **all drivers installed properly**
+    - use device manager to verify all components are recognized and running correctly.
+
+2. **no hidden viruses**
+    - perform another full virus scan using reputable antivirus software.
+
+3. **secure boot active**
+    - restart your laptop, press del (or f11/f12 depending on your model) key when windows starts loading.
+    - look for secure boot menu and ensure it’s selected and enabled.
+
+4. **up-to-date os**
+    - verify latest version via settings -> update & security -> windows update -> view detailed information.
+
+5. **user accounts created**
+    - launch ‘this pc’ -> right-click -> new -> other -> create account.
+
+### additional security measures
+1. **use strong passphrases:**
+   - do not reuse passwords across multiple sites.
+   
+2. **two-factor authentication (2fa):**
+   - enable this for your most important accounts (e.g., google, email services).
+   - for added protection, enable 2fa for sensitive apps and services.
+
+3. **keep software updated regularly (at least monthly):**
+   - important for preventing vulnerabilities exploited by hackers.
+
+4. **regular backups (at least once weekly):**
+   - use cloud storage solutions for backups; periodically sync local backup devices too.
+   
+5. **physical disposal plan:**
+   - know how you’ll properly dispose of old hardware once its end-of-life has arrived to protect your privacy.
+
+by following these

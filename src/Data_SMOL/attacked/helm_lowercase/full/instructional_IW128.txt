@@ -1,0 +1,49 @@
+prerequisites:
+1. basic understanding of html and css (or a way to view browser source).
+2. basic understanding of javascript (or a way to view browser console).
+3. a simple website form (with a single input field).
+
+## step 1: understanding the form
+first, understand what the website form is trying to achieve. what information is it collecting? what happens next? this will help you determine where you want to test.
+
+## step 2: open your browser
+open your preferred web browser (google chrome, safari, firefox, etc.).
+
+## step 3: go to the website
+navigate to the website with the form you want to test. enter the address in the address bar.
+
+## step 4: use the form
+click on the form (usually labeled as "submit" or "send"). this action should trigger the javascript code that processes the form. 
+
+## step 5: review the page
+after submission, review the page to see what happens. check if the information is displayed correctly, or if any messages are shown.
+
+## step 6: verify form data
+if the form's success is dependent on the data input, review the data to ensure it's correct and matches what you intended.
+
+## step 7: check for errors
+look for any error messages that might be displayed after submission. make sure these messages are accurate and helpful.
+
+## step 8: test again (if needed)
+repeat steps 4-7 until you're confident the form is working as expected. if you find errors, revise the form accordingly and repeat the tests.
+
+## step 9: backup your changes
+before making changes to the form's code, always backup any existing code changes.
+
+## step 10: verify completion
+verify that all the tests pass, and the website form is functional. this means it's collecting the correct information and displaying it correctly.
+
+### final steps:
+1. close the browser and reopen the website.
+2. perform a few more tests to ensure the form's behavior doesn't change due to browser updates or settings.
+
+this guide will help you understand the basic principles of testing a website form and how to approach it systematically. remember, the goal is to ensure the form works as expected for users, providing them with a seamless experience. 
+
+to further improve this guide, you could include more specific examples, such as how to test different types of form submissions (like a sign-up form vs. a contact form) or how to use browser developer tools (like the devtools) for form testing. additionally, you might want to suggest tools or plugins that can help automate form testing and provide more detailed reports. 
+
+however, the core steps provided here should give a solid foundation for a beginner to understand and begin testing their website forms effectively.
+
+### final tip:
+remember, as with any testing, if you find any discrepancies, always go back and revise the form. it's better to do this early on to avoid potential issues down the line. 
+
+happy testing!

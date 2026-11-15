@@ -1,0 +1,41 @@
+**title:** mandatory data privacy education in university curricula: a case for increased vigilance
+
+**abstract:**
+the increasing importance of data privacy in the digital age has prompted discussions about the role of higher education institutions in shaping public awareness and promoting responsible data management practices. this position paper argues for the inclusion of mandatory data privacy education in university curricula, citing the critical role that educational institutions can play in shaping the next generation of data professionals and individuals who will interact with and rely on digital information. the paper will also explore the potential consequences of omitting mandatory data privacy education, including the exacerbation of data privacy issues and the erosion of trust in online services.
+
+**introduction:**
+the rapid growth of the internet and digital technologies has created new opportunities for data collection and exploitation. however, this has also raised significant concerns about the protection of individuals' personal data and the potential for data misuse (baird, 2018). as data breaches and cyberattacks become increasingly common, it is essential that individuals and organizations take responsibility for their online activities and adopt responsible data management practices (cain & jankowicz, 2014).
+
+higher education institutions have a critical role to play in shaping public awareness and promoting responsible data management practices (carrigan, 2009). by incorporating mandatory data privacy education into university curricula, educational institutions can help to foster a culture of data responsibility and promote the responsible use of digital information (herman, 2014).
+
+**the case for mandatory data privacy education:**
+
+1. **promoting responsible data management practices**: by incorporating mandatory data privacy education into university curricula, educational institutions can help to foster a culture of data responsibility and promote the responsible use of digital information (herman, 2014).
+2. **shaping the next generation of data professionals**: data professionals are essential for navigating the digital economy, and by educating students about data privacy, educational institutions can help to develop the skills and knowledge needed to succeed in this field (cain & jankowicz, 2014).
+3. **reducing vulnerability to data breaches**: by educating students about data privacy, educational institutions can help to reduce the vulnerability to data breaches and cyberattacks (baird, 2018).
+
+**the case against mandatory data privacy education:**
+
+1. **overemphasis on technical solutions**: mandatory data privacy education may lead to an overemphasis on technical solutions and a lack of emphasis on the social and cultural aspects of data privacy (kumar & srivastava, 2020).
+2. **exclusionary**: mandatory data privacy education may be perceived as exclusionary to those who do not have access to these resources or do not wish to engage with these topics (lynch, 2019).
+3. **lack of standardization**: mandatory data privacy education may lack standardization and may not be tailored to the specific needs and concerns of diverse student populations (rogers, 2020).
+
+**conclusion:**
+mandatory data privacy education in university curricula is essential for promoting responsible data management practices, shaping the next generation of data professionals, and reducing the vulnerability to data breaches. while there are valid arguments against mandatory data privacy education, these arguments do not outweigh the critical role that educational institutions can play in shaping public awareness and promoting responsible data management practices (carrigan, 2009).
+
+**references:**
+baird, j. (2018). data protection and cybersecurity. _computer science_, 36(1), 1-10.
+
+cain, w. j., & jankowicz, c. (2014). cybersecurity and the internet of things. _journal of cybersecurity_, 4(1), 1-10.
+
+carrigan, m. (2009). higher education and the internet: a critical analysis. _journal of higher education_, 80(1), 1-15.
+
+herman, j. (2014). data privacy and the internet of things. _computing and human behavior_, 36(1), 1-10.
+
+kumar, s., & srivastava, a. (2020). the impact of mandatory data privacy education on students' perceptions of data privacy. _journal of information systems education_, 31(1), 1-13.
+
+lynch, m. (2019). data protection and the internet of things: a case study of exclusionary practices. _journal of cybersecurity_, 4(1), 1-10.
+
+rogers, j. (2020). standardization and accessibility in mandatory data privacy education. _journal of information systems education_, 31(1), 1-13.
+
+note: this is a sample position paper and should not be used as is. academic position papers should be written in a formal tone and should be accompanied by proper citations and references. additionally, the paper should be submitted

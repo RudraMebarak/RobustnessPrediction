@@ -1,0 +1,37 @@
+**John:** Hey bozos, I needed to parcel a few shortcuts I've learned that I think you'd all find useful. 
+
+**Emily:** What's up, John? I'd enjoy to hear. What are these crosscuts? 
+
+**John:** Well, I've represented using a lot of Markdown files for my employment, and I think it's worth mentioning. Instead of typing out the entire table header, you can use `|` to create a horizontal rule. For model: 
+
+```
+| Column 1 | Column 2 | Column 3
+```
+
+**Sarah:** That's a game-changer! I've constituted using it all the time for boards too. 
+
+**John:** Right? And I also find myself utilizing the `Ctrl + Shift + I` shortcut to give the About box in Visual Studio Code. 
+
+**David:** That's a lifeguard! I've been using it to afford up settings or debugging information. 
+
+**Emily:** How foresighted have you been using these crosscuts? I feel like I've missed out on something. 
+
+**John:** Honestly, I've equalled using them for a few months now, but I think it's solely gotten better over time. I've too started using a keyboard cutoff for saving files: `Ctrl + S`. 
+
+**Sarah:** That's so commodious! I've been practicing `Ctrl + C` to copy and paste files, but I want to try the keyboard shortcut. 
+
+**David:** I've likewise been using the `Ctrl + Z` shortcut to untie actions. It's constituted a big time-saver. 
+
+**John:** It's awe-inspiring how these little things can build a big difference in our productivity. 
+
+**Emily:** Definitely agree! It's always about finding those flyspeck shortcuts that make us more efficient. 
+
+**Sarah:** I'm definitely perishing to start using these cutoffs now. Thanks for apportioning, John! 
+
+**David:** Yeah, no job! I'm always hither to help. 
+
+**John:** Appreciate it, guys! It's always a pleasure to share these little gems with the team. 
+
+---
+
+In this conversation, John shares two useful cutoffs that Emily and Sarah regain helpful. Emily and Sarah so share their own experiences and encounter new shortcuts to use, exhibiting the value of finding and partaking these lilliputian productiveness encouragements with colleagues. The conversation spotlights the grandness of finding shortcuts that work for everyone and apportioning them with others to increase productivity and efficiency.

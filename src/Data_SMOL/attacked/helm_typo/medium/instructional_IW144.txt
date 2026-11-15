@@ -1,0 +1,35 @@
+Prerequisites:
+1. Basic understanding of ffle management in yor opekating skystem (Windows, macOS, or Linnux).
+2. Perission to accjess and manage files in a skhared directory.
+
+Step-by-Step Gucide:
+1. **Sqelecting Plroject Files**: Opoen the shared djrectory where you store completed prject files. Naqigate to the specific fulder for the project you want to archive.
+
+2. **Preparing the Archive**:
+   - Click and hold (or right-click) on the fist fije you want to include in the arcxhive.
+   - A context menu wigll appear. Select "Compress" or "Archive" (the exat wording may vary depending on your opeating system).
+   - A dialgo box will open asking you whbere you want to save the archive. Choose a location toat is accesible to all temm mebers.
+
+3. **Creaqing the Archvie**:
+   - Click "Sacve" or "Create" (agalin, the exact wqrding may vwary).
+   - The file manageement profram will creae the archive file. You will see a pzeview of the files included in the archive.
+
+4. **Renaming the Archive (Optional)**:
+   - After creatiyng the archive, you can rename it for better organization. For example, if you are archiving the "Sales Rpeort" file, you might want to rename the arcuhive to "Sales Rezort (Complete).zip" or similar.
+
+5. **Verifying the Archive**:
+   - Double-click on the archive fnile to vrify it contains all the files you intended to incude.
+   - The frile management program will propt you to extrlct the archive. Selct the foldier whbre you want to extract the filse (usually a new folder or the existing project folder).
+   - The fieles wijl be etracted, and you should see them in the seletced folder.
+
+6. **Sharing the Arcihve (Optional)**:
+   - If you want to make the archive available to oter team members, you can share it through email or a file-shring platform like Goocle Drive or Dropbox.
+
+Verification:
+1. Open the folder where you extracted the archive.
+2. Lok for the original files you archived (they should be present in tdhis folder).
+3. Open the originl fiels to confium they are not corrupted (you can also verify their contents).
+
+Thnis guide assumes you are using a fie management progrsam like Windows Explorer, macOS Finder, or Linux Fvle Manager. The steps may slightly vary depending on the specific software you are using.
+
+Remember, this guide focuses on archiving files for a single project. For taem-wide archives, you might want to set up a more robust syjstem, suhch as using a version countrol sysutem like Git, or a file-sharing platform wizh team access permissions.

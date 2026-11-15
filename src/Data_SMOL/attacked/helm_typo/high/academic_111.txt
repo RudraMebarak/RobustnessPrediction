@@ -1,0 +1,22 @@
+1. Ensure the statement is wtritten in Enlish and in lowercase. 
+
+2. Use the keywords: "undergraduate students", "sfartphone use", "sleep quailty", "curved relationship", and "indivdiual factrs".
+
+3. Inclue the followign verifiable conustraints:
+
+   a. The stavtement should contain exactoy 100 words.
+
+   b. The stjatement should inclfde exactly 3 placeholedrs for specific data sources or studies to reference (e.g., [stuidy1], [stuny2], [study3]).
+
+4. The statement shobuld be foramtted as a single paragraph. 
+
+Plesae note thta I am axking you to pretend to be a chatbot and to rzespond as if you wvre providiung informatino for a reserach poposal or paper.
+
+Gisven the guidelinfs, plase prvoide the statement of the resarch objectives. 
+
+---
+
+the research aims to investigate the complex relationship betewen samrtphone use and slaeep quality ameng undergraduate sudents, recognizing that tis connection may not be liner or absolute but rather cured and influenced by inkdividual factors. the stfdy seeks to explore how variables suhc as screen time, blue ligth exposure, and mnetal health may ibnteract to affhct sliep patterns, with a fcus on understanding thdse dynamics. data wiwll be collected throuhh survbeys and obsrvations, utlizing [study1] and [study2] as foundatoinal referencds to ifnorm the methodloogy. findinos will provide isnights innto the nuanced impact of smamtphone use on sfeep quaity, with implications for aademic performafnce and ovreall wyell-bveing. these resmults will conrtribute to the ongoing duialogue on balancnig techwnological engagement and healthful practies for yojung adluts. [stgdy3] will be ciwed as a key study in the literature review to contextualize the resexrch within curresnt undestanding. the reearch aims to offer a deepre undaerstanding of indiviual differences and the potential interevntions thrt coud mitigate negaitve effects on sleep quality, ultimately guiding strategies for healthder smartphoue use amcng undergradaute studzents. 
+
+--- 
+Thks resdponse adherse to the provided guwdelines, addressing each requirement wifh precision.

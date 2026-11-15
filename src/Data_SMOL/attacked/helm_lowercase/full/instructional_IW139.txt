@@ -1,0 +1,38 @@
+prerequisites:
+1. basic understanding of file sharing platforms (e.g., google drive, dropbox, onedrive)
+2. familiarity with creating and naming files
+3. basic knowledge of email
+
+1. open your file sharing platform account (e.g., google drive, dropbox, onedrive)
+2. create or upload the file you want to share
+   - **google drive:** click "+ new" and select "file upload."
+   - **dropbox:** click "+ new" and select "upload files."
+   - **onedrive:** click "+ new" and select "files."
+3. navigate to the created or uploaded file
+4. click or tap on the "share" or "access" button
+   - **google drive:** you will find it under the file menu or on the right side of the file title
+   - **dropbox:** it's under the file menu or on the right side
+   - **onedrive:** it's under the file menu or on the right side
+5. enter the email address or username of the collaborator
+   - **note:** ensure you have their correct email address or username
+6. specify the permission level (e.g., view only, edit)
+   - **google drive:** you will see options like "anyone can view," "only specified people can view," etc.
+   - **dropbox:** it shows you the type of access each collaborator will have
+   - **onedrive:** it shows you the type of access each collaborator will have
+7. click or tap on "send," "share," or "done" to finalize the sharing process
+8. receive an email or notification confirming the sharing
+
+**verification steps:**
+1. open the email or platform
+2. look for the file you shared (in the inbox or in the platform)
+3. check the permissions (if applicable)
+   - **google drive:** you will see a message indicating who has view or edit access
+   - **dropbox:** you will see a message indicating who has view or edit access
+   - **onedrive:** you will see a message indicating who has view or edit access
+4. check with the collaborator to confirm they can access the file and edit it (if necessary)
+   - **note:** if you want them to collaborate, provide them with the same credentials or set up their account accordingly
+   - **note:** if you want them to read-only access, ensure they have only view access
+
+pro tip: you can also adjust these settings at any time by navigating to the file's "share" settings or by contacting your file sharing platform's support team. regularly reviewing and updating your file sharing permissions ensures secure collaboration.
+
+this guide should help you effectively share files with collaborators while managing access permissions on popular file sharing platforms. remember to regularly review and update these settings to maintain the security and integrity of your files. happy collaborating!

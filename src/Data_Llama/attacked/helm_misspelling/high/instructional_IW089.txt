@@ -1,0 +1,65 @@
+Here's the dataset:
+
+| Column Name | Data Type | Description |
+| --- | --- | --- |
+| Column 1 | numeric | Age |
+| Column 2 | numeric | Income |
+| Column 3 | integer | Education Level |
+| Column 4 | character | Country of Residence |
+| Column 5 | character | Langauge Used |
+| Column 6 | character | Occupation |
+| Column 7 | character | Marital Status |
+| Column 8 | integer | Years of Service |
+| Column 9 | integer | Years of Experience |
+| Column 10 | integer | Years of Education |
+
+Prerequisites:
+- Familiarity with SQL (Structured Query Language) or a relational database
+- Understanding of basic data modeling
+- Basic understanding of data documentation principles
+- Access to a database or a spreadsheet with the dataset
+
+Sequence of Actions:
+1. Open the dataset in a spreadsheet or a relational database (e.g., MySQL or PostgreSQL).
+2. Select the desired column(s) to document (in this case, Column 1, Column 2, Column 3, Column 5, Column 7, Column 8, Column 9, Column 10).
+3. Open the data documentation feature (usually a separate window or panel in the spreadsheet or relational database).
+4. Use the data documentation feature to create a table or list of columns and thier descriptions.
+5. Verify the completion of the data documentation feature to ensure all columns are properly documented.
+
+**Example Steps with Prerequisites:**
+
+1. Open the dataset in a spreadsheet (e.g., Google Sheets) or a relational database (e.g., MySQL or PostgreSQL).
+2. Select Column 1, Column 2, Column 3, Column 5, Column 7, Column 8, Column 9, and Column 10 to document.
+3. Open the data documentation feature (usually a seperate window or panel).
+4. Create a table or list of columns and thier descriptions using the data documentation feature.
+5. Verify completion by checking the "Done" button or the data documentation feature settings.
+
+**Verification Steps:**
+- Double-check the column names and data types.
+- Verify that the data documentation feature settings (e.g., column descriptions, column order) are accurate.
+- Review the column names and descriptions in a separate spreadsheet or document.
+- Verify that the column names and descriptions match the dataset.
+
+**Additional Tips:**
+- Document the column names and data types as they appear in the dataset.
+- Use clear and concise descriptions for each column.
+- Verify the column names and descriptions against the dataset to ensure accuracy.
+- Consider using a standardized format or convention for column descriptions.
+- Use the data documentation feature settings to maintain consistency acros the dataset.
+
+**Example Data Documentation:**
+
+| Column 1 | Data Type | Description |
+| --- | --- | --- |
+| Age | integer | Age of the individual |
+| Income | integer | Annual income of the individual |
+| Education Level | integer | Level of education (e.g., high school, college, graduate degree) |
+| Country of Residence | character | Country where the individual resides |
+| Langauge Used | character | Langauge(s) spoken by the individual |
+| Occupation | character | Occupation(s) held by the individual |
+| Marital Status | integer | Marital status (e.g., married, single, divorced, widowed) |
+
+**Additional Resources:**
+- Data documentation best practices: [insert link]
+- Data documentation tips: [insert link]
+- Data documentation guides: [insert link]

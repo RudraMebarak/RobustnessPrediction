@@ -1,0 +1,77 @@
+You have a list of n pairs of friends, each pair (a_i,b_i), where a_i and b_i denote the eras of these friends. 
+It is possible to call one friend in era x to another friend in era y if |x-y| ≤ k, where k is some pre-defined constant. 
+
+Your task is to find the minimum number of calls needed so that all friends are connected. Two friends are connected if there is a chain of calls where the eras of consecutive friends in the chain are not far from each other.
+
+------ Input Format ------ 
+
+- The first line of input will contain two space-separated integers n and k.
+- The next n lines contain two space-separated integers a_i and b_i.
+
+------ Output Format ------ 
+
+Print one integer, the minimum number of calls needed to connect all the friends. 
+
+------ Constraints ------ 
+
+3 ≤ n ≤ 10^5 
+1 ≤ k ≤ 10^9 
+1 ≤ a_i,b_i ≤ 10^9
+
+----- Sample Input 1 ------ 
+4 1 
+1 3 
+4 5 
+1 1 
+4 4 
+----- Sample Output 1 ------ 
+3
+----- explanation 1 ------ 
+Here is the optimal way to connect all the friends with 3 calls 
+
+1 calls friend 1 (era 1) to friend 1 (era 1). 
+1 calls friend 4 (era 4) to friend 3 (era 4). 
+4 calls friend 4 (era 4) to friend 2 (era 5). 
+
+After these calls, the friendships between all the friends are connected. 
+
+----- time limit 1 second ------ 
+
+----- Memory limit 256 MB ------ 
+
+----- Scoring ------ 
+
+The score will be 100 if the output is not more than 2.5 times the correct answer. 
+The score will be 50 if the output is more than 2.5 times the correct answer but not more than 5 times the correct answer. 
+The score will be 25 if the output is more than 5 times the correct answer but other through messaging, file sharing, and other collaboration tools.
+* **Reporting and Analytics**: Project managers can generate reports and analytics to track progress and identify areas for improvement.
+
+Some potential challenges to address:
+
+* **User Adoption**: Getting team members to use the platform and adopt its features.
+* **Data Security**: Ensuring that sensitive data is protected and secure.
+* **Integration with Other Systems**: Integrating the platform with existing systems, such as ticket booking platforms or project management software.
+* **Scalability**: Ensuring that the platform can handle growing numbers of users and increasing amounts of data.
+
+To address these challenges, we can consider the following strategies:
+
+* **User Onboarding**: Provide thorough training and support to help team members get started with the platform.
+* **Data Encryption**: Use encryption technologies to protect sensitive data.
+* **API Integrations**: Use API integrations to connect the platform with other systems.
+* **Cloud Scalability**: Use cloud-based solutions 2.5 倍但不超过 5 倍，分数50 分 
+如果输出超过正确答案的 5 倍但不超过 8 倍，分数25 分 
+如果输出超过正确答案的 8 倍，分数0 分 
+
+提示 
+
+可能有用到的结构：priority_queue 
+
+请注意，由 @MellisaCao 指出
+
+指南
+
+说明
+
+有 n 个朋友，每个朋友都有一个时代 a_i 和 b_i，a_i 是这个朋友的出生时代，b_i 是这个朋友的死亡时代。 
+（请注意，a_i 可能等于 b_i，表示这个朋友还活着） 
+你可以从某个时代 x 叫某个朋友到另一个时代 y 的朋友，如果 x

@@ -1,0 +1,31 @@
+Prerequisites:
+1. Basic understanding of file management in your operating system (Windows, macOS, or Linux).
+2. Permission to access and manage files in a shared directory.
+
+Step-by-Step Guide:
+1. **Selecting Project Files**: Open the shared directory where you store completed project files. Navigate to the specific folder for the project you want to archive.
+
+2. **Preparing the Archive**:
+   - Click and hold (or right-click) on the first file you want to include in the archive.
+   - A context menu will appear. Select "Compress" or "Archive" (the exact wording may vary depending on your operating system).
+   - A dialog box will open asking you where you want to save the archive. Choose a location that is accessible to all team members.
+
+3. **Creating the Archive**:
+   - Click "Save" or "Create" (again, the exact wording may it easier to locate and archive files later.
+
+**Step 2: Identify Completed Files**
+Review your project files and identify which ones are completed. Completed files are those that are finalized, reviewed, and ready for archiving.
+
+**Step 3: Choose a Storage Solution**
+Decide on a storage solution for your archived files. This could be a cloud storage service like Google Drive or Dropbox, a local folder, or a project management tool. Ensure that the chosen storage solution has a search feature to help teammates locate archived files.
+
+**Step 4: Create a New Folder for Archiving**
+Create a new folder to store your archived files. Give the folder a descriptive name, such as "Completed Projects." This folder will serve as a central hub for archived files.
+
+**Step 5: Move Completed Files to the Archiving Folder**
+Move each completed file to the newly created archiving folder. You can use the file system or project management tool to drag and drop files into the folder. Make sure to follow the naming convention and categorization guidelines established earlier.
+
+**Step 6: Update Your Project Management Tool or File System**
+Update your project management tool or file system to reflect the change. This ensures that teammates can easily locate and access archived files. guide assumes you are using a file management program like Windows Explorer, macOS Finder, or Linux File Manager. The steps may slightly vary depending on the specific software you are using.
+
+Remember, this guide focuses on archiving files for a single project. For team-wide archives, you might want to set up a more robust system, such as using a version control system like Git, or a file-sharing platform with team access permissions.

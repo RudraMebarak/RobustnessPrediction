@@ -1,0 +1,106 @@
+additionally, add code examples in a language that beginners are most comfortable with (e.g., python) to ensure clarity.
+
+### unit test guide
+
+#### prerequisites
+- basic understanding of programming concepts
+- familiarity with your chosen development environment (ide or text editor)
+- knowledge of basic debugging techniques (optional but recommended)
+
+#### step 1: write your function
+your task is to write a small, self-contained program that does something interesting. for this guide, let's create a very simple example where we count from one to ten:
+
+```python
+def count_to_ten():
+    i = 1
+    while i <= 10:
+        print(i)
+        i += 1
+
+count_to_ten()
+```
+
+save this as `count_to_ten.py` and execute it using python by running:
+
+```bash
+python3 count_to_ten.py
+```
+
+### step 2: set up your development environment
+for simplicity, assume you're working in a local directory structure like this:
+
+```
+/your_project
+   /src
+      /main.py
+   /test
+      /unit_tests
+         /main_test.py
+```
+
+### step 3: create your first test
+in `/test/unit_tests/main_test.py`, define a test case called `testcounttoten`. this will be used later to check our implementation:
+
+```python
+import unittest
+from src.main import count_to_ten
+
+class testcounttoten(unittest.testcase):
+
+    def test_count_to_ten(self):
+        # arrange (setup)
+        expected_output = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+        
+        # act (execute)
+        actual_output = []
+        result = count_to_ten()
+
+        # assert (check results match expectations)
+        self.assertequal(expected_output, actual_output)
+```
+
+### step 4: run the tests
+you need to use an automated testing framework such as `unittest` in python. running the `main_test.py` script should trigger all tests:
+
+1. navigate to the root project directory (`/your_project`). 
+2. open your terminal.
+3. execute the following command to run your test file:
+
+   ```bash
+   python3 -m unittest discover . --start-directory=test --verbose
+   ```
+
+### step 5: verify completion
+after running `discover`, if everything goes well, no error messages should appear, indicating successful execution. you can also manually inspect the console output (in the current session) to see what was executed.
+
+### additional tips
+- **mocking**: sometimes functions cannot be mocked directly. in such cases, use mocking libraries like `mock`.
+- **dependency injection**: if your function depends on external modules, consider injecting them via dependencies management tools.
+- **unit vs integration tests**: unit tests are specific to individual components and focus solely on isolated functionality whereas integration tests deal with interactions between multiple parts or systems.
+
+this guide provides a foundational approach to writing simple unit tests. remember, practice makes perfect! as your experience grows, try integrating more complex scenarios into your tests. happy coding! 
+
+### code snippets recap
+1. **function implementation**:
+   - defined in `/src/main.py`: `count_to_ten()`.
+   
+2. **test case creation**:
+   - created in `/test/unit_tests/main_test.py`, inheriting from `unittest.testcase`.
+   - defined test method `test_count_to_ten()` which checks the output against expected values.
+   
+3. **running the tests**:
+   - utilized `python3 -m unittest discover . --start-directory=test --verbose` command.
+   - ensured there were no errors indicating successful execution. manual inspection confirmed results.human-comprehensible output verification:
+
+   ```
+   ...output matches "expected output"
+   ...output matches "actual output"
+   success
+   ```
+
+4. **verification steps**:
+   - use ides' built-in coverage analyzers or specialized testing frameworks (like pytest or pytest-cov) to assess code coverage post-tests.
+   - review any failure messages printed during the tests for insights on why some code paths failed.  
+   - consider running additional smaller-scale tests to validate edge-cases before moving on to larger scale feature validations. 
+
+by following these steps, you'll have successfully written, ran, and verified your first set of unit tests. congratulations! continue developing, and keep learning new skills along the way. happy coding! 🚀👩‍💻👨‍💻👨‍💻✨👏🏼🏆🎊🌈🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟

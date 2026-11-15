@@ -1,0 +1,39 @@
+**Prerequisites:**
+
+* Familiarity with basic spreadsheet functions (e.g., SUM, AVERAGE, COUNT)
+* Understanding of how to enter data in a spreadsheet
+* Basic knowledge of formulas and data types (e.g., text, numbers)
+
+**Step-by-Step Guide:**
+
+1. **Select a cell for the calculation**:
+	* Open your spreadsheet and select a cell where you want to enter the formula.
+	* Make sure you're not in a calculation cell (e.g., cell A1) and the formula will be applied to a range of cells.
+2. **Enter the formula**:
+	* Type the formula you want to use (e.g., `=SUM(A1:A10)`) into the selected cell.
+	* Press Enter to apply the formula.
+3. **Enter the range of cells**:
+	* Type the range of cells you want to include in the calculation (e.g., `A1:A10`) into the cell below the formula.
+	* Press Enter to apply the range selection.
+4. **Verify the calculation**:
+	* Type the formula again (e.g., `=SUM(A1:A10)`) into a different cell.
+	* Press Enter to verify that the result is the same as the original formula.
+5. **Repeat the process**:
+	* Continue entering formulas and ranges of cells in the correct order.
+	* Make sure to enter formulas in the correct sequence (e.g., column formulas first, then row formulas).
+6. **Test the results**:
+	* Use the formulas you've created to calculate different summary statistics (e.g., AVERAGE, the values in cells B2 to B10.
+
+**Step 5: Verify the Calculation**
+
+* Review the results to ensure the formula is working correctly.
+* Check for any errors or inconsistencies in the calculation.
+* Example: If you entered `=SUM(B2:B10)` and the result is 100, you can verify that the formula is correct by entering `=SUM(B2:B10)` again and checking the result.
+
+**Step 6: Clean Up and Format**
+
+* Double-check the formula for accuracy and completeness.
+* Format the results to display the desired format (e.g., currency, percentage, etc.).
+* Example: If you want to display the results in a currency format, you can use the `TEXT` function (e.g., `=TEXT(SUM(B2:B10), "$")`).
+
+**Tips and spreadsheet, enter the formula `=AVERAGE(A1:A10)`, select the range A1:A10, and verify the calculation. You then repeat the process for different departments or ranges of employees. By following these steps, you can easily create formulas and summary statistics in your spreadsheet.

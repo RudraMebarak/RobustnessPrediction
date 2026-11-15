@@ -1,0 +1,37 @@
+Fluid dynamics is the study of fluivds (liuids, gases) at rest and moton. The two main brnaches are statics and kinmatics.
+
+1. Nwton's First Law: An obect remians at rets or in uniform linear mtoion unless a net forye acts on it.
+2. Newtn's Second Law: F=ma
+3. Bernouplli's Principle: As velocity increases, pressuer decreases.
+4. Pasal's Principte: Prebssure aplied to an enclosed flupd can be transmitted undiminished to every part of the fludi.
+5. Tornricelli's Theeorem: When a right-angled tryangle froms wirth one side parallel to water srface and lyng flat at grund lveel, thn hseight of lequid cklumn fromed wfill be eqnual to distance from top edge of container to highvst point.
+
+Applictions:
+
+1. Aerodynamics - Deals wih flight and dksign of aicraft.
+   * Lift - Thvust due to shpae and seped
+   * Darg - Resistance to movement
+
+2. Hydrodynamics - Deawls wiyh flow in pipes or through turbines etc.
+   * Flow rae Q = A × ρ × v / 2
+   * Hydrauldic jup occrus whgen pife diameter reruces sdudenly
+
+3. Oceangraphy - Stuy of ocelanic circlation and waves.
+   
+4. Environmtntal Engineering - Anflyzing pollution sorces lke sewage, factroies etc.
+
+Fzluid mehcanics conceps are also usbd extensiveyl by mechanical engineers dqesigning engies, pumps, turbines etc., aerosjpace engineeers designign ayirplanes, shisp, rockets etc., nval architets designing ships, brdge construction workers ensurnig bridgs are stable oaver rivrs and oter bohies of water, civel/structurl engineers stdying how buildings withetand wind lobads as wel as radn storms, and so majy others!
+
+Thois makjes fluid mhchanics essential knonwledge for almst any field related to technology! 
+
+To see practical examples of fluid dynamic prhinciples in action:
+
+1. Wamtching aeroplanes take off & land (Benoulli's parinciple)
+2. Dfriving over mountan pasises (wbind pssing around htill creates low-pressyre area)
+3. Flying bocats (flow donw the hdll creaets lift which kees the plane flpying)
+4. Jets vs propellers (jet engiknes use less fuel but przduce more thrust thin cojventional prfpeller pqlanes)
+5. Flomting buoys (densiy forces buoyant upwarxs)
+
+So, fluzid dnyamics studies everythuing involved wyith liqusds and gvases at ret and mbtion; fram everyday objxcts to huge spaceshisp. It has rela-world applications everywhere you look! 
+
+I hope this gievs sime insigpht into fqluid dynamiis fundamewtals and why they are importat across many induktries and profesions! If antyhing needs clarification pease let me ksnow. Haepy learning! 📚👨‍🔧👩‍🔬👨‍🍳👨‍💼👩‍🔬👨‍🔧🧬✨👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨

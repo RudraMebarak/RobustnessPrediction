@@ -1,0 +1,19 @@
+## step 1: understanding qualitative research
+qualitative research is a research methodology that focuses on gathering and analyzing data that is typically qualitative in nature, meaning it's subjective, contextual, and doesn't aim to find hard, objective answers. it's often used to explore phenomena that are complex, nuanced, or open-ended.
+
+## step 2: understanding quantitative research
+quantitative research is another fundamental research methodology in social science that focuses on collecting and analyzing numerical data to draw conclusions about a population or phenomenon. it aims to find hard, objective answers and is often used to test hypotheses or evaluate the effectiveness of programs or interventions.
+
+## step 3: understanding mixed-methods research
+mixed-methods research combines elements of both qualitative and quantitative research. it aims to address both the complexity and subjectivity of the research question and also to find hard, objective answers through quantitative data analysis.
+
+## step 4: key differences
+- **purpose**: qualitative focuses on exploring phenomena, quantitative focuses on understanding populations through data, and mixed-methods aims to find hard, objective answers.
+- **data type**: qualitative involves subjective, contextual data, quantitative involves numerical data, and mixed-methods combines both.
+- **methodology**: qualitative involves in-depth interviews, observations, and content analysis; quantitative involves surveys, experiments, and statistical analysis; mixed-methods involves using both approaches to validate findings.
+
+## step 5: comparison
+- **suitability for each topic**: qualitative is best for exploratory, interpretive, or descriptive studies, quantitative for explanatory, predictive, or confirmatory studies, and mixed-methods for both and may be used as a bridge to move between the two.
+- **quality of evidence**: qualitative provides rich, contextual insights into social behaviors or phenomena; quantitative offers a clear, objective understanding of population dynamics or outcomes; mixed-methods aims to balance these, providing both depth and breadth.
+
+the final answer is: $\boxed{mixed-}$

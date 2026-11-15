@@ -1,0 +1,37 @@
+Fluid dynamics is the study of fluids (liquids, gasolenes) at rest and motion. The two main arms are statics and kinematics.
+
+1. Newton's First Law: An object stays at rest or in uniform linear motion unless a net force acts on it.
+2. Newton's Second Law: F=ma
+3. Bernoulli's Principle: As velocity increases, pressure decreases.
+4. Pascal's Principle: Pressure applied to an enclosed fluid can be communicated undiminished to every part of the fluid.
+5. Torricelli's Theorem: When a right-angled trilateral forms with one position parallel to weewee surface and lying flat at ground level, then height of liquid column moulded will be equal to distance from top sharpness of container to highest point.
+
+Applications:
+
+1. Aerodynamics - Stacks with flight and purpose of aircraft.
+   * Lift - Thrust due to shape and speed
+   * Drag - Underground to movement
+
+2. Hydrodynamics - Deals with flow in pipes or through turbines etc.
+   * Flow pace Q = A × ρ × v / 2
+   * Hydraulic leap occurs when pipe diameter reduces suddenly
+
+3. Oceanography - Study of oceanic circulation and waves.
+   
+4. Environmental Engineering - Studying contamination sources like sewage, factories etc.
+
+Fluid mechanics concepts are also used extensively by mechanical technologists designing engines, tickers, turbines etc., aerospace engineers contriving planes, ships, skyrockets etc., naval architects designing ships, nosepiece construction workers ensuring bridges are stable over rivers and other bodies of piddle, civil/structural technologists studying how edifices withstand wind loads as advantageously as rain tempests, and so many others!
+
+This wee-wee fluid mechanisms substantive knowledge for nigh any theater related to engineering! 
+
+To see practical lessons of smooth dynamic principles in action:
+
+1. Watching aeroplanes take off & state (Bernoulli's principle)
+2. Driving over muckle passes (wind passing about hill creates low-pressure expanse)
+3. Vaporizing boats (run down the hull makes rhytidectomy which keeps the plane vanishing)
+4. Jets vs propellors (jet engines use less fuel but produce more thrust than conventional propeller planers)
+5. Floating buoys (density forces buoyant upwards)
+
+So, fluid dynamics studies everything required with liquids and flatulencies at rest and motion; from everyday objects to huge spaceships. It has real-world applications everywhere you look! 
+
+I trust this throws some insight into smooth dynamics fundamentals and why they are important across many industries and professions! If anything involves clarification please let me know. Well-chosen encyclopedism! 📚👨‍🔧👩‍🔬👨‍🍳👨‍💼👩‍🔬👨‍🔧🧬✨👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨‍💼👨‍🔧👨‍💼👨‍🔧👩‍🏫👨

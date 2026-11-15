@@ -1,0 +1,37 @@
+**Prerequisites:**
+
+* Familiarity with Microsoft Excel 2013 (or newer) or a similar spreadsheet software.
+* Understanding of basic spreadsheet concepts (e.g., formulas, data types, data ranges).
+
+**Step-by-Step Guide:**
+
+1. **Select a worksheet**: Open the spreadsheet that contains the data you want to summarize.
+2. **Create a header row**: Create a header row to organize your data. This row should include the column headers (e.g., column A, column B, column C).
+3. **Enter data**: Enter the data you want to summarize in a separate sheet or range (e.g., column A through column E).
+4. **Create a pivot table field**: Select a field from the data that you want to use as the data source for your pivot table (e.g., column A).
+5. **Select a pivot table field**: Select a field from the data that you want to use as the data source for your pivot table (e.g., column B).
+6. **Drag the field to the "Summarize by" field**: Drag the field you want to use as the data source for your pivot table to the "Summarize by" field (e.g., column C).
+7. **Create the pivot table**: Click "Create PivotTable" or press F1 (Function Key the data is correctly summarized and the values are as expected.
+
+**Verification Steps:**
+
+* Verify that the pivot table is correctly formatted, with the correct number of rows and columns.
+* Check that the data is correctly summarized, with the expected number of rows and columns.
+* Verify that the pivot table is not showing any errors or warnings.
+
+**Tips and Best Practices:**
+
+* Use the "Row Labels" and "Column Labels" dropdown menus to create a clear and organized layout.
+* Use the "Values" dropdown menu to select the correct column(s) for the summary.
+* Filter the data as needed to focus on specific aspects of the data.
+* Use the "PivotTable Settings" dialog box to customize the pivot table, such as changing the row and column labels.
+
+By following row, drag the field to the "Summarize by" field instead of the "Summarize values" field.
+* To use the "Summarize values" field as a row, drag the field to the "Summarize values" field instead of the "Summarize by" field.
+
+**Troubleshooting:**
+
+* If the pivot table is not creating, try deleting the pivot table and starting over (or using the "Clear all" option).
+* If the pivot table is creating correctly, but not showing the desired data, try selecting a different field as the data source.
+
+By following these steps and tips, you should be able to create a pivot table in Excel to summarize your data. Happy data summarizing!

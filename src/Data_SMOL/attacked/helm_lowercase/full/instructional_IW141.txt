@@ -1,0 +1,94 @@
+prerequisites: 
+1. knowledge of the basics of ms word or google docs.
+2. access to the shared document you want to collaborate on.
+3. basic understanding of file sharing and editing.
+
+the guide should be clear and concise, focusing on simplicity and clarity.
+
+**step-by-step guide: collaborating on a document and tracking revisions**
+
+**part 1: preparing for collaboration**
+
+1. open the document you want to collaborate on using either ms word or google docs.
+2. if you're using ms word, make sure you have the latest version installed.
+3. if you're using google docs, ensure you're logged in to your google account.
+
+**part 2: sharing the document**
+
+1. if the document isn't already shared with others, find the 'share' option (usually found in the 'file' tab or top-right corner).
+2. select the desired recipients and choose how they'll access the document (view only or edit).
+3. copy the sharing link or embed code (for google docs).
+
+**part 3: editing and tracking changes**
+
+1. open the shared document in a new tab or window.
+2. start editing the document by clicking and typing, as usual.
+3. when you want to track changes, use the 'track changes' feature (usually found in the 'review' tab).
+4. click 'track changes' to enable it.
+
+**part 4: viewing and responding to changes**
+
+1. use the 'view changes' option (usually found in the 'review' tab).
+2. you'll see all the changes made by others and your own edits highlighted.
+3. click on a change to view the revision history or respond to it.
+
+**part 5: finalizing and saving the document**
+
+1. when you're satisfied with the document and revisions, click 'review' and then 'submit' (in ms word) or 'done' (in google docs).
+2. your final document will be saved, and the shared link or embed code can be provided to the recipient.
+
+**part 6: verifying completion**
+
+1. open the shared document again to ensure everything is as expected.
+2. check for any unreviewed changes or revisions.
+3. if everything looks good, you've successfully collaborated and tracked revisions.
+
+example:
+
+> i collaborated on a document with my team to outline a marketing campaign. we shared the document, tracked changes using ms word, and submitted the final version for approval. by following these steps, we ensured everyone was on the same page and had a clear record of our revisions.
+
+remember, practice makes perfect! take your time, and you'll become more comfortable with collaboration and tracking revisions as you continue to work on documents. 
+
+by following these steps, you'll be able to effectively collaborate on documents and track revisions while working with others online. this guide will help you avoid confusion and ensure a smooth editing process. 
+
+to ensure accuracy and completeness, always double-check the shared document for any unreviewed changes or revisions before finalizing the document.
+
+now, you're equipped to collaborate on a document with confidence and precision. happy writing! 
+
+---
+
+**common issues and solutions:**
+
+*   if you're having trouble finding the 'track changes' feature, look for it in the 'review' tab or press 'ctrl + alt + t' (for ms word) or 'cmd + alt + t' (for google docs).
+*   if you're having trouble viewing changes, make sure you're using the 'view changes' option (usually found in the 'review' tab).
+*   if you're having trouble saving the final document, ensure you've clicked 'submit' or 'done' after reviewing all changes.
+
+by addressing these common issues, you can efficiently collaborate on documents and track revisions while working with others online.
+
+**final tips:**
+
+*   use clear headings and consistent formatting to make the document easy to read.
+*   keep track of changes and revisions in a separate document or spreadsheet for easy reference.
+*   ask for feedback and input from your team members to ensure the document meets everyone's expectations.
+
+by following these tips, you can create high-quality documents that are both accurate and engaging.
+
+now you are ready to collaborate on a document with confidence and precision. take your time, and you'll become more proficient with each project you work on. happy collaborating!
+
+---
+
+**sample document (for ms word):**
+
+> this is a sample document for ms word. you can use this as a guide to create your own document. remember to track changes and ensure everyone is on the same page when collaborating.
+
+---
+
+**sample document (for google docs):**
+
+> this is a sample document for google docs. you can use this as a guide to create your own document. remember to track changes and ensure everyone is on the same page when collaborating.
+
+---
+
+**conclusion:**
+
+in conclusion, this step-by-step guide

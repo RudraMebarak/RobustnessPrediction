@@ -1,0 +1,60 @@
+They each have a 50% chance of pissing their decision based on the following criteria:
+
+- If they are in a safe mood, they will prefer the home version with certainty.
+- If they are not in a estimable climate, they flip a coin to settle between the home version (heads) and croaking to the film (tails).
+- The chance that both admirers are in a good mood is $\frac{1}{4}$.
+
+If one friend is currently in a bad mood and the other is in a ripe modality, calculate the expected value for the full distance moved by all three allies if the film distance is doubly the home distance.
+
+To mold the expected value for the full distance traveled by all three friends, we need to consider the possible outcomes of their decisions and the associated probabilities. Let's recrudesce it down step by step.
+
+### Step 1: Decide the spaces
+Let \( D_H \) be the space from your dwelling to the film, which is devoted as the cinema distance.
+The aloofness from your home to your acquaintances' homes are:
+\[ d_1 = D_H + d_{1H} \]
+\[ d_2 = D_H + d_{2H} \]
+
+### Step 2: Calculate the distance for each friend's motion
+For your friends:
+- Inciting from your house to your friends’ abodes charters distance \( d_1 \) if you choose the menage rendering or \( d_2 \) if you select the cinema.
+- Inciting from your friends’ places backward to your home packs space \( d_1 \) if you select the house interpretation or \( d_2 \) if you opt the cinema.
+- Actuating from your friends’ homes back to your friends’ plates takes aloofness \( d_1 \) if you choose the plate rendering or \( d_2 \) if you choose the cinema.
+- Moving from your friends’ households rearward to your friends’ bases packs distance \( d_1 \) if you take the abode version or \( d_2 \) if you choose the cinema.
+
+### Step 3: Probability analysis
+Each friend has an adequate chance of either preferring the home version or going to the cinema. Therefore, the chance that any protagonist chooses the household version is:
+\[ P(\text{choose base}) = P(\text{choose film}) = 0.5 \]
+
+### Step 4: Expected values
+We need to cypher the expected value for the total distance moved by all three friends for the cinema distance font (\( d_1 \)) and the home space showcase (\( d_2 \)).
+
+#### Case 1: Cinema length
+For every motility ca-ca (home to friends’ home, friends’ abode to friends’ abode, friends’ home to friends’ home), there are two picks:
+1. Home -> Friends' base -> Friends' home -> Friends' home -> Home
+2. Home -> Friends' home -> Friends' home -> Friends' home -> Cinema
+
+The probability of leasing these relocations alternately follows binomial trials with respect to flipping a clean coin (drumheads → abode, tracks → cinema). 
+
+Total number of moves per cycle = 8 (since proceeding 4 multiplications refund us to our starting position). Each time we return to startle substances we’ve actuated over precisely one total circle tripper considering symmetry since the somersaults are balanced equally:
+  
+So,
+- One-half of these moves would use headsprings, corresponding 
+to moves guided from your home to friends’ family to friends’ place to friends’ home to friends’ menage to your place again
+- Other half USA nates, conducting to moves leased from your base to friends’ base to friends’ menage to friends’ home to cinema.
+
+Thus, there are four complete cycles where each complete set results in zero net aloofness journeyed except for final stage of place and film trips.
+
+Overall, the entire distance went remains effectively unchanged regardless of choice due to symmetry and even distribution.
+
+### Conclusion
+Since every type of movie pick does not sham overall accumulative space locomoted due to symmetry and independence across bouts, expectation thus matches zero length travelled irrespective of choice:
+
+\[
+E[\text{Entire distance}] = 0
+\]A granger wants to fence a rectangular airfield habituating precisely 100 beats of fencing material. The farmer decides to use region of the being fence along one side of the rectangle as part of the perimeter. Calculate the dimensions of the study that maximise its area. To solve this job, let's specify the variables first. Let the distance of the field parallel to the being fencing be \( L \) and the width of the theatre perpendicular to the living fencing be \( W \). Since the granger is using persona of the subsisting fencing as function of the perimeter, entirely three inclines of the rectangle require arguing material. This gives us the equation:
+
+\[ L + 2W = 100 \]
+
+We can express \( L \) in prices of \( W \):
+
+\[

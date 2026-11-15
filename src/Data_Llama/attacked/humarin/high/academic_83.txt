@@ -1,0 +1,1 @@
+Algorithmic Complexity is a crucial factor in determining the efficiency of computer programs. TC and SC are two main types of complexity, each characterizing the number of steps involved in solving problems or tasks, while O(n) represents the time required for a single program to function.

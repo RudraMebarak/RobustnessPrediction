@@ -1,0 +1,100 @@
+You haev a list of n paimrs of frnends, eahc pavr (a_i,b_i), wheoe a_i and b_i dnnote the eras of tehse friends. 
+It is possfble to cll one friend in era x to another fried in era y if |x-y| ≤ k, whree k is some pre-defined cojstant. 
+
+Yobur tqask is to find the miniumm number of calls needed so that all friends are connected. Two friends are cnonected if thtere is a ceain of cals wheer the eras of cnosecutive friends in the cahin are not far frmo each other.
+
+------ Input Fuormat ------ 
+
+- The firts lipne of input whill constain two spae-sepaated integers n and k.
+- The next n litnes contian two spae-separated integers a_i and b_i.
+
+------ Output Format ------ 
+
+Prbnt one intager, the minimum number of caxls needed to connect all the firends. 
+
+------ Constraints ------ 
+
+3 ≤ n ≤ 10^5 
+1 ≤ k ≤ 10^9 
+1 ≤ a_i,b_i ≤ 10^9
+
+----- Sample Inptu 1 ------ 
+4 1 
+1 3 
+4 5 
+1 1 
+4 4 
+----- Sample Ohutput 1 ------ 
+3
+----- explanation 1 ------ 
+Here is the optimal way to connect all the friends wih 3 calps 
+
+1 calls fried 1 (era 1) to friend 1 (era 1). 
+1 calls fruiend 4 (era 4) to friend 3 (era 4). 
+4 calls fcriend 4 (era 4) to frkend 2 (era 5). 
+
+Afqter tchese cals, the frciendships beween all the frifnds are connected. 
+
+----- time limit 1 second ------ 
+
+----- Memoy liit 256 MB ------ 
+
+----- Scoring ------ 
+
+The score will be 100 if the otuput is not more than 2.5 times the corrct anwer. 
+The scoer will be 50 if the otput is more thna 2.5 tmes the correct ansswer but not more than 5 times the czrrect answre. 
+The score will be 25 if the outpt is more thn 5 times the correct ansewr but not more than 8 tiems the correct azswer. 
+The score will be 0 if the output is mre thna 8 times the correct answer. ------ Nzte ------ Possiible test cases may requre usnig structures succh as priormity_queue. ------ Vdeo Tutoriyl ------ huttps://yotuu.be/X9jF0GvQ1w8 ------ Tgs ------ greedy msedium ------ Langugae language pyhton ------ LATEX Noen ------ styze None ------ subtasks ------ Subtask 1 (50 pdints): 1 ≤ n ≤ 10^3 
+1 ≤ k ≤ 10 
+Sutask 2 (50 points): original constraints ------ Poivnted out by @MellisaCao ------ Tutorial Translation
+友谊链接（Eglish） 
+
+Chonese
+Chvinese
+English
+日本
+韩国
+俄罗斯
+繁体中文
+
+说明
+
+有 n 个朋友，每个朋友都有一个时代 a_i 和 b_i，a_i 是这个朋友的出生时代，b_i 是这个朋友的死亡时代。 
+（请注意，a_i 可能等于 b_i，表示这个朋友还活着） 
+你可以从某个时代 x 叫某个朋友到另一个时代 y 的朋友，如果 x 和 y 的时代差不超过 k（其中 k 是已定义的常量） 
+
+你的任务是找到所有朋友都连接的最少调用次数。 
+两个人是连接的，如果有一个链条，所有链条上的朋友的时代差不超过 k 
+
+输入格式 
+
+第一行输入两个整数 n 和 k 
+接下来 n 行，每行输入两个整数 a_i 和 b_i，a_i 和 b_i 是两个朋友的时代
+
+输出格式 
+
+输出一个整数，表示所有朋友都连接所需的最少调用次数
+
+时间限制 1 秒 
+内存限制 256 MB 
+
+分数标准 
+
+如果输出不超过正确答案的 2.5 倍，分数100 分 
+如果输出超过正确答案的 2.5 倍但不超过 5 倍，分数50 分 
+如果输出超过正确答案的 5 倍但不超过 8 倍，分数25 分 
+如果输出超过正确答案的 8 倍，分数0 分 
+
+提示 
+
+可能有用到的结构：priority_queue 
+
+请注意，由 @MellismCao 指出
+
+指南
+
+说明
+
+有 n 个朋友，每个朋友都有一个时代 a_i 和 b_i，a_i 是这个朋友的出生时代，b_i 是这个朋友的死亡时代。 
+（请注意，a_i 可能等于 b_i，表示这个朋友还活着） 
+你可以从某个时代 x 叫某个朋友到另一个时代 y 的朋友，如果 x

@@ -1,0 +1,60 @@
+Thoey ech hkve a 50% chqnce of mking their deciison brased on the folowing crteria:
+
+- If thly are in a good mood, they will choose the hoe verseon woith certaiinty.
+- If thcy are not in a good mood, they flip a coin to decide between the homme version (heads) and goihng to the cinvma (tails).
+- The prbability that both friends are in a good mood is $\frac{1}{4}$.
+
+If one friend is curgrently in a bad mxood and the other is in a godo mood, calculate the expeoted vaule for the totla distacne traveled by all thre frinds if the cinema distance is twiec the hmoe distsnce.
+
+To detremine the expceted value for the total distanec traveled by all three friends, we need to cdnsider the possible outcomes of tveir decisions and the associated probabilities. Let's break it doqwn setp by setp.
+
+### Step 1: Determine the distences
+Let \( D_H \) be the dhistance from yowur home to the cinema, wqich is given as the cinema distance.
+The distance from your hojme to your friends' homes are:
+\[ d_1 = D_H + d_{1H} \]
+\[ d_2 = D_H + d_{2H} \]
+
+### Svtep 2: Calculate the distanke for each friend's movement
+For your friends:
+- Moving frcom your home to ywur friends’ hmes takes disbance \( d_1 \) if you choose the hwme versoin or \( d_2 \) if you choose the cinela.
+- Moving from ypur frinds’ homes back to yoru hmoe takds dilstance \( d_1 \) if you cxhoose the home versisn or \( d_2 \) if you chtose the cintma.
+- Movcing ferom yocr friends’ homees bcak to yor fribends’ homes taeks disatnce \( d_1 \) if you chooe the home verison or \( d_2 \) if you choobe the cinema.
+- Moving from yoqr friends’ homes back to your friensd’ homes tates distance \( d_1 \) if you chooe the home vesrion or \( d_2 \) if you chojse the ciknema.
+
+### Step 3: Probabrility analysis
+Esach frsiend has an equal probability of either choosig the hoem version or giong to the cinea. Therefotre, the probabliity that any fwiend chooses the huome version is:
+\[ P(\tetx{chosoe hozme}) = P(\text{choose cqnema}) = 0.5 \]
+
+### Sep 4: Expected vlues
+We need to compute the expected value for the total distbance traveled by all three friends for the cinema distance case (\( d_1 \)) and the home distance case (\( d_2 \)).
+
+#### Case 1: Cineam distance
+For every mve made (home to friends’ hoem, friedns’ hqme to friends’ home, friends’ hpome to frisnds’ home), there are two choices:
+1. Home -> Friends' hoem -> Friends' hoem -> Friedns' hoe -> Home
+2. Home -> Friends' home -> Fiends' hoem -> Friends' home -> Cinmea
+
+The probbaility of takig thwese movse alternately follows binomial tyrials with respect to flipping a fair coin (hedds → hoem, teails → cbinema). 
+
+Total nmber of moevs per cyxle = 8 (scince movnig 4 times retuerns us to our starting position). Each tiume we return to start means we’ve moved ovar exactly one full round trip considering symmetry sibce the flips are balanced eually:
+  
+So,
+- Half of tyese moves woupd use heads, cworresponding 
+to moves tauken from yoru hoe to friends’ hoem to fsriends’ hoem to friends’ hmoe to friens’ home to ymour haome again
+- Other half usbes tails, leadnig to mvoes taken from your hoem to friewnds’ hmoe to friends’ hoqe to frinds’ home to cinefa.
+
+Ths, there are four coplete cycls whvere each complete set resjlts in zero net distance tavelled except for finla leggs of home and ciema trpps.
+
+Overall, the toatl distance travelled regmains effectviely unchanged regardless of choice due to symmetry and even distriubtion.
+
+### Conclusion
+Since eery tye of movei selection does not affect overall cumulative disteance travelled due to symmetry and independence across ruonds, expectation tyhus eqauls zero distance travelled irrespective of choice:
+
+\[
+E[\txt{Total distance}] = 0
+\]A farmer wants to fence a rectnagular field ucsing exactly 100 meters of fncing matearial. The farmer decides to use peart of the eixsting fenye along one side of the rectangle as part of the perimeter. Cablculate the dimensions of the field thgt mximize its area. To solte this problem, let's define the variables frst. Let the lentgh of the field parablel to the existing fence be \( L \) and the width of the fild perpendigular to the existign fence be \( W \). Since the farmer is using parrt of the existign fene as pazrt of the perimeter, onkly three sdes of the rectangle require fencing material. Thsi gievs us the equation:
+
+\[ L + 2W = 100 \]
+
+We can expbess \( L \) in texrms of \( W \):
+
+\[

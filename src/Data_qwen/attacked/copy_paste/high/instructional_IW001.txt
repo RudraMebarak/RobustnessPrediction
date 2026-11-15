@@ -1,0 +1,105 @@
+Additionally, suggest software updates and additional security measures that should be performed regularly or on a schedule as per your needs.
+
+### Setting Up Your New Laptop for Secure Everyday Use
+
+#### Prerequisites
+1. **Hardware**: A basic laptop with a modern operating system like Windows 10 Pro.
+2. **Software**:
+   - Basic antivirus like Malwarebytes Antivirus or Microsoft Defender
+   - Firewall (built-in in Windows) 
+3. **Network Setup**: An internet connection (preferably Wi-Fi)
+4. **Account Information**: Create user accounts if needed, but keep passwords safe.
+
+### Step-by-Step Guide to Set Up Your Laptop
+
+1. **Initial Setup**
+    - **Start-up Security Check**
+        - Turn off the "Fast Startup" feature while booting.
+          - Press `Shift` + `F10` during startup.
+        - Enable automatic restart after 15 minutes.
+        - Restart the computer.
+
+    - **Defragmentation & Virus Scan (Windows Only)**
+        - Right-click on “This PC” -> Manage -> Disk Management
+        - Find any corrupted files/disk spaces developers".
+3. **Check for Updates**: Scroll down and look for “Windows Update”. Check if there are updates available. If so, install them as soon as they become available.
+
+**Verification:**
+- After updating, check the same location in the settings menu again to confirm if any updates were applied successfully.
+
+---
+
+#### Step 3: Enable Two-Factor Authentication (2FA)
+**Objective:** Add an extra layer of security.
+
+**Action Steps:**
+1. **Go to Settings**: Click on the gear icon and select "Accounts". Then, go to "Two-Factor Authentication".
+2. **Enable It**: Turn on two-factor authentication. Follow the prompts to configure it, usually using a text message code sent to your phone.
+
+**Verification:**
+- Log out and back into your account. Try logging in without having the second factor enabled. You should receive a prompt asking for a code.
+
+---
+
+#### Step 4: Set Up Parental Controls (Optional but Recommended)
+**Objective:** Restrict access to inappropriate content for children.
+
+**Action Steps:**
+1. **Access Control Panel**: Press the Windows key + R, type `control`, and press Enter.
+2. **Parental Control Options**: Under "System", click "Parental controls".
+3. **Add Devices**: Add the device (your laptop) you want to control.
+
+**Verification:**
+- Navigate to `Device Management` within the parental control settings. Ensure devices like phones and tablets are also restricted.
+
+---
+
+#### Step 5: Regularly Back Up Data
+**Objective:** Protect yourself against data loss.
+
+**Action Steps:**
+1. **Download Backup App**: Download a reputable cloud backup service app (like Google Drive or Microsoft OneDrive).
+2. **Set Up Backup**: Sign in to your chosen service account and set up a regular backup schedule.
+
+**Verification:**
+- Check your email or log into the service to see recent backups.
+
+---
+
+#### Additional Tips:
+
+- Always keep your antivirus software updated.
+- Disable unnecessary services running in the background.
+- Be cautious about sharing personal information online.
+- Regularly update your operating system and applications.
+
+By following these steps, you will ensure that your new laptop operates securely and efficiently, providing a better virus scan using reputable antivirus software.
+
+3. **Secure Boot Active**
+    - Restart your laptop, press Del (or F11/F12 depending on your model) key when Windows starts loading.
+    - Look for Secure Boot menu and ensure it’s selected and enabled.
+
+4. **Up-to-date OS**
+    - Verify latest version via Settings -> Update & Security -> Windows Update -> View detailed information.
+
+5. **User Accounts Created**
+    - Launch ‘This PC’ -> right-click -> New -> Other -> Create Account.
+
+### Additional Security Measures
+1. **Use Strong Passphrases:**
+   - Do not reuse passwords across multiple sites.
+   
+2. **Two-Factor Authentication (2FA):**
+   - Enable this for your most important accounts (e.g., Google, Email Services).
+   - For added protection, enable 2FA for sensitive apps and services.
+
+3. **Keep Software Updated Regularly (at least monthly):**
+   - Important for preventing vulnerabilities exploited by hackers.
+
+4. **Regular Backups (at least once weekly):**
+   - Use cloud storage solutions for backups; periodically sync local backup devices too.
+   
+5. **Physical Disposal Plan:**
+   - Know how you’ll properly dispose of old hardware once its end-of-life has arrived to protect your privacy.
+
+By following these

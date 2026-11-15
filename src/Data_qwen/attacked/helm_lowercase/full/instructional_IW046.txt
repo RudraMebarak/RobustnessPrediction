@@ -1,0 +1,120 @@
+designing a basic rest api endpoint
+before we start:
+
+  1. install node.js if you haven't already: visit https://nodejs.org/en/download/ for more information.
+  2. set up an environment variable for your project name or url (e.g., `project_name` or `/api/v1`)
+  3. create two files: one for your routes (`routes/index.js`) and another for your models (in this example, it would be named `models/user.js`)
+  4. install necessary packages (express and mongoose) by running `npm install express mongoose`
+
+step 1: setting up express
+
+create a new directory in your project using the command line: 
+
+    mkdir my_rest_api
+    cd my_rest_api
+    npm init -y
+
+this will create a file called package.json which is our project's manifest file.
+
+install express by typing: 
+
+    npm install express
+
+the code inside index.js should look similar to this:
+
+```javascript
+const express = require('express');
+const app = express();
+```
+
+step 2: creating models (optional but recommended)
+
+we'll use mongoose as mongodb’s object modeling tool to connect our application with mongodb. in this example, we are building a simple user model that contains users' id, first name, last name, email, password (hashed), etc. here’s how to set one up:
+
+```javascript
+const mongoose = require("mongoose");
+// ...other code...
+let userschema = new mongoose.schema({
+ firstname: {
+ type: string,
+ required: true
+ },
+ lastname: {
+ type: string,
+ required: true
+ },
+ email: {
+ type: string,
+ unique: true,
+ required: true
+ },
+ password: {
+ type: string,
+ required: true
+ }
+});
+let user = module.exports = mongoose.model("user", userschema);
+// ...other code... 
+```
+remember to import this user schema where needed.
+
+step 3: implementing routes
+
+start writing routes. for simplicity, let's just add a route to get a list of all users from the database:
+
+```javascript
+app.get("/users", function(req, res){
+ user.find(function(err, docs){
+  if (err)
+   return next(err);
+  
+  res.json(docs);
+ });
+});
+
+// ...other routes...
+```
+
+note: instead of calling error handlers directly on the function returns, wrap them around the function call to handle errors properly.
+
+step 4: connect mongodb
+
+in your routes/index.js, import your user schema:
+
+```javascript
+import mongoose from "mongoose";
+
+module.exports.models.user = mongoose.model("user");
+```
+
+finally, initialize your connection to your local mongodb instance:
+
+```javascript
+mongoose.connect(process.env.mongodb_uri || 'mongodb://localhost/my_rest_db', { usenewurlparser: true, useunifiedtopology: true })
+.then(() => console.log('mongodb connected'))
+.catch(err => console.error('error connecting to mongodb:', err.message));
+```
+
+step 5: run your server
+
+open your terminal, navigate to your project folder and start your server:
+
+    node routes/index.js
+
+you can check if everything worked by going to http://localhost:3000/users in your browser.
+
+that's a very basic restful api implementation! as your project scales, adding security measures like authentication, rate limits, pagination, error handling would be good ideas.
+
+verification:
+
+to verify if your endpoint works correctly, try sending http get requests to /users. if the response body contains json objects representing your users (assuming the data was fetched successfully from the database), your endpoint is working correctly. you could also send some specific headers (like the content-type header being text/html) to see if your server handles them accordingly. 
+
+remember that developing apis requires understanding various aspects such as routing, databases, security, and performance optimization — so always take time to test thoroughly before deploying your work. happy coding! 🚀👨‍💻💼👩‍🔬👨‍🔧✨🤖✨🚀
+
+additional notes:
+
+- ensure proper error handling is added to every endpoint for better client experience.
+- avoid directly exporting your database connections; instead pass a callback or use a library designed for safe connection management.
+- always keep track of your database schema to avoid unintended modifications that could affect queries later down the line.
+- consider setting up continuous integration/continuous deployment (ci/cd) workflows for your development pipeline to automate testing processes at every stage.
+- use meaningful names for your endpoints, parameters, responses, etc., following well-known standards and conventions. this makes your code easier to understand and maintain over time. ✅🌈🌟🌟🌟🌟🌟👍🏼👏🏼👍🏼👏🏼👍🏼👏🏼👍🏼👏🏼👍🏼👏🏼👍🏼👏🏼👍🏼👏🏼👍🏼👏🏼👍🏼👏🏼👍🏼👏🏼👍🏼👏🏼👍🏼👏🏼👍🏼👏🏼👍🏼👏🏼👍🏼👏

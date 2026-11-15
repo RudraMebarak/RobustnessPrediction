@@ -1,0 +1,71 @@
+**Prerequisites:**
+
+* The person you are explaining to has a basic understanding of English and has not been given a technical background in a way that is too advanced.
+* You have a good understanding of basic language and writing.
+* The subject you want to explain is not too complex.
+
+**Subject:** Introduction to a new concept or tool (e.g., how to use a new software or a new way to approach a problem).
+
+**Step-by-Step Guide:**
+
+1. **Start with a clear introduction**
+	* Begin with a simple and relatable example to grab their attention.
+	* Explain the subject briefly and provide a few key points that you want to cover.
+2. **Explain the subject in simple terms**
+	* Avoid using technical jargon and use everyday language to explain the subject.
+	* Use analogies or examples to help them understand complex concepts.
+3. **Provide examples and analogies**
+	* Offer concrete examples or analogies to illustrate the subject and make it more tangible.
+	* Explain how the subject relates to their own life or experiences.
+4. **Use visual aids (if necessary)**
+	* Visual aids such as diagrams, charts, or pictures can help explain complex concepts.
+	* Explain the purpose and relevance of the visual aid.
+5. **Answer questions and provide feedback**
+	* Encourage the listener to ask questions or share their thoughts and concerns.
+	* Respond to their questions and concerns, and provide additional explanations or examples as needed.
+6. **Reinforce key points**
+	* Summarize the main points you've covered and emphasize key takeaways.
+	* Make sure the listener understands the key ideas and concepts.
+7. **Verify completion**
+	* Check with the listener to see if they have a basic understanding of the subject.
+	* Provide additional resources or information if needed to help reinforce their understanding.
+
+**Example:**
+
+Let's say you want to explain a new software to a friend who has no prior experience with technology. You start with a simple introduction:
+
+"Hey, have you ever tried using a new type of software? I just got this new program that's supposed to be really helpful for organizing tasks. I want to show you how it works and give you an idea of how it can be useful."
+
+You then explain the software in simple terms:
+
+"This software uses of the technical idea using simple language and analogies:
+
+* Use examples they can relate to (e.g., a car engine, a website, a social media platform)
+* Avoid technical jargon and technical terms
+* Focus on the practical aspects and how it applies to their daily life
+
+**Step 3: Break Down the Complexity**
+
+Break down the complex technical idea into smaller, more manageable chunks:
+
+* Identify the key concepts and components
+* Explain each component in a clear and concise manner
+* Use visual aids (e.g., diagrams, flowcharts) to illustrate the relationships between components
+
+**Step 4: Use Analogies and Metaphors**
+
+Use analogies and metaphors to help explain complex technical concepts:
+
+* Compare the technical idea to something they're familiar with
+* Use everyday experiences to illustrate the idea
+* Avoid using overly technical language or jargon
+
+**Step 5: Provide Examples and Code**
+
+Provide examples and code to help illustrate the technical idea:
+
+* Use visual aids (e.g., diagrams, code snippets) to demonstrate the concept
+* Include examples of how the concept can be applied in different contexts
+* Encourage the person to try the code because I want to make sure you feel comfortable using it. Let me know if you have any questions or if there's anything else I can help you with."
+
+By following these steps, you can effectively explain a technical idea to someone without a technical background in a way that is accessible and understandable.

@@ -1,0 +1,35 @@
+Requirements:
+1. Basic sympathy of file management in your operating system (Windows, macOS, or Linux).
+2. Permit to access and manage files in a shared directory.
+
+Step-by-Step Guide:
+1. **Selecting Project Files**: Open the dealt directory where you store finished task files. Navigate to the specific booklet for the undertaking you want to archive.
+
+2. **Preparing the Archive**:
+   - Dog and hold (or right-click) on the first file you desire to include in the archive.
+   - A context menu will appear. Select "Compress" or "Archive" (the exact diction may vary depending on your operating system).
+   - A dialog box will give asking you where you want to save the archive. Choose a location that is approachable to all team members.
+
+3. **Creating the Archive**:
+   - Click "Save" or "Create" (again, the exact wording may change).
+   - The file management program will produce the archive file. You will see a prevue of the files included in the archive.
+
+4. **Renaming the Archive (Optional)**:
+   - After producing the archive, you can rename it for better organization. For example, if you are archiving the "Sales Report" file, you might want to rename the archive to "Sales Report (Complete).zip" or similar.
+
+5. **Verifying the Archive**:
+   - Double-click on the archive file to verify it takes all the files you intended to include.
+   - The file direction program will prompt you to extract the archive. Select the folder where you need to extract the files (usually a new folder or the existing project folder).
+   - The files will be evoked, and you should see them in the chosen folder.
+
+6. **Sharing the Archive (Optional)**:
+   - If you want to make the archive available to other squad members, you can share it through email or a file-sharing platform like Google Drive or Dropbox.
+
+Verification:
+1. Open the folder where you extracted the archive.
+2. Look for the original files you archived (they should be present in this folder).
+3. Open the original files to confirm they are not corrupted (you can also swear their contentednesses).
+
+This guide seizes you are employing a file direction program like Windows Explorer, macOS Finder, or Linux File Manager. The steps may slightly vary depending on the specific software you are using.
+
+Remember, this template focuses on archiving files for a single project. For team-wide archives, you might require to set up a more robust system, such as using a variation controller system like Git, or a file-sharing chopine with team access permissions.
