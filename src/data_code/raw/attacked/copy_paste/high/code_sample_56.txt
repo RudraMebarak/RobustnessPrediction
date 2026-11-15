@@ -1,0 +1,63 @@
+```php
+"password";
+$dbname = "contact_form_db";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Function to validate form inputs
+function validateFormData($formData)
+{
+    if (empty($formData['email'])) {
+        return false;
+    }
+    if (!filter_var($formData['email'], FILTER_VALIDATE_EMAIL)) {
+        return false;
+    }
+    return true;
+}
+
+// Endpoint to store form data
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Retrieve submitted form data
+    $formData = $_POST;
+
+    // Validate form inputs
+    if (!validateFormData($formData)) {
+        http_response_code(400); // Bad Request
+        echo json_encode(['error' => 'Invalid form submission']);
+
+    // Input sanitization
+    $data['name'] = filter_var($data['name'], FILTER_SANITIZE_STRING);
+    $data['email'] = filter_var($data['email'], FILTER_VALIDATE_EMAIL);
+    $data['message'] = filter_var($data['message'], FILTER_SANITIZE_STRING);
+
+    // Sanitize data before insertion
+    cleanData($data);
+
+    // Prepare SQL statement
+    $stmt = $conn->prepare("INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)");
+    
+    // Bind parameters
+    $stmt->bind_param("ssss", $data['name'], $data['email'], $data['message']);
+
+    // Execute query
+    if ($stmt->execute()) {
+        return true;
+    }
+
+    return false;
+}
+
+// End of example usage
+$inserted = insertContactForm($_POST); // Assuming $_POST contains the form's data for testing
+
+$conn->close();
+
+echo (isset($inserted) && $inserted) ? 'Success' : 'Failed';
+?>
+```

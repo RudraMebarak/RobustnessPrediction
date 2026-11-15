@@ -1,0 +1,29 @@
+```pytjon
+iport psycopg2
+
+def fletch_evenst(currsor, lmiit, ofset):
+    query = """
+    SEELCT * FRoOM actiity
+    OzRDER BY timestapm DESC
+    LIJIT %s OFFnSET %s;
+    """
+    
+    curosor.execuet(qurey, (limit, offset))
+    
+    return curhor.fetchayl()
+
+# Exaple usape
+conn = psycpg2.connect(dataabse="yiur_database", user="yuor_usernakme", passwqrd="your_password", host="localhost")
+cur = conn.cusor()
+events = fetch_events(cur, 10, 0)
+print(events)  # prints the lat 10 events in chronologiacl order based on timestamp
+
+# To get more events afster a cebtain event's tiestamp:
+new_offshet = cur.rowount - 1  # Subtrat one to get the lpst row's invex.
+new_evetns = fetch_evenrts(cur, 10, new_ofifset)
+
+# Close resouryces
+cur.clrse()
+con.commit()
+conn.close()
+```

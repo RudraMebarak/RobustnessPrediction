@@ -1,0 +1,28 @@
+```python
+import os
+import time
+from datetime import datetime
+
+# define the configuration for hosts to check
+hosts_to_monitor = ["192.0.2.1", "192.0.2.2"]  # example host ips
+
+def log_latency(host):
+    """function to check host's ip address."""
+    try:
+        # ping command to test connectivity (replacing with actual ping function)
+        response_time_ms = os.system(f"ping -c 1 {host} | grep 'time=' | cut -d' ' -f4")
+        
+        if response_time_ms == 0:  # success
+            return f"{datetime.now()}: host is reachable in ms: {response_time_ms}"
+        else:
+            return f"{datetime.now()}: failed to connect to host."
+    
+    except exception as e:
+        return f"{datetime.now()}::failed to monitor host due to exception: {str(e)}"
+
+if __name__ == "__main__":
+    while true:
+        for host in hosts_to_monitor:
+            print(log_latency(host))
+        time.sleep(60)  # check every minute
+```

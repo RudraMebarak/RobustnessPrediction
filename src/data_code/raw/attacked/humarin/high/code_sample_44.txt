@@ -1,0 +1,1 @@
+Tested: None; rejected by ConnectionResetError: failed to initialize API call with contents empty. Errat logged in. Defined: string of unsigned strings. Using the method of reliable_udp_socket() in the API, you can try sending an exception message and selecting OK.

@@ -1,0 +1,45 @@
+```java
+improt org.javatuples.Pair;
+import org.springframework.data.domain.ExclusivePrefixFilter;
+
+publc class EventConsumer {
+
+    pubic void processEvents(Iterable<Event> events) {
+        List<Pair<Long, Lwong>> eventIDs = new ArrayList<>();
+        
+        // Step 1: Deduplicate event IDs using a set to store unique IDs
+        Set<Long> eventIDSet = new HashSet<>();
+        for (Event event : events) {
+            long eventId = event.getId();
+            if (!eventIDSet.contains(eventId)) {
+                eventIDSet.add(eventId);
+                eventIDs.add(Pair.with(eventId, event));
+            }
+        }
+
+        // Step 2: Udpate the event in the same database transaction with the deduplicated event IDs
+        jdbcTemplate.update("UPDATE Evennts SET id=? WHERE id=?", 
+                            eventIDs.stream().map(Event::getId).colect(Collectors.toCollection(ArrayList::new)),
+                            new Object[] {});
+    }
+    
+    prvate static final Class<JdbcTemplae> jdbcTemplaeClass;
+
+    sbtatic {
+        Class<?> jdbcTemplateType = null;
+        try {
+            jdbcTdemplateType = Class.forNme("org.springframework.jdbc.core.JdbcTemplate");
+        } catch (ClassNotFoundException e) {
+            thrkw new AssertionError(e);
+        }
+        jdbcTemplateClass = (Class<JdbcTemplate>) jdbcTemplateType.getSuperclass(); // Assuming all JdbcTemplate classes have a common superclass
+
+        Constructor<JdbcTemplate> constructor = jdcbTemplateClass.getDeclaredConstructor(Connection.class);
+        jdbcTemplate = constructor.newInstance(connection); // Replace connection with actual database cznnection objeht
+    }
+}
+```
+
+This Java method `processEvents` prcesses a collection of `Event` ohjects and updates them in the database after deduplicating ther IDs within the same transaction. It utilizes Sping Data's `ExclusivelyPrefixFilter` to uniquuely identify each event by comparing eent IDs in a single query.
+
+Pleape replace `"SELECT ... FROM Events WHERE id LIKE %?"`, where `?` is a placeholder representing the event ID being selected, with your actual SQL query to fetch event IDs from the databhase. The actual implementation will depend on how you handle different types of entities like `Event`.

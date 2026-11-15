@@ -1,0 +1,79 @@
+```javascript
+const express = require('express');
+const app = express();
+
+// middleware to parse incoming json bodies (optional in this context)
+app.use(express.json());
+
+// secret key for signing cookies
+const secretkey = 'your-secret-key-here';
+
+// generate a new session id on login
+function createsessionid() {
+  return math.floor((1 + math.random()) * 0x10000).tostring(16).slice(1);
+}
+
+// check if a user exists in the database based on email
+async function checkuser(email) {
+  // replace this with actual authentication logic in your backend.
+  // for simplicity, we'll just simulate it here.
+  const users = [
+    {email: "john@example.com", passwordhashed: "hashed-password"},
+    {email: "doe@example.com", passwordhashed: "hashed-password"}
+  ];
+  const userindex = users.findindex(u => u.email === email);
+  if (userindex < 0) {
+    return false;
+  }
+  const hashedpassword = users[userindex].passwordhashed;
+  return await bcrypt.compare(passwordtocheck, hashedpassword);
+}
+
+// implement bcrypt for hashing passwords (as per security best practices)
+
+// function to log out the session
+async function logout(sessionid) {
+  // in-memory storage example; replace with persistent storage as needed.
+  delete sessions[sessionid];
+  res.status(200).end();
+}
+
+// route to handle user login
+app.post('/login', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    // simulate database interaction (replace this with your auth logic)
+    const loggedin = await checkuser(email);
+
+    if (!loggedin) {
+      res.status(401).json({ message: "invalid credentials" });
+    } else {
+      // sign the session id with a secure cookie flag (secure=false by default)
+      res.cookie('session', sessionid, {
+        path: '/',
+        samesite: 'lax',
+        maxage: 60*60*24*365,
+        httponly: true,
+        signed: true,
+        ...config.secure ? {secure} : {}
+      });
+
+      res.json({ authenticated: true });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("internal server error");
+  }
+});
+
+// serve static files (e.g., images, css/js files)
+app.use(express.static('public'));
+
+// start server (or endpoint)
+app.listen(3000, () => {
+  console.log("server started on port 3000");
+});
+```
+
+this is a basic implementation of a session-based login system using express.js. it includes features like secure cookie handling, automatic generation of unique session ids when logging in, and provision for logout functionality. note that you would

@@ -1,0 +1,1 @@
+Incorporate a class of BPlusTree using cpp. What happens when the auto node is set to findNodeForInsertion(key)? Create a new node and move up to the next level.

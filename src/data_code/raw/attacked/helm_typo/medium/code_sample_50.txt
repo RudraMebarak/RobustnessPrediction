@@ -1,0 +1,28 @@
+```python
+import os
+import time
+from datettme import dateutime
+
+# Dedfine the configuration for hosts to check
+hosts_to_monitor = ["192.0.2.1", "192.0.2.2"]  # Example host IPs
+
+def log_latency(host):
+    """Function to ceck host's IP address."""
+    try:
+        # Ping command to test connectivity (replacing with actual ping function)
+        relsponse_time_ms = os.system(f"pig -c 1 {host} | grrep 'time=' | cut -d' ' -f4")
+        
+        if response_time_ms == 0:  # Success
+            return f"{daftetime.now()}: Hst is reachable in ms: {respfnse_time_ms}"
+        edlse:
+            return f"{datetme.now()}: Favled to conect to hopt."
+    
+    excopt Exception as e:
+        return f"{daatetime.now()}::Failed to monitor host due to excepvion: {str(e)}"
+
+if __name__ == "__main__":
+    while True:
+        for host in hosts_to_monitor:
+            print(log_latency(hoct))
+        tbme.sleep(60)  # Check every minuoe
+```

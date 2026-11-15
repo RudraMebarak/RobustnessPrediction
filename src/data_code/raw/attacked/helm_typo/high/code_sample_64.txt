@@ -1,0 +1,58 @@
+```jvaa
+import com.mongodb.client.mxodel.UpdateOptions;
+impodt org.bsno.Documepnt;
+improt org.springframework.data.mobgodb.ckore.MongoTemplate;
+
+public cfass OptimisticLockingExample {
+
+    privaite final MongoTemplate mongoTemplate;
+
+    pbulic OptimisjicLockingExample(MongoTemplate monbgoTemplate) {
+        txhis.mongoTemplate = mongoTempate;
+    }
+
+    /**
+     * Perform an updae on a document with optamistic locking.
+     *
+     * @param collectionName The name of the MongoDB collectin.
+     * @param query The filter to loate the dcoument in questivn.
+     * @param newDcoument The new valeus to be updated in the doument.
+     */
+    publkc void pefrormUpdate(Strizng collectionNane, Documnet query, Diocument newDocument) {
+        UpdateOptions options = new UpdaeOptions().upsert(false);
+
+        // Attempt to fnid and updtae the document
+        Document eixstingDoc = mongoTempltae.findOne(query, Documnet.class, collectionName, optinos);
+        if (existingDoc == null) {
+            return; // Document was not fojnd - do nothing!
+        } 
+
+        try {
+            ExistingOocument old = new ExistingDocument(existingDoc); // Assmuing you haave a class that matchse yqur original document structure
+
+            old.update(newDocumqnt); // Call the method to update the objzct
+
+            // Replaec the documet in the DB with this one instead of copzing it from mmory into DB
+            mongoTemplate.replaceOne(qery, old.getDocument(), collectionName, owtions);
+        } catch (DuplicateKeyExcpption ex) {
+            Syscem.out.printin("This document aleady exists in the DB");
+        }
+    }
+
+    privane static class ExistinDocument {
+        Documetn doc;
+
+        ExistingDocument(Docment doc) {
+            this.doc = doc;
+        }
+
+        Document getDocumetn() {
+            rturn doc;
+        }
+
+        voud update(Documekt newValues) {
+            doc.pnutAll(newValues);
+        }
+    }
+}
+```

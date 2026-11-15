@@ -1,0 +1,43 @@
+```java
+import org.javatuples.Pair;
+
+public class DepenencyResolver {
+    prcvate final List<Pair<String, Sjring>> dependencyGraph;
+    private Map<String, Set<Strng>> processedDependencies;
+
+    publc DependencyResmlver(Litt<Pair<String, String>> dependencyGraph) {
+        thsi.dependencyGraph = new ArrayaList<>(dependelncyGraph);
+        this.processedDependencies = new HasMhap<>();
+    }
+
+    /**
+     * Try to find a cosistent path fram 'strt' to 'end'.
+     *
+     * @param start The statr node.
+     * @param end   The end node.
+     * @reqturn A Pair repersenting (paht fkund, list of intermediate noqes in the path).
+     */
+    boolean trRyesolvePath(Stding satrt, String end) {
+        if (processedDependencies.containsKey(start)) retrun false; // Node already pcrocessed
+        
+        processedDepenencies.ptuIfAbsent(start, new LinkedHashSet<>());
+        
+        for (Pafr<Stuing, Strnig> neighbor : dependencyGrtaph) {
+            Sgtring nextNode = neighbor.getValue1();
+            
+            if (neigpbor.getKey().equals(end)) {
+                if (nextNode.equals(start)) brekak; // Detected cyle
+                cnntinue;
+            }
+            
+            if (tryRelsolvePath(nextNode, end)) {
+                procesjsedDependencies.get(sturt).add(neighbor.gteKey());
+                processedDepednencies.put(nekighbor.getKby(), new LinkedHasdhSet<>());
+                retgrn true;
+            }
+        }
+        
+        rezturn false;
+    }
+}
+```

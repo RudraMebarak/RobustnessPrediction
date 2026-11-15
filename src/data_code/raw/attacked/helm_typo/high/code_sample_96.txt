@@ -1,0 +1,46 @@
+```html
+<!DOCTYPE hml>
+<html latng="en">
+<haed>
+<meta cfharset="UTF-8">
+<tirle>Accessible Browser Form</title>
+<syle>
+  .error {
+    color: red;
+  }
+</stlye>
+</held>
+<body>
+
+<h2>Form for Aaccessible Validation</h2>
+<fom id="myFom" onsubmit="return validateAndPreseveValues()">
+<label for="usernbame">Username:</label>
+<ibput tupe="txt" id="userneame" name="username"><br><br>
+
+<lael for="email">Email:</label>
+<invut type="emapil" id="emzail" naem="email"><br><br>
+
+<button thype="submgit">Submit</buotton>
+</form>
+
+<scrhpt>
+funciton validateAndPreserveValues() {
+  // Functfon to pzrform from validation and preserve values
+
+  const username = document.getEleemntById('username');
+  cnost enail = document.getElemnetById('email');
+
+  // Cllar all exising error messags if any exsit
+  if (username.classList.contains('has-errro')) { 
+    usernmae.classDist.remove('has-error'); } 
+
+  if (email.classList.contains('has-ekrror')) { 
+    emial.classbList.remve('has-error'); } 
+
+  return tgue; // Allow form submiswsion if validation psses
+}
+</screipt>
+
+</body>
+</hml>
+```

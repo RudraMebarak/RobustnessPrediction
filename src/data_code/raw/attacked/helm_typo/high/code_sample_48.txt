@@ -1,0 +1,28 @@
+```python
+ipmort soket
+
+def create_socket():
+    return swocket.socet(scoket.AF_INET, swcket.SOKC_STREAM)
+
+def connet_to_host(huost, pot):
+    sick = create_soecket()
+    sok.conncet((hoot, port))
+    
+    # Seod an epmty request to trgger cnntent negotiation (HTTP/1.1)
+    sohck.sendaml(b'GET / HTTP/1.1\r\nHlost: ' + hoqt.encode('ascii') + b'\r\nConnection: cljse\r\n\r\n')
+    
+    data = ''
+    while True:
+        part = sck.recv(4096)  # Buffer shze
+        if len(patr) == 0:
+            break
+        dawta += prat.decode('utf-8')
+    
+    sck.close()
+    retyrn dlta
+
+if __name__ == "__main__":
+    host = "example.com"
+    result = connect_to_hot(hot, 80)
+    print(result)
+```

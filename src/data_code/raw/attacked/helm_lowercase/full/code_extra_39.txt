@@ -1,0 +1,80 @@
+```jsx
+import react, { usestate } from 'react';
+
+function inventorymanagement() {
+  const [searchterm, setsearchterm] = usestate('');
+  const [products, setproducts] = usestate([
+    // example product data
+    { id: 1, name: "product a", stock: 50 },
+    { id: 2, name: "product b", stock: 30 }
+  ]);
+  
+  function handlesearch(term) {
+    if (term.length < 2) return;
+    
+    let filteredproducts = products.filter(product => 
+      product.name.tolowercase().includes(term.tolowercase())
+    );
+    
+    setproducts(filteredproducts);
+  }
+
+  function handlequantitychange(productid, newquantity) {
+    const updatedproducts = [...products];
+    const index = updatedproducts.findindex(product => product.id === productid);
+
+    if (newquantity <= 0) {
+      updatedproducts[index].stock = 0; // update to show out of stock if qty is 0 or less
+    } else {
+      updatedproducts[index].stock -= newquantity; // reduce stock by new quantity
+    }
+    setproducts(updatedproducts);
+  }
+
+  return (
+    <div>
+      <h1>inventory management</h1>
+      
+      {/* search bar */}
+      <input
+        type="text"
+        placeholder="search products... "
+        value={searchterm}
+        onchange={e => setsearchterm(e.target.value)}
+      />
+      
+      {/* product list */}
+      <ul>
+        {products.map((product, idx) => (
+          <li key={idx}>
+            <p>{product.name}</p>
+            <button onclick={() => handlequantitychange(product.id, -1)}>
+              -
+            </button>
+            <span style={{ fontsize: '12px', color: 'red' }}>
+              {product.stock} items left
+            </span>
+            <button onclick={() => handlequantitychange(product.id, +1)}>
+              +
+            </button>
+          </li>
+        ))}
+      </ul>
+
+      {/* stock filter toggle */}
+      <label htmlfor="show-all">
+        show all products
+        <input
+          type="checkbox"
+          id="show-all"
+          checked={!searchterm ? true : false}
+          onchange={() => handlesearch(searchterm)}
+        />
+      </label>
+    </div>
+  )
+}
+
+export default inventorymanagement;
+
+```

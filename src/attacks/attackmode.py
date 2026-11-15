@@ -149,15 +149,15 @@ def find_donor_text(doc_id: str, donors: Dict[str, str]) -> Tuple[Optional[str],
     For all other IDs, use exact ID matching. A missing or ambiguous special
     match is returned as unresolved rather than silently choosing a donor.
     """
-    match = re.fullmatch(r"code_sample_(\\d+)", doc_id)
+    match = re.fullmatch(r"code_sample_(\d+)", doc_id)
     if match:
         number = int(match.group(1))
         pattern = f"code_{number}_*unwatermarked*"
     else:
-        match = re.fullmatch(r"code_extra_(\\d+)", doc_id)
+        match = re.fullmatch(r"code_extra_(\d+)", doc_id)
         if match:
             number = int(match.group(1)) + 100
-            pattern = f"code*_{number}_unwatermarked*"
+            pattern = f"code_{number}_unwatermarked*"
         else:
             return donors.get(doc_id), doc_id if doc_id in donors else None
 

@@ -1,0 +1,1 @@
+Check the time required to perform a task and initialize an array of data using the following procedure: getTransposeTime(). If the algorithm is optimized for next iteration, then fill the missing value and start doing what was already calculated.

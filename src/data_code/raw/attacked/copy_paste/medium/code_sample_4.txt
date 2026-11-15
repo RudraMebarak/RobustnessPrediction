@@ -1,0 +1,60 @@
+```java
+import java.io.*;
+import java.util.*;
+
+class {
+            if (currentStart <= start && end <= currentEnd) {
+                if (!result.isEmpty())
+                    return; // If there's already an answer, no need to propagate it further
+
+                result.add(nodes[currentIdx].value);
+            } else {
+                int mid = (currentStart + currentEnd) / 2;
+                if (start > mid) {
+                    buildQuery(start, end, currentStart, mid, currentIdx * 2 + 1, result);
+            return Arrays.stream(data).boxed().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+        } else {
+            List<Long> tempData = new ArrayList<>(Arrays.asList(data));
+            return mergeSort(tempData);
+        }
+    }
+
+    private static List<Long> mergeSort(List<Long> tempData) {
+        if (tempData.size() > 1) {
+            int mid = tempData.size() / 2;
+            List<Long> leftHalf = tempData.subList(0, mid);
+            List<Long> rightHalf = tempData.subList(mid, tempData.size());
+
+            leftHalf = mergeSort(leftHalf);
+            rightHalf = mergeSort(rightHalf);
+
+            return merge(leftHalf, rightHalf);
+        } else {
+            return tempData;
+        }
+    }
+
+    private static List<Long> merge(List<Long> leftHalf, List<Long> rightHalf) {
+        List<Long> merged = new ArrayList<>();
+        int i = 0, j = 0;
+
+        while (i < leftHalf.size() && j < rightHalf.size()) {
+            if (leftHalf.get(i) >= rightHalf.get(j)) {
+                merged.add(rightHalf.get(j++));
+            } else {
+                merged.add(leftHalf.get(i++));
+            }
+        }
+
+        while (i < leftHalf.size()) {
+            merged.add(leftHalf.get(i++));
+        }
+
+        while (j < rightHalf.size()) {
+            merged.add(rightHalf.get(j++));
+        }
+
+        return merged;
+    }
+}
+```

@@ -1,0 +1,52 @@
+```jsx
+import React, { useState } from 'react';
+import EditorJS from '@editorjs/editorjs';
+
+const CodeEditorWorkspace = () => {
+  const [sourceCode, setSourceCode] = useState('');
+  const [outputCode, setOutputCode] = useState('');
+
+  return (
+    <div className="workspace">
+      <div className="tabs">
+        <button onClick={() Editor from './Editor';
+
+const App = () => {
+  return (
+    <div>
+      <div className="file-tab-bar">
+        <button>File</button>
+        <button>Edit</button>
+        <button>Run</button>
+      </div>
+      <div className="source-pane">
+        <Editor />
+      </div>
+      <div className="output-panel" style={{display: "none"}}>
+        Output goes here
+      </div>
+    </div>
+  ); className="content">
+        <div className="editable-source-pane" contentEditable={true} value={sourceCode}>
+          {/* Default editorJS instance */}
+          <EditorJS
+            toolbar={{
+              elements: [
+                ['heading', [{level: "1"}], {}],
+                ['bold', []],
+                ['italic', []],
+                ['code', []]
+              ],
+              options: {},
+              plugins: {}
+            }}
+          />
+        </div>
+        <pre>{outputCode}</pre>
+      </div>
+    </div>
+  );
+}
+
+export default CodeEditorWorkspace;
+```

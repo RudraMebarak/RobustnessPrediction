@@ -1,0 +1,100 @@
+```cpp
+#include <iostream>
+#include <vector>
+
+// Define a Graph struct to represent the graph with adjacency lists
+struct Graph {
+    int numVertices;
+    std::vector<std::vector<int>> adjacencyList;
+
+    // Constructor initializes the graph properties
+    Graph(int vertices) : numVertices(vertices), adjacencyList(vertices) {}
+
+    void addEdge(int src, int dest) {
+        adjacencyList[src].push_back(dest);
+    }
+
+    void dfs(int startVertex) {
+        std::vector<bool> visited(numVertices, false);
+        std::vector<int> path;
+        
+        std::stack<int> stack;
+        stack.push(startVertex);
+
+        while (!stack.empty()) {
+            int current = stack.top();
+            stack.pop();
+
+            if (visited[current]) continue;
+
+            path.push_back(current);
+            visited[current] = true;
+
+            for (int to support BFS, DFS, and Dijkstra's algorithm.
+class AbstractGraph {
+public:
+    virtual ~AbstractGraph() {}
+    // Adds an edge between two vertices.
+    void add_edge(int u, int v) = 0;
+    // Retrieves all edges connected to vertex u.
+    std::vector<int> get_neighbors(int u) = 0;
+};
+
+// A concrete implementation of AbstractGraph using an adjacency list.
+class AdjacencyListGraph : public AbstractGraph {
+private:
+    std::vector<std::unordered_map<int, bool>> adj_list;
+
+public:
+    AdjacencyListGraph() {}
+
+    ~AdjacencyListGraph() override {
+        for (auto &list : adj_list) {
+            list.clear();
+        }
+    }
+
+    void add_edge(int u, int v) override {
+        if (!adj_list[u].count(v)) {
+            adj_list[u][v] = true;
+        }
+    }
+
+    std::vector<int> get_neighbors(int u) override {
+        return adj_list[u].keys();
+    }
+};
+
+// Function to perform Breadth-First Search (BFS).
+void bfs(AbstractGraph& graph, int start_vertex) {
+    std::queue<int> q;
+    std::unordered_set<int> visited;
+
+    q.push(start_vertex);
+    visited.insert(start_vertex);
+
+    while (!q.empty()) {
+        auto current_vertex = q.front();
+        q.pop();
+
+        for (int neighbor : graph.get_neighbors(current_vertex)) {
+            if (!visited.count(neighbor)) dest - 1);  // Adjust indices to be 0-based
+    }
+
+    return g;
+}
+
+int main() {
+    int n, m;
+    
+    while (std::cin >> n >> m) {
+        Graph* g = createGraph();
+        std::cout << "Depth-First Search" << std::endl;
+        g->dfs(n - 1);  // Adjust index based on how indices were set
+
+        std::cout << "Breadth-First Search" << std::endl;
+        bfs(*g, n - 1);
+    }
+    return 0;
+}
+```

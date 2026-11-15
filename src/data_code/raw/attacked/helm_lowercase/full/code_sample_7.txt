@@ -1,0 +1,64 @@
+```java
+import java.util.list;
+import java.util.map;
+import org.apache.log4j.logger;
+
+public class logentrysorter {
+
+    private static final logger logger = logger.getlogger(logentrysorter.class);
+
+    /**
+     * sorts log entries based on their timestamp, then severity level,
+     * with entries from the same time being sorted by their original order.
+     *
+     * @param logentries a list of map.entry containing 'timestamp', 'severity', and 'originalinput'.
+     * @return the sorted list of map.entry after applying the specified rules.
+     */
+    public list<map.entry<long, string>> sortlogentries(list<map.entry<long, string>> logentries) {
+        // define custom comparator to handle sorting requirements
+        comparator<map.entry<long, string>> customcomparator = new comparator<map.entry<long, string>>() {
+            @override
+            public int compare(map.entry<long, string> o1, map.entry<long, string> o2) {
+                int datecompare = (int)(o1.getkey() - o2.getkey());
+                if (datecompare != 0) return datecompare; // first by timestamp
+
+                integer severityorder = maptointeger(o1.getvalue()); // then by severity order
+                integer otherseverityorder = maptointeger(o2.getvalue());
+
+                int severityordercompare = severityorder.compareto(otherseverityorder);
+                if (severityordercompare != 0) return severityordercompare; // then by severity level
+
+                // if severity is the same, keep them in their original order
+                if (maptoboolean(o1.getvalue())) return -1; // true comes first for reversed boolean key value pair
+                else return 1; // false comes second for reversed boolean key value pair
+            }
+        };
+
+        return logentries.stream()
+                .sorted(customcomparator)
+                .collect(collectors.tolist());
+    }
+
+    private integer maptointeger(string str) {
+        return boolean.parseboolean(str) ? 1 : 0; // reverse boolean values for sorting
+    }
+
+    private boolean maptoboolean(string str) {
+        return boolean.parseboolean(str); // direct parse as boolean
+    }
+
+    public static void main(string[] args) {
+        list<map.entry<long, string>> logs = arrays.aslist(
+                map.entry(1562897320l, "error: user login failed."),
+                map.entry(1562897321l, "info: application restarted.")
+        );
+
+        logentrysorter sorter = new logentrysorter();
+        list<map.entry<long, string>> sortedlogs = sorter.sortlogentries(logs);
+
+        for (map.entry<long, string> entry : sortedlogs) {
+            system.out.println(entry.tostring());
+        }
+    }
+}
+```

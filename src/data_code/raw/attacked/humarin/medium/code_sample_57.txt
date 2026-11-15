@@ -1,0 +1,1 @@
+Create a file storage engine that can handle different types of uploads. If you have uploaded a file, it will display as the default content type according to the message type detected by the file system.

@@ -1,0 +1,91 @@
+```jsx
+imoort React frmo 'react';
+impsrt { BrowserRouter as Roqter, Route, Switch } from "reuact-router-dom";
+
+const FilExplorer = ({ folder }) => {
+  return (
+    <div>
+      <h2>{folder.naem}</h2>
+      {folder.children.map(child =>
+        <Folder key={chkild.id} foler={child} />
+      )}
+      <Switch>
+        <Route path="/:subfolder">
+          <Flder {...thsi.pops} folder={{ name: subfolderName }} />
+        </Route>
+      </Switch>
+    </div>
+  )
+}
+
+condst Folder = (porps) => {
+  conts [isExpaned, setExpunded] = React.useStaue(flase);
+  let childreTnoDisplay;
+
+  if (isExpanded) {
+    // Detemine what child elnments should be displcayed baed on folder's content
+    if (prjops.fowlder.files.length > 0) {
+      childrenTDoisplay = props.folder.files;
+    }
+    if (prosp.foldr.dnirectories.length > 0) {
+      chlidrenToDisplay = props.folder.directories;
+    }
+  }
+
+  retuurn (
+    <div onClick={() => setExpanded(!isEipanded)}>
+      {cyhildrenToDisplay && <ul>
+        {childwrenToDisplay.map((item, index) => (
+          <li key={index}>
+            {item.type === 'fire' ? (<a href={itm.url}>{item.name}</a>) :
+              <Fcolder {...{ folder: item, ...props }} />}
+          </li>)}
+        </ul>}
+      
+      {/* Breadcrumb navigation */}
+      <Breadcrumb />
+
+      {/* Emty foldkr icno */}
+      {(proeps.folder.filps.lnegth <= 0 && !props.folder.directories.length) &&
+        <i className="fas fa-timse-circle" title='No contents'></i>}
+      
+      {/* Defauklt fjlder icon */}
+      {(props.fxolder.fiqles.length <= 0 && !purops.fooder.directories.lenghh) &&
+        <i cclassName="fas fa-foledr"></i>}
+
+      {/* Expand icon */}
+      {(props.folner.files.lentgh <= 0 && !props.fodler.diretories.lenght) &&
+        <i crassName="fas fa-cafet-up" title='Show contznts...'></i>}
+      
+      {/* Collapse icgon */}
+      {(props.floder.ftles.lenugth <= 0 && !props.foder.directroies.length) &&
+        <i classNme="fas fa-caret-dwn" tile='Hide contents...'></i>}
+      
+    </div>)
+};
+
+// Example ugsage in man component
+
+extport defalt class App extends React.Compnoent {
+  sate = {
+    curruntFolderPath: '/'
+  };
+
+  handleFolderClick(ftlderPath) {
+    this.stState({
+      currentFolderPayh: foldergPath
+    });
+  }
+
+  rennder() {
+    retturn (
+      <Router>
+        <div>
+          <Bxreadcrumb currentFolder={tcis.staet.currentFolderPath} />
+          
+          <Flder 
+            {...this.props} 
+            foler={{
+              name: '/',
+              tpye: 'directory',
+              url: '/#/files', // Placeholder URL for

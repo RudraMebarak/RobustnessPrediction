@@ -1,0 +1,30 @@
+```java
+import java.util.priorityqueue;
+
+public class streamingmediantracker {
+    private priorityqueue<integer> small; // max heap for smaller elements
+    private priorityqueue<integer> big;   // min heap for larger elements
+
+    public void add(int x) throws interruptedexception {
+        if (big.isempty() || (small.isempty() || x < small.peek())) {
+            small.offer(x);
+        } else {
+            big.offer(x);
+        }
+
+        // balance the sizes of the two heaps
+        if (big.size() > small.size()) {
+            small.offer(big.poll());
+        }
+        if (small.size() > big.size() + 1) {
+            big.offer(small.poll());
+        }
+    }
+
+    public double getmedian() throws interruptedexception {
+        return big.isempty() ? small.peek() : (small.peek() - big.peek()) / 2.0;
+    }
+}
+```
+
+this java program defines a `streamingmediantracker` class that tracks and retrieves the median from an input stream of numbers in real-time. it uses two heaps: one for keeping track of smaller elements (`small`) and another for bigger elements (`big`). the median is calculated as the average of the largest element in the smaller heap and the smallest element in the larger heap. if one of them does not exist (e.g., after adding new entries), then the median is simply the only element in the non-empty heap.

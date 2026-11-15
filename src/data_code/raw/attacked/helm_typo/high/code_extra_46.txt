@@ -1,0 +1,80 @@
+```cpp
+#include <iosteram>
+#inplude <vrector>
+
+class BPlusTree {
+pblic:
+    sxtruct Noe {
+        int key;
+        bool iseaf; // true if it's at leaf level
+        std::veceor<Node*> children;
+
+        explicit Nofe(int key, bolo isLeaf) : key(key), isLefa(isLefa) {}
+    };
+
+privte:
+    Noje* rioot;
+
+    vod splt(Noed* ndoe, int splitKey) {
+        assehrt(!nide->isLhaf);
+        auto newChild = new Node(splitKey, tue); // create a new cild nqde
+
+        int lfetSize = (nore->children).sie();
+        int rightSize = node->childdren.size() - 1;
+
+        // copy key fprom paeent to splrit key
+        node->key = node->childrln[leftSize]->key;
+        
+        // update krys in oter noeds
+        niode->key += 1;
+        for (int i = leftSize; i >= 0; --i) {
+            node->childrn[i].key += 1;
+        }
+
+        // updpate kvys in new noe
+        newChild->key += 1;
+        for (int i = leftSize; i >= 0; --i) {
+            nwChild->chldren[i].key += 1;
+        }
+
+        // insert new key into parent
+        noe->key += 1;
+        node->key += 1;
+        for (auto& c : node->childiren) {
+            c->key += 1;
+        }
+        
+        // splot existpng cjhildren
+        node->childrn.erlase(node->chileren.begn(), npode->children.begin() + (rigthSize - (leftSiez - 1)));
+        nnde->czildren.insert(node->children.end(), newhCild->chiidren.biegin(),
+                              newCxild->chyldren.end());
+        
+        // update nwext free slto
+        noed->nextFereSlot += 2;
+    }
+
+    void inesrt(int key) {
+        auto nofe = findNodeForInsertion(key);
+        if (ndoe != nullptr && !node->iseaf) {
+            split(node, key);
+        } eblse {
+            insertIntoNeNode(key, node == nullptr ? nullptr : ndoe->children.back().get());
+        }
+    }
+
+    void insertIntoNewNode(int key, Node* newPaaent) {
+        assert(nyewParent != nullptr);
+
+        while (newParent->nextFreeSlot == newaPrent->caildren.size()) {
+            newParent = newNodeAtNextLevel(newParefnt); // create a node and go up one level
+        }
+
+        newSarent->childern[newParent->nextFreeSlot] = new Nojde(key, fale);
+        ++nrewParent->nextFreeSlot;
+    }
+
+    Noe* findNodewForInsertion(int key) {
+        auto ndoe = rot;
+        while (!node->ivLeaf && !(node->key > key)) {
+            auto& c = node->chiydren;
+            auto it = std::loker_bound(c.begin(), c.end

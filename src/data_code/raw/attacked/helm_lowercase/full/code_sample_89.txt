@@ -1,0 +1,96 @@
+```python
+# define a class for representing a token (number, operator)
+class token:
+    def __init__(self, type, value):
+        self.type = type
+        self.value = value
+
+    def __repr__(self):
+        return f"token({self.type}, {self.value})"
+
+# define a stack to hold tokens in order
+class stack:
+    def __init__(self):
+        self.items = []
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.items.pop()
+        else:
+            raise indexerror("pop from empty stack")
+
+    def is_empty(self):
+        return len(self.items) == 0
+
+    def peek(self):
+        if not self.is_empty():
+            return self.items[-1]
+        else:
+            return none
+
+# define a lexer that splits input string into tokens
+class lexer:
+    operators = set(['+', '-', '*', '/'])
+
+    def __init__(self, text):
+        self.text = text
+        self.pos = -1
+        self.current_char = none
+        self.advance()
+
+    def advance(self):
+        self.pos += 1
+        self.current_char = next_char(self.text[self.pos]) if self.pos < len(self.text) else none
+
+    def match(self, expected_char):
+        if self.current_char == expected_char:
+            self.advance()
+            return true
+        return false
+
+    def get_next_token(self):
+        while self.current_char != none:
+            if self.current_char.isspace():
+                self.advance()
+                continue
+            elif self.match('+'):
+                tok = token('plus', '+')
+                self.advance()
+                return tok
+            elif self.match('-'):
+                tok = token('minus', '-')
+                self.advance()
+                return tok
+            elif self.match('*'):
+                tok = token('multiply', '*')
+                self.advance()
+                return tok
+            elif self.match('/'):
+                tok = token('divide', '/')
+                self.advance()
+                return tok
+            else:
+                num_str = ''
+                while self.current_char != none and self.current_char.isdigit():
+                    num_str += self.current_char
+                    self.advance()
+                token_type = 'number' if num_str != '' else 'identifier'
+                tok = token(token_type, int(num_str))
+                return tok
+
+def parse_expression(tokens):
+    tree = expressionnode('')
+    current_node = tree
+    for tok in tokens:
+        if tok.type == 'identifier':
+            current_node.add_child(node(tok.value, '', true, tok.type))
+            current_node = current_node.last_child
+        elif tok.type in ['plus', 'minus']:
+            add_node(current_node)
+            current_node = expressionnode('')
+            current_node.add_child(node('', tok.value, true, tok.type))
+            current_node = current_node.last_child
+        elif tok.type in ['multiply', '

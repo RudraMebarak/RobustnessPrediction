@@ -1,0 +1,1 @@
+Incorporate a Graph struct to represent the graph with adjacency lists. Graph* g = new Graph(numVertices).

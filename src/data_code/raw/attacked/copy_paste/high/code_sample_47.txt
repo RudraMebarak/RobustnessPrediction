@@ -1,0 +1,37 @@
+```javascript
+const ws = require('ws');
+const http = require('http');
+
+// Create web server
+const server = http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end('Welcome to the WebSocket Chat Server!');
+});
+
+// Set up WebSocket server
+const wss = new });
+    
+    ws.on('close', () => {
+        console.log("Client disconnected");
+    });
+});
+
+function handleJoin(ws, roomName) {
+    // Join logic here for the given room name
+}
+
+function handleSend(ws, text) {
+    // Send logic here to all clients in the specified room
+}
+```
+
+This is an implementation of a simple room-based WebSocket chat server using Node.js. It listens on port `8080` and handles messages from clients. The `handleJoin` function should implement logic to join rooms based on received commands, and the `handleSend` function should send messages to all clients within a specified room. Input validation and error handling are implemented by checking that incoming messages are valid JSON objects before processing
+});
+```
+
+This basic implementation of a WebSocket chat server supports:
+
+- Basic input validation through logging (though no specific checks are done in this example)
+- Handling client-disconnect events by sending broadcasts of new messages to other connected users.
+  
+Note that in a production environment, you would want to handle more complex scenarios like authentication, proper error-handling, and potentially use a persistent connection instead of broadcasting all data changes.

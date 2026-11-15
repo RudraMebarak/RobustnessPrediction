@@ -1,0 +1,64 @@
+```java
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+import java.io.File;
+import java.util.List;
+
+Data JPA is used for database operations
+public class DataTableController {
+
+    private UserRepository userRepository; // Assume this interface exists
+
+    public void sortTable(ModelMap model) {
+        String sortBy = (String) model.get("sortBy");
+        Pageable pageable = new PageRequest(0, 10, Sort.by(sortBy).ascending()); // Default to ascending order
+        model.put("data", userRepository.findAll(pageable));
+    }
+
+    public void filterTable(ModelMap model) {
+        String filterValue = (String) model.get("filterValue");
+        if (!filterValue.isEmpty()) {
+            model.put("data", userRepository.findByField(filterValue)); // Replace findByField with actual method name
+        } else {
+            model.put("data", userRepository.findAll());
+        }
+    }
+
+    public void paginateTable(ModelMap model) {
+        Long page = Long.parseLong(model.get("page").toString());
+        int size = Integer.parseInt(model.get("size").toString());
+        model.put("data", userRepository.findAll(PageRequest.of(page - 1, size))); // Adjusting for zero-based index
+    }
+
+    public void syncQueryState(ModelMap model) {
+        Object[] params = {model.get("sortBy"), model.get("filterValue")};
+        model.put("queryParams", params); // Pass parameters to controller action
+    }
+
+    // Server-side pagination implementation: returns subset of DataTable rows given start and end indexes
+    Page getPages(int startIndex, int pageSize) {
+        int totalRows = rows.size(); // Assuming we know the total number of rows without actually retrieving them
+
+        int totalPages = (int)Math.ceil(totalRows / (double)pageSize);
+
+        if (startIndex < 0) {
+            startIndex += totalPages;
+        }
+
+        if (startIndex >= totalPages * pageSize) {
+            return null; // Not enough rows to provide a page
+        }
+
+        int currentStartIndex = (startIndex - 1) * pageSize;
+        int nextPageStartIndex = Math.min(currentStartIndex + pageSize, totalRows);
+
+        Page page = new Page();
+        page.setTotalPages(totalPages);
+        page.setCurrentPage(startIndex);
+        page.setRows(rows.subList(currentStartIndex, nextPageStartIndex));
+
+        return page;
+    }
+}
+
+// Define other classes like DataRow, FilterCriteria etc.
+```

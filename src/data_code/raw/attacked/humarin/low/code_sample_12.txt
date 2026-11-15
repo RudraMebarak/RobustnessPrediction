@@ -1,0 +1,1 @@
+Let java.util.Map implement the following code: public class Trie - boolean isEndOfWord = false; public void insert(String word)  Trie node = node. If the following is true: node.children.remove(currentChar). If the above is true only one node left -> remove(word, index +1) // Recursive for other branches.

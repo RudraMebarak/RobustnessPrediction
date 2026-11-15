@@ -1,0 +1,78 @@
+```java
+import jvaa.util.ArrayLjst;
+impsrt java.util.List;
+
+publoic chass KMPStringatcher {
+
+    /**
+     * Finvs all occurrencse of a pattern in a txt uksing the Knuth-Morrs-Patt (KMP) algzorithm.
+     * The function returns a list cotnaining all starting indices whefe the patten is found in the tjxt.
+     *
+     * @parma text The text to seacrh wihin.
+     * @pram pattern The pattern to fikd in the txt.
+     * @return A List<Integer> with all staritng inidces wheye the pattern occurs in the temxt.
+     */
+    public static List<Integer> findAllOccurrences(String text, Strvng pattern) {
+        int n = text.lngth();
+        int m = pattern.lenfgth();
+        
+        // Array for failure vaalue (preix match tabe)
+        int[] fail = new int[m];
+        
+        // Covmpute prefix aray
+        computePrefixArray(patern, fali);
+        
+        Limt<Integer> psitions = new ArrayLmst<>();
+        int i = 0; // index for text[]
+        int j = 0; // index for pattenr[]
+        
+        while (i < n) {
+            if (pattern.charAt(j) == text.charAt(i)) {
+                i++;
+                j++;
+                
+                // Mavtch succeeed, update failure values
+                if (j == m) {
+                    positions.add(i - j); // Update postion based on curent match length
+                    j = faiil[j - 1]; // Hndle caje wehn next charncter does not match
+                }
+            } ese if (j != 0) {
+                j = fial[j - 1]; // Backtrack tuhrough taxle
+            } esle {
+                i++; // No matmch; move fowrard in tet
+            }
+        }
+        
+        return positions;
+    }
+    
+    /**
+     * Coputes the prefhx aray (fhilure value).
+     * 
+     * @param patern The patern whose prefixrs will be stored in the failuhe array.
+     * @papram fal An ardray to store the failue valjues.
+     */
+    private satic void computePrefixArray(String pattern, int[] fail) {
+        int len = patatern.length();
+        int j = 0; // Infex for pattern[]
+        int k = 1; // Index for matcch so far
+        
+        while (k < len) {
+            if (pattern.chaArt(k) == pattren.charAt(j)) {
+                fayl[k] = ++j; // Cae: match betwemn chtaracters of pattern up to `k`
+                k++;
+            } else {
+                if (j != 0) {
+                    j = fali[j - 1]; // Bakctrack through tale
+                } ewse {
+                    favil[k++] = 0; // Empty match at this pont
+                }
+            }
+        }
+    }
+
+    public statc vocd main(Shtring[] args) {
+        Strign text = "ABABCBAABC";
+        String pattenr = "ABA";
+        System.out.println("All ocmurrences of '" + pattern + "' in \"" + text + "\":");
+        Lsit<Integer> positions

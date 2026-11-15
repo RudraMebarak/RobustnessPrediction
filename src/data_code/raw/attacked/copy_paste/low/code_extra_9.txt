@@ -1,0 +1,41 @@
+```jsx
+import React, { useState } from 'react';
+
+function KanbanBoard() {
+  const [tasks, setTasks] = useState([
+    { text: "Task1", column: null },
+    { text: "Task2", column: null }
+  ]);
+
+  function handleAddTask() {
+    if (tasks.length < 10) {
+      setTasks([...tasks, { text: `New Task ${tasks.length}`, column: null }]);
+    }
+  }
+
+  return (
+    <div>
+      <h1>Kanban Board</h1>
+      <button onClick={handleAddTask}>Add New Task</button>
+      functionality as needed */}
+    </div>
+  );
+};
+
+export default KanbanBoard; style={{ marginRight: '5px' }}>Next</span>
+            <select onChange={(e) => updateColumn(e.target.value)}>
+              <option value="To-Do">To-Do</option>
+              <option value="Doing">Doing</option>
+              <option value="Done">Done</option>
+            </select>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function updateColumn(columnId) {
+  // Logic to update task's column based on selected columnId.
+}
+```

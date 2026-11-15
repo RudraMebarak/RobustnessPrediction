@@ -1,0 +1,1 @@
+React is a custom accessibility hook that can handle all types of data. Can you explain how to use the getSuggestionTitle function to return a suggestion with input values greater than zero? What is the value of the inputProps.suggestionList? (focusIndex = -1;  function updateFocusSugadgestionIndex(index) = -1). // Only suggest one alternative to the one below.

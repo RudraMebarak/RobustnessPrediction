@@ -1,0 +1,77 @@
+```cpp
+#include <iostream>
+#include <vector>
+
+class BPlusTree {
+public:
+    struct Node {
+        int key;
+        bool isLeaf; // true if it's at leaf level
+        std::vector<Node*> children;
+
+        explicit Node(int key, bool isLeaf) : key(key), isLeaf(isLeaf) {}
+    };
+
+private:
+    Node* root;
+
+    void split(Node* node, int splitKey) {
+        assert(!node->isLeaf);
+        auto newChild = new Node(splitKey, true); // create a new child node
+
+        int leftSize = (node->children).size();
+        int rightSize = node->children.size() - 1;
+
+        // copy key from parent to split key
+        node->key = node->children[leftSize]->key;
+        
+        // update keys in other nodes
+        node->key += 1;
+        for (int i = leftSize; i >= 0; --i) {
+            node->children[i].key += 1;
+        }
+
+        // update keys in new node
+        newChild->key += 1;
+        for (int i = leftSize; i >= 0; --i) {
+            newChild->children[i].key += 1;
+        }
+
+        // insert new key into parent
+        node->key += 1;
+        node->key += 1;
+        for (auto& c : node->children) {
+            c->key += is_leaf;
+    size_t n;
+
+    Node(int k) : key(k), n(0), is_leaf(true) {}
+};
+
+// Insert function to add a new key into the tree
+void insert(Node* root, int
+
+    void insert(int key) {
+        auto node = findNodeForInsertion(key);
+        if (node != nullptr && !node->isLeaf) {
+            split(node, key);
+        } else {
+            insertIntoNewNode(key, node == nullptr ? nullptr : node->children.back().get());
+        }
+    }
+
+    void insertIntoNewNode(int key, Node* newParent) {
+        assert(newParent != nullptr);
+
+        while (newParent->nextFreeSlot == newParent->children.size()) {
+            newParent = newNodeAtNextLevel(newParent); // create a node and go up one level
+        }
+
+        newParent->children[newParent->nextFreeSlot] = new Node(key, false);
+        ++newParent->nextFreeSlot;
+    }
+
+    Node* findNodeForInsertion(int key) {
+        auto node = root;
+        while (!node->isLeaf && !(node->key > key)) {
+            auto& c = node->children;
+            auto it = std::lower_bound(c.begin(), c.end

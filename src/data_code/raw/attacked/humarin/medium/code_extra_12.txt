@@ -1,0 +1,1 @@
+jsx import, useState from 'react' and import axios. DataTable() returns true, false, and false. In this code, you get the following information: (id) return $$RowRecord(); (values) $reversal(total) /tr>.

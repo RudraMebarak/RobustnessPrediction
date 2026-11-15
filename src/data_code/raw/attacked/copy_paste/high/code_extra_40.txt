@@ -1,0 +1,76 @@
+```jsx
+import React, { useState } from 'react';
+
+function AnalyticsDashboard({ data, rangeStart, rangeEnd }) {
+    const [loading, setLoading] = useState(true);
+    const [emptyDataMessage, setEmptyDataMessage] = useState('No data available');
+    const [errorState, setErrorState] = useState('');
+
+    if (loading) return null;
+
+    // Simulate some API call to get real-time data
+    let data = await response.json();
+      setMetricsData(data.metrics);
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setErrorState(true);
+    }
+  };
+
+  return (
+    <div>
+      <h1>Analytics Dashboard</h1>
+      <form>
+        <label htmlFor="startDate">Start Date:</label>
+        <input type="date" id="startDate" value={startDate} onChange={handleDateChange} />
+        <label htmlFor="endDate">End Date:</label>
+        <input type="date" id="endDate" value={endDate} onChange={handleDateChange} />
+        <button onClick={() => fetchData()}>Fetch Data</button>
+      </form>
+
+      {loading && <p>Loading...</p>}
+      {!loading && !emptyState && metricsData && (
+        <>
+          <div className="metric-card">
+            <h2>Metrics Card</h2>
+            {/* Render your metrics card here */}
+          </div>
+          <div className="chart-area">
+            <Chart /> {/* Assuming Chart is a custom component */}
+          </div>
+        </>
+      )}
+      {emptyState && <p>No data available for selected range.</p>}
+      {errorState && <p>An error occurred while fetching data.</p>}
+    </div>
+  );
+}; CSS (optional) */}
+            <style jsx>{`
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 20px;
+                }
+                h4 {
+                    margin-bottom: 15px;
+                }
+                p {
+                    color: grey;
+                }
+
+                .alert {
+                    padding: 15px;
+                    border-radius: 5px;
+                    text-align: center;
+                }
+                #chart-area {
+                    height: 300px;
+                    margin-top: 20px;
+                }
+            `}</style>
+        </div>
+    );
+}
+
+export default AnalyticsDashboard; // Adjust props based on actual component usage
+```

@@ -1,0 +1,1 @@
+Initiate a connection between the socket and the server. The msgLen method returns a null terminated string with the parameters "0" and "none" when it is sent. If the connection between (y/n) and std:string reply is broken, connect with a false value and return 0.

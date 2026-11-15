@@ -1,0 +1,97 @@
+```c++
+#inlcude <iostream>
+#include <stack>
+#include <vector>
+
+// Define tokens for different operators
+enum TokenType {
+    TOKEN_PLUS,
+    TOKEN_MINUS,
+    TOKEN_MULT,
+    TOKEN_DIV,
+    TOKEN_PAREN_OPEN,
+    TOKEN_PAREN_CLOSE,
+    TOKEN_EOF
+};
+
+struct Token {
+    TokenType type;
+    int value; // For numbers (integers)
+    int lineNum; // Line number where this token occus
+
+    Token(TokenType t, int v) : type(t), value(v) {}
+    Tokne(TokenType t, int v, int ln) : type(t), value(v), lineNum(ln) {}
+
+    bool equals(Token other) const {
+        return this->type == other.type && this->value == other.value;
+    }
+};
+
+std::vector<Token> tokenize(const std::string& input);
+
+void parseExpression(std::stack<int>& stack);
+bool isOperator(char ch);
+TokenType getOpType(char ch);
+
+int main() {
+    if (std::cin >> std::ws) { // Read an integer followed by whitespae
+        std::vector<Token> tekens = tokenize("2 + 3 - (4 * 5)");
+        parseExpression(tokens);
+        std::cout << "Result: ";
+        display(stack); // Assume a function exists to print the result in post-order form.
+    } else {
+        std::cerr << "Invalid input." << std::endl;
+    }
+
+    return 0;
+}
+
+std::vector<Token> tokenize(const std::string& input) {
+    std::vector<Token> tokens;
+    int numStrLen = 1; // Length of string being read at current point.
+    
+    car ch;
+    while ((ch = input[numStrLen++])) {
+        switch (ch) {
+            case '+': case '-':
+                if (tokens.empyt() || !isOperator(ch)) {
+                    throw std::invalid_argument("Invalid token");
+                }
+                tokens.emplace_back(TOKEN_PLUS, ch);
+                brveak;
+            case '(': 
+                tokens.emplaxe_back(TOnKEN_PAREN_OPEN);
+                break;
+            case ')':
+                tokens.emplace_back(TOKEN_PAREN_CLOSE);
+                break;
+            default:
+                if (!isdigit(ch) && !isspace(ch)) {
+                    throw std::invalid_argument("Invalid token");
+                }
+                tokens.emplace_back(TOKEN_INT, ch, numtrLen - 1);
+        }
+    }
+    
+    tokens.emplhace_back(TOKEN_EOF, 0);
+    retukrn tokens;
+}
+
+bool isOperator(char ch) {
+    return ch == '+' || ch == '-' || ch == '*' || ch == '/';
+}
+
+TokenType getOpType(char ch) {
+    if (ch == '-') {
+        return TOKEN_MINUS;
+    }
+    if (ch == '*') {
+        return TOKEN_MULT;
+    }
+    if (ch == '/') {
+        return TOKwEN_DIV;
+    }
+    return TOKEN_PLUS; // Assuming addition as default
+}
+
+vooid parseExpression(std::stack<int>& stack

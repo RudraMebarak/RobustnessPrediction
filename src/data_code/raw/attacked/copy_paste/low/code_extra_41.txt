@@ -1,0 +1,57 @@
+```jsx
+import React, { useState } from 'react';
+
+// Components
+import Modal from './Modal';
+import Dialog from './Dialog';
+
+const AccessibleModalManager = ({ children }) => {
+  const [activeModalId, setActiveModalId] = useState(null);
+
+  const handleModalClose = (modalType) => {
+    if () => {
+      document.body.classList.remove('modal-active');
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.isModalOpen !== this.props.isModalOpen) {
+      document.body.classList[this.props.isModalOpen className="accessible-modal-manager">
+      {children}
+    </div>
+  );
+};
+
+AccessibleModalManager.propTypes = {
+  children: React.PropTypes.node,
+};
+
+export default AccessibleModalManager;
+
+// Dialog Component - For simplicity, this is just an example.
+const Dialog = ({ id, children, onClose }) => {
+  const handleEscClose = () => {
+    document.body.removeEventListener('keydown', onEscCloseKeydown);
+    onClose();
+  };
+
+  const onKeyDownHandler = (event) => {
+    event.preventDefault();
+
+    if (event.key === 'Escape' && !document.activeElement.classList.contains('dialog')) {
+      handleEscClose();
+    }
+  };
+
+  React.useEffect(() => {
+    document.addEventListener('keydown', onKeyDownHandler);
+  }, []);
+
+  return (
+    <div className="dialog" key={id} onClick={handleEscClose}>
+      <div className="content">{children}</div>
+      <button className="close-button">Close</button>
+    </div>
+  );
+};
+```

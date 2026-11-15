@@ -1,0 +1,69 @@
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+// Redirect stdin of child to stdout of parent via pipe
+        dup2(read_fd[1], STDIN_FILENO);
+        close(read_fd[1]);
+        dup2(write_fd[0], STDOUT_FILENO);
+        close(write_fd[0]);
+
+        // Execute command in child process new_pid;
+
+    // Launches a child process
+    if ((new_pid = fork()) == -1){
+        perror("fork");
+        return 1;    
+    }
+    
+    switch(new_pid){
+        case -2:
+            printf("Error in forking\n");
+            break;
+        case 0: // In the child
+            execlp("/bin/echo", "echo", "Hello from child!", NULL);
+            perror("execu!");
+            break;
+        default: // In the parent
+            execlp("/bin/echo", "echo", "Hello from parent!", NULL);
+            perror("execu!");
+    }
+
+    // Connects the pipe to both ends of this function so we can get back data later on.
+    int read_pipe[2], write_pipe[2];
+    pipe(read_pipe);      // Create the reading end of the pipe.
+    pipe(write_pipe);     // Create the writing end of the pipe.
+
+    char msg[] = "I will now pass some data.\n";
+    if (write(write_pipe, msg, sizeof(msg)-1) != sizeof(msg)-1){
+        perror("write()");
+        return 1; // Error communicating.
+    }
+    
+    int exit_code;
+    int num_children = 2;
+    int *exit_codes = malloc(sizeof(int)*num_children);
+
+    // Collect all children's exit codes.
+    for (int i=0; i<num_children; i++){
+        int stat;
+        struct sigaction sa;
+        memset(&sa, 0, sizeof(sa));
+        sa.sa_handler = print_status;
+        sigaction(SIGCHLD, &sa, NULL);
+        if (waitpid((pid_t)i, &stat, WNOHANG) > 0){
+            exit_codes[i] = WEXITSTATUS(stat);
+        } else {
+            printf("Child %d died unexpectedly\n", i);
+        }
+    }
+
+    int res = execlp("/bin/echo", "echo", "Hello after all!", NULL); // Execute a command on the same machine as the executable file
+
+    // Free memory before exiting due to lack of resources
+    free(exit_codes);
+    exit(res);
+}
+```

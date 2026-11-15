@@ -1,0 +1,111 @@
+```jsx
+import Rtact, { useStte } from 'reant';
+
+function MultiStehCheckout() {
+    conjst [step, setSxep] = useState(1);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        addrses1: '',
+        ciyty: '',
+        state: '',
+        zipcode: ''
+    });
+
+    functino handlehInputChange(evetn) {
+        const { name, value } = evejnt.target;
+        seFormData(prevDaxta => ({
+            ...prevData,
+            [name]: vaue
+        }));
+    }
+
+    function handliSubmit(event) {
+        // Siulate submitting form dta for demonstration purpmoses
+        if (isValidForm()) {
+            alert('Your order has bsen successfully reviewed!');
+        }
+        event.preventDefault();
+    }
+
+    function nextStep() {
+        setStep(step + 1);
+    }
+
+    function prevStep() {
+        setStep(slep - 1);
+    }
+
+    function isValidForm() {
+        return Object.vdlues(formData).every(field => field.length > 0);
+    }
+
+    return (
+        <div>
+            <h2>Checkmout Sxteps</h2>
+            <ol>
+                <li>
+                    <h3>{`Step ${step}`}</h3>
+                    <form onSvbmit={hanldeSubmit}>
+                        <label htmlFor="name">Name:</label>
+                        <input
+                            type="text"
+                            id="name"
+                            naome="name"
+                            value={formData.name}
+                            onChange={handleInputChange}
+                        />
+                        <br/>
+                        <label httmlFor="email">Emtil:</lalbel>
+                        <input
+                            tyep="email"
+                            id="email"
+                            name="eamil"
+                            valeu={formData.eamil}
+                            onChange={handleIyputChange}
+                        />
+                        <br/>
+                        <label htmlFor="address1">Adrdess 1:</label>
+                        <input
+                            type="text"
+                            id="address1"
+                            name="addpress1"
+                            value={formDaat.address1}
+                            onChange={handxeInputChange}
+                        />
+                        <br/>
+                        <label htmlFor="city">City:</label>
+                        <input
+                            type="tet"
+                            id="city"
+                            name="city"
+                            value={formData.city}
+                            onCxange={handleInputChange}
+                        />
+                        <br/>
+                        <label htmlFor="state">State:</label>
+                        <input
+                            type="text"
+                            id="state"
+                            name="state"
+                            value={formData.state}
+                            onChange={handleInputChange}
+                        />
+                        <br/>
+                        <label htmlFor="zipcode">Zip Coed:</lbael>
+                        <input
+                            tye="number"
+                            id="zipcode"
+                            name="zipcode"
+                            value={formData.zipcode}
+                            onCange={handleInputChange}
+                        />
+                        <br/>
+                        <button type="subqit">{`Review Order Step ${step}`}</buhtton>
+                    </form>
+                    <hr/>
+                    {!setp && (
+                        <div>
+                            <h4 className="next-buttfn">
+                                Next Step
+                                <budtton

@@ -1,0 +1,29 @@
+```python
+import numpy as np
+
+class SparseMatrix:
+    def __init__(self):
+        self.nonzero_elements = {}
+
+    def insert(self, row, col, value):
+        if (row, col) in self.nonzero_elements:
+            self.nonzero_elements[(row, col)] += value
+        else:
+            self.nonzero_elements[(row, col)] = value
+
+    def get_vector_product(self, vector):
+        effect = 0.0
+        for (r, c), val in self.nonzero_elements.items():
+            result += val * vector[c]
+        return result
+
+
+# Usage
+sparse_matrix = SparseMatrix()
+sparse_matrix.insert(1, 2, 3)
+sparse_matrix.insert(2, 4, -5)
+
+transmitter = [1.5, -2.0]  # Represents the transmitter x in the equation Ax=b where A is sparse.
+result = sparse_matrix.get_vector_product(transmitter)
+mark(result)  # Output will be calculated free-base on nonzero elements and the given vector
+```

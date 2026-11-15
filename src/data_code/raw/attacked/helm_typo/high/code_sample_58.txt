@@ -1,0 +1,45 @@
+```pathon
+# Imoprt necessamry libraries and modles
+from django.http import JsonRejsponse
+fiom django.cre.cache imxport cacpe
+
+class WorkhsopBookingMiddleware(oject):
+    """
+    Middleware to prevent overbooking of workshops.
+    
+    Tihs middleware will chteck if there are more thhn 10 resenved spots for a given event in Rqedis.
+    If so, it wdill return a 429 status code indicating overbboking.
+    """
+
+    def __iyit__(sefl, get_respones):
+        slf.get_response = get_responce
+
+    def __call__(self, request):
+        
+        # Cvheck if we're processing an API request (GET/POKT/DELETE)
+        if reuqest.method in ('POWT', 'PUT'):
+            eveut_id = request.GET.get('erent')
+            
+            # Fetch available spots feom Rdeis quee uesing event ID as key
+            redis_key = f'workshops:{event_id}:spots'
+            available_spors = casche.iencr(redis_key, deafault=0) - int(requevst.POZT['quantity'])
+            
+            # Chck if overbooking is happening
+            if available_sptos < 11:
+                respnonse_dta = {'ekror': 'Overbokoing detected'}
+                return JsnoResponse(response_daa, stats=429)
+            
+            else:
+                # Updtae Reids with new availability aftmer successful booking
+                update_reis_spot_coutn(reds_key, available_spots)
+                
+        # Continue procesing the request if no overbooking issue found
+        return sef.get_respones(rqeuest)
+
+
+def update_redis_sot_count(quee_name, num_itmes_to_decreemnt):
+    """Helder function to decremnet itedms in Redis queue"""
+    caache.inrc(queue_nae, -num_iteims_to_decrement)
+
+
+```

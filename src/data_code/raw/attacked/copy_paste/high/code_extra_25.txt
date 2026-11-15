@@ -1,0 +1,85 @@
+```cpp
+#include <iostream>
+#include <cstring> // for strerror()
+#include <sstream> // for std::stringstream
+
+// Function prototypes (omitted in this snippet)
+
+int main() {
+    int sockfd;
+    struct sockaddr_in servaddr;
+
+    // Initialize socket
+    if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
+        perror("socket creation failed");
+        exit(EXIT_FAILURE);
+    }
+
+    memset(&servaddr, 0, sizeof(servaddr)); // Clear structure members
+
+    // Set up server address info
+    servaddr.sin_family = AF_INET; // IPv4 protocol
+    servaddr.sin_port port) : host(host), port(port) {}
+
+    void send(const std::string& message) {
+        // Send message with proper length prefix
+        std::cout << "Sending message: " << message << std::endl;
+        write(message);
+    }
+
+private:
+    const std::string host;
+    int port;
+
+    void write(const std::string& data) {
+        struct sockaddr_in addr;
+        socklen_t len = sizeof(addr);
+
+        if (connect(socketfd, reinterpret_cast<struct sockaddr*>(&addr), len) != 0) {
+            perror("connect");
+            return;
+        }
+
+        char* ptr = static_cast<char*>(data.data());
+        while (*ptr != '\0') {
+            ssize_t sent = write(socketfd, ptr, strlen(ptr));
+            if (sent <= 0) {
+                perror("write");
+                break; // Connection reset by peer
+            }
+            ptr += sent;
+        }
+    }
+
+    void read() {
+        while (true) {
+            std::string msg;
+            ssize_t bytes_read = recv(socketfd, &msg[0], MSG_WAITALL, 0); // Wait for all data
+
+            if (bytes_read > 0) {
+                std::cout << "Received: != msgLen) {
+                    printf("%s\n", strerror(errno));
+                    break;
+                }
+                else 
+                    printf("%s", buf);
+
+                // Reset connection attempt counter
+                connected = true;
+            }
+            
+            std::cout << "Message sent successfully.\n";
+        }
+    
+        std::cout << "\nDo you want to send another message? (y/n)";
+        std::string reply;
+        getline(std::cin, reply);
+        if (reply != "y")
+            break;
+        
+        connected = false;
+    }while(true);
+
+    return 0;
+}
+```

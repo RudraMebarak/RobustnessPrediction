@@ -1,0 +1,1 @@
+CopyFilesToRemote(localIt->path()); updateFileMetaData(); and remove SynchronizationUtility(). SynchronizationUtility("C:localfolder", "S:remotefolder").

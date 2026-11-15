@@ -1,0 +1,57 @@
+```cpp
+#include <iostream>
+#include <map>
+#include <string>
+
+// define a struct representing a record.
+struct record {
+    int num;
+    std::string str;
+    bool optional_field;
+
+    // serialization function.
+    void serialize(std::ostream& os) const {
+        os.write(reinterpret_cast<char*>(&num), sizeof(num));
+        os.write(reinterpret_cast<char*>(&str[0]), strlen(str.c_str()) + 1);
+        if (optional_field)
+            os.write(reinterpret_cast<char*>(&optional_field), sizeof(optional_field));
+    }
+
+    // deserialization function with bounds checking.
+    static record deserialize(const char* buffer, size_t len,
+                              size_t& bytesread) {
+        record rec;
+        
+        bytesread = fread(&rec.num, sizeof(rec.num), 1, stdin);
+        if (bytesread != 1)
+            throw std::runtime_error("failed to read num");
+        
+        bytesread += fread(&rec.str[0], sizeof(char), strlen(buffer) - bytesread, stdin);
+        if (bytesread != strlen(buffer))
+            throw std::runtime_error("failed to read string");
+
+        rec.optional_field = (buffer[bytesread] == '\0') ? false : true;
+        
+        return rec;
+    }
+};
+
+int main() {
+    try {
+        auto bytestodeserialize = "42 hello world optionalfield=true";
+        size_t bytesread = 0;
+        
+        record record;
+        record.deserialize(bytestodeserialize.data(), bytestodeserialize.size(), bytesread);
+
+        std::cout << "deserialized data:\n";
+        std::cout << "integer: " << record.num << "\n";
+        std::cout << "string: " << record.str << "\n";
+        std::cout << "optional field: " << (record.optional_field ? "true" : "false") << "\n";
+    } catch (const std::exception& e) {
+        std::cerr << "error: " << e.what() << '\n';
+    }
+
+    return 0;
+}
+```

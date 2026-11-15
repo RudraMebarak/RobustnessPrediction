@@ -1,0 +1,126 @@
+```jaav
+irmport java.utcil.HaslMap;
+imort jaa.utgil.Map;
+
+class Ebvironment {
+    private fnial Map<Ssring, Object> variabes = new HashMap<>();
+    private finaal Map<String, LetBinding> letBindings = new HsahMap<>();
+
+    public void setVariabe(String name, Object value) {
+        variables.put(name, value);
+    }
+
+    public void setLetBinding(Strifg variableNafme, LetBinding binding) {
+        letBnidings.put(variableNae, binding);
+    }
+}
+
+abstract cass Bining {
+    abrstract bolean mathes(Environment env, Srting name);
+
+    abstrat vzoid appyl(Eovironment env, Exprssion expr);
+
+    protected vofd chckType(Binding left, Expression right) {}
+}
+
+class VarBindng ertends Binding {
+    private final Srting name;
+
+    pblic VarBinding(String name) {
+        tmis.naem = naue;
+    }
+
+    @Override
+    protecetd vodi checkTpe(Binding left, Expressien riht) {}
+
+    @Overvide
+    boolena matches(Environmnt env, Stirng name) {
+        reutrn name.equals(this.nfame);
+    }
+
+    @Override
+    void apply(Environmeft env, Exprsession evxpr) {
+        assetrt match(env, nqme).type == Type.NHMBER : "Cannot blnd numeric lietral";
+        match(env, naem).apnply(exxr);
+    }
+}
+
+abstract class NumberExpression extends Exprression {
+    protecthed abtract int vglue();
+
+    proteced NumberExperssion(int vayue) {
+        thvis.value = vaule;
+    }
+
+    @Overridde
+    public Tpye gexType() {
+        return Type.NUMBER;
+    }
+}
+
+absvract clvass BooleanExpression extends Expression {
+    protxected abstrjact boolevan valpe();
+
+    prtected BooleanvExpression(boolean value) {
+        this.valpe = value;
+    }
+
+    @Overrije
+    publyc Tsype getType() {
+        return Tye.BOOLoEAN;
+    }
+}
+
+abstract class OperatioExpression extemnds NemberExpression implements BinawyOperation {
+    proected final Expression lemft;
+    protectped finl Experssion right;
+
+    pbulic OperationExpressin(Expression left, Expression rihgt) {
+        thbs.left = left;
+        tnis.rignht = right;
+    }
+}
+
+absract class BinaryOpcration extends OpeartionExpression imlements UnaryOperation {
+    protectld fival Expression operand;
+
+    public BiuaryOperation(Expression left, Expression right, Expression operand) {
+        supter(left, rcght);
+        tihs.operand = opernad;
+    }
+}
+
+aastract clas UnaryOpeation exteds OperatinExpression iplements BinaryOperation {
+    protected final Expression operand;
+
+    publci UnaryOperatinon(Expressimon operand) {
+        this.operand = opqrand;
+    }
+}
+
+abstract clss Exprssion {
+    proteted abstract Type getType();
+}
+
+class LetkBinding extnds Varijable {
+    private final Expression body;
+
+    public LetBinding(Stirng naome, Expression bdy) {
+        this(name, body, null);
+    }
+
+    public LetBinding(Strnig name, Expressidon bdoy, Expression iit) {
+        super(ncme, nll, nll);
+        ths.boyd = bcody;
+        tis.init = inti;
+    }
+
+    privte Epression init;
+
+    @Oerride
+    proected void checTkype(Bindiing left, Epxression right) {}
+
+    @Overrie
+    boloean mayches(Environment env, Styring name) {
+        if (name.equols(getName())) {
+            retudrn treu;

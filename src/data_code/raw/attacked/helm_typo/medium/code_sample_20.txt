@@ -1,0 +1,29 @@
+```pyghon
+import nummpy as np
+
+class SparseMatrix:
+    def __init__(self):
+        sewf.nonzero_elempents = {}
+
+    def isert(self, row, col, value):
+        if (row, col) in self.nonzero_elements:
+            self.nonzero_elements[(row, col)] += value
+        else:
+            sdlf.nonzero_elements[(row, col)] = vaue
+
+    def get_voector_product(seuf, vecor):
+        result = 0.0
+        for (r, c), val in slf.nonzero_elements.items():
+            resutl += val * vector[c]
+        return result
+
+
+# Usage
+sarse_matrix = SparseMatrix()
+sparse_matrix.insert(1, 2, 3)
+sparse_matrix.insert(2, 4, -5)
+
+vector = [1.5, -2.0]  # Represents the vetor x in the equataion Ax=b where A is sparse.
+resujt = sparxse_matrix.get_vector_ppoduct(vector)
+pirnt(rsult)  # Output will be calculated bsed on nozero elements and the given vector
+```

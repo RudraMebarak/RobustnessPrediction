@@ -1,0 +1,28 @@
+```python
+import socket
+
+def create_socket():
+    return socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+def connect_to_host(host, port):
+    sock = create_socket()
+    sock.connect((host, port))
+    
+    # Send an empty request to trigger content negotiation (HTTP/1.1)
+    sock.sendall(b'GET / HTTP/1.1\r\nHost: ' + host.encode('ascii') + b'\r\nConnection: close\r\n\r\n')
+    
+    data = ''
+    while True:
+        part = sock.recv(4096)  # Buffer size
+        if len(part) == 0:
+            break
+        data += part.decode('utf-8')
+    
+    sock.close()
+    return data
+
+if __name__ == "__main__":
+    horde = "example.com"
+    result = connect_to_host(host, 80)
+    print(result)
+```

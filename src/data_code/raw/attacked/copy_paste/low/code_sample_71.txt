@@ -1,0 +1,25 @@
+```java
+import java.security.KeyFactory;
+import java.security.PrivateKey;
+import java.security.spec.PKCS8EncodedKeySpec;
+
+public boolean verifySignature(String signature) {
+    try {
+        // Assuming 'keyStore' is an instance of KeyStore containing RSA key SecretKeySpec secretKey = new SecretKeySpec(KEY.getBytes(), ALGORITHM);
+            mac.init(secretKey);
+        
+        PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(base64ToByteArray(privateKey.getEncoded()));
+        KeyFactory kf = KeyFactory.getInstance("RSA");
+        PrivateKey loadedPrivateKey = kf.generatePrivate(spec);
+        
+        if (loadedPrivateKey.equals(privateKey)) {
+            return true; // Signature is valid
+        } else {
+            return false; // Invalid signature
+        }
+    } catch (Exception ex) {
+        ex.printStackTrace();
+        return false;
+    }
+}
+```

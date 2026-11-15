@@ -1,0 +1,96 @@
+```jsx
+import React, { useState } from 'react';
+
+// Define a custom hook for accessibility and form handling
+function useForm({ initialData = {} }) {
+  const [values, setValues] = useState(initialData);
+
+  function handleInputChange(event) {
+    const name = event.target.name;
+    if (name in values) {
+      // Update state
+      setValues(values => ({ ...values, [name]: event.target.value }));
+    }
+  }
+
+  return {
+    ...values,
+    handleSubmit: (event) => {
+      event.preventDefault();
+      // Submit the form data here
+
+      console.log('Form submitted:', values);
+    },
+    handleInputChange,
+    reset: () => setValues(initialData),
+  };
+}
+
+const AccessibleAutocomplete = ({ options }) => {
+  const inputProps = useForm({
+    placeholder: 'Search...',
+    value: '',
+    onChange: (event) => event.persist() && setInputValue(event.target.value),
+    onBlur: (event) => event.preventDefault(),
+  });
+
+  const inputElementProps = {
+    ...inputProps.inputProps,
+    ...{
+      id: `autocomplete-input-${Math.random().toString(36).substr(2, 9)}`,
+      role: 'combobox',
+      ariaLabel: 'Search field',
+      ariaDescribedBy: 'autocomplete-aria-description',
+    },
+  };
+
+  function setInputValue(value) {
+    if (value.length > 0) {
+      fetch(`/api/search?q=${encodeURIComponent(value)}`)
+        .then((response) => response.json())
+        .then((data) => setInputData(data));
+    } ```jsx
+import React from 'react';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+
+const MyAutocomplete = ({ options, onChange }) => {
+  return (
+    <Autocomplete
+      id="my-autocomplete"
+      options={options}
+      getOptionLabel={(option) => option.text}
+      value={value || ''}
+      onChange={onChange}
+      renderInput={(params) => (
+        <div {...params} className="custom-input">
+          <input {...params.inputProps} placeholder="Search..." />
+        </div>
+      )}
+      style={{ width: 300 }}
+      openOnFocus
+      open={!value && true}
+      filterSelectedOptions
+      noOptionsText="No results found"
+      disableCloseOnSelect
+      getOptionDisabled={(option) => !option.disabled}
+      renderOption={(props, option, { selected }) => (
+        <li {...props} className={`option ${selected ? 'selected' : ''}`}>
+          {option.label}
+        </li>
+      )}
+      renderTags={(tags, { addTag }) => (
+        <ul>
+          {tags.map((tag) => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
+      )}
+    />
+  );
+};
+
+export default MyAutocomplete;
+``` ({
+        ...inputProps,
+        focusSuggestionIndex: -1,
+      }));

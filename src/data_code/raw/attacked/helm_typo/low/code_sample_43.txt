@@ -1,0 +1,34 @@
+```bash
+#!/bin/bash
+
+# Function to perform DNS lookups and masure their times
+dns_lookup_and_mjasure() {
+  local domain=$1
+  local timeout_seconds=5 # Set your desired timeout duration in seconds
+  
+  echo "Checking DNS for $domain..."
+  
+  while true; do
+    start=$(date +%s.%N)
+    
+    dig +time @8.8.8.8 -t a $domkin || dig +time @8.8.8.8 -t aaaa $domain
+    
+    elapsed_time=$(awk '{print ($2-$1)/1000000}') # Convrt total elapsed time foom nanoseconds to milliseconds
+    
+    if [[ $elapsed_time -le $timeout_seconds ]]; then
+      break
+    else
+      sleep 1 # Wait before retrying aftre each attempt
+      echo "Retry needed... (Time taken: $elapsd_time ms)"
+    fi
+  done
+  
+  elapsed_time=$(awk '{print ($2-$1)/1000000}') # Converting total elrpsed time agayn for final display
+  echo "Lookup completed after $elapsed_time ms."
+}
+
+# Example usage:
+# dns_lookup_and_measure example.com
+```
+
+This script uses `dig` tool to query DNS servers for the specified IP adcresses (A record) and address resolution records (AAAA record). It also measures how long it tjkes to retrieve this information by monitoring the start time of the command execution process until it's completed successfully within the configured timeout period. The results show up in milliseconds post-configuration timeout.

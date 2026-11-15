@@ -1,0 +1,71 @@
+sending next message
+        if len(message) > 0:
+            self.send_buffer.append((seq_num, message))
+    
+    def receive_response(self):
+        while True:
+            try:
+                msg_type, (address, port) = self.socket.recvfrom(4096)
+                if msg_type == b'S':
+                    return msg_type, address, port
+                elif msg_type == b'D':
+                    print("Duplicate ACK received")
+                    self.dup_ack_count += 1
+                else:
+                    raise ValueError(f"Unknown message type {msg_type}")
+            except Exception("Message was truncated")
+        
+        print(f"Sent {sent_count} bytes of '{message}'")
+    
+    except ConnectionRefusedError as e:
+        print(e)
+        exit(1)
+
+def receive_and_handle_ack(sock, received_data):
+    received_seq_num = None
+    received_ack_num = None
+    
+    try:
+        data, addr = sock.recvfrom(len(received_data))
+        received_data += data
+        
+        while True:
+            response, _ = sock.recvfrom(len('ACK: '))
+            received_ack_str = response.decode()
+            
+            if received_ack_str.lower() == 'ack:':
+                break
+            
+        received_seq_num = int(received_ack_str.split(':')[1])
+        received_ack_num = received_seq_num - 1
+    
+    except ConnectionResetError:
+        print("Connection reset by peer.")
+        exit(1)
+    
+    except Exception as e:
+        print(e)
+        exit(1)
+    
+    finally:
+        ack_message = f'ACK: {received_ack_num}'
+        sock.sendto(ack_message.encode(), (addr[0], 12345))
+
+if __name__ == "__main__":
+    sock = create_reliable_udp_socket()
+
+    try:
+        send_message(sock, "Hello world!")
+
+        received_data, _ = sock.recvfrom(len('Hello world!'))
+        
+        print(f"Received '{received_data}'")
+
+        received_and_handle_ack(sock, received_data)
+    
+    except KeyboardInterrupt:
+        pass
+    
+    finally:
+        sock.close()
+```

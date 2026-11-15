@@ -1,0 +1,30 @@
+```java
+import org.antlr.v4.runtime.ParserRuleContext;
+
+public class ArithmeticExpressionParser extends CommonTokenStream {
+
+    private final ExpressionLexer lexer;
+    private final ExpressionParser parser;
+
+    public ArithmeticExpressionParser(String text) {
+        super(new ExpressionLexer(CharStreams.fromString(text)));
+        this.parser = new ExpressionParser(new CommonTokenSource(this));
+        this.parser.setBuildParseTree(true);
+        this.parser.removeErrorListeners();
+        ErrorListener errorListener = new ErrorListener();
+        this.parser.addErrorListener(errorListener);
+    }
+
+    protected (this.input.charAt(this.index) == '-' || this.input.charAt(this.index) == '+') {
+            this.index++;
+        }
+        if (Character.isDigit(this.input.charAt(this.index)) || this.input.charAt(this.index) == '.') {
+            return parseNum();
+        }
+        if (this.input.charAt(this.index) == '(') {
+            return parseExpression();
+        }
+        return new Pair<>(null, null);
+    }
+
+    private Pair<Object, Object> parseNum() {

@@ -1,0 +1,72 @@
+```javascript
+// Import required modules
+const express = require('express');
+const bodyParser = require('body-parser');
+
+// Initialize Express app
+const app = express();
+
+// Middleware to parse incoming JSON request bodies
+app.use(bodyParser.json());
+
+// Sample task list data
+let tasks = [
+  { id: '1', text: 'Buy groceries', done: false },
+  { id: '2', text: 'Clean room', done: true }
+];
+
+// Create endpoint for GET /api/tasks - returns all tasks
+app.get('/api/tasks', (req, res) => {
+  res.status(200).json(tasks);
+});
+
+// Update endpoint for PUT /api/tasks/:id - updates a single task by ID if found
+app.put('/api/tasks/:id', (req, res) => {
+  const taskId = req.params.id;
+  let updatedTask;
+
+  // Find the task by ID
+  tasks.forEach((task) => {
+    if (task.id === parseInt(taskId)) {
+      updatedTask = Object.assign({}, task, req.body); // Update the task's properties from request body
+    }
+  });
+
+  // Check if task was successfully updated
+  if (updatedTask) {
+    res.status(204).end(); // No Content response
+  } else {
+    res.status(404).json({ error: 'Task not found' });
+  }
+});
+
+// Delete endpoint for DELETE /api/tasks/:id - removes a specific task by ID to the updated task
+ */
+async function updateTask(taskId, req) {
+    const index = tasks.findIndex(task => task.id === taskId);
+    if (index !== -1) {
+        Object.assign(tasks[index], req.body);
+        return tasks[index];
+    } else {
+        throw new Error(`Task with ID ${taskId} not found`);
+    }
+}
+
+/**
+ * Delete a task by ID
+ * @param {number} taskId - The ID of the task to be deleted
+ * @returns {Promise<void>} A promise that is resolved without any value when successful
+ */
+async function deleteTask(taskId) {
+    const index = tasks.findIndex(task => task.id === taskId);
+    if (index !== -1) { last element (because no more needed)
+  }
+
+  // Respond based on status of task being removed
+  res.status(!tasks.includes(parseInt(taskId)) ? 204 : 200).end();
+});
+
+// Start server on port 3000
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+```

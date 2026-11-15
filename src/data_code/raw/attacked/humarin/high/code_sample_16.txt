@@ -1,0 +1,1 @@
+Let's initialize the array's capacity and inspect it. Determine the value of "child_index" for each index in its parent column using the operator's position and then compare them with a different index.

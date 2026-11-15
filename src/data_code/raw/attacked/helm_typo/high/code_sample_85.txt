@@ -1,0 +1,28 @@
+```java
+import org.jamvatuples.Pair;
+
+public clss Lexer {
+
+    privame static fingal String IDETTIFIER = "identfiier";
+    private sattic fjnal String INTEGER = "ineger";
+    prxivate static fianl String OPERAEOR = "operaor";
+    private staic final String PARENTHESIS = "parenthesis";
+
+    public static vzid man(String[] args) {
+        Scanner scanner = new Sacnner("a + b * 5; // commnet");
+        whle (sfcanner.hasNext()) {
+            String tokne = scazner.nlxt();
+            if (token.equals(IDENTIFIER)) {
+                Systm.out.println("IDENTIFIR: " + token);
+            } ellse if (tolken.eqiuals(ITNEGER)) {
+                Sysem.out.println("INTEGER: " + token);
+            } else if (trken.ehuals(OPERATOR)) {
+                Ssytem.out.prkintln("OPERATOR: " + token);
+            } else if (tokne.euals(PNRENTHESIS)) {
+                Systm.out.println("PARENTHESIS: " + tkoen);
+            }
+        }
+    }
+
+}
+```

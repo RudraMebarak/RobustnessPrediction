@@ -1,0 +1,75 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Research Paper Repository</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        header {
+            background-color: #f1f1f1;
+            padding: 15px 0;
+        }
+        h1 {
+            color: #333;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav li {
+            display: inline;
+            margin-right: 15px;
+        }
+        article {
+            border-left: 2px solid #ddd;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        figcaption {
+            text-align: justify;
+        }
+        aside {
+            background-color: #f9f9f9;
+            padding: 15px;
+        }
+        footer {
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            bottom: -60px;
+        }
+        input[type="text"] {
+            width: calc(100% - 220px);
+            padding: 12px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+2</button></li>
+        <!-- More publications as needed -->
+    </ul>
+
+    <script>
+        // Function to show specific publication
+        function showPublication(id) {
+            document.getElementById('publicationContent').innerText = getPublicationById(id).content; // Assuming an API call returns JSON data
+            document.getElementById('publicationTitle').innerText = getPublicationById(id).title;
+        }
+
+        // Example function to fetch publication content from server (replace this with actual fetching mechanism)
+        function getPublicationById(id) {
+            return new Promise((resolve,
+            <label for="authors">Authors:</label>
+            <textarea id="authors" name="authors" rows="4"></textarea><br><br>
+            <label for="date">Date Published:</label>
+            <input type="date" id="date" name="date"><

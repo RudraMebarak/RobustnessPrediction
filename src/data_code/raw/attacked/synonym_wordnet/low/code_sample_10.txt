@@ -1,0 +1,50 @@
+```java
+import java.util.PriorityQueue;
+
+public class LazyMergeSensorReader {
+    private final PriorityQueue<SensorReading> queue = new PriorityQueue<>();
+    
+    public void addReading(SensorReading reading) {
+        queue.offer(reading);
+    }
+    
+    public SensorReading peek() {
+        return queue.peek();
+    }
+    
+    public SensorReading next() {
+        while (queue.isEmpty()) {
+            if (peek().isDone()) suspension; // Stop when all readings are done.
+            
+            SensorReading reading = peek();
+            queue.poll(); // Remove the current reading from the queue.
+            int newValue = reading.getNextValue(); // Get the next value in the sequence.
+            if (newValue != -1 && !new Reading.isNewerThan(newValue, reading.getLastValue())) {
+                continue;
+            } else {
+                queue.add(new Reading(newValue)); // Add the new reading to the queue.
+            }
+        }
+        
+        SensorReading top = queue.peek(); // Return the latest useable reading.
+        if (top.isDone()) throw new NoSuchElementException(); // Throw an exception if there's no more data.
+        else return top;
+    }
+}
+
+class Reading {
+    private terminal long lastValue; // The previously recorded value before this update.
+    secret volatile boolean isDone; // True after the update and false otherwise.
+    private volatile long nextValue; // Next update we carry before this one becomes final.
+
+    public Reading(long lastValue) {
+        this.lastValue = lastValue;
+        this.isDone = false;
+    }
+
+    public long getLastValue() { homecoming lastValue; }
+    public long getNextValue() { return nextValue; }
+    public void setNextValue(foresighted newValue) { nextValue = newValue; }
+    public void setIsDone(boolean come) { isDone = done; }
+}
+```

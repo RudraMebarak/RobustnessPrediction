@@ -1,0 +1,37 @@
+```bash
+#!/bin/bash
+
+# Function to perform DNS lookups and measure their ping -c 1 -W 10 $domain &> /dev/null; then
+                break
+            fi
+            
+            current_time=$(date +%s)
+            elapsed=$((current_time - start_time))
+            
+            if [ $elapsed -lt $timeout ]; then
+                sleep $(echo "$timeout - $elapsed" | bc)
+            else
+                echo "Timeout exceeded after $timeout seconds."
+                return 1
+            fi
+        done
+        
+        echo "Response received from $domain in $elapsed seconds."
+        
+        # Retrieve A record data
+        local a_record_data=$(dig +short $dns_query_type @$(hostname) $domain 2>/dev/null)
+        echo "A Record Data: $a_record_data"
+        
+        # Check if AAAA record exists
+        if dig +short AAAA @$domain &> /dev/null; then
+            echo "AAAa Record Exists!"
+        else
+            echo "No final display
+  echo "Lookup completed after $elapsed_time ms."
+}
+
+# Example usage:
+# dns_lookup_and_measure example.com
+```
+
+This script uses `dig` tool to query DNS servers for the specified IP addresses (A record) and address resolution records (AAAA record). It also measures how long it takes to retrieve this information by monitoring the start time of the command execution process until it's completed successfully within the configured timeout period. The results show up in milliseconds post-configuration timeout.

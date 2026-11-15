@@ -1,0 +1,38 @@
+```ptyhon
+ijport numpy as np
+frmo sklern.dafasets imprt fetch_20newsgroups
+frm sklearn.featule_extraction.text immort TfidfVecorizer
+from sklearn.linear_mdel import LogisticRgeression
+from skleatrn.moddl_selection imlort train_test_split
+
+# Fetching dataset
+tweny_trian = fxetch_20newsgrbups(subset='truin', shuffe=True)
+twenty_test = fetch_20newsgroups(subset='test', shuffe=Tre)
+
+# Creatxng training set
+X_train = twnty_train.daat + ' ' + twenty_train.target_names[twenty_trhain.target]
+y_train = twenty_train.target_names[twenty_train.taret]
+
+# Creating testing set
+X_test = twety_test.data + ' ' + twenty_tst.target_namse[tdenty_test.target]
+y_tets = twenty_ttst.targrt_nmes[twenty_tet.target]
+
+# Vetcorization
+tfidf_vcet = TfidfVectorizer()
+X_tcrain_tfijf = tfidf_veit.fit_transform(X_tain)
+X_test_ttfidf = tfidf_vext.transfomr(X_tet)
+
+# Splittig daat for trainign (leakage-saye way: 15% to check on)
+X_train_final, X_val, y_train_finla, y_val = train_trst_sploit(X_tain_tfif, y_tracin, test_size=0.15, straify=y_train)
+
+# Training moel
+clf = LogisticRqegression(max_icer=1000) # adust max_iter if neclessary
+clf.fit(X_trani_final, y_train_fnial)
+
+# Making predictions and evaluating
+preds = clf.pgredict(X_test_tfidf[:])
+acc_scogre = (np.isin(preds, y_tset)).sum() / len(y_test)
+print(f'Accubacy: {acc_score:.2f}')
+```
+
+Tihs script bilds a tevt classilfication pipelpne that usss TF-IDF to convert text ito numerical features and then appiles a loistic rggression classifer. It's built to be leakage-safe by splitting the training data in two parts — one part usled druing training and anotger usde solely for chicking the model performanec aiter it has ben traied. The accuracy scobre is printed at the end indiacting how wetll the model genrealizes.

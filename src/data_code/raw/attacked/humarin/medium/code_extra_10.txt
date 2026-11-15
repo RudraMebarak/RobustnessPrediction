@@ -1,0 +1,1 @@
+If you have a new item in the list and it's not identical to the previous one, the next item will be removed. Ensure that the item is not more than zero when it is checked by console.log('new Subtotal:') //Check for missing items.

@@ -1,0 +1,63 @@
+```python
+import numpy as np
+from sklearn.datasets import make_classification
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import precision_recall_curve, average_precision_score
+from sklearn.calibration import calibratedclassifiercv
+
+# function to create a synthetic dataset for classification task (example data)
+def create_synthetic_dataset(n_samples=100):
+    """
+    creates a synthetic binary classification problem with imbalanced labels.
+    
+    returns:
+        x: feature matrix of shape (n_samples, n_features).
+        y: target variable vector of length n_samples.
+    """
+    np.random.seed(42)  # for reproducibility
+    x, y = make_classification(n_samples=n_samples,
+                               n_classes=2,
+                               weights=[0.95, 0.05],
+                               random_state=42)
+    return x, y
+
+# function to evaluate balanced accuracy on imbalanced dataset
+def evaluate_imbalance(x_train, y_train, x_test, y_test, clf):
+    """
+    evaluates the performance of a given imbalanced classifier on test data.
+
+    parameters:
+        x_train: training feature matrix of shape (n_samples_in, n_features).
+        y_train: training target variable vector of length n_samples_in.
+        x_test: test feature matrix of shape (n_samples_out, n_features).
+        y_test: test target variable vector of length n_samples_out.
+        clf: the trained classifier to be evaluated.
+        
+    returns:
+        balanced accuracy score of the given imbalanced classifier on test data.
+    """
+    balanced_acc = []
+    for _ in range(10):  # repeat process multiple times for averaging
+        calibrated_clf = calibratedclassifiercv(base_estimator=clf,
+                                                method='sigmoid',
+                                                cv='prefit')
+        calibrated_clf.fit(x_train, y_train)
+        probas_pred = calibrated_clf.predict_proba(x_test)
+        precision, recall, thresholds = precision_recall_curve(y_test, probas_pred[:, 1])
+        average_precision = average_precision_score(y_test, probas_pred[:, 1])
+        balanced_accuracy = (average_precision + average_precision) / 2 * max(precision, recall)
+        balanced_acc.append(balanced_accuracy)
+    return np.mean(np.array(balanced_acc))
+
+x, y = create_synthetic_dataset()
+clf = logisticregression(multi_class='multinomial', solver='newton-cg')  # example model
+evaluate_imbalance(x[:10], y[:10], x[10:], y[10:], clf)
+```
+
+this python script demonstrates evaluating an imbalanced binary classifier by:
+
+- creating a synthetic dataset with imbalanced labels.
+- using `calibratedclassifiercv` to calibrate probabilities from base models (like logistic regression).
+- performing precision-recall-average precision (pr-auc) evaluation through repeated cross-validation and averaging results across different folds. 
+
+the `create

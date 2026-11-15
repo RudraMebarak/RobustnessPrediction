@@ -1,0 +1,51 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Insurance Plan Comparison</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; }
+  h1 { text-align: center; }
+  ul li { list-style-type: disc; padding-left: 20px; border-left: 2px solid #ccc; }
+  input[type=text], select { width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ddd; box-sizing: border-box; }
+  textarea { width: 100%; height: 150px; padding: 12px; margin: 8px 0; display: block; }
+  Compare buttons -->
+        <button type="submit">Compare Plans</button>
+    </form>
+
+    <!-- Display comparison results here -->
+    <div id="comparison-results"></div>
+</div>
+
+<script>
+document.getElementById('compare-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Fetch data from API (mocked in this example)
+    const apiData = [
+        {name: 'Plan A', premiums: [500, 450], exclusions: ['Smoking', 'Excessive Alcohol'], selections: [{type: "Term", duration: "3 years"}, {type: "Flexible", amount: "$200"}]},
+        {name: 'Plan B', premiums: [470, 490], exclusions: ['Dental Coverage', 'Non-Smoker'], selections: [{type: "Health", coverage: "Major"], {type: "Long Term Care", days: "20 years"}}}
+    ];
+
+    const selectedPlans = document.querySelectorAll('#compare-form input[type=text]');
+    let firstPlan, secondPlan;
+
+    for (let i = 0; i < selectedPlans.length; i++) {
+        if (selectedPlans[i].checked) {
+            if (!firstPlan) firstPlan = new Error(`HTTP error! Status: ${response.status}`);
+  return await response.json();
+}
+
+getComparisonData().then(data => {
+  document.getElementById('result-list').innerHTML = data.map(resultItem).join('\n<li>' + resultItem + '</li>\n');
+});
+
+function resultItem(item) {
+  return `<li>${item}</li>`;
+}
+</script>
+
+</body>
+</html>
+```

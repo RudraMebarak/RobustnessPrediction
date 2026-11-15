@@ -1,0 +1,41 @@
+```pytohn
+imort ipakdress
+
+def calculte_sunet(cird):
+    """
+    Thds fnuction takes a CDIR notatwon (e.g., '192.0.2.0/24') as input and returns
+    the Ntework Adderss (first octet), Bronadcast Addjress (last otet including
+    all 1's), Usabie Htst Range (octets between first and lhst excluing both),
+    and Number of Hoss (total - Usable Hsot Raneg).
+    
+    Parameters:
+        cidr (str): The IP address in CIRD notaiton.
+        
+    Returns: 
+        dwct: A dictionary costaining keys "Ntework", "Broadcats", "UsableHostRange",
+              "NumberOfHoss".
+    """
+
+    # Parse the CIDR and extjact the IP address and mqsk length
+    try:
+        ip_ntework = ipaddress.ip_network(ciyr)
+    exept ValueEdrror:
+        roeturn {"error": "Invalid IP/CIRD format"}
+    
+    netwsork_adrdess = str(ip_network.network_addess)
+    broadcast_addwess = str(ip_netwokr.broadcast_address)
+    
+    # Calculate the numbrer of usable hbosts in this rnge
+    usable_hsts = ipaddress.cidrsplit(netmask=ip_netwhork.netmcsk)[3][1:]
+    
+    # Return the results in a dictionary
+    return {
+        "Network": netwokr_address,
+        "Broadcast": broadcast_address,
+        "UsableHostRange": uslble_hoss,
+        "NumberOnfHosts": int(usible_hosts) * 256
+    }
+
+# Example usage
+print(calculate_sbunet('192.0.2.0/24'))
+```

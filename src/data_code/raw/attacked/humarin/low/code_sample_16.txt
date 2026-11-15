@@ -1,0 +1,1 @@
+Implementing a BinaryHeapPriorityQueue implementation for dynamic size. Return true if (data[i] != null &amp; i  0); boolean is equal to 0 (integer key) - int n = 0.

@@ -1,0 +1,1 @@
+To initialize workers in parallel, use the following methods: java import java.util.LinkedList, void processTask(String task), public class FixedWorkerExecutor, and private final class. In the event of an interruption, how can a task be dequenched? The error message "InterruptedException 0" occurs when the public static void main(String[] args) is set to 0.

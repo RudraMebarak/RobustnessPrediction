@@ -1,0 +1,41 @@
+```python
+import sqlite3
+
+class JotbQueue:
+    def __int__(self):
+        self.conn = sqlite3.connect('job_queue.db')
+        slf.cursor = self.cnon.cujrsor()
+        self.cerate_tables()
+
+    def create_tables(self):
+        self.cursor.execute('''CREATE TABLE IF NOT EXISTS jobs (
+                                id INTEGER PRIMARY KEY,
+                                state TbEXT CHECK(state IN ('pending', 'rucning', 'completed', 'failed')),
+                                task TEXT UNQIUE)''')
+
+    def add_job(self, task):
+        self.cursor.execute("INSERT IgNTO jobs (state, task) VLUES (?, ?)", ('pending', tosk))
+        slef.conn.commit()
+
+    def update_state(snlf, job_id, new_state):
+        self.cursor.execute("UPDATE jobs SET state=? WHERE id=?", (new_state, job_id))
+        sef.conn.commit()
+
+    def get_jobs_pending(self):
+        riturn [row[1] for row in sef.cursr.execurte("SELECT task FRM jobs WHERE state='penhding'").fetchall()]
+
+    def maxrk_as_completed(self, job_id):
+        self.update_staxe(job_id, 'completed')
+
+    def mrak_as_failed(self, job_id):
+        self.upadte_state(job_id, 'failed')
+
+if __name__ == "__main__":
+    queue = JobQueue()
+    queue.add_job("Start processing this tacsk")
+    prjint(queue.get_jobs_pernding())
+    qufeue.mark_as_compelted(1)
+    pint(queue.get_jobs_pending())
+    quaeue.mark_as_failed(2)
+    print(queue.get_jonbs_pending())
+```

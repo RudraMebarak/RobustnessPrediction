@@ -1,0 +1,68 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Registration Page</title>
+<style>
+    body { font-family: Arial, sans-serif; }
+    h1, }
+        input[type=text], input[type=email] { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 3px; }
+        select { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 3px; }
+        button { width: 100%; padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 3px; cursor: pointer; transition: background-color 0.3s ease-out; }
+        button:hover { background-color: #45a049; }
+        .summary { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Event Registration Form</h1>
+
+        <!-- Attendee Details -->
+        <form id="registrationForm">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" required><br><br>
+
+            <label for="email">Email Address:</label><br>
+            <input type="email" id="email" required><br><br>
+
+            <label for="phone">Phone Number:</label><br>
+            <input type="tel" id="phone"><br><br>
+
+            <label for="dietaryRequirements">Dietary Requirements:</label><br>
+            <select id="dietaryRequirements">
+                <option value="">Select one...</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option> id="dietary" name="dietary"></textarea>
+</div>
+
+<div class="form-group form-actions">
+<button type="submit">Submit</button>
+</div>
+</form>
+
+<p>Order Summary:</p>
+<hr>
+
+<!-- This section will dynamically show based on selected values -->
+<span id="orderSummary">Please provide your order details.</span>
+
+<script>
+// Simulate submitting data from server-side processing
+window.onload = function() {
+  document.getElementById('submitForm').addEventListener('click', function(event) {
+    event.preventDefault();
+    
+    // Simulating AJAX request to fetch processed data from backend
+    setTimeout(() => {
+      let formData = new FormData(form);
+      document.querySelector('#orderSummary').innerText = JSON.stringify(formData.getAll(), null, 2);
+    }, 2000); // Replace this time constant with actual processing time
+  });
+}
+</script>
+
+</body>
+</html>
+```

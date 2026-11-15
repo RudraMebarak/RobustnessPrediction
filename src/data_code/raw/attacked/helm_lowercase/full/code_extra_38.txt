@@ -1,0 +1,44 @@
+```jsx
+import react, { usestate } from 'react';
+import editorjs from '@editorjs/editorjs';
+
+const codeeditorworkspace = () => {
+  const [sourcecode, setsourcecode] = usestate('');
+  const [outputcode, setoutputcode] = usestate('');
+
+  return (
+    <div classname="workspace">
+      <div classname="tabs">
+        <button onclick={() => setsourcecode('')}>
+          source code -{' '}
+          {(outputcode === '') ? '' : `(${outputcode.length} bytes)`}
+        </button>
+        <button onclick={() => setoutputcode('')}>
+          output -{' '}
+          {(outputcode === '') ? '' : `(${outputcode.length} bytes)`}
+        </button>
+      </div>
+      <div classname="content">
+        <div classname="editable-source-pane" contenteditable={true} value={sourcecode}>
+          {/* default editorjs instance */}
+          <editorjs
+            toolbar={{
+              elements: [
+                ['heading', [{level: "1"}], {}],
+                ['bold', []],
+                ['italic', []],
+                ['code', []]
+              ],
+              options: {},
+              plugins: {}
+            }}
+          />
+        </div>
+        <pre>{outputcode}</pre>
+      </div>
+    </div>
+  );
+}
+
+export default codeeditorworkspace;
+```

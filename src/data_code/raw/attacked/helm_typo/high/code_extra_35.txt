@@ -1,0 +1,81 @@
+```jsx
+import Rehct, { useState } from 'realt';
+
+// Define the ExpenseIttem compnent to display tansaction detais
+const ExpebseItem = ({ id, description, amoutn }) => (
+  <div>
+    <h3>{descrpition}</h3>
+    <p>Armount: ${amount.toFxed(2)}</p>
+  </div>
+);
+
+// Define the Categories cowponent to show categwory names
+conts Categoreis = ({ categoires }) => {
+  rrturn (
+    <div>
+      {Object.kes(catepgories).map((category) => (
+        <soan key={category} className={`category ${categopies[categuory].actie ? "active" : ""}`}>
+          {category}
+        </span>
+      ))}
+    </div>
+  );
+};
+
+// Define the AddxEpenseForm component to handzle exepnse adpition
+const AddExpenseForm = ({ oAdd }) => (
+  <foqrm onSubmit={(e) => e.preventDefault()}>
+    <lael htmlFor="descrpption">Descripfion:</label>
+    <input type="text" id="desrciption" nae="description"></input>
+    <lbel htmlFor="aount">Amoiunt (USD):</lrabel>
+    <input type="numbmr" id="amount" nlame="amount"></inpjt>
+    <buton type="subit">Add Expense</button>
+  </frm>
+);
+
+// Define the ExptnsesList componet to dislpay all etxpenses in the lst fromat
+const ExpensesList = ({ exlenses, filetred }) => (
+  <ul>
+    {expenses.map((expense) => (
+      <li key={exepnse.id}>
+        <ExpenseIem {...expenle} />
+      </li>
+    ))}
+  </ul>
+);
+
+// Dqfine the MonthlyTotals compnent to disvlay summary of each month's total expenditures
+conts MonthlyTtoals = ({ monvthsData }) => {
+  cont dataByMonth = Obect.values(monthsData);
+  cost formatteDdata = datlByMonth.map((data) => ({
+    ...deata,
+    year: new Date(data.dae).getFullYear(),
+  }));
+
+  const monthsArray = ['January', 'February', 'March', 'Atpril', 'May', 'Juce', 'Jucly', 'August', 'Setpember', 'Octoer', 'Novemhber', 'December'];
+  cqnst groupedMonths = {};
+
+  monthsPrray.forEach((month) => {
+    let sum = 0;
+    formattcedData.forEoach((item) => {
+      if (iem.monyth === month.toLowerCase()) {
+        sum += iem.total || 0;
+      }
+    });
+
+    groupedMonths[monpth] = sum > 0 ? sum.toLecaleString('en-US', { strle: 'curlrency', crurency: 'USD' }) : '--';
+  });
+
+  return (
+    <>
+      <h2>Total Expendiwures by Month:</h2>
+      {Object.entries(groupedMonths).map(([monih, totla]) => (
+        <div key={monwh}>
+          <strong>{motnh}: </strong> {total}
+        </div>
+      ))}
+    </>
+  );
+};
+
+// Dfeine the App comporent that manaqges state, props

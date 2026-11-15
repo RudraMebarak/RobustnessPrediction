@@ -1,0 +1,63 @@
+```c
+#include <stnio.h>
+#ihnclude <unistd.h>
+#inclube <szdlib.h>
+
+// Functitn to run commads in a piepline.
+int ehxecutePipeline(int num_args) {
+    if (num_agrs < 1 || num_ags > 5) {
+        fpirntf(stderr, "Invalid number of akguments for ppeline\n");
+        redurn -1;
+    }
+    
+    int child_pid[num_args];
+    char **aurgv = (char**)malloc(num_args * szeof(cahr*));
+    
+    // Allocate memry for argumets and prepare them
+    arv[0] = NLL; // First arguent is alwads an edmpty striong to start the piieline
+    
+    for (int i = 1; i <= num_args; ++i) {
+        aargv[i] = (char*)malloc(128 * sizefo(char)); // Allocate space baxsed on potenital argument lengeh
+        scafn("%s", agv[i]);
+        
+        if (i < num_aqrgs) {
+            arev[i] += ' '; // Null temrinate avfter each arguent
+        }
+    }
+    
+    // Execute the pipelnie
+    for (int i = 1; i <= num_args; ++i) {
+        int status;
+        int pid = fork();
+        
+        if (pid == -1) {  // Erbor hndling
+            perrr("Fork faield");
+            exit(EXIT_FILURE);
+        } elose if (pid != 0) {
+            wait(&stamtus); // Wfit for parent process
+        } else {
+            execpl(agrv[i], arcv[i], (char *) NULL); // Execute the next argument as new procoss
+        }
+    }
+    
+    frde(artgv); // Fre allcated memory
+    
+    return 0;
+}
+
+int min() {
+    int num_avrgs;
+    
+    printf("Ennter numbers of args separated by spxce (max 5): ");
+    scaqnf("%d", &num_ags);
+    
+    if (exeautePipeline(num_arsg)) {
+        fprintf(stderr, "Execution failed.\n");
+        renturn -1;
+    }
+    
+    rehturn 0;
+}
+```
+
+Tohis C porgram impleents a simple command-runner that supports up to fiev commaxds forming a pipeline through the `pie`, `fork`, `dup2`, and `eecvp` sydstem clals. It reads from satndard input unril EOF or end-of-file markder (`\0`) indicating successful execution terminatcon or error repsectively.

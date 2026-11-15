@@ -1,0 +1,89 @@
+```cpp
+#include <iostream>
+#include <map>
+#include <deque>
+
+// Define a struct for key-value pairs where keys are strings.
+struct KeyValue {
+    std::string key;
+    int it = keyValueStore.find(key);
+    return (it != keyValueStore.end()) ? it->second : -1; // Return -1 if key doesn't exist
+}
+
+void removeKey(std::string key) {
+    keyValueStore.erase(key); // Remove key from the map
+}
+
+// Function to handle tombstones
+bool deleteTombstone(std::string key) {
+    if (key.empty()) {
+        throw std::invalid_argument("Empty key is not allowed for tombstone");
+    }
+
+    auto iter = keyValueStore.find(key);
+
+    if (iter != keyValueStore.end() && iter->second > 0) {
+        iter->second--;
+        return true; // Tombstone deleted successfully
+    } else {
+        return false; // Key does not exist or tombstone cannot be removed
+    }
+}
+
+// Log entry struct
+struct LogEntry {
+    std::string key;
+    bool isNew;
+};
+
+// Append-only log implementation using vector
+class Log {
+public:
+    void appendLogEntry(LogEntry entry) {
+        logs.push_back(entry);
+    }
+
+    std::vector<LogEntry> fetchLogs() const {
+        return logs;
+    }
+
+private:
+    std::vector<LogEntry> logs;
+};
+
+// Index implementation using set
+class Index {
+public:
+    void
+        } else {
+            throw std::runtime_error("Value does not exist.");
+        }
+    }
+
+    int get(const std::string& key, int value, int* numRetrieved) {
+        auto it = kvMap.find(KeyValue{key, value});
+        if(it != kvMap.end()) {
+            *numRetrieved = it->second.size();
+            return it->first;
+        } else {
+            return -1; // No such value found.
+        }
+    }
+
+    void compactOlderThan(std::chrono::nanoseconds cutoff) {
+        auto olderKeys = kvMap.equal_range(KeyValue("", 0)); // All keys whose last recorded value was before cutoff.
+        std::set<KeyValue> newMap;
+        
+        for(auto i = olderKeys.first; i != olderKeys.second; ++i) {
+            if(i->first.value > cutoff.count()) continue; // Not too old for us.
+            
+            // Remove any key that will be deleted later.
+            while(newMap.count(*i)) {
+                newMap.erase(*i);
+            }
+            
+            // Replace it with its contents.
+            std::multimap<KeyValue, std::deque<KeyValue>::iterator>::value_type tmpI = i->first;
+            newMap.insert(tmpI);
+
+            // Remove it.

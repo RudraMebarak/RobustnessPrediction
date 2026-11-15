@@ -1,0 +1,1 @@
+Obtain the following values: (1) Validate the URI (rather than discarding the data); (2) repeat the error, and (3) finally guarantee that the request is completed.

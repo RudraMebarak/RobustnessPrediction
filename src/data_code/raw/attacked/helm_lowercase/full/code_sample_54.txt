@@ -1,0 +1,43 @@
+```javascript
+import { createabortcontroller } from 'abort-controller';
+
+function debounce(func, wait) {
+  let timeout;
+  return (...args) => {
+    cleartimeout(timeout);
+    timeout = settimeout(() => func.apply(this, args), wait);
+  };
+}
+
+async function fetchanddebounce(url, delay = 100) {
+  const controller = createabortcontroller();
+  const signal = controller.signal;
+
+  async function fetchdata() {
+    try {
+      const response = await fetch(url, { signal });
+      if (response.ok) {
+        console.log('data fetched successfully');
+      }
+      // simulate some time-consuming data fetching logic here...
+      return new promise(resolve => settimeout(resolve, delay));
+    } catch (error) {
+      console.error('error fetching data', error);
+    }
+
+    return null; // return promise for canceling request after delay
+  }
+
+  return new promise((resolve, reject) => {
+    fetchdata()
+    .then(result => resolve())
+    .catch(reason => reject());
+  })
+}
+
+// usage example:
+const url = "https://api.example.com/search";
+fetchanddebounce(url)
+  .then(() => console.log("search completed"))
+  .catch(err => console.error("fetch failed", err))
+```

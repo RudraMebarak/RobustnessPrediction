@@ -1,0 +1,1 @@
+If you have a React object on your computer, and it was imported from React, consider having the following attributes. Import method of React component by inheriting its component type (preferred). The currentFolder value is in the form of a folder with the appropriate permissions. The location of this file changes to "home" > /> and to "pathway_ofclusion".

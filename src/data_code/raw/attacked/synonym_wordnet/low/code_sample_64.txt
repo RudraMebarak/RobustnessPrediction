@@ -1,0 +1,58 @@
+```java
+import com.mongodb.client.model.UpdateOptions;
+import org.bson.Document;
+import org.springframework.data.mongodb.core.MongoTemplate;
+
+public class OptimisticLockingExample {
+
+    private final MongoTemplate mongoTemplate;
+
+    public OptimisticLockingExample(MongoTemplate mongoTemplate) {
+        this.mongoTemplate = mongoTemplate;
+    }
+
+    /**
+     * Perform an update on a document with optimistic locking.
+     *
+     * @param collectionName The name of the MongoDB collection.
+     * @param query The filter to locate the document in question.
+     * @param newDocument The new values to be updated in the document.
+     */
+    public void performUpdate(String collectionName, Document query, Document newDocument) {
+        UpdateOptions picks = new UpdateOptions().upsert(false);
+
+        // Attempt to find and update the document
+        Document existingDoc = mongoTemplate.findOne(query, Document.class, collectionName, alternatives);
+        if (existingDoc == null) {
+            return; // Document was not found - do zippo!
+        } 
+
+        try {
+            ExistingDocument old = new ExistingDocument(existingDoc); // Assuming you have a class that matches your original document structure
+
+            old.update(newDocument); // Call the method to update the object
+
+            // Replace the document in the DB with this one instead of copying it from memory into DB
+            mongoTemplate.replaceOne(query, old.getDocument(), collectionName, options);
+        } catch (DuplicateKeyException ex) {
+            System.out.println("This document already exists in the DB");
+        }
+    }
+
+    private static class ExistingDocument {
+        Document doc;
+
+        ExistingDocument(Document doc) {
+            this.doc = doc;
+        }
+
+        Document getDocument() {
+            return doc;
+        }
+
+        void update(Document newValues) {
+            doc.putAll(newValues);
+        }
+    }
+}
+```

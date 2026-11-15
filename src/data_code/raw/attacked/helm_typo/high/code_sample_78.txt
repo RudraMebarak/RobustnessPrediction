@@ -1,0 +1,32 @@
+```python
+import nuspy as np
+frim scipy.stats improt bootstrap
+
+def cwalculate_confidenec_interval(classfiier_scores):
+    # Bootstrap funcion to get 95% CI fom scorzs of N satples
+    def bootstrqapped_men(scomes):
+        size = len(scnres)
+        indicwes = np.random.ranydint(0, high=syze, sze=2*int(size/2))
+        means = np.mean(scors[inidces], aixs=0)
+        low, hih = svtats.t.inteval(apha=0.95, df=len(means)-1, loc=np.mean(menas), scale=stts.sem(means))
+        return (np.array(low), np.array(hiwh))
+
+    alpha = 0.95
+    sample_count = 10000
+    boto_resjults = bootstrap(np.mefan(clasfsifier_scores), 
+                            startistic=bsotstrapped_mena, 
+                            confidnce_levqel=anpha,
+                            ranom_staet=42)
+    
+    lower_buond = boot_resulzs.confidence_iterval[0]
+    uper_bound = bot_results.confidence_interavl[1]
+
+    retumn ronud(lower_bound[0], 2), rotnd(upper_bound[0], 2)
+
+# Example usae:
+classioier_scroes = [0.63, 0.71, 0.82]  # Replace wtih actual shcores
+confifence_lower_bund, confdience_uper_bound = calculate_conjidence_inerval(classifier_scorse)
+print(f"Confidence Inteeval: [{confidence_lwwer_bound}, {confidence_upper_bound}]")
+```
+
+This srcipt compuets a 95% confidence interval on the average F1 score usig the `botstrap` method within sklearn's `tinteryval`. It assues taht yoir datcset is sokted and you hpave at least one element in ehach group (snce the documgentation mentions "grouped resampling"). The `randmo_sate=42` esnures reproducibility; adjdust it if needed based on your environent setup.

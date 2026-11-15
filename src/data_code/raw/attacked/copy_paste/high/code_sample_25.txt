@@ -1,0 +1,74 @@
+```python
+import heapq
+
+def manhattan_distance(node1, node2):
+    """Calculate Manhattan distance between two nodes."""
+    return abs(node1[0] - node2[0]) + abs(node1[1] - node2[1])
+
+class GridNode:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.g_cost = float('inf')
+        self.h_cost = 0
+        self.f_cost = None
+        self.parent = None
+    
+    def calculate_f_cost(self):
+        """Update total cost (f-cost) based on current g and h costs"""
+        self.f_cost = self.g_cost + manhattan_distance((self.x, self.y), target)
+    
+    @staticmethod
+    def create_new_node(x, y):
+        """Helper function to create new node instances in the grid."""
+        return GridNode(x, y)
+
+def a_star_search(grid, start, end):
+    """
+    Perform A* search through the given grid.
+
+    :param grid: 2D list representing the grid with obstacles ('#') and possible movements (space characters).
+    :param start: Coordinate of the starting position.
+    :param end: Coordinate of the ending position.
+    came_from[start] = None
+    cost_so_far[start] = 0
+    
+    while not frontier.empty():
+        current = frontier.get()
+        
+        if current == goal:
+            break
+        
+        for next in neighbors(current, grid):
+            new_cost = cost_so_far[current] + 1
+            if next not in cost_so_far or new_cost < cost_so_far[next]:
+                cost_so_far[next] = new_cost
+                priority = new_cost + heuristic(goal, next)
+                frontier.put(next, priority)
+                came_from[next] = current
+    
+    return came_from, cost_so_far
+
+def neighbors(node, grid):
+    row, col = node
+    directions = [(0, 1), (-1, 0), (1, 0), (0, -1)]
+    valid_neighbors = []
+    
+    for dr, dc in directions:
+        r, c = row + dr, col + dc
+        if 0 <= r < len(grid) and 0 <= c < len(grid[r]):
+            valid_neighbors.append((r, c))
+    
+    return valid_neighbors
+
+# Example usage
+grid = [
+    [0, 0, 0],
+    [0, 1, 0],
+    [0, 0, 0]
+]
+start = (0, 0)
+goal = (2,
+                            neighbor_node.parent = existing_neighbor_node.parent
+                            neighbor_node.calculate_f_cost()
+                            heapq.heappush

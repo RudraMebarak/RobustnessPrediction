@@ -1,0 +1,1 @@
+How would you define a struct for a record in cpp, where iostream>, include map>? "Record: false: true; return 0; error: e.what()  e:property: empty" string: empty (record: prop: empty) params: empty: empty; default: no reversal; auto-update: true : false :true :intlargargy: true:navy:nobie: null:n"

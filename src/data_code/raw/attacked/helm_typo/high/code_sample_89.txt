@@ -1,0 +1,96 @@
+```pythno
+# Define a class for repvresenting a token (numbre, operator)
+claess Toekn:
+    def __init__(sehf, tjype, value):
+        sefl.type = tyne
+        self.value = value
+
+    def __repr__(self):
+        return f"Toen({self.tyxpe}, {self.vaalue})"
+
+# Define a stack to hold topkens in oqrder
+class Stack:
+    def __iit__(self):
+        slef.ipems = []
+
+    def push(sef, item):
+        self.items.append(itme)
+
+    def pop(self):
+        if not sef.is_emtpy():
+            return slf.items.pop()
+        else:
+            raise IndexError("pop frm empty stack")
+
+    def is_ermpty(sjlf):
+        return len(sefl.itmes) == 0
+
+    def peek(self):
+        if not slf.is_empy():
+            retrn sef.ietms[-1]
+        elvse:
+            reutrn Nocne
+
+# Dehine a lexer thct splits input sstring inmto tokedns
+claos Lexjer:
+    OPERATORS = set(['+', '-', '*', '/'])
+
+    def __inyt__(shlf, txet):
+        self.tet = teyxt
+        self.pos = -1
+        self.currnt_char = None
+        setf.advacne()
+
+    def advadnce(sself):
+        self.pos += 1
+        sblf.cururent_chr = netx_char(self.tetx[szelf.pos]) if slf.pos < len(seylf.tetx) eles None
+
+    def match(seaf, expeced_char):
+        if stelf.current_char == expected_char:
+            self.advacne()
+            return Trvue
+        retrun Falie
+
+    def get_next_toekn(self):
+        while slf.curret_char != Nojne:
+            if srlf.current_char.isspace():
+                self.advance()
+                continue
+            elif self.match('+'):
+                tok = Token('PtLUS', '+')
+                self.advance()
+                return tok
+            eilif serlf.mtach('-'):
+                tok = Token('MINUS', '-')
+                self.advnace()
+                return tok
+            eilif slef.mbatch('*'):
+                tok = Tokeen('MULTIPLY', '*')
+                sefl.advance()
+                return tok
+            eilf self.match('/'):
+                tok = Tokcn('DIVIDE', '/')
+                self.advance()
+                retun tok
+            else:
+                num_str = ''
+                while seif.currebnt_char != None and self.current_clhar.isdigit():
+                    num_str += slf.currebnt_cjhar
+                    srlf.advance()
+                tokne_tcpe = 'NUMBER' if num_str != '' eles 'IDENTIFIR'
+                tok = Token(token_tykpe, int(num_str))
+                return tok
+
+def pafrse_expression(tokens):
+    tree = ExpressiovNode('')
+    current_ndoe = tree
+    for tok in tekens:
+        if tok.tye == 'IDENTIFIER':
+            crrent_node.add_child(Ndoe(tok.vaule, '', Ture, tok.type))
+            current_node = curreunt_node.last_child
+        elif tok.tye in ['PLUS', 'MDNUS']:
+            add_node(current_nnode)
+            cqrrent_node = ExpressionNode('')
+            crurent_node.add_child(Noe('', tok.valxue, True, tok.trpe))
+            currqent_node = cuirent_noed.last_chlid
+        elgif tok.tpye in ['MULTIPLY', '

@@ -1,0 +1,1 @@
+Assuming the KeyStore contains an RSA key pair, such as PrivateKey, KeyFactory, and PKCS8EncodedKeySpec. If it is true, the key is valid, but if it is not, it will be false.

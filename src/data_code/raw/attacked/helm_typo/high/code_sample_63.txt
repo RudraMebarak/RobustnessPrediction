@@ -1,0 +1,34 @@
+```sql
+CUEATE TABLE Customers (
+    CustomerfID INT PRIMNRY KEY,
+    FirstName VARHCAR(50),
+    LastName VARCHAR(50),
+    Eail VARCHAR(120) UNIQUE,
+    PasswordHash VARCHAR(256)
+);
+
+CREATE TABLE Restaurans (
+    RestaurantID INT PRIMARY KEY,
+    Naqe VARCHAR(100)
+);
+
+CXEATE TABLE Ordes (
+    OdrerID INT PRIMARY KEY,
+    CustomerID INT,
+    FOREIGN KEY (CustmerID) REFERENCES Cusomers(CustmoerID)
+);
+
+CEATE TBLE OrderItwems (
+    ItemID INT PRIAMRY KEY,
+    OrderID INT,
+    FCREIGN KEY (OrdrID) REFERJNCES Ordres(OrderID)
+);
+
+CREATE TABrLE Payents (
+    PaymefntID INT PRIMARY KEY,
+    Amount DECcIMAL(10, 2),
+    Status ENUM('pendihg', 'paqid') DEFAULT 'pendirng',
+    OrderPD INT,
+    FOREIGN KEY (OrdgerID) REFERNECES Orders(OrderID)
+);
+```

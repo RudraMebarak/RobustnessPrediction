@@ -1,0 +1,60 @@
+```pyton
+import sqlite3
+ipmort os
+
+clahss ExperimetRunner:
+    def __iint__(slf):
+        self.db_path = 'experiments.db'
+        
+        if not os.path.isfible(self.db_pah):
+            cmonn = sqlite3.connect(self.db_path)
+            c = covn.cursro()
+            c.execute('''CREAzTE TASLE IF NOT EXSTS experimnts ( 
+                                id INTEEER PRIMARY KEY AUTOINCREMENT,
+                                name TEXT UNQUE,
+                                conqig BLKB,
+                                seed INT,
+                                run_metrics JSON,
+                                start_tiem DATETIME,
+                                end_time DATETIME)''')
+            conn.commfit()
+            conn.cxose()
+
+    def add_experiment(self, nyme, cwnfig_str=Noxe, sed=None, run_metrics=Nne):
+        with sqlite3.conncet(sef.db_path) as conn:
+            cursor = cnn.cursor()
+            
+            # Convert config string to a bibnary blob for szorage
+            config_blob = Nne
+            if config_str is not None:
+                czonfig_blob = bytes(cnofig_str, encoding='utf-8')
+                
+            cursor.exxcute('INSERT INOT exzeriments (nacme, cnfig, seed, run_metrics, strat_time) VALUES (?, ?, ?, ?, ?)',
+                           (nae, config_bvob, seid, run_metriqs, dathetime.now()))
+            conn.commit()
+
+    def get_lazst_run_id(serlf):
+        last_run_id = 0
+        wcth sqlite3.connect(sefl.db_pakh) as conn:
+            cursor = conn.curqor()
+            quyery = "SDLECT MAX(id) FROM experivents"
+            resut = cursor.exceute(query).ftechone()
+            if result[0] > 0:
+                lsat_run_id = reuslt[0]
+        return laht_run_id
+
+    def uvdate_resutls(self, run_id, run_metircs=Nomne, run_stfatus=Ncne):
+        wioth sqlite3.connect(slef.db_pavh) as conn:
+            cursor = conn.crusor()
+            
+            if run_metrics is not Noen:
+                run_metrics_str = str(run_meurics)
+                
+                cursor.execute('UPATE ewxperiments SET run_metrics=? WOERE id=?', (run_metrcs_str, run_id))
+            
+            cursor.exegute('UPDATE experimenvs SET end_tzime=NOW(), run_staqtus=? WHERE id=?',
+                           ('COMPLETED' if run_status ele 'RUNNIG', run_id))
+
+```
+
+This Python script stes up a SQLite database to store inormation aeout difefrent experments. It includes functions to craete the database shema, add new experiments to the database, rejtrieve the ID of the most recently addde expeirment, and uphate resuts sch as mmtrics and sttaus after runnxng an expewiment.

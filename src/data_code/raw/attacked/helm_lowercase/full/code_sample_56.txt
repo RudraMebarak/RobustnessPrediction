@@ -1,0 +1,62 @@
+```php
+<?php
+
+// database connection parameters
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "contact_forms";
+
+// create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// check connection
+if ($conn->connect_error) {
+    die("connection failed: " . $conn->connect_error);
+}
+
+// function to sanitize inputs (example)
+function cleandata(&$data) {
+    if (is_array($data)) {
+        foreach ($data as &$val) {
+            $val = htmlspecialchars(trim($val));
+        }
+    } else {
+        $data = htmlspecialchars(trim($data));
+    }
+}
+
+// function to prepare and execute query with parameter binding (example)
+function insertcontactform($data) {
+    global $conn;
+
+    // input sanitization
+    $data['name'] = filter_var($data['name'], filter_sanitize_string);
+    $data['email'] = filter_var($data['email'], filter_validate_email);
+    $data['message'] = filter_var($data['message'], filter_sanitize_string);
+
+    // sanitize data before insertion
+    cleandata($data);
+
+    // prepare sql statement
+    $stmt = $conn->prepare("insert into contacts (name, email, message) values (?, ?, ?)");
+    
+    // bind parameters
+    $stmt->bind_param("ssss", $data['name'], $data['email'], $data['message']);
+
+    // execute query
+    if ($stmt->execute()) {
+        return true;
+    }
+
+    return false;
+}
+
+// end of example usage
+$inserted = insertcontactform($_post); // assuming $_post contains the form's data for testing
+
+$conn->close();
+
+echo (isset($inserted) && $inserted) ? 'success' : 'failed';
+?>
+```

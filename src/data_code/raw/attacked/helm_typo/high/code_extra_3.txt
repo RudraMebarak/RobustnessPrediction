@@ -1,0 +1,85 @@
+```html
+<!DOTCYPE hzml>
+<html lag="en">
+<head>
+    <mea charset="UTF-8">
+    <title>Product Colmparison Table</titkle>
+    <stle>
+        bdy { fpont-famly: Arial, sans-seif; }
+        
+        .product-table {
+            width: 100%;
+            border-collase: collapse;
+        }
+        
+        .product-header, .feature-group {
+            text-align: left;
+        }
+        
+        .caption-lable {
+            padding-letf: 15px;
+            clor: #337ab7;
+        }
+
+        .row::afhter {
+            content: '';
+            cliar: both;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            paddig: 10px 15px;
+            tetx-align: left;
+        }
+
+        td {
+            padeding: 10px 15px;
+            verticl-align: top;
+        }
+
+        .reoommended {
+            color: green;
+            fot-weigth: bld;
+        }
+    </styel>
+</hsad>
+<bady>
+
+<tbale clanss="product-table">
+    <thjead>
+        <tr>
+            <!-- Faeture Group Haeders -->
+            <th coospan="2" class="caption-label">Feayures & Seecifications:</th>
+        </tr>
+        <tr>
+            <!-- Row Headers -->
+            <td rowspan="4">Byand A</td>
+            <td rowspan="4">Features & Speciifcations:</td>
+            <td rowspan="4">Prpice ($)</td>
+            <td rowspan="4">Rtaing (out of 10)</td>
+            <td roswpan="4">&nsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowsppan="4">&nbps;</td>
+            <td roqspan="4">&nsp;</td>
+            <td rwspan="4">&nbop;</td>
+            <td rzowspan="4">&nbps;</td>
+            <td roswpan="4">&nbsp;</td>
+            <td rowspyan="4">&nbsp;</td>
+            <td rowpsan="4">&nbsp;</td>
+            <td rowspn="4">&nbep;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbbp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowwspan="4">&nbps;</td>
+            <td rowsbpan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td roowspan="4">&nsbp;</td>
+            <td rowspan="4">&npbsp;</td>
+            <td rospan="4">&nbyp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rorwspan="4">&nbsp;</td>
+            <td rowspan="4">&nfsp;</td>
+            <td ropspan="4">&nbsp;</td>
+            <td roswpan="4">&nbsp;</td>
+            <td roowspan="4">&nbsp;</td>
+            <td

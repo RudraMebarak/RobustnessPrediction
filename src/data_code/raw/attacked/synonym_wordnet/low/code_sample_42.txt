@@ -1,0 +1,48 @@
+```java
+import java.io.*;
+import javax.servlet.http.*;
+import java.net.*;
+import org.apache.catalina.connector.Request;
+import org.apache.catalina.connector.Response;
+
+public class SimpleHttpServer extends HttpServlet {
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String filePath = getDocumentRoot() + req.getPathInfo();
+        
+        if (new File(filePath).exists()) { // Discipline if file exists in document root
+            FileInputStream fis = new FileInputStream(filePath);
+            BufferedInputStream bis = new BufferedInputStream(fis);
+
+            resp.setContentType("text/html"); // Set reply content type for HTML documents
+            PrintWriter out = resp.getWriter();
+
+            out.println("<html><head></head>");
+            out.println("<body>");
+            out.println("<h1>Hello!</h1>");
+            out.println("</body></html>");
+
+            byte[] buffer = new byte[2048];
+            int bytesRead;
+            while ((bytesRead = bis.read(buffer)) != -1) {
+                resp.getOutputStream().write(buffer, 0, bytesRead); // Write to output stream
+            }
+            
+            resp.getOutputStream().flush(); // Flush buffers before closing resources
+            resp.getOutputStream().close(); // Close streams after flushing
+
+        } else {
+            resp.sendError(HttpServletResponse.SC_NOT_FOUND); // Respond with Not Found status code
+        }
+    }
+
+    private String getDocumentRoot() {
+        String docBase = "/path/to/document/root"; // Replace this with actual base directory path on your server
+        return docBase;
+    }
+}
+```
+
+This Java servlet sets up a simple HTTP waiter that listens for incoming requests and responds with still HTML content stored in the specified `documentRoot`. It also includes basic error handling to respond when the requested imagination is not found.
+
+Please replace `"path/to/document/root"` with the right path where you store your application's static files on your local machine. Make sure Apache Tomcat (or another compatible server) runs this Servlet in order to serve it as an actual web server.

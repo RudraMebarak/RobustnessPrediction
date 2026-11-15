@@ -1,0 +1,1 @@
+Let java.util.js finish MazeBFS in a state of static import. ListListInteger>> bfs(int[] grid) => new ArrayArrayDequetion>(). Let a new array of paths be reconstructed at the current node's depth.

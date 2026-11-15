@@ -1,0 +1,63 @@
+```java
+import com.mongodb.client.model.UpdateOptions;
+import org.bson.Document;
+import org.springframework.data.mongodb.core.MongoTemplate;
+
+public class OptimisticLockingExample {
+
+    private final MongoTemplate mongoTemplate;
+
+    public OptimisticLockingExample(MongoTemplate mongoTemplate) {
+        this.mongoTemplate = mongoTemplate;
+    }
+
+    /**
+     * Perform an update on a document with optimistic locking.
+     *
+     * @param collectionName 27017);
+        MongoDatabase database = mongoClient.getDatabase("mydatabase");
+
+        // Collection to update documents in.
+        MongoCollection<Document> collection = database.getCollection("documents");
+
+        // Create an instance of UpdateOptions object with a specific version key.
+        UpdateOptions options = new UpdateOptions().upsert(true).versionFieldName("documentVersion");
+
+        // Find a document by its unique identifier (e.g., _id).
+        Document findDocumentResult = collection.find(new Document("_id", "someId")).first();
+
+        // If no document is found, insert one first.
+        if(findDocumentResult == null){
+            Document insertDocumentResult null) {
+            return; // Document was not found - do nothing!
+        } 
+
+        try {
+            ExistingDocument old = new ExistingDocument(existingDoc); // Assuming you have a class that matches your original document structure
+
+            old.update(newDocument); // Call the method to update the object
+
+            // Replace the document in the DB with this one instead of copying it from memory into DB
+            mongoTemplate.replaceOne(query, old.getDocument(), collectionName, options);
+        } catch (DuplicateKeyException ex) {
+            System.out.println("This document already exists in the DB");
+        }
+    }
+
+    private static class ExistingDocument {
+        Document doc;
+
+        ExistingDocument(Document doc) {
+            this.doc = doc;
+        }
+
+        Document getDocument() {
+            return doc;
+        }
+
+        void update(Document newValues) {
+            doc.putAll(newValues);
+        }
+    }
+}
+```

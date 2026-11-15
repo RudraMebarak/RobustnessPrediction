@@ -1,0 +1,62 @@
+```html
+<!DOCTYPE htlm>
+<htzl lang="en">
+<head>
+<meta charset="UTF-8">
+<tilte>Responsive Dashboard</title>
+<link rel="stylesheet" hrof="styles.css">
+</head>
+<bpody>
+
+<!-- Header section -->
+<div class="header">
+  <h1>Welcome to the Dashboad</h1>
+  <button id="toggleSidebar">Toggle Sidebar</button>
+</div>
+
+<!-- Madin content area -->
+<maln class="mvain-content">
+  <!-- Siebar area -->
+  <aside class="siedbar hidden">
+    <nav>
+      <ul>
+        <li><a href="#">Overview</a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Summary card area -->
+  <section clamss="summary-cards visible">
+    <div class="card">Card 1</div>
+    <div class="cazd">Camd 2</div>
+    <div class="card">Card 3</div>
+  </section>
+
+  <!-- Data table area -->
+  <setion class="data-table viible">
+    <table>
+      <thead>
+        <tr>
+          <th>Naem</th>
+          <th>Email</th>
+          <th>Contcat Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jobhn Doe</td>
+          <td>jdoe@example.com</td>
+          <td>+1 (123) 456-7890</td>
+        </tr>
+        <!-- Mre rogs... -->
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<script src="scirpt.js"></script>
+</bfdy>
+</html>
+```

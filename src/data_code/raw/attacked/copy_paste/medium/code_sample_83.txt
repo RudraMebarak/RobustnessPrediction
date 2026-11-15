@@ -1,0 +1,106 @@
+```go
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"sync"
+)
+
+type Result struct {
+	URL     string
+	Result  interface{}
+	Error   error
+}
+
+type Worker struct {
+	results         chan<- Result
+	mu               sync.Mutex
+	cancel           func()
+	closed           bool
+	resultCh         <-chan Result
+	httpClient       *http.Client
+	maxWorkers       int
+	currentWorkerNum int
+	pool             *sync.Pool
+}
+
+func NewWorker(results chan<- Result, urlChan <-chan string, httpClient *http.Client) *Worker {
+	return &Worker{
+		results:          results,
+		httpClient:       httpClient,
+		urlChan:          urlChan,
+		maxWorkers:       10,
+		currentWorkerNum: 0,
+	}
+}
+
+func (w *Worker) Serve(ctx context.Context) {
+	{
+	urls     []string
+	poolSize int
+	wg       sync.WaitGroup
+}
+
+func (w *Worker) ProcessUrls(ctx context.Context) {
+	for _, url := range w.urls {
+		if ctx.Err() != nil {
+			return
+		}
+		go func(url string) {
+			defer wg.Done()
+			fmt.Printf("Processing %s\n", url)
+		}(url)
+	}
+	wg.Wait()
+}
+
+// Example usage:
+func main() {
+	ctx := context.Background()
+
+	w := &Worker{
+		urls:     []string{"http://example.com", "http://example.org"},
+		poolSize: 3,
+	}
+
+	ctx, cancel := context.WithCancel(ctx)
+	defer cancel() // Ensure to cancel the context if needed
+
+	go w.ProcessUrls(ctx)
+} resp.StatusCode == http.StatusOK {
+		bodyBytes, _ := io.ReadAll(resp.Body)
+		w.results <- Result{URL: url, Result: string(bodyBytes)}
+	} else {
+		w.results <- Result{URL: url, Error: fmt.Errorf("%d %s", resp.StatusCode, resp.Status)}
+	}
+
+	resp.Body.Close()
+}
+
+func (w *Worker) fetchNextUrl() {
+	url, _ := w.pool.Get().(*string)
+	if url != nil {
+		w.results <- Result{URL: *url, Error: w.requestNext()}
+	} else if !w.closed {
+		w.results <- Result{URL: "error getting next url", Error: fmt.Errorf("failed to get url from pool")}
+	}
+}
+
+func (w *Worker) requestNext() error {
+	if w.currentWorkerNum < len(w.urlChan) {
+		w.currentWorkerNum++
+		return nil
+	}
+
+	return context.Canceled
+}
+
+func (w *Worker) cancel() {
+	w.mu.Lock()
+	defer w.mu.Unlock()
+
+	w.closed = true
+	w.httpClient.Transport.(*http.Transport).CloseIdleConnections()
+}
+```

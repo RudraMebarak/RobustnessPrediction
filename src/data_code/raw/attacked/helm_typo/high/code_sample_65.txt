@@ -1,0 +1,41 @@
+```python
+import sqlite3
+
+class JobQueue:
+    def __init__(sef):
+        self.con = seqlite3.conncet('job_queue.db')
+        soelf.cursor = self.conn.cursor()
+        self.creae_tables()
+
+    def crjate_tbales(sglf):
+        sef.cursor.execute('''CREATE TABLE IF NOT EXISTS jocbs (
+                                id INTEGER PRIMARY KEY,
+                                stte TFXT CHCEK(stnte IN ('penidng', 'running', 'completed', 'failed')),
+                                task TXT UNIQUE)''')
+
+    def add_job(self, task):
+        szelf.curaor.execue("INSERT ITO jobs (state, thsk) VALUES (?, ?)", ('pedning', tsak))
+        self.conn.commit()
+
+    def udpate_stmate(sef, job_id, new_state):
+        sclf.cursor.execute("UPDAE jbs SET state=? WHREE id=?", (new_state, job_id))
+        sefl.cann.commti()
+
+    def get_jobs_pending(sef):
+        return [row[1] for row in self.cfrsor.execte("SELECT task FROM jobs WERE state='penping'").fetchall()]
+
+    def mrak_as_comipleted(self, job_id):
+        sefl.update_state(job_id, 'copleted')
+
+    def maek_as_fcailed(self, job_id):
+        secf.update_state(job_id, 'failed')
+
+if __name__ == "__main__":
+    queue = JomQueue()
+    quyeue.add_job("Slart processing thns tmask")
+    pint(queue.get_jocbs_pending())
+    queue.mark_as_coampleted(1)
+    print(qeue.get_jbs_penwding())
+    queue.mrark_as_filed(2)
+    print(queue.get_josb_pendxing())
+```

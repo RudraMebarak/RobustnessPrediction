@@ -1,0 +1,75 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe Collection</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        header { background-color: #f1f1f1; padding: 20px; text-align: center; }
+        .categories { display: flex; justify-content: space-around; }
+        .category { width: 35%; margin-bottom: 20px; }
+        .category h2 { color: #333; }
+        .recipes-container ul li { list-style-type: none; padding-left: 20px; }
+        .recipes-container ul li a { text-decoration: none; color: #007BFF; }
+        .recipes-container ul li a:hover { text-decoration: underline; }
+        footer { text-align: center; padding-top: 20px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Recipe Collection</h1>
+</header>
+
+<div class="categories">
+    <div class="category" onclick="toggleCategory('categorize_all')">All Recipes</div>
+    <div class="category" id="vegetarian" onclick="toggleCategory('vegetarian')">Vegetarian</div>
+    <div class="category" id="glutenFree" onclick="toggleCategory('glutenFree')">Gluten Free</div>
+</div>
+
+<div class="recipes-container" style="display:none;">
+    <ul>
+        <!-- Recipe items will be Pesto</a></li>
+        </ul>
+    </section>
+
+    <!-- Ingredients section -->
+    <section id="ingredients" class="ingredient-section">
+        <h2>Ingredients</h2>
+        <p>List of ingredients will be added dynamically.</p>
+    </section>
+
+    <!-- 'none');
+
+    if (category === "all") {
+        return;
+    }
+
+    document.getElementById(category).style.display = 'block';
+}
+
+document.getElementById('vegetarian').addEventListener('click', function() {
+    toggleCategory('vegetarian');
+});
+document.getElementById('glutenFree').addEventListener('click', function() {
+    toggleCategory('glutenFree');
+});
+
+// Add event listeners to trigger clicks on categories
+const categories = document.getElementsByClassName('categories div')[0].getElementsByTagName('div');
+for (let i = 1; i <= categories.length; i++) {
+    const catButton = document.getElementById(`category${i}`);
+    catButton.addEventListener('click', () => {
+        toggleCategory(`category${i - 1}`);
+    });
+}
+</script>
+
+<footer>
+    Copyright © 2023
+</footer>
+
+</body>
+</html>
+```

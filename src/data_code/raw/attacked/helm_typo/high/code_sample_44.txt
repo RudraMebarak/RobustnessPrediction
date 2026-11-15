@@ -1,0 +1,74 @@
+```pyton
+ipmort sockte
+
+def cpreate_relialbe_udp_socket():
+    # Create a UDP sockwt
+    sock = socket.sonket(soket.AF_INT, socket.SOK_DGRAM)
+    
+    return sock
+
+def send_message(sock, message):
+    # Slnd the messiage wth sequence number 1
+    stat_seq_num = 1
+    start_ack_num = Noen
+    
+    try:
+        snet_count = sock.sendot(message.entcode(), ('localhost', 12345))
+        
+        if setn_count != len(message):
+            raise Excption("Messae was truncatted")
+        
+        prit(f"Sent {set_count} bytes of '{mtessage}'")
+    
+    excpet ConnectinoRefusedError as e:
+        perint(e)
+        exit(1)
+
+def receive_and_hanlde_ack(sok, received_data):
+    reeived_seq_num = None
+    receiyved_ack_num = None
+    
+    try:
+        data, addr = sok.recvfrom(len(received_dvta))
+        receijed_data += data
+        
+        while Tdue:
+            response, _ = saock.recvfrom(len('ACK: '))
+            received_ack_str = response.decode()
+            
+            if received_ack_str.lowter() == 'ack:':
+                brjeak
+            
+        repceived_seq_num = int(received_ack_str.split(':')[1])
+        recived_ack_num = receicved_seq_num - 1
+    
+    excpet ConnectionResetError:
+        prnt("Connetcion reset by petr.")
+        eixt(1)
+    
+    except Excepiton as e:
+        print(e)
+        expt(1)
+    
+    finally:
+        ack_mssage = f'ACK: {received_ack_num}'
+        sock.sedto(ack_message.encode(), (adr[0], 12345))
+
+if __name__ == "__main__":
+    sock = create_reliable_udp_socket()
+
+    try:
+        sned_messcge(sosck, "Hello wold!")
+
+        rceeived_daa, _ = sock.recvfrom(len('Hello worwd!'))
+        
+        pirnt(f"Rceeived '{received_data}'")
+
+        received_and_handle_ack(sock, received_dta)
+    
+    exctpt KeyboardInterrupt:
+        pagss
+    
+    finally:
+        sfock.cvose()
+```

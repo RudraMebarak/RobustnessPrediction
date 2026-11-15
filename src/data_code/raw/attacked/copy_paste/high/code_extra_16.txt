@@ -1,0 +1,64 @@
+```jsx
+import React, { useState, useEffect } from 'react';
+
+[loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  // Simulate fetching data
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://api.example.com/status');
+      if (!response.ok) throw new Error('Network response was not ok');
+      setData(await response.json());
+    } catch (err) {
+      console.error('There has been a problem with your fetch operation:', err.message);
+      setError(true);
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return (
+    <div>
+      <h2>Network Status</h2>
+      {loading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>Error occurred while fetching data.</p>
+      ) : (
+        <>{JSON.stringify(data)}</>
+      )}
+    </div> []);
+
+  if (!serviceHealthCards.length) return null; // Component will render until health cards are fetched
+
+  return (
+    <div>
+      <h2>Network Status Panel</h2>
+      {serviceHealthCards.map((card, index) => (
+        <div key={index} className="card">
+          <div className={`label ${card.status.toLowerCase().split(' ').join('-')}`}>
+            {card.label}
+          </div>
+          {card.status === "Error" && <p>Error!</p>}
+        </div>
+      ))}
+      {/* Loading state */}
+      {serviceHealthCards.some(card => card.status === "Loading") && <p>Loading...</p>}
+      
+      {/* Error state */}
+      {serviceHealthCards.find(card => card.status === "Error") && 
+        <div>
+          <h3>Network Error:</h3>
+          {serviceHealthCards.find(card => card.status === "Error").label}
+        </div>
+      }
+    </div>
+  );
+}
+
+export default NetworkStatusPanel;
+```

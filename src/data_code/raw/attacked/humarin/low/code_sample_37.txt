@@ -1,0 +1,1 @@
+Let python import random def schedule: processes.sort(key=lambda x: (x.arrival_time, -x.burst_length)) total_turnaround_time = 0 wait_times = [0] * len(processes) For i in range: [15, 20] Process(30, 12), Process(45, 6) Process[i]

@@ -1,0 +1,1 @@
+In c++, the following code can be used to define tokens for different operators. std::cerr  "Invalid input" // The length of the string being read at the moment. Tokens can be placed into any of the following positions: tokensinvalid_argument('': tokensemplace_back(TOKEN_EOF, ch) == '-' and  'trdoutous(') = 'invalid').

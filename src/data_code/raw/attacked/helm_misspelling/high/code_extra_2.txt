@@ -1,0 +1,72 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Instrument Booking Form</title>
+<style>
+  .error {
+    color: red;
+  }
+</style>
+</head>
+<body>
+
+<h2>Instrument Booking Form</h2>
+
+<form action="#" method="post" id="instrumentForm">
+
+  <label for="instrumentName">Instrument Name:</label><br>
+  <input type="text" id="instrumentName" name="instrumentName" required placeholder="Lab Instrument Name"><br><span class="error" id="instrumentNameError"></span><br>
+
+  <!-- Grouped Controls - For Example -->
+  <label for="quantity">Quantity:</label><br>
+  <div class="controls-group">
+    <label for="quantityInput">Number of Instruments:</label><br>
+    <input type="number" id="quantityInput" name="quantityInput" step="1" min="1" required placeholder="1 to 50"><br>
+    <span class="error" id="quantityInputError"></span>
+  </div><br>
+
+  <!-- Required Fields - For Example -->
+  <label for="bookingDate">Booking Date (MM/DD/YYYY):</label><br>
+  <input type="date" id="bookingDate" name="bookingDate" required><br><span class="error" id="bookingDateError"></span><br>
+
+  <!-- Time Picker - For Exmaple -->
+  <label for="startTime">Start Time (HH:MM AM/PM):</label><br>
+  <input type="time" id="startTime" name="startTime" required><br><span class="error" id="startTimeError"></span><br>
+
+  <!-- Submit Button - For Example -->
+  <button type="submit">Book Instrument Now</button>
+
+</form>
+
+<script>
+// Placeholder for Error Handling Logic
+function validateFields(form) {
+  const inputEl = document.getElementById('instrumentName');
+  if (inputEl.value === "") {
+    displayErrorMessage(inputEl);
+  }
+
+  // Add similiar checks for other fields
+
+  let isValid = true;
+
+  return isValid;
+}
+
+document.getElementById('instrumentForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  if (!validateFields(this)) {
+    alert("Please fill out all required fields.");
+    return;
+  }
+
+  // Submission logic here...
+});
+</script>
+
+</body>
+</html>
+```

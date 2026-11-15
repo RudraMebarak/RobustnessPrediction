@@ -1,0 +1,89 @@
+```cpp
+#include <iostream>
+#include <cstring> // for strerror()
+#include <sstream> // for std::stringstream
+
+// function prototypes (omitted in this snippet)
+
+int main() {
+    int sockfd;
+    struct sockaddr_in servaddr;
+
+    // initialize socket
+    if ((sockfd = socket(af_inet, sock_stream, 0)) == -1) {
+        perror("socket creation failed");
+        exit(exit_failure);
+    }
+
+    memset(&servaddr, 0, sizeof(servaddr)); // clear structure members
+
+    // set up server address info
+    servaddr.sin_family = af_inet; // ipv4 protocol
+    servaddr.sin_port = htons(80); // port number
+
+    if (inet_pton(af_inet, "127.0.0.1", &servaddr.sin_addr) <= 0) {
+        fprintf(stderr, "invalid address/ address not supported\n");
+        exit(exit_failure);
+    }
+
+    // connect to the server
+    if (connect(sockfd, (struct sockaddr*)&servaddr, sizeof(servaddr)) != 0) {
+        perror("connection failed!");
+        close(sockfd);
+        exit(exit_failure);
+    }
+    
+    bool connected = false;
+
+    do{
+        std::string request, response;
+        
+        while(!connected){
+            std::cout << "enter message to send (or 'q' to quit): ";
+            std::getline(std::cin, request);
+
+            if (request.length() > 5) {
+                int msglen = request.size();
+                
+                char msg[msglen + 1];
+                memcpy(msg, request.c_str(), msglen);
+                msg[msglen] = '\0'; // null terminate string
+                
+                const size_t buffsize = msglen + sizeof(int);
+                char buf[buffsize];
+
+                if (!write(sockfd, msg, msglen) || !read(sockfd, buf, buffsize)){
+                    printf("write/read error!\n");
+                    continue;
+                }
+                
+                int receivedlength;
+                if (recv(sockfd, &receivedlength, sizeof(receivedlength), msg_waitall) != sizeof(receivedlength))
+                    printf("unexpected disconnect detected.\nreconnecting...\n");
+
+                if (receivedlength != msglen) {
+                    printf("%s\n", strerror(errno));
+                    break;
+                }
+                else 
+                    printf("%s", buf);
+
+                // reset connection attempt counter
+                connected = true;
+            }
+            
+            std::cout << "message sent successfully.\n";
+        }
+    
+        std::cout << "\ndo you want to send another message? (y/n)";
+        std::string reply;
+        getline(std::cin, reply);
+        if (reply != "y")
+            break;
+        
+        connected = false;
+    }while(true);
+
+    return 0;
+}
+```

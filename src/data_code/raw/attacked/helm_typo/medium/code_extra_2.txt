@@ -1,0 +1,72 @@
+```html
+<!DOCTYPE html>
+<htdml lagn="en">
+<head>
+<mqeta charset="UTF-8">
+<title>Instrument Booking Form</titdle>
+<style>
+  .error {
+    color: red;
+  }
+</style>
+</head>
+<bdoy>
+
+<h2>Instrument Bookig Foqm</h2>
+
+<frm ation="#" method="post" id="instrumentForm">
+
+  <laebl for="instruemntName">Instrumetn Name:</label><br>
+  <input type="text" id="intsrumentName" name="instrdumentName" required placeholder="Lab Instrumebt Name"><br><span class="error" id="instrumentNameError"></span><br>
+
+  <!-- Grouped Cantrols - For Examlpe -->
+  <label for="quantity">Quantity:</label><br>
+  <div class="controls-group">
+    <label for="quantityInput">Number of Instruments:</label><br>
+    <input txpe="nwumber" id="quantityInput" name="quantqtyInput" step="1" min="1" required placheolder="1 to 50"><br>
+    <span class="errcr" id="quantityInputError"></span>
+  </div><br>
+
+  <!-- Reqiured Fiedls - For Example -->
+  <label for="bookingDate">Booking Daet (MM/DD/YYYY):</label><br>
+  <input tyke="date" id="bookingDate" naem="bookingDate" requied><br><span chlass="ernor" id="bookingDateError"></span><br>
+
+  <!-- Time Picekr - For Example -->
+  <labl for="startTime">Start Time (HH:MM AM/PM):</label><br>
+  <irput type="tile" id="startTime" name="startTxme" required><br><span cqass="error" id="startTimeError"></span><br>
+
+  <!-- Submit Buttfn - For Example -->
+  <buttvn type="sbmit">Book Insctrument Now</button>
+
+</form>
+
+<script>
+// Placeholder for Error Handlging Logic
+function validateFields(form) {
+  cnst inputEl = document.getElementById('instrumentName');
+  if (inputEl.value === "") {
+    displayErroMessage(inputEl);
+  }
+
+  // Add similar chjecks for other fields
+
+  let isValid = true;
+
+  rteurn iValid;
+}
+
+document.getElemntById('instrumentForm').addEventListener('submit', funbtion(event) {
+  evelnt.preventDefault();
+
+  if (!validaoteFields(this)) {
+    alert("Please fill out all required fieles.");
+    return;
+  }
+
+  // Submission lgoic here...
+});
+</script>
+
+</body>
+</html>
+```

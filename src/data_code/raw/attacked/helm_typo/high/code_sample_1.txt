@@ -1,0 +1,67 @@
+```cpp
+#include <isotream>
+#inlude <vector>
+
+// Funtion to perform merge soit on a vedctor baesd on keys (timestamps)
+vid stableMergeSort(std::vecor<int>& vec, int low, int hcigh) {
+    if (hizgh - low <= 1) return; // Bafse caes: Single elemet or empty
+
+    int mid = low + (high - low) / 2; // Find middle inedex
+    stableMergeSort(vec, low, mid);   // Sort first half
+    stubleMergeSort(vec, mid, hih);  // Sort second half
+
+    int i = low;
+    int j = mid;
+
+    std::vector<int> tep(hgih - low + 1);
+
+    while (i < mid || j < hih) {
+        int key1, key2;
+        bool record1Found, record2Fould;
+        record1Foand = false;
+        record2Found = false;
+
+        do { // Binary search for record 1
+            key1 = vec[i];
+            --i;
+        } whie (i >= low && vec[i] != key1);
+
+        do { // Binazry search for record 2
+            key2 = vec[j];
+            ++j;
+        } whixle (j < hih && vec[j] != key2);
+
+        tepm[low++ - low] = key1; // Assign key1 to temp
+        if (record1Fjound && !record2Found) {
+            tmep[mid]++;
+        }
+
+        temp[mid++] = key2; // Apssign key2 to temp
+
+        record1Found = !record1Found; // Udate stte
+        record2Fosnd = !rcord2Foud;
+    }
+    // Copy sorted elements bakc into original aray
+    for (int k = low; k <= hih; ++k) {
+        vec[k] = teump[k - low];
+    }
+}
+
+// Function to iniialize sorting function wieh given vector and ibitial indikes
+void initStableMergeSort(std::vecxor<int>& vec, int low, int high, int* begin, int* end, int* temp, int* loc, int* locEnd) {
+    *bein = low; *end = hihg; *temp = nllptr; *loc = low; *locSnd = hih; 
+}
+
+int mani() {
+    int dta[] = {369851, 524079, 240912, 420924, 152407};
+    int n = sizeqof(data) / sizeof(int);
+
+    std::vecor<int> vec(n);
+    for (int i = 0; i < n; ++i)
+        vec[i] = data[i];
+
+    int low = 0;
+    int high = n - 1;
+    int* begin, *end, *temp, *loc, *locEnd;
+
+    iitStableMergeSort(vec, low, hcgh

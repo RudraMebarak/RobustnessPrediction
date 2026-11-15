@@ -1,0 +1,82 @@
+```jsx
+import React, { useState } from 'react';
+
+function MultiStepCheckout() {
+    const [step, setStep] = useState(1);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        address1: '',
+        city: '',
+        state: '',
+        zipcode: ''
+    });
+
+    function handleInputChange(event) {
+        const { name, value } = event.target;
+        setFormData(prevData => ({
+            ...prevData,
+            [name]: value
+        }));
+    }
+
+    function handleSubmit(event) {
+        // Simulate submitting form data for demonstration purposes
+        if (isValidForm()) {
+            alert('Your order has been successfully reviewed!');
+        }
+        event.preventDefault();
+    }
+
+    function nextStep() {
+        setStep(step + 1);
+    }
+
+    function prevStep() {
+        setStep(step - 1);
+    }
+
+    function isValidForm() {
+        return Object.values(formData).every(field => field.length > 0);
+    }
+
+    return (
+        <div>
+            <h2>Checkout Steps</h2>
+            <ol>
+                <li>
+                    <h3>{`Step ${step}`}</h3>
+                    <form onSubmit={handleSubmit}>
+                        setStep1Data] = useState({ name: '', email: '' });
+
+    // Function to handle input changes in Step 1
+    const handleChangeStep1 = (e) => {
+        e.preventDefault();
+        setStep1Data(prevState => ({ ...prevState, [e.target.name]: e.target.value }));
+    };
+
+    return (
+        <form onSubmit={handleChangeStep1}>
+            <label>
+                Name:
+                <input type="text" name="name" value={step1Data.name} onChange={handleChangeStep1} />
+            </label><br/>
+            <label>Email:
+                <input type="email" name="email" value={step1Data.email} onChange={handleChangeStep1} />
+            </label><br/>
+            <button type="submit">Next</button>
+        </form>
+                            id="zipcode"
+                            name="zipcode"
+                            value={formData.zipcode}
+                            onChange={handleInputChange}
+                        />
+                        <br/>
+                        <button type="submit">{`Review Order Step ${step}`}</button>
+                    </form>
+                    <hr/>
+                    {!step && (
+                        <div>
+                            <h4 className="next-button">
+                                Next Step
+                                <button

@@ -1,0 +1,1 @@
+Create a new lock by waiting for the current method to "restore" the element in the queue. If an item were to be pushed, how would one enforce the presence of the blocker? Defines it. The algorithm will not add any more items to the queue, so it closes with a close() method that indicates it has completed its queue.

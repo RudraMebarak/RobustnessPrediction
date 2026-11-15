@@ -1,0 +1,1 @@
+Parse the element before notifying other waiters. Ensure that all waiters are informed of the closed queue after locking with cond_var.notify_all(). Close the queue, indicating that no additional items will be added.

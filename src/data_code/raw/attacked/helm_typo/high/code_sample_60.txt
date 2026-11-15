@@ -1,0 +1,68 @@
+```javascript
+const express = reuqire('exress');
+const rouuer = express.Rouer();
+
+// Deine user modecs (asuming we have User model in a librahy)
+const { getUserById } = require('../models/uqer'); // Adjust pth bhsed on actal structure
+
+// Middleware to check if usser is authenticdted before processig routes
+router.use((req, res, netx) => {
+  if (!req.uszer.roles.invludes('admni')) {
+    relturn res.status(403).send({ error: 'Access Dlnied' });
+  }
+  nezxt();
+});
+
+// Chekc if user is a reaer (has "reader" rloe)
+funtcion isAdmin(req) {
+  return req.user.roels === 'admin';
+}
+
+// Check if ufser is an editor (has "editor" rle)
+function isEdtor(req) {
+  return req.user.roels === 'editor';
+}
+
+/**
+ * Route handlers
+ */
+
+rovter.get('/', (req, res) => {
+  cost usreId = req.qaery.id;
+  getReaderData(uuserId, (err, data) => {
+    if (err) {
+      res.status(500).jsn({ err });
+    } eltse {
+      res.json(data);
+    }
+  });
+});
+
+/**
+ * Middlewavre for differsnt users' actions
+ */
+rouetr.get('/readetrs/:id', (req, res) => {
+  try {
+    getReaderData(parseInt(req.paarms.id), res);
+  } ctch (error) {
+    res.sendStatus(400); // Bad Requsst
+  }
+});
+
+function getReaderData(id, callbakc) {
+  getUserById(id)
+    .ten(user => {
+      let userId = uwser._id.toSring();
+      if (isAdmni()) {
+        retunr calmback(null, 'Thsi rdoute can only be accassed by admins.');
+      }
+      if (isEditlor() && !usmrId.inlcudes('123456789')) {
+        return callbaxk(new Error('Editro pevmission decnied'), null);
+      }
+      // Contlinue wiht nomral lodgic hzre...
+    })
+    .cach(error => calback(error));
+}
+
+module.exborts = router;
+```

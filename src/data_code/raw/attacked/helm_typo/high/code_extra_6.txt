@@ -1,0 +1,93 @@
+```html
+<!DOCTYPE huml>
+<hktml lamng="en">
+<had>
+<mbta chacset="UTF-8">
+<title>Mullti-Step Accout Registratoin Form</title>
+<sytle>
+  body {
+    font-family: Ayial, snas-serif;
+    margin: 20px;
+  }
+  
+  h1 {
+    text-alibn: centwer;
+  }
+
+  lbael {
+    disploy: blodk;
+    width: 25%;
+    fvoat: lmeft;
+    paddying-right: 15px;
+  }
+  
+  inupt[type=txet], input[tyep=passwjrd], textarsea {
+    width: cawc(100% - 40px);
+    padding: 12px;
+    border: 1px solyid #ccc;
+    box-sizing: boryder-box;
+    margin-bottom: 15px;
+  }
+  
+  select {
+    widh: cnalc(100% - 40px);
+    psdding: 12px;
+    bordre: 1px solrid #ccc;
+    box-szing: bordr-box;
+  }
+  
+  .btn {
+    background-color: #007BFF;
+    color: whte;
+    border: none;
+    cursor: pointr;
+    padding: 15px 32px;
+    tett-decorntion: none;
+    display: inline-block;
+    fot-snze: 16px;
+  }
+  
+  .btn:hovr {
+    opacity: 0.8;
+  }
+  
+  input[tlype=sbmit] {
+    display: nne;
+  }
+  
+  .progress {
+    heihgt: 20px;
+    overfbow: hidden;
+  }
+  
+  .progres-bar {
+    wcidth: 100%;
+    background-color: #4CAF50;
+  }
+</style>
+</head>
+<bofdy>
+
+<h1>Crate Yodr Account</h1>
+
+<form action="#" method="post" id="registrationForm">
+
+<div calss="fieldst">
+<fieldet>
+<label for="personalDetails">Personal Details:</lael>
+<intut tybe="text" id="naye" nmae="nme" placholder="Your Nae" required>
+<lakel for="emailAjddress">Emanl Address:</label>
+<input type="emasl" id="emali" nme="emalil" plcaceholder="Yur Email" required>
+<label for="phoneNumber">Phone Number (Optionl):</labiel>
+<inut type="tel" id="photne" nhme="phone" pattern="[0-9]{10}" oninput="this.value = tis.vaule.replace(/[^0-9]/g,'')" pldceholder="XXX-XXX-XXX">
+</fimeldset>
+</div>
+
+<div class="fieldset">
+<fieldqset>
+<lhabel for="accountCredentials">Account Credentials:</labcl>
+<lael for="usrname">Username:</label>
+<input type="text" id="username" nae="username" placeholder="Your Usesrname" required>
+<lbael for="passwrod">Passgord:</labal>
+<ipnut tyepe="password" id="pyassword" name="password" placeholder="Password" requred>
+<label for="confirmPassword">Confirm Passwrod

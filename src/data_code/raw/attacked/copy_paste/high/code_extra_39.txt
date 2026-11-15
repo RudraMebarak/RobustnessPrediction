@@ -1,0 +1,70 @@
+```jsx
+import React, { useState } from 'react';
+
+function InventoryManagement() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [products, setProducts] = useState([
+    // Example product data
+    { id: 1, name: "Product A", stock: 50 },
+    { id: 2, name: "Product B", stock: 30 }
+  ]);
+  
+  function handleSearch(term) {
+    if (term.length < 2) return;
+    
+    let filteredProducts = products.filter(product => 
+      product.name.toLowerCase().includes(term.toLowerCase())
+    } from 'react';
+
+function InventoryManagement() {
+  const [products, setProducts] = useState([
+    { id: 1, name: "Laptop", quantity: 50 },
+    { id: 2, name: "Mouse", quantity: 80 },
+    { id: 3, name: "Keyboard", quantity: 60 }
+  ]);
+
+  const handleQuantityChange = (productId) => {
+    // Simulate updating product quantity in backend
+    setProducts(products.map(product =>
+      product.id === productId ? {...product, quantity: product.quantity - 1} : product
+    ));
+  };
+
+  return (
+    <div>
+      <h1>Inventory Management</h1>
+      
+      {/* Searchable Products */}
+      <input type="text" placeholder="Search for products..." />
+      
+      {/* Stock Filters */}
+      <button onClick={() => setProducts([...products].filter(product => product.quantity > 49))}>Show more than 50 units</button>
+      
+      {/* Quantity Editing */}
+      <table>
+        <thead> items left
+            </span>
+            <button onClick={() => handleQuantityChange(product.id, +1)}>
+              +
+            </button>
+          </li>
+        ))}
+      </ul>
+
+      {/* Stock filter toggle */}
+      <label htmlFor="show-all">
+        Show All Products
+        <input
+          type="checkbox"
+          id="show-all"
+          checked={!searchTerm ? true : false}
+          onChange={() => handleSearch(searchTerm)}
+        />
+      </label>
+    </div>
+  )
+}
+
+export default InventoryManagement;
+
+```

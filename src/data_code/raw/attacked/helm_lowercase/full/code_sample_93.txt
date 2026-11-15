@@ -1,0 +1,68 @@
+```go
+package main
+
+import (
+	"fmt"
+	"net/http"
+)
+
+// service represents a generic service that holds an in-memory map.
+type service struct {
+	data map[string]int64
+}
+
+// newservice creates a new instance of service.
+func newservice() *service {
+	return &service{data: make(map[string]int64)}
+}
+
+// add inserts key-value pair into the data map.
+func (s *service) add(key string, value int64) {
+	s.data[key] = value
+}
+
+// getvalue retrieves the value corresponding to the key from the data map.
+func (s *service) getvalue(key string) (int64, bool) {
+	value, exists := s.data[key]
+	if !exists {
+		return 0, false
+	}
+	return value, true
+}
+
+// checkliveness checks if the service is ready.
+func (s *service) checkliveness() (bool, error) {
+	return true, nil // replace with actual check logic
+}
+
+// checkreadiness checks if the service's state allows it to handle incoming requests.
+func (s *service) checkreadiness() (bool, error) {
+	return s.checkliveness(), nil // replace with actual readiness check logic
+}
+
+// handlehttpincomingrequest handles incoming http requests based on live/ready checks.
+func (s *service) handlehttpincomingrequest(w http.responsewriter, r *http.request) {
+	isready, err := s.checkreadiness()
+	if err != nil {
+		http.error(w, "error checking readiness", http.statusinternalservererror)
+	} else if !isready {
+		http.error(w, "service not ready", http.statusserviceunreachable)
+	} else {
+		fmt.fprintf(w, "hello, world!")
+	}
+}
+
+func main() {
+	service := newservice()
+
+	http.handlefunc("/liveness", func(w http.responsewriter, r *http.request) {
+		service.handlehttpincomingrequest(w, r)
+	})
+
+	http.handlefunc("/readiness", func(w http.responsewriter, r *http.request) {
+		service.handlehttpincomingrequest(w, r)
+	})
+
+	http.listenandserve(":8080", nil)
+}
+```

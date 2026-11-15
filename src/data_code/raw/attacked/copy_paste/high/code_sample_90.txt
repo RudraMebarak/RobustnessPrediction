@@ -1,0 +1,27 @@
+```java
+import com.netflix.hystrix.contrib.metrics.eventstream.idempotency.Key;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/payment")
+public class PaymentController {
+
+    current timestamp and random number generator
+        long currentTimeMillis = System.currentTimeMillis();
+        int randomNumber = (int)(Math.random() * 1000);
+        
+        String generatedId = Long.toString(currentTimeMillis + randomNumber);
+
+        if (!request.getParameter(key).equals(generatedId)) {
+            throw new RuntimeException("Duplicate submission detected");
+        }
+
+        // Process the payment logic here new Key("mock-payment-request", "unique_id", null); // Create an idempotency key
+        
+        System.out.println("Processing payment request with ID: " + key.getUniqueID());
+    }
+}
+```

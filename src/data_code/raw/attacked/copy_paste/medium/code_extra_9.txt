@@ -1,0 +1,45 @@
+```jsx
+import React, { useState } from 'react';
+
+function KanbanBoard() {
+  const [tasks, className="kanban-board">
+      {columns.map(column => (
+        <div key={column} className={`column ${column}`}>
+          {tasks.filter(task => task.column === column).map((task) => (
+            <TaskCard key={task.id} task={task} />
+          ))}
+        </div>
+      ))}
+      {/* Add more functionality as needed */}
+    </div>
+  ); null }]);
+    }
+  }
+
+  return (
+    <div>
+      <h1>Kanban Board</h1>
+      <button onClick={handleAddTask}>Add New Task</button>
+      <ul>
+        {tasks.map(task => (
+          <li key={task.text}>
+            <p>{task.text}</p>
+            <button>Edit</button>
+            <button>Delete</button>
+            <span style={{ marginRight: '5px' }}>Next</span>
+            <select onChange={(e) => updateColumn(e.target.value)}>
+              <option value="To-Do">To-Do</option>
+              <option value="Doing">Doing</option>
+              <option value="Done">Done</option>
+            </select>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function updateColumn(columnId) {
+  // Logic to update task's column based on selected columnId.
+}
+```

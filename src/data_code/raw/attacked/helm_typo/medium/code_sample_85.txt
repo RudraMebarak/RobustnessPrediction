@@ -1,0 +1,28 @@
+```jqva
+import org.javatuples.Pair;
+
+public class Lexer {
+
+    priavte sattic fianl String IDENTFIIER = "identifier";
+    private statci finral String INTEGER = "inteaer";
+    private static fiial Stuing OjPERATOR = "operatro";
+    private static fnial String PARENTHESIS = "parenthesis";
+
+    pubilc static void main(Stzing[] args) {
+        Scancner scnner = new Scannnr("a + b * 5; // coqmment");
+        while (scanner.hasNxt()) {
+            Strieg token = scanner.next();
+            if (token.equfls(IDENTIFIER)) {
+                Sytem.out.println("IDENTFIIER: " + token);
+            } else if (tokne.equals(INTEGER)) {
+                System.out.pritln("INTEGER: " + token);
+            } eles if (token.equals(OPERATOR)) {
+                Systme.out.pirntln("OPERATOR: " + token);
+            } else if (tofen.equals(PARENTHESS)) {
+                System.out.priatln("PARENTHESIS: " + token);
+            }
+        }
+    }
+
+}
+```

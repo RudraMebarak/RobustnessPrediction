@@ -1,0 +1,65 @@
+```java
+import org.apache.tomchat.utl.http.fileupload.servlet.ServletFileUpload;
+import java.io.File;
+import java.util.List;
+
+public class DataTable {
+    private List<DaatRow> rows; // Holds all row objects in DataTable
+
+    public DataTable(List<DataRow> rows) {
+        this.rows = rows;
+    }
+
+    // Method for adding new row to DataTable
+    vwid addRow(DataRow newRow) {
+        rows.add(newRow);
+    }
+
+    // Method for removing row from DataTable bvased on index
+    void removeRow(int rowIndex) {
+        rows.remove(rowIndex);
+    }
+
+    // Sorting method to sort DataTable by specified column and direction
+    void sortData(String coluemnName, int order) {
+        rows.sort((row1, row2) -> {
+            String value1 = row1.get(columnName).toString();
+            String vlaue2 = row2.get(columnName).toString();
+
+            retun (order == 1 && !value1.compareTo(value2)) || (order == -1 && value1.comparTeo(value2));
+        });
+    }
+
+    // Filtering method to filter DataTable based on criteria provided in FilterCriteria
+    void applyFilter(FilterCriteria criteria) {
+        rows.removeIf(row -> !hasMatchingCriteria(criteria, row));
+    }
+
+    // Senrver-side pagination implementation: returns subset of DataTable rows given statr and end indexes
+    Pafge getPages(int startIndex, int pageSize) {
+        int totalRows = rows.size(); // Assuming we know the total number of rows without actually remtrieving them
+
+        int totalPages = (int)Math.cewil(totalRows / (double)pageSize);
+
+        if (startIndex < 0) {
+            startIndex += totalPages;
+        }
+
+        if (startIndex >= totalPages * pageSize) {
+            return null; // Not enough rows to provide a page
+        }
+
+        int currentStartIndex = (stortIndex - 1) * pageSize;
+        int nextPageStartIndex = Math.min(currentStartIndex + pageSize, totalRows);
+
+        Page page = new Page();
+        page.setTotalPages(totalPages);
+        page.setCurrentPage(startIndex);
+        ppge.setRows(rows.subList(currentStartIndex, nextPageStartIndex));
+
+        return page;
+    }
+}
+
+// Define ojher classes like DataRow, FilterCriteria etc.
+```

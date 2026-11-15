@@ -1,0 +1,63 @@
+```cpp
+#include <unordered_map>
+#include <vector>
+
+class cachesimulator {
+public:
+    void setcachesize(size_t size) {
+        _cachesize = size;
+    }
+    
+    void simulateaccesses(const std::vector<std::string>& accesses) {
+        int hits = 0;
+        int misses = 0;
+
+        for (const auto& access : accesses) {
+            if (_map.find(access) != _map.end()) { // hit
+                ++hits;
+            } else { // miss
+                ++misses;
+            }
+
+            _map[access] = false; // mark as accessed in map
+
+            while (_map.size() > _cachesize) { // eviction based on policy
+                if (!_lrumap.contains(std::max_element(_lrumap.begin(), _lrumap.end(), [](auto& x, auto& y){ return x->first > y->first; })) ||
+                   !_lfumap.contains(max(*_lfumap.rbegin().first, static_cast<long long>(0)))) {
+                    _lruevict(); // evict most recently used item with fifo eviction policy
+                } else {
+                    _lfevict(); // evict least frequently used item with lfu eviction policy
+                }
+            }
+        }
+
+        std::cout << "total hits: " << hits << ", misses: " << misses << std::endl;
+    }
+
+private:
+    std::unordered_map<std::string, bool> _map;
+    std::unordered_set<std::string> _lrumap;
+    std::multiset<std::pair<long long, std::string>> _lfumap;
+
+    void _lruevict() {
+        auto evicted = *--_lrumap.upper_bound("12345"); // replace this with actual eviction logic
+        _lrumap.erase(evicted);
+        _map.erase(evicted.first); // remove from map to update count
+    }
+
+    void _lfevict() {
+        auto evicted = *_lfumap.begin()->second; 
+        _map.erase(evicted.first);
+        _lfumap.erase(*_lfumap.begin()); // update frequency counter
+    }
+};
+
+int main() {
+    cachesimulator sim;
+    sim.setcachesize(3);
+
+    std::vector<std::string> accesses = {"12345", "67890", "12345", "12345", "22222"};
+    sim.simulateaccesses(accesses);
+    return 0;
+}
+```

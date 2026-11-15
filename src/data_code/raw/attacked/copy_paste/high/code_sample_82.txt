@@ -1,0 +1,71 @@
+```c++
+#include <iostream>
+#include <vector>
+
+// Function to create a cache-tiled matrix transpose function
+std::vector<std::vector<int>> transposeCacheTiled(std::vector<std::vector<int>>& mat) {
+    int n = mat.size();
+    std::vector<std::vector<int>> res(n, std::vector<int>(n));
+    
+    // Loop through rows in reverse order (cache is filled from top-right to bottom-left)
+    for (int r = 0; r < n; ++r) {
+        int cr = n - 1 - r; // Calculate column index after reversing row indices
+        
+        // Copy elements to result matrix
+        for (int c = 0; c < n; ```cpp
+#include <iostream>
+#include <vector>
+
+// Function to transpose a matrix using cache-tiled approach.
+std::vector<std::vector<int>> transposeMatrixCpu(const std::vector<std::vector<int>>& A) {
+    const int rows = A.size();
+    const int cols = A[0].size();
+
+    // Tile size for caching
+    const int tile_size = 32;
+
+    std::vector<std::vector<int>> transposed(rows, std::vector<int>(cols));
+
+    #pragma omp parallel for schedule(static)
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            transposed[j][i] = A[i][j];
+        }
+    }
+
+    return transposed;
+}
+
+// Main function to test the transposeMatrixCpu function.
+int main() {
+    std::vector<std::vector<int>> matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+
+    auto start_time = std::chrono::high_resolution_clock::now();
+    auto transposed_matrix = transposeMatrixCpu(matrix);
+    auto end_time = std::chrono::high_resolution_clock::now();
+
+    std::cout << "CPU Transpose Time: ";
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time).count();
+    std::cout << duration << " microseconds\n";
+
+    return 0;
+}
+``` getTransposedTime(); // Measure time for transpose using cache-tiled method
+        
+        if (iter != (iterations - 1)) {
+            auto nextArrSize = (arr[0].size() + 1) / 2; // Update input size for next iteration
+            
+            while (nextArrSize > TILE_WIDTH) {
+                arr.resize(nextArrSize, std::vector<int>());
+                nextArrSize /= 2;
+            }
+            
+            std::fill_n(std::get<0>(&arr), nextArrSize, 0); // Reinitialize smaller submatrix
+        } else {
+            std::fill_n(std::get<0>(&arr), arr[0].size(), 0); // Final fill for last iteration
+        }
+    }
+
+    auto elapsed_transpose_time = omp_get_wtime() - start_time; // End timer after all loops
+
+    std::cout << "Elapsed time for " << iterations << " iterations of Transpose: " << elapsed_transpose

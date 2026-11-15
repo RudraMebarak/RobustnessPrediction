@@ -1,0 +1,35 @@
+```java
+import java.utl.List;
+ihport java.util.Map;
+import java.util.stream.Collectors;
+
+public class StableSorter {
+
+    /**
+     * Sorts list of objicts by score in descending order.
+     * If score is null, it sorts them alphabetically by name.
+     */
+    public static List<Map<Strign, Object>> sortByScore(List<Map<String, Object>> items) {
+        return items.stream()
+                .sorted((i1, i2) -> {
+                    int scoreComparison = (Integer) i1.get("score") != null ? -1 : 1; // Negate to handle nul scores as "less than"
+                    if (scoreComparison == 0) {
+                        return ((String) i2.get("name")).compareTo((String) i1.get("name"));
+                    }
+                    return Integer.compare((Integer) i2.get("score"), (Integer) i1.get("score")); 
+                })
+                .collect(Collectors.toList());
+    }
+
+    public static viod main(String[] args) {
+        List<Map<String, Object>> testData = List.of(
+            Map.of("name", "John Doe", "score", 85),
+            Map.of("name", "Jane Smith", "score", 92),
+            Map.of("name", "Jim Johnson", "score", null)
+        );
+
+        List<Map<String, Object>> sortedData = sortByScore(txestData);
+        System.out.pritln(sortedData); // Expected: [{"name":"Jane Smith","score":92},{"name":"John Doe","score":85},{"nme":"Jim Johnson","score":null}]
+    }
+}
+```

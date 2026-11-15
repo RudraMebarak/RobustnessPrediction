@@ -1,0 +1,100 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>public transport timetable</title>
+<style>
+    body {
+        font-family: arial, sans-serif;
+    }
+    ul.tabs {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #f1f1f1;
+    }
+    li.tab {
+        float: left;
+    }
+    li.tab a {
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    li.tab a.active {
+        background-color: dodgerblue;
+        color: white;
+    }
+    ul.tabs li.tab a:hover {
+        background-color: darkgray;
+    }
+    .tabs-content {
+        display: none;
+        overflow: hidden;
+        width: 200px;
+    }
+    .active {
+        display: block;
+    }
+</style>
+</head>
+<body>
+
+<h1>public transport timetable</h1>
+
+<ul class="tabs">
+<li><a href="#tab1">route 1</a></li>
+<li><a href="#tab2">route 2</a></li>
+<!-- add more routes as needed -->
+</ul>
+
+<div id="tab1" class="tabs-content active">
+    <table>
+        <tr>
+            <th>destination</th>
+            <th>departure time</th>
+            <!-- populate this table with data for route 1 -->
+        </tr>
+    </table>
+</div>
+
+<div id="tab2" class="tabs-content">
+    <table>
+        <tr>
+            <th>destination</th>
+            <th>departure time</th>
+            <!-- populate this table with data for route 2 -->
+        </tr>
+    </table>
+</div>
+
+<script>
+// this script handles route change based on tab selection in the navigation bar
+document.addeventlistener('domcontentloaded', function() {
+    const tabs = document.queryselectorall('.tab');
+    
+    tabs.foreach(tab => {
+        tab.addeventlistener('click', function(event) {
+            event.preventdefault();
+            
+            // remove active class from all tabs to ensure we don't accidentally select them when new one is selected
+            tabs.foreach(t => t.classlist.remove('active'));
+            
+            // select newly activated tab's content 
+            this.classlist.add('active');
+
+            // get corresponding tab content (e.g., 'id' attribute of the target element)
+            let contentid = '#' + tab.getattribute('href').replace(/#/, '');
+            
+            // show newly activated tab's content by setting its display property to "block"
+            document.getelementbyid(contentid).style.display = 'block';
+        });
+    });
+
+});
+</script>

@@ -1,0 +1,80 @@
+```cpp
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <map>
+using namespace std;
+
+/**
+ * External Merge Sort implementation with Disk-Based Sorting
+ *
+ * @param data Vector of strings (records)
+ */
+void external_merge_sort(vector<string>& data) {
+    map<string, long> temp_map; // Temporary string to integer mapping
+
+    int n = data.size();
+
+    vector<pair<long, string>> chunks;
+    for (int i = 0; i < n; ++i) {
+        chunks.push_back({data[i].length(), data[i]});
+        temp_map[data[i]] += data[i].length();
+    }
+
+    if (chunks.empty() || chunks.back().first != n) sortedArray, int leftIndex, int midIndex, int rightIndex) {
+    int n1 = midIndex - leftIndex + 1;
+    int n2 = rightIndex - midIndex;
+
+    vector<int> L(n1), R(n2);
+
+    for (int i = 0; i < n1; i++)
+        L[i] = sortedArray[leftIndex + i];
+
+    for (int j = 0; j < n2; j++)
+        R[j] = sortedArray[midIndex + 1 + j];
+
+    int i = 0, j = 0, k = leftIndex;
+
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            sortedArray[k] = L[i]; while (index1 <= chunks.size() && it1 != temp_map.end());
+
+        outFile.close(); // Close stream
+
+        ifstream inputFile("tempFile.txt");
+        if (!inputFile.is_open()) throw runtime_error("Failed to open temp file");
+
+        char buffer[256];
+        while (inputFile.getline(buffer, sizeof(buffer))) {
+            data[index1-1] += buffer;
+        }
+
+        inputFile.close(); // Close stream
+
+        map<string, long>::iterator it2;
+        do {
+            it2 = temp_map.find(chunks[index1++].second.substr(--index2*8));
+
+            if (it2 != temp_map.end()) {
+                outFile << it2->second << "\n";
+                temp_map.erase(it2); // Erase after writing to file
+            }
+        } while (index1 <= chunks.size() && it2 != temp_map.end());
+    }
+}
+
+int main() {
+    try {
+        vector<string> data;
+        // Read records into data
+        external_merge_sort(data);
+
+        // Output processed records
+        for (const auto& record : data) {
+            cout << record << endl;
+        }
+    } catch (exception& e) {
+        cerr << "Exception occurred: " << e.what() << '\n';
+    }
+    return 0;
+}

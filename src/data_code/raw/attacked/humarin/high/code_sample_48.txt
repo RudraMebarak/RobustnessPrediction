@@ -1,0 +1,1 @@
+To trigger content negotiation with a Python import socket, evoke the following command: create_socket(): return socket.sock (sock_iNET, socket.SOCK_STREAM) and connect_to_host(host, port): send an empty request.

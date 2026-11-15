@@ -1,0 +1,1 @@
+The following is an example of a diagram where each item is shown as an image in the top right-hand column. To initialize audio playback on page load or in response to clicks, follow the steps below: /script> function playAudio(url, imgSrc), audio.play(), and so on.

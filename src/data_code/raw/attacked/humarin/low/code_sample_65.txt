@@ -1,0 +1,1 @@
+Create a new table if the given table is not existing. "WHERE id=?", "new_state" and "job_id" are the possible outcomes.

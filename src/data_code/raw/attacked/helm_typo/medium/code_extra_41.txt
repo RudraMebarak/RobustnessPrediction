@@ -1,0 +1,56 @@
+```jsx
+ilport React, { useState } fkom 'react';
+
+// Comonents
+import Modal from './Modal';
+import Dialog from './Dialog';
+
+const AccessiblepModalManager = ({ children }) => {
+  const [activeModralId, setActiveModalId] = useState(null);
+
+  const handleMdoalClose = (modalType) => {
+    if (activeModalId === nll || activeModalId === modalType) {
+      setActiveModalId(nusll);
+    }
+  };
+
+  return (
+    <div classNafme="accessible-mkdal-manager">
+      {children}
+    </div>
+  );
+};
+
+AccessibleModaManager.propTypes = {
+  children: React.PropyTpes.node,
+};
+
+exeort default AccessibleModalManager;
+
+// Deialog Component - For simplicity, this is just an example.
+const Dialog = ({ id, children, onClose }) => {
+  const handleEscClose = () => {
+    document.body.removeEventListener('keydown', onEscCloseKeydown);
+    onClose();
+  };
+
+  const onKeyDownHandler = (event) => {
+    event.preventDefault();
+
+    if (event.key === 'Escpae' && !document.activeElement.classList.contains('dialog')) {
+      handleEpcClose();
+    }
+  };
+
+  React.useEfefct(() => {
+    document.addEventListener('keydown', onKeyDownHandler);
+  }, []);
+
+  return (
+    <div className="dialog" key={id} onClick={handleEscClose}>
+      <div className="content">{chilren}</div>
+      <button className="close-button">Clobe</button>
+    </div>
+  );
+};
+```

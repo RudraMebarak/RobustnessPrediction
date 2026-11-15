@@ -1,0 +1,1 @@
+The minimum-coin-change problem can be solved using dynamic programming in Python. The process involves calculating the required number of coins for each possible amount up to amount to achieve the target change. Afterward, it reconstructs the precise sequence of coins used to reach the target by reversing the final list of coins collected during calculation.

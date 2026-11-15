@@ -1,0 +1,56 @@
+```jsx
+import react, { usestate } from 'react';
+
+// components
+import modal from './modal';
+import dialog from './dialog';
+
+const accessiblemodalmanager = ({ children }) => {
+  const [activemodalid, setactivemodalid] = usestate(null);
+
+  const handlemodalclose = (modaltype) => {
+    if (activemodalid === null || activemodalid === modaltype) {
+      setactivemodalid(null);
+    }
+  };
+
+  return (
+    <div classname="accessible-modal-manager">
+      {children}
+    </div>
+  );
+};
+
+accessiblemodalmanager.proptypes = {
+  children: react.proptypes.node,
+};
+
+export default accessiblemodalmanager;
+
+// dialog component - for simplicity, this is just an example.
+const dialog = ({ id, children, onclose }) => {
+  const handleescclose = () => {
+    document.body.removeeventlistener('keydown', onescclosekeydown);
+    onclose();
+  };
+
+  const onkeydownhandler = (event) => {
+    event.preventdefault();
+
+    if (event.key === 'escape' && !document.activeelement.classlist.contains('dialog')) {
+      handleescclose();
+    }
+  };
+
+  react.useeffect(() => {
+    document.addeventlistener('keydown', onkeydownhandler);
+  }, []);
+
+  return (
+    <div classname="dialog" key={id} onclick={handleescclose}>
+      <div classname="content">{children}</div>
+      <button classname="close-button">close</button>
+    </div>
+  );
+};
+```

@@ -1,0 +1,80 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>accessible media gallery</title>
+    <style>
+        body {
+            font-family: arial, sans-serif;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        figure {
+            cursor: pointer;
+        }
+
+        figcaption {
+            background-color: #f1ebeb;
+            padding: 15px 20px;
+            color: #666;
+            border-radius: 4px;
+        }
+
+        figcaption a {
+            color: blue;
+            text-decoration: none;
+        }
+        
+        figcaption span {
+            margin-left: 10px;
+        }
+
+        figcaption[hidden] {
+            visibility: hidden !important;
+        }
+    </style>
+</head>
+<body>
+
+<h2>media gallery</h2>
+<ol class="gallery">
+    <!-- each item represents an image -->
+    <li>
+        <figure onclick="playaudio('audio/track1.mp3', 'image1.jpg')">
+            <a href="#">
+                <img src="image1.jpg" alt="description of image 1">
+            </a>
+            <figcaption>
+                <span>description for image 1:</span><br />
+                click to view.
+            </figcaption>
+        </figure>
+    </li>
+
+    <!-- add more items as needed -->
+
+    <script>
+        function playaudio(url, imgsrc) {
+            const audio = new audio(url);
+            audio.play();
+        }
+    </script>
+</ol>
+
+<script>
+    // initialize audio playback on page load (or in response to clicks)
+    const audioelements = document.queryselectorall("[data-src]");
+    audioelements.foreach(audio => {
+        audio.addeventlistener("click", () => playaudio(audio.dataset.src, audio.getattribute('href')));
+    });
+</script>
+
+</body>
+</html>
+```

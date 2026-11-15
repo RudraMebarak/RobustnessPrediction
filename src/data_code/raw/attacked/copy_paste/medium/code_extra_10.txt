@@ -1,0 +1,81 @@
+```jsx
+import React, { useState } from 'react';
+
+function ShoppingCart() {
+  const [items, setItems] = useState([]);
+  
+  const addItemToCart = (quantity) => {
+    let newItem;
+    
+    if (items.length === 0 || items[items.length - 1].name !== newItem.name) {
+      // Add new item to the array if it's different from the last added one in case of duplicate names
+      newItem = {
+        name: newItem.name,
+        price: newItem.price * quantity,
+      };
+    }
+    
+    setItems([...items, newItem]);
+    
+    calculateSubtotal();
+  };
+
+  function handleRemoveItem(itemIndex) {
+    const updatedItems = [...items];
+    updatedItems.splice(itemIndex, 1);
+    setItems(updatedItems);
+  }
+
+  function handleClearCart() {
+    setItems([]);
+    updateTotal(0);
+  }
+
+  function updateQuantity(event, index) {
+    event.preventDefault(); // Prevents page refresh when updating quantity
+
+    const target = event.target;
+    const currentQty = parseInt(target.value);
+
+    if (!isNaN(currentQty)) {
+      addItemToCart(currentQty);
+    }
+  }
+
+  function updateQuantityByEventHandling(event, itemIndex) {
+    event.preventDefault(); // Prevents page refresh when updating quantity through event handling
+
+    const target = event.target;
+    const currentQty = parseInt(target.value);
+
+    if (currentQty > 0) {
+      addItemToCart(currentQty);
+    }
+  }
+
+  function calculateSubtotal() {
+    const totalAmount = items.reduce((acc, currItem) => acc + currItem.price, 0).toFixed(2);
+    return <div>Subtotal: ${totalAmount}</div>;
+  }
+
+  function updateTotal(amount) {
+    if (amount < 0) amount = 0; // // Function to calculate the subtotal of items in the cart
+    const updateSubtotal = () => {
+        let total = 0;
+        items.forEach(item => total += item.price);
+        return total;
+    };
+
+    // Function to handle clearing the cart
+    const clearCart = () => {
+        setItems([]);
+        setEmptyCart(true);
+        resetTotal();
+    };
+
+    // Function to reset the total price when the cart is cleared
+    const resetTotal = () => {
+        setEmptyCart(false);
+    };
+
+    // Helper function to display each item in

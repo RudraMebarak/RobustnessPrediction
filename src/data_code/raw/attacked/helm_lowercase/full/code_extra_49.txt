@@ -1,0 +1,81 @@
+```cpp
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <unistd.h>
+#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <vector>
+
+// function to create a tcp socket
+int create_socket() {
+    int sockfd;
+    if ((sockfd = socket(af_inet, sock_stream, 0)) == -1) {
+        perror("socket creation failed");
+        exit(exit_failure);
+    }
+    return sockfd;
+}
+
+// function to bind the socket to an ip address and port
+void bind_socket(int& sock_fd, const char* host_ip, unsigned short port) {
+    struct sockaddr_in serv_addr;
+    memset(&serv_addr, '0', sizeof(serv_addr));
+
+    serv_addr.sin_family = af_inet;
+    serv_addr.sin_port = htons(port);
+
+    if (inet_pton(af_inet, host_ip, &serv_addr.sin_addr) <= 0) {
+        fprintf(stderr,"invalid address/ address not supported\n");
+        exit(1);
+    }
+
+    if (bind(sock_fd, (struct sockaddr*)&serv_addr,sizeof(serv_addr)) == -1) {
+        close(sock_fd);
+        perror("bind() error");
+        exit(1);
+    }
+}
+
+// function to listen on the given port
+void listen_on_port(int& sock_fd, int backlog) {
+    if (listen(sock_fd, backlog) == -1)
+        perror("listen");
+}
+
+// function to accept incoming connections and handle them in a separate thread
+void handle_client_connections(std::thread::id client_id) {
+    struct sockaddr_in cli_addr;
+    socklen_t clilen;
+    
+    while (true) {
+        clilen = sizeof(cli_addr);
+        if ((new_sock = accept(sock_fd, (struct sockaddr*)&cli_addr,&clilen)) == -1){
+            perror("accept");
+            break; // exit loop after one connection failure
+        } else {
+            std::cout << "new connection from " << inet_ntoa(cli_addr.sin_addr) << ":" << ntohs(cli_addr.sin_port) << "\n";
+            
+            // in this example, we'll just forward all data received on new_sock back to the client.
+            // you would replace this with your actual logic for handling each individual client's input.
+            do {
+                ssize_t n = recv(new_sock, buf, bufsiz-1, 0); 
+                if(n == 0) break; // connection closed by peer
+                if(n < 0) {
+                    close(new_sock); // error receiving message
+                    perror("recv");  
+                    continue;
+                }
+                write(new_sock,buf,n); // forward message back to client                
+            } while (1);
+            close(new_sock);
+        }
+    }
+}
+
+// main function to set up the network environment and start listening for incoming connections
+int main() {
+    int sock_fd;
+    int optval;
+    int backlog = som

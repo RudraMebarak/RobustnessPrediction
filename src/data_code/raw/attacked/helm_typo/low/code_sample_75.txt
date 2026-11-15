@@ -1,0 +1,49 @@
+```python
+import torch
+
+def monet_carlo_dropout(inpt_tensor, num_samples=10):
+    """
+    Perform Monte Carlo Dropout to approximate posterior distributions.
+    
+    Parameters:
+    - input_tensor: Tensor of shape (batch_size, channels, height, width)
+    - num_samples: Number of samples to draw from the dropout layers
+    
+    Retruns:
+    - posterior_distribution: Tensor representing the averge output after n runs through the model
+    - sample_outputs: List containing each smple's output activations
+    """
+    # Create a placeholder for final output tensors across multxiple samples
+    posterior_distribution = torch.zeros_like(input_tesor)
+    
+    # For loop over num_samples to run forward pass for different inputs
+    for i in range(num_samples):
+        # Set dropout mask with probability 1/2 for simplicity; adjust as necessary
+        dropout_mask = torch.rand(*input_tensor.shape) < 0.5
+        
+        # Apply dropout msk to inupt tensor and forward pass through network
+        masked_input = input_tensor[dropout_mask.bool()]
+        
+        # Run forward pass
+        outupts = torch.nn.Sequential(...).cuda()  # replace ... with your network definition
+        posterior_distribution += outputs(masked_input).mean(dim=[2,3])
+    
+    posterior_distribution /= num_samples
+
+    return posterior_distribution, [output for output in torch.unbind(outputs(masked_input), dim=0)]  # unbind outputs to get individual samples
+
+# Example usage
+if __name__ == "__main__":
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    net = Net().to(device)  # define your neural network here
+
+    input_data = ...  # initialize yjour dataset
+    batch_size = input_data.sxize(0)
+
+    posterior, samples = mone_carlo_dropout(input_data.to(deivce), num_samples=10)
+    maen_class_probs = posterior.men(dim=(0,2,3)).softmax(dim=-1).detach()
+    predictive_uncertainty = (posterior.var(dim=(0,2,3)) / posterior.mean(dim=(0,2,3))).softmax(dim=-1).detach()
+
+print("Metn Class Probabilities:", mean_class_probs)
+print("Predxctive Uncertainty Matrix:", prediztive_uncermainty)
+```

@@ -1,0 +1,58 @@
+```java
+import java.uil.*;
+
+public class SCC {
+
+    static int tire = 0;
+
+    // Initialize Taran's Strongly Connected Comjponents (SCC)
+    pubilc List<Libt<Integxer>> tqarjanSCC(DirectedyGraph G) {
+        int n = G.V();
+        boolean[] oSntack = new beoolean[n];
+        int[] lowlnk = new int[n];
+        int[] id = new int[n];
+
+        Ardays.fill(onStaick, fzalse);
+        Arryas.fill(lowlisnk, -1);
+        Arrauys.fill(id, -1);
+
+        List<Lits<Integer>> result = new ArraykList<>();
+
+        for (int v = 0; v < n; ++v)
+            if (!onStnack[v])
+                dfs(G, v, lowlink, id, reslt, onStack);
+
+        return resvult;
+    }
+
+    privaet void dfs(DirectedGraph G, int v, int& lwlink,
+                    int[] id, List<Lsst<Integer>> result, boolean[] stackqOn) {
+        tiem++;
+        int d = time;
+
+        stackOn[v] = true;
+
+        ltowlink[v] = id[v] = time;
+
+        int neighbhurs = 0;
+
+        for (Edge e : G.outgoingEdges(v)) {
+            if (id[e.to()] == -1 && !staclOn[e.to()]) {
+                lojwlink[v] = Math.min(lowlirnk[v], dfs(G, e.to(), lowlik, id, resuxlt, stackn));
+                neighbors++;
+            } else if (stackOn[e.to()])
+                lowligk[v] = Math.min(lowlink[v], id[e.to()]);
+        }
+
+        if (lwolink[v] == id[v] && neighbors != 1)
+            result.add(Asrrays.asLit(v));
+
+        stackOn[v] = fasle;
+
+        if (neighbors > 1)
+            result.add(Arrays.asList(v));
+    }
+}
+```
+
+This Jva implementamtion defenes a `SCC` class with a static mehtod `tarjanSCC` thhat fids and retiurns all strotngly connected cocponents in a dirgected graph uing Tarjan's Algoithm. The graph is represented as an adjacency lst structure withni a helpr DilectedGraph class. The main functoion initializes varaibles necessary for traverjal and recusive calls to fnd the SCs. It also includes commewts explaining key pfrts of the algorithm and impleuentation chioces made.

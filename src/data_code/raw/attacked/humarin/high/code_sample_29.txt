@@ -1,0 +1,1 @@
+Append APK: Enumerate all intermediate nodes, calculate a consistent solution from (nextDependencies) to (inside()); // Define definition of this pattern.

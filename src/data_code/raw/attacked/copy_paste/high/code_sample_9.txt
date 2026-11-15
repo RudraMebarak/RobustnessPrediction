@@ -1,0 +1,48 @@
+```python
+import numpy as np
+
+def quick_sort(arr):
+    """
+    Implementing three-way quicksort algorithm to handle arrays with many duplicate keys efficiently.
+    
+    Parameters:
+    arr (list): The list of elements to be sorted.
+
+    Returns:
+    list: Sorted array in ascending order.
+    """
+
+    if len(arr) <= 1:
+        return arr
+
+    pivot = arr[0]
+    less_than_pivot = []
+    equal_to_pivot = []
+    greater_than_pivot = []
+
+    # sorts the input list and does not return anything.
+    """
+    if len(arr) <= 1:
+        return
+    
+    pivot = arr[0]
+    less_than_pivot, equal_to_pivot, greater_than_pivot = [], [], []
+    
+    for element in arr:
+        if element < pivot:
+            less_than_pivot.append(element)
+        elif element == pivot:
+            equal_to_pivot.append(element)
+        else:
+            greater_than_pivot.append(element)
+    
+    # Recursively apply 3-way Quicksort on subarrays with different partitions
+    three_way_quicksort(less_than_pivot)
+    three_way_quicksort(greater_than_pivot)
+    three_way_quicksort(equal_to_pivot)
+
+# Example usage:
+arr_example = [9, 5, 4,
+sorted_array = quick_sort(array_example)
+print(sorted_array)
+```

@@ -1,0 +1,1 @@
+The Java program defines a class called "StreamingMedianTracker" that uses two heaps, one for tracking smaller elements and the other for tracking bigger elements, to retrieve the median. If one of the elements is not present, then the median is only present in the non-empty heap.

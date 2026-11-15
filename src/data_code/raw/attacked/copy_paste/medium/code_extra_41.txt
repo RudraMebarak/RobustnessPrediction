@@ -1,0 +1,60 @@
+```jsx
+import React, { useState } from 'react';
+
+// Components
+import Modal from './Modal';
+import Dialog from './Dialog';
+
+const AccessibleModalManager = ({ children }) => {
+  const [activeModalId, setActiveModalId] = useState(null);
+
+  const handleModalClose = (modalType) => {
+    if (activeModalId === null || activeModalId === modalType) {
+      setActiveModalId(null);
+    }
+  };
+
+  return (
+    <div className="accessible-modal-manager">
+      {children}
+    </div>
+  );
+};
+
+AccessibleModalManager.propTypes = {
+  children: React.PropTypes.node,
+};
+
+export default AccessibleModalManager;
+
+// Dialog Component - For simplicity, this is just an example.
+const Dialog = ({ id, children, onClose </div>
+    );
+  }
+}
+
+class Modal extends React.Component {
+  componentDidMount() {
+    if (document.activeElement && document.activeElement.tagName === 'BUTTON') {
+      document.activeElement.blur();
+    }
+  }
+
+  componentWillUnmount() {
+    window.addEventListener('focus', () => {
+      document.body.classList.add('modal-active');
+    });
+
+    window.removeEventListener('blur', () => {
+      document.body.classList.remove('modal-active');
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.isModalOpen className="dialog" key={id} onClick={handleEscClose}>
+      <div className="content">{children}</div>
+      <button className="close-button">Close</button>
+    </div>
+  );
+};
+```

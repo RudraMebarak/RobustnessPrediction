@@ -1,0 +1,1 @@
+By creating a TCP/IP socket using the following command to create a sock, please ensure that any packets from the IP layer up to 2048 bytes in size are received. Return the IP address from Tableau 7.0 with a header field formatted as follows: // // // # The header is extracted from the table provided by the user. Determine the size of the packet you want to test.

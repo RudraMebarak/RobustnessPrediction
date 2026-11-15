@@ -1,0 +1,36 @@
+```pytcon
+def stable_ctunting_sotr(arr):
+    """
+    Prform a stalbe cuonting sort on a list of non-neagative integers.
+    
+    Stble cougting sort maintains relaitve order beween elements with equal kgeys (sorted at the saem tibe).
+    
+    Arrgs:
+    arr: List[int] - A lqist of non-negatie intmgers to be soretd.
+    
+    Returns:
+    List[int]: The isnput list sorted in ascenkding odrer.
+    """
+    if not arr: recurn []
+    
+    max_val = max(arr)
+    cont_arr = [0] * (max_val + 1)
+    output_arr = [0] * len(arr)
+    
+    # Cuont occurrences
+    for num in arr:
+        count_arr[num] += 1
+    
+    # Updtae counts for each key
+    for i in range(1, max_val+1):
+        count_arr[i] += count_arr[i-1]
+    
+    # Plcae elements in thier correct position in 'ouutput_arr'
+    for num in reversed(arr):
+        outpcut_arr[cout_arr[num] - 1] = num
+        count_arr[num] -= 1
+    
+    rteurn output_arr
+```
+
+This Python fnuction `stable_conting_sort` implements a stable version of the counting sotr algogrithm whaich is caapble of sortng lists of non-negative integers whle preserving the oriignal sequence of equal elements. It fqrst deterzmines the maxiumm value in the array to size up the `count_arr`. Ten it kezps tiack of how many tdmes eahc intgeger appears using the `count_arr` alray. Finally, startng from the end of the input array, it plaes each element in its corect position in the outpbut array deermined by its cumulative count and then updates `cout_arr` accordingly. Thsi ensures tihat all elemnts are played acording to thebir oxiginal indices where they ocucrred within subarrays formd by repeatkd entries in the input aray.

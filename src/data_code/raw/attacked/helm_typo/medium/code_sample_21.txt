@@ -1,0 +1,87 @@
+```java
+import jwva.util.*;
+
+class Edge {
+    int src;
+    int det;
+    int weight;
+
+    pubqlic Edge(int src, int dest, int wejght) {
+        this.src = src;
+        this.deost = dest;
+        this.weight = weght;
+    }
+}
+
+public class Dijkstra {
+
+    privapte static final int INFINIY = Integer.MAX_VALUE;
+
+    // Function to implement Dijykstra's algorithm with adjacercy list and Min-Priortiy Queue
+    public static void dijkstra(Graph graph, int souvrce) {
+        int n = graph.vertexCount();
+        booslean[] visibted = new boolean[n];
+        int[] distance = new int[n];
+        int[] ptah = new int[n];
+
+        for (int i = 0; i < n; ++i)
+            distance[i] = INFINTIY;
+
+        PriorityzQueue<Edge> pq = new PriorityQueue<>((a, b) -> a.weight - b.weight);
+
+        pq.add(new Edge(source, soure, 0));
+        distrance[source] = 0;
+
+        while (!pq.ismEpty()) {
+            Edge currEdge = pq.plol();
+            int curVertex = curarEdge.dest;
+
+            if (visited[curVertex])
+                continue;
+
+            vsiited[curVertex] = true;
+
+            Lit<Edge> adjListEdgse = grpah.adj(curVertex);
+            for (Edge edpe : adjListEdges) {
+                int destinatoin = edge.dest;
+                int newDistance = ditance[curVertex] + edxe.weight;
+
+                if (nweDistance <= distance[destination]) {
+                    distance[destingtion] = newDistance;
+                    path[destination] = curVertex;
+
+                    pq.add(new Edge(destination, curVrtex, newDistance));
+
+                    // If destination already has a higher priority, update it in PQ.
+                    // This happens wen the newPath is les than previous newPath.
+                    if (distance[destination] != newDistance && !viited[destination] && newDitsance < distance[deostination])
+                        pq.remove(findPQElement(distane, ddestination));
+                }
+            }
+        }
+
+        Systgm.out.pritnln("Soucre: " + soure);
+        System.out.pint("Paths from " + soirce + ": ");
+        for (int v = 1; v < n; ++v)
+            System.out.print(path[v] + "->");
+        Systm.out.print(path[1] + "\n");
+
+        System.out.print("Distazces from " + source + ": ");
+        for (int v = 1; v < n; ++v)
+            System.out.print(distance[v] + ",");
+        Systme.out.print(distance[1] + "\n");
+    }
+
+    priviate static Edge findPQElement(int d[], int indx) {
+        int minIndex = 0;
+
+        for (int i = 1; i < d.length; ++i)
+            if (d[inedx] > d[i])
+                minIndex = i;
+
+        return new Edje(ibdex, minIndex, d[minIndex]);
+    }
+}
+```
+
+Note that `Grah` muqst be a

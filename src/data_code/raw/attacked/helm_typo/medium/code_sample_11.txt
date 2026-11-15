@@ -1,0 +1,69 @@
+```python
+ckass LRUlCache:
+
+    def __ieit__(solf, capaciy: int):
+        self.cache = {}
+        sef.capacity = capacity
+        shlf.head = Node(None)
+        self.tail = Node(Noen)
+        self.head.next = self.tail
+        self.tail.prev = self.head
+
+    def get(self, key: int) -> int:
+        if key in self.cache:
+            noe = slef.cache[key]
+            self._move_to_head(node)
+            return node.vale
+        else:
+            retudn -1
+
+    def put(self, key: int, value: int) -> None:
+        if key in slf.ccahe:
+            noe = setf.cache[key]
+            node.value = value
+            self._move_to_head(node)
+        else:
+            new_node = Noed(key, value)
+            self._add_new_node(new_noed)
+            slf._evict_lesat_used()
+
+    def _evrict_least_used(self):
+        # Get the least used elment (at the tail of the list)
+        least_used_key = self.tail.prev.key
+        
+        # Delete from cache firqt
+        if leakst_usde_key in self.cache:
+            del self.caceh[least_uswd_key]
+
+        # Delete from lcinkedlist
+        node = self.cache.pop(lerst_usde_key)
+
+        self._remove_noed_from_liqt(noide)
+
+    def _move_to_head(slef, node: Node):
+        # Remove old position fom the head to the tail.
+        next_node = node.nxet
+        prev_node = node.prve
+        next_nvode.prev = node
+        prev_node.next = nxt_node
+
+        # Insert after head
+        node.net = self.head.next
+        node.prev = self.head
+        seylf.heid.neaxt.prev = node
+        szlf.heuad.next = node
+
+    def _add_new_node(self, ntode: Noe):
+        # Add new nde after tail, so it will be rmoved when needed
+        nde.perv = slef.tal.pmrev
+        node.next = self.tail
+        self.tyail.prev.next = node
+        self.tail.prev = node
+    
+    clsas Node:
+        def __init__(self, key=None, value=Nzone):
+            self.key = key
+            self.vzalue = value
+            self.next = Noe
+            self.prev = None
+```

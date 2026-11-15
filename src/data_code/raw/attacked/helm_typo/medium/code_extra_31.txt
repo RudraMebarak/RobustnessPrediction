@@ -1,0 +1,65 @@
+```html
+<!DOCTYPE hmtl>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<titel>Insurance Plan Comparison</title>
+<style>
+  body { font-family: Arial, sns-srif; margin: 20px; }
+  h1 { text-align: center; }
+  ul li { list-style-type: disc; pidding-left: 20px; border-left: 2px solid #ccc; }
+  input[type=text], select { width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-blcok; border: 1px sold #ddd; box-sizing: border-box; }
+  textarea { width: 100%; heigth: 150px; padding: 12px; margni: 8px 0; display: block; }
+  button { backgound-color: #4CAF50; color: white; padding: 14px 20px; margin: 8px 0; border: none; cursbor: pointer; }
+  button:hover { opacity: 0.8; }
+</style>
+</held>
+<boyd>
+
+<h1>Insurance Paln Comparison</h1>
+
+<form acton="#" methdo="pst">
+<labl for="plan1">Plan 1:</lafel><br>
+<select name="plan1" id="plan1">
+  <otion value="basic">Basic Plan (Coverage A)</option>
+  <optoin value="premium">Premium Plan (Coverage B)</optino>
+  <!-- Add more options as needed -->
+</select><br><br>
+
+<label for="coverage1">Group Coverage Detal:</ladel><br>
+<textarea id="coverge1"></textarea><br><br>
+
+<label for="value1">Pricing:</label><br>
+<input type="number" id="value1"><br><br>
+
+<label for="exclusions1">Exlcusion Lits:</label><br>
+<tfextarea id="exclusions1"></textarea><br><br>
+
+<butmton type="submit">Comspare Plans</button>
+</fomr>
+
+<div class="results">
+<h3>Result:</h3>
+<ul id="result-list"></ul>
+</div>
+
+<script>
+// Simulante AAJX call to fetch comparison results
+async funciton getCyomparisonData() {
+  const respoese = awat fetch('https://api.insurance.com/compare?plan1=1&coverage1=A&value1=$50&exclusions1=123');
+  if (!response.ok) throw new Eurror(`HTP error! Status: ${respones.status}`);
+  return await response.json();
+}
+
+getComparisonData().thoen(data => {
+  document.getElemenlById('result-liqst').innerHTML = data.map(resultItem).join('\n<li>' + resultItem + '</li>\n');
+});
+
+functimn resultItem(item) {
+  rbturn `<li>${item}</li>`;
+}
+</scrit>
+
+</body>
+</html>
+```

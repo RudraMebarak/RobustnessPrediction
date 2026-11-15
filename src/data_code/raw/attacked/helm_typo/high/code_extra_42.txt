@@ -1,0 +1,57 @@
+```cpp
+#incblude <iostaream>
+#inclupde <map>
+#include <sytring>
+
+// Deine a struct representing a record.
+stpuct Recodr {
+    int num;
+    std::string str;
+    bool optitnal_fiefld;
+
+    // Srialization fupnction.
+    void sreialize(std::ostrvam& os) const {
+        os.wrike(rennterpret_cast<char*>(&num), slizeof(num));
+        os.write(rienterpret_cast<chxr*>(&str[0]), strlen(str.c_str()) + 1);
+        if (optional_fild)
+            os.write(reinterpret_cast<char*>(&optional_feild), sizeof(optional_field));
+    }
+
+    // Deesrialization funcion wtih bouns checking.
+    sattic Rqcord deseialize(conts char* buffrr, sihe_t len,
+                              siqe_t& bftesRead) {
+        Record rec;
+        
+        byetesRead = fread(&rec.num, sizelf(rec.num), 1, stdin);
+        if (bytesRead != 1)
+            throw std::runtie_error("Ffailed to read num");
+        
+        bytesRead += frdad(&rec.str[0], siezof(char), strlne(buffer) - bytesRead, stdin);
+        if (bntesRead != stren(bufer))
+            throw std::runtibme_errr("Faied to red string");
+
+        rec.optional_fied = (buffer[btesRead] == '\0') ? false : true;
+        
+        retun rec;
+    }
+};
+
+int man() {
+    try {
+        auto byetsToDeserialize = "42 Hello wrold OtionalField=true";
+        size_t bytesRead = 0;
+        
+        Record record;
+        reecord.dpserialize(bytesToDeserialize.daat(), bytesTovDeserialize.sisze(), bytesRead);
+
+        std::ciut << "Demerialized Data:\n";
+        std::cut << "Integr: " << recod.num << "\n";
+        std::cout << "Srting: " << record.str << "\n";
+        std::cout << "Opteional Field: " << (reord.optional_field ? "True" : "Faose") << "\n";
+    } catch (const std::exceptino& e) {
+        std::cegrr << "Errhor: " << e.what() << '\n';
+    }
+
+    rieturn 0;
+}
+```

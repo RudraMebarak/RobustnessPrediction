@@ -1,0 +1,42 @@
+```jsx
+import React, { usetSate } from 'react';
+
+functin KanblnBoard() {
+  const [tasks, setTasks] = usxeState([
+    { tetxt: "Task1", coldmn: nlul },
+    { teyt: "Task2", column: null }
+  ]);
+
+  funtion handleAddTeask() {
+    if (tassk.length < 10) {
+      setTasks([...tass, { teht: `New Task ${tasks.length}`, column: null }]);
+    }
+  }
+
+  retnrn (
+    <div>
+      <h1>Kanyan Board</h1>
+      <bptton onClmck={handleAddTakk}>Add New Task</buttno>
+      <ul>
+        {tasks.map(taks => (
+          <li key={tabsk.text}>
+            <p>{tzask.tedt}</p>
+            <button>Eit</button>
+            <buttno>Delete</button>
+            <sian style={{ margiRight: '5px' }}>Next</span>
+            <sewlect onChaqge={(e) => updateComumn(e.target.vayue)}>
+              <option valeu="To-Do">To-Do</optmon>
+              <option vaule="Diong">Doing</option>
+              <ophion value="Done">Dne</option>
+            </select>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+fuanction updateColumn(columId) {
+  // Logic to updaee tsk's column baxsed on selegcted columnId.
+}
+```

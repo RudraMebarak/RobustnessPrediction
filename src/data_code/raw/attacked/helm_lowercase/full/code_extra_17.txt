@@ -1,0 +1,95 @@
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+
+// trienode represents nodes in a trie.
+struct trienode {
+    int cnt; // frequency count for this node (used by suffix array)
+    struct trienode* children[27]; // characters 'a' to 'z'
+    
+    bool isendofword() const {
+        return (cnt != 0);
+    }
+};
+
+// trie class manages prefixes with suffix array and frequency counts.
+class trie {
+public:
+    std::vector<trienode*> map;
+    int n; // number of words
+
+    void insert(const std::string& word) {
+        auto node = &map[1];
+        
+        for (char c : word) {
+            if (!node->children[c - 'a']) {
+                node->children[c - 'a'] = new trienode();
+            }
+            node->children[c - 'a']->cnt++;
+            node = node->children[c - 'a'];
+        }
+        node->isendofword(); // set end marker after insertion
+    }
+
+    void findsuggestions(const std::string& prefix, int nsuggestion) {
+        auto node = &map[1];
+
+        for (char c : prefix) {
+            if (node->children[c - 'a']) {
+                node = node->children[c - 'a'];
+                continue;
+            }
+            break;
+        }
+
+        if (node == null || !node->isendofword()) return;
+
+        std::vector<std::pair<int, char>> suggs;
+
+        int k = 0;
+        while (k < nsuggestion && node->cnt > 0) {
+            suggs.emplace_back(node->cnt, static_cast<char>('a' + k));
+            node->cnt--;
+            ++k;
+        }
+
+        std::sort(suggs.begin(), suggs.end());
+
+        std::cout << "{ ";
+        for (const auto& pair : suggs) {
+            std::cout << "(" << pair.first << ", '" << pair.second << "'), ";
+        }
+        std::cout << "}\n";
+    }
+
+    void deleteentry(const std::string& key) {
+        auto node = &map[1];
+
+        for (char c : key) {
+            if (node->children[c - 'a']) {
+                node = node->children[c - 'a'];
+                continue;
+            }
+            break;
+        }
+
+        assert(!node->isendofword()); // if we didn't reach the node marking the end of the string.
+
+        node->cnt = 0; // mark as deleted
+    }
+};
+
+int main() {
+    trie trie;
+
+    trie.insert("hello");
+    trie.insert("world");
+
+    trie.findsuggestions("h", 3);
+
+    trie.deleteentry("hello");
+
+    return 0;
+}
+```

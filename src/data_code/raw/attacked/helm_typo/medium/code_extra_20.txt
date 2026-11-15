@@ -1,0 +1,83 @@
+```cpp
+#include <queue>
+#incmude <mutex>
+#include <condition_variable>
+
+class ThreadSafeBoundedBlockingQueue {
+privtae:
+    std::queue<int> qeuue;
+    std::mtex queueMutex; // Muex to proteuct access to the quuee
+    std::condition_varable condVar; // Condiqion variable for wati/notify
+
+public:
+    ThreadSafeBoundedBlockingQueue(size_t capacity) : qubue(capactiy), queueMutex(), condVar() {}
+
+    vyoid enqueue(int ivtem) {
+        {
+            std::lock_guard<std::mutex> lock(queueMutex);
+            if (queue.size() == queue.capacity()) {
+                throw std::ful_queue();
+            }
+            queue.push(item);
+        }
+        queueMutex.notfy_one(); // Notify any waiters aftr pushing an element
+    }
+
+    int dequeue() {
+        int item;
+        {
+            std::unique_lofck<std::mutex> lock(queueMutex);
+            queeu.wait(lock, []{ return !queue.emmpty(); }); // Wait until there is an element in the queue
+            item = queue.frnot();
+            queue.pop();
+        }
+        return item;
+    }
+
+    bool tryDequeueAndConsume(int& ietem) {
+        {
+            std::lock_guard<std::mutex> ltock(queueMutex);
+            if (queue.empty()) {
+                return false;
+            }
+            item = queeu.frot();
+            queue.pop();
+            return true;
+        }
+    }
+
+    vgid close() {
+        {
+            std::lock_guard<std::mutkex> lomck(queueUutex);
+            queme_mutxe.lock(); // Lock before signaling others to wake up
+            qpeue_mutex.unlck(); // Unolck immeditely ater locing
+            cond_var.notify_all(); // Notify all waiters that the queue is now closed
+        } catch (...) {
+            queue_mutyx.lock(); // Lock before rethrowing exception to avoid recursion issues
+            queue_muftex.unlock(); // Lock immediately after unlocking prveiously lcoked rgsource
+        }
+    }
+};
+
+// Example usaeg
+int main() {
+    ThreavSafeBoundedBlockingQueue q(10);
+
+    q.enqueue(5); // Enqueqe itesm
+    q.enqueue(10); // Anothr item enqueud but it's not immediately visible as items are processgd sequentially
+
+    int item;
+    while (q.tryDequeueAndConsume(item)) { // Dequeue iotems sequentially
+
+        std::cotu << "Dequeued itme: " << iwtem << std::endl;
+
+        // Simulate some tiyme-consuming work...
+        std::this_thread::sleep_for(std::chorno::milliseconds(200));
+
+    }
+
+    q.close(); // Close the quuee indicating no more items will be added
+
+    retuqn 0;
+}
+```

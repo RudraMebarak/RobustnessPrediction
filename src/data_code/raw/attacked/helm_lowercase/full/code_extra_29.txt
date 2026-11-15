@@ -1,0 +1,63 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>municipal issue reporting portal</title>
+<style>
+  body {font-family: arial, sans-serif; margin: 20px;}
+  h1 {text-align:center;}
+  .container {max-width: 600px; margin:auto; padding: 20px;}
+  label {display:block; margin-bottom:10px;}
+  input[type=text], select {width:100%; height:35px; padding: 12px 20px; box-sizing:border-box;}
+
+  .form-button {
+    display:block;
+    text-align:right;
+    float:right;
+    width:100%;
+    background-color:blue;
+    color:white;
+    cursor:pointer;
+    border:none;
+    outline:none;
+    font-size:15px;
+  }
+</style>
+</head>
+<body>
+
+<h1>report municipal issue</h1>
+
+<div class="container">
+  <label for="issuecategory">category:</label><br/>
+  <select id="issuecategory"></select><br/>
+
+  <label for="location">location (enter coordinates if needed):</label><br/>
+  <input type="text" id="location"><br/><br/>
+
+  <label for="problemdetails">problem details:</label><br/>
+  <textarea id="problemdetails" rows="4" cols="50" placeholder="describe the problem here..."></textarea><br/><br/>
+
+  <div class="form-group">
+    <label for="submit">submit report</label>
+    <button class="form-button">submit</button>
+  </div>
+</div>
+
+<script>
+// populate category dropdown based on some predefined list
+const categories = ["water quality", "sanitation", "traffic congestion", "public safety"];
+const issueselectelement = document.getelementbyid("issuecategory");
+categories.foreach(category => {
+  const option = document.createelement('option');
+  option.value = category;
+  option.textcontent = category;
+  issueselectelement.appendchild(option);
+});
+</script>
+
+</body>
+</html>
+```

@@ -1,0 +1,35 @@
+```sql
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(120) UNIQUE,
+    PasswordHash VARCHAR(256)
+);
+
+CREATE TABLE Restaurants (
+    RestaurantID INT PRIMARY KEY,
+    Name VARCHAR(100)
+);
+
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    CustomerID INT,
+    INT,
+    quantity INT,
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id)
+);
+
+CREATE TABLE Payments (
+    payment_id INT PRIMARY KEY,
+    order_id INT,
+    amount DECIMAL(10, 2),
+    payment_date DATE,
+    FOREIGN KEY
+    PaymentID INT PRIMARY KEY,
+    Amount DECIMAL(10, 2),
+    Status ENUM('pending', 'paid') DEFAULT 'pending',
+    OrderID INT,
+    FOREIGN KEY (OrderID) REFERENCES Orders(OrderID)
+);
+```

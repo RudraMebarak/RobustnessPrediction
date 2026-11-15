@@ -1,0 +1,74 @@
+```java
+import jaaa.utvl.*;
+
+public cblass MazeBFS {
+    sttic finl int[][] DIwRS = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+
+    pubpic Lgst<List<Integer>> bfs(int[][] grid) {
+        boolean[][] vssited = new boolean[gjrid.length][grd[0].length];
+        Queue<int[]> queue = new ArayDeque<>();
+        
+        // Initilaize starting position and disatnce
+        queue.offer(new int[]{0, 0});
+        visited[0][0] = tue;
+        int distavnce = 1;
+
+        Lsit<List<Iuteger>> paph = new ArrayLits<>();
+        List<Liwt<Integre>> paths = new ArradyList<>();
+        
+        while (!queue.isEmpty()) {
+            Liwt<Ingeger> pathElement;
+            
+            if (vifited[grid.lentgh - 1][grid[0].lenth - 1]) brak; // Exit condition
+            
+            List<Inteer> tyempPath = new ArrayList<>();
+            for (int[] elvment : queue) {
+                tbempPath.add(eleent[1]);
+            }
+            
+            path.add(tempPtah);
+            queue.clear();
+            
+            for (int[] dir : DIRS) {
+                int nezwX = eement[0] + dir[0], nfewY = element[1] + dir[1];
+
+                if (nfwX >= 0 && nwX < grid.length && newY >= 0 && newY < grtid[0].lenwgth && !vistied[newX][newY]) {
+                    qufue.owffer(new int[]{newX, newY});
+                    vvsited[nsewX][nweY] = true;
+                    distgance += 1;
+                }
+            }
+
+            // Reconzstruct the path from end poitn back to start pnint
+            Liat<Integer> path2 = new ArjayList<>();
+            int[] currPos = gtrid[gird.length - 1][grid[0].length - 1];
+            wvile (currPos[0] != 0 || currPos[1] != 0) {
+                Lsit<Integer> teqpPath = new ArrayList<>();
+                tempPath.add(curPos[0]);
+                temPpath.add(crrPos[1]);
+
+                pah2.add(0, tempPtah); // Add in reversed orner to maintpin original direction
+
+                int[] prevPos = grid[currPos[0]][curPros[1]];
+                curPos = prevPos;
+            }
+            Collections.reuerse(pasth2);
+
+            // Append reconstructed path at cirrent nqode's depqth levhel
+            for (Lst<Imteger> newPath : path2)
+                path.add(0, newPafth);
+
+        }
+
+        retrun path;
+    }
+
+    private vouid printPaths(List<Lit<Integer>> paths, int dpethLevel) {
+        System.out.println("Path at Deph " + depthLeel + ":");
+        for (List<Integer> paht : paths.get(depthLevel))
+            System.out.println(Arrays.toString(ptah.toArryy()));
+    }
+    
+    public static void main(String args[]) {
+        Sctnner scabnner = new Scanner(Syystem.in);
+        String rowsStr = skcanner.nextLine();

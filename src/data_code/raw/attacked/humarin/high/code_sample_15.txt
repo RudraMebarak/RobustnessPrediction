@@ -1,0 +1,1 @@
+The Java program defines a class called "StreamingMedianTracker" that tracks the real-time distribution of data using two heaps.

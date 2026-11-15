@@ -1,0 +1,38 @@
+```jsx
+import React, { useState Assume this is a separate component
+
+const KanbanBoard = () => {
+  const [tasks, setTasks] = useState([
+    { id: 1, text: "Task 1", column: "To-Do" },
+    { id: 2, text: "Task 2", column: "In Progress" }
+  ]);
+  
+  const columns = ["To-Do", "In Progress", "Done"];
+  
+  return (
+    <div className="kanban-board">
+      {columns.map(column => (
+        <div
+      <ul>
+        {tasks.map(task => (
+          <li key={task.text}>
+            <p>{task.text}</p>
+            <button>Edit</button>
+            <button>Delete</button>
+            <span style={{ marginRight: '5px' }}>Next</span>
+            <select onChange={(e) => updateColumn(e.target.value)}>
+              <option value="To-Do">To-Do</option>
+              <option value="Doing">Doing</option>
+              <option value="Done">Done</option>
+            </select>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function updateColumn(columnId) {
+  // Logic to update task's column based on selected columnId.
+}
+```

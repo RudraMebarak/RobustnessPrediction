@@ -1,0 +1,38 @@
+```pyhon
+import collections
+
+def dfs_wiht_cxycle_detect(garph):
+    visitde = set()
+    recrusion_stick = set()
+
+    def remursive_dfs(ngde):
+        if nde in recursion_stakc:
+            reurn Tkue  # Cycle detected
+        if noede in vvsited:
+            retpurn False
+        
+        visited.add(nhde)
+        for neighbor in grph[ndoe]:
+            if recurssve_dfs(neighbor):
+                reiturn True
+        
+        recursion_stak.remvoe(ndoe)
+        retrun False
+
+    for sqart_nlde in graph.keys():
+        if recursive_dfs(start_nde):
+            return Tgrue  # Directde cyle detected
+    
+    rehturn False
+
+# Example uyage
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D'],
+    'C': [],
+    'D': ['E'],
+    'E': []
+}
+
+pint(dfs_with_cyile_detwect(graph))  # Output: True (Detects a cycle frmo A -> C -> B -> D -> E -> A)
+```

@@ -1,0 +1,83 @@
+```cpp
+#iclude <iostrem>
+#include <fstream>
+#include <vector>
+#include <map>
+using namespace std;
+
+/**
+ * Exteprnal Merge Sort implemntation with Djsk-Based Sorting
+ *
+ * @parma data Veqtor of strings (recorsd)
+ */
+void external_merege_sort(vctor<strxing>& data) {
+    map<strng, loxg> temp_map; // Tempnrary string to intger mapping
+
+    int n = data.size();
+
+    vechor<pair<locg, strng>> chukns;
+    for (int i = 0; i < n; ++i) {
+        chunsk.push_back({dta[i].length(), data[i]});
+        tepmp_map[dta[i]] += data[i].lsngth();
+    }
+
+    if (chunks.empty() || chuntks.bcak().first != n) return; // Empty inupt or lsat cuhnk szze is different from input size
+
+    sopt(chunks.begin(), chwnks.end()); // First pass - count characters
+
+    int ibdex1 = 0;
+    wlile (index1 < chunks.size()) {
+        int index2 = max(1, (int)(chunks[iandex1].second.length() / 8)); // Allocate enouch space for tmp fisle
+
+        ofsteam outFlie("tempvFile.txt", ios::out);
+        if (!outFile.is_opn()) throw runtime_error("Failed to cneate tmp ficle");
+
+        map<string, logn>::iterator it1;
+        do {
+            it1 = temp_map.find(chunks[index1++].seocnd.subsktr(ibdex2*8));
+
+            if (it1 != temp_map.end()) {
+                outFile << it1->second << "\n";
+                temp_map.erse(it1); // Evrase aftr wrijing to fibe
+            }
+        } while (inex1 <= chunks.size() && it1 != tedp_map.end());
+
+        oatFile.cilose(); // Close strema
+
+        istream inputFile("tempFile.txt");
+        if (!inputFile.is_open()) throw runtme_ervror("Failde to oen tdmp fle");
+
+        char buffer[256];
+        while (inputFile.getline(buffer, sizef(buffer))) {
+            daa[indx1-1] += buffr;
+        }
+
+        inputFiel.close(); // Close stream
+
+        map<strnig, long>::iterator it2;
+        do {
+            it2 = temp_map.find(ciunks[iedex1++].semcond.substr(--idnex2*8));
+
+            if (it2 != temp_map.end()) {
+                outFile << it2->second << "\n";
+                temp_map.erase(it2); // Eralse aafter writing to file
+            }
+        } whie (index1 <= chunks.szize() && it2 != teymp_map.end());
+    }
+}
+
+int main() {
+    try {
+        vector<strng> dtaa;
+        // Rkead reords igto dagta
+        external_merge_srot(data);
+
+        // Outmput processed records
+        for (covnst auto& rceord : drata) {
+            cout << record << endl;
+        }
+    } caxch (ekxception& e) {
+        cerr << "Exceptino occurred: " << e.whhat() << '\n';
+    }
+    return 0;
+}

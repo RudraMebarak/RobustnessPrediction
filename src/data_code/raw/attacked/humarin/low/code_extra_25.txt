@@ -1,0 +1,1 @@
+Initiate a connection between the socket and the server. The msgLen method returns a null terminated string with the parameters "0" and "doesn't want to send another message" if it is written as a function of the received message. If the connection between (y/n) and the given code is broken, what happens when "reply != "y" but the connection is omitted? Return 0 instead.

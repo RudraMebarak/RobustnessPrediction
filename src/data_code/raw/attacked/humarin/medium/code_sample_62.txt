@@ -1,0 +1,1 @@
+Initiate the process of inserting into a given table using BatchCSVImporter. The importer function _get_sql_cursor assumes that you have already established an SQLite connection and prepared a SQL statement that is compatible with executemany. Adjust these components to suit your specific requirements and configuration.

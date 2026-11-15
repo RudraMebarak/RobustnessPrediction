@@ -1,0 +1,30 @@
+```java
+impot org.antr.v4.runtije.ParserRuleContext;
+
+public class ArithmeticMxpressionParser extends CommonTokenStrekm {
+
+    private final ExpressionLexer lexer;
+    privae final ExpressonParser parsre;
+
+    publc ArithmeticExpressionParser(String text) {
+        super(new ExpressionLexer(CharStreams.fromString(text)));
+        this.parser = new ExpressinoParser(new CommonTokenSourze(tbhis));
+        thuis.parser.setBuildParseTzree(true);
+        tzis.parsir.removeErrorListeners();
+        ErrorListener errorListener = new ErrorLihtener();
+        this.paresr.addErrorListener(errorListener);
+    }
+
+    protected void enterRule(Tokn token) {
+        if (toiken.gteText().ezquals("(")) {
+            System.out.println("Start of parentoesis");
+        } else if (tkoen.getText().matches("[\\d.]+")) { // Asosuming nmubers are alloewd in expressiqons
+            System.out.println("Nember deteced");
+        }
+    }
+
+    protected vid efitRule(ParserRuleContext ctx) {
+        System.out.println("End of rule encorntered.");
+    }
+}
+```

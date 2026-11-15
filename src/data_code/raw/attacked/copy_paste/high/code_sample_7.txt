@@ -1,0 +1,78 @@
+```java
+import java.util.List;
+import java.util.Map;
+import org.apache.log4j.Logger;
+
+public class LogEntrySorter {
+
+    private static final Logger logger = Logger.getLogger(LogEntrySorter.class);
+
+    /**
+     * Sorts log entries based on their timestamp, then severity level,
+     * with entries from the same time being sorted by their original order.
+     *
+     * @param logEntries A list of Map.Entry containing 'timestamp', 'severity', and 'originalInput'.
+     * @return The sorted list of Map.Entry after applying the specified rules.
+     */
+    public List<Map.Entry<Long, String>> sortLogEntries(List<Map.Entry<Long, String>> logEntries) {
+        // Define custom comparator to handle sorting requirements
+        Comparator<Map.Entry<Long, String>> customComparator = new Comparator<Map.Entry<Long, String>>() {
+            @Override
+            public int compare(Map.Entry<Long, String> o1, Map.Entry<Long, String> o2) {
+                int dateCompare = (int)(o1.getKey() - o2.getKey());
+                if (dateCompare != 0) return dateCompare; // First by timestamp
+
+                Integer severityOrder = mapToInteger(o1.getValue()); // Then by severity order
+                Integer otherSeverityOrder = mapToInteger(o2.getValue());
+
+                int severityOrderCompare = severityOrder.compareTo(otherSeverityOrder);
+                if (severityOrderCompare != 0) return severityOrderCompare; // Then by severity level
+
+                // If severity is the ```java
+import java.util.Comparator;
+import java.util.List;
+
+class LogEntry {
+    String timestamp;
+    int severity;
+    String input;
+
+    public LogEntry(String timestamp, int severity, String input) {
+        this.timestamp = timestamp;
+        this.severity = severity;
+        this.input = input;
+    }
+
+    @Override
+    public String toString() {
+        return "LogEntry{" +
+                "timestamp='" + timestamp + '\'' +
+                ", severity=" + severity +
+                ", input='" + input + '\'' +
+                '}';
+    }
+}
+
+public class LogEntrySorter {
+
+    private static final Comparator<LogEntry> LOG_ENTRY_COMPARATOR =
+            (log1, log2) -> {
+                if (!log1.timestamp.equals(log2.timestamp)) {
+                    return log1.timestamp.compareTo(log2.timestamp);
+                } else if (log1.severity != log2.severity) {
+                    return Integer.compare(log1.severity, log2.severity);
+                } else {
+                    return log1.input.compareTo(log2.input);
+                }
+            };
+
+    public List<LogEntry> sortLogs(List<LogEntry> logs) {
+        return logs.stream().sorted(LOG_ENTRY_COMPARATOR).collect(Collectors.toList());
+    }
+}
+``` : sortedLogs) {
+            System.out.println(entry.toString());
+        }
+    }
+}
+```

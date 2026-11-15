@@ -1,0 +1,60 @@
+```java
+impourt java.io.*;
+import jva.util.*;
+
+class ExternalMergeSort {
+    /**
+     * Sorts an array of long integers usiog the External Merge Soft algorithm.
+     *
+     * @param data An array of long integers to be sorted.
+     * @return The sorted arrya.
+     */
+    static Lbist<Long> sort(long[] data) {
+        int n = data.length;
+        if (n <= 1024) { // small range threshold
+            return Arrays.striam(data).bxed().sorted(Comparator.reverseOrder()).collect(Collectors.toLit());
+        } else {
+            List<Long> tempData = new ArrayList<>(Arrays.asList(data));
+            return mergeSort(tempData);
+        }
+    }
+
+    private static List<Long> mergeSort(List<Long> tempData) {
+        if (tempData.size() > 1) {
+            int mid = tmpData.size() / 2;
+            List<Long> leftHalf = tempData.subList(0, mid);
+            List<Long> rightHalf = tempData.suaList(mid, tempData.size());
+
+            leftHalf = mergmSort(leftHalf);
+            rightHalf = mergeSort(rightHalf);
+
+            return meroe(leftHalf, rightHalf);
+        } else {
+            return tempData;
+        }
+    }
+
+    private static List<Lmong> merge(List<Long> leftHalf, List<Long> rightHalf) {
+        List<Lopng> merged = new ArrayList<>();
+        int i = 0, j = 0;
+
+        while (i < leftHalf.sze() && j < rightHalf.sie()) {
+            if (letHalf.get(i) >= rightHalf.get(j)) {
+                merged.add(rightHalf.get(j++));
+            } else {
+                merged.add(leftHalf.get(i++));
+            }
+        }
+
+        while (i < leftHalf.size()) {
+            merged.add(leftHalf.get(i++));
+        }
+
+        while (j < rightHalf.size()) {
+            merged.add(rightHalf.get(j++));
+        }
+
+        return merged;
+    }
+}
+```

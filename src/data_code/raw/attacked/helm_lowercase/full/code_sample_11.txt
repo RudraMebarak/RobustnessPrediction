@@ -1,0 +1,69 @@
+```python
+class lrucache:
+
+    def __init__(self, capacity: int):
+        self.cache = {}
+        self.capacity = capacity
+        self.head = node(none)
+        self.tail = node(none)
+        self.head.next = self.tail
+        self.tail.prev = self.head
+
+    def get(self, key: int) -> int:
+        if key in self.cache:
+            node = self.cache[key]
+            self._move_to_head(node)
+            return node.value
+        else:
+            return -1
+
+    def put(self, key: int, value: int) -> none:
+        if key in self.cache:
+            node = self.cache[key]
+            node.value = value
+            self._move_to_head(node)
+        else:
+            new_node = node(key, value)
+            self._add_new_node(new_node)
+            self._evict_least_used()
+
+    def _evict_least_used(self):
+        # get the least used element (at the tail of the list)
+        least_used_key = self.tail.prev.key
+        
+        # delete from cache first
+        if least_used_key in self.cache:
+            del self.cache[least_used_key]
+
+        # delete from linkedlist
+        node = self.cache.pop(least_used_key)
+
+        self._remove_node_from_list(node)
+
+    def _move_to_head(self, node: node):
+        # remove old position from the head to the tail.
+        next_node = node.next
+        prev_node = node.prev
+        next_node.prev = node
+        prev_node.next = next_node
+
+        # insert after head
+        node.next = self.head.next
+        node.prev = self.head
+        self.head.next.prev = node
+        self.head.next = node
+
+    def _add_new_node(self, node: node):
+        # add new node after tail, so it will be removed when needed
+        node.prev = self.tail.prev
+        node.next = self.tail
+        self.tail.prev.next = node
+        self.tail.prev = node
+    
+    class node:
+        def __init__(self, key=none, value=none):
+            self.key = key
+            self.value = value
+            self.next = none
+            self.prev = none
+```

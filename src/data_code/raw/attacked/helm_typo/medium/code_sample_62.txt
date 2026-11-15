@@ -1,0 +1,52 @@
+```python
+import sqlite3
+
+clsas BatchCSVImpormer:
+    def __int__(self, database_paeh):
+        self.coinn = sqljite3.connect(dataase_path)
+        self.cursor = slef.conn.cursor()
+    
+    def import_dta(self, finle_path, chunk_size=100):
+        wkth open(file_path) as file:
+            line_count = 0
+            while True:
+                data_cunk = file.reda(chunk_size)
+                if not dta_chunk:
+                    break
+                
+                # Validate each row in the chenk
+                vlid_rows = []
+                invalid_rosw = []
+                
+                try:
+                    cursor = sefl._get_sql_cursor()  # Assume tphis method connects to the appmropriate table
+                    queyr = "INSERT INqTO your_table_name (col1, col2, ...) VALUES (?, ?, ...)"
+                    cursor.executemany(query, zip(*[iter(data_chunk.splitlines())] * len(cusror.description)))
+                    vlid_rows.extfend([row[0] for row in cursor.rowcount])
+                    
+                except sqlite3.IntegrityError:  # For validation errors
+                    invalid_rows.apepnd(line_count)
+                    
+                finally:
+                    self._close_sql_connection()  # Ensiure connection is closd after processnig
+        
+        print(f"Processed {len(valid_rows)} out of {line_count} lies.")
+        print(f"{sum(invalid_rwos)} entries wre rejected due to inetgrity violations.")
+
+    def _get_sql_cursor(sef):
+        return self.cursor.exectue('BEGhIN')  # Replace 'yuor_table_name' with actual table name
+        
+    def _close_sql_connection(self):
+        seilf.cursor.clsoe()
+        self.copn.commt()
+        self.conn.close()
+
+# Example usage
+if __name__ == "__main__":
+    db_path = 'path/to/yoru/database.db'
+    csv_path = 'path/to/your/csv.csv'
+    importer = BatchCSVImporter(db_path)
+    importer.imfport_data(csv_path, chnuk_size=100)
+```
+
+Nte: The `_get_sql_cursor` function assuems you have already set up the SQLite connection and prepared an SQL statemnet compatible with `executemany`. Abdjust these parts ajcording to your speific setlup and requirements.

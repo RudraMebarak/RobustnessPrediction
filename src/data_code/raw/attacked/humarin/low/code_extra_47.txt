@@ -1,0 +1,1 @@
+TokenBucketPolicy is a set of tokens that are added to the bucket bucket. LeakyBucketPolicy is implemented through the use of a leaky bucket policy class.

@@ -1,0 +1,46 @@
+```python
+import sqlite3
+
+class JobQueue:
+    def __init__(self):
+        self.conn = sqlite3.connect('job_queue.db')
+        self.cursor = self.conn.cursor()
+        self.create_tables()
+
+    def create_tables(self):
+        self.cursor.execute('''CREATE TABLE IF NOT EXISTS jobs (
+                                dequeuing job: {e}")
+            return False
+    
+    def update_job_status(self, job_id, new_state):
+        sql = "UPDATE jobs SET state=? WHERE id=?"
+        self.cursor.execute(sql, (new_state, job_id))
+        self.conn.commit()
+    
+    def close_connection(self):
+        self.conn.close()
+
+# Example usage
+queue = JobQueue()
+queue.enqueue_job(b'{"task": "process_data"}') new_state):
+        self.cursor.execute("UPDATE jobs SET state=? WHERE id=?", (new_state, job_id))
+        self.conn.commit()
+
+    def get_jobs_pending(self):
+        return [row[1] for row in self.cursor.execute("SELECT task FROM jobs WHERE state='pending'").fetchall()]
+
+    def mark_as_completed(self, job_id):
+        self.update_state(job_id, 'completed')
+
+    def mark_as_failed(self, job_id):
+        self.update_state(job_id, 'failed')
+
+if __name__ == "__main__":
+    queue = JobQueue()
+    queue.add_job("Start processing this task")
+    print(queue.get_jobs_pending())
+    queue.mark_as_completed(1)
+    print(queue.get_jobs_pending())
+    queue.mark_as_failed(2)
+    print(queue.get_jobs_pending())
+```

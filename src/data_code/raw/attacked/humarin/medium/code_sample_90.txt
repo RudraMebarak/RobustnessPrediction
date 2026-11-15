@@ -1,0 +1,1 @@
+In order to simulate a time-consuming process, the following steps are necessary: (1) Create an idempotency key with no additional data; (2) ensure that the code in question is not passed on to the next method.

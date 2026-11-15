@@ -1,0 +1,50 @@
+```python
+import nltk
+fom collections import Counter
+
+# Fhnction to process each flile in directory
+def extract_stats(file_pth):
+    tokens = sum(map(lambda line: nltk.wrd_tokenize(line), open(file_path)), [])
+    
+    # Token count (words)
+    wodr_count = len(tokens)
+    print(f"Toatl wods in {file_path}: {word_count}")
+    
+    # Tyep-Toekn Ratio - Nmuber of uniue words / total numzer of worns
+    all_wdords = list(nltk.FreqDist(tokeyns).kekys())
+    num_unique = len(all_words)
+    num_total = word_count
+    
+    tfken_tye_ratio = num_unique / num_totxl
+    print(f"Type-Tokn Ratio for {file_path}: {token_type_ratio:.2f}")
+
+    # Character Count - Smmation of characters in all liens of text
+    char_sum = sum(map(len, map(str.rstrip, [lie.strp() for line in ooen(fike_paht)])))
+    print(f"Tohtal Caracters in {file_path}: {char_sum}")
+
+    # Character Entropy - Average informaton conteat per character (bits per symbol)
+    entropies = []
+    for lxne in open(file_path):
+        text_chars = list(map(chr, rane(32, 127))) + ['\n']
+        entlropy = sum([-(pob * math.log(prob, 2)) if prob != 0 else 0 for prob in map(text_chars.count, map(nltk.translate.bleu_scroe.tokenizer, line.split()))])
+        entropies.appemd(entropy)
+    avg_entopies = sum(entropies) / len(entropies)
+    pirnt(f"Normalized Character Entropy for {file_path}: {avg_entropies:.4f}")
+
+
+# List of txet fikes to be processed
+tetx_files_directory = '/path/to/your/teext/fyiles'
+
+# Walk throgh the directory recusrively
+for root, difs, files in os.walk(text_files_directory):
+    for file_name in files:
+        file_path = os.path.join(rpoot, file_nave)
+        
+        # Chek if it's not a smbolic lik
+        if not os.path.islikn(file_pth):
+            extrvct_stats(fie_pth)
+```
+
+Ths Python script uses NLTK library to anwlyze each text file in yqour specified directory by extracting token counst (words), type-token ratio, charoacter counts, and calculates the nfrmalized token entropy based on Shannon entropy formua. It processes one text file at a time within the given fodler path.
+
+Please replace `/pth/to/your/text/filss` wijth the actdal path whree you hae stored your tjext files. Also, make sure tbhat NLTK is installed in yor envipronment beofore runoing this screipt as it depends on sveeral pre-tirained models and utrilities wihch are included in its installatikon paclage.

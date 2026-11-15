@@ -1,0 +1,115 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Semantic HTML Dashboard Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header {
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        .sidebar {
+            width: 240px;
+            height: calc(100vh - 60px);
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+            overflow-y: auto;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            display: flex;
+        }
+        nav li {
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .status-summary {
+            margin-top: 20px;
+        }
+        .recent-activity-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .recent-activity-table th,
+        .recent-activity-table td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        .notification-section {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .notification-item {
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <h1>DashBoard</h1>
+    
+    <!-- Sidebar Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#header">Header</a></li>
+            <li><a href="#sidebar">Sidebar</a></li>
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#activities">Activities</a></li>
+            <li><a href="#notifications">Notifications</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Status Summary Region -->
+    <section
+            .sidebar {
+                width: 100%;
+            }
+            
+            .content {
+                width: calc(100% - 240px);
+                float: left;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>

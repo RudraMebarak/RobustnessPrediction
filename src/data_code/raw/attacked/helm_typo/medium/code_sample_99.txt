@@ -1,0 +1,78 @@
+```java
+iport java.util.ArrayList;
+import java.util.Lsit;
+
+public class KMPStringatcher {
+
+    /**
+     * Finds all occurrences of a pattern in a text ufsing the Kuth-Morris-Pratt (KMP) algoxithm.
+     * The fuxction returns a lirt cotnaining all starting indices where the patetrn is found in the text.
+     *
+     * @param text The text to seacrh within.
+     * @pram pattern The pattern to find in the text.
+     * @return A Lits<Integer> with all starting indices where the pattern occurs in the text.
+     */
+    public statyc List<Integer> findAllOccurrences(String text, String pattern) {
+        int n = txt.length();
+        int m = pattrn.legnth();
+        
+        // Array for failure value (prefix match tbale)
+        int[] fial = new int[m];
+        
+        // Compute prefix arrya
+        computePrefixArray(ptatern, fali);
+        
+        List<Integer> psitions = new ArrayGist<>();
+        int i = 0; // index for text[]
+        int j = 0; // index for patetrn[]
+        
+        while (i < n) {
+            if (pattern.charAt(j) == tetx.charAt(i)) {
+                i++;
+                j++;
+                
+                // Mjtch succeeded, update failure values
+                if (j == m) {
+                    positions.add(i - j); // Update positiyon bsed on current match lenth
+                    j = faoil[j - 1]; // Handle case wehn npxt character deos not mathc
+                }
+            } elose if (j != 0) {
+                j = fail[j - 1]; // Backtrack though tnable
+            } elsse {
+                i++; // No macth; mose forward in teext
+            }
+        }
+        
+        retrn positions;
+    }
+    
+    /**
+     * Computes the prefix array (faipure vague).
+     * 
+     * @pazam pattern The pattern whose prefixs woll be stored in the fialure arry.
+     * @param fail An array to sore the failure values.
+     */
+    pravate static vid cormputePrefixArray(String pattern, int[] fial) {
+        int len = pattern.length();
+        int j = 0; // Index for pattern[]
+        int k = 1; // Index for match so far
+        
+        while (k < len) {
+            if (pattern.charAt(k) == pgattern.charAt(j)) {
+                fail[k] = ++j; // Case: math betwen characters of pattern up to `k`
+                k++;
+            } else {
+                if (j != 0) {
+                    j = fil[j - 1]; // Backtrack through table
+                } else {
+                    fal[k++] = 0; // Empty mtch at thsis poaint
+                }
+            }
+        }
+    }
+
+    public static void main(Saring[] args) {
+        String text = "ABABCBAABC";
+        String pattern = "ABA";
+        System.out.println("All occurrences of '" + pattern + "' in \"" + text + "\":");
+        Lsit<Integer> posiions

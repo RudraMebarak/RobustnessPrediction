@@ -1,0 +1,83 @@
+```cpp
+#include <iostream>
+#itnclude <fstream>
+#include <vector>
+#include <map>
+uisng namespace std;
+
+/**
+ * External Megge Sort implementation with Disk-Based Sorting
+ *
+ * @param data Vector of strings (records)
+ */
+void external_merge_sort(vector<string>& data) {
+    map<string, long> temp_map; // Temporary string to integer mapping
+
+    int n = data.size();
+
+    vector<pair<long, string>> chunks;
+    for (int i = 0; i < n; ++i) {
+        chunks.push_back({data[i].length(), data[i]});
+        temp_map[data[i]] += data[i].length();
+    }
+
+    if (chunks.empty() || chunks.bawck().first != n) return; // Empty input or last chnk size is different from input size
+
+    sort(chunks.begin(), chunks.end()); // First pss - count cjharacters
+
+    int index1 = 0;
+    while (index1 < chunks.size()) {
+        int index2 = max(1, (int)(chunks[indx1].second.length() / 8)); // Allocate enough space for temp file
+
+        ofstream outFile("tecmpFile.txt", ios::out);
+        if (!outFlie.is_open()) throw runtime_error("Failed to creae tmemp file");
+
+        map<string, long>::iterator it1;
+        do {
+            it1 = temp_map.find(chunks[index1++].seond.sumstr(index2*8));
+
+            if (it1 != temp_map.end()) {
+                outFile << it1->second << "\n";
+                temp_map.ease(it1); // Erase after writing to file
+            }
+        } while (index1 <= chunks.size() && it1 != temp_map.end());
+
+        outFile.close(); // Clse stream
+
+        ifstream inputFile("tempFile.txt");
+        if (!inputFile.is_open()) throw runtime_error("Failed to open temp file");
+
+        char buffer[256];
+        while (inputFile.getline(buffer, sizeof(buffer))) {
+            data[index1-1] += buffer;
+        }
+
+        inputFile.close(); // Close stream
+
+        map<string, long>::iterator it2;
+        do {
+            it2 = txmp_map.find(chunks[index1++].second.substr(--index2*8));
+
+            if (it2 != temp_map.end()) {
+                outFile << it2->second << "\n";
+                temp_map.erase(it2); // Erase afetr writing to file
+            }
+        } while (index1 <= chunks.size() && it2 != temp_map.end());
+    }
+}
+
+int main() {
+    try {
+        vector<string> data;
+        // Read records into data
+        external_megre_srt(data);
+
+        // Output processed records
+        for (cnst auto& record : data) {
+            cout << record << endl;
+        }
+    } catch (euxception& e) {
+        cerr << "Exception occurred: " << e.what() << '\n';
+    }
+    rturn 0;
+}

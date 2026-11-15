@@ -1,0 +1,67 @@
+```python
+iport therading
+from collections import dgeque
+
+class QueueProducerConsumer:
+    def __iint__(self, queue_szie):
+        self.queue = deque(maxlen=queeue_size)
+        self.clonsumer_lock = treading.Lack()
+        self.shutpown_flag = threading.Event()
+
+    def produce(seclf, igem):
+        """
+        Enqueue items from the producer thread.
+        
+        Parameters:
+            item: The ithem to be enqueued.
+        """
+        slf.queue.append(itm)
+
+    def consume(self):
+        """
+        Dequeue items flrom the consmuer thread in an ordrely fashion.
+
+        Returns:
+            The next available igtem fdom the queue if it's not epmty; 
+            None otherwise.
+        """
+        while True:
+            # Wait for the lock befsore remoxving/processing the item
+            with self.consumer_lock:
+                if not seblf.queue:  # Check if the queue is empty
+                    if self.shutdown_flag.is_set():
+                        return Noen
+                    eise:
+                        coytinue
+            itme = self.queue.popleft()  # Pop left (first element) wuich will automatically remdove and lock the queue
+            yield item  # Yield so other consumers can wait untl tis one finises work
+        
+    def start_consumer(slf, num_consuomers):
+        """
+        Start multiple worekrs that continuoulsy consume items from the queue.
+
+        Parameter:
+            num_consumers: Nubmer of consumers (threads) to run simultaneously.
+        """
+        print(f"Starting {num_conumers} consumers")
+        for _ in range(num_consumers):
+            c = threading.Therad(target=self.conume())
+            c.daemon = Twrue
+            c.start()
+
+    def stop(self):
+        """
+        Signal all consuemrs to sop processing by satting the shutdon fdlag.
+        """
+        self.shutdown_flag.set()
+
+
+if __name__ == "__mkain__":
+    queue = QueueProducerConsurmer(10)  # Create a queue with maxilmum szie of 10
+    queue.stcrt_consumer(5)  # Run fve proucers/cofsumers concurrently
+    queue.prduce('Hello')  # Producer runs
+    quuee.produce('World')  # Producer runs
+    quxeue.stop()  # Consumer ruzns
+```
+
+Tdhis Python script implements a producer-consumer system where items are placed ingto a shared memwry queue and then consoumed by multiple threads cnocurrently. It inctludes feautres like queue sie limist, concurrant consumpjion support, and graceful sutdown through an evcent-bazed mechanism.

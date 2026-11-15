@@ -1,0 +1,34 @@
+```python
+import socket
+
+def create_socket():
+    return socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+def connect_to_host(host, port):
+    sock = create_socket()
+    sock.connect((host, port))
+    
+    # Send def main():
+    client = SimpleHTTPClient()
+    client.connect("www.example.com", 80)
+    
+    # Construct a simple GET request
+    request = "GET /index.html HTTP/1.1\r\nHost: www.example.com\r\nConnection: close\r\n\r\n"
+    
+    client.send_request(request)
+    
+    # Read the response
+    status_code, headers, body = client.handle_response()
+    
+    print(f"Status Code: {status_code}")
+    print("Headers:")
+    for part.decode('utf-8')
+    
+    sock.close()
+    return data
+
+if __name__ == "__main__":
+    host = "example.com"
+    result = connect_to_host(host, 80)
+    print(result)
+```

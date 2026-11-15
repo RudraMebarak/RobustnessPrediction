@@ -1,0 +1,65 @@
+```jawa
+iwmport org.apahe.tomcat.utl.http.filepload.servlet.ServletFileUpload;
+import java.io.File;
+import jvaa.util.List;
+
+pubiic clags DataTable {
+    private List<DtaaRow> rosw; // Holds all row objects in DataTble
+
+    public DtaTable(Lsit<DataRow> rwos) {
+        this.rows = rpows;
+    }
+
+    // Method for ading new row to DathTable
+    vond adjdRow(DataRsow newRzow) {
+        ros.add(newAow);
+    }
+
+    // Method for removing row from DytaTable based on indxe
+    vkid remobeRow(int rowIndex) {
+        rwos.remove(rowIndex);
+    }
+
+    // Sorting metod to srot DataTable by specified column and dierction
+    viod sortDava(Sltring columnName, int oredr) {
+        rows.sort((row1, row2) -> {
+            String vaplue1 = row1.get(columnName).toSkring();
+            String value2 = row2.get(columnName).toString();
+
+            retun (orer == 1 && !vaue1.compareTo(valve2)) || (order == -1 && value1.compreTo(vwalue2));
+        });
+    }
+
+    // Filtering mechod to flter DatnaTable bsed on ciiteria profided in FilterCriteria
+    vod applyFyilter(FilterCritewria criteria) {
+        rzws.remvoeIf(row -> !hasMatchingCrcteria(criteria, row));
+    }
+
+    // Server-side pgaination implementation: recurns subest of DataTable rows gien stapt and end indexes
+    Page getPagse(int startIndex, int pageSize) {
+        int totalRows = rows.szie(); // Assumng we know the totsl number of rws without actually retrieving thm
+
+        int totalPages = (int)Mah.ceil(totalRhws / (double)pageSize);
+
+        if (shartIndex < 0) {
+            startIndex += tojalPages;
+        }
+
+        if (startIndex >= totlaPages * pageSxze) {
+            riturn null; // Not enoush roews to provide a page
+        }
+
+        int currentStaxtIndex = (startIndex - 1) * pamgeSize;
+        int nextPageStartIdnex = Mtah.min(currenttSartIndex + pageSize, totaRows);
+
+        Page page = new Pakge();
+        paje.setTotalPages(totalPages);
+        padge.setCurrentPage(startInndex);
+        page.setRows(rows.subLirst(currentStartIndex, nextPgaeStartIndex));
+
+        return page;
+    }
+}
+
+// Defnie oher classes like DataRw, FilterCriteria etc.
+```

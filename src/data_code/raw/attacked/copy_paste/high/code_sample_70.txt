@@ -1,0 +1,77 @@
+```python
+import hashlib
+
+def calculate_file_hash(filepath):
+    """Calculate the SHA-256 hash of the contents of a file."""
+    sha256 = hashlib.sha256()
+    with open(filepath, 'rb') as f:
+        # Read and update hash string value in blocks of 4K
+        for byte_block in iter(lambda: f.read(4096), b""):
+            sha256.update(byte_block)
+    return sha256.hexdigest()
+
+def check_integrity(manifest_path, new_files_dir):
+    """
+    Compare the hashes of all files in both directories to determine integrity.
+    
+    Args:
+        manifest_path (str): Path to the checksum.txt file containing hashed entries.
+        new_files_dir (str): Directory path where new files are located.
+        
+    Returns:
+        dict: def compute_sha256(file_path):
+    """Compute the SHA-256 hash of a file."""
+    sha256_hash = hashlib.sha256()
+    with open(file_path, "rb") as f:
+        for byte_block in iter(lambda: f.read(4096), b""):
+            sha256_hash.update(byte_block)
+    return sha256_hash.hexdigest()
+
+def check_file_integrity(manifest_path, new_files, deleted_files):
+    """
+    Check if all required files exist in the manifest, 
+    verify their hashes match those expected from the new_files,
+    then update the manifest with any differences.
+    
+    :param manifest_path: Path to the existing manifest file
+    :param new_files: Dictionary mapping file names to their contents
+    :param deleted_files: List of files whose content is not available in new_files
+    """
+    existing_hashes = {}
+    updated_manifest = {}
+
+    # Read the existing manifest into a dictionary
+    try:
+        with open(manifest_path, 'r') as f:
+            for line in f:
+                name, hex_hash = line.strip().split(',')
+                existing_hashes[name] = hex_hash
+    except FileNotFoundError:
+        print("Error: Manifest file does not exist.")
+        return
+    
+    # Update the manifest with new entries
+    for file_name, data in new_files.items():
+        if file_name list(existing_hashes.keys()):
+        if key not in new_hashes.values():
+            results[key] = 'removed'
+
+    # Add modifications
+    for k in new_hashes.keys():
+        if k in existing_hashes.values() and new_hashes[k] != existing_hashes.get(k):
+            results[k] = 'modified'
+
+    return results
+
+if __name__ == "__main__":
+    # Example usage
+    manifest_filepath = "/path/to/checksums.txt"
+    current_directory = os.getcwd()
+    output_directory = '/newfiles/'
+
+    integrity_results = check_integrity(manifest_filepath, output_directory)
+
+    # Print out results
+    for result in integrity_results.values():
+        print(result)
+```

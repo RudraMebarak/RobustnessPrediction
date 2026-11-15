@@ -1,0 +1,1 @@
+In sql, write the number of daily active users as the DATE, MIN, and first event date for each user.

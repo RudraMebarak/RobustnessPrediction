@@ -1,0 +1,1 @@
+jsx  InventoryManagement  useState from> react  div input text text stretched sum ? spxspan style= fontSize:12px',color:red' (product.id, +1) /span> showAll? true :!searchTerm Change=,input type=""str="12px"caract_contenttexttexttexttextTextBackEndType:?tr=!termconditioncontentstmon

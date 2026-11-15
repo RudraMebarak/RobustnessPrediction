@@ -1,0 +1,42 @@
+```python
+import sqlite3
+
+class JobQueue:
+    def __init__(self):
+        self.conn = sqlite3.connect('job_queue.db')
+        self.cursor = self.conn.cursor()
+        self.create_tables()
+
+    def create_tables(self):
+        self.cursor.execute('''CREATE TABLE IF NOT EXISTS jobs self.cursor.execute("INSERT INTO jobs (data) VALUES (?)", (data,))
+            self.conn.commit()
+            return True
+        except Exception as e:
+            print(f"Error enqueuing job: {e}")
+            return False
+    
+    def get_jobs(self, status=None):
+        filters = []
+        if status:
+            filters.append(f"(state = '{status}')")
+        
+        sql = "SELECT * FROM jobs WHERE " + " AND ".join(filters)
+        self.cursor.execute(sql)
+        rows = self.cursor.fetchall()
+        return [dict(row) for row in FROM jobs WHERE state='pending'").fetchall()]
+
+    def mark_as_completed(self, job_id):
+        self.update_state(job_id, 'completed')
+
+    def mark_as_failed(self, job_id):
+        self.update_state(job_id, 'failed')
+
+if __name__ == "__main__":
+    queue = JobQueue()
+    queue.add_job("Start processing this task")
+    print(queue.get_jobs_pending())
+    queue.mark_as_completed(1)
+    print(queue.get_jobs_pending())
+    queue.mark_as_failed(2)
+    print(queue.get_jobs_pending())
+```

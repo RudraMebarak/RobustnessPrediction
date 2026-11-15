@@ -1,0 +1,1 @@
+The following is an example of a straightforward method to simulate the functionality of retry after headers. This example uses the same logic as the one below, but it can be used with different contexts.

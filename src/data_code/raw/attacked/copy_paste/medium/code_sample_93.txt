@@ -1,0 +1,61 @@
+```go
+package // Liveness endpoint checks if the service is ready to serve requests.
+func (s *Service) Liveness(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Service is healthy!")
+}
+
+// Readiness endpoint confirms that the service can handle incoming requests.
+func (s *Service) Readiness(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Service is ready")
+}
+
+// DBInterface represents an interface for interacting with the database.
+type DBInterface interface {
+	GetData() []string
+}
+
+// Example implementation of from the data map.
+func (s *Service) GetValue(key string) (int64, bool) {
+	value, exists := s.data[key]
+	if !exists {
+		return 0, false
+	}
+	return value, true
+}
+
+// CheckLiveness checks if the service is ready.
+func (s *Service) CheckLiveness() (bool, error) {
+	return true, nil // Replace with actual check logic
+}
+
+// CheckReadiness checks if the service's state allows it to handle incoming requests.
+func (s *Service) CheckReadiness() (bool, error) {
+	return s.CheckLiveness(), nil // Replace with actual readiness check logic
+}
+
+// HandleHTTPIncomingRequest handles incoming HTTP requests based on live/ready checks.
+func (s *Service) HandleHTTPIncomingRequest(w http.ResponseWriter, r *http.Request) {
+	isReady, err := s.CheckReadiness()
+	if err != nil {
+		http.Error(w, "Error checking readiness", http.StatusInternalServerError)
+	} else if !isReady {
+		http.Error(w, "Service Not Ready", http.StatusServiceUnreachable)
+	} else {
+		fmt.Fprintf(w, "Hello, World!")
+	}
+}
+
+func main() {
+	service := NewService()
+
+	http.HandleFunc("/liveness", func(w http.ResponseWriter, r *http.Request) {
+		service.HandleHTTPIncomingRequest(w, r)
+	})
+
+	http.HandleFunc("/readiness", func(w http.ResponseWriter, r *http.Request) {
+		service.HandleHTTPIncomingRequest(w, r)
+	})
+
+	http.ListenAndServe(":8080", nil)
+}
+```

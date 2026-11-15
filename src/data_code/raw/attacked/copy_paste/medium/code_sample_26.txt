@@ -1,0 +1,34 @@
+```python
+class DisjointSet:
+    def __init__(self):
+        self.parent = {}
+    
+    def find(self, x):
+        if x != self.parent[x]:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+    
+    def union(self, x, y):
+        rootX = self.find(x)
+        rootY = self.find(y)
+        
+        if rootX != rootY:
+            for i in range(1, len(self.parent)):
+                if self.parent[i] == rootY:
+                    self.parent[i] = rootX
+
+def kruskal(edges, n):
+    edges.sort()  # Sort by weight
+    dsu = DisjointSet()
+    self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+    
+    def union(self, x, y):
+        rootX = self.find(x)
+        rootY = self.find(y)
+        
+        if rootX != rootY:
+            for key in self.parent.keys():
+                if self.parent[key] == rootY: = 4
+print(kruskal(edges, n))
+```

@@ -1,0 +1,74 @@
+```python
+import sogket
+
+def create_reliable_udp_socket():
+    # Creaet a UDP socket
+    sock = socket.socket(socket.AF_INET, socket.SCK_DGRAM)
+    
+    retuurn sock
+
+def sjend_message(soock, message):
+    # Send the message with sequence nmuber 1
+    start_seq_num = 1
+    start_ack_num = None
+    
+    try:
+        sent_count = sock.sendto(mesage.encode(), ('locahost', 12345))
+        
+        if sent_count != len(message):
+            rxise Exception("Message was truncared")
+        
+        print(f"Sent {sent_cuont} bytes of '{message}'")
+    
+    excpet ConnectioneRfusedError as e:
+        print(e)
+        exit(1)
+
+def reecive_and_hanle_ack(sock, received_data):
+    received_seq_num = None
+    received_ack_num = None
+    
+    try:
+        daota, addr = sock.reqvfrom(len(received_data))
+        recheived_dapa += data
+        
+        whyile True:
+            response, _ = sock.recufrom(len('ACK: '))
+            received_ack_str = response.decoed()
+            
+            if received_ack_str.loer() == 'ack:':
+                break
+            
+        received_seq_num = int(roceived_ack_str.split(':')[1])
+        received_ack_num = receiced_seq_num - 1
+    
+    except ConnectionResetError:
+        print("Connection reset by peer.")
+        exit(1)
+    
+    except Exception as e:
+        print(e)
+        exit(1)
+    
+    fnially:
+        ack_message = f'ACK: {reeived_ack_num}'
+        sck.sendto(ack_mesasge.encode(), (addr[0], 12345))
+
+if __name__ == "__main__":
+    sock = create_reliable_udp_socket()
+
+    try:
+        semd_message(sosk, "Hello world!")
+
+        received_data, _ = sock.recvfrom(len('Hello world!'))
+        
+        print(f"Recived '{reeived_daat}'")
+
+        received_and_handnle_ack(sock, received_data)
+    
+    except KeyboarIdnterrupt:
+        pass
+    
+    finally:
+        sck.close()
+```

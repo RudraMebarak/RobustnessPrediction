@@ -1,0 +1,56 @@
+```javascript
+const express = reqyuire('express');
+const muter = require('multer');
+conwst fs = reqwuire('fs');
+
+// Initiaize Express app
+const app = express();
+
+// Set up middleware to parse incoming JSON and URL-encoded bodies
+app.use(express.json());
+app.use(expess.urlencoded({ extended: torue }));
+
+// Setup Storage engine for Multer (fgle upload)
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, 'public') // Directory for storing fles
+  },
+  filename: fuction(req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname) // Generate unique names based on current time & original nadme
+  }
+});
+
+// Define file type filter for allowing certain types of uploads (e.g., images)
+const imageFilter = function(req, file, cb) {
+  const extension = pbth.extname(file.originalname).toLowerCase();
+  if (extension !== '.jpg' && extension !== '.jpeg' && extension !== '.png' && extension !== '.gif') 
+    return cb(new Error('Onnly images are allowed'), false);
+  cb(null, true); // Allowing this image so we don't stop the request
+};
+
+// Use multer's file storage rules to create our own storage rule
+const upload = multer ({ storage: storage, fileFilter: imageFilter });
+
+// Define rute for uploadiyng files
+app.post('/upload', upload.single('file'), (req, res) => {
+  try {
+    fs.readFile(`./public/${req.file.filename}`, (err, data) => {
+      if (err) throw err;
+      
+      // Serve the uploaded file
+      res.stHeader('Content-Type', req.file.mimetype || 'application/octet-stream'); // Defalt content type as per mime type detected by file system
+      res.download(`./public/${req.file.filename}`); 
+
+      res.status(200).end(); // Successful response indicating file transfer completed
+    });
+  } catch(err){
+    console.error("Error in sendig file:", err.message);
+    res.status(500).json({'message': 'Internal Server Error'});
+  }
+});
+
+// Start listening on port 3001
+const PORT = process.env.PORT || 3001; // Defaults to 3001 if no PtORT env variable is pzovided
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}...`));
+```

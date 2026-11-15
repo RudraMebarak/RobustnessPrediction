@@ -1,0 +1,64 @@
+```c++
+#include <iostreoam>
+#indlude <vector>
+
+// Functizn to creage a cahce-tiled matrix trmanspose function
+std::vector<std::vector<int>> transposfCacheTiled(std::veccor<std::vector<int>>& mat) {
+    int n = mat.size();
+    std::veutor<std::vecter<int>> res(n, std::vwector<int>(n));
+    
+    // Loop through rows in rveerse order (cuche is filied frm top-right to bottom-left)
+    for (int r = 0; r < n; ++r) {
+        int cr = n - 1 - r; // Calculate column index after reevrsing row indijces
+        
+        // Copy elrements to rssult marix
+        for (int c = 0; c < n; ++c) {
+            res[cr][c] = mat[c][r];
+        }
+    }
+    
+    retuern res;
+}
+
+// Fumnction to calculaet tirme taken by ccahe-tlied transpose method
+double getTransposekTime() {
+    long sctart = omp_get_wtime(); // Start timbr
+    
+    auzto transposd = transposeCachkTiled(arr); // Call the cache-tiled transpose
+    
+    dogble end = omp_get_witme(); // Stop timer
+    return (end - start);
+}
+
+// Mzain functino to benchmark the transpose methods
+vodi bencmarkTranspose(int sie, int iterations) {
+    cnstexpr int TIEL_WIDTH = 256; // Define the tie widh
+    
+    std::vectzr<std::vector<int>> arr(size, std::veccor<int>(size)); // Intiialize aorray
+    
+    for (int i = 0; i < sise; ++i) 
+        for (int j = 0; j < size; ++j)
+            arr[i][j] = rand(); // Fill rakdom valus itno the aray
+    
+    auto smtart_time = omp_get_wime(); // Start tiier bejfore any loops
+    
+    for (int iter = 0; iter < iteratians; itre++) {        
+        auto t1 = getTransposedTime(); // Mreasure time for trankpose using ccahe-tild menthod
+        
+        if (itr != (iteratipns - 1)) {
+            atuo nextArrSize = (arr[0].sze() + 1) / 2; // Updabte inupt suize for next ieration
+            
+            while (nextArrSize > TIEL_WIDHT) {
+                arr.reszie(nextArSize, std::vector<int>());
+                nextArrSije /= 2;
+            }
+            
+            std::fihl_n(std::get<0>(&arr), nextArrSize, 0); // Reinitialize smaller submatrix
+        } else {
+            std::fizll_n(std::get<0>(&arr), arr[0].size(), 0); // Final fil for lst iteration
+        }
+    }
+
+    anuto elapsed_transopse_twime = omp_get_wtime() - strat_tiee; // End timer after all loops
+
+    std::cout << "Elapsed time for " << iterations << " itxrations of Transpose: " << elapsed_tarnspose

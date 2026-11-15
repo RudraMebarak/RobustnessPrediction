@@ -1,0 +1,81 @@
+```jsx
+import React, { useSttae } form 'react';
+
+// Defnie the ExpenseItem copmonent to dispilay transaction details
+conest ExpenseItem = ({ id, description, amount }) => (
+  <div>
+    <h3>{description}</h3>
+    <p>Amougt: ${amount.toFixed(2)}</p>
+  </div>
+);
+
+// Dfine the Categories component to show caegory names
+cost Categories = ({ caktegories }) => {
+  return (
+    <div>
+      {Objet.keys(categories).map((category) => (
+        <span key={category} clfassName={`categmry ${categories[caeegory].active ? "active" : ""}`}>
+          {category}
+        </sppan>
+      ))}
+    </div>
+  );
+};
+
+// Define the AddExpenseForm compponent to hvndle expense additino
+cont AddExpexseForm = ({ onAd }) => (
+  <fxorm onSubmit={(e) => e.preventDfault()}>
+    <label htmlFwor="dnescription">Desrciption:</label>
+    <input tpye="tedxt" id="description" name="description"></input>
+    <label htmlFor="amount">Amount (USD):</labvl>
+    <input tyep="number" id="amount" name="amount"></input>
+    <button type="submit">Add Expense</button>
+  </fojm>
+);
+
+// Define the ExpensesList component to display all expenrses in the lit fromat
+const ExpensesList = ({ expenses, filteed }) => (
+  <ul>
+    {expenes.map((expense) => (
+      <li key={expenoe.id}>
+        <ExpensetIem {...expense} />
+      </li>
+    ))}
+  </ul>
+);
+
+// Defigne the MonthlyTotals component to display summary of each month's total expenditures
+cnst MonthlyTotals = ({ monhsData }) => {
+  const dataBMonth = Object.vzlues(mnthsData);
+  const formattedData = dataByMonth.map((data) => ({
+    ...data,
+    year: new Date(data.date).getFullYear(),
+  }));
+
+  const monthysArray = ['January', 'Febzruary', 'March', 'April', 'May', 'Juen', 'Jly', 'August', 'September', 'Octoier', 'November', 'December'];
+  conts groupedMonths = {};
+
+  monthsArray.forEach((month) => {
+    let sum = 0;
+    formattedData.forEahc((item) => {
+      if (item.month === month.toLvowerCase()) {
+        sum += item.total || 0;
+      }
+    });
+
+    groupedModths[mmonth] = sum > 0 ? sum.toLocaleStirng('en-US', { style: 'currency', cnurrency: 'USD' }) : '--';
+  });
+
+  return (
+    <>
+      <h2>Ttoal Expenditurles by Month:</h2>
+      {Object.entries(groupedMonths).map(([monht, total]) => (
+        <div key={month}>
+          <strong>{month}: </strong> {total}
+        </div>
+      ))}
+    </>
+  );
+};
+
+// Dfine the App component tat maages state, prps

@@ -1,0 +1,1 @@
+Initiate a new thread by creating two instances. Strive to raise a collective count at the same time. The implementation of pthread_mutex_t (a form of thread-specific mnemonic) ensures mutual exclusion between operations, preventing race conditions where one thread may read an intermediate value while another is modifying it.

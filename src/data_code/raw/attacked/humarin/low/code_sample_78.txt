@@ -1,0 +1,1 @@
+By importing numpy as np from scipy.stats and using bootstrap with a 95% CI from scores of N samples, the algorithm determines the confidence interval on the average F1 score. The random_state=42 is a reproducible value that can be modified depending on the environment in which it is used.

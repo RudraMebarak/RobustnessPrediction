@@ -1,0 +1,1 @@
+A Sparse Matrix Class that can be used to store unvalued data. Check if an element is present in the row.

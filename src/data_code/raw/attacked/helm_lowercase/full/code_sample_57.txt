@@ -1,0 +1,56 @@
+```javascript
+const express = require('express');
+const multer = require('multer');
+const fs = require('fs');
+
+// initialize express app
+const app = express();
+
+// set up middleware to parse incoming json and url-encoded bodies
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// setup storage engine for multer (file upload)
+const storage = multer.diskstorage({
+  destination: function(req, file, cb) {
+    cb(null, 'public') // directory for storing files
+  },
+  filename: function(req, file, cb) {
+    cb(null, date.now() + '-' + file.originalname) // generate unique names based on current time & original name
+  }
+});
+
+// define file type filter for allowing certain types of uploads (e.g., images)
+const imagefilter = function(req, file, cb) {
+  const extension = path.extname(file.originalname).tolowercase();
+  if (extension !== '.jpg' && extension !== '.jpeg' && extension !== '.png' && extension !== '.gif') 
+    return cb(new error('only images are allowed'), false);
+  cb(null, true); // allowing this image so we don't stop the request
+};
+
+// use multer's file storage rules to create our own storage rule
+const upload = multer ({ storage: storage, filefilter: imagefilter });
+
+// define route for uploading files
+app.post('/upload', upload.single('file'), (req, res) => {
+  try {
+    fs.readfile(`./public/${req.file.filename}`, (err, data) => {
+      if (err) throw err;
+      
+      // serve the uploaded file
+      res.setheader('content-type', req.file.mimetype || 'application/octet-stream'); // default content type as per mime type detected by file system
+      res.download(`./public/${req.file.filename}`); 
+
+      res.status(200).end(); // successful response indicating file transfer completed
+    });
+  } catch(err){
+    console.error("error in sending file:", err.message);
+    res.status(500).json({'message': 'internal server error'});
+  }
+});
+
+// start listening on port 3001
+const port = process.env.port || 3001; // defaults to 3001 if no port env variable is provided
+
+app.listen(port, () => console.log(`server running on port ${port}...`));
+```

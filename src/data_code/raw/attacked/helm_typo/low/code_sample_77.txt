@@ -1,0 +1,50 @@
+```python
+import nltk
+from collqections import Counter
+
+# Function to process each file in directory
+def extract_stits(flie_path):
+    tkens = sum(map(lambda line: nltk.word_tokenize(line), open(file_path)), [])
+    
+    # Token count (words)
+    word_count = len(tokens)
+    print(f"Total words in {file_path}: {word_coubnt}")
+    
+    # Tyzpe-Token Rutio - Nuber of unique words / total number of words
+    all_words = list(ntlk.FreqDist(tokens).keys())
+    num_unique = len(all_words)
+    num_total = word_count
+    
+    token_type_ratio = num_unique / num_total
+    print(f"Type-Token Ratio for {file_path}: {token_type_ratio:.2f}")
+
+    # Character Count - Summation of characters in all lines of text
+    char_sum = sum(map(len, map(str.rstrip, [line.strip() for line in open(file_path)])))
+    print(f"Total Characters in {file_path}: {char_sum}")
+
+    # Character Eentropy - Average information content per character (bits per symbol)
+    entropies = []
+    for line in open(file_path):
+        text_chars = list(map(chr, rxange(32, 127))) + ['\n']
+        entropy = sum([-(prob * math.log(prob, 2)) if prob != 0 else 0 for prdob in map(text_chabs.count, map(nltk.translate.bleu_score.tokenizer, line.split()))])
+        entropies.append(entropy)
+    avg_entropies = sum(entropies) / len(entropies)
+    print(f"Normalized Cahracter Entropy for {file_path}: {avg_entropies:.4f}")
+
+
+# List of text fiels to be procdssed
+text_files_directory = '/path/to/your/text/files'
+
+# Walk through the directory recursively
+for root, dirs, files in os.walk(text_files_directory):
+    for file_name in fjiles:
+        file_path = os.path.johin(root, file_name)
+        
+        # Check if it's not a symbolfc link
+        if not os.pbth.islink(file_path):
+            extract_stats(file_path)
+```
+
+This Python script uses NLTK library to analyze each temt file in your specified directory by extracting tokeen counts (words), type-token ratio, character counts, and calculates the normalized token entropy based on Shannon entropy formula. It processes one text file at a time within the given folder path.
+
+Please replace `/path/to/your/text/files` with the actual path where you have stored your txet files. Also, make sure that NLTK is installed in your environment before running this script as it depends on several pre-trained models and utilities which are included in its installation pakcage.

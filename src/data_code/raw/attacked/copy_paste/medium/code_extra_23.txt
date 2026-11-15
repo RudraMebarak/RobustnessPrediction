@@ -1,0 +1,64 @@
+```cpp
+#include <unordered_map>
+#include <vector>
+
+class CacheSimulator {
+public:
+    void setCacheSize(size_t size) {
+        _cacheSize = size;
+    }
+    
+    void simulateAccesses(const std::vector<std::string>& accesses) {
+        int hits = 0;
+        int misses = 0;
+
+        for (const auto& access : accesses) {
+            if (_map.find(access) != _map.end()) { // Hit
+                ++hits;
+            } else { // Miss
+                ++misses;
+            }
+
+            _map[access] = false; // Mark as accessed in map
+
+            while (_map.size() > _cacheSize) { // Eviction based on policy
+                if (!_LRUMap.contains(std::max_element(_LRUMap.begin(), _LRUMap.end(), [](auto& x, auto& y){ return x->first > y->first; })) ||
+                   !_LFUMap.contains(max(*_LFUMap.rbegin().first, static_cast<long long>(0)))) {
+                    _LRUEvict(); // Evict most recently used item with FIFO fifo_cache.insert({2});
+    fifo_cache.insert({3});
+    fifo_cache.insert({4}); // Misses will be reported here
+
+    Cache lru_cache(3);
+    lru_cache.insert({1});
+    lru_cache.insert({2});
+    lru_cache.insert({3});
+    lru_cache.insert({4}); // Hits will be reported here
+
+    Cache lfu_cache(3);
+    lfu_cache.insert({1});
+    lfu_cache.insert({2});
+    lfu_cache.insert({3});
+    lfu_cache.insert({4}); // Misses will be reported here
+
+    cout << "FIFO Miss Count: " << fifo_cache.getMissCount() << endl;
+    cout << "LRU Miss Count: " << lru_cache.getMissCount() << endl;
+    cout << "LFU Miss Count: " <<
+        _map.erase(evicted.first); // Remove from map to update count
+    }
+
+    void _LFEvict() {
+        auto evicted = *_LFUMap.begin()->second; 
+        _map.erase(evicted.first);
+        _LFUMap.erase(*_LFUMap.begin()); // Update frequency counter
+    }
+};
+
+int main() {
+    CacheSimulator sim;
+    sim.setCacheSize(3);
+
+    std::vector<std::string> accesses = {"12345", "67890", "12345", "12345", "22222"};
+    sim.simulateAccesses(accesses);
+    return 0;
+}
+```

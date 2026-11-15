@@ -1,0 +1,91 @@
+```jsx
+import react from 'react';
+import { browserrouter as router, route, switch } from "react-router-dom";
+
+const fileexplorer = ({ folder }) => {
+  return (
+    <div>
+      <h2>{folder.name}</h2>
+      {folder.children.map(child =>
+        <folder key={child.id} folder={child} />
+      )}
+      <switch>
+        <route path="/:subfolder">
+          <folder {...this.props} folder={{ name: subfoldername }} />
+        </route>
+      </switch>
+    </div>
+  )
+}
+
+const folder = (props) => {
+  const [isexpanded, setexpanded] = react.usestate(false);
+  let childrentodisplay;
+
+  if (isexpanded) {
+    // determine what child elements should be displayed based on folder's content
+    if (props.folder.files.length > 0) {
+      childrentodisplay = props.folder.files;
+    }
+    if (props.folder.directories.length > 0) {
+      childrentodisplay = props.folder.directories;
+    }
+  }
+
+  return (
+    <div onclick={() => setexpanded(!isexpanded)}>
+      {childrentodisplay && <ul>
+        {childrentodisplay.map((item, index) => (
+          <li key={index}>
+            {item.type === 'file' ? (<a href={item.url}>{item.name}</a>) :
+              <folder {...{ folder: item, ...props }} />}
+          </li>)}
+        </ul>}
+      
+      {/* breadcrumb navigation */}
+      <breadcrumb />
+
+      {/* empty folder icon */}
+      {(props.folder.files.length <= 0 && !props.folder.directories.length) &&
+        <i classname="fas fa-times-circle" title='no contents'></i>}
+      
+      {/* default folder icon */}
+      {(props.folder.files.length <= 0 && !props.folder.directories.length) &&
+        <i classname="fas fa-folder"></i>}
+
+      {/* expand icon */}
+      {(props.folder.files.length <= 0 && !props.folder.directories.length) &&
+        <i classname="fas fa-caret-up" title='show contents...'></i>}
+      
+      {/* collapse icon */}
+      {(props.folder.files.length <= 0 && !props.folder.directories.length) &&
+        <i classname="fas fa-caret-down" title='hide contents...'></i>}
+      
+    </div>)
+};
+
+// example usage in main component
+
+export default class app extends react.component {
+  state = {
+    currentfolderpath: '/'
+  };
+
+  handlefolderclick(folderpath) {
+    this.setstate({
+      currentfolderpath: folderpath
+    });
+  }
+
+  render() {
+    return (
+      <router>
+        <div>
+          <breadcrumb currentfolder={this.state.currentfolderpath} />
+          
+          <folder 
+            {...this.props} 
+            folder={{
+              name: '/',
+              type: 'directory',
+              url: '/#/files', // placeholder url for

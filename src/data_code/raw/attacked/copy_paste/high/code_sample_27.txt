@@ -1,0 +1,108 @@
+```python
+import numpy as np
+
+def bfs(graph, start_node, sink):
+    """
+    Perform a breadth-first search (BFS) to find an augmenting path from source to sink in residual graph.
+    
+    Parameters:
+        graph: 2D list of lists representing the residual graph after applying all edge-disjoint paths found so far.
+        start_node: The source node for BFS.
+        sink: The target node for BFS.
+        
+    Returns:
+        Found path through residual graph; False if no such path = deque([start])
+    level = [-1] * len(graph)
+
+    while queue:
+        u = queue.popleft()
+        if u == sink:
+            return True
+        
+        for v in graph[u]:
+            if not visited[v] and graph[u][v] > 0:
+                level[v] = level[u] + 1
+                queue.append(v)
+        
+        visited[u] = True
+    
+    return False
+
+def edmonds_karp(graph, capacity, source, sink):
+    max_flow = 0
+    
+    while bfs(graph, source, sink):
+        path_flow = float("Inf")
+        s = sink
+        while s != source:
+            path_flow = min(path_flow, graph[s][predecessor[s]])
+            s = predecessor[s]
+        
+        flow = min(capacity[predecessor[sink]][sink], path_flow)
+        
+        # Update residual capacities
+        for i in range(len(predecessor)):
+            residual_capacity = graph[source][i] - graph[source][i] + capacity[source][i]
+            
+            # Update residual capacities
+            if residual_capacity < 0:
+                residual_capacity += 2*capacity[source][i]
+                
+            graph[source][i] -= flow
+            
+            if i == sink:
+                break
+                
+            graph[i][sink] += flow
+        
+        max_flow += flow
+    
+    return max_flow
+
+
+# Example usage:
+graph = [
+    [[5, 10, -5],
+     [3, 4, 6]],
+    
+    [[-5, 7],
+     [9]]
+]
+
+source = 0
+sink = 1
+
+capacity = [
+    [float('inf'), 3, float('inf')],
+    [float('inf'), float('inf'), 4]
+]
+
+print(edmonds_karp(graph, capacity, source, sink))
+``` adjacency list.
+        sink: End node index in the adjacency list.
+    
+    Return:
+        Maximum flow value as an integer.
+    """
+    max_flow_value = 0
+    parent_dict = {}
+    available_paths = {}
+
+    # While there's at least one valid augmenting path
+    while True:
+        path_found = bfs(residual_graph, source, sink)
+
+        if path_found is False:
+            break
+        
+        # For each path, update flows along it
+        available_paths.clear()
+        for node1 in range(len(residual_graph)):
+            for node2 in range(node1 + 1, len(residual_graph[node1])):
+                if (node1, node2) in available_paths:
+                    continue
+                
+                if (node2, node1) in available_paths:
+                    continue
+                
+                flow_value = float('inf')

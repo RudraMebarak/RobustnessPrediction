@@ -1,0 +1,65 @@
+```python
+import heapq
+
+def manhattan_distance(node1, node2):
+    """calculate manhattan distance between two nodes."""
+    return abs(node1[0] - node2[0]) + abs(node1[1] - node2[1])
+
+class gridnode:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.g_cost = float('inf')
+        self.h_cost = 0
+        self.f_cost = none
+        self.parent = none
+    
+    def calculate_f_cost(self):
+        """update total cost (f-cost) based on current g and h costs"""
+        self.f_cost = self.g_cost + manhattan_distance((self.x, self.y), target)
+    
+    @staticmethod
+    def create_new_node(x, y):
+        """helper function to create new node instances in the grid."""
+        return gridnode(x, y)
+
+def a_star_search(grid, start, end):
+    """
+    perform a* search through the given grid.
+
+    :param grid: 2d list representing the grid with obstacles ('#') and possible movements (space characters).
+    :param start: coordinate of the starting position.
+    :param end: coordinate of the ending position.
+    :return: path found from `start` to `end`, if any; otherwise, returns an empty path.
+    """
+    open_list = []  # priority queue for unexplored nodes by their f-costs
+    closed_set = set()  # set of visited nodes
+    start_node = gridnode.create_new_node(start[0], start[1])
+    start_node.calculate_f_cost()
+    heapq.heappush(open_list, (start_node.f_cost, start_node))
+    
+    while open_list:
+        _, current_node = heapq.heappop(open_list)
+        
+        if current_node == end:
+            break
+        
+        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+            neighbor_x, neighbor_y = current_node.x + dx, current_node.y + dy
+            
+            if 0 <= neighbor_x < len(grid) and 0 <= neighbor_y < len(grid[0]):
+                if grid[neighbor_x][neighbor_y] != '#' and (neighbor_x, neighbor_y) not in closed_set:
+                    neighbor_node = gridnode.create_new_node(neighbor_x, neighbor_y)
+                    neighbor_node.parent = current_node
+                    
+                    if neighbor_node not in open_list:
+                        neighbor_node.calculate_f_cost()
+                        
+                        # update priority queue
+                        heapq.heappush(open_list, (neighbor_node.f_cost, neighbor_node))
+                    else:
+                        existing_neighbor_node, _ = heapq.heappop(open_list)
+                        if neighbor_node.f_cost < existing_neighbor_node.f_cost:
+                            neighbor_node.parent = existing_neighbor_node.parent
+                            neighbor_node.calculate_f_cost()
+                            heapq.heappush

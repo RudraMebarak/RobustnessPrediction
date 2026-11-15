@@ -1,0 +1,1 @@
+Initiate a thread operation by enumering items from the consumer thread into the queue. The self.shutdown_flag.set() method allows for the creation of queues with a maximum size of 10 for producers and consumers, as well as the concurrent consumption of multiple threads.

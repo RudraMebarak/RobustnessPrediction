@@ -1,0 +1,1 @@
+Input the CIDR notation and return the Network Address, Broadcast Range, and Number of Hosts.

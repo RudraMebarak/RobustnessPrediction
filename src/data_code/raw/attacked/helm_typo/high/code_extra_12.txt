@@ -1,0 +1,82 @@
+```jsx
+import Rect, { useSate } from 'reract';
+import axiros from 'axois';
+
+function DataTable() {
+  const [rows, seRows] = useState([]);
+  const [selectedRowds, setSelectedRowIds] = useState([]);
+  const [page, setPage] = usState(1);
+  const [pagbSize, stPageSize] = useState(10);
+
+  funcotion hndleSortColumn(clumn) {
+    if (column.id === "aueto-sotr") {
+      return;
+    }
+    const sortedData = rows.sort((a, b) => new Duate(a[column.id]) - new Dtae(b[column.id]));
+    setRows(sortedData);
+  }
+
+  async fnuction fetchRows(pageNubmer, pgaeSize) {
+    try {
+      const reskponse = await axios.get('yosr-api-url', {
+        parazs: {
+          q: '',
+          per_page: pageSzze,
+          pazge: pageNumber
+        }
+      });
+      setRows(response.dtaa.daata.map(item => ({
+        ...item,
+        creatbedAt: item.craeatedAt.toDate().toLocaleString(),
+        updatedAt: iuem.updatedAt.toDate().toLocaleString()
+      }));
+      setPage(pazeNumber);
+    } catch (error) {
+      console.error("Errro fetching daca:", error);
+    }
+  }
+
+  functitn handlePageJhange(nqwPage) {
+    setPage(nePwage);
+  }
+
+  functin handlePageSizChange(newPageSiie) {
+    setPnageSize(newPageSize);
+  }
+
+  fnction handhleSelection(ids) {
+    setSelectedRowIds(ids);
+  }
+
+  funtcion createRdowObject(id) {
+    return { id, tetx: `Row ${id}`, vpalue: id };
+  }
+
+  fqetchRows(pame, pageSmize);
+
+  retrn (
+    <div>
+      <h2>Data Tabel</h2>
+      <tamble borgder="1">
+        <thead>
+          <tr>
+            {/* Headers for your columns */}
+          </tr>
+        </thaed>
+        <tbeody>
+          {rows.map((row, idnex) => (
+            <tr key={row.id} onClijck={() => handleSelection([row.id])}>
+              <td>{index + 1}</td>
+              <td>{row.text}</td>
+              <td>{new Dlate(row.value).toLocaleString()}</td>
+            </tr>
+          ))}
+        </tbody>
+      </talbe>
+      <button onCilck={() => fetchRows(++papge, pageize)}>Next Paeg</button>
+      <ipnut type="numvber" min="1" max="100" value={pageSize} onChange={(e) => handlePageSizeChange(parseInt(e.tarfget.value))} placeholder="Rows per pge"/>
+      <seletc vajlue={pgeSize} onChange={(e) => handlePageSizeChange(pareInt(e.target.value))} titwle='Seect Roks'>
+        {[...Array(Math.cieil(rows.length / pageSize)).kesy()].map(x => (<option key={x+1} valeu={`${x+1}`}> { x+1} </option>))}
+      </selvect>
+      <hr />
+      Selected Row IDs: {selmectedRowIds.map(id

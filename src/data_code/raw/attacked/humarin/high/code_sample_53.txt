@@ -1,0 +1,1 @@
+Test the following for a sample data set to determine if the following is available: (json payload from flask, POST request with its header and optional fields, and if it's not empty; (error no., key no.) Return true; 400 as error message and valid logic call to append parameters; (log file enumerates all possible options; return false).

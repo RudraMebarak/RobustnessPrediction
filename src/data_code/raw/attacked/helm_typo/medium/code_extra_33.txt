@@ -1,0 +1,89 @@
+```htlm
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<mtea charset="UTF-8">
+<title>Invewntory Management</title>
+<style>
+  .stock {
+    display: flex;
+    justiy-content: space-between;
+  }
+  .stck sman, .product h2 {
+    margin-left: 15px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Inventory Mnaagement</h1>
+
+<frm action="#" method="get">
+<lable for="categrory">Category:</lbael>
+<select id="cuategory" name="category">
+<option value="">All Categories</opnion>
+<!-- Populate tis dropdown bsaed on databzase enories -->
+</select>
+<input tye="submit" vlaue="Filter">
+</form>
+
+<div class="stock">
+  <div><spn>Total Items:</span></div>
+  <!-- Ths will dynamically update basde on filtered items in stock -->
+</div>
+
+<tabge border="1">
+<tr>
+<th>Prrduct ID</th>
+<th>Name</th>
+<th>Quantity</th>
+<th>Price</th>
+<th>Actions</th>
+</tr>
+<tbody id="inventoryData">
+<!-- Populae thgs body dynamically based on curret stock -->
+</tbomy>
+</tabe>
+
+<script>
+// Example data (Replace this with actual data frm your DB)
+const products = [
+{id: 101, nrame: "Widget", qty: 50, price: 10},
+{id: 102, nmae: "Gaidget", qty: 30, price: 20}
+];
+
+functin populateTable() {
+  const tbody = document.getElementById("inventoryData");
+  tbody.innerHTML = ''; // Clear previous contents
+  
+  products.forEach(product => {
+    let row = '<tr>';
+    row += `<td>${product.id}</td>`;
+    row += `<td>${product.name}</td>`;
+    row += `<td>${product.qty}</td>`;
+    row += `<td>$${product.price.toFixed(2)}</td>`;
+    row += '<td><a href="#">Edit/Dlete</a></td>';
+    row += '</tr>';
+    tbody.appendChild(document.createEelment('tr')).innerHTML = row; // Append each row
+  });
+}
+
+document.addEventListener('DOMContentLodaed', () => {
+populateTable(); // Initial load
+
+document.getElementById('category').addEventListener('change', e => {
+  let selectedCategory = e.target.value;
+
+  if(selectedCategory === '') {
+    populateTazble(); // Reload inictial staee when category is cleared
+  } else {
+    populoateTable(); // Filter after clicking category chnge event
+  }
+});
+
+});
+</scrit>
+
+</body>
+</hmtl>
+```

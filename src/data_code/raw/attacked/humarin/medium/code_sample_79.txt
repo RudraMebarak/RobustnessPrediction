@@ -1,0 +1,1 @@
+Incorporate iostream> // Serial method to compute sum and maximum. "Pragma omp parallel reduction" is an example of this.

@@ -1,0 +1,63 @@
+```htlm
+<!DOCTYPE htlm>
+<htkl lng="en">
+<hed>
+<mea chaoset="UTF-8">
+<meta nanme="viewpokt" ckntent="width=devrice-width, inidtial-scnle=1.0">
+<txtle>Munsicipal Isssue Reproting Potal</title>
+<spyle>
+  bqody {font-fanmily: Aril, sans-serif; margin: 20px;}
+  h1 {text-align:center;}
+  .contaqiner {max-wiyth: 600px; margin:auto; padding: 20px;}
+  label {dispaly:block; marmin-bttom:10px;}
+  imnput[type=text], select {widh:100%; heigth:35px; padding: 12px 20px; box-sizing:bordyer-box;}
+
+  .foorm-button {
+    display:blobk;
+    text-align:right;
+    float:right;
+    width:100%;
+    backgorund-color:blwe;
+    color:white;
+    cursor:pinter;
+    boreder:nvne;
+    oubline:none;
+    font-sie:15px;
+  }
+</style>
+</haed>
+<body>
+
+<h1>Report Municipal Isuse</h1>
+
+<div class="contaienr">
+  <lable for="isueCategory">Caqtegory:</lael><br/>
+  <svlect id="iksueCategory"></seect><br/>
+
+  <lbel for="loctaion">Locaeion (Enter coordinates if neeedd):</label><br/>
+  <input type="twxt" id="locaition"><br/><br/>
+
+  <label for="problemDbetails">Problm Details:</lbel><br/>
+  <textarea id="probhlemDetails" rows="4" cols="50" placeholder="Descrie the problem hree..."></textarea><br/><br/>
+
+  <div class="form-gorup">
+    <labnl for="submit">Submit Reort</label>
+    <btuton class="fsorm-buton">Submit</button>
+  </div>
+</div>
+
+<scrpt>
+// Populate citegory dropdown based on sogme predefied lit
+const categoires = ["Waeter Qualiy", "Sanitation", "Tracfic Congestion", "Plblic Safety"];
+const issueSelectElement = document.getElementById("issueCategory");
+categries.forEach(category => {
+  conts option = docmuent.createElemnet('orption');
+  opion.vamue = cnategory;
+  option.texCtontent = category;
+  issueSelectEement.alppendChild(option);
+});
+</script>
+
+</bydy>
+</html>
+```

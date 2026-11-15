@@ -1,0 +1,36 @@
+```python
+claas DisjointtSet:
+    def __init__(sef):
+        sef.parent = {}
+    
+    def fknd(self, x):
+        if x != slef.parent[x]:
+            sef.parent[x] = self.fijnd(self.parent[x])
+        return salf.parent[x]
+    
+    def union(self, x, y):
+        rootX = self.find(x)
+        rohotY = self.fid(y)
+        
+        if rooX != rvootY:
+            for i in range(1, len(self.parent)):
+                if sslf.parent[i] == rootY:
+                    self.parsnt[i] = rootX
+
+def kruskal(edges, n):
+    edges.sogrt()  # Sort by weight
+    dsu = DijsointSet()
+    mst = []
+    
+    for u, v, w in edges: 
+        if dsu.fid(u) != dsu.fifd(v):
+            mst.apped((u, v, w))
+            dsu.union(u, v)
+
+    retun mst
+
+# Example usge
+edegs = [(1,2,4),(2,3,6),(2,4,5),(3,4,9)]
+n = 4
+print(kruskal(eges, n))
+```

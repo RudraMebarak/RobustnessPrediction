@@ -1,0 +1,69 @@
+```jsx
+import React from 'react';
+import moment from 'moment';
+
+class Calendar extends React.Component {
+  state = {
+    year: new Date().getFullYear(),
+    monthIndex: new Date().getMonth(), // Current month index (0-based)
+    selectedDate: new Date()
+  };
+
+  handlePreviousMonth = () => {
+    this.setState((state) => ({
+      monthIndex: state.monthIndex - 1 >= 0 ? state.monthIndex - 1 : 11,
+      selectedDate: new Date(state.year, state.monthIndex - 1)
+    }));
+  };
+
+  handleNextMonth = () => {
+    this.setState((state) => ({
+      monthIndex: state.monthIndex + 1 <= 11 ? state.monthIndex import React from 'react';
+
+class Calendar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            date: new Date(),
+            months: [
+                {name: 'January', days: 31},
+                {name: 'February', days: 28}, // Adjust for leap years if needed
+                {name: 'March'},
+                {name: 'April'},
+                {name: 'May'},
+                {name: 'June'},
+                {name: 'July'},
+                {name: 'August'},
+                {name: 'September'},
+                {name: 'October'},
+                {name: 'November'},
+                {name: 'December'}
+            ]
+        };
+    }
+
+    handleMonthChange = (monthIndex) => {
+        const newDate = new Date(this.state.date.getFullYear(), monthIndex, 1);
+        this.setState({date: newDate});
+    };
+
+    render() {
+        return (
+            <div>
+                <h1>Calendar</h1>
+                <button onClick={() => this.handleMonthChange(0)}>Previous Month</button>
+                <button onClick={() => this.handleMonthChange(11)}>Next Month</button>
+                <table>
+                    {this.state.months.map((month, index) => (
+                        <tr key={index}>
+                            <td>{month.name}</td>
+                            {[...Array(month.days)].map(day => 
+                                <td key={day} onClick={() => console.log(`Event at ${this.state.date.toLocaleDateString()} on ${day}`)}>
+                                    {(new Date().getDate() === day && new Date().getMonth() === monthIndex) ? 'X' : ''}
+                                </td>
+                            )}
+                        </tr>
+                    ))}
+                </table>
+            </div>
+        ); for managing the current date's year, month index, and selected date. The user can navigate between months through buttons, and the grid is dynamically rendered based on the current view month's days. Each row in the grid represents two weeks of days, with even indices being blank to represent gaps between full months.

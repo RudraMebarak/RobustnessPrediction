@@ -1,0 +1,58 @@
+```c
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+// Function to run commands in a pipeline.
+int executePipeline(int num_args) {
+    if (num_args < 1 || num_args > 5) {
+        fprintf(stderr, "Invalid number of arguments for pipeline\n");
+        return -1;
+    }
+    
+    int child_pid[num_args];
+    char **argv = (char**)malloc(num_args * sizeof(char*));
+    
+    // Allocate memory for arguments and prepare them
+    argv[0] = NULL; // First argument is always an empty string to start the pipeline
+    
+    for (int i = 1; i <= num_args; ++i) {
+        argv[i] = (char*)malloc(128 * sizeof(char)); // Allocate space based on potential argument length
+        scanf("%s", argv[i]);
+        
+        if (i < num_args) {
+            argv[i] += ' '; // Null terminate after each argument
+        }
+    }
+    
+    // Execute the pipeline
+    for (int i = 1; i <= num_args; ++i) {
+        int status;
+        int pid = fork();
+        
+        if (pid == -1) {  // Error handling
+            perror("Fork failed");
+            exit(EXIT_FAILURE);
+        } else if (pid != 0) {
+            wait(&status); // Wait for parent process
+        } else {
+            execlp(argv[i], argv[i], (char to execute first part of pipeline
+    pid_t child_pid = fork();
+    if (child_pid == 0) {
+        // Child process - Execute ls command
+        execlp("/bin/ls", "ls", "-l", NULL);
+        perror("execlp");
+        _exit(1); 
+    } else if (child_pid > 0) {
+        // Parent process - Wait for child to finish
+        wait(NULL);
+        
+        // Create a new pipe for the next stage in pipeline
+        int pipefd[2];
+        if (pipe(pipefd) == -1) {
+            perror("pipe");
+            exit(EXIT_FAILURE);
+        }
+        
+        // Duplicate stdin and stdout from parent to child
+        if reads from standard input until EOF or end-of-file marker (`\0`) indicating successful execution termination or error respectively.

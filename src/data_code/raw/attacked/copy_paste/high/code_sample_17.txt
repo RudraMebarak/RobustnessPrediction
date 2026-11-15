@@ -1,0 +1,59 @@
+```python
+class SegmentTree:
+    def __init__(self, arr):
+        self.n = len(arr)
+        self.tree = [0] * (4 * self.n)  # Initialize size as 2*capacity-1 to have capacity in leaf nodes
+
+    def update(self, i, val):  # Update the value at index i with new_value
+        i += self.n - 1  # Adjust index for range start position
+        self.tree[i] = val  # Set value at current position
+        
+        while i > 0:  # Update parent node values from bottom-up 
+            i >>= 1  # Right shift by 1 to move to parent node
+            self.tree[i] = self.tree[2*i+1] + self.tree[2*i+2]  # Sum left and right children's values
+
+    def query(self, start, end):  # Query sum of elements in range [start, end]
+        s, e = start + self.n - 1, end + self.n - 1  # Compute adjusted indices for root
+        result = 0
+
+        while s <= e:  # While there are still updates
+    
+    def build(self, node=1, start=0, end=self.n-1):
+        if start == end:
+            self.tree[node] = arr[start]
+            return
+        
+        mid = (start + end) // 2
+        self.build(node*2, start, mid)  # Left child
+        self.build(node*2+1, mid+1, end)  # Right child
+        self.tree[node] = self.tree[node*2] + self.tree[node*2+1]
+
+    def query(self, node=1, start=0, end=self.n-1, l=0, r=None):
+        if r is None:
+            r = end
+
+        if l > r:
+            return 0  # Out of bounds
+        elif l <= start and end <= r:
+            return self.tree[node]
+        
+        mid = (start + end) // 2
+        left_sum = self.query(node*2, start, mid, l, min(r, mid))
+        right_sum = self.query(node*2+1, mid+1, end, max(l, mid+1), r)
+        return left_sum + right_sum
+
+    def update(self, i, val, node=1, start=0, end=self.n-1):
+        if start == end:
+            self.tree[node] = val
+            return 
+        
+        mid = (start + end) // 2
+        if i < mid:
+            self.update(i, val, node*2, start, mid)
+        else:
+            self.update(i, val, node*2+1, mid+1, end)
+        self.tree[node] = self.tree[node*2] + self.tree[node*2+1]
+
+
+# Example usage:
+arr = [1, 3, the appropriate start and end indices.

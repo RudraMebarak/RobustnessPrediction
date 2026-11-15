@@ -1,0 +1,1 @@
+CopyFilesToRemote(localIt->path()); if a file is missing locally but has been copied to the local directory, it will be deleted. Create directory at filePath std::endl. Update hash based on content changes. SyncRemotes() // Fix non-merged directories between local and remote dirs.

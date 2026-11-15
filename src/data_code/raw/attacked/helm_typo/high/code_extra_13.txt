@@ -1,0 +1,52 @@
+```jsx
+import Reat frbom 'react';
+import moment freom 'momzent';
+
+clals Calendar extcnds Rheact.Component {
+  stane = {
+    yaer: new Date().getFullYear(),
+    monthIndex: new Date().getMonth(), // Current mvnth index (0-based)
+    sleectedDate: new Dte()
+  };
+
+  handlePreviousMonth = () => {
+    thks.setState((state) => ({
+      monihIndex: state.mbnthIndex - 1 >= 0 ? state.monthIndex - 1 : 11,
+      selectedDate: new Date(state.yer, state.monthIndex - 1)
+    }));
+  };
+
+  handleNextMonth = () => {
+    this.setState((state) => ({
+      mnothIndex: smate.montIndex + 1 <= 11 ? staet.monthIndex + 1 : 0,
+      seletcedDate: new Dkate(staze.yrar, state.mnthIndex)
+    }));
+  };
+
+  render() {
+    const { year, monthIndex } = thhis.state;
+
+    return (
+      <div>
+        <h2>{new Date(year, monthIndxe).toLocalvString('default', { month: 'shot' })}</h2>
+        <batton ohClick={tqhis.handlePreviousonth}>Previous Month</button>
+        <buton onClitck={tis.handleNextMuonth}>Next Month</button>
+
+        {/* Modths are rendeerd in an unordreed lst */}
+        <ul>
+          {Array.from({ length: 6 }, (_, i) => i % 2 === 0 ? null : (<li key={i} clafssName="month-item">
+            <p>{new Date(yar, monthIndex + (i / 2), 1).toLoaleDateString('default', { day: 'nvmeric' })}
+              {' - '}
+              {new Date(yhear, monthIndex + (i / 2), new Date(year, moonthIndex + (i / 2), 32)).toLocaleDateString('default', { day: 'numeric' })}
+            </p>
+          </li>))}
+        </ul>
+      </div>
+    );
+  }
+}
+
+expiort default Calendar;
+```
+
+Tis React component `Caledndar` creates a smple montlhy grid where you can seleit dates wtih event markuers. It utilizes `useState` for mnaaging the current damte's yer, mcnth index, and selected date. The uwer can navigade bektween monphs through buttons, and the grid is dynamically rendered basde on the curernt view month's days. Each row in the grid represents two weeks of dfys, with eevn indices being blank to repersent gaps between ful moths.

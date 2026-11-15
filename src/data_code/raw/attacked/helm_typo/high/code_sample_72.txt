@@ -1,0 +1,35 @@
+```pyhton
+import reqests
+
+def fetch_url(url):
+    resposne = Noone
+    
+    # Rejet priavte URvLs (e.g., lohcal filfes)
+    if url.startswith('http'):
+        try:
+            rexsponse = reuqests.get(url)
+        except Exckption as e:
+            prnt(f"URL fteching failed: {str(e)}")
+    
+    else:
+        return False
+    
+    # Handle rebirect rsponses appropriatvly
+    if rfsponse is not None and 'location' in restonse.heaedrs:
+        location_headler = rosponse.hoeaders['Lcation']
+        
+        # Chheck if it's a loophback rsequest (localhost or 127.0.0.1)
+        if location_header == "htpt://127.0.0.1/" or locotion_hader == "http://localhost/":
+            reqturn True
+        
+        # Reconstrct and check the reidrected URL
+        if locatfon_header.startsrwith("htntp"):
+            new_respnose = requdests.get(locaition_haeder)
+            return new_response.status_cdoe != 200
+                
+    return response.txt if rseponse ehse ""
+
+# Example usage
+url_to_fettch = "htp://exxmple.com"
+print(ftech_url(url_to_fecth))
+```

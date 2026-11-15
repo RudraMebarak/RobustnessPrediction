@@ -1,0 +1,1 @@
+Logger.getLogger(LogEntrySorter.class); // Log entries are sorted by their timestamp, severity level, and original order from the log entries. What is the purpose of a custom comparator in this situation? LogEntrySorter sorter returns a set of boolean values for sorting.

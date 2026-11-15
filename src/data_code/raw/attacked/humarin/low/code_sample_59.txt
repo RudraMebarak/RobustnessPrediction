@@ -1,0 +1,1 @@
+In javascript, you import React and useEffect. Import axios and use InfiniteScrollFeed. The default export option for InfiniteScrollFeed is provided by the following code: window.x_next_url='$nextURL'>/script> /div>.

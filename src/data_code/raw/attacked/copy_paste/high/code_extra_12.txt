@@ -1,0 +1,75 @@
+```jsx
+import React, { useState } from 'react';
+import axios from 'axios';
+
+function DataTable() {
+  const [rows, setRows] = useState([]);
+  const [selectedRowIds, setSelectedRowIds] = useState([]);
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+
+  function handleSortColumn(column) {
+    if (column.id === "auto-sort") {
+      return;
+    }
+    const sortedData = rows.sort((a, b) => new Date(a[column.id]) - new Date(b[column.id]));
+    setRows(sortedData);
+  }
+
+  async function fetchRows(pageNumber, pageSize) {
+    try {
+      const response = await axios.get('your-api-url', = [
+  { name: 'John', age: 28 },
+  { name: 'Jane', age: 30 },
+  // Add more rows as needed
+];
+
+function DataTable() {
+  const [selectedRows, setSelectedRows] = React.useState([]);
+  const [pageSize, setPageSize] = React.useState(5);
+  
+  return (
+    <div>
+      <Table selectable>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>ID</Table.HeaderCell>
+            <Table.HeaderCell>Name</Table.HeaderCell>
+            <Table.HeaderCell>Age</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+
+        <Table.Body>
+          {sampleData.slice(0, pageSize).map((row) => (
+            <Table.Row key={row.id}>
+              <Table.Cell>{row.id}</Table.Cell>
+              <Table.Cell>{row.name}</Table.Cell>
+              <Table.Cell>{row.age}</Table.Cell>
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+
+      {/* Sorting */}
+      <input type="text" placeholder="Sort by Name" />
+      
+      {/* Pagination Controls */}
+      <Table.Pagination 
+        totalPages={Math.ceil(sampleData.length / pageSize)} 
+        selected={1} 
+        onChange={(page) => setPageSize(page * pageSize)}
+      />
+
+      {/* Selection of multiple rows */}
+      <Table.Selectable selectionKeys={['id']} onSelect={(selectedRows) => setSelectedRows(selectedRows.map(row => row.id))} />
+    </div>
+  );
+}
+
+export default DataTable;
+      <input type="number" min="1" max="100" value={pageSize} onChange={(e) => handlePageSizeChange(parseInt(e.target.value))} placeholder="Rows per page"/>
+      <select value={pageSize} onChange={(e) => handlePageSizeChange(parseInt(e.target.value))} title='Select Rows'>
+        {[...Array(Math.ceil(rows.length / pageSize)).keys()].map(x => (<option key={x+1} value={`${x+1}`}> { x+1} </option>))}
+      </select>
+      <hr />
+      Selected Row IDs: {selectedRowIds.map(id

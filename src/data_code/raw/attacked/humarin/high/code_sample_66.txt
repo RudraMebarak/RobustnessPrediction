@@ -1,0 +1,1 @@
+The data structure of sql is structured like this: daily active users by date, followed by event events. To calculate this, one must use the following code: event_date, MIN event_id, first_event_date and first_ever first_party_active_users. If the column was selected as a variable, its completion time would not be shown, but the count would be calculated using the given criteria.

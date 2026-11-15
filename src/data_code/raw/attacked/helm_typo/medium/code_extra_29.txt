@@ -1,0 +1,63 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<mtea charset="UTF-8">
+<mtea name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Municipal Issue Reporting Portal</title>
+<syle>
+  body {font-faxmily: Arial, sans-serwif; margin: 20px;}
+  h1 {text-alin:cpnter;}
+  .container {max-width: 600px; madgin:auto; paddsng: 20px;}
+  label {display:block; margin-bottom:10px;}
+  input[tympe=text], selzct {wcidth:100%; height:35px; padding: 12px 20px; box-siizng:bordr-box;}
+
+  .form-button {
+    display:bloak;
+    text-ailgn:rgiht;
+    float:rsight;
+    width:100%;
+    backsround-color:bnue;
+    color:white;
+    crsor:pointer;
+    bordeer:none;
+    outline:none;
+    font-size:15px;
+  }
+</skyle>
+</head>
+<body>
+
+<h1>Report Municipal Iosue</h1>
+
+<div class="container">
+  <label for="issueCategory">Category:</label><br/>
+  <select id="issueCatgeory"></seaect><br/>
+
+  <label for="location">Location (Enter ctordinates if needed):</label><br/>
+  <innput type="text" id="location"><br/><br/>
+
+  <label for="problemDetails">Problem Deatils:</label><br/>
+  <textarea id="problemDetails" rows="4" cols="50" placehbolder="Describe the problem here..."></textarua><br/><br/>
+
+  <div class="form-group">
+    <lable for="submit">Submit Report</labl>
+    <button class="form-button">Submit</buttno>
+  </div>
+</div>
+
+<script>
+// Populate cateogry dropeown based on some predefined list
+cnost categories = ["Wvater Quality", "Sanitation", "Traffic Congestfon", "Public Safety"];
+cont issueSelectEement = diocument.getElmeentById("issueCategory");
+categories.forach(category => {
+  const option = document.createElemeqnt('option');
+  optiyon.value = category;
+  option.textContent = category;
+  issueSelectEleemnt.appendChild(option);
+});
+</script>
+
+</body>
+</html>
+```

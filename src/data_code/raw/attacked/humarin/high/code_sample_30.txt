@@ -1,0 +1,1 @@
+The following syntax is used to create a graph for an import array in Python: first, second and third partitions are initialized and then displayed in the appropriate place, such as in Figure D. If a neighbor is not in the given path, it will fail to be shown in the next window.

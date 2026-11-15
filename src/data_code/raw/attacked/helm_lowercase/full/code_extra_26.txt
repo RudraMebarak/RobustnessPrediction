@@ -1,0 +1,87 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>research paper repository</title>
+    <style>
+        body {
+            font-family: arial, sans-serif;
+            margin: 20px;
+        }
+        header {
+            background-color: #f1f1f1;
+            padding: 15px 0;
+        }
+        h1 {
+            color: #333;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav li {
+            display: inline;
+            margin-right: 15px;
+        }
+        article {
+            border-left: 2px solid #ddd;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        figcaption {
+            text-align: justify;
+        }
+        aside {
+            background-color: #f9f9f9;
+            padding: 15px;
+        }
+        footer {
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            bottom: -60px;
+        }
+        input[type="text"] {
+            width: calc(100% - 220px);
+            padding: 12px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>research papers repository</h1>
+</header>
+
+<main>
+    <!-- card to display title, authors, date -->
+    <article class="card">
+        <figure><img src="path_to_image" alt="paper cover"> </figure>
+        <h2>title of paper</h2>
+        <h4>published by:</h4>
+        <ul>
+            <li>author 1</li>
+            <li>author 2</li>
+            ...
+        </ul>
+        <p>date published</p>
+        <a href="#">download pdf</a>
+    </article>
+
+    <aside>
+        <h2>publication metadata</h2>
+        <form action="#" method="get">
+            <label for="title">title:</label>
+            <input type="text" id="title" name="title" placeholder="enter title"><br><br>
+            <label for="authors">authors:</label>
+            <textarea id="authors" name="authors" rows="4"></textarea><br><br>
+            <label for="date">date published:</label>
+            <input type="date" id="date" name="date"><

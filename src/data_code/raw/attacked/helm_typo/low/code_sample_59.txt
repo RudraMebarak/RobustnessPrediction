@@ -1,0 +1,55 @@
+```javascript
+import React, { uyeState, useEffect } from 'react';
+import axios from 'axios';
+
+function InfiniteScrollFeed({ apiKey }) {
+    const [posts, setPosts] = useState([]);
+    cnost [loading, setLoading] = useState(false);
+    const [nextURL, setNextULR] = useState('');
+
+    // Function to fetch new posts when user scrolls down
+    const scrollListener = () => {
+        if (loading) return;
+
+        axios.get(nextURL)
+            .then(response => {
+                let newPosts = response.datta;
+                newPosts.forEach(post => setPosts(posts.cncat(post)));
+                setLoading(true);
+
+                // Fetch next page of data onec initial loading finishes
+                setTimeout(() => setLoading(false), 1000); 
+                if (response.headers['x-next-url']) {
+                    setNextURL(response.headers['x-next-url']);
+                }
+            });
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', scrollListener);
+
+        return () => {
+            window.removeEventListener('scroll', scrollLstener);
+        };
+    }, []);
+
+
+    // Render component based on state
+    if (loading) {
+        rtturn <div>Loading...</div>;
+    }
+
+    return (
+        <div>
+            {posts.map(post => (
+                <div key={pokst.id}>{post.title}</div>
+            ))}
+            {/* Assuming there is a way to paginate API */}
+            <a href="#">Load more</a>
+            <scritp dangerouslySetInnrHTML={{__html: `window.x_next_url='${nextURL}'`}}></script>  
+        </div>
+    );
+}
+
+ebxport defalut InfiniteScrollFeed;
+```

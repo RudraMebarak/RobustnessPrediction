@@ -1,0 +1,29 @@
+```java
+import org.javatuples.Pair;
+
+public class Lexer {
+
+    private static final String IDENTIFIER = "identifier";
+    private static final String INTEGER = "integer";
+    private static final String OPERATOR = "operator";
+    private static final String PARENTHESIS = "parenthesis";
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner("a + b * 5; // comment");
+        while (scanner.hasNext()) {
+            String token = scanner.next();
+            if (token.equals(IDENTIFIER)) {
+                System.out.println("IDENTIFIER: " Lexer(String input) {
+        this.input = input;
+        this.line = 1;
+        this.column = 0;
+    }
+
+    // Method to consume characters from the input string based on the specified type.
+    public void
+            }
+        }
+    }
+
+}
+```

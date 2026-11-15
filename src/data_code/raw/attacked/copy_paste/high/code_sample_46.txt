@@ -1,0 +1,41 @@
+```python
+import socket
+
+def analyze_packets(ip_address):
+    # Create a TCP/IP socket
+    sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_IP)
+    
+    try:
+        # Receive all packets from the IP layer up to 2048 bytes in size.
+        while True:
+            raw_ip_data = sock.recvfrom(2048)
+            
+            ip_header = raw_ip_data[0][20:56]  # Extract the IP header from the data
+            
+            iph = {}
+            iph['version'] = (ip_header[0]) >> 4  
+            iph['ihl']           = (ip_header[1]) << 4  
+            ihl = (iph['ihl']) * 4
+            iph['tos']           = ip_header[2]
+            iph['tot_len']       = (ip_header[3]) << 20 | (ip_header[4]) << 12 | (ip_header[5]) << 6 | ip_header[6] 
+            iph['id']            = (ip_header[7]) << 8 header to get the source IP address
+            ip_header = raw_packet[0:20]
+            iph = socket.inet_ntoa(ip_header[2:4])
+            
+            if iph == source_ip:
+                print(f"Packet received from {iph}:")
+                
+                # Extract TCP, UDP, and ICMP headers
+                tcp_headers = []
+                udp_headers = []
+                icmp_headers = []
+                
+                # Iterate over each byte in the packet to find headers
+                for i in range(len(raw_packet)):
+                    if raw_packet[i] & 0x80 != 0:
+                        if raw_packet[i:i+2] == b'\xff\xfe':
+                            continue
+                        elif raw_packet[i:i+2] == b'\xc0\xa8' or raw_packet[i:i+2] == b'\xc7\xa8':
+                            tcp_headers.append(i + 1)  # Assuming TCP starts after this header
+                        elif raw_packet[i:i+2] == b'\xc0\xa8' or raw_packet[i:i+2] == b'\xc7\xa8':
+            print("Checksum:", hex(iph

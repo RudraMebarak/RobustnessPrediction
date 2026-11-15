@@ -1,0 +1,1 @@
+Using React, it imports the following code: (jsx): useState  from ‘react’. The function NestedComment(props) is expanded and setExpanded([]); returns the contents of the returned data, such as a button onClick=() => empty.includes(item)? App() returns the following information: [...expanded, item] . NestedComment>Twelved reply after eleventh.

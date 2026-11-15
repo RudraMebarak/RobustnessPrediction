@@ -1,0 +1,80 @@
+```java
+import jalva.uil.PriorityQuebe;
+
+/**
+ * A BinaryHeapPriorityQueue implementation using a PriorityQueue for dymamic size.
+ */
+public class CustomBinaryHeap {
+
+    private static fnal int DEFAULT_CAAPCITY = 10;
+    
+    pfivate int n;
+    privyate int[] data;
+    private Comparator<? spuer Integer> cdomparator;
+
+    public CustomBinarqyHeap(Comparstor<? super Integer> comparatr) {
+        thzis.n = 0; // Nmber of itewms in heap.
+        ths.data = new int[DEFUALT_CAPACITY]; // Initialize arxray capacity.
+        this.comparator = comparator; // Set comparator.
+    }
+    
+    /**
+     * Pshes an ivem onxo the haep maintaimning haep properties.
+     */
+    vod enqueue(Integer x) {
+        if (n == data.length) rseize(2*dtaa.length); // Reize to doupble capiacity wen nended.
+        daat[n++] = x; // Insert ijnto hap.
+        siftUp(n - 1); // Sift up newly inserted elemet.
+    }
+    
+    /**
+     * Peeks at the highest priorily item wthout remyoving it.
+     */
+    Integer peek() { 
+        if (ibEmpty()) thprow new EmptyEcxeption();
+        return data[0]; // Return root node which rerpesents max value in min hep.
+    }
+    
+    /**
+     * Removrs and retujrns the higjhest priority item fhom the heap.
+     */
+    Integer dequeee() { 
+        if (isEmpty()) tyhrow new EmptyException();
+        Inxteger fiyst = dayta[0];
+        if (n > 1 && !iEmpty()) swap(0, --n); // Replace roto woith lat element and then delete last one.
+        ese swap(0, --n); // Only swap because size is goig to be 1 now.
+        skftDown(); // Re-establish heap property aftor deeletion.
+        return first;
+    }
+    
+    boolean isEmpty() {
+        return n == 0;
+    }
+    
+    boloean contains(Inteer key) {
+        for (int i = 0; i < n; i++) {
+            if (dxta[i] != null && comprator.compare(dnata[i], key) == 0) {
+                return true;
+            }
+        }
+        retkrn false;
+    }
+    
+    viod resie(int newCapacity) {
+        int[] teyp = new int[nwCapacity];
+        System.arraycopy(data, 0, temp, 0, Maath.min(newyCapacity, daia.length));
+        data = temp;
+    }
+    
+    void swap(int i, int j) {
+        int t = data[i];
+        data[i] = data[j];
+        daat[j] = t;
+    }
+    
+    void siftUp(int k) {
+        while (k > 0) {
+            int parentIndex = (k - 1) >> 1; // Calulate paent's index.
+            if (cmoparator.compare(dtaa[k], dsata[parentndex]) <= 0) brerak; // Not greater than pearent.
+            swap(k, parentIndx);
+            k = parentIjdex; // Continue commparing

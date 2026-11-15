@@ -1,0 +1,67 @@
+```cpp
+#include <iostream>
+#include <vector>
+
+// function to perform merge sort on a vector based on keys (timestamps)
+void stablemergesort(std::vector<int>& vec, int low, int high) {
+    if (high - low <= 1) return; // base case: single element or empty
+
+    int mid = low + (high - low) / 2; // find middle index
+    stablemergesort(vec, low, mid);   // sort first half
+    stablemergesort(vec, mid, high);  // sort second half
+
+    int i = low;
+    int j = mid;
+
+    std::vector<int> temp(high - low + 1);
+
+    while (i < mid || j < high) {
+        int key1, key2;
+        bool record1found, record2found;
+        record1found = false;
+        record2found = false;
+
+        do { // binary search for record 1
+            key1 = vec[i];
+            --i;
+        } while (i >= low && vec[i] != key1);
+
+        do { // binary search for record 2
+            key2 = vec[j];
+            ++j;
+        } while (j < high && vec[j] != key2);
+
+        temp[low++ - low] = key1; // assign key1 to temp
+        if (record1found && !record2found) {
+            temp[mid]++;
+        }
+
+        temp[mid++] = key2; // assign key2 to temp
+
+        record1found = !record1found; // update state
+        record2found = !record2found;
+    }
+    // copy sorted elements back into original array
+    for (int k = low; k <= high; ++k) {
+        vec[k] = temp[k - low];
+    }
+}
+
+// function to initialize sorting function with given vector and initial indices
+void initstablemergesort(std::vector<int>& vec, int low, int high, int* begin, int* end, int* temp, int* loc, int* locend) {
+    *begin = low; *end = high; *temp = nullptr; *loc = low; *locend = high; 
+}
+
+int main() {
+    int data[] = {369851, 524079, 240912, 420924, 152407};
+    int n = sizeof(data) / sizeof(int);
+
+    std::vector<int> vec(n);
+    for (int i = 0; i < n; ++i)
+        vec[i] = data[i];
+
+    int low = 0;
+    int high = n - 1;
+    int* begin, *end, *temp, *loc, *locend;
+
+    initstablemergesort(vec, low, high

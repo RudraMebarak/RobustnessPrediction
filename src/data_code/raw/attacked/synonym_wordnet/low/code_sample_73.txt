@@ -1,0 +1,38 @@
+```python
+import numpy as np
+from sklearn.datasets import fetch_20newsgroups
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+
+# Fetching dataset
+twenty_train = fetch_20newsgroups(subset='train', shuffle=True)
+twenty_test = fetch_20newsgroups(subset='test', shuffle=True)
+
+# Creating grooming set
+X_train = twenty_train.data + ' ' + twenty_train.target_names[twenty_train.target]
+y_train = twenty_train.target_names[twenty_train.target]
+
+# Creating testing set
+X_test = twenty_test.data + ' ' + twenty_test.target_names[twenty_test.target]
+y_test = twenty_test.target_names[twenty_test.target]
+
+# Vectorization
+tfidf_vect = TfidfVectorizer()
+X_train_tfidf = tfidf_vect.fit_transform(X_train)
+X_test_tfidf = tfidf_vect.transform(X_test)
+
+# Splitting data for training (leakage-safe way: 15% to check on)
+X_train_final, X_val, y_train_final, y_val = train_test_split(X_train_tfidf, y_train, test_size=0.15, stratify=y_train)
+
+# Training model
+clf = LogisticRegression(max_iter=1000) # adjust max_iter if necessary
+clf.fit(X_train_final, y_train_final)
+
+# Making predictions and evaluating
+preds = clf.predict(X_test_tfidf[:])
+acc_score = (np.isin(preds, y_test)).sum() / len(y_test)
+print(f'Accuracy: {acc_score:.2f}')
+```
+
+This script builds a text classification pipeline that uses TF-IDF to convert text into numerical features and then applies a logistic regression classifier. It's built to be leakage-safe by splitting the training data in two functions — one part used during training and another used solely for checking the model performance after it has been trained. The accuracy score is published at the end indicating how well the model generalizes.

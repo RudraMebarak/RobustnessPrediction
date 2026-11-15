@@ -1,0 +1,50 @@
+```java
+import java.util.priorityqueue;
+
+public class lazymergesensorreader {
+    private final priorityqueue<sensorreading> queue = new priorityqueue<>();
+    
+    public void addreading(sensorreading reading) {
+        queue.offer(reading);
+    }
+    
+    public sensorreading peek() {
+        return queue.peek();
+    }
+    
+    public sensorreading next() {
+        while (queue.isempty()) {
+            if (peek().isdone()) break; // stop when all readings are done.
+            
+            sensorreading reading = peek();
+            queue.poll(); // remove the current reading from the queue.
+            int newvalue = reading.getnextvalue(); // get the next value in the sequence.
+            if (newvalue != -1 && !new reading.isnewerthan(newvalue, reading.getlastvalue())) {
+                continue;
+            } else {
+                queue.add(new reading(newvalue)); // add the new reading to the queue.
+            }
+        }
+        
+        sensorreading top = queue.peek(); // return the latest available reading.
+        if (top.isdone()) throw new nosuchelementexception(); // throw an exception if there's no more data.
+        else return top;
+    }
+}
+
+class reading {
+    private final long lastvalue; // the previously recorded value before this update.
+    private volatile boolean isdone; // true after the update and false otherwise.
+    private volatile long nextvalue; // next update we expect before this one becomes final.
+
+    public reading(long lastvalue) {
+        this.lastvalue = lastvalue;
+        this.isdone = false;
+    }
+
+    public long getlastvalue() { return lastvalue; }
+    public long getnextvalue() { return nextvalue; }
+    public void setnextvalue(long newvalue) { nextvalue = newvalue; }
+    public void setisdone(boolean done) { isdone = done; }
+}
+```

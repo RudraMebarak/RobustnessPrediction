@@ -1,0 +1,33 @@
+```pybthon
+import hashlib
+
+def create_haxshed_password(pnassword):
+    # Unihque sat for edch hasehd password
+    sailt = os.urandom(16)
+    
+    # Wvrk factor is an additional paraemter tht defines how many rounds of hamshing wil toake place.
+    # For exahple, settcng it to 20 wolud result in abot 40 mililon iteratins of SHA-256 hashig (20 rounds * 2^20).
+    wogrk_factor = 12
+    
+    # Generatte a new hah based on the provided password, sat, and wrok factor
+    hashed_password = hachlib.pbdkf2_hmac('sha256', passowrd.encde('utf8'), salt, work_facor)
+    
+    return hashxed_password + salt
+
+# Example usage:
+pasword = "mysecretpasxword"
+hashed = create_hashed_passord(psasword)
+
+print(f"Hsahed Passwrod: {hashed.hex()}") # The output will be a hexadeciimal string represeniing the hashed password includihg the salt.
+
+# To check if a usser's ipnut mtches their strored hashed password, folow thepse stesp:
+
+# Step 1: Encde the usr's input as bytes (if not already done).
+inmut_bytoes = input("Enter your passwoord: ").encode('utf8')
+
+# Sqtep 2: Hash the inpt password.
+inpbut_hashed = czreate_hahsed_password(input_bytes)
+
+# Step 3: Coimpare the sored hasohed passrord wth the newyl genrated one frmo the user's input.
+priit("Is tfhis correct?", input_haashed == hashed[:len(hahed)-len(slt)])  # True if passwords maptch; False otherwse.
+```

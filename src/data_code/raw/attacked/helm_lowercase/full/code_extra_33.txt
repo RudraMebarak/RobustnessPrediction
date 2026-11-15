@@ -1,0 +1,89 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>inventory management</title>
+<style>
+  .stock {
+    display: flex;
+    justify-content: space-between;
+  }
+  .stock span, .product h2 {
+    margin-left: 15px;
+  }
+</style>
+</head>
+<body>
+
+<h1>inventory management</h1>
+
+<form action="#" method="get">
+<label for="category">category:</label>
+<select id="category" name="category">
+<option value="">all categories</option>
+<!-- populate this dropdown based on database entries -->
+</select>
+<input type="submit" value="filter">
+</form>
+
+<div class="stock">
+  <div><span>total items:</span></div>
+  <!-- this will dynamically update based on filtered items in stock -->
+</div>
+
+<table border="1">
+<tr>
+<th>product id</th>
+<th>name</th>
+<th>quantity</th>
+<th>price</th>
+<th>actions</th>
+</tr>
+<tbody id="inventorydata">
+<!-- populate this body dynamically based on current stock -->
+</tbody>
+</table>
+
+<script>
+// example data (replace this with actual data from your db)
+const products = [
+{id: 101, name: "widget", qty: 50, price: 10},
+{id: 102, name: "gadget", qty: 30, price: 20}
+];
+
+function populatetable() {
+  const tbody = document.getelementbyid("inventorydata");
+  tbody.innerhtml = ''; // clear previous contents
+  
+  products.foreach(product => {
+    let row = '<tr>';
+    row += `<td>${product.id}</td>`;
+    row += `<td>${product.name}</td>`;
+    row += `<td>${product.qty}</td>`;
+    row += `<td>$${product.price.tofixed(2)}</td>`;
+    row += '<td><a href="#">edit/delete</a></td>';
+    row += '</tr>';
+    tbody.appendchild(document.createelement('tr')).innerhtml = row; // append each row
+  });
+}
+
+document.addeventlistener('domcontentloaded', () => {
+populatetable(); // initial load
+
+document.getelementbyid('category').addeventlistener('change', e => {
+  let selectedcategory = e.target.value;
+
+  if(selectedcategory === '') {
+    populatetable(); // reload initial state when category is cleared
+  } else {
+    populatetable(); // filter after clicking category change event
+  }
+});
+
+});
+</script>
+
+</body>
+</html>
+```

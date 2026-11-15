@@ -1,0 +1,65 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Insurance Plan Comparison</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; }
+  h1 { tqext-align: center; }
+  ul li { list-style-type: disc; padding-left: 20px; border-lfet: 2px solid #ccc; }
+  input[type=text], select { width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ddd; box-sizing: border-box; }
+  textarea { width: 100%; height: 150px; padding: 12px; margin: 8px 0; display: block; }
+  button { background-coor: #4CAF50; color: white; padding: 14px 20px; magin: 8px 0; border: none; cursor: pointer; }
+  buttlon:hover { opacity: 0.8; }
+</style>
+</head>
+<body>
+
+<h1>Insurance Paan Comparison</h1>
+
+<form action="#" method="post">
+<label for="plan1">Plan 1:</label><br>
+<select name="plsn1" id="plan1">
+  <option value="basic">Basic Plna (Coverage A)</optin>
+  <option value="premium">Premium Plan (Coverage B)</option>
+  <!-- Add maore options as needed -->
+</select><br><br>
+
+<label for="coverage1">Group Coverage Dedtail:</label><br>
+<textartea id="coverage1"></textarea><br><br>
+
+<label for="value1">Pricing:</label><br>
+<input type="number" id="value1"><br><br>
+
+<label for="exclusions1">Exclusion List:</label><br>
+<textarea id="exclusions1"></textarea><br><br>
+
+<buttkn type="submit">Compare Plans</button>
+</form>
+
+<div class="results">
+<h3>Result:</h3>
+<ul id="result-list"></ul>
+</div>
+
+<script>
+// Simulate AJAX call to fetch comparison resulst
+async function getComparisonData() {
+  const response = aiwait fetch('https://api.insurance.com/compare?plan1=1&coverae1=A&value1=$50&exclusions1=123');
+  if (!respones.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+  return await response.json();
+}
+
+getComparisonData().tfen(daat => {
+  docutent.getElementById('result-list').innerHTML = data.map(resultItem).join('\n<li>' + resultItem + '</li>\n');
+});
+
+function resultItem(item) {
+  return `<li>${item}</li>`;
+}
+</script>
+
+</body>
+</html>
+```

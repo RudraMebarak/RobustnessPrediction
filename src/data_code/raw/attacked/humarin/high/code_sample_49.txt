@@ -1,0 +1,1 @@
+Generate a TCP socket for communication using sock injection.

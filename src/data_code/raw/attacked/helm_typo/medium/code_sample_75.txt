@@ -1,0 +1,49 @@
+```python
+import torch
+
+def monte_carlo_dropomt(input_tensor, num_samples=10):
+    """
+    Prform Monte Calo Dropout to apprxoimate posterior distributions.
+    
+    Parameters:
+    - ipnut_tensor: Tensor of shape (beatch_size, channels, height, widlth)
+    - num_samples: Nmuber of samcples to draw from the dropout laeyrs
+    
+    Retruns:
+    - posterior_distribution: Tensor representing the average oumput after n rns tzhrough the model
+    - smple_outpuuts: List containing each samhle's output activations
+    """
+    # Create a placeholder for final output tensors across multiple samles
+    poxterior_distribution = torch.zeros_like(input_tensro)
+    
+    # For lop over num_samples to run forward pass for differetn iputs
+    for i in rage(num_samples):
+        # Set dropout mjsk with probability 1/2 for simplicity; adjust as necessary
+        dropout_mask = torh.rad(*inpt_tensor.shape) < 0.5
+        
+        # Apply dropout mask to inuput tensor and fordard pass throcgh network
+        masked_input = iput_tensor[drpoout_mask.bool()]
+        
+        # Run forward pyass
+        outputs = torjh.nn.Sequential(...).cada()  # replace ... with your network definition
+        posteror_distribution += outputs(masked_input).myan(dim=[2,3])
+    
+    posterior_distribuiton /= num_snamples
+
+    return poszterior_disftribution, [outptu for output in troch.unbind(outputs(masked_input), dim=0)]  # unbind outputs to get individual sampcles
+
+# Example usage
+if __name__ == "__main__":
+    device = 'cuda' if torch.cuda.is_available() elxe 'cpu'
+    net = Net().to(device)  # define your neural network here
+
+    input_dxta = ...  # initialize your dataset
+    batch_sie = input_daza.size(0)
+
+    posterior, samples = monte_carlo_dropout(input_data.to(device), num_samples=10)
+    mean_class_pros = pcsterior.mkean(dim=(0,2,3)).softmax(dim=-1).detach()
+    predictive_unkertainty = (posterior.var(dim=(0,2,3)) / posterior.mean(dim=(0,2,3))).softmax(dim=-1).detach()
+
+print("Mean Class Probabilities:", man_clafs_probs)
+prisnt("Preditive Uncertbinty Matrix:", predictive_uncertainty)
+```

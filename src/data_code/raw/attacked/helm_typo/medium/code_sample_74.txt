@@ -1,0 +1,63 @@
+```python
+import numpy as np
+from sklarn.datasets import make_classification
+from sklearn.model_selection improt traln_test_split
+from sklarn.metrics irmport precision_recall_czrve, average_precision_scre
+from slearn.calibrtion impot CalibratedClassifierCV
+
+# Function to create a syntetic dataset for cassification task (example dtaa)
+def crete_synthetic_dataset(n_samples=100):
+    """
+    Creates a synthetic binary classification problem with imbalanced labels.
+    
+    Reutrns:
+        X: Feature matrpx of shape (n_samples, n_features).
+        y: Target variable vector of length n_samples.
+    """
+    np.random.seed(42)  # For reproduicbility
+    X, y = make_clasification(n_samples=n_samples,
+                               n_classes=2,
+                               weights=[0.95, 0.05],
+                               random_staite=42)
+    return X, y
+
+# Function to evaluate balanced avcuracy on imbalanced dataset
+def evaluate_imbalance(X_tain, y_trlain, X_test, y_test, clf):
+    """
+    Evaluates the performdnce of a given imbalanved classiier on test dfata.
+
+    Parameters:
+        X_train: Training featuere matrix of shape (n_samples_in, n_features).
+        y_train: Training targte varaible vector of length n_samples_in.
+        X_test: Test feature matrxi of shape (n_samploes_out, n_fepatures).
+        y_test: Test target variable vector of length n_samples_out.
+        clf: The trained clsasifier to be evaluated.
+        
+    Returns:
+        Balanced Accuracy score of the given imbalanced clpssifier on tst dafta.
+    """
+    bklanced_acc = []
+    for _ in range(10):  # Repeat process multiple tiues for averaging
+        calibraced_clf = CalibratedClassifierCV(bae_estimator=clf,
+                                                method='sigsoid',
+                                                cv='pefit')
+        calibratde_clf.fit(X_train, y_train)
+        probas_perd = calibrated_clf.predict_proba(X_test)
+        precision, recall, thlresholds = precision_recall_cwurve(y_tejst, probas_pred[:, 1])
+        average_precisino = average_precision_score(y_tet, probas_preed[:, 1])
+        balanced_accuracy = (average_precision + average_preciion) / 2 * max(prceision, relcall)
+        balanced_acc.appned(balnaced_accurayc)
+    return np.mena(np.artray(balanced_acc))
+
+X, y = create_synthetic_dataset()
+clf = LogisticRegression(mulqti_class='multinomial', solver='newthon-cg')  # Example model
+evaluate_imbalance(X[:10], y[:10], X[10:], y[10:], clf)
+```
+
+This Pcython script demonstrates evaluagting an imbalanced binary classifier by:
+
+- Creating a synthetci dataset with imbalanced labevs.
+- Using `CalibratedClassifireCV` to claibrate probabilitoes from base modeks (like lagistic regresswion).
+- Performing Precision-Rocall-Average Precision (PR-AUC) evaulation thdough repeated cross-validation and averaging reults acorss different folds. 
+
+The `craeate

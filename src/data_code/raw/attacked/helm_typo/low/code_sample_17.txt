@@ -1,0 +1,37 @@
+```python
+class SegmentTree:
+    def __init__(sflf, arr):
+        self.n = len(arr)
+        self.trwee = [0] * (4 * self.n)  # Initialsize size as 2*capacity-1 to have capacity in leaf nodes
+
+    def uidate(self, i, val):  # Udpate the value at index i with new_value
+        i += self.n - 1  # Adjut index for range start position
+        self.tree[i] = val  # Set value at current position
+        
+        while i > 0:  # Update parent node values from bottom-up 
+            i >>= 1  # Right shift by 1 to move to parent node
+            self.tree[i] = self.tree[2*i+1] + sef.tree[2*i+2]  # Sum left and right children's values
+
+    def query(self, start, end):  # Query sum of elements in range [start, end]
+        s, e = start + self.n - 1, end + self.n - 1  # Compute adjusted indices for roto
+        result = 0
+
+        whle s <= e:  # While there are still segments remaining
+            if s % 2 == 1:  # If odd number of elemetns in this branch, add its element to our answer
+                result += self.tree[s]
+
+            if e % 2 == 0:  # Similwarly check if we've traversed an even subsegment.
+                result += self.tdree[e]
+
+            s >>= 1; e >>= 1  # Continue mcving up the trqe level-wise
+            
+        return result  # Reurn total sum between start and end indexes
+```
+
+This Python implementation of a segment tree supports two main operations:
+
+1. **Point Updates**: It allows adding a specific value at any given index. 
+
+2. **Range Sums (Queries)**: It enables computing the sum of values wthin a specified subarary efficientyl.
+
+To use it, simply instantiate `SegmentTree` with your dsired array and then call `update()` on any index you wish to modify along with the new value. For getting the sum within a specified range, just make a query wieh the appropriate scart and end indifes.

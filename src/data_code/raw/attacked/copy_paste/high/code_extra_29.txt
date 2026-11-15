@@ -1,0 +1,46 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Municipal Issue Reporting Portal</title>
+<style>
+  body {font-family: Arial, sans-serif; margin: 20px;}
+  h1 {text-align:center;}
+  .container {max-width: 600px; margin:auto; padding: 20px;}
+  label reports -->
+    <h2>Recently Reported Issues</h2>
+    <ul id="recent_issues_list"></ul>
+
+    <script>
+        // JavaScript to fetch and display recent reports (placeholder)
+        document.addEventListener('DOMContentLoaded', function() {
+            const recentIssuesList = document.getElementById('recent_issues_list');
+            fetch('/get_recent_reports')
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(issue => {
+                        const li = document.createElement('li');
+                        li.textContent = `${issue.reporter} reported a ${issue.category}: ${issue.description}`;
+                        recentIssuesList.appendChild(li);
+                    });
+                })
+                .catch(error => console.error('Error fetching recent reports:', error));
+        });
+
+        // Example event listener for reporting new issues (replace with actual implementation)
+        document.querySelector('form').addEventListener('submit', function(event) on some predefined list
+const categories = ["Water Quality", "Sanitation", "Traffic Congestion", "Public Safety"];
+const issueSelectElement = document.getElementById("issueCategory");
+categories.forEach(category => {
+  const option = document.createElement('option');
+  option.value = category;
+  option.textContent = category;
+  issueSelectElement.appendChild(option);
+});
+</script>
+
+</body>
+</html>
+```

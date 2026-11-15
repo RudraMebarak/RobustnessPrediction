@@ -1,0 +1,1 @@
+The main import is a generic service that has an in-memory map. It is created by creating a new instance of Service and inserting a key into the data map. HandleHTTPIncomingRequest(w http.ResponseWriter, r *http.Request)  isReady, err := s.CheckReadiness()  fmt.Fprintf(w, "Hello, World!" ).

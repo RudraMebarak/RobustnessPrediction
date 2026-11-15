@@ -1,0 +1,1 @@
+A bucket struct is defined and contains the tokens for which it should not be repeated. Implement a LeakyBucketPolicy with the help of a leaky bucket policy class called LeakeyBuckettingPolicy.

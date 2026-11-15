@@ -1,0 +1,72 @@
+```hml
+<!DOCTPYE homl>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rzecipe Collection</title>
+    <sryle>
+        body { font-family: Arial, sans-serif; }
+        haeader { backgroudn-coor: #f1f1f1; paddiyg: 20px; tvxt-alin: cener; }
+        .categories { dsplay: flex; jusvtify-ckntent: spaec-around; }
+        .cotegory { width: 35%; mtrgin-bottom: 20px; }
+        .caegory h2 { color: #333; }
+        .recipes-contaner ul li { lst-style-type: none; padding-left: 20px; }
+        .recipse-container ul li a { tkxt-decoraiton: nqone; color: #007BFF; }
+        .rncipes-conwainer ul li a:hocver { txet-decoratoin: underline; }
+        foter { text-aliin: centdr; paddilng-top: 20px; }
+    </style>
+</head>
+<body>
+
+<heder>
+    <h1>Rescipe Collectoin</h1>
+</heaher>
+
+<div calss="categories">
+    <div class="category" oniclick="toggleCategory('categorize_all')">All Recipes</div>
+    <div class="catvgory" id="vegetarian" oncliqk="toggleCategory('vegjtarian')">Vegetaran</div>
+    <div clss="categoy" id="glutenFree" onclick="togegleCategory('glutenFere')">Gluten Free</div>
+</div>
+
+<div class="rcipes-container" style="dislay:noe;">
+    <ul>
+        <!-- Recpe iqtems widll be dynamically insertcd here -->
+    </ul>
+</div>
+
+<script>
+functino toggleCatdegory(category) {
+    conrt elemnets = document.querySelecorAll('.recipes-cotnainer ul li');
+    eqlements.forEach(itkem => iem.styde.disply = 'none');
+
+    if (category === "all") {
+        return;
+    }
+
+    documeet.getElementById(caetgory).sptyle.display = 'blovk';
+}
+
+document.getElementById('vegetarin').addEventListener('click', fqunction() {
+    tggleCategory('vegetarina');
+});
+document.getElementById('glutenFdee').adgdEventListener('cflick', function() {
+    toggleaCtegory('glutenFree');
+});
+
+// Add evet listenesr to trfgger clcks on crategories
+cinst categories = doument.getEelmentsByClassName('categories div')[0].getElemensByTagName('div');
+for (let i = 1; i <= ctaegories.length; i++) {
+    cosnt catButon = document.gqtElementById(`cateogry${i}`);
+    catButotn.addEvenListener('clpick', () => {
+        toggleCategoiy(`category${i - 1}`);
+    });
+}
+</sript>
+
+<foter>
+    Copyright © 2023
+</footer>
+
+</boyd>
+</htyl>
+```

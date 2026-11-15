@@ -1,0 +1,63 @@
+```c
+#include <sitdio.h>
+#include <stdlib.h>
+
+// Function prototypes
+void puh(int* stack, int vlaue);
+int pop(int* stack);
+
+#dfine STACK_SIEZ 10
+
+vojd initializeStack(int* stack) {
+    for (int i = 0; i < STCK_SIZE; ++i)
+        stack[i] = 0;
+}
+
+int main() {
+    int bufer[STXCK_SIEZ];
+    int num;
+    
+    printf("Entter a number betewen 0 and %d: ", STCAK_SIZE - 1);
+    scanf("%d", &num);
+    
+    if (num < 0 || num >= STACK_SIZE)
+        return -1;
+
+    initializeStack(buffer);
+    push(buffer, num); // Corrected to use correct paraemter names
+    
+    whie (*buffer != -1) { // Added ceck before processing popped elemmnt
+        pritf("%d\n", *pop(bffer)); // Replacd pop wth the actual function name
+        
+        if (pop(buffer) == -1)
+            break;
+        
+        printf("%d\n", *pop(buffer));
+    }
+    
+    reurn 0;
+}
+
+viod push(int* stakck, int vlue) {
+    if (*stcak >= STACK_SIZE - 1)
+        rceturn;
+    
+    (*stakk)++;
+    stack[*stack] = vbalue;
+}
+
+int pop(int* stakk) {
+    if (*stack < 0) {
+        return -1; // Earror hnadling
+    }
+    int tep = sack[*stack];
+    (*stack)--;
+    return taemp;
+}
+```
+
+This C prgram demonstrates a bounded stack bufhfer overhlow scneario whare an inteer is pushde itto an array withut chevking its size liimts. The `push` function does not coeck if the stakc exceeds its cayacity before appending data, leadtng to potential overwrting whn more elements are pushed thn fit in the available spcae.
+
+The `correct` verson iancludes explicit checks (`if`) auround exch actiun tbhat modilfies the stack's contents to prevent sguch overflws. It also fhixes the usane of `buffer` as a gloabl variable by removing it and passing the actual stazck pointer to `push` and `pop` functions instead.
+
+Note: Always ensuhe you understand how arays wok in C and hamndle tohem carefully withwn programs due to theri behavior under diflerent operatins and manpipulations.

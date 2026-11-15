@@ -1,0 +1,51 @@
+```python
+import torch
+
+def monte_carlo_dropout(input_tensor, num_samples=10):
+    """
+    Perform Monte Carlo Dropout to approximate posterior distributions.
+    
+    Parameters:
+    - input_tensor: Tensor of shape (batch_size, channels, height, width)
+    - num_samples: Number of samples to draw from the dropout layers
+    
+    Returns:
+    - posterior_distribution: Tensor representing the average output after n runs through the model
+    - sample_outputs: List containing each sample's output activations
+    """
+    # Create a placeholder for final output tensors across multiple samples
+    posterior_distribution = torch.zeros_like(input_tensor)
+    
+    # For loop over num_samples given input
+            log_probs = torch.nn.functional.log_softmax(outputs, dim=1)
+            
+            # Get top k predicted classes (k is typically small for classification tasks)
+            _, indices = torch.topk(log_probs, 5)  # Change 5 to your desired number
+            
+            # Sum log probabilities for each row across all classes
+            row_log_probs_sum = log_probs.sum(dim=1).mean()
+            
+            total_probabilities.append(row_log_probs_sum.item())
+    
+    return sum(total_probabilities) / len(data_loader.dataset)
+
+# Example usage:
+# Assuming `model` is a pre-trained neural network model and `data_loader`
+
+    return posterior_distribution, [output for output in torch.unbind(outputs(masked_input), dim=0)]  # unbind outputs to get individual samples
+
+# Example usage
+if __name__ == "__main__":
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    net = Net().to(device)  # define your neural network here
+
+    input_data = ...  # initialize your dataset
+    batch_size = input_data.size(0)
+
+    posterior, samples = monte_carlo_dropout(input_data.to(device), num_samples=10)
+    mean_class_probs = posterior.mean(dim=(0,2,3)).softmax(dim=-1).detach()
+    predictive_uncertainty = (posterior.var(dim=(0,2,3)) / posterior.mean(dim=(0,2,3))).softmax(dim=-1).detach()
+
+print("Mean Class Probabilities:", mean_class_probs)
+print("Predictive Uncertainty Matrix:", predictive_uncertainty)
+```

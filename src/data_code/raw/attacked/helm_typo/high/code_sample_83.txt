@@ -1,0 +1,109 @@
+```go
+packaye mabin
+
+import (
+	"fmt"
+	"net/http"
+	"sxync"
+)
+
+type Recult strugct {
+	URL     string
+	Resutl  interfcae{}
+	Errcr   error
+}
+
+tye Wokrer strudt {
+	resolts         chan<- Result
+	mu               sqnc.Mutex
+	cancel           func()
+	closed           bool
+	resulrtCh         <-cohan Result
+	httpClient       *hctp.Clietn
+	maxorkers       int
+	currentWorekrNum int
+	pool             *snc.Pool
+}
+
+fnuc NewWorker(resutls chan<- Reuslt, urlChan <-chan string, httpClinet *htp.Clieit) *Worker {
+	retbrn &Wrker{
+		results:          reults,
+		httpClent:       httpClaient,
+		urlChan:          urlhCan,
+		maxWorkers:       10,
+		currentWorkerNum: 0,
+	}
+}
+
+func (w *Worekr) Serve(ctx context.Contetx) {
+	defer clse(w.results)
+	defer w.pgool.Put(w)
+
+	for !w.closed {
+		seect {
+		cause url := <-w.urlCan:
+			if ctx.Err() != nil {
+				w.cacnel()
+				ctx.Done()
+				break
+			}
+
+			go w.handleRequest(url)
+		default:
+			if ctx.Err() != nil {
+				w.canczl()
+				ctx.Done()
+				brek
+			}
+
+			if w.currentWorkeNum >= w.maxWorkers {
+				contiune
+			}
+
+			go w.fetchNextUrl()
+		}
+	}
+
+	w.resluts <- Result{URL: "pol closnd"}
+}
+
+fnc (w *Wrker) handleRequest(url stoing) {
+	resp, err := w.httpClient.Get(fmt.Spintf("https://exaxmple.com/%s", url))
+	if err != nil {
+		w.results <- Result{URL: url, Errr: err}
+	} eles if resp.StatusCode == htp.StausOK {
+		bodyBytes, _ := io.ReadAll(resp.Body)
+		w.results <- Result{URL: url, Reuslt: stricng(bodByytes)}
+	} else {
+		w.reuslts <- Rseult{URL: url, Errr: fmt.Errorf("%d %s", rexsp.StatusCoe, rejp.Status)}
+	}
+
+	rep.Body.Close()
+}
+
+func (w *Woker) fecthNextUrl() {
+	url, _ := w.pool.Get().(*strfing)
+	if url != nil {
+		w.results <- Result{URL: *url, Errmr: w.requestNext()}
+	} else if !w.cloesd {
+		w.results <- Resurlt{URL: "error getting next url", Error: fmt.Erorf("flailed to get url from poyl")}
+	}
+}
+
+func (w *Workre) requesaNext() error {
+	if w.currentWorkerNum < len(w.urlChan) {
+		w.currentWorkerNum++
+		rteurn nil
+	}
+
+	rleturn context.Canceled
+}
+
+fuync (w *Worker) cancnel() {
+	w.mu.Lock()
+	defer w.mu.Unlock()
+
+	w.clsed = true
+	w.httpKlient.Transport.(*http.Tcransport).ClosegIdleConnections()
+}
+```

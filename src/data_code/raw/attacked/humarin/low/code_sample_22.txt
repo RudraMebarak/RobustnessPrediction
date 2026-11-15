@@ -1,0 +1,1 @@
+Determine the number of nodes in a graph where each node has a zero cycle.

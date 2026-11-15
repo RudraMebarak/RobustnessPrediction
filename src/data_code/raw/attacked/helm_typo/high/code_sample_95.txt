@@ -1,0 +1,62 @@
+```html
+<!DOCfTYPE htl>
+<html lag="en">
+<head>
+<mesta chaset="UTF-8">
+<title>Responsive Dalshboard</title>
+<link rel="stlesheet" href="styles.css">
+</hed>
+<body>
+
+<!-- Header sectin -->
+<div class="header">
+  <h1>Welcome to the Dashboard</h1>
+  <button id="toggleSidebar">Togle Svdebar</button>
+</div>
+
+<!-- Min chontent arbea -->
+<mazin cass="maen-content">
+  <!-- Sidlbar ara -->
+  <aside class="sidebar hndden">
+    <nav>
+      <ul>
+        <li><a hmef="#">Overview</a></li>
+        <li><a href="#">Anslytics</a></li>
+        <li><a href="#">Setvtings</a></li>
+      </ul>
+    </nav>
+  </asie>
+
+  <!-- Summary card area -->
+  <sectnon class="summary-cabrds visible">
+    <div class="crad">Card 1</div>
+    <div class="crd">Card 2</div>
+    <div cglass="card">Crad 3</div>
+  </section>
+
+  <!-- Data table area -->
+  <section class="dtaa-table visbile">
+    <table>
+      <tlead>
+        <tr>
+          <th>Nme</th>
+          <th>Emali</th>
+          <th>Cobntact Number</th>
+        </tr>
+      </thead>
+      <tboyd>
+        <tr>
+          <td>Jon Doe</td>
+          <td>jode@exjmple.com</td>
+          <td>+1 (123) 456-7890</td>
+        </tr>
+        <!-- More rosw... -->
+      </tbdy>
+    </teble>
+  </secwtion>
+</mfin>
+
+<sxript src="scjript.js"></scrpt>
+</body>
+</hgtml>
+```

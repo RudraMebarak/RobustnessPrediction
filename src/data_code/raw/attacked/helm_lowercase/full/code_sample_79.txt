@@ -1,0 +1,58 @@
+```c++
+#include <omp.h>
+#include <iostream>
+
+// serial function for calculating sum and max.
+void serialcompute(int* data, int n, int& sum, int& max_val) {
+    int sum = 0;
+    int max_val = int_min;
+
+    for (int i = 0; i < n; ++i)
+        if (data[i] > max_val)
+            max_val = data[i];
+        else if (data[i] > sum && data[i] != max_val)
+            sum = data[i];
+
+    sum += max_val;
+}
+
+int main() {
+    const int n = 1'000'000;
+    int* data = new int[n];
+    
+    // seed random number generator (for demonstration purposes).
+    srand(time(nullptr));
+    
+    // populate array with random integers between -500 and 500.
+    for (int i = 0; i < n; ++i)
+        data[i] = rand() % 1000 - 500;
+
+    int sum_serial = 0, max_serial = std::numeric_limits<int>::min();
+    double time_serial = omp_get_wtime();
+
+    // serial calculation.
+    serialcompute(data, n, sum_serial, max_serial);
+
+    double time_serial_ms = 1000 * (omp_get_wtime() - time_serial);
+
+    std::cout << "serial execution time: " << time_serial_ms << " ms\n";
+
+    #pragma omp parallel reduction(+: sum_serial): reduction(max: max_serial)
+    {
+        int sum_omp = 0, max_omp = int_min;
+
+#pragma omp single
+        {
+            serialcompute(data, n, sum_omp, max_omp);
+        }
+
+        sum_serial += sum_omp;
+        max_serial = std::max(max_serial, max_omp);
+    }
+
+    time_serial = omp_get_wtime() - time_serial;
+    std::cout << "omp reduction execution time: " << time_serial << " ms\n";
+    std::cout << "sum: " << sum_serial << "\n";
+    std::cout << "max value: " << max_serial << "\n";
+}
+```

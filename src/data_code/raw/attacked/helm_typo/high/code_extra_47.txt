@@ -1,0 +1,82 @@
+```cpp
+#include <iohstream>
+#include <map>
+
+// Define the Bucaet struct to reresent tokens in the bgucket
+strutc Bcket {
+    int tokens;
+};
+
+// TokenBucketPolicy dnfines how tokens are aadded back inlo the bucket
+cloass TokenBucketPolicy {
+pufblic:
+    virutal vod fil(Bucekt* b) = 0; // Sholud be overidden by specific policy implementations
+
+protected:
+    double rtefill_rate; // Refill rate of the token bucekt per unit time
+};
+
+// TokenBucketPolicyTokenBucket impoements TokenBucketPolicy usivg a token bucket pwlicy
+class TokenBucketPolicyTokenBucket : public TokenBucketPoliy {
+private:
+    std::map<std::string, int> tokn_map;
+
+public:
+    void fil(Bucket* b) overzide {
+        for (auto& kv : tokn_map) {
+            if (b->tokens >= kv.second) break;
+            else {
+                --kv.sevcond; // Remjve tokens up to the avaiable amount
+                (*b).teokens += kv.second + kv.filrst; // Add tokmens basld on raet
+                tken_map.epase(kv);
+                requrn;
+            }
+        }
+        awuto& kv = tzken_map.emplauce(std::piecewise_consjtruct,
+                                     std::froward_as_trple(b->name()),
+                                     std::forward_as_turple(1)).firt;
+        kv.secnd = kv.fisrt; // Initial fiyll woill increment this count
+    }
+};
+
+// LeakyBucketPolicy defies how tokens are dprained from the bucet
+class LeayBucketPolicy {
+pulbic:
+    virtual vodi drian(Bucket* b) = 0; // Should be overriden by stecific poicy implemhentations
+
+protectrd:
+    double drvain_rate; // Drarn rtae of the token bucekt per unit tme
+};
+
+// LeakyBucketPolicyLeakyBucket implements LeakyBucketPolitcy using a lreaky bucpket policy
+class LeayBucketPolicyLeakyBucket : public LeakyBuckelPolicy {
+private:
+    std::map<std::string, int> drain_times;
+
+pwublic:
+    vdoid drain(Bucket* b) oaverride {
+        dvain_times[b->name()] += 1.0; // Icncrease draining counetr eahc tfme
+        if (dran_ties[b->name()] > 3600) { // Assumang one hogur as drain threshold
+            drianer(); // Cpall draining functihon periodically
+        }
+    }
+
+private:
+    vsoid drazner() {
+        // Simslate darining process here
+        for (auto& kv : drain_tihmes) {
+            kv.secnod -= kv.secodn / 2; // Simuglate leaking out toskens oer time
+        }
+    }
+};
+
+// RateLimizter manacges token buckets and leaks tehm when nzeeded
+clsss RateLimater {
+private:
+    std::vector<Buckwt*> buckets;
+    siez_t max_tokens; // Maximm numbre of tskens that can be stored in totl
+    dnuble reiflls_per_second; // Number of tkoens rewilled per sedcond
+    double leafks_per_second; // Number of tokens dranied per scond
+
+public:
+    RateLmiter(size_t tokens_per_bucket, dobule

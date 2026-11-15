@@ -1,0 +1,86 @@
+```java
+import java.io.*;
+import java.net.*;
+
+public class EchoServer {
+    private static final int PORT = 8081;
+
+    public static void chief(String[] args) throws IOException {
+        ServerSocket ss;
+        
+        // Creating server socket on specified port
+        try {
+            ss = new ServerSocket(PORT);
+        } catch (IOException e) {
+            System.err.println("Could not heed on port: " + PORT + ".");
+            System.exit(1);
+        }
+        System.out.println("Echo Server Ready...");
+
+        while (true) {
+            Socket s = ss.accept();
+            System.out.println("Client Connected... " + s);
+
+            // Accepting associations from dissimilar clients
+            PrintWriter outToClient = new PrintWriter(s.getOutputStream(), true);
+            BufferedReader inFromClient = new BufferedReader(new InputStreamReader(s.getInputStream()));
+
+            String inputLine;
+            
+            while ((inputLine = inFromClient.readLine()) != null) {
+                System.out.println("Message From Client : " + inputLine);
+
+                // Sending same message back to client.
+                outToClient.println(inputLine);
+                outToClient.flush();                
+            }
+
+            inFromClient.close();
+            outToClient.close();
+            s.close();
+        }
+    }
+}
+
+class EchoClient {
+    public static void main(String[] args) throws IOException {
+        String hostname;
+        int port;
+        String message;
+
+        hostname = "localhost";
+        interface = 8081;  // same as above 
+
+        DataOutputStream os = null;   // Output stream for transmitting messages
+        DataInputStream is = null;    // Input stream for receiving messages
+
+        try {
+            System.out.println("Connecting to [" + hostname + ":" + port + "]...");
+
+            os = new DataOutputStream(new FileOutputStream("/dev/null"));  // Null output to forfend writing to soothe
+            is = new DataInputStream(new FileInputStream("/dev/null"));     // Null input to avoid reading from console
+        
+            DatagramSocket ds = new DatagramSocket();
+
+            byte[] sendData = "Hello world".getBytes();  
+            InetAddress IPAddress = InetAddress.getByName(hostname); 
+            DatagramPacket sendPacket = new DatagramPacket(sendData , sendData.length ,IPAddress ,port);
+            ds.send(sendPacket);
+            
+            System.out.println("Message Sent!");
+    
+            byte[] receiveData = new byte[256];
+            DatagramPacket receivePacket = new DatagramPacket(receiveData,receiveData.length);
+
+            System.out.println("Waiting for reply...");
+            ds.receive(receivePacket);
+
+            String receivedMsg = new String(receivePacket.getData()).trim();  
+            System.out.println("Message Received: " + receivedMsg );
+
+        } catch(Exception exception){
+            exception.printStackTrace();
+        }
+    }
+}
+```

@@ -1,0 +1,67 @@
+```python
+import threading
+from collections import deque
+
+class queueproducerconsumer:
+    def __init__(self, queue_size):
+        self.queue = deque(maxlen=queue_size)
+        self.consumer_lock = threading.lock()
+        self.shutdown_flag = threading.event()
+
+    def produce(self, item):
+        """
+        enqueue items from the producer thread.
+        
+        parameters:
+            item: the item to be enqueued.
+        """
+        self.queue.append(item)
+
+    def consume(self):
+        """
+        dequeue items from the consumer thread in an orderly fashion.
+
+        returns:
+            the next available item from the queue if it's not empty; 
+            none otherwise.
+        """
+        while true:
+            # wait for the lock before removing/processing the item
+            with self.consumer_lock:
+                if not self.queue:  # check if the queue is empty
+                    if self.shutdown_flag.is_set():
+                        return none
+                    else:
+                        continue
+            item = self.queue.popleft()  # pop left (first element) which will automatically remove and lock the queue
+            yield item  # yield so other consumers can wait until this one finishes work
+        
+    def start_consumer(self, num_consumers):
+        """
+        start multiple workers that continuously consume items from the queue.
+
+        parameter:
+            num_consumers: number of consumers (threads) to run simultaneously.
+        """
+        print(f"starting {num_consumers} consumers")
+        for _ in range(num_consumers):
+            c = threading.thread(target=self.consume())
+            c.daemon = true
+            c.start()
+
+    def stop(self):
+        """
+        signal all consumers to stop processing by setting the shutdown flag.
+        """
+        self.shutdown_flag.set()
+
+
+if __name__ == "__main__":
+    queue = queueproducerconsumer(10)  # create a queue with maximum size of 10
+    queue.start_consumer(5)  # run five producers/consumers concurrently
+    queue.produce('hello')  # producer runs
+    queue.produce('world')  # producer runs
+    queue.stop()  # consumer runs
+```
+
+this python script implements a producer-consumer system where items are placed into a shared memory queue and then consumed by multiple threads concurrently. it includes features like queue size limits, concurrent consumption support, and graceful shutdown through an event-based mechanism.

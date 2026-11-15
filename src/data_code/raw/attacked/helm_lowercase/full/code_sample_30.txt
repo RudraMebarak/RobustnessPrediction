@@ -1,0 +1,31 @@
+```python
+import collections
+
+def bfs(g, start):
+    queue = collections.deque([(start, [start])])
+    
+    while queue:
+        node, path = queue.popleft()
+        
+        for neighbor in g[node]:
+            if neighbor not in path:
+                new_path = list(path)
+                new_path.append(neighbor)
+                
+                # check if neighbor is unvisited (edge weight of 1)
+                if len(g[neighbor]) == 2: 
+                    continue
+                
+                queue.append((neighbor, new_path))
+    
+    return none
+
+# example graph represented as an adjacency list
+g = {'a': ['b', 'c'],
+     'b': ['a', 'd', 'e'],
+     'c': ['a'],
+     'd': ['b'],
+     'e': ['b']}
+
+print(bfs(g, 'a'))
+```

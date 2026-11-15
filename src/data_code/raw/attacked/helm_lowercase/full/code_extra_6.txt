@@ -1,0 +1,93 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>multi-step account registration form</title>
+<style>
+  body {
+    font-family: arial, sans-serif;
+    margin: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+
+  label {
+    display: block;
+    width: 25%;
+    float: left;
+    padding-right: 15px;
+  }
+  
+  input[type=text], input[type=password], textarea {
+    width: calc(100% - 40px);
+    padding: 12px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+  }
+  
+  select {
+    width: calc(100% - 40px);
+    padding: 12px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  
+  .btn:hover {
+    opacity: 0.8;
+  }
+  
+  input[type=submit] {
+    display: none;
+  }
+  
+  .progress {
+    height: 20px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    background-color: #4caf50;
+  }
+</style>
+</head>
+<body>
+
+<h1>create your account</h1>
+
+<form action="#" method="post" id="registrationform">
+
+<div class="fieldset">
+<fieldset>
+<label for="personaldetails">personal details:</label>
+<input type="text" id="name" name="name" placeholder="your name" required>
+<label for="emailaddress">email address:</label>
+<input type="email" id="email" name="email" placeholder="your email" required>
+<label for="phonenumber">phone number (optional):</label>
+<input type="tel" id="phone" name="phone" pattern="[0-9]{10}" oninput="this.value = this.value.replace(/[^0-9]/g,'')" placeholder="xxx-xxx-xxxx">
+</fieldset>
+</div>
+
+<div class="fieldset">
+<fieldset>
+<label for="accountcredentials">account credentials:</label>
+<label for="username">username:</label>
+<input type="text" id="username" name="username" placeholder="your username" required>
+<label for="password">password:</label>
+<input type="password" id="password" name="password" placeholder="password" required>
+<label for="confirmpassword">confirm password

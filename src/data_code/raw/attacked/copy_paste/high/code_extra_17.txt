@@ -1,0 +1,98 @@
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+
+// TrieNode represents nodes in a trie.
+struct TrieNode {
+    int cnt; // Frequency count for this node (used by Suffix Array)
+    struct TrieNode* children[27]; // Characters 'a' to 'z'
+    
+    bool isEndOfWord() const {
+        return (cnt != 0);
+    }
+};
+
+// Trie class manages prefixes with suffix array and frequency counts.
+class Trie {
+public:
+    std::vector<TrieNode*> map;
+    int N; // Number of words
+
+    void insert(const std::string& word) {
+        auto node = &map[1];
+        
+        // Function to add new word to Trie
+    void insert(const std::string& word) {
+        if (word.empty()) return; // Handle empty word case
+
+        auto it = children.find(word[0]);
+        if (it == children.end()) {
+            children[word[0]] = new TrieNode();
+        }
+
+        insert(word.substr(1), *it->second);
+    }
+
+    // Recursive function to find node corresponding to given word
+    TrieNode* searchPrefix(const std::string& word) const {
+        if (word.empty()) return this;
+
+        auto it = children.find(word[0]);
+        if (it == children.end()) return nullptr;
+
+        return searchPrefix(word.substr(1), *it->second);
+    }
+};
+
+class AutoCompleteEngine {
+private:
+    TrieNode* root = new TrieNode();
+
+public:
+    // Add entry into dictionary
+    void addEntry(const std::string& key) {
+        root->insert(key);
+    }
+
+    // Search for an entry with given prefix
+    std::vector<std::string> search(const std::string& prefix) {
+        TrieNode* current = root->searchPrefix(prefix);
+
+        if (!current) return {};
+
+        std::vector<std::string> result;
+        dfsSearch(current, "", &result);
+        return result;
+    }
+
+    // Depth-first search for all matching words
+    void dfsSearch(TrieNode* node, const std::string&
+
+        for (char c : key) {
+            if (node->children[c - 'a']) {
+                node = node->children[c - 'a'];
+                continue;
+            }
+            break;
+        }
+
+        assert(!node->isEndOfWord()); // If we didn't reach the node marking the end of the string.
+
+        node->cnt = 0; // Mark as deleted
+    }
+};
+
+int main() {
+    Trie trie;
+
+    trie.insert("hello");
+    trie.insert("world");
+
+    trie.findSuggestions("h", 3);
+
+    trie.deleteEntry("hello");
+
+    return 0;
+}
+```

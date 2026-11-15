@@ -1,0 +1,1 @@
+java import org.javatuples.pair private static final String identifier identifier ; private static final string INTEGER permanent string OPERATOR PERMANENT string PARENTHESIS public static void scanner scanner = new Scanner a + b * 5; // comment; // where (token.equals(OPERATOR)  System.out.println("operator:

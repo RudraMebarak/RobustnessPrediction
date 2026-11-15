@@ -1,0 +1,1 @@
+Include stdio.h> ; Include pthread ; Define BUFF_SIZE .Put the first available element into the buffer and move the rear pointer forward. By placing an item into the shared memory area, we are regaining the lock. Consume items from the queue sleep(rand() % 5); Simulate some processing time using consumeFromBuffer(buff).

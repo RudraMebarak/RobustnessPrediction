@@ -1,0 +1,1 @@
+By using dig, a script can be written that measures the time taken to query DNS servers for IP addresses and address resolution.

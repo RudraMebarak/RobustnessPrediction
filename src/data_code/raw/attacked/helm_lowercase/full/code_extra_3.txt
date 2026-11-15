@@ -1,0 +1,85 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>product comparison table</title>
+    <style>
+        body { font-family: arial, sans-serif; }
+        
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .product-header, .feature-group {
+            text-align: left;
+        }
+        
+        .caption-label {
+            padding-left: 15px;
+            color: #337ab7;
+        }
+
+        .row::after {
+            content: '';
+            clear: both;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            padding: 10px 15px;
+            text-align: left;
+        }
+
+        td {
+            padding: 10px 15px;
+            vertical-align: top;
+        }
+
+        .recommended {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<table class="product-table">
+    <thead>
+        <tr>
+            <!-- feature group headers -->
+            <th colspan="2" class="caption-label">features & specifications:</th>
+        </tr>
+        <tr>
+            <!-- row headers -->
+            <td rowspan="4">brand a</td>
+            <td rowspan="4">features & specifications:</td>
+            <td rowspan="4">price ($)</td>
+            <td rowspan="4">rating (out of 10)</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td

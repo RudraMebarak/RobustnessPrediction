@@ -1,0 +1,1 @@
+Initiate a new thread in Python by sending an empty request to trigger content negotiation.

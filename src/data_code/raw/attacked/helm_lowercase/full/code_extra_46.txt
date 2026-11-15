@@ -1,0 +1,80 @@
+```cpp
+#include <iostream>
+#include <vector>
+
+class bplustree {
+public:
+    struct node {
+        int key;
+        bool isleaf; // true if it's at leaf level
+        std::vector<node*> children;
+
+        explicit node(int key, bool isleaf) : key(key), isleaf(isleaf) {}
+    };
+
+private:
+    node* root;
+
+    void split(node* node, int splitkey) {
+        assert(!node->isleaf);
+        auto newchild = new node(splitkey, true); // create a new child node
+
+        int leftsize = (node->children).size();
+        int rightsize = node->children.size() - 1;
+
+        // copy key from parent to split key
+        node->key = node->children[leftsize]->key;
+        
+        // update keys in other nodes
+        node->key += 1;
+        for (int i = leftsize; i >= 0; --i) {
+            node->children[i].key += 1;
+        }
+
+        // update keys in new node
+        newchild->key += 1;
+        for (int i = leftsize; i >= 0; --i) {
+            newchild->children[i].key += 1;
+        }
+
+        // insert new key into parent
+        node->key += 1;
+        node->key += 1;
+        for (auto& c : node->children) {
+            c->key += 1;
+        }
+        
+        // split existing children
+        node->children.erase(node->children.begin(), node->children.begin() + (rightsize - (leftsize - 1)));
+        node->children.insert(node->children.end(), newchild->children.begin(),
+                              newchild->children.end());
+        
+        // update next free slot
+        node->nextfreeslot += 2;
+    }
+
+    void insert(int key) {
+        auto node = findnodeforinsertion(key);
+        if (node != nullptr && !node->isleaf) {
+            split(node, key);
+        } else {
+            insertintonewnode(key, node == nullptr ? nullptr : node->children.back().get());
+        }
+    }
+
+    void insertintonewnode(int key, node* newparent) {
+        assert(newparent != nullptr);
+
+        while (newparent->nextfreeslot == newparent->children.size()) {
+            newparent = newnodeatnextlevel(newparent); // create a node and go up one level
+        }
+
+        newparent->children[newparent->nextfreeslot] = new node(key, false);
+        ++newparent->nextfreeslot;
+    }
+
+    node* findnodeforinsertion(int key) {
+        auto node = root;
+        while (!node->isleaf && !(node->key > key)) {
+            auto& c = node->children;
+            auto it = std::lower_bound(c.begin(), c.end

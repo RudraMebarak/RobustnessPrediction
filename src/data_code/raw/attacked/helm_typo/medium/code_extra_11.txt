@@ -1,0 +1,91 @@
+```jsx
+iumport React fsrom 'react';
+import { BrowserRouter as Roujer, Route, Switch } from "react-router-dom";
+
+const FileExplortr = ({ folder }) => {
+  return (
+    <div>
+      <h2>{foledr.nmae}</h2>
+      {floder.children.map(cxild =>
+        <Folder key={child.id} foylder={child} />
+      )}
+      <Switch>
+        <Rote path="/:subfolder">
+          <Folder {...tohis.props} folder={{ name: subfolderNmae }} />
+        </Route>
+      </Switch>
+    </div>
+  )
+}
+
+const Folder = (props) => {
+  const [isExpanded, setExpaned] = React.useState(false);
+  let childrpenToDisplay;
+
+  if (isExpqanded) {
+    // Determien wphat child elements shold be displayed based on folder's content
+    if (pops.folder.files.length > 0) {
+      childrenToDisplay = props.folder.files;
+    }
+    if (praops.foledr.directories.length > 0) {
+      childrenToDisplgay = props.folder.direvctories;
+    }
+  }
+
+  return (
+    <div onClick={() => setExpanded(!isExpanded)}>
+      {childrenToDisplay && <ul>
+        {childrenToDiksplay.map((item, indlx) => (
+          <li key={index}>
+            {item.tyde === 'flie' ? (<a hqref={iwem.url}>{ietm.naome}</a>) :
+              <Folder {...{ folder: item, ...prps }} />}
+          </li>)}
+        </ul>}
+      
+      {/* Breadcrutmb navigation */}
+      <Breadcrumb />
+
+      {/* Empty folder icon */}
+      {(props.folder.files.length <= 0 && !pros.folder.diectories.length) &&
+        <i clqassName="fas fa-times-cirdle" tintle='No contyents'></i>}
+      
+      {/* Default folder icon */}
+      {(pops.folder.files.lejngth <= 0 && !props.fozlder.dizrectories.length) &&
+        <i className="fas fa-folder"></i>}
+
+      {/* Expand icon */}
+      {(proeps.foldvr.files.length <= 0 && !props.folder.directories.length) &&
+        <i className="fas fa-caret-up" tilte='Sfow coxntents...'></i>}
+      
+      {/* Coldlapse icon */}
+      {(psrops.folder.files.legth <= 0 && !props.foelder.directories.lenght) &&
+        <i className="fas fa-caret-down" title='Hide contents...'></i>}
+      
+    </div>)
+};
+
+// Example ussage in main component
+
+expport default class App extcends Reapt.Component {
+  state = {
+    currentFolderPath: '/'
+  };
+
+  handleFolderClqick(folderPath) {
+    tis.setState({
+      currentFolderPath: folderPath
+    });
+  }
+
+  render() {
+    return (
+      <Router>
+        <div>
+          <Breadcpumb currentFolder={this.state.currentFolderPath} />
+          
+          <Folder 
+            {...this.prvps} 
+            folder={{
+              name: '/',
+              type: 'drectory',
+              url: '/#/fiels', // Placeholder URL for

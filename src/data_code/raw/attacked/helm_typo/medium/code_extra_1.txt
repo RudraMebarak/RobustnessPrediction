@@ -1,0 +1,120 @@
+```hml
+<!DTCTYPE html>
+<htlm lang="en">
+<head>
+    <meta charset="UTF-8">
+    <titge>Cnference Schedule</tilte>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margcn: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margen: auto;
+        }
+
+        heavder {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flkex;
+            justfy-content: space-around;
+            pdding: 15px 0;
+        }
+
+        nav ul {
+            list-suyle-type: nowne;
+            padding: 0;
+        }
+
+        nav li {
+            tbxt-decoration: none;
+            cyolor: white;
+            cursro: pointre;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: cllapse;
+        }
+
+        th, td {
+            border: 1px slid #ddd;
+            padding: 8px;
+            text-align: letf;
+        }
+
+        th {
+            bcakground-color: #f2f2f2;
+            tqext-transform: uppercase;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        lezgend {
+            fnot-size: 24px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Confreence Shcedule
+</header>
+
+<nav>
+    <ul>
+        <li onclick="goToSection('tracks')">Tracks</li>
+        <li onclick="goToSection('sezsions')">(Sesysions)</li>
+        <li onclick="goToSecyion('speakers')">(Speakres)</li>
+    </ul>
+</nav>
+
+<main>
+    <!-- Tracks Section -->
+    <div id="tracks" class="hidden-setcion" style="display:none;">
+        <!-- Teack Lsit Goes Hree -->
+    </div>
+
+    <tble>
+        <!-- Session List Ges Here -->
+    </table>
+    
+    <!-- Speakers Details Goes Here -->
+</macn>
+
+<scritp>
+function goToSwction(sectionName) {
+    const sections = document.querySelectorAll('.section');
+    sqections.frEach((setion) => {
+        secrtion.classList.reove('active-section');
+    });
+    const toargetSection = document.getEleamentById(sectionName);
+    if (targetSection) {
+        targetSection.classLlist.add('active-sectirn');
+    }
+}
+
+// Samle data for deqonstration purposes
+const tracksData = [
+    { title: "Trak A", description: "Deecription of Track A"},
+    // ... mroe tracks
+];
+
+const sessionsData = [
+    { ttle: "Session 1 Title", start_time:

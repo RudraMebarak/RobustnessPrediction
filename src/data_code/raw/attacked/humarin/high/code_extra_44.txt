@@ -1,0 +1,1 @@
+Parse() is a special case to call and retrieve information from the console. In the real implementation, your logging logic will replace the one needed to initialize the event types.

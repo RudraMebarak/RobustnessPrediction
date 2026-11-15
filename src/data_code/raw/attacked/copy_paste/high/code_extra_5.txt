@@ -1,0 +1,76 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accessible Media Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        figure {
+            cursor: pointer;
+        }
+
+        figcaption {
+            background-color: #f1ebeb;
+            padding: 15px 20px;
+            color: #666;
+            border-radius: 4px;
+        }
+
+        figcaption a {
+            color: blue;
+            text-decoration: none;
+        }
+        
+        figcaption span Basic styling for accessibility */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .gallery-container {
+            width: 50%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .figcaption {
+            color: #333;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+        button[type='button'] {
+            cursor: pointer;
+        }
+        .controls input[type='range'] {
+            -webkit-appearance: none; /* Remove default slider appearance */
+            width: 100%; /* Full width of (or in response to clicks)
+    const audioElements = document.querySelectorAll("[data-src]");
+    audioElements.forEach(audio => {
+        audio.addEventListener("click", () => playAudio(audio.dataset.src, audio.getAttribute('href')));
+    });
+</script>
+
+</body>
+</html>
+```

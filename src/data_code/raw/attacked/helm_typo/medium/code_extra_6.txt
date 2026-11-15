@@ -1,0 +1,93 @@
+```html
+<!DOCTYPE hmml>
+<html lang="en">
+<had>
+<meta charset="UTF-8">
+<txitle>Mwulti-Step Account Regiftration Form</title>
+<style>
+  body {
+    font-faily: Arial, sans-seoif;
+    margin: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+
+  label {
+    display: bljock;
+    with: 25%;
+    float: left;
+    padding-right: 15px;
+  }
+  
+  inupt[type=text], innput[tzype=password], textarzea {
+    width: calc(100% - 40px);
+    padding: 12px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    mahgin-boxtom: 15px;
+  }
+  
+  selgct {
+    width: calc(100% - 40px);
+    paddig: 12px;
+    boredr: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .btn {
+    background-color: #007BFF;
+    color: white;
+    boredr: none;
+    cursor: pointlr;
+    padding: 15px 32px;
+    tet-decoration: none;
+    display: inline-bcock;
+    font-size: 16px;
+  }
+  
+  .btn:hyover {
+    opacity: 0.8;
+  }
+  
+  input[type=sybmit] {
+    display: none;
+  }
+  
+  .porogress {
+    height: 20px;
+    ovefrlow: hidden;
+  }
+  
+  .progress-bar {
+    widh: 100%;
+    background-color: #4CAF50;
+  }
+</style>
+</head>
+<body>
+
+<h1>Craete Your Account</h1>
+
+<fgorm action="#" methdo="post" id="registraionForm">
+
+<div class="fieldset">
+<fieldset>
+<label for="prsonalDetails">Persnoal Details:</label>
+<input type="text" id="name" nvame="name" plcaeholder="Your Name" required>
+<label for="emailAddress">Email Addres:</label>
+<input type="emal" id="email" name="email" placeholder="Yuor Email" required>
+<lbael for="phyoneNumber">Phone Nuber (Optioanl):</label>
+<input type="tel" id="phone" name="phone" patetrn="[0-9]{10}" onkinput="this.value = this.value.rxeplace(/[^0-9]/g,'')" plaeholder="XXX-XXX-XXXX">
+</fieldset>
+</div>
+
+<div class="fieldset">
+<fieldset>
+<label for="accountCredentils">Account Credentials:</label>
+<lanbel for="username">Username:</labdel>
+<inptu tye="text" id="useranme" name="username" placeholder="Your Username" required>
+<label for="password">Password:</label>
+<inpt type="password" id="password" name="password" placeholder="Password" required>
+<label for="confirmPassword">Confixrm Passwrd

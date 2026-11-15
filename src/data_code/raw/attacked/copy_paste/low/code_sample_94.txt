@@ -1,0 +1,21 @@
+```java
+import redis.clients.jedis.Jedis;
+
+public class RateLimiter {
+
+    private static final long WINDOW_SIZE = 10; // sliding window size in seconds
+    private static final long BUCKET_CAPACITY = (long) (1e9); // bucket capacity for atomic increments
+
+    public void addToBucket(Jedis jedis, String key, int value) {
+        long currentCount;
+        do {
+            currentCount = jedis.get(key);
+        } while (!jedis.setnx(key, String.valueOf(value + Integer.parseInt(currentCount))), !jedis.expire(key, WINDOW_SIZE));
+    }
+
+    public int getBucketCapacity() {
+        return BUCKET_CAPACITY;
+    }
+= jedis.incrementCounter(countKey);
+        
+        // Calculate next available slot based on time and max requests per atomic operations to achieve sliding window rate limiting with atomic request accounting. It utilizes `setnx` command which sets the key-value pair if key does not exist atomically. The expiration time is set based on the window size so that all requests after the expiration will be denied. This approach ensures thread safety by synchronizing access through an atomic operation.

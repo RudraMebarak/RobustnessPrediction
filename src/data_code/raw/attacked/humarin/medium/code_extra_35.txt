@@ -1,0 +1,1 @@
+How can the ExpenseItem component be used to display transaction details in React? What is the definition of the AddExpenseForm component in order to handle expense addition? How does groupedMonths[month] produce a sum greater than or equal to 0? What is the App component responsible for handling state and props?

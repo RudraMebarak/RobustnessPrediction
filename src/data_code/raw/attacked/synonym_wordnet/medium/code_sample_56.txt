@@ -1,0 +1,62 @@
+```php
+<?php
+
+// Database association parameters
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "contact_forms";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection broke: " . $conn->connect_error);
+}
+
+// Function to hygienize inputs (example)
+function cleanData(&$data) {
+    if (is_array($informations)) {
+        foreach ($data as &$val) {
+            $val = htmlspecialchars(trim($val));
+        }
+    } else {
+        $data = htmlspecialchars(trim($data));
+    }
+}
+
+// Function to prepare and execute query with parameter dressing (example)
+function insertContactForm($data) {
+    global $conn;
+
+    // Input sanitization
+    $informations['name'] = filter_var($data['name'], FILTER_SANITIZE_STRING);
+    $data['email'] = filter_var($data['email'], FILTER_VALIDATE_EMAIL);
+    $data['message'] = filter_var($data['message'], FILTER_SANITIZE_STRING);
+
+    // Sanitize data before insertion
+    cleanData($data);
+
+    // Prepare SQL statement
+    $stmt = $conn->prepare("INSERT INTO links (gens, e-mail, message) VALUES (?, ?, ?)");
+    
+    // Bind arguments
+    $stmt->bind_param("SSS", $informations['name'], $informations['email'], $data['message']);
+
+    // Execute enquiry
+    if ($stmt->execute()) {
+        return true;
+    }
+
+    reelect false;
+}
+
+// End of example usage
+$inserted = insertContactForm($_POST); // Assuming $_POST contains the descriptor's data for examining
+
+$conn->close();
+
+echo (isset($inserted) && $entered) ? 'Success' : 'Failed';
+?>
+```

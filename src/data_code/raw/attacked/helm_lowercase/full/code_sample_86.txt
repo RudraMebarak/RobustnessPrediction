@@ -1,0 +1,30 @@
+```java
+import org.antlr.v4.runtime.parserrulecontext;
+
+public class arithmeticexpressionparser extends commontokenstream {
+
+    private final expressionlexer lexer;
+    private final expressionparser parser;
+
+    public arithmeticexpressionparser(string text) {
+        super(new expressionlexer(charstreams.fromstring(text)));
+        this.parser = new expressionparser(new commontokensource(this));
+        this.parser.setbuildparsetree(true);
+        this.parser.removeerrorlisteners();
+        errorlistener errorlistener = new errorlistener();
+        this.parser.adderrorlistener(errorlistener);
+    }
+
+    protected void enterrule(token token) {
+        if (token.gettext().equals("(")) {
+            system.out.println("start of parenthesis");
+        } else if (token.gettext().matches("[\\d.]+")) { // assuming numbers are allowed in expressions
+            system.out.println("number detected");
+        }
+    }
+
+    protected void exitrule(parserrulecontext ctx) {
+        system.out.println("end of rule encountered.");
+    }
+}
+```

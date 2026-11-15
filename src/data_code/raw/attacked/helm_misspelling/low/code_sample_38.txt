@@ -1,0 +1,69 @@
+```python
+import numpy as np
+
+def bankers_algorithm(allocated_resources, max_resources, free_resources):
+    """
+    Implement the Banker's Algorithm to determine if a system can continue to execute processes.
+
+    Parameters:
+    allocated_resources (2D list of int): The matrix where each row represents process and each column represents resource type.
+                                          Allocated resources are given as non-negative integers in rows.
+    
+    max_resources (2D list of int): The matrix representing the maximum resources required for all processes.
+                                    Each row corresponds to a process and each column represents a different type of resource.
+    
+    free_resources (2D list of int): The matrix indicating how much of each resource is currently free.
+                                     Each row represents a process and each column represents a different type of resource.
+    
+    Returns:
+    bool: True if the system can continue running without deadlock; False otherwise.
+    """
+    # Find total resources in system
+    total_system_resources = sum(free_resources.sum(axis=1))
+    
+    # Check if there's enough resources initially
+    if total_system_resources < min(max_resource[type] for type in range(len(max_resources[0]))):
+        return False
+    
+    # Allocate resources step by step
+    while True:
+        safe_sequence = True
+        for i in range(num_processes):
+            if free_resources[i].sum() == 0:
+                continue
+            
+            safe_allocation = True
+            for j in range(len(allocated_resources)):
+                if allocated_resources[j][i] > free_resources[j]:
+                    safe_allocation = False
+                    break
+                
+            if not safe_allocation:
+                break
+        
+        if safe_allocation:
+            for i in range(num_processes):
+                free_resources[i] += allocated_resources[i]
+            
+            break
+        
+        else:
+            return False
+
+# Example usage
+allocated = [[1, 1], [1, 1]]  # Process 1 with 1 resource 1 and 1 resource 2; Process 2 also requires these two resources
+max_allocatable = [[5, 6], [6, 7]]  # Maximum per resource possible for both processes
+free = [[0, 0], [3, 4]]  # Free state initial allocations
+        
+num_processes = len(max_allocatable)
+min_required_resources = []
+for r in range(len(max_allocatable[0])):
+    min_required_resources.append(min(m[r] for m in max_allocatable))
+
+if bankers_algorithm(allocated, max_allocatable, free):
+    print("System can continue.")
+else:
+    print("System cannot continue.")
+
+""" 
+This Python function uses Banker's Algorithm to check whether a system will be able to continue executing processes under given allocation rules. It takes in three 2-dimensional lists of integers - one for 'allocated resources', another for 'maximum resources' per process, and finally for 'available resources'. It returns True if it can allocate resources such that no process starves; False

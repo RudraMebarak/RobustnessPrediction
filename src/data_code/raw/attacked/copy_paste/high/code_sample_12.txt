@@ -1,0 +1,75 @@
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class Trie {
+    private final Map<Character, Trie> children;
+    private boolean isEndOfWord;
+
+    public Trie() {
+        this.children = new HashMap<>();
+        this.isEndOfWord = false;
+    }
+
+    public void insert(String word) {
+        Trie node = this;
+        for (char c : word.toCharArray()) {
+            if (!node.children.containsKey(c)) {
+                node.children.put(c, new Trie());
+            }
+            node = node.children.get(c);
+        }
+        node.isEndOfWord = true; // Mark as end of the word in this node.
+    }
+
+    public boolean searchPrefix(String prefix) {
+        Trie node = this;
+        for (char c : prefix.toCharArray()) {
+            if (!node.children.containsKey(c)) return false;
+            node = node.children.get(c);
+        }
+        return true;
+    }
+
+    public int getPrefixCount(String prefix) {
+        int count = 0;
+        Trie node = */
+    public List<String> startsWith(String prefix) {
+        if (prefix == null || prefix.isEmpty()) return Collections.emptyList();
+
+        TrieNode node = getPrefix(prefix);
+        if (node == null) return Collections.emptyList();
+
+        LinkedList<StringBuilder> stack = new LinkedList<>();
+        dfs(node, "", stack);
+
+        return new ArrayList<>(stack);
+    }
+
+    private void dfs(TrieNode node, String path, LinkedList<StringBuilder> result) {
+        if (node.isWord) {
+            StringBuilder sb = new StringBuilder(path);
+            result.add(sb.toString());
+        }
+        for (Map.Entry<Character, TrieNode> entry : node.children.entrySet()) {
+            dfs(entry.getValue(), path + entry.getKey(), result);
+        }
+    }
+
+    /**
+     * Deletes the specified word from the trie.
+     *
+     * @param word The word to delete.
+     */
+    public void delete(String word) {
+        delete(word.toCharArray(), 0, root);
+    }
+
+    private int delete(char[] chars, int index, TrieNode node) {
+        if (index == chars.length) {
+            node.isWord = false;
+            return for other branches.
+        }
+    }
+}
+```

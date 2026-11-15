@@ -1,0 +1,1 @@
+The Java implementation employs Redis as a backing store and relies on atomic operations to limit the sliding window rate.

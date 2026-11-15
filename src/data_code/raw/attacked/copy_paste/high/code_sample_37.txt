@@ -1,0 +1,36 @@
+```python
+import random
+
+def schedule(processes):
+    processes.sort(key=lambda x: (x.arrival_time, -x.burst_length))
+    total_turnaround_time = 0
+    wait_times = [0] * len(processes)
+    
+    for i in range(len(processes)):
+        current_time = processes[i].arrival_time
+        
+        while current_time < processes[i].burst_start:
+            current_time += processes[i].burst_length
+        
+        if current_time > processes[i].end_time:
+            continue
+        
+        wait_times[i] = sum(wait_times[0:i]) + (current_time if current_time <= next_process['burst']:
+                current_time += 1
+                
+                if current_time > next_process['arrival'] + next_process['burst']:
+                    print(f"Process {next_process['id']} finished.")
+                    total_time += (current_time - next_process['arrival'])
+                    
+                    if len(processes) != i + 2:
+                        break
+                    else:
+                        break
+                    
+            else:
+                current_time += next_process['burst']
+                
+    return total_time
+
+# Example usage:
+processes = [{'id':

@@ -1,0 +1,87 @@
+```java
+import java.util.PriorityQueue;
+
+/**
+ * A BinaryHeapPriorityQueue implementation using a PriorityQueue for dynamic size.
+ */
+public class CustomBinaryHeap {
+
+    private static final int DEFAULT_CAPACITY = 10;
+    
+    private int n;
+    private a Binary Heap Priority Queue
+public class PriorityQueue<T> {
+    private T[] elements;
+    private Comparator<? super T> comparator;
+    
+    // Constructor to initialize the heap with a given comparator
+    public PriorityQueue(Comparator<? super T> comparator) {
+        this.comparator = comparator;
+        this.elements = (T[]) new Object[1];
+    }
+    
+    // Method to insert an element into the heap
+    public void enqueue(T value) {
+        int index = elements.length - 1;
+        elements[index] = value;
+        
+        while (index > 0 && comparator.compare(elements[parent(index)], elements[index]) < 0) {
+            swap(index, parent(index));
+            index = parent(index);
+        }
+    }
+    
+    // Method to remove the root of the heap (peek)
+    public T dequeue() {
+        if (isEmpty()) throw new NoSuchElementException("Cannot dequeue from empty queue");
+        
+        T value = elements[0];
+        elements[0] = elements[--elements.length]; // Replace root with last item
+        
+        siftDown(0); // Sift down the new root
+        
+        return value;
+    }
+    
+    // Utility method to check if the queue is empty
+    private boolean isEmpty() {
+        return elements.length == 0 || elements[0] == null;
+    }
+    
+    // Method to get the size of the queue
+    public int size() { Only swap because size is going to be 1 now.
+        siftDown(); // Re-establish heap property after deletion.
+        return first;
+    }
+    
+    boolean isEmpty() {
+        return n == 0;
+    }
+    
+    boolean contains(Integer key) {
+        for (int i = 0; i < n; i++) {
+            if (data[i] != null && comparator.compare(data[i], key) == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    void resize(int newCapacity) {
+        int[] temp = new int[newCapacity];
+        System.arraycopy(data, 0, temp, 0, Math.min(newCapacity, data.length));
+        data = temp;
+    }
+    
+    void swap(int i, int j) {
+        int t = data[i];
+        data[i] = data[j];
+        data[j] = t;
+    }
+    
+    void siftUp(int k) {
+        while (k > 0) {
+            int parentIndex = (k - 1) >> 1; // Calculate parent's index.
+            if (comparator.compare(data[k], data[parentIndex]) <= 0) break; // Not greater than parent.
+            swap(k, parentIndex);
+            k = parentIndex; // Continue comparing

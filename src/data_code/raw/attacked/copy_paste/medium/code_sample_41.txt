@@ -1,0 +1,98 @@
+```java
+import java.io.*;
+import java.net.*;
+
+public class EchoServer {
+    private static final int PORT = 8081;
+
+    public static void main(String[] args) throws IOException {
+        ServerSocket ss;
+        
+        // Creating server socket on specified port
+        try {
+            ss = new ServerSocket(PORT);
+        } catch (IOException e) {
+            System.err.println("Could not listen on port: " + PORT + ".");
+            System.exit(1);
+        }
+        System.out.println("Echo Server Ready...");
+
+        while (true) {
+            Socket s = ss.accept();
+            System.out.println("Client Connected... " + s);
+
+            // Accepting connections from different clients
+            PrintWriter outToClient = new PrintWriter(s.getOutputStream(), true);
+            BufferedReader inFromClient = new BufferedReader(new InputStreamReader(s.getInputStream()));
+
+            String inputLine;
+            
+            while ((inputLine = inFromClient.readLine()) != null) {
+                System.out.println("Message From Client : " + inputLine);
+
+                // Sending same message back to client.
+                outToClient.println(inputLine);
+                outToClient.flush();                
+            }
+
+            inFromClient.close();
+            outToClient.close();
+            s.close();
+        }
+    }
+}
+
+class EchoClient {
+    public static void main(String[] args) throws IOException {
+        String hostname;
+        int port;
+        String message;
+
+        hostname = "localhost";
+        port = 8081;  // same as above 
+
+        DataOutputStream os = null;   // Output stream for sending messages
+        DataInputStream is = = in.readLine()) != null) {
+                        System.out.println(inputLine);
+                        out.println(inputLine);
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            };
+            Thread thread = new Thread(task);
+            thread.start();
+        }
+    }
+}
+
+class EchoClient {
+    public static void main(String[] args) throws IOException {
+        String host = "localhost";
+        int port = 12345;
+
+        Socket s = new Socket(host, port);
+        PrintWriter out = new PrintWriter(s.getOutputStream(), true);
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        
+        while (true) {
+            System.out.print("Enter message to send: ");
+            String msg = in.readLine();
+            if (msg.equalsIgnoreCase("exit")) break;
+            
+            out.println(msg);
+            System.out.println("Message sent new DatagramPacket(receiveData,receiveData.length);
+
+            System.out.println("Waiting for reply...");
+            ds.receive(receivePacket);
+
+            String receivedMsg = new String(receivePacket.getData()).trim();  
+            System.out.println("Message Received: " + receivedMsg );
+
+        } catch(Exception exception){
+            exception.printStackTrace();
+        }
+    }
+}
+```

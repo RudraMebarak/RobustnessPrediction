@@ -1,0 +1,79 @@
+```java
+import org.openjdk.jmh.annotations.benchmark;
+import org.openjdk.jmh.annotations.benchmarkmode;
+import org.openjdk.jmh.annotations.fork;
+import org.openjdk.jmh.annotations.measurement;
+import org.openjdk.jmh.annotations.mode;
+import org.openjdk.jmh.annotations.outputtimeunit;
+import org.openjdk.jmh.annotations.scope;
+import org.openjdk.jmh.annotations.setup;
+import org.openjdk.jmh.annotations.state;
+import org.openjdk.jmh.annotations.teardown;
+import org.openjdk.jmh.annotations.warmup;
+
+import java.util.arraylist;
+import java.util.linkedlist;
+import java.util.list;
+
+@state(scope.thread)
+public class indexedaccessbenchmark {
+
+    list<long> list1 = new arraylist<>();
+    list<long> list2 = new linkedlist<>();
+
+    @setup(level.iteration)
+    public void setup() {
+        // populate lists with some data
+        for (int i = 0; i < 1_000; i++) {
+            list1.add(i);
+            list2.add(i);
+        }
+    }
+
+    @warmup(iterations = 5)
+    @measurement(iterations = 5)
+    @benchmark(mode = mode.averagetime)
+    @outputtimeunit(timeunit.nanoseconds)
+    public long getindexed() {
+        return list1.get(333); // accessing index 333 from arraylist
+    }
+
+    @warmup(iterations = 5)
+    @measurement(iterations = 5)
+    @benchmark(mode = mode.averagetime)
+    @outputtimeunit(timeunit.nanoseconds)
+    public long getindexedlinkedlist() {
+        return list2.get(333); // accessing index 333 from linkedlist
+    }
+
+    @warmup(iterations = 5)
+    @measurement(iterations = 5)
+    @benchmark(mode = mode.longestexecutiontime)
+    @outputtimeunit(timeunit.seconds)
+    public long insertandgetindexed() {
+        long[] array = {999}; // insert element at index 333
+        if (list1.contains(array[0])) list1.remove(array[0]);
+        else list1.add(array[0]);
+
+        return list1.get(333); // accessing index 333 after insertion
+    }
+
+    @warmup(iterations = 5)
+    @measurement(iterations = 5)
+    @benchmark(mode = mode.leantime)
+    @outputtimeunit(timeunit.microseconds)
+    public long iterateindexed() {
+        int sum = 0;
+
+        for (long value : list1) {
+            sum += value;
+        }
+
+        return sum;
+    }
+
+    @warmup(iterations = 5)
+    @measurement(iterations = 5)
+    @benchmark(mode = mode.longestexecutiontime)
+    @outputtimeunit(timeunit.milliseconds)
+    public long iterate

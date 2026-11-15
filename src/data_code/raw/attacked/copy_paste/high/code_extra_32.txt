@@ -1,0 +1,85 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta class="category-section">
+        <h2>Categories</h2>
+        <div>
+            <button type="button" onclick="showCategory('all')">All Recipes</button>
+            <button type="button" onclick="showCategory('vegan')">Vegan Recipes</button>
+            <button type="button" onclick="showCategory('vegetarian')">Vegetarian Recipes</button>
+            <!-- Add more categories as needed -->
+        </div>
+        <hr>
+        <h3>Vegan Recipes</h3>
+        <p>Here are some vegan recipes:</p>
+        <ul>
+            <li><a href="#">Veggie Stir-Fry</a></li>
+            <li><a href="#">Chickpea Curry</a></li>
+            <li><a href="#">Pasta Salad with Pesto</a></li>
+        </ul>
+    </section>
+
+    <!-- Ingredients section -->
+    <section id="ingredients" class="ingredient-section">
+        <h2>Ingredients</h2>
+        <p>List of ingredients will be added dynamically.</p>
+    </section>
+
+    <!-- Preparation Steps section -->
+    <section id="preparation" class="preparation-section">
+        <h2>Preparation Steps</h2>
+        <ol>
+            <li>Step 1</li>
+            <li>Step 2</li>
+            <li>Step 3</li>
+            <!-- Add more steps as needed -->
+        </ol>
+    </section>
+
+    <!-- Cooking Times section -->
+    <section id="cooking-times" class="cooking-times-section">
+        <h2>Cooking Times</h2>
+        <table>
+            <thead>
+                <tr>
+        <!-- Recipe items will be dynamically inserted here -->
+    </ul>
+</div>
+
+<script>
+function toggleCategory(category) {
+    const elements = document.querySelectorAll('.recipes-container ul li');
+    elements.forEach(item => item.style.display = 'none');
+
+    if (category === "all") {
+        return;
+    }
+
+    document.getElementById(category).style.display = 'block';
+}
+
+document.getElementById('vegetarian').addEventListener('click', function() {
+    toggleCategory('vegetarian');
+});
+document.getElementById('glutenFree').addEventListener('click', function() {
+    toggleCategory('glutenFree');
+});
+
+// Add event listeners to trigger clicks on categories
+const categories = document.getElementsByClassName('categories div')[0].getElementsByTagName('div');
+for (let i = 1; i <= categories.length; i++) {
+    const catButton = document.getElementById(`category${i}`);
+    catButton.addEventListener('click', () => {
+        toggleCategory(`category${i - 1}`);
+    });
+}
+</script>
+
+<footer>
+    Copyright © 2023
+</footer>
+
+</body>
+</html>
+```

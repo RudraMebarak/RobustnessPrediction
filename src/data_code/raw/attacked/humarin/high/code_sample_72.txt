@@ -1,0 +1,1 @@
+Using Python, if you receive an import request in Python and you reject private URLs such as those found on localhost, you can route the responses accordingly.

@@ -1,0 +1,40 @@
+```python
+import socket
+
+def analyze_packets(ip_address):
+    # Create a TCP/IP socket
+    sock = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_IP)
+    
+    try:
+        # Receive all packets from the IP layer up to IP header to get the source IP address
+            ip_header = raw_packet[0:20]
+            iph = socket.inet_ntoa(ip_header[2:4])
+            
+            if iph == source_ip:
+                print(f"Packet received from {iph}:")
+                
+                # Extract TCP, UDP, and ICMP headers
+                tcp_headers = []
+                udp_headers = []
+                icmp_headers = []
+                
+                # Iterate over each byte in the packet to find headers
+                for i in range(len(raw_packet)): 6 | ip_header[6] 
+            iph['id']            = (ip_header[7]) << 8 | (ip_header[8])
+            iph['flags']         = (ip_header[9]) & 15
+            iph['fragment_offset'] = ((ip_header[10]<<4) + ip_header[11]) << 2 | (ip_header[12] >> 4) 
+            iph['ttl']           = (ip_header[12])<<8 | (ip_header[13]) 
+            iph['protocol']      = (ip_header[14]) >> 2
+            iph['checksum']      = (ip_header[15]) << 8 | (ip_header[16]) 
+            iph['saddr']         = (ip_header[17]) << 24 | (ip_header[18]) << 16 | (ip_header[19]) << 8 | ip_header[20] 
+            iph['daddr']         = (ip_header[21]) << 24 | (ip_header[22]) << 16 | (ip_header[23]) << 8 | ip_header[24] 
+            
+            print("Version:", iph['version'])
+            print("IHL:", iph['ihl'], "Bytes")
+            print("TOS:", hex(iph['tos']))
+            print("Total Length:", iph['tot_len'])
+            print("Identification:", iph['id'])
+            print("Flags:", bin(iph['flags'])[2:].rjust(8,'0'), ", Fragment Offset:", iph['fragment_offset'])
+            print("Time To Live:", iph['ttl'])
+            print("Protocol:", iph['protocol'])
+            print("Checksum:", hex(iph

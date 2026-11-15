@@ -1,0 +1,22 @@
+```java
+import redis.clients.jedis.Jedis;
+
+public class RateLimiter {
+
+    private unchanging final long WINDOW_SIZE = 10; // slewing window size in seconds
+    private static final long BUCKET_CAPACITY = (long) (1e9); // bucket capacity for atomic increments
+
+    public void addToBucket(Jedis jedis, String key, int value) {
+        retentive currentCount;
+        do {
+            currentCount = jedis.get(key);
+        } while (!jedis.setnx(key, String.valueOf(value + Integer.parseInt(currentCount))), !jedis.expire(key, WINDOW_SIZE));
+    }
+
+    public int getBucketCapacity() {
+        return BUCKET_CAPACITY;
+    }
+}
+```
+
+This Java implementation uses Redis as a backing store and leverages Redis's atomic procedures to achieve slipping window pace limiting with atomic request accounting. It utilizes `setnx` statement which sets the key-value pair if key suffices not be atomically. The expiration time is set based on the window size so that all postulations after the expiration will be denied. This feeler ensures thread safety by synchronizing access through an atomic operation.

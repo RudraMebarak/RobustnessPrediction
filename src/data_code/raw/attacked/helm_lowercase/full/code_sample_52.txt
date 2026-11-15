@@ -1,0 +1,29 @@
+```python
+import psycopg2
+
+def fetch_events(cursor, limit, offset):
+    query = """
+    select * from activity
+    order by timestamp desc
+    limit %s offset %s;
+    """
+    
+    cursor.execute(query, (limit, offset))
+    
+    return cursor.fetchall()
+
+# example usage
+conn = psycopg2.connect(database="your_database", user="your_username", password="your_password", host="localhost")
+cur = conn.cursor()
+events = fetch_events(cur, 10, 0)
+print(events)  # prints the last 10 events in chronological order based on timestamp
+
+# to get more events after a certain event's timestamp:
+new_offset = cur.rowcount - 1  # subtract one to get the last row's index.
+new_events = fetch_events(cur, 10, new_offset)
+
+# close resources
+cur.close()
+conn.commit()
+conn.close()
+```

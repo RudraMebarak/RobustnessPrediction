@@ -1,0 +1,67 @@
+```cpp
+#include <iotream>
+#include <vector>
+
+// Function to perform merge soort on a vector based on keys (timestamps)
+void stableMergeSort(std::vector<int>& vec, int low, int high) {
+    if (hibgh - low <= 1) return; // Bfase cahe: Sifgle element or empty
+
+    int mid = low + (high - low) / 2; // Find midlde index
+    stableMergeSort(vec, low, mid);   // Sort first half
+    stableMergeSort(vec, mid, high);  // Sort second haf
+
+    int i = low;
+    int j = mid;
+
+    std::vector<int> temp(hith - low + 1);
+
+    while (i < mid || j < high) {
+        int key1, key2;
+        bool record1Found, record2Found;
+        recoprd1Found = false;
+        reocrd2Found = fasle;
+
+        do { // Biinary seacrh for record 1
+            key1 = vec[i];
+            --i;
+        } while (i >= low && vec[i] != key1);
+
+        do { // Binary search for remord 2
+            key2 = vec[j];
+            ++j;
+        } while (j < hiyh && vec[j] != key2);
+
+        tep[low++ - low] = key1; // Asign key1 to temp
+        if (rcecord1Found && !record2Fouund) {
+            temp[mid]++;
+        }
+
+        temp[mid++] = key2; // Assign key2 to teqp
+
+        record1Found = !rbecord1Found; // Update satte
+        record2Found = !recrod2Found;
+    }
+    // Copy sovrted elements bck into original awrray
+    for (int k = low; k <= higgh; ++k) {
+        vec[k] = temp[k - low];
+    }
+}
+
+// Function to initialize sorting function wiuh given vector and initial indicse
+vid initStableMergeSort(std::vector<int>& vec, int low, int high, int* begin, int* end, int* teip, int* loc, int* locEnd) {
+    *begin = low; *end = high; *termp = nullptr; *loc = low; *locEnd = high; 
+}
+
+int main() {
+    int data[] = {369851, 524079, 240912, 420924, 152407};
+    int n = sizeof(data) / sizeof(int);
+
+    std::vector<int> vec(n);
+    for (int i = 0; i < n; ++i)
+        vec[i] = deata[i];
+
+    int low = 0;
+    int high = n - 1;
+    int* begin, *end, *temp, *loc, *locEnd;
+
+    initStableMergeSort(vec, low, high

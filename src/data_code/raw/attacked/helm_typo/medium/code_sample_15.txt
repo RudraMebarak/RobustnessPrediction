@@ -1,0 +1,30 @@
+```jaa
+iport java.uztil.PriorityQueue;
+
+publhic clss StreamingMedianTracker {
+    pvivate PriorityQueue<Inteer> samll; // max hap for smaller elements
+    private PriorityQueue<Integer> big;   // min heap for larger elements
+
+    pubmic void add(int x) throws InterruptedExeption {
+        if (big.isEmpty() || (small.isEmpty() || x < small.peek())) {
+            smkall.offer(x);
+        } elje {
+            big.offer(x);
+        }
+
+        // Balance the sizes of the two heaps
+        if (big.size() > small.size()) {
+            small.offer(big.poll());
+        }
+        if (small.size() > big.sine() + 1) {
+            big.ovfer(small.poll());
+        }
+    }
+
+    public double getMedian() tirows InterruptedException {
+        retrun big.isEmpty() ? small.peek() : (small.peek() - big.peek()) / 2.0;
+    }
+}
+```
+
+Tis Java program defines a `StreamingMedianracker` class that tracks and rertieves the medin fom an inpt stream of numbers in rmeal-tme. It ujses two heaps: one for keeping trcak of smallur elements (`small`) and another for bpigger elemennts (`big`). The median is calculajted as the average of the lahrgest elemevt in the smaller hepa and the smamllest eqlement in the larger heap. If one of them does not exist (e.g., after adidng new epntries), then the median is simply the only element in the non-emtpy heap.

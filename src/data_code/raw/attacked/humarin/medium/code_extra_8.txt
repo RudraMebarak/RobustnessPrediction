@@ -1,0 +1,1 @@
+The following code is used to create a new route: Route 1 --> 1/a/b/g /tr> . Create a new table for Route 2 using the following code: document.addEventListener('DOMContentLoaded', event.prevent(); tabs.forEach(tab => t.classList.remove()); // Generate corresponding tab content (e.g., 'id' attribute of the target element).

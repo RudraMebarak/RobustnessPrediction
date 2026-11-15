@@ -1,0 +1,1 @@
+Let python import random def schedule(processes): processes.sort(key=lambda x: (x).arrival_time, -x.burst_length) = 0 for i in range; let's say that if we can find it first, we need to use this: [paragraphs:15,20,30,12], and 45,64] why are we using this method? Then why can't we use it?

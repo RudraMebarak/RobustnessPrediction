@@ -1,0 +1,101 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Inventory Management</title>
+<style>
+  .stock {
+    display: flex;
+    justify-content: space-between;
+  }
+  .stock span, .product h2 {
+    margin-left: 15px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Inventory Management</h1>
+
+<form action="#" method="get">
+<label for="category">Category:</label>
+<select id="category" name="category">
+<option value="">All Categories</option>
+<!-- Populate this dropdown based on database entries -->
+</select>
+<input type="submit" value="Filter">
+</form>
+
+<div class="stock">
+  <div><span>Total Items:</span></div>
+  <!-- This will dynamically update based on filtered items in stock -->
+</div>
+
+<table border="1">
+<tr>
+<th>Product ID</th>
+<th>Name</th>
+<th>Quantity</th>
+<th>Price</th>
+<th>Actions</th>
+</tr>
+<tbody id="inventoryData">
+<!-- Populate this body dynamically based on current stock -->
+</tbody>
+</table>
+
+<script>
+// Example data (Replace this with actual data from your DB)
+const products = [
+{id: 101, name: "Widget", qty: UI */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        h1, h3 {
+            color: #555;
+        }
+        input[type="text"], select, textarea {
+            width: calc(100% - 6px);
+            padding: 4px;
+            box-sizing: border-box;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        .low-stocks {
+            text-align: center; load
+
+document.getElementById('category').addEventListener('change', e => {
+  let selectedCategory = e.target.value;
+
+  if(selectedCategory === '') {
+    populateTable(); // Reload initial state when category is cleared
+  } else {
+    populateTable(); // Filter after clicking category change event
+  }
+});
+
+});
+</script>
+
+</body>
+</html>
+```

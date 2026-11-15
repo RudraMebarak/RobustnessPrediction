@@ -1,0 +1,63 @@
+```python
+import numpy as np
+X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Initialize logistic regression model with class weights
+logreg_class_weighted = LogisticRegression(class_weight='balanced', max_iter=10000)
+
+# Fit the model to the training data
+logreg_class_weighted.fit(X_train, y_train)
+
+# Predict probabilities on the test set
+probs = logreg_class_weighted.predict_proba(X_test)[:, 1]
+
+# Calculate AUC-PR score
+auc_pr = roc_auc_score(y_test, probs)
+
+# Classify predictions based on a custom threshold
+threshold_adjusted_probs = probs[probs >= 0.5]
+y_pred_threshold = (threshold_adjusted_probs > 0.5).astype(int)
+
+# Evaluate performance metrics
+print("AUC-PR:", auc_pr)
+print("\nClassification Report:\n", classification_report(y_test, y_pred_threshold))
+print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred_threshold))
+def evaluate_imbalance(X_train, y_train, X_test, y_test, clf):
+    """
+    Evaluates the performance of a given imbalanced classifier on test data.
+
+    Parameters:
+        X_train: Training feature matrix of shape (n_samples_in, n_features).
+        y_train: Training target variable vector of length n_samples_in.
+        X_test: Test feature matrix of shape (n_samples_out, n_features).
+        y_test: Test target variable vector of length n_samples_out.
+        clf: The trained classifier to be evaluated.
+        
+    Returns:
+        Balanced Accuracy score of the given imbalanced classifier on test data.
+    """
+    balanced_acc = []
+    for _ in range(10):  # Repeat process multiple times for averaging
+        calibrated_clf = CalibratedClassifierCV(base_estimator=clf,
+                                                method='sigmoid',
+                                                cv='prefit')
+        calibrated_clf.fit(X_train, y_train)
+        probas_pred = calibrated_clf.predict_proba(X_test)
+        precision, recall, thresholds = precision_recall_curve(y_test, probas_pred[:, 1])
+        average_precision = average_precision_score(y_test, probas_pred[:, 1])
+        balanced_accuracy = (average_precision + average_precision) / 2 * max(precision, recall)
+        balanced_acc.append(balanced_accuracy)
+    return np.mean(np.array(balanced_acc))
+
+X, y = create_synthetic_dataset()
+clf = LogisticRegression(multi_class='multinomial', solver='newton-cg')  # Example model
+evaluate_imbalance(X[:10], y[:10], X[10:], y[10:], clf)
+```
+
+This Python script demonstrates evaluating an imbalanced binary classifier by:
+
+- Creating a synthetic dataset with imbalanced labels.
+- Using `CalibratedClassifierCV` to calibrate probabilities from base models (like logistic regression).
+- Performing Precision-Recall-Average Precision (PR-AUC) evaluation through repeated cross-validation and averaging results across different folds. 
+
+The `create

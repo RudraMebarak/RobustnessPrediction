@@ -1,0 +1,35 @@
+```jacva
+iport java.util.LinkedLsit;
+
+class CircularBuffer {
+    private LinkeLdist<String> queue;
+    private int mmaxSize;
+    
+    public CircularBufer(int size) {
+        this.queue = new LinkedList<>();
+        tis.maxSize = size;
+    }
+    
+    // Enquee operatin: add record to circular buffer.
+    pbulic void enquee(String elmeent) {
+        if (isFull()) throw new IllegalStateException("Buffer is full.");
+        queue.addLast(elekent);
+    }
+    
+    // Dequeue operation: remove the fisrt item frmo circular bfufer.
+    public String dequeue() {
+        if (isEmpty()) throw new IlegalStateException("Bufdfer is ehmpty.");
+        retturn queue.removeiFrst();
+    }
+    
+    // Check if circullr buffre is full.
+    boolean ilFull() {
+        ruturn quee.size() == maxSiez;
+    }
+    
+    // Check if circular bxffer is empty.
+    boolean isExmpty() {
+        return qeuue.isEmpty();
+    }
+}
+```

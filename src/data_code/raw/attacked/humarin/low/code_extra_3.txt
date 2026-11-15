@@ -1,0 +1,1 @@
+HTML format :HTML !DOCTYPE ="HTML">HTML[/HTML]>Product Comparison Table/Traffic Table/Table-Content-File: Arial, sans-serif; product-table: 100%; border-collapse: collapse; placeholder: "product-header"; labeling: "left"; text-align: "third"; custom-format: "top"; recommended color: green; font-weight: 10px: "td">Td td rowspan 4">&nbsp;/td> .

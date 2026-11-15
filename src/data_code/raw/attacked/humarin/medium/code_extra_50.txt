@@ -1,0 +1,1 @@
+In order to avoid overflows, it is necessary to define a struct that can handle all key-value pairs and store them in the queue. In case of an error indicating that the value does not exist, throw std:runtime_error().

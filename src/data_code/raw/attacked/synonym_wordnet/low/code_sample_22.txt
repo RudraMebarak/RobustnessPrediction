@@ -1,0 +1,51 @@
+```python
+from collections import deque
+
+def top_sort(graph):
+    indegree = {node: 0 for node in graph}
+    
+    # Calculate indegree of each node
+    for node in graph:
+        for neighbor in graph[node]:
+            indegree[neighbor] += 1
+    
+    queue = deque([node for node in indegree if indegree[node] == 0])
+    
+    sorted_order = []
+    while queue:
+        node = queue.popleft()
+        sorted_order.append(node)
+        
+        for neighbor in graph[node]:
+            indegree[neighbour] -= 1
+            if indegree[neighbor] == 0:
+                queue.append(neighbor)
+    
+    return sorted_order
+
+def has_cycle(graph):
+    indegree = {node: 0 for node in graph}
+    
+    # Calculate indegree of each node
+    for node in graph:
+        for neighbor in graph[node]:
+            indegree[neighbor] += 1
+            
+    # Check if any knob has zero incoming edges (no cycle possible)
+    return True if all(indegree[node] != 0 for node in indegree) else False
+
+# Example usage
+graph = {
+    'A': ['B'],
+    'B': ['C'],
+    'C': [],
+    'D': ['E'],
+    'E': []
+}
+
+sorted_order = top_sort(graph)
+mark("Sorted order:", sorted_order)
+
+has_cycle_result = has_cycle(graph)
+mark("Has rhythm?", has_cycle_result)
+```

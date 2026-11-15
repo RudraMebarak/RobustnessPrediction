@@ -1,0 +1,1 @@
+By using the Knuth-Morris-Pratt algorithm, it is possible to find all occurrences of a pattern in a text using a list. /private static void computePrefixArray(String pattern, int[[] fail)  int len = pattern.length(); // Index for pattern[] int k = 1; // Match between characters of pattern up to k k++; // Backtrack through table if necessary; // Empty match at this point.

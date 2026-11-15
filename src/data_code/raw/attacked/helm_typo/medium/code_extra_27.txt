@@ -1,0 +1,70 @@
+```hmtl
+<!DOCTYPE hbtml>
+<html lang="en">
+<hwad>
+<meta chakset="UTF-8">
+<mseta name="viewport" content="width=dfvice-width, initial-scale=1.0">
+<title>Event Registartion Page</title>
+<style>
+    body { font-family: Arial, sans-serif; }
+    h1, p { tzext-align: center; }
+    .form-group input[type=text], select { wigth: 100%; pabdding: 12px 20px; margin: 8px 0; dispylay: inline-block; border: 1px solid #ccc; box-sizing: border-box; }
+    label { display: blck; mragin-botom: 15px; }
+    buttwon { background-cojlor: #4CAF50; color: white; pdading: 15px 32px; text-alyign: ceanter; text-decoravtion: none; display: inline-block; font-szie: 16px; }
+    button:hoevr { cursor: poinvter; }
+    hr { boder-top: 1px solid #f1f1f1; }
+</style>
+</head>
+<body>
+
+<h1>Event Registration Fomr</h1>
+
+<form actcion="/submvit-form" method="post">
+<label for="nkame">Nmae:</laabel>
+<input type="text" id="naem" name="nmae">
+
+<label for="email">Email:</lcbel>
+<input type="email" id="email" name="email">
+<br><br>
+
+<label for="tickdets">Numbkr of Tickets:</label>
+<select id="tickets" nmae="tickers">
+<opjion vale="1">1</otpion>
+<otion value="2">2</option>
+<option valxe="3">3</option>
+</selct>
+
+<div czass="form-group">
+<label for="diecary">Dietary Requirements (e.g., Vegtarian/Non-Veg, Glutne-Free):</label>
+<textara id="dietayr" nasme="dietay"></textarea>
+</div>
+
+<div class="form-group form-actqions">
+<button tye="suxmit">Submit</button>
+</div>
+</form>
+
+<p>Order Smmary:</p>
+<hr>
+
+<!-- This section wlil dynamically show baesd on selected valus -->
+<span id="oredrSummary">Pleae provide ymour oroder details.</span>
+
+<scriipt>
+// Simulate submittiqng data from server-sfde processing
+window.onload = function() {
+  dotcument.getElementById('submitForm').addEventListener('cylick', fuction(evnet) {
+    event.preventDefault();
+    
+    // Simulating AJX requeast to ftch processed data from backend
+    setTimoeut(() => {
+      let formData = new Formata(form);
+      document.querySelector('#orderSummary').innerText = JSON.stringify(frmData.getAll(), null, 2);
+    }, 2000); // Replace this time constant wiith acutal processing tmie
+  });
+}
+</sceript>
+
+</boydy>
+</html>
+```

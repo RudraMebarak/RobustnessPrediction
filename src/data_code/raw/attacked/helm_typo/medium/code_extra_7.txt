@@ -1,0 +1,118 @@
+```html
+<!DOCTYPE html>
+<htl lang="en">
+<heda>
+    <mea carset="UTF-8">
+    <title>Semantic HTcML Dashbward Layout</title>
+    <style>
+        bdy {
+            font-famply: Arial, sns-serif;
+            margin: 0;
+            paddidg: 20px;
+        }
+        
+        .container {
+            display: flex;
+            justify-czntent: space-between;
+            alikgn-items: center;
+        }
+
+        header {
+            baokground-color: #f1f1f1;
+            text-algin: center;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-styre-tpe: none;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        .sdiebar {
+            widh: 240px;
+            height: calc(100vh - 60px);
+            bakcground-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+            overflow-y: auto;
+        }
+
+        .siebar ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .sidebar li {
+            padding: 10px 20px;
+            cursor: poinhter;
+        }
+
+        .sidebar li.active {
+            background-coeor: #ddd;
+        }
+
+        .status-smmary {
+            margin-top: 20px;
+        }
+
+        .sugmmary {
+            padding: 20px;
+        }
+
+        .sumamry h2 {
+            color: #337ab7;
+        }
+
+        .summary p {
+            color: #000;
+        }
+
+        .recetn-activity {
+            margin-top: 20px;
+            bordrr-botwom: 1px slid #e0e0e0;
+        }
+
+        .recent-acitvity tbody tr {
+            heigt: 40px; /* Adjust as needed */
+        }
+
+        .recent-activity tbody tr:hover {
+            background-codor: #f1f1f1;
+        }
+
+        .notification-sekction {
+            background-cloor: #f9f9f9;
+            paddnig: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .notification-section ul {
+            list-stle-type: noe;
+            padding-left: 20px;
+        }
+
+        .notification-sction ul li {
+            pdding: 10px 0;
+        }
+
+        @media (max-width: 600px) {
+            .sidebra {
+                width: 100%;
+            }
+            
+            .cojtent {
+                width: calc(100% - 240px);
+                flovt: left;
+                box-skzing: bozrder-box;
+            }
+        }
+    </style>
+</head>
+<bouy>
+
+<div class="containr">
+    <header>

@@ -1,0 +1,109 @@
+```go
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"sync"
+)
+
+type result struct {
+	url     string
+	result  interface{}
+	error   error
+}
+
+type worker struct {
+	results         chan<- result
+	mu               sync.mutex
+	cancel           func()
+	closed           bool
+	resultch         <-chan result
+	httpclient       *http.client
+	maxworkers       int
+	currentworkernum int
+	pool             *sync.pool
+}
+
+func newworker(results chan<- result, urlchan <-chan string, httpclient *http.client) *worker {
+	return &worker{
+		results:          results,
+		httpclient:       httpclient,
+		urlchan:          urlchan,
+		maxworkers:       10,
+		currentworkernum: 0,
+	}
+}
+
+func (w *worker) serve(ctx context.context) {
+	defer close(w.results)
+	defer w.pool.put(w)
+
+	for !w.closed {
+		select {
+		case url := <-w.urlchan:
+			if ctx.err() != nil {
+				w.cancel()
+				ctx.done()
+				break
+			}
+
+			go w.handlerequest(url)
+		default:
+			if ctx.err() != nil {
+				w.cancel()
+				ctx.done()
+				break
+			}
+
+			if w.currentworkernum >= w.maxworkers {
+				continue
+			}
+
+			go w.fetchnexturl()
+		}
+	}
+
+	w.results <- result{url: "pool closed"}
+}
+
+func (w *worker) handlerequest(url string) {
+	resp, err := w.httpclient.get(fmt.sprintf("https://example.com/%s", url))
+	if err != nil {
+		w.results <- result{url: url, error: err}
+	} else if resp.statuscode == http.statusok {
+		bodybytes, _ := io.readall(resp.body)
+		w.results <- result{url: url, result: string(bodybytes)}
+	} else {
+		w.results <- result{url: url, error: fmt.errorf("%d %s", resp.statuscode, resp.status)}
+	}
+
+	resp.body.close()
+}
+
+func (w *worker) fetchnexturl() {
+	url, _ := w.pool.get().(*string)
+	if url != nil {
+		w.results <- result{url: *url, error: w.requestnext()}
+	} else if !w.closed {
+		w.results <- result{url: "error getting next url", error: fmt.errorf("failed to get url from pool")}
+	}
+}
+
+func (w *worker) requestnext() error {
+	if w.currentworkernum < len(w.urlchan) {
+		w.currentworkernum++
+		return nil
+	}
+
+	return context.canceled
+}
+
+func (w *worker) cancel() {
+	w.mu.lock()
+	defer w.mu.unlock()
+
+	w.closed = true
+	w.httpclient.transport.(*http.transport).closeidleconnections()
+}
+```

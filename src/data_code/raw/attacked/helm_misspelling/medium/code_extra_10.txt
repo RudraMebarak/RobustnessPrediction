@@ -1,0 +1,88 @@
+```jsx
+import React, { useState } from 'react';
+
+function ShoppingCart() {
+  const [items, setItems] = useState([]);
+  
+  const addItemToCart = (quantity) => {
+    let newItem;
+    
+    if (items.length === 0 || items[items.length - 1].name !== newItem.name) {
+      // Add new item to the array if it's different from the last added one in case of duplicate names
+      newItem = {
+        name: newItem.name,
+        price: newItem.price * quantity,
+      };
+    }
+    
+    setItems([...items, newItem]);
+    
+    calculateSubtotal();
+  };
+
+  function handleRemoveItem(itemIndex) {
+    const updatedItems = [...items];
+    updatedItems.splice(itemIndex, 1);
+    setItems(updatedItems);
+  }
+
+  function handleClearCart() {
+    setItems([]);
+    updateTotal(0);
+  }
+
+  function updateQuantity(event, index) {
+    event.preventDefault(); // Prevents page refresh when updating quantity
+
+    const target = event.target;
+    const currentQty = parseInt(target.value);
+
+    if (!isNaN(currentQty)) {
+      addItemToCart(currentQty);
+    }
+  }
+
+  function updateQuantityByEventHandling(event, itemIndex) {
+    event.preventDefault(); // Prevents page refresh when updating quantity throught event handling
+
+    const target = event.target;
+    const currentQty = parseInt(target.value);
+
+    if (currentQty > 0) {
+      addItemToCart(currentQty);
+    }
+  }
+
+  function calculateSubtotal() {
+    const totalAmount = items.reduce((acc, currItem) => acc + currItem.price, 0).toFixed(2);
+    return <div>Subtotal: ${totalAmount}</div>;
+  }
+
+  function updateTotal(amount) {
+    if (amount < 0) amount = 0; // Make sure we don't exceed zero
+    setItems(items.map(item => ({
+      ...item,
+      price: Math.abs(item.price),
+    })));
+    console.log('new Subtotal:', amount.toFixed(2));
+  }
+
+  return (
+    <div>
+      <h1>Shopping Cart</h1>
+
+      {/* Quantity Control */}
+      <form onSubmit={updateQuantity} style={{ display: 'flex', flexDirection: 'row-reverse' }}>
+        <label htmlFor="quantity">Add to Cart:</label>
+        <input type="number" id="quantity" min="1" max="10" onChange={(event) => updateQuantityByEventHandling(event, null)} />
+      </form>
+
+      {/* Empty Cart Button */}
+      <button onClick={handleClearCart}>Empty Cart</button>
+
+      {/* Item List */}
+      <ul>
+        {items.map((item, i) => (
+          <li key={i}>
+            <span>{item.name}: ${'$'}{item.price}</span>
+            <button onClick={() => handleRemoveItem(i)}>Delete</button

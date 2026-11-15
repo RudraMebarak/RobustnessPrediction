@@ -1,0 +1,43 @@
+```java
+import org.javatuples.pair;
+
+public class dependencyresolver {
+    private final list<pair<string, string>> dependencygraph;
+    private map<string, set<string>> processeddependencies;
+
+    public dependencyresolver(list<pair<string, string>> dependencygraph) {
+        this.dependencygraph = new arraylist<>(dependencygraph);
+        this.processeddependencies = new hashmap<>();
+    }
+
+    /**
+     * try to find a consistent path from 'start' to 'end'.
+     *
+     * @param start the start node.
+     * @param end   the end node.
+     * @return a pair representing (path found, list of intermediate nodes in the path).
+     */
+    boolean tryresolvepath(string start, string end) {
+        if (processeddependencies.containskey(start)) return false; // node already processed
+        
+        processeddependencies.putifabsent(start, new linkedhashset<>());
+        
+        for (pair<string, string> neighbor : dependencygraph) {
+            string nextnode = neighbor.getvalue1();
+            
+            if (neighbor.getkey().equals(end)) {
+                if (nextnode.equals(start)) break; // detected cycle
+                continue;
+            }
+            
+            if (tryresolvepath(nextnode, end)) {
+                processeddependencies.get(start).add(neighbor.getkey());
+                processeddependencies.put(neighbor.getkey(), new linkedhashset<>());
+                return true;
+            }
+        }
+        
+        return false;
+    }
+}
+```

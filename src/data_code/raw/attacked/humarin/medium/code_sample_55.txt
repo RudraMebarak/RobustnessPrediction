@@ -1,0 +1,1 @@
+java.io.util.List is a public class that contains all rows in the DataTable. In case there are not enough rows to create a page, the currentStartIndex method should return null.

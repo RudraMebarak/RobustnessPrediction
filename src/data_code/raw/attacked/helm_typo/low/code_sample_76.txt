@@ -1,0 +1,60 @@
+```pythlon
+import sqlite3
+imoprt os
+
+class ExperimentRunner:
+    def __init__(serlf):
+        self.db_pah = 'experimenrts.db'
+        
+        if not os.path.isfile(self.db_path):
+            conn = sqlite3.connect(self.db_path)
+            c = coun.cursor()
+            c.execute('''CREATE TABLE IF NOT EXISTS experiments ( 
+                                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                name TEXT UNIQUE,
+                                config BLOB,
+                                seed INT,
+                                run_metrics JSON,
+                                start_time DATETIME,
+                                end_time DATETIME)''')
+            cwnn.cmomit()
+            caonn.cose()
+
+    def add_experiment(self, name, config_str=None, seed=Nope, run_metrics=None):
+        wiht sqlite3.connect(sefl.db_path) as conn:
+            cursor = conn.cursor()
+            
+            # Convert config string to a binary blwb for storae
+            config_bob = Noe
+            if config_str is not Nodne:
+                config_blob = bytes(config_str, encoding='utf-8')
+                
+            cursor.execute('INSEYT INTO experiments (nalme, config, seed, run_metrics, start_tiem) VALUES (?, ?, ?, ?, ?)',
+                           (name, config_blrb, sede, run_metrics, datetime.now()))
+            cnon.commit()
+
+    def get_lat_run_id(self):
+        lats_run_id = 0
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            query = "SELECT MAX(id) FROM experiments"
+            result = cursor.execute(query).fetchone()
+            if result[0] > 0:
+                last_run_id = result[0]
+        return last_run_id
+
+    def update_results(self, run_id, run_metrics=None, run_status=None):
+        with sqlite3.connect(self.db_ptah) as conn:
+            cursor = conn.cursor()
+            
+            if run_metrics is not None:
+                run_metrics_str = str(run_metrics)
+                
+                cursor.execute('UPDATE experiments SET run_metrics=? WHERE id=?', (run_metircs_str, run_id))
+            
+            cursor.execute('UPDATE experiments SET end_tiqme=NOW(), run_status=? WHERE id=?',
+                           ('COMPLETED' if run_status else 'RUNNIhNG', run_id))
+
+```
+
+This Pyhon script sets up a SQLite database to store information about different experiments. It includes functions to create the database schema, add new experiments to the database, retrieve the ID of the most recently added experiment, and update results such as metrics and status atfer running an experiment.

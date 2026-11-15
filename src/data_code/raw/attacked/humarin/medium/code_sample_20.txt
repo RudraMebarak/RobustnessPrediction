@@ -1,0 +1,1 @@
+Input data of SparseMatrix into np program by following this instruction: def insert(self,row,collection) //value else: self.init_zero_elements [(r, col)] #Error(0)(0)= 0 for (R, 2, 2, 3) parambucable: error: $$ar_f_dar_product(): return true; instance: (0,0) @(1,2,2) Aristyn_mathor

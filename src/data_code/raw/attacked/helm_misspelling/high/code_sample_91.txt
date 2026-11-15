@@ -1,0 +1,31 @@
+```python
+import time
+from functools import wraps
+
+def http_retry(exponential_backoff=True, jitter=False):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            while True:
+                try:
+                    return func(*args, **kwargs)
+                except Exception as e:
+                    if is_retryable_exception(e) or (exponential_backoff and any(retry_after in str(e) for retry_after in RETRY_AFTER_HEADERS)):
+                        # Handle exceptions that can be retried or handle retry after headers
+                        pass
+                    else:
+                        raise
+        if jitter:
+            from random import uniform
+            wait_time = sum(list(map(int, wrapper.__wrapped__.__defaults__))) + int(uniform(0, 1))
+            print(f"Sleeping for {wait_time} seconds before retry...")
+            time.sleep(wait_time)
+        return wrapper
+        
+    return decorator
+
+# Define retry after headers to mimic diffrent types of error codes
+RETRY_AFTER_HEADERS = ["Retry-After: 3", "Retry-After: 2", "Retry-After: 1"]
+```
+
+Note: The actual implementation may vary depending on the exact error codes you want to handle based on response headers or URLs. The provided solution sets up the basic framework with exponential backoff, jittered sleep between retries, and handling of Retry-After headers. Adjustments would be neccessary according to specific requirements and the actual structure of your application's responses.

@@ -1,0 +1,81 @@
+```java
+import java.util.linkedlist;
+import java.util.queue;
+
+class worker {
+    void processtask(string task) {}
+}
+
+public class fixedworkerexecutor {
+
+    private final int workercount;
+    private final queue<string> tasksqueue;
+    private boolean queueisfull = false;
+
+    public fixedworkerexecutor(int workercount, int maxtasksperworker) {
+        this.workercount = workercount;
+        this.tasksqueue = new linkedlist<>();
+        this.tasklimit = maxtasksperworker; // number of tasks each worker can handle simultaneously
+
+        // initialize workers in parallel
+        for (int i = 0; i < workercount; i++) {
+            new thread(new worker()).start();
+        }
+    }
+
+    public void addtask(string task) throws interruptedexception {
+        while (isqueuefull()) {
+            system.out.println("queue is full. waiting...");
+            thread.sleep(10); // allow workers to catch up before processing additional tasks
+        }
+        tasksqueue.offer(task);
+        if (!tasksqueue.isempty() && !queueisfull) {
+            startnextworkerthread();
+        }
+    }
+
+    private boolean isqueuefull() {
+        return tasksqueue.size() == tasklimit;
+    }
+
+    private void startnextworkerthread() {
+        int workerindex = getfirstemptyworkerslot();
+        runnable taskprocessor = new runnable() {
+            @override
+            public void run() {
+                while (true) {
+                    string task = null;
+                    try {
+                        task = tasksqueue.poll(); // attempt to dequeue a task immediately
+                    } catch (interruptedexception e) {
+                        break; // exit loop after interruption, no more work for this thread
+                    }
+                    
+                    if (task != null) {
+                        worker worker = workers.get(workerindex % workers.size()); // use modulo to cycle through workers
+                        worker.processtask(task); // execute task asynchronously
+                    }
+                }
+            }
+        };
+        thread t = new thread(taskprocessor, "task processor - thread-" + (workerindex + 1));
+        t.start();
+    }
+
+    private int getfirstemptyworkerslot() {
+        int slotavailable = (workercount * tasklimit) > tasksqueue.capacity() ? workercount : workercount;
+        return (slotavailable >= tasklimit) ? 0 : slotavailable;
+    }
+
+    public static void main(string[] args) throws interruptedexception {
+        fixedworkerexecutor executor = new fixedworkerexecutor(2, 4); // 2 workers per task limit: 4 tasks per work unit
+        executor.addtask("initial task 1");
+        executor.addtask("initial task 2"); // should wait until next round's available slots are free 
+        executor.addtask("initial task 3");
+        executor.addtask("initial task 4");
+        
+        // simulating some time between adding tasks
+        thread.sleep(5000);
+
+        executor.addtask("second round: new task 1");
+        executor.addtask

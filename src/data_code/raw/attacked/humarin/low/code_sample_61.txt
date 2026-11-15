@@ -1,0 +1,1 @@
+Determine all outstanding library loans using the following query: SELECT * FROM Loans WHERE DueDate  CURRENT_DATE; Identify the books that have been borrowed the most within the last 90 days with TopLoans AS PARTNERS with their BookID, SUM(Len) AS TotalLengthRead FROM BorrowedBooks, HERE DATEADD(DAY, -90, GETDATE()) GROUP BY BookID?

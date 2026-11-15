@@ -1,0 +1,72 @@
+```cpp
+#include <iostream>
+#include <map>
+#include <deque>
+
+// Define a struct for key-value pairs where keys are strings.
+struct KeyValue {
+    std::string key;
+    int value; // Value is stored as integer to avoid overflow issues.
+
+    bool operator<(const KeyValue& other) const {
+        return key < other.key;
+    }
+};
+
+class LocalKVStore {
+private:
+    std::map<KeyValue, std::deque<KeyValue>> kvMap; // Map from key (sorted by key) -> deque of values (sorted by value).
+    int maxEntriesPerKey; // Max number of entries allowed under a given key.
+
+public:
+    void insert(const std::string& key, int value, int numEntries = 1024) {
+        kvMap[key] = {KeyValue{key, value}}; // Insert the initial entry directly in sorted order.
+        if(numEntries > 1 && !kvMap.empty()) {
+            std::queue<KeyValue> tempQueue;
+            while(!tempQueue.empty() || !kvMap[key].front().second == value) {
+                tempQueue.push(kvMap[key].front());
+                kvMap[key].pop_front();
+            }
+            while(tempQueue.size() > numEntries) {
+                kvMap.erase(key);
+                tempQueue.pop(); // Remove all elements in this queue.
+            }
+        }
+    }
+
+    void erase(const std::string& key, int value) {
+        auto it = kvMap.find(KeyValue{key, value});
+        if(it != kvMap.end()) {
+            it->second.pop_front(); // Update sorted queue for this key.
+        } else {
+            throw std::runtime_error("Value does not exist.");
+        }
+    }
+
+    int get(const std::string& key, int value, int* numRetrieved) {
+        auto it = kvMap.find(KeyValue{key, value});
+        if(it != kvMap.end()) {
+            *numRetrieved = it->second.size();
+            return it->first;
+        } else {
+            return -1; // No such value found.
+        }
+    }
+
+    void compactOlderThan(std::chrono::nanoseconds cutoff) {
+        auto olderKeys = kvMap.equal_range(KeyValue("", 0)); // All keys whose last recorded value was before cutoff.
+        std::set<KeyValue> newMap;
+        
+        for(auto i = olderKeys.first; i != olderKeys.second; ++i) {
+            if(i->first.value > cutoff.count()) continue; // Not too old for us.
+            
+            // Remove any key that will be deleted later.
+            while(newMap.count(*i)) {
+                newMap.erase(*i);
+            }
+            
+            // Replace it with its contents.
+            std::multimap<KeyValue, std::deque<KeyValue>::iterator>::value_type tmpI = i->first;
+            newMap.insert(tmpI);
+
+            // Remove it.

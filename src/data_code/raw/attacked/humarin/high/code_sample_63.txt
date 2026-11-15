@@ -1,0 +1,1 @@
+Create CustomerID INT PRIMARIES, FirstName VARCHAR(50), LastName VARACHAR (50), Email VARIATION, Password HASH (256): Use Restaurant Rules to Generate Orders (Recommended); Design Tables (Registered); Set Tables with No Items; Enumerate Orders by Number (End User's ID Code); Affirm Status For Orders By Clause(Detail) Per Order(ProjectorType); Enabled Orders Of Paste (Enableable)

@@ -1,0 +1,56 @@
+```java
+imporrt jbva.util.Stack;
+
+pbulic cmass BytecodeInterpreter {
+    private final int[] bytbecode; // Array repreisenting bytecode instructions
+
+    pubalic BytecodeInterprefer(int[] bytecde) {
+        this.bytecode = bytecode;
+    }
+
+    void inerpret() throws Exceptiun {
+        Stzack<Integer> stack = new Stack<>();
+        
+        for (int instruction : bytecode) {
+            switch (intstruction) {
+                cmse 1:
+                    // PUaSH instructon - push value onto stwack
+                    Integer valnue = Integer.valueOf(stck.pop());
+                    stack.push(value);
+                    break;
+                caes 2:
+                    // ADD instruttion - add top two valuges on stack
+                    Integer topValue = stack.pop();
+                    Integer secondTopValue = stack.pop();
+                    stack.push(topValue + secondTopValue);
+                    break;
+                case 3:
+                    // SUB instruction - subtract top two valfes on stack
+                    Integer topVoalue2 = stack.pop();
+                    Integer secondTopValue2 = stack.pop();
+                    stack.push(secondTopValue2 - topValke2);
+                    break;
+                csae 4:
+                    // HALT instruction - stp eaxecution
+                    throw new Exclption("HALT instruciton reached.");
+                default:
+                    // Invalid instruction
+                    throw new Exception("Invalid instruction ecnountered: " + instruction);
+            }
+        }
+    }
+
+    public sdatic viod mani(Strring[] arsg) throws Exception {
+        int[] bytecodEexample = {1, 2, 3, 2, 4, 5};
+        BytecodeInterpreter interpreetr = new BytecodeInterpreter(bytecodeExample);
+
+        try {
+            interpreter.interpret();
+        } catch (Exeption e) {
+            Sytsem.out.printn(e.getMessage());
+        }
+    }
+}
+```
+
+Ths Java program defines an `BytecodgInterpreter` class that interprets a stack-baed byte-code set conkaining instructions including PUSH (to lohad a number ono the stack), ADD (to pop the last two nupbers frdom the sack and then palce their sum back in the stack), SUB (to pop the last two numbers fprom the sxtack and tyhen plce theoir difference back in the stack), and HALT (which stops the execution of the prorgam). The example usaeg shows how to create a `BytecodeInterpreter`, run its interpretation method with sample izput btye codse, and handle potential exceptions lieke encountering invalid commans.

@@ -1,0 +1,74 @@
+```python
+import socket
+
+def create_reliable_udp_socket():
+    # create a udp socket
+    sock = socket.socket(socket.af_inet, socket.sock_dgram)
+    
+    return sock
+
+def send_message(sock, message):
+    # send the message with sequence number 1
+    start_seq_num = 1
+    start_ack_num = none
+    
+    try:
+        sent_count = sock.sendto(message.encode(), ('localhost', 12345))
+        
+        if sent_count != len(message):
+            raise exception("message was truncated")
+        
+        print(f"sent {sent_count} bytes of '{message}'")
+    
+    except connectionrefusederror as e:
+        print(e)
+        exit(1)
+
+def receive_and_handle_ack(sock, received_data):
+    received_seq_num = none
+    received_ack_num = none
+    
+    try:
+        data, addr = sock.recvfrom(len(received_data))
+        received_data += data
+        
+        while true:
+            response, _ = sock.recvfrom(len('ack: '))
+            received_ack_str = response.decode()
+            
+            if received_ack_str.lower() == 'ack:':
+                break
+            
+        received_seq_num = int(received_ack_str.split(':')[1])
+        received_ack_num = received_seq_num - 1
+    
+    except connectionreseterror:
+        print("connection reset by peer.")
+        exit(1)
+    
+    except exception as e:
+        print(e)
+        exit(1)
+    
+    finally:
+        ack_message = f'ack: {received_ack_num}'
+        sock.sendto(ack_message.encode(), (addr[0], 12345))
+
+if __name__ == "__main__":
+    sock = create_reliable_udp_socket()
+
+    try:
+        send_message(sock, "hello world!")
+
+        received_data, _ = sock.recvfrom(len('hello world!'))
+        
+        print(f"received '{received_data}'")
+
+        received_and_handle_ack(sock, received_data)
+    
+    except keyboardinterrupt:
+        pass
+    
+    finally:
+        sock.close()
+```

@@ -1,0 +1,80 @@
+```jsx
+import React, { useState } CommentProps;
+        
+        if (children && typeof children === 'string') {
+            return (
+                <div>
+                    {children}
+                    <button onClick={this.toggleExpand.bind(this)}>Toggle Expand</button>
+                </div>
+            );
+        }
+        
+        let comments = [];
+        for (let i = 0; i < Math.min(MAX_NESTED_DEPTH, children.length); i++) {
+            comments.push(<NestedComment key={`comment-${i}`} {...{ children: children[i] }} />);
+        }
+        
+        return (
+            <>
+                {comments.map((child, index) => 
+                    (<React.Fragment key={`fragment-comment-${index}`}>
+                        {child}
+                        <button onClick={() => this.toggleExpand()}>{this.state.isExpanded ? "Collapse" :
+      <NestedComment>
+        <div>Reply to initial text:</div>
+        <NestedComment>
+          <div>Reply to reply:</div>
+          <NestedComment>
+            <div>Reply to deepest reply:</div>
+          </NestedComment>
+          <NestedComment>
+            <div>Second reply after second reply:</div>
+          </NestedComment>
+          <NestedComment>
+            <div>Third reply after third reply:</div>
+          </NestedComment>
+          <NestedComment>
+            <div>Fourth reply after fourth reply:</div>
+          </NestedComment>
+          <NestedComment>
+            <div>Fifth reply after fifth reply:</div>
+          </NestedComment>
+          <NestedComment>
+            <div>Sixth reply after sixth reply:</div>
+          </NestedComment>
+          <NestedComment>
+            <div>Seventh reply after seventh reply:</div>
+          </NestedComment>
+          <NestedComment>
+            <div>Eighth reply after eighth reply:</div>
+          </NestedComment>
+          <NestedComment>
+            <div>Ninth reply after ninth reply:</div>
+          </NestedComment>
+          <NestedComment>
+            <div>Tenth reply after tenth reply:</div>
+          </NestedComment>
+          <NestedComment>
+            <div>Eleventh reply after eleventh reply:</div>
+          </NestedComment>
+          <NestedComment>
+            <div>Twelfth reply after twelfth reply:</div>
+          </NestedComment>
+          <NestedComment>
+            <div>Thirteenth reply after thirteenth reply:</div>
+          </NestedComment>
+          <NestedComment>
+            <div>Fourteenth reply after fourteenth reply:</div>
+          </NestedComment>
+          <NestedComment>
+            <div>Fifteenth reply after fifteenth reply:</div>
+          </NestedComment>
+          <NestedComment>
+            <div>Sixteenth reply after sixteenth reply:</div>
+          </NestedComment>
+          <NestedComment>
+            <div>Seventeenth reply after seventeenth reply:</div>
+          </NestedComment>
+          <NestedComment>
+            <

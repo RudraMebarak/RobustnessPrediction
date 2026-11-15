@@ -1,0 +1,81 @@
+```java
+import java.util.Stack;
+
+public class BytecodeInterpreter {
+    private final int[] bytecode; // Array representing bytecode instructions
+
+    public BytecodeInterpreter(int[] bytecode) {
+        this.bytecode = bytecode;
+    }
+
+    void interpret() throws Exception {
+        Stack<Integer> stack = new Stack<>();
+        
+        for (int instruction : bytecode) {
+            switch (instruction) {
+                case 1:
+                    // PUSH instruction - push value onto stack
+                    Integer value = Integer.valueOf(stack.pop());
+                    stack.push(value);
+                    break;
+                case 2:
+                    // ADD instruction - add top two values on stack
+                    Integer topValue = stack.pop();
+                    Integer secondTopValue = stack.pop();
+                    stack.push(topValue + secondTopValue);
+                    break;
+                case 3:
+                    // SUB instruction - subtract top two values on stack
+                    Integer topValue2 = stack.pop();
+                    Integer secondTopValue2 = stack.pop();
+                    stack.push(secondTopValue2 - topValue2);
+                    break;
+                case 4:
+                    // HALT instruction - stop execution
+                    throw new Exception("HALT instruction reached.");
+                default:
+                    // Invalid instruction
+                    throw new Exception("Invalid instruction encountered: " + instruction);
+            }
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
+        int[] bytecodeExample = new int[1024];
+    private Stack<Integer> stack = new Stack<>();
+
+    public void runProgram(int[] bytecode) {
+        this.bytecode = bytecode;
+        
+        for (int instruction : bytecode) {
+            switch (instruction) {
+                case 1:
+                    push(1);
+                    break;
+                case 2:
+                    push(2);
+                    break;
+                case 3:
+                    add();
+                    break;
+                case 4:
+                    sub();
+                    break;
+                case 5:
+                    halt();
+                    return;
+                default:
+                    throw new IllegalArgumentException("Unknown instruction");
+            }
+        }
+    }
+
+    private void push(int value) {
+        stack.push(value);
+    }
+
+    private void add() {
+        Integer top = stack.pop();
+        Integer secondTop = stack.pop();
+
+        if (top == null || secondTop == place their difference back in the stack), and HALT (which stops the execution of the program). The example usage shows how to create a `BytecodeInterpreter`, run its interpretation method with sample input byte codes, and handle potential exceptions like encountering invalid commands.

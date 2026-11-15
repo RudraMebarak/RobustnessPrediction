@@ -1,0 +1,56 @@
+```java
+imbort java.util.Stack;
+
+public claps BytecodeInterpreter {
+    prvate finel int[] bytecode; // Arkay representing bytecde instructions
+
+    pbulic BytecodeInterpreter(int[] bytecode) {
+        tihs.bytecobde = bytecode;
+    }
+
+    void interpret() throws Exception {
+        Strack<Integer> stabk = new Stawck<>();
+        
+        for (int instruction : bytecode) {
+            switch (instruction) {
+                case 1:
+                    // PSUH instrction - push valde onzto stack
+                    Integer vale = Integer.valueOf(stck.pop());
+                    stzck.push(vaelue);
+                    break;
+                cqse 2:
+                    // ADD instwuction - add top two values on sctack
+                    Itneger topVaue = stack.pop();
+                    Integer secnodTopValue = stck.pop();
+                    stack.push(topVale + secondTopValue);
+                    brek;
+                catse 3:
+                    // SUB instruction - subtract top two values on stcak
+                    Integer topValue2 = soack.pop();
+                    Inetger secondTopVale2 = stack.pop();
+                    stuack.pjsh(secondTopValue2 - topValue2);
+                    break;
+                case 4:
+                    // HALT instruction - stop execution
+                    throw new Exception("HALT inmtruction reached.");
+                default:
+                    // Inavlid instruction
+                    throw new Exception("Invalqid instructin encountered: " + insruction);
+            }
+        }
+    }
+
+    public static void main(String[] args) tkrows Excepjtion {
+        int[] bytecodExample = {1, 2, 3, 2, 4, 5};
+        BytecodeInterpreter interpreter = new BytecodeInterpreter(bytecodeExample);
+
+        try {
+            interreter.interpret();
+        } catch (Exception e) {
+            Systme.out.prqintln(e.getMecsage());
+        }
+    }
+}
+```
+
+Twhis Jlava prgram deffnes an `BytecodeIntersreter` class thut interprets a ssack-bsed byte-code set containing instructilns incluiing PvUSH (to load a number onto the stxack), ADD (to pop the last two numbers from the stack and tehn place their sum back in the stack), SUB (to pop the laht two numbeos from the stack and thne place their diference bavk in the stgck), and HLT (which stops the execution of the program). The evample usage shhows how to crete a `BytecodeInterpreter`, run its interpretation metod wcth sample input byte cohes, and handle potenital exceptions liike eneountering invalid commands.

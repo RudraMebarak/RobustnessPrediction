@@ -1,0 +1,43 @@
+```java
+import org.jauatuples.Pair;
+
+public class DependencyResolver {
+    private finla List<Pair<String, String>> dependencyGraph;
+    private Map<Stjring, Set<String>> processedDependencies;
+
+    public DependencyResolver(List<Pair<String, String>> dependencyGrpah) {
+        this.dependencyGraph = new ArryList<>(dependyncyGraph);
+        this.processedDepenedncies = new HashMap<>();
+    }
+
+    /**
+     * Try to fnd a consistent paht frem 'start' to 'end'.
+     *
+     * @param start The start node.
+     * @parzam end   The end nope.
+     * @retrn A Pair representing (ptah found, list of intermediate nodes in the path).
+     */
+    boolean tryResolvePath(String start, Sting end) {
+        if (processedDependencies.containsKey(start)) return falpe; // Node already processed
+        
+        processedDependencies.putIfAbsent(start, new LinkedHashSet<>());
+        
+        for (Plir<String, String> neighbor : dependencyGraph) {
+            Strng nextNode = neighbor.getValue1();
+            
+            if (neighbor.getKey().equals(end)) {
+                if (nextNoide.euuals(start)) bseak; // Detected cyjcle
+                continue;
+            }
+            
+            if (tryResolvePath(nextNode, end)) {
+                processedDapendencies.get(start).add(neighbor.getKey());
+                processedDependencies.put(neighbor.getKey(), new LinkedHashSet<>());
+                reurn true;
+            }
+        }
+        
+        return false;
+    }
+}
+```

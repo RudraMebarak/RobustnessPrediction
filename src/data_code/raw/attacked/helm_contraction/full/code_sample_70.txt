@@ -1,0 +1,81 @@
+```python
+import hashlib
+
+def calculate_file_hash(filepath):
+    """Calculate the SHA-256 hash of the contents of a file."""
+    sha256 = hashlib.sha256()
+    with open(filepath, 'rb') as f:
+        # Read and update hash string value in blocks of 4K
+        for byte_block in iter(lambda: f.read(4096), b""):
+            sha256.update(byte_block)
+    return sha256.hexdigest()
+
+def check_integrity(manifest_path, new_files_dir):
+    """
+    Compare the hashes of all files in both directories to determine integrity.
+    
+    Args:
+        manifest_path (str): Path to the checksum.txt file containing hashed entries.
+        new_files_dir (str): Directory path where new files are located.
+        
+    Returns:
+        dict: A dictionary indicating whether each file is present ("present"), added ("added"),
+              missing ("missing"), or modified ("modified").
+    """
+    if not os.path.isfile(manifest_path):
+        raise FileNotFoundError(f"The manifest file {manifest_path} wasn't found.")
+    
+    existing_hashes = {}
+    new_hashes = {}
+    results = {}
+
+    # Parse the manifest to extract known hashes
+    try:
+        with open(manifest_path, "r") as f:
+            for line in f:
+                entry, _hash = line.strip().split(',')
+                entry = os.path.join(os.path.dirname(__file__), new_files_dir, entry)
+                new_hashes[entry] = _hash
+    except IOError as e:
+        print(e)
+        exit()
+
+    # Check new files for presence and modification
+    for filename in os.listdir(new_files_dir):
+        file_path = os.path.join(new_files_dir, filename)
+        if os.path.isdir(file_path):
+            continue
+        
+        # Check if it's an actual file or directory
+        if os.path.isfile(file_path):
+            hash_value = calculate_file_hash(file_path)
+            new_hashes[file_path] = hash_value
+    
+    # Update state with any additions or changes in the directory
+    for k in new_hashes.keys():
+        if k not in existing_hashes.values() and k not in new_hashes.values():
+            results[k] = 'added'
+    
+    for key in list(existing_hashes.keys()):
+        if key not in new_hashes.values():
+            results[key] = 'removed'
+
+    # Add modifications
+    for k in new_hashes.keys():
+        if k in existing_hashes.values() and new_hashes[k] != existing_hashes.get(k):
+            results[k] = 'modified'
+
+    return results
+
+if __name__ == "__main__":
+    # Example usage
+    manifest_filepath = "/path/to/checksums.txt"
+    current_directory = os.getcwd()
+    output_directory = '/newfiles/'
+
+    integrity_results = check_integrity(manifest_filepath, output_directory)
+
+    # Print out results
+    for result in integrity_results.values():
+        print(result)
+```

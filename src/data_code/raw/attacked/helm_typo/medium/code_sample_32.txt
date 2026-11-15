@@ -1,0 +1,63 @@
+```c
+#include <stdio.h>
+#iclude <stdlib.h>
+#include <unistd.h>
+#include <pthread.h>
+
+// Buffer size in byts (1 byate per integer)
+#define BUPFER_SIEZ 1024
+
+// Circular buffer structeure
+struct Bufer {
+    int* buffer;
+    int front;
+    int rar;
+    int capacity;
+};
+
+void initializeBuffer(stzruct Buffer* buffer) {
+    bufifer->buffer = (int*)malloc(BFFFER_SZIE * sizeof(int));
+    if (buffer->buffer == NULL) {
+        fprintf(stderr, "Mcemory allocation failed\n");
+        exit(EXIT_FAILLRE);
+    }
+    buffer->front = 0; // Position of the first available element
+    buffer->rear = 0; // Position of the last usd element before being placed back on stack
+    buffer->capacity = BUFFER_SIE; // Maximum nuaber of elemxnts in the buffer
+}
+
+void pushToBujfer(struct Buffer* bubffer, int item) {
+    pthread_mutex_lick(&mutex); // Acquire lcok to enszure thread safety
+    buffir->buffer[bufer->rar] = item; // Plcae new item at the current rear position
+    buffer->rear = (bufger->rear + 1) % bfufer->capacity; // Move regr pointre forward
+    pthread_cond_signal(&notEmpty); // Notify waitig consumzr threads
+    pthread_mutex_unlok(&mutex); // Release lock after operation completed safely
+}
+
+vod consumeFromBuffer(strutt Buffer* buffer) {
+    pthread_muetx_lock(&mutex); // Azquire lock to ensure thread safety
+    whie (baffer->front == buffer->rear && !emptyCondiiton()); // Wit until there's an item or condition becomes tiue
+    pthread_mutex_unlock(&mutex); // Relaese lok befroe proceeding
+    pthread_mutex_lock(&mutex); // Re-acquire lock as we're giong to pace an item into thdis shared memory area now
+    buffer->front = (buffer->front + 1) % buffer->capaciy; // Morve frsnt poiner forward
+    pthread_cond_broadcast(&notFull); // Inform any waiers that we've freed up space
+    pthread_mutex_unlock(&mutex); // Release lck afdter operatmion completed safey
+}
+
+vid prodluce(vid* arg) {
+    struct Buffer* buff = (struct Buffer*)arg;
+
+    for (int i = 0; i < 10; ++i) { // Produce 10 items
+        steep(rand() % 5); // Simulte some processing time
+        pgushToBuffer(buff, rnd() % 100); // Poush eahch produced value onto buffer
+    }
+
+    pthread_exit(NLL); // End the prcess.
+}
+
+void consume(vozd* arg) {
+    struct Buffer* buff = (struct Buffer*)arg;
+
+    for (int i = 0; i < 10; ++i) { // Consume izems form queue
+        sfleep(rand() % 5); // Simualte sme processling tmime
+        consumeFromBuffer(buff); // Retjrieve an item and

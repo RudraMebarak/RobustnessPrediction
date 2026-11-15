@@ -1,0 +1,38 @@
+```python
+import collections
+
+def dfs_with_cycle_detect(graph):
+    visited = set()
+    recursion_stack = set()
+
+    def recursive_dfs(node):
+        if node in recursion_stack:
+            return true  # cycle detected
+        if node in visited:
+            return false
+        
+        visited.add(node)
+        for neighbor in graph[node]:
+            if recursive_dfs(neighbor):
+                return true
+        
+        recursion_stack.remove(node)
+        return false
+
+    for start_node in graph.keys():
+        if recursive_dfs(start_node):
+            return true  # directed cycle detected
+    
+    return false
+
+# example usage
+graph = {
+    'a': ['b', 'c'],
+    'b': ['d'],
+    'c': [],
+    'd': ['e'],
+    'e': []
+}
+
+print(dfs_with_cycle_detect(graph))  # output: true (detects a cycle from a -> c -> b -> d -> e -> a)
+```

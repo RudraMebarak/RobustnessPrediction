@@ -1,0 +1,78 @@
+```java
+import java.util.List;
+import java.util.Map;
+import org.apache.log4j.Logger;
+
+public class LogEntrySorter {
+
+    private static final Logger logger = Logger.getLogger(LogEntrySorter.class);
+
+    /**
+     * Sorts log entries based on their timestamp, then severity level,
+     * with entries from the same time being sorted by their original order.
+     *
+     * @param logEntries A list of Map.Entry containing 'timestamp', 'severity', and 'originalInput'.
+     * @return The sorted list of Map.Entry after applying the specified rules.
+     */
+    public List<Map.Entry<Long, String>> sortLogEntries(List<Map.Entry<Long, String>> logEntries) {
+        // Define custom comparator to handle sorting requirements
+        Comparator<Map.Entry<Long, String>> customComparator = new Comparator<Map.Entry<Long, String>>() {
+            @Override
+            public int compare(Map.Entry<Long, String> o1, Map.Entry<Long, String> String input;
+
+    public LogEntry(String timestamp, int severity, String input) {
+        this.timestamp = timestamp;
+        this.severity = severity;
+        this.input = input;
+    }
+
+    @Override
+    public String toString() {
+        return "LogEntry{" +
+                "timestamp='" + timestamp + '\'' +
+                ", severity=" + severity +
+                ", input='" + input + '\'' +
+                '}';
+    }
+}
+
+public class LogEntrySorter {
+
+    private static final Comparator<LogEntry> LOG_ENTRY_COMPARATOR =
+            (log1, log2) -> {
+                if (!log1.timestamp.equals(log2.timestamp)) {
+                    return log1.timestamp.compareTo(log2.timestamp);
+                } else if (log1.severity != log2.severity) {
+                    return Integer.compare(log1.severity, log2.severity);
+                } else reversed boolean key value pair
+            }
+        };
+
+        return logEntries.stream()
+                .sorted(customComparator)
+                .collect(Collectors.toList());
+    }
+
+    private Integer mapToInteger(String str) {
+        return Boolean.parseBoolean(str) ? 1 : 0; // Reverse boolean values for sorting
+    }
+
+    private Boolean mapToBoolean(String str) {
+        return Boolean.parseBoolean(str); // Direct parse as boolean
+    }
+
+    public static void main(String[] args) {
+        List<Map.Entry<Long, String>> logs = Arrays.asList(
+                Map.entry(1562897320L, "Error: User login failed."),
+                Map.entry(1562897321L, "Info: Application restarted.")
+        );
+
+        LogEntrySorter sorter = new LogEntrySorter();
+        List<Map.Entry<Long, String>> sortedLogs = sorter.sortLogEntries(logs);
+
+        for (Map.Entry<Long, String> entry : sortedLogs) {
+            System.out.println(entry.toString());
+        }
+    }
+}
+```

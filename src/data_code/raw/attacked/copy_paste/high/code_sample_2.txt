@@ -1,0 +1,69 @@
+```java
+import java.util.List;
+import org.javatuples.Pair;
+
+/**
+ * Implements an Introsort algorithm to sort a List of Integer.
+ *
+ * Introsort is designed to be a hybrid sorting algorithm that combines elements of Quicksort,
+ * Heapsort, low, int high) {
+        if (low < high) {
+            int pivotIndex = partition(arr, low, high);
+            quickSort(arr, low, pivotIndex - 1);
+            quickSort(arr, pivotIndex + 1, high);
+        }
+        return arr;
+    }
+
+    private static int partition(int[] arr, int low, int high) {
+        int pivot = arr[high];
+        int i = low - 1;
+        for (int j = low; j <= high - 1; j++) {
+            if (arr[j] <= pivot) {
+                i++;
+                swap(arr, i, j);
+            }
+        }
+        swap(arr, i + 1, high);
+        return i + 1;
+    }
+
+    private static void heapify(int[] arr, int n, int i) {
+        int largest = i;
+        int leftChild = 2 * i + 1;
+        int rightChild = 2 * i + 2;
+
+        if (leftChild < n && arr[leftChild] > arr[largest]) {
+            largest = leftChild;
+        }
+
+        if (rightChild < n && arr[rightChild] > arr[largest]) {
+            largest = rightChild;
+        }
+
+        if (largest != i) {
+            swap(arr, i, largest);
+            heapify(arr, n, largest);
+        }
+    }
+
+    private static void heapSort(int[] arr) {
+        int n = arr.length;
+        for Comparable<T>> Pair<Integer, Integer> partition(List<T> arr, int low, int high) {
+        int i = low - 1; // Index of smaller element
+
+        T pivot = arr.get(high); // Pivot
+        for (int j = low; j <= high - 1; j++) { // Partition
+            if (arr.get(j).compareTo(pivot) <= 0) {
+                i++;
+                swap(arr, i, j);
+            }
+        }
+        swap(arr, i + 1, high); // Move pivot to its final place
+        return Pair.with(i + 1, high); // Return indices
+    }
+
+    private static <T extends Comparable<T>> void introsort(List<T> arr, int n, int[] params, long threshold, long maxHeapSize, long minHeapSize) {
+        int deep = (int)Math.min(n - 1, params[0]);
+        if (deep > 1 && deep <= 15 && maxHeapSize >= threshold && minHeapSize >= threshold) {
+            introsort(arr, n, params[params.length - 2], params[params.length - 1] / 1.5f, Math.min(maxHeap

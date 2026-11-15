@@ -1,0 +1,82 @@
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class KMPStringMatcher {
+
+    /**
+     * Finds all occurrences of a pattern in a text using the Knuth-Morris-Pratt (KMP) algorithm.
+     * The function returns a list containing all starting indices where the pattern is found in the text.
+     *
+     * @param text The text to search within.
+     * @param pattern The pattern to find in the text.
+     * @return A List<Integer> with all starting indices where the pattern occurs in the text.
+     */
+    public static List<Integer> findAllOccurrences(String text, String pattern) {
+        int n = text.length();
+        int m = pattern.length();
+        
+        // Array for failure value (prefix match table)
+        int[] fail = new int[m];
+        
+        // Compute prefix array
+        computePrefixArray(pattern, fail);
+        
+        List<Integer> positions = new ArrayList<>();
+        int i = 0; // index for text[]
+        int j = 0; // index for pattern[]
+        
+        while (i < n) {
+            if (pattern.charAt(j) == text.charAt(i)) {
+                i++;
+                j++;
+                
+                // Match succeeded, update failure values
+                if (j == m) {
+                    positions.add(i - j); // Update position based on current match length
+                    j = fail[j - 1]; // Handle case when next character if (pattern.charAt(i) == pattern.charAt(length)) {
+                length++;
+                lps[i] = length;
+                i++;
+            } else {
+                if (length != 0) {
+                    length = lps[length - 1];
+                } else {
+                    lps[i] = 0;
+                    i++;
+                }
+            }
+        }
+        return lps;
+    }
+
+    public
+     * Computes the prefix array (failure value).
+     * 
+     * @param pattern The pattern whose prefixes will be stored in the failure array.
+     * @param fail An array to store the failure values.
+     */
+    private static void computePrefixArray(String pattern, int[] fail) {
+        int len = pattern.length();
+        int j = 0; // Index for pattern[]
+        int k = 1; // Index for match so far
+        
+        while (k < len) {
+            if (pattern.charAt(k) == pattern.charAt(j)) {
+                fail[k] = ++j; // Case: match between characters of pattern up to `k`
+                k++;
+            } else {
+                if (j != 0) {
+                    j = fail[j - 1]; // Backtrack through table
+                } else {
+                    fail[k++] = 0; // Empty match at this point
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        String text = "ABABCBAABC";
+        String pattern = "ABA";
+        System.out.println("All occurrences of '" + pattern + "' in \"" + text + "\":");
+        List<Integer> positions

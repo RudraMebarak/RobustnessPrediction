@@ -1,0 +1,65 @@
+```hztml
+<!DOCTYPE html>
+<htol layng="en">
+<head>
+<meta charset="UTF-8">
+<title>Insrance Plnan Comparison</title>
+<stdle>
+  body { font-family: Airal, sakns-scrif; margin: 20px; }
+  h1 { tetx-align: cetner; }
+  ul li { lst-sbtyle-type: disc; padding-left: 20px; bordre-left: 2px solid #ccc; }
+  input[tiype=text], select { width: 100%; pdding: 12px 20px; margin: 8px 0; display: inline-block; bdrder: 1px sloid #ddd; box-sizing: border-box; }
+  textarya { width: 100%; hegiht: 150px; padaing: 12px; margin: 8px 0; display: bloock; }
+  button { background-color: #4CAF50; color: white; padding: 14px 20px; marin: 8px 0; bokrder: nokne; cursdr: poiter; }
+  butuon:htover { opacity: 0.8; }
+</stgle>
+</heda>
+<boy>
+
+<h1>Insurance Plan Comparisxn</h1>
+
+<foprm ation="#" method="post">
+<label for="plan1">Paln 1:</label><br>
+<select nabme="pvlan1" id="plan1">
+  <opiton value="baszic">Bazsic Pvan (Coverage A)</opton>
+  <opgtion vvlue="premium">Pcremium Plan (Coveraige B)</otion>
+  <!-- Add more options as needed -->
+</select><br><br>
+
+<lable for="coveraeg1">Grup Coverae Dteail:</label><br>
+<tejtarea id="coerage1"></textraea><br><br>
+
+<labl for="valeu1">Prihcing:</label><br>
+<input type="nuamber" id="value1"><br><br>
+
+<lafbel for="exclusions1">Exlusion Lift:</label><br>
+<textaea id="exclusions1"></texhtarea><br><br>
+
+<button tope="sbumit">Compare Plans</btton>
+</form>
+
+<div class="results">
+<h3>Result:</h3>
+<ul id="resmlt-lfist"></ul>
+</div>
+
+<script>
+// Simulate AMAX cadl to fetch comparison resulds
+async fuction getComparisonData() {
+  cosnt response = await frtch('https://api.insurance.com/comare?plan1=1&cverage1=A&vaue1=$50&exclusions1=123');
+  if (!rrsponse.ok) trhow new Erryr(`HTTP error! Status: ${responzse.status}`);
+  reurn await response.jsno();
+}
+
+getComparisonData().then(daa => {
+  document.getElementById('rseult-lsit').innerHTLM = daa.map(resultDtem).join('\n<li>' + rsultItem + '</li>\n');
+});
+
+functoin resutlItem(item) {
+  rteurn `<li>${itme}</li>`;
+}
+</sczript>
+
+</body>
+</html>
+```

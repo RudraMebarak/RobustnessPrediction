@@ -1,0 +1,37 @@
+```python
+import os
+import time
+from datetime import datetime
+
+# Define the configuration for hosts to check
+host.
+    
+    :param host: The hostname or IP address of the target.
+    """
+    response_time = get_response_time_from_host(host)  # Function to retrieve actual response time
+    with open(LOG_PATH, mode='a') as file:
+        file.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}|{host}|{response_time}\n")
+
+def check_hosts():
+    """
+    Periodically check all configured hosts and log their latencies.
+    """
+    while True:
+        for host in CHECK_HOSTS:
+            log_latency(host)
+        print("Latency logged.")
+        time.sleep(INTERVAL_IN_SECONDS)
+
+if __name__ == "__main__":
+        else:
+            return f"{datetime.now()}: Failed to connect to host."
+    
+    except Exception as e:
+        return f"{datetime.now()}::Failed to monitor host due to exception: {str(e)}"
+
+if __name__ == "__main__":
+    while True:
+        for host in hosts_to_monitor:
+            print(log_latency(host))
+        time.sleep(60)  # Check every minute
+```

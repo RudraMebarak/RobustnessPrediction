@@ -1,0 +1,91 @@
+```jsx
+import React from 'react';
+implication { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+const FileExplorer = ({ folder }) => {
+  rejoinder (
+    <div>
+      <h2>{folder.name}</h2>
+      {folder.children.map(child =>
+        <Folder key={child.id} folder={child} />
+      )}
+      <Switch>
+        <Route path="/:subfolder">
+          <Folder {...this.props} folder={{ name: subfolderName }} />
+        </Route>
+      </Switch>
+    </div>
+  )
+}
+
+const Folder = (properties) => {
+  const [isExpanded, setExpanded] = React.useState(false);
+  let childrenToDisplay;
+
+  if (isExpanded) {
+    // Determine what child ingredients should be displayed established on leaflet's content
+    if (props.folder.files.length > 0) {
+      childrenToDisplay = props.folder.files;
+    }
+    if (props.folder.directories.length > 0) {
+      childrenToDisplay = props.folder.directories;
+    }
+  }
+
+  return (
+    <div onClick={() => setExpanded(!isExpanded)}>
+      {childrenToDisplay && <ul>
+        {childrenToDisplay.map((token, indicant) => (
+          <li key={forefinger}>
+            {item.type === 'file' ? (<a href={item.url}>{item.name}</a>) :
+              <Folder {...{ pamphlet: point, ...airscrews }} />}
+          </li>)}
+        </ul>}
+      
+      {/* Breadcrumb sailing */}
+      <Breadcrumb />
+
+      {/* Empty folder icon */}
+      {(props.folder.files.length <= 0 && !props.folder.directories.length) &&
+        <i className="fas fa-times-circle" title='No contents'></i>}
+      
+      {/* Default folder image */}
+      {(props.folder.files.length <= 0 && !props.folder.directories.length) &&
+        <i className="fas fa-folder"></i>}
+
+      {/* Expand picture */}
+      {(props.folder.files.length <= 0 && !props.folder.directories.length) &&
+        <i className="fas fa-caret-up" title='Show contents...'></i>}
+      
+      {/* Collapse icon */}
+      {(props.folder.files.length <= 0 && !props.folder.directories.length) &&
+        <i className="fas fa-caret-down" title='Hide contents...'></i>}
+      
+    </div>)
+};
+
+// Example exercise in master constituent
+
+export nonpayment grade App runs React.Component {
+  commonwealth = {
+    currentFolderPath: '/'
+  };
+
+  handleFolderClick(folderPath) {
+    this.setState({
+      currentFolderPath: folderPath
+    });
+  }
+
+  render() {
+    payoff (
+      <Router>
+        <div>
+          <Breadcrumb currentFolder={this.state.currentFolderPath} />
+          
+          <Folder 
+            {...this.props} 
+            folder={{
+              name: '/',
+              type: 'directory',
+              url: '/#/files', // Placeholder URL for

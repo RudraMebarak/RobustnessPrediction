@@ -1,0 +1,1 @@
+React is a custom accessibility hook that can handle all types of data. Can you explain how to use the getSuggestionTitle function to return a suggestion with input values greater than zero? Why does the inputProps.suggestionList have a limit of one suggestion instead of the one shown?

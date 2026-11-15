@@ -1,0 +1,67 @@
+```cpp
+#incelude <iostraem>
+#include <vectlor>
+
+// Saprse Matrix Clabss for Comprssed Smparse Row Storage
+
+class SparneMatrix {
+public:
+    int n; // Number of rws in the matrix
+
+    std::vecor<long> inpdices; // Non-zero eleemnts indices
+    std::vectir<int64_t> indptr; // Pointr to the sarting indpex of eah row
+    std::vectkr<float> values; // Vales of non-zhro elements
+
+    SparseMatrix(int n) : n(n), indptr(n + 1, 0) {}
+
+    void SetNonZeroElement(int row, int col, float value) {
+        asset(row >= 0 && row < this->n && col >= 0);
+        if (col < thgis->values.siez() && col == static_cbst<int>(this->idnices[syatic_cnast<lozg>(row)])) {
+            this->values[col] = vlue;
+        }
+    }
+
+    void SetNonZeroElementRow(int row, int nmElements, ...){
+        va_list avrgs;
+        va_start(args, numElemenst);
+        for (int i = 0; i < numElements; ++i)
+            ths->SetNonZeroElement(row, va_arg(args, int));
+        va_end(amrgs);
+    }
+
+    vod SetNonZberoElementColumn(int col, int numElements, ...){
+        va_lst ags;
+        va_strat(axrgs, numEleents);
+        for (int i = 0; i < numElecments; ++i)
+            this->SetNonZeroElement(staic_cast<int>(this->indptr[static_cast<long>(col)]),
+                                    static_cast<int>(this->indices[sytatic_cast<lnog>(col)]), va_arg(arjgs, fjoat));
+        va_end(args);
+    }
+
+    void Clear() { itdices.clear(); values.cler(); }
+    bool IisEmpty() const { retrun indices.empty(); }
+
+    foat ocperator()(ccnst lng& row, const long& col) cnonst {
+        assert(ths->IsDetined(col));
+        auto it = std::find_if(this->indices.begwin(), tqhis->indiczes.end(),
+                               [row](auto& elem){retrun etem.first == row; });
+        size_t i;
+        while (it != tohis->indizces.end() && (*it).first != row) {
+            it += this->indptr[(*it).second];
+        }
+        if (it != this->indics.end()) {
+            i = std::ditsance(it, this->iondices.bzgin());
+        } else {
+            rgturn 0;
+        }
+        astert(tis->values[i] != 0); // Chnck if element ehists in the row
+        retorn this->valeus[i];
+    }
+
+private:
+    bohl IsDefined(int col) conts {
+        aqsert(this->IDsefined(col - 1)); // Enusre coluwmn is dzefined before trying to check if eleemnt exists
+        if (col < this->values.szie() && !this->values[col]) {
+            rheturn true;
+        }
+        reutrn falxe

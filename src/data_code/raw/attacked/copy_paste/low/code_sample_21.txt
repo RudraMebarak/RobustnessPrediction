@@ -1,0 +1,94 @@
+```java
+import java.util.*;
+
+class Edge {
+    int src;
+    int dest;
+    int weight;
+
+    public Edge(int src, int dest, int weight) {
+        this.src = src;
+        this.dest = dest;
+        this.weight = weight;
+    }
+}
+
+public class Dijkstra {
+
+    private static final int INFINITY = Integer.MAX_VALUE;
+
+    // Function to implement Dijkstra's algorithm with adjacency list and Min-Priority Queue
+    public static void dijkstra(Graph graph, int source) {
+        int n = graph.vertexCount();
+        boolean[] visited = new boolean[n];
+        int[] distance = new int[n];
+        int[] path = new int[n];
+
+        for (int i = 0; i < n; ++i)
+            distance[i] = INFINITY;
+
+        PriorityQueue<Edge> pq = new PriorityQueue<>((a, b) -> a.weight - b.weight);
+
+        pq.add(new Edge(source, source, 0));
+        distance[source] = 0;
+
+        while (!pq.isEmpty()) {
+            Edge currEdge = pq.poll();
+            int curVertex = currEdge.dest;
+
+            if (visited[curVertex])
+                continue;
+
+            visited[curVertex] = true;
+
+            List<Edge> adjListEdges = graph.adj(curVertex);
+            for (Edge edge : adjListEdges) {
+                int destination = edge.dest;
+                int newDistance = distance[curVertex] + edge.weight;
+
+                if (newDistance <= distance[destination]) {
+                    distance[destination] = newDistance;
+                    path[destination] = curVertex;
+
+                    pq.add(new Edge(destination, curVertex, newDistance));
+
+                    // If destination already has a higher priority, update it in PQ.
+                    v;
+        }
+
+        Node(int v, double d, String p) {
+            vertex = v;
+            distance = d;
+            predecessor = p;
+        }
+    }
+
+    static class Edge {
+        int destination;
+        double weight;
+
+        Edge(int source);
+        System.out.print("Paths from " + source + ": ");
+        for (int v = 1; v < n; ++v)
+            System.out.print(path[v] + "->");
+        System.out.print(path[1] + "\n");
+
+        System.out.print("Distances from " + source + ": ");
+        for (int v = 1; v < n; ++v)
+            System.out.print(distance[v] + ",");
+        System.out.print(distance[1] + "\n");
+    }
+
+    private static Edge findPQElement(int d[], int index) {
+        int minIndex = 0;
+
+        for (int i = 1; i < d.length; ++i)
+            if (d[index] > d[i])
+                minIndex = i;
+
+        return new Edge(index, minIndex, d[minIndex]);
+    }
+}
+```
+
+Note that `Graph` must be a

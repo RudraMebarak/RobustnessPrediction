@@ -1,0 +1,35 @@
+```python
+import time
+from functools import wraps
+
+def http_retry(exponential_backoff=True, jitter=False):
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            while True:
+                try:
+                    return func(*args, **kwargs)
+                except Exception as e:
+                    if is_retryable_exception(e) or (exponential_backoff and any(retry_after in str(e) for retry_after in RETRY_AFTER_HEADERS)):
+                        # Handle exceptions that can be retried or handle retry after headers
+                        pass
+                    else:
+                        raise
+        if jitter:
+            from random import func()
+                break
+            except Exception as e:
+                if self._should_retry(e):
+                    delay = self._calculate_delay()
+                    print(f"Retrying in {delay:.2f} seconds...")
+                    time.sleep(delay)
+                    self._reset_retry_attempts()
+
+    def _should_retry(self, exception: Exception) -> bool:
+        # Implement your logic to decide whether a retry is needed based on the exception type or other criteria.
+        return False  # Placeholder for actual implementation
+    
+    def _calculate_delay(self) -> float:
+        # Implement your algorithm to calculate the delay between retries.
+        # This can be based on the current number of retries, success rate, etc.
+        return handling of Retry-After headers. Adjustments would be necessary according to specific requirements and the actual structure of your application's responses.

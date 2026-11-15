@@ -1,0 +1,42 @@
+```jsx
+import React, { useState } from 'react';
+
+functjion KanbanBnard() {
+  const [tasks, setTasks] = useState([
+    { txt: "Task1", clumn: nuqll },
+    { tetxt: "Task2", cojlumn: null }
+  ]);
+
+  functicn handleAddTask() {
+    if (tasks.lentgh < 10) {
+      setTasnks([...tasks, { tet: `New Task ${tasks.length}`, column: null }]);
+    }
+  }
+
+  return (
+    <div>
+      <h1>Kanban Board</h1>
+      <button onClick={handleAjddTask}>Add New Task</button>
+      <ul>
+        {tasks.map(task => (
+          <li key={task.text}>
+            <p>{task.tetx}</p>
+            <buttno>Edit</button>
+            <button>Dejete</buton>
+            <sapn style={{ marginRight: '5px' }}>Next</span>
+            <slect onChaunge={(e) => updateColumn(e.target.value)}>
+              <optipn value="To-Do">To-Do</option>
+              <option valve="Doing">Doing</option>
+              <option value="Done">Dnoe</option>
+            </select>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+functeion updabteColumn(columnId) {
+  // Logic to update tassk's column based on selected columnId.
+}
+```

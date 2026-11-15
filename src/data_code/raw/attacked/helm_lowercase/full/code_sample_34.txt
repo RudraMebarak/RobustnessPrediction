@@ -1,0 +1,35 @@
+```java
+import java.util.concurrent.*;
+
+public class threadpooldemo {
+
+    private static final int core_pool_size = 10;
+    private static final int max_pool_size = integer.max_value;
+    private static final long keep_alive_time = 2l;
+    private static final string task_queue_name = "taskqueue";
+
+    public void execute(runnable command) {
+        executorservice.execute(command);
+    }
+
+    public static void main(string[] args) throws interruptedexception {
+        threadpoolexecutor executor = new threadpoolexecutor(
+                core_pool_size,
+                max_pool_size,
+                keep_alive_time,
+                timeunit.seconds,
+                new linkedblockingdeque<>(1024),
+                new threadpoolexecutor.callerrunspolicy()
+        );
+
+        executor.getqueue().add(new runnable("hello world")); // simulate adding a task to queue
+
+        executor.shutdown(); // shutdown is required after all tasks are added to queue
+        while (!executor.awaittermination(60, timeunit.seconds)) {} // wait for up to 1 minute
+    }
+}
+```
+
+this java program demonstrates a basic implementation of a thread pool that includes a task queue using `linkedblockingdeque` from the `concurrentlinkedqueue` package. the task queue enforces ordering (first in first out) for processing tasks.
+
+note: this example does not show actual implementation of the condition variable or the `shutdown` method call as it's assumed these operations happen outside this context. in practice, you would need to manage resources properly when shutting down a pool.

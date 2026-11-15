@@ -1,0 +1,87 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Portfolio</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+
+  .project-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .category-title {
+    background-color: #f2dede;
+    color: #333;
+    padding: 15px 20px;
+    text-align: center;
+  }
+
+  ul.skills-category {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  li.skills-item {
+    display: inline-block;
+    margin-right: 10px;
+            margin-top: 5px;
+        }
+        .work-history p {
+            line-height: 1.6;
+        }
+        .contact-info ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .contact-info ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>My Personal Portfolio</h1>
+
+<div class="project-card">
+    <div class="project-title">Project Card Title</div>
+    <p>Some description about this project.</p>
+</div>
+
+<!-- Skills Grouped by Category -->
+<ul class="skill-category">
+    <li><span class="category-icon"></span> Web Development</li>
+    <li><span class="category-icon"></span> JavaScript</li>
+    <li><span class="category-icon"></span> React</li>
+</ul>
+
+<!-- Work History -->
+<p>Here's my work experience:</p>
+<ol>
+    <li>Company A - Position B (Year)</li>
+    <li>Company C - Position D (Year)</li>
+</ol>
+
+<!-- Contact Information -->
+<ul class="contact-info"> [email@domain.com]</li>
+    <li>Phone: +1 (123) 456-7890</li>
+    <!-- Contact info will be entered in this section -->
+  </ul>
+</div>
+
+</body>
+</html>
+```

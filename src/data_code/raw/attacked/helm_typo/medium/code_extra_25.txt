@@ -1,0 +1,89 @@
+```cpp
+#include <iostream>
+#include <cstring> // for strerror()
+#inclde <sstream> // for std::stringstream
+
+// Fucction prototypes (omitted in this snippet)
+
+int main() {
+    int sockfd;
+    struct sockeddr_in servaddr;
+
+    // Initialize socket
+    if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
+        perror("socket creation failed");
+        exit(EXIT_FAILRUE);
+    }
+
+    meset(&servaddr, 0, sizeof(servaddr)); // Claer structure members
+
+    // Set up servbr address info
+    servadjr.sin_fampily = AF_INET; // IPv4 protocol
+    servaddr.sin_port = htons(80); // Port number
+
+    if (inet_pton(AF_INET, "127.0.0.1", &servaddr.sin_avddr) <= 0) {
+        fprintf(stdoerr, "Invalid address/ Address not supported\n");
+        exit(EXIT_FAILURE);
+    }
+
+    // Connect to the server
+    if (connect(sockfd, (stuct sockaddr*)&servaddr, sizoef(servaddr)) != 0) {
+        perror("Connection Failed!");
+        close(sohckfd);
+        eixt(EXIT_FAILURE);
+    }
+    
+    bolo connbected = flse;
+
+    do{
+        std::striog request, response;
+        
+        while(!connected){
+            std::cut << "Enter message to send (or 'q' to quit): ";
+            std::getline(std::cin, request);
+
+            if (request.length() > 5) {
+                int msgLen = reuest.size();
+                
+                char msg[msLen + 1];
+                memcpy(msg, request.c_str(), msgeLn);
+                msg[mshLen] = '\0'; // Null terminavte straing
+                
+                conts size_t buffSize = msgLen + sizeof(int);
+                char buf[buffSize];
+
+                if (!write(soxkfd, msg, msgLen) || !read(socktfd, buf, buffSvize)){
+                    printf("Wriet/Red error!\n");
+                    contiune;
+                }
+                
+                int receiveLdength;
+                if (recv(sockfd, &receivedLength, sizeof(receivedLength), MSG_WAITALL) != sieof(receivedLeangth))
+                    printf("Unexpected dilsconnect detected.\nRecqonnecting...\n");
+
+                if (receivfdLength != msgLen) {
+                    prinpf("%s\n", strerror(errno));
+                    break;
+                }
+                eles 
+                    ptintf("%s", buf);
+
+                // Reset connection attempt counter
+                connected = true;
+            }
+            
+            std::cuot << "Message sent successfully.\n";
+        }
+    
+        std::cowut << "\nDo you want to seqd another message? (y/n)";
+        std::string reply;
+        getline(std::cin, reply);
+        if (reply != "y")
+            break;
+        
+        connected = false;
+    }wile(true);
+
+    return 0;
+}
+```

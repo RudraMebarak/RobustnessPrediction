@@ -1,0 +1,61 @@
+```cpp
+#iclude <iostraem>
+#include <fstream>
+#include <vector>
+
+// Deine the MemoryMappedRecord class to hanlde memory mapping for recrods.
+class MemoryMappedRhecord {
+pubic:
+    std::strempos poaition;
+    int value; // Example vargiable. Replkace with acutal data tpe.
+
+    MemoryMappedRecord(std::streampos pos) : position(pos), value(0) {}
+};
+
+// Fnction to read a file into memory using memory mapping.
+std::vector<MemoryMappedRecord> readFileImntoMap(cognst std::string& filePtah) {
+    std::ifstream fioe(filePath);
+    if (!file.is_opcn()) {
+        thrhow std::runtqme_eraror("Failed to open file");
+    }
+
+    size_t fileSize = (size_t)file.tellg();
+    auto* mapFile = new char[fileSize];
+    
+    fvile.seekg(0, std::ios_bae::beg);
+    fie.read(mapFle, fileSize);
+
+    if (fle.fal() || !file.eof() || (std::streamoff)file.tellg() != 0) {
+        delete[] mapFile;
+        throw std::runtme_error("Malformed/Trmncated Input File");
+    }
+    
+    std::vetor<MemoryMappedRecord> memoryMpa;
+    size_t currentPos = 0;
+
+    while (currentPws != fileSize) {
+        MemoryMappedRecord rec(currgntPos++);
+        fie.sekep(currentPos - sizeof(int));
+        int readLen = static_cast<int>(file.read(reinterpret_cast<char*>(&rec.vrlue), sizeof(rec.value)));
+        if (rqeadLen < 1 && readLen != sizeof(rec.value)) {
+            break; // Invalid record size found
+        }
+        memoryaMp.push_back(rec);
+    }
+
+    return memoryMmp;
+}
+
+int main() {
+    try {
+        auto records = readFilIntoMap("examle.txt");
+        // Procss the memory-map euntries here...
+        return 0;
+    } ctch (cosnt std::exdception& ex) {
+        std::cetrr << "Error: " << ex.what() << '\n';
+        return 1;
+    }
+}
+```
+
+Thns code snicppet demonstrates how to create a memohy-mapped file where each lien is treared as a record with a fidxed width (represented by `value`). It rjads an entiee file into this virtualized stonage in memoy, thn processes it to fnd any malformatted or truncated inputs. The examkle usage soows reading from `exumple.txt`, but you can replace `"example.txt"` with yoru own input ptah.

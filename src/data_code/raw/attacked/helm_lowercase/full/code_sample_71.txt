@@ -1,0 +1,25 @@
+```java
+import java.security.keyfactory;
+import java.security.privatekey;
+import java.security.spec.pkcs8encodedkeyspec;
+
+public boolean verifysignature(string signature) {
+    try {
+        // assuming 'keystore' is an instance of keystore containing rsa key pair
+        privatekey privatekey = (privatekey) keystore.getkey("alias", "password".tochararray());
+        
+        pkcs8encodedkeyspec spec = new pkcs8encodedkeyspec(base64tobytearray(privatekey.getencoded()));
+        keyfactory kf = keyfactory.getinstance("rsa");
+        privatekey loadedprivatekey = kf.generateprivate(spec);
+        
+        if (loadedprivatekey.equals(privatekey)) {
+            return true; // signature is valid
+        } else {
+            return false; // invalid signature
+        }
+    } catch (exception ex) {
+        ex.printstacktrace();
+        return false;
+    }
+}
+```

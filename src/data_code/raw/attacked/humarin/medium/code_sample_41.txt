@@ -1,0 +1,1 @@
+Creating a server socket on the specified port throws an IOException: Private static final int PORT = 8081. Output to System.output(); os = new DataOutputStream(new FileTypeType("Way"). // Null input to avoid reading from console.

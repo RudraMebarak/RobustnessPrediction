@@ -1,0 +1,1 @@
+The External Merge Sort algorithm is utilized to sort an array of long integers using the following technique: * * @param data An array containing all the integer types to be sorted, followed by a java program that performs the enumeration. Let a static list of strings begin: (1) (leftHalf.get(i)), (2) (n) and (3) (j)) from which?

@@ -1,0 +1,40 @@
+```java
+import org.javatuples.Pair;
+
+public class DependencyResolver {
+    private final List<Pair<String, String>> dependencyGraph;
+    private Map<String, Set<String>> processedDependencies;
+
+    public DependencyResolver(List<Pair<String, String>> dependencyGraph) {
+        this.dependencyGraph = new ArrayList<>(dependencyGraph);
+        this.processedDependencies = if (g.containsKey(node)) {
+            return new Pair<>(new HashSet<>(), false);  // Node is part of to 'end'.
+     *
+     * @param start The start node.
+     * @param end   The end node.
+     * @return A Pair representing (path found, list of intermediate nodes in the path).
+     */
+    boolean tryResolvePath(String start, String end) {
+        if (processedDependencies.containsKey(start)) return false; // Node already processed
+        
+        processedDependencies.putIfAbsent(start, new LinkedHashSet<>());
+        
+        for (Pair<String, String> neighbor : dependencyGraph) {
+            String nextNode = neighbor.getValue1();
+            
+            if (neighbor.getKey().equals(end)) {
+                if (nextNode.equals(start)) break; // Detected cycle
+                continue;
+            }
+            
+            if (tryResolvePath(nextNode, end)) {
+                processedDependencies.get(start).add(neighbor.getKey());
+                processedDependencies.put(neighbor.getKey(), new LinkedHashSet<>());
+                return true;
+            }
+        }
+        
+        return false;
+    }
+}
+```

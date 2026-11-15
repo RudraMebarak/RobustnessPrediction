@@ -1,0 +1,1 @@
+If the eviction is FIFO, then only the most recently used item will be evicted. Computed block number, and adjust the size of the file in order to match it.

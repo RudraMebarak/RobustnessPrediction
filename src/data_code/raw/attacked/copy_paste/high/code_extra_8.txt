@@ -1,0 +1,80 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Public Transport Timetable</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    ul.tabs {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #f1f1f1;
+    }
+    li.tab {
+        float: left;
+    }
+    li.tab a {
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    Function to handle click events on tab buttons
+    function updateActiveTabIndex(tabId) {
+        if (activeTabIndex === tabId) return; // Prevent switching back to previous index
+
+        document.querySelectorAll('.route-tab').forEach((tab) => {
+            tab.classList.remove('active');
+        });
+
+        document.getElementById(tabId).classList.add('active');
+
+        activeTabIndex = tabId;
+    }
+
+    // Initialize tabs when DOM is fully loaded
+    updateActiveTabIndex(routes[activeTabIndex]);
+
+    // Handle click event on tab buttons
+    Array.from(document.querySelectorAll('.tab-button')).forEach(button => {
+        button.addEventListener('click', () => {
+            const id = button.getAttribute('data-route-id');
+            updateActiveTabIndex(id);
+        });
+    });
+});
+</script>
+
+<!-- Dynamic route tabs will be inserted here -->
+<div id="tabs-container"></div>
+
+<script>
+// Example data structure for route details
+const routesData = [
+    { id: 1, name: 'Route A', schedule: ['06:00', '07:00', '08:00'], alerts: [] },
+    { id: 2, name: 'Route B', schedule: ['05:30', '06:30', '07:30'], alerts: [] },
+    { id: 3, name: 'Route C', schedule: ['04:00', '05:00',
+            event.preventDefault();
+            
+            // Remove active class from all tabs to ensure we don't accidentally select them when new one is selected
+            tabs.forEach(t => t.classList.remove('active'));
+            
+            // Select newly activated tab's content 
+            this.classList.add('active');
+
+            // Get corresponding tab content (e.g., 'id' attribute of the target element)
+            let contentId = '#' + tab.getAttribute('href').replace(/#/, '');
+            
+            // Show newly activated tab's content by setting its display property to "block"
+            document.getElementById(contentId).style.display = 'block';
+        });
+    });
+
+});
+</script>

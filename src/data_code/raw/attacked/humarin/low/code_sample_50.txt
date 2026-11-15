@@ -1,0 +1,1 @@
+Determine the necessary configuration for hosts to check their hosts's connectivity by running a ping command.

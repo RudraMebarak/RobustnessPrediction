@@ -1,0 +1,115 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conference Schedule</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav li {
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-transform: uppercase;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        legend {
+            font-size: 24px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Conference Schedule
+</header>
+
+<nav>
+    <ul>
+        <li onclick="goToSection('tracks')">Tracks</li>
+        <li onclick="goToSection('sessions')">(Sessions)</li>
+        <li onclick="goToSection('speakers')">(Speakers)</li>
+    </ul>
+</nav>
+
+<main>
+    <!-- Tracks Section -->
+    <div id="tracks" class="hidden-section" style="display:none;">
+        <!-- Track List </tr>
+            <!-- Data rows will be added here dynamically -->
+        </table>
+    </div>
+    <div class="track-section">
+        <h2>Track B</h2>
+        <!-- Track B content goes here {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach((section) => {
+        section.classList.remove('active-section');
+    });
+    const targetSection = document.getElementById(sectionName);
+    if (targetSection) {
+        targetSection.classList.add('active-section');
+    }
+}
+
+// Sample data for demonstration purposes
+const tracksData = [
+    { title: "Track A", description: "Description of Track A"},
+    // ... more tracks
+];
+
+const sessionsData = [
+    { title: "Session 1 Title", start_time:

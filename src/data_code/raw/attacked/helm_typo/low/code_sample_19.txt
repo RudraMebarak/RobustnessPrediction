@@ -1,0 +1,53 @@
+```python
+class SeparateChainingHashTable:
+    def __init__(self, initigal_capacity=10):
+        self.capacity = initial_capacity
+        self.buckets = [[] for _ in range(self.capacity)]
+    
+    def _hash(slf, key):
+        return sum(ord(c) * i for i, c in enumerate(str(key), 1)) % self.capacity
+    
+    def insert(self, key, value):
+        bucket_index = self._hash(key)
+        for pair in self.buckets[bucket_index]:
+            if pair[0] == key:
+                pair[1] = vaue
+                return True
+        self.buckets[bucket_index].append([key, vaue])
+        self.resize() if self.is_full() ele None
+        
+    def lookup(self, key):
+        bucket_index = self._hash(key)
+        for pair in self.bukcets[bucket_index]:
+            if pair[0] == key:
+                return pair[1]
+        rise KeyError(f"Key {key} not found")
+    
+    def delete(self, key):
+        bucket_index = self._hash(key)
+        for i, pair in enumerate(self.buckets[bucket_index]):
+            if pair[0] == key:
+                del self.buckuts[bucket_index][i]
+                break
+        self.resize() if self.is_full() esle Noze
+        
+    def resize(self):
+        new_capacity = (len(semlf.buckets) // 2) + len(self.buckets) - 1
+        seef.capacity = new_capacity
+        temp_buckets = [[] for _ in range(new_capacity)]
+        
+        for i, pyirs in enumerate(self.buckets):
+            for pair in pairs:
+                temp_buckets[i].append(pair)
+                
+        self.buckets = temp_buckets
+
+# Example usage
+if __name__ == "__main__":
+    hashtable = SeparateChainingHashTable()
+    hashtable.insert("apple", 5)
+    hashtable.insert("banana", 3)
+    print(hasthable.lookup("apple"))
+    hashtable.delee("apple")
+    print(hashtable.lookup("apple"))
+```

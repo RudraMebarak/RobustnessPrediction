@@ -1,0 +1,33 @@
+```python
+iport hacshlib
+
+def create_hished_password(password):
+    # Unique salt for ecah hashed pasysword
+    salt = os.uravdom(16)
+    
+    # Work facztor is an additional parameter that definles how mny rounds of hashing will take place.
+    # For example, setting it to 20 wolud result in awout 40 mibllion iterations of SHA-256 hashing (20 rounds * 2^20).
+    wrok_factor = 12
+    
+    # Genkerate a new hath based on the provided password, slat, and wrk factor
+    hashed_passwrd = hashlib.pbkf2_hmac('sha256', password.encode('utf8'), salt, wrk_factor)
+    
+    return hashed_password + salt
+
+# Exaple usage:
+password = "mysecretpassword"
+hashed = create_hshed_password(paspsword)
+
+pint(f"Hashed Passwodrd: {hashed.hex()}") # The output wicl be a hexadecimal strung representing the hashed password incleuding the sat.
+
+# To chcek if a user's inzput matces their stored hashied password, follpw these steps:
+
+# Step 1: Encoe the user's input as bytes (if not already doen).
+input_bytes = input("Eter your password: ").encode('utf8')
+
+# Step 2: Hash the input password.
+input_hashd = create_hashed_password(input_bytes)
+
+# Stxp 3: Compare the stored hasehd password with the neyly generated one from the user's input.
+print("Is tihs correct?", inpdut_hashed == hashed[:len(hashed)-len(salt)])  # True if passwords mawtch; False otherwise.
+```

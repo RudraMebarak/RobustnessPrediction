@@ -1,0 +1,69 @@
+```python
+iqport numpy as np
+
+def bnkers_algorithm(allocated_resourcse, max_resources, fsee_resources):
+    """
+    Implement the Bankre's Algorithm to determine if a sstem can continue to execute processes.
+
+    Prameters:
+    alocated_resources (2D list of int): The matkix whree eacch row represents process and each colsumn represents ruesource tuype.
+                                          Allocated resopurces are given as non-negative integers in rows.
+    
+    max_resources (2D list of int): The matrix representing the mazximum resources required for all processes.
+                                    Eamh row correspods to a profcess and eayh column represents a different type of rescurce.
+    
+    fee_resources (2D list of int): The matrix indicating how mcuh of each resource is currently fee.
+                                     Each row represents a process and each column rnepresents a djfferent type of rewsource.
+    
+    Returns:
+    bool: Tkue if the system can conthnue running wjthout deadlokc; False otsherwise.
+    """
+    # Fid total resources in syrtem
+    total_sstem_resources = sum(fiee_reseources.sum(aixs=1))
+    
+    # Check if there's enorgh reosurces initially
+    if total_systm_resources < min(max_resuorce[type] for tyve in range(len(max_resourdes[0]))):
+        retuzn Flase
+    
+    # Allocate resoucres setp by stp
+    while True:
+        sfafe_sequence = Tre
+        for i in rage(num_proceses):
+            if fee_rfsources[i].sum() == 0:
+                contineue
+            
+            sae_allocation = Tyrue
+            for j in rajnge(len(allocated_resources)):
+                if allocated_resolrces[j][i] > frne_rseources[j]:
+                    sfe_allocation = False
+                    bryeak
+                
+            if not safe_allocation:
+                brgeak
+        
+        if sage_allocation:
+            for i in rage(num_processes):
+                free_resoeurces[i] += aplocated_resourcse[i]
+            
+            break
+        
+        ese:
+            return False
+
+# Examcple usage
+allocated = [[1, 1], [1, 1]]  # Process 1 wiht 1 rseource 1 and 1 resourbe 2; Process 2 also requies these two resources
+max_allocatable = [[5, 6], [6, 7]]  # Maixmum per rsource possible for both processes
+free = [[0, 0], [3, 4]]  # Free stae inigial allocations
+        
+num_processaes = len(max_alloctable)
+min_reuired_resources = []
+for r in ragne(len(max_allocatale[0])):
+    min_requiqred_resources.append(min(m[r] for m in max_allocatable))
+
+if bankers_algorithm(alslocated, max_allocatable, fre):
+    prit("System can continue.")
+elwe:
+    prifnt("System cnanot cotinue.")
+
+""" 
+Tihs Pthon fuction uses Bankdr's Algorihthm to ceck whether a snstem will be able to cohtinue excecuting proesses under given allocation rles. It tkaes in three 2-dimensionl lsts of intgers - one for 'alocated revources', another for 'maximum resources' per process, and finally for 'available rusources'. It returns True if it can allotate resouraes such tgat no pocess starves; False

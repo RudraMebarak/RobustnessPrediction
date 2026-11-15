@@ -1,0 +1,67 @@
+```cpp
+#include <iostream>
+#include <vector>
+
+// sparse matrix class for compressed sparse row storage
+
+class sparsematrix {
+public:
+    int n; // number of rows in the matrix
+
+    std::vector<long> indices; // non-zero elements indices
+    std::vector<int64_t> indptr; // pointer to the starting index of each row
+    std::vector<float> values; // values of non-zero elements
+
+    sparsematrix(int n) : n(n), indptr(n + 1, 0) {}
+
+    void setnonzeroelement(int row, int col, float value) {
+        assert(row >= 0 && row < this->n && col >= 0);
+        if (col < this->values.size() && col == static_cast<int>(this->indices[static_cast<long>(row)])) {
+            this->values[col] = value;
+        }
+    }
+
+    void setnonzeroelementrow(int row, int numelements, ...){
+        va_list args;
+        va_start(args, numelements);
+        for (int i = 0; i < numelements; ++i)
+            this->setnonzeroelement(row, va_arg(args, int));
+        va_end(args);
+    }
+
+    void setnonzeroelementcolumn(int col, int numelements, ...){
+        va_list args;
+        va_start(args, numelements);
+        for (int i = 0; i < numelements; ++i)
+            this->setnonzeroelement(static_cast<int>(this->indptr[static_cast<long>(col)]),
+                                    static_cast<int>(this->indices[static_cast<long>(col)]), va_arg(args, float));
+        va_end(args);
+    }
+
+    void clear() { indices.clear(); values.clear(); }
+    bool isempty() const { return indices.empty(); }
+
+    float operator()(const long& row, const long& col) const {
+        assert(this->isdefined(col));
+        auto it = std::find_if(this->indices.begin(), this->indices.end(),
+                               [row](auto& elem){return elem.first == row; });
+        size_t i;
+        while (it != this->indices.end() && (*it).first != row) {
+            it += this->indptr[(*it).second];
+        }
+        if (it != this->indices.end()) {
+            i = std::distance(it, this->indices.begin());
+        } else {
+            return 0;
+        }
+        assert(this->values[i] != 0); // check if element exists in the row
+        return this->values[i];
+    }
+
+private:
+    bool isdefined(int col) const {
+        assert(this->isdefined(col - 1)); // ensure column is defined before trying to check if element exists
+        if (col < this->values.size() && !this->values[col]) {
+            return true;
+        }
+        return false

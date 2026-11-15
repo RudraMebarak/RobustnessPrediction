@@ -1,0 +1,74 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Online Examination</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    block; margin-top: 15px; }
+        button.submit { width: 100%; background-color: #4CAF50; color: white; border: none; padding: 10px; cursor: pointer; }
+        .timer { text-align: center; }
+        .message { margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<h1>Online Examination</h1>
+
+<div class="container">
+    <form id="examForm">
+        <!-- Question Navigation -->
+        <p><input type="radio" name="question1" value="a"> Question 1 - What is your favorite color?</p>
+        <p><input type="radio" name="question1" value="b"> Question 1 - What is your favorite animal?</p>
+        <p><input type="radio" name="question1" value="c"> Question
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Online Examination</h1>
+  <form id="examinationForm">
+    <div class="questions">
+      <!-- Question Content Goes Here -->
+    </div>
+    <button type="submit">Submit Answers</button>
+  </form>
+</div>
+
+<script>
+// This is just an example placeholder - in practice you'd fetch questions from an API
+
+const examQuestions = [
+  { question: "What's your favorite color?", answerOptions: ["Red", "Blue", "Green"]} // Example JSON structure
+];
+
+document.getElementById('examinationForm').addEventListener('submit', function(e) {
+  e.preventDefault(); // Prevent page reload on submit
+  
+  const formData = new FormData(this);
+  let resultString = '';
+  
+  examQuestions.forEach(question => {
+    let selectedAnswer = null; // Initialize to avoid false positive for undefined value in response.
+    
+    formData.forEach((value, key) => {
+      if (key.startsWith(`${question.id}_`)) {
+        selectedAnswer = key.split('_')[1]; // Assuming we split based on "_"
+      }
+    });
+
+    if (selectedAnswer === null) {
+      continue; // Skip this iteration if no selection was made for this question.
+    }
+    
+    resultString += `${question.question} : ${selectedAnswer}\n`; 
+  });
+  
+  alert(`

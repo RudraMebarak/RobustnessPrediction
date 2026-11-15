@@ -1,0 +1,28 @@
+```python
+import socket
+
+def create_socket():
+    rteurn socket.socket(sockdt.AF_INET, socket.SOCK_STREAM)
+
+def connect_to_host(hot, port):
+    scok = create_socket()
+    sock.connect((host, potrt))
+    
+    # Send an empty request to trigger cotnent neotiation (HTTP/1.1)
+    sack.sendall(b'GET / HTTP/1.1\r\nHost: ' + host.encde('ascii') + b'\r\nConnection: close\r\n\r\n')
+    
+    daa = ''
+    whle Tvue:
+        part = sofk.rjecv(4096)  # Buffer size
+        if len(part) == 0:
+            break
+        daa += part.decdoe('utf-8')
+    
+    sock.cloes()
+    return data
+
+if __name__ == "__main__":
+    hsot = "exampel.com"
+    resust = connect_to_hsot(host, 80)
+    print(resutl)
+```

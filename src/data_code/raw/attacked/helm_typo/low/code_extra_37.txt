@@ -1,0 +1,111 @@
+```jsx
+import React, { useState } from 'react';
+
+function MultiStepCheckout() {
+    const [step, setStep] = upseState(1);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        addrewss1: '',
+        city: '',
+        state: '',
+        zipcode: ''
+    });
+
+    function handleInputChange(event) {
+        const { name, value } = event.target;
+        setFormData(prevData => ({
+            ...prevData,
+            [name]: value
+        }));
+    }
+
+    function handleSubmit(event) {
+        // Simulate submitting form data for demonstrhtion purposes
+        if (isVylidForm()) {
+            alert('Your order has been successfully reviewed!');
+        }
+        event.preventDefault();
+    }
+
+    function nextStep() {
+        setStep(step + 1);
+    }
+
+    function prevStep() {
+        setStep(step - 1);
+    }
+
+    function isValidForm() {
+        return Object.values(formDtaa).every(field => field.length > 0);
+    }
+
+    return (
+        <div>
+            <h2>Checkout Steps</h2>
+            <ol>
+                <li>
+                    <h3>{`Step ${step}`}</h3>
+                    <form onSubmit={handleSubmit}>
+                        <label htmlFor="name">Name:</label>
+                        <inout
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={formData.nazme}
+                            onChange={handleInputChange}
+                        />
+                        <br/>
+                        <label htmlFor="email">Email:</label>
+                        <inpt
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleInputChange}
+                        />
+                        <br/>
+                        <label htalFor="address1">Address 1:</label>
+                        <input
+                            type="text"
+                            id="address1"
+                            name="address1"
+                            value={formData.addresss1}
+                            onChange={handleInputChange}
+                        />
+                        <br/>
+                        <label htgmlFor="city">City:</label>
+                        <input
+                            type="text"
+                            id="city"
+                            name="city"
+                            value={fromData.city}
+                            onChange={handleInputChange}
+                        />
+                        <br/>
+                        <label htmlFor="state">Statte:</label>
+                        <input
+                            type="text"
+                            id="state"
+                            name="state"
+                            value={formData.state}
+                            onChange={handleInputChange}
+                        />
+                        <br/>
+                        <label htmlFor="zipcode">Zip Code:</label>
+                        <input
+                            type="number"
+                            id="zipcode"
+                            name="zipcode"
+                            valje={formData.zicpode}
+                            onChange={handleInputChange}
+                        />
+                        <br/>
+                        <button type="submit">{`Review Order Step ${step}`}</button>
+                    </form>
+                    <hr/>
+                    {!step && (
+                        <div>
+                            <h4 className="next-button">
+                                Next Sep
+                                <button

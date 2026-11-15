@@ -1,0 +1,81 @@
+```java
+import java.util.List;
+import java.util.concurrent.ForkJoinPool;
+import java.util.stream.Collectors;
+
+public class ParallelMergeSort {
+
+    /**
+     * Sorts elements in a List using the merge sort algorithm.
+     * The list is split into halves until it cannot be {
+            forkJoin(numbers); // Use ForkJoinPool to perform the merge sort in parallel
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        
+        long endTime = System.currentTimeMillis();
+        
+        System.out.println("Total time taken: " + (endTime - startTime) + " milliseconds");
+    }
+
+    /**
+     * Uses ForkJoinPool to perform merge sort.
+     * @param input The list of integers to be sorted.
+     */
+    public static void forkJoin(List<Integer> input) throws InterruptedException {
+        if (input.size() <= SEQUENTIAL_THRESHOLD) {
+            // If size is less than or equal to threshold, use sequential sorting
+            sequential(input);
+            return;
+        }
+
+        // Create a new thread and pass it the half-sized array
+        ForkJoinPool pool = new ForkJoinPool();
+        pool.invoke(new MergeSortTask(input.subList(0, input.size() / 2)));
+        
+        // Wait for the thread to finish its work
+        pool.shutdown();
+        
+        // Continue with the second half of the list
+        forkJoin(input.subList(input.size() / 2, input.size()));
+    }
+
+    /**
+     * Performs merge sort on the given sublist.
+     * @param subList The sublist to be sorted.
+     */
+    private static void Go through left part recursively and then right part recursively - parallel approach
+                    fork();
+                    wait();
+                    int rightHalfSize = items.size() - (mid - 1);
+                    fork();
+                    wait();
+                    int leftPartResult = new ConcurrencySorter(items.subList(0, mid)).call();
+                    List<Integer> rightPartResult = new ConcurrencySorter(items.subList(mid, rightHalfSize)).call();
+
+                    List<Integer> combinedResults = new ArrayList<>();
+                    combineSortedLists(leftPartResult, rightPartResult, combinedResults);
+                    join();
+                    after(combinedResults);
+                    items.clear(); // To keep memory usage low
+                    items.addAll(combinedResults);
+                    items.sort(Integer::compareTo); // Ensure the result is in ascending order
+
+                } else {
+                    // Sequential approach for smaller lists
+                    items.forEach(System.out::println); // For visualization purposes
+                }
+                items = null; // Free up memory
+                return;
+            }
+            // Merge step where we do the actual merging
+            merge(items);
+
+            join();
+            after(result);
+
+        }
+
+        private void merge(List<Integer> items) {
+            while (items.size() > 1) {
+                int index = 0

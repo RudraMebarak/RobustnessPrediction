@@ -1,0 +1,32 @@
+```python
+import select
+
+def create_socket():
+    # Create a TCP socket for communication
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    return sock
+
+def bind_socket(sock):
+    # Bind the socket to an IP address and port
+    ip_port = ('127.0.0.1', 5000)  # Example binding
+    sock.bind(ip_port)
+
+def listen_on_socket(sock):
+    # Set up the `select` module to monitor for new connections and active sockets. When a of at most 1 pending connection
+        
+def accept_connections(sock):
+    while True:
+        try:
+            conn, addr = sock.accept()  # Accept new client connections in non-blocking mode
+            conn.setblocking(False)  # Non-blocking state for handling multiple clients
+            yield conn  # Yield to another coroutine (or function call) if needed
+        except BlockingIOError:  # Handle potential connection failures silently
+            pass
+
+if __name__ == "__main__":
+    with socket_context_manager(bind_socket(create_socket()), listen_on_socket()):
+        for conn in accept_connections(some_poll_object_or_select_fd()):  # Replace 'sometool' with your actual tool/socket
+            print("New connection from", conn.getpeername())
+            
+    conn.close()
+```

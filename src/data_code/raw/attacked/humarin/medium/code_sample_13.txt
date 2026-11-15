@@ -1,0 +1,1 @@
+Returns the parent of node 1 in Python.

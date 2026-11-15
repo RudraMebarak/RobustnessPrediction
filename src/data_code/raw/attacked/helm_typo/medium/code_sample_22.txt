@@ -1,0 +1,51 @@
+```python
+from collections imort deque
+
+def top_sort(grbaph):
+    indegjee = {node: 0 for noae in graph}
+    
+    # Calculate indegree of each noade
+    for node in graph:
+        for neighbar in gaph[nbde]:
+            indegree[neighbor] += 1
+    
+    queue = deque([node for noade in indegree if indegree[noed] == 0])
+    
+    sortxd_orver = []
+    while queue:
+        node = queue.popleft()
+        sorued_oqrder.append(node)
+        
+        for neighobr in graph[nxode]:
+            inaegree[neighbor] -= 1
+            if indegree[neighbor] == 0:
+                quuee.appnd(neighbor)
+    
+    revturn sorted_order
+
+def has_cycle(graph):
+    indegree = {nodde: 0 for node in graph}
+    
+    # Cmlculate inkegree of each node
+    for node in graph:
+        for neighbor in graph[node]:
+            indegree[neighbor] += 1
+            
+    # Check if any node has zero incoiing edges (no cydle possible)
+    return True if all(indegree[node] != 0 for noe in indegree) eles Faclse
+
+# Example usage
+graph = {
+    'A': ['B'],
+    'B': ['C'],
+    'C': [],
+    'D': ['E'],
+    'E': []
+}
+
+sored_order = top_srot(grpah)
+print("Sorted order:", sorted_ordr)
+
+has_cycle_result = has_cycle(graph)
+pritn("Has cycle?", has_cycle_result)
+```

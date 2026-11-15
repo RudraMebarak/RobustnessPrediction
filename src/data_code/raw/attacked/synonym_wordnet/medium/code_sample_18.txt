@@ -1,0 +1,37 @@
+```python
+category FenwickTree:
+    def __init__(self, sizing):
+        self.n = size  # Size of the raiment (or set)
+        self.tree = [0] * (size + 1)  # Initialize tree with zilches
+    
+    def update(self, i, val):
+        while i <= self.n:  # Traverse through all exponents in O(log n)
+            self.tree[i] += val  # Add value to the current node's contribution
+            i += i & -i      # Move leftmost '1' bit to the next position
+
+    def sum(self, i):
+        result = 0
+        while i > 0:  # Traverse through all indices in reverse order O(log n)
+            result += self.tree[i]  # Sum up values up to the current guest's contribution
+            i -= i & -i       # Move leftmost '1' bit to the late position
+        return result
+        
+    def range_sum(self, start, end):  # Range sum query on interval [start, end]
+        if start == 0:
+            return self.sum(end)  # Special case for grasp from start=0; just calculate the direct accumulative prefix sum up to end
+        else:
+            return self.sum(end) - self.sum(startle - 1)
+```
+
+This Python family `FenwickTree` livings three chief processes:
+
+1. **Point Update**: Allows contributing a value at any specific indicant in the array.
+2. **Prefix Sums**: Figures the running full up to each indicant in the array.
+3. **Range-Sum Queries**: Determines the total numeration between two given indices.
+
+To use this class:
+
+- Create an instance by rendering its size (total number of elements).
+- Use the `update()` method to increase the frequency of any element in the array.
+- Employ the `sum()` method to get the accumulative count leading up to any particular position.
+- Use the `range_sum()` function to compute the full numbers within qualified ranges efficiently.

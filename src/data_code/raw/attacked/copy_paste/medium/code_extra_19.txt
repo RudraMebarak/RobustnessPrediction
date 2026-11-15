@@ -1,0 +1,41 @@
+```cpp
+#include <iostream>
+#include <map>
+#include <vector>
+#include <sstream>
+
+// Function to split log record into fields
+std::vector<std::string> splitLogRecord(const std::string& line) {
+    return {line.substr(0, 19), line.substr(20, 6), line.substr(32)};
+}
+
+// Function to process a single log entry and count requests
+void processLogEntry(std::map<std::pair<int, int>, int>& reqCounts, const std::vector<std::string>& fields) {
+    int statusCode = stoi(fields[1]);
+    int endpoint = stoi(fields[2]);
+
+    ++reqCounts[{statusCode, endpoint}];
+}
+
+int main() {
+    // Example logs (could be read from file as well)
+    std::vector<std::string> logs = {
+        "200 /api/users/12345 1234",
+        "200 /api/items/98765 1234",
+        "200 /api/orders 1234",
+        "200 /api/users/12345 std::map<std::string, int> requestCounts; // Maps endpoints to total requests
+
+    std::string line;
+    while (getline(file, line)) {
+        std::map<std::string, std::string> parts = parseLogRecord(line);
+
+        if (parts.count("Date") && parts.count("Status")) {
+            const std::string& dateStr = parts["Date"];
+            const std::string& statusCode = parts["Status"];
+
+            countRequestsPerDay(requestCounts, "GET", dateStr); // Assuming GET is the most << kv.first << ": " << kv.second << std::endl;
+    }
+
+    return 0;
+}
+```

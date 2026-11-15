@@ -1,0 +1,1 @@
+How would you define a struct that can be used to serialize and return an error message? The error message appears as "e.what()  -e".

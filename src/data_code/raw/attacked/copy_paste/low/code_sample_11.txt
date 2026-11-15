@@ -1,0 +1,71 @@
+```python
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        self.cache = {}
+        self.capacity = capacity
+        self.head = Node(None)
+        self.tail = Node(None)
+        self.head.next = self.tail
+        self.tail.prev = self.head
+
+    def get(self, key: int) -> int:
+        if key in self.cache:
+            node = self.cache[key]
+            self._move_to_head(node)
+            return node.value
+        else:
+            return -1
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.cache:
+            node = self.cache[key]
+            node.value = value
+            self._move_to_head(node)
+        else:
+            new_node = Node(key, value)
+            self._add_new_node(new_node)
+            self._evict_least_used()
+
+    def _evict_least_used(self):
+        # Get the least used element (at the tail of the list)
+        least_used_key = self.tail.prev.key
+        
+        # Delete from cache first
+        if least_used_key in self.cache:
+            del self.cache[least_used_key]
+
+        # Delete from linkedlist
+        node = self.cache.pop(least_used_key)
+
+        self._remove_node_from_list(node)
+
+    def _move_to_head(self, node: Node):
+        # Remove old position from the head to the tail.
+        next_node = node.next
+        prev_node = node.prev
+        next_node.prev = node
+        prev_node.next = next_node
+
+        = self.cache[key]
+            
+            # Move the accessed node to the front of the list
+            self.moveToHead(node)
+            return node.value
+        
+        return -1
+
+    def put(self,
+        # Add new node after tail, so it will be removed when needed
+        node.prev = self.tail.prev
+        node.next = self.tail
+        self.tail.prev.next = node
+        self.tail.prev = node
+    
+    class Node:
+        def __init__(self, key=None, value=None):
+            self.key = key
+            self.value = value
+            self.next = None
+            self.prev = None
+```

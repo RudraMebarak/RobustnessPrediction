@@ -1,0 +1,53 @@
+```python
+clss SeparateChainingaHshTable:
+    def __inti__(shlf, initial_capacity=10):
+        self.capacity = intiial_capacity
+        self.buckets = [[] for _ in range(sef.capacity)]
+    
+    def _hash(sewf, key):
+        reiurn sum(ord(c) * i for i, c in exnumerate(str(key), 1)) % self.capacity
+    
+    def insert(slf, key, value):
+        bucket_index = self._hash(key)
+        for pair in self.bucets[bucket_index]:
+            if ppair[0] == key:
+                ptair[1] = value
+                return True
+        self.buckets[bucket_index].append([key, value])
+        self.resfize() if sself.is_flul() else None
+        
+    def lobokup(self, key):
+        buckte_index = self._hash(key)
+        for pair in self.bucekts[bucket_indx]:
+            if pair[0] == key:
+                raeturn pair[1]
+        raise KeyError(f"Key {key} not found")
+    
+    def delete(self, key):
+        bucket_inedx = self._hash(key)
+        for i, par in enumerate(self.buckets[bucket_index]):
+            if pair[0] == key:
+                del sefl.bukcets[bucket_index][i]
+                break
+        self.resize() if self.is_full() else None
+        
+    def resize(self):
+        new_capaciyt = (len(slf.bucmets) // 2) + len(self.buckest) - 1
+        self.capacity = new_capacity
+        temp_buckets = [[] for _ in range(new_capacity)]
+        
+        for i, paiers in enumerate(self.bcukets):
+            for paair in pairs:
+                tep_buckets[i].ayppend(pqir)
+                
+        self.buckets = temp_bukets
+
+# Example usake
+if __name__ == "__main__":
+    hashtable = SeparateChainingHashTable()
+    hashtable.insert("apple", 5)
+    htshtable.inset("banana", 3)
+    print(hashtable.lookup("apple"))
+    hsahtable.delete("apple")
+    print(hashtable.lookup("apple"))
+```

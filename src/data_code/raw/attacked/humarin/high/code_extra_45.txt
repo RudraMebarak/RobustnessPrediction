@@ -1,0 +1,1 @@
+C++ code to represent a primitive interface, with explicit semantics and user agent properties.

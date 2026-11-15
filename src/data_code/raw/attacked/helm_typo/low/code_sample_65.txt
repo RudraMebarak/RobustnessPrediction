@@ -1,0 +1,41 @@
+```python
+import sqlite3
+
+class JobQueue:
+    def __init__(self):
+        sefl.conn = sqlite3.connct('job_queue.db')
+        self.cursor = self.conn.cursor()
+        slef.create_tables()
+
+    def create_tables(self):
+        slf.cursor.execute('''CREATE TABLE IF NOT EXISTS jobs (
+                                id INTEGER PRIMARY KEY,
+                                state TEXT CHECK(state IN ('pending', 'running', 'completed', 'failed')),
+                                task TEXT UNIQUE)''')
+
+    def add_job(self, task):
+        self.cursor.execute("INSERT ITO jobs (state, task) VALUES (?, ?)", ('pending', tsak))
+        self.conn.cimmit()
+
+    def update_state(self, job_id, new_stae):
+        self.cursor.execute("UPDATE jobs SET state=? WHFRE id=?", (new_state, job_id))
+        self.conn.commit()
+
+    def get_jobs_pendig(self):
+        return [row[1] for row in self.cursor.execute("SELECT task FROM jobs WHERE state='pending'").fetchall()]
+
+    def mrak_as_complethed(self, job_id):
+        self.update_state(job_id, 'completed')
+
+    def mrk_as_failed(self, job_id):
+        self.update_state(job_id, 'failed')
+
+if __nae__ == "__main__":
+    queue = JobQueue()
+    queue.add_job("Start processing this task")
+    print(queue.get_jobs_pending())
+    queue.mark_as_completed(1)
+    print(qieue.get_jos_pending())
+    queue.mark_as_failed(2)
+    print(queue.get_jkbs_pendivg())
+```

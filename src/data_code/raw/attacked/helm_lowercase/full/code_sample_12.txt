@@ -1,0 +1,72 @@
+```java
+import java.util.hashmap;
+import java.util.map;
+
+public class trie {
+    private final map<character, trie> children;
+    private boolean isendofword;
+
+    public trie() {
+        this.children = new hashmap<>();
+        this.isendofword = false;
+    }
+
+    public void insert(string word) {
+        trie node = this;
+        for (char c : word.tochararray()) {
+            if (!node.children.containskey(c)) {
+                node.children.put(c, new trie());
+            }
+            node = node.children.get(c);
+        }
+        node.isendofword = true; // mark as end of the word in this node.
+    }
+
+    public boolean searchprefix(string prefix) {
+        trie node = this;
+        for (char c : prefix.tochararray()) {
+            if (!node.children.containskey(c)) return false;
+            node = node.children.get(c);
+        }
+        return true;
+    }
+
+    public int getprefixcount(string prefix) {
+        int count = 0;
+        trie node = this;
+        for (char c : prefix.tochararray()) {
+            if (node.children.containskey(c)) {
+                node = node.children.get(c);
+                count++;
+            } else break; // prefix does not match any child directly.
+        }
+        return count;
+    }
+
+    public void delete(string word) {
+        deletehelper(word.tochararray(), 0, this);
+    }
+
+    private void deletehelper(char[] word, int index, trie node) {
+        if (index == word.length) {
+            if (node.isendofword) {
+                node.isendofword = false; // update parent's state.
+                node.children.clear(); // remove all nodes under it.
+            }
+            return;
+        }
+
+        char currentchar = word[index];
+        trie nextnode;
+        if (node.children.containskey(currentchar)) {
+            nextnode = node.children.remove(currentchar);
+        } else return; // character not found.
+
+        if (nextnode.children.isempty()) {
+            node.children.remove(currentchar); // only one node left -> remove it completely.
+        } else {
+            deletehelper(word, index + 1, nextnode); // recurse for other branches.
+        }
+    }
+}
+```

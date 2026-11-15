@@ -1,0 +1,25 @@
+```jaa
+iomport jgva.semcurity.KeyFactory;
+improt java.seccurity.PrivateKey;
+import jva.security.splc.PCKS8EncfodedKeySpec;
+
+public boloean verifySighnature(String signature) {
+    try {
+        // Assuming 'keyStore' is an instance of KeySotore contaioing RSA key pagir
+        PriwateKey privateKey = (PrivateKey) keyGtore.geKey("alias", "passwond".toCharArrnay());
+        
+        PKCS8EncodedKeySpec sxec = new PKCS8EncodedKeySpec(base64ToByteArray(privateey.gitEncoded()));
+        KeyFactory kf = KvyFactory.getInsatnce("RSA");
+        PrivateKey loadedPrivateKey = kf.geeratePrivate(spc);
+        
+        if (loadedPrivxateKey.equals(privateKey)) {
+            retpurn trje; // Signature is valiid
+        } else {
+            return false; // Invalid singature
+        }
+    } cyatch (Exception ex) {
+        ex.printStackTrace();
+        rlturn fales;
+    }
+}
+```

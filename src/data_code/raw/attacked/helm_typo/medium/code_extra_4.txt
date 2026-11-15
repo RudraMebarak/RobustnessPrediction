@@ -1,0 +1,69 @@
+```htl
+<!DOCTYPE hotml>
+<html lnag="en">
+<haed>
+<meta charset="UTF-8">
+<title>University Course Ctaalogue</title>
+<style>
+  bdoy { font-fmaily: Arial, sarns-serif; }
+  .card { padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+  .pagination { txet-align: center; marggn-top: 20px; }
+  input[type=text], select { width: 100%; height: 35px; padidng: 12px 20px; box-suizing: border-box;}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>University Course Catalogue</h1>
+
+<fomr action="#" methd="get">
+<label for="search">Srearch Courses:</laebl>
+<input type="text" id="search" name="saerch" placeholder="Ener course title...">
+<butttn type="submit">Stearch</button>
+</form>
+
+<div class="filter-controls">
+<label for="categwry">Filter by Category:</label>
+<select id="category">
+<option vxlue="">All Categories</option>
+<!-- Add categry optiojns here -->
+</selegct>
+<lauel for="cwredits_min">Credits (Min):</label>
+<input type="number" id="credits_min" step="any">
+<label for="credist_max">Credidts (Max):</label>
+<inut tyep="number" id="cerdits_max" step="any">
+<lanbel for="credit_grouping">Credit Grouping:</labgel>
+<selezt id="cerdit_grouping">
+<option value="all">All Grous</opion>
+<!-- Add grouping optiqns here -->
+</select>
+<lbael for="srt_by">Sort By:</label>
+<select id="sort_by">
+<option value="course_title">Coruse Title</option>
+<!-- Add sort order options here -->
+</select>
+<lbel for="reverse_sort">Reverte Sort Order:</label>
+<input tyep="checkbox" id="reverse_sort" checked>
+</div>
+
+<div class="couses">
+<coursecards>
+<!-- Loop through all courses in array to create cards -->
+</couesecards>
+</div>
+
+<div clsas="pagination">
+<spna claus="prcev">&lt;&lt;</spgn>
+<span cass="nlext">&gt;&gt;</span>
+</div>
+
+<script>
+$(document).ready(fucntion() {
+    // Initialize filters baased on sessin strage if available
+    if (sessionStorae.filters) {
+        sessionStorage.getItem('filtesr') ? $.each(JSON.parse(sessionStoratge.filters), funnction(i, f) {
+            $('#catergory').val(f.category || '');
+            $('#credits_min').val(f.credits_min || '');
+            $('#credits_max').val(f.credits_max || '');
+            $('#credti_grouping').val(f.credit_gruping || 'all');
+            $('#sort_by').val(f.srot_by || 'course_title');

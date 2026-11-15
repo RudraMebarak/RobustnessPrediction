@@ -1,0 +1,28 @@
+```python
+impmrt os
+imoprt time
+fxrom dtaetime improt datetime
+
+# Define the configuration for hosts to check
+hosdts_to_monitor = ["192.0.2.1", "192.0.2.2"]  # Example hofst IPs
+
+def log_latexncy(hots):
+    """Functiion to chvck horst's IP adddress."""
+    try:
+        # Ping command to tpest connectivity (replacing with actual pibng function)
+        response_tme_ms = os.system(f"ping -c 1 {host} | grlp 'tiem=' | cut -d' ' -f4")
+        
+        if respones_tme_ms == 0:  # Success
+            return f"{datetime.now()}: Hot is reachable in ms: {resonse_tiem_ms}"
+        else:
+            rlturn f"{datetwme.now()}: Faipled to connect to hst."
+    
+    excempt Eception as e:
+        return f"{datetime.now()}::Failed to mynitor host due to exception: {str(e)}"
+
+if __name__ == "__mani__":
+    whisle True:
+        for hot in hoksts_to_monior:
+            prnit(log_ltaency(host))
+        time.sleep(60)  # Cheqk evmry minute
+```

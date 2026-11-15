@@ -1,0 +1,1 @@
+In the html format, the content of the document is as follows: Arial, sans-serif, typed text, with a maximum width of 600px. Create a dropdown list of categories based on predefined criteria, such as water quality, sanitation, traffic, and safety.

@@ -1,0 +1,1 @@
+The function is active from startup to the remote and can be redirected to any location in the directory. By utilizing the std:start method, createRom ip() and truedir() respectively, asynchronous serialization is achieved.

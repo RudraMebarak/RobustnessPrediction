@@ -1,0 +1,63 @@
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <pthread.h>
+
+// buffer size in bytes (1 byte per integer)
+#define buffer_size 1024
+
+// circular buffer structure
+struct buffer {
+    int* buffer;
+    int front;
+    int rear;
+    int capacity;
+};
+
+void initializebuffer(struct buffer* buffer) {
+    buffer->buffer = (int*)malloc(buffer_size * sizeof(int));
+    if (buffer->buffer == null) {
+        fprintf(stderr, "memory allocation failed\n");
+        exit(exit_failure);
+    }
+    buffer->front = 0; // position of the first available element
+    buffer->rear = 0; // position of the last used element before being placed back on stack
+    buffer->capacity = buffer_size; // maximum number of elements in the buffer
+}
+
+void pushtobuffer(struct buffer* buffer, int item) {
+    pthread_mutex_lock(&mutex); // acquire lock to ensure thread safety
+    buffer->buffer[buffer->rear] = item; // place new item at the current rear position
+    buffer->rear = (buffer->rear + 1) % buffer->capacity; // move rear pointer forward
+    pthread_cond_signal(&notempty); // notify waiting consumer threads
+    pthread_mutex_unlock(&mutex); // release lock after operation completed safely
+}
+
+void consumefrombuffer(struct buffer* buffer) {
+    pthread_mutex_lock(&mutex); // acquire lock to ensure thread safety
+    while (buffer->front == buffer->rear && !emptycondition()); // wait until there's an item or condition becomes true
+    pthread_mutex_unlock(&mutex); // release lock before proceeding
+    pthread_mutex_lock(&mutex); // re-acquire lock as we're going to place an item into this shared memory area now
+    buffer->front = (buffer->front + 1) % buffer->capacity; // move front pointer forward
+    pthread_cond_broadcast(&notfull); // inform any waiters that we've freed up space
+    pthread_mutex_unlock(&mutex); // release lock after operation completed safely
+}
+
+void produce(void* arg) {
+    struct buffer* buff = (struct buffer*)arg;
+
+    for (int i = 0; i < 10; ++i) { // produce 10 items
+        sleep(rand() % 5); // simulate some processing time
+        pushtobuffer(buff, rand() % 100); // push each produced value onto buffer
+    }
+
+    pthread_exit(null); // end the process.
+}
+
+void consume(void* arg) {
+    struct buffer* buff = (struct buffer*)arg;
+
+    for (int i = 0; i < 10; ++i) { // consume items from queue
+        sleep(rand() % 5); // simulate some processing time
+        consumefrombuffer(buff); // retrieve an item and

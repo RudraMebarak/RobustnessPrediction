@@ -1,0 +1,62 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>responsive dashboard</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- header section -->
+<div class="header">
+  <h1>welcome to the dashboard</h1>
+  <button id="togglesidebar">toggle sidebar</button>
+</div>
+
+<!-- main content area -->
+<main class="main-content">
+  <!-- sidebar area -->
+  <aside class="sidebar hidden">
+    <nav>
+      <ul>
+        <li><a href="#">overview</a></li>
+        <li><a href="#">analytics</a></li>
+        <li><a href="#">settings</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- summary card area -->
+  <section class="summary-cards visible">
+    <div class="card">card 1</div>
+    <div class="card">card 2</div>
+    <div class="card">card 3</div>
+  </section>
+
+  <!-- data table area -->
+  <section class="data-table visible">
+    <table>
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>email</th>
+          <th>contact number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>john doe</td>
+          <td>jdoe@example.com</td>
+          <td>+1 (123) 456-7890</td>
+        </tr>
+        <!-- more rows... -->
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
+```

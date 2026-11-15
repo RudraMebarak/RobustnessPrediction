@@ -1,0 +1,69 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>university course catalogue</title>
+<style>
+  body { font-family: arial, sans-serif; }
+  .card { padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+  .pagination { text-align: center; margin-top: 20px; }
+  input[type=text], select { width: 100%; height: 35px; padding: 12px 20px; box-sizing: border-box;}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>university course catalogue</h1>
+
+<form action="#" method="get">
+<label for="search">search courses:</label>
+<input type="text" id="search" name="search" placeholder="enter course title...">
+<button type="submit">search</button>
+</form>
+
+<div class="filter-controls">
+<label for="category">filter by category:</label>
+<select id="category">
+<option value="">all categories</option>
+<!-- add category options here -->
+</select>
+<label for="credits_min">credits (min):</label>
+<input type="number" id="credits_min" step="any">
+<label for="credits_max">credits (max):</label>
+<input type="number" id="credits_max" step="any">
+<label for="credit_grouping">credit grouping:</label>
+<select id="credit_grouping">
+<option value="all">all groups</option>
+<!-- add grouping options here -->
+</select>
+<label for="sort_by">sort by:</label>
+<select id="sort_by">
+<option value="course_title">course title</option>
+<!-- add sort order options here -->
+</select>
+<label for="reverse_sort">reverse sort order:</label>
+<input type="checkbox" id="reverse_sort" checked>
+</div>
+
+<div class="courses">
+<coursecards>
+<!-- loop through all courses in array to create cards -->
+</coursecards>
+</div>
+
+<div class="pagination">
+<span class="prev">&lt;&lt;</span>
+<span class="next">&gt;&gt;</span>
+</div>
+
+<script>
+$(document).ready(function() {
+    // initialize filters based on session storage if available
+    if (sessionstorage.filters) {
+        sessionstorage.getitem('filters') ? $.each(json.parse(sessionstorage.filters), function(i, f) {
+            $('#category').val(f.category || '');
+            $('#credits_min').val(f.credits_min || '');
+            $('#credits_max').val(f.credits_max || '');
+            $('#credit_grouping').val(f.credit_grouping || 'all');
+            $('#sort_by').val(f.sort_by || 'course_title');

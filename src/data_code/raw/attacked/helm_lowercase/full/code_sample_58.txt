@@ -1,0 +1,45 @@
+```python
+# import necessary libraries and modules
+from django.http import jsonresponse
+from django.core.cache import cache
+
+class workshopbookingmiddleware(object):
+    """
+    middleware to prevent overbooking of workshops.
+    
+    this middleware will check if there are more than 10 reserved spots for a given event in redis.
+    if so, it will return a 429 status code indicating overbooking.
+    """
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        
+        # check if we're processing an api request (get/post/delete)
+        if request.method in ('post', 'put'):
+            event_id = request.get.get('event')
+            
+            # fetch available spots from redis queue using event id as key
+            redis_key = f'workshops:{event_id}:spots'
+            available_spots = cache.incr(redis_key, default=0) - int(request.post['quantity'])
+            
+            # check if overbooking is happening
+            if available_spots < 11:
+                response_data = {'error': 'overbooking detected'}
+                return jsonresponse(response_data, status=429)
+            
+            else:
+                # update redis with new availability after successful booking
+                update_redis_spot_count(redis_key, available_spots)
+                
+        # continue processing the request if no overbooking issue found
+        return self.get_response(request)
+
+
+def update_redis_spot_count(queue_name, num_items_to_decrement):
+    """helper function to decrement items in redis queue"""
+    cache.incr(queue_name, -num_items_to_decrement)
+
+
+```

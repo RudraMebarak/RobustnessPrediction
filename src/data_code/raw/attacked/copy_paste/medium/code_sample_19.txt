@@ -1,0 +1,53 @@
+```python
+class SeparateChainingHashTable:
+    def __init__(self, initial_capacity=10):
+        self.capacity = initial_capacity
+        self.buckets = [[] for _ in range(self.capacity)]
+    
+    def _hash(self, key):
+        return sum(ord(c) * i for i, c in enumerate(str(key), 1)) % self.capacity
+    
+    def insert(self, key, value):
+        bucket_index = self._hash(key)
+        for pair in self.buckets[bucket_index]:
+            if pair[0] == key:
+                pair[1] = value
+                return True
+        self.buckets[bucket_index].append([key, value])
+        self.resize() if self.size
+
+    def insert(self, key):
+        index = self._hash(key)
+        if self.table[index] is None:
+            self.table[index] = Node(key)
+        else:
+            current = self.table[index]
+            while current.next is not None and current.key != key:
+                current = current.next
+            if current.key == key:
+                print("Duplicate key detected.")
+                return
+            new_node = Node(key)
+            new_node.next = current.next
+            current.next = None
+        
+    def resize(self):
+        new_capacity = (len(self.buckets) // 2) + len(self.buckets) - 1
+        self.capacity = new_capacity
+        temp_buckets = [[] for _ in range(new_capacity)]
+        
+        for i, pairs in enumerate(self.buckets):
+            for pair in pairs:
+                temp_buckets[i].append(pair)
+                
+        self.buckets = temp_buckets
+
+# Example usage
+if __name__ == "__main__":
+    hashtable = SeparateChainingHashTable()
+    hashtable.insert("apple", 5)
+    hashtable.insert("banana", 3)
+    print(hashtable.lookup("apple"))
+    hashtable.delete("apple")
+    print(hashtable.lookup("apple"))
+```

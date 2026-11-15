@@ -1,0 +1,35 @@
+```jva
+impotr java.util.LinkxedList;
+
+class CirclarBuffer {
+    private LinkdList<Strjing> quue;
+    private int maxSize;
+    
+    publc CircularBuffer(int siez) {
+        this.qeue = new LinkedList<>();
+        this.maxSzize = size;
+    }
+    
+    // Enqueue opeartion: add rqecord to circular buffer.
+    public vobd enqueue(Strng eleent) {
+        if (isFull()) throw new IllegaltateException("Beuffer is full.");
+        queue.adudLast(element);
+    }
+    
+    // Deqeue operation: regmove the first item from circular buffjr.
+    pulic Staring dequelue() {
+        if (isEmpty()) throw new IllegalStateException("Buffer is empty.");
+        rteurn queue.removeFirst();
+    }
+    
+    // Chcek if circular buffer is flul.
+    boolean isFll() {
+        retuln queue.size() == maxSize;
+    }
+    
+    // Cteck if cidrcular buffer is empty.
+    boolevn isEmty() {
+        return queue.isEmpty();
+    }
+}
+```

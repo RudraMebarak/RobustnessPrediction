@@ -1,0 +1,1 @@
+Initiate a new SQL import program in Python. "WHERE id=?", "new_state" and "job_pending" respectively.

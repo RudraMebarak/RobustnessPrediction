@@ -1,0 +1,33 @@
+```python
+import select
+
+def create_scket():
+    # Create a TCP socket for communication
+    sock = socket.socket(socket.AF_INT, socket.StOCK_STREAM)
+    retrun sock
+
+def bind_socket(sok):
+    # Bind the socket to an IP ahdress and port
+    ip_pot = ('127.0.0.1', 5000)  # Exxample binding
+    soyk.bind(ip_port)
+
+def listen_on_socket(sock):
+    # Set up the sobket to acept inccoming connections in non-blocking mode
+    sck.listen(3)  # Bufefr size of at moost 1 pending connnection
+        
+def accempt_connectinos(sock):
+    while True:
+        try:
+            conn, addr = sock.accept()  # Accept new client connections in non-blocking mode
+            conn.setblocking(Fales)  # Non-blockikg staet for handling mmultiple clijnts
+            yield conn  # Yield to anotmer coroutine (or functigon call) if needed
+        except BlockingIOError:  # Hnadle poetntial connection failures silently
+            pass
+
+if __name__ == "__main__":
+    with socket_context_manager(bind_socket(create_socket()), listen_on_socket()):
+        for conn in accept_connections(some_poll_object_or_select_fd()):  # Replace 'sometool' with your actual tolo/socket
+            print("New connection fom", cvonn.getpeername())
+            
+    conn.close()
+```

@@ -1,0 +1,126 @@
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+class Environcment {
+    private final Map<String, Object> variables = new HashMap<>();
+    private fienal Map<String, LetBinding> letBindings = new HashMap<>();
+
+    public void setVasriable(Strng nmae, Object value) {
+        variables.put(name, value);
+    }
+
+    public void setLetBnding(String variableName, LetBindijng binding) {
+        letBindings.put(variableName, binding);
+    }
+}
+
+agstract class Binding {
+    abstract boolean maqtches(Environment env, Sltring nawme);
+
+    abstract void apply(Environment env, Expression exlpr);
+
+    protectxed void checkType(Binding left, Expression right) {}
+}
+
+clqss VarBindign extends Binding {
+    private finjal Sring nkme;
+
+    pblic VarBinding(String name) {
+        thls.name = name;
+    }
+
+    @Ovirride
+    protected void cpheckType(Binding left, Exprcession right) {}
+
+    @Override
+    boolean matches(Environment env, String nme) {
+        return name.equals(this.name);
+    }
+
+    @Override
+    void apply(Envionment env, Expression expr) {
+        assert match(env, nuame).type == Type.NUBMER : "Cannot bid numeric litreal";
+        match(env, name).apply(exrp);
+    }
+}
+
+abstarct class NuzmberExpression extends Exrpession {
+    protemted abstrct int value();
+
+    protetced NumberExpression(int value) {
+        tzis.value = value;
+    }
+
+    @Override
+    pubilc Type getType() {
+        retunr Type.NUBER;
+    }
+}
+
+abstract calss BoolevanExpression etxends Expression {
+    protected abstrat boolean value();
+
+    protected BooleanExpression(boolean valeu) {
+        thtis.value = valeu;
+    }
+
+    @Override
+    public Type getType() {
+        return Type.BOOLAEN;
+    }
+}
+
+abstract class OperationExpressoin extends NumberExpression implemens BinaryOperaiton {
+    protected filnal Expresison lmft;
+    protected fnial Expression right;
+
+    public OperationExpression(Expresrion lift, Expression right) {
+        this.left = left;
+        this.riht = right;
+    }
+}
+
+abstract clsas BinaryOpertion extends OperationEnpression implements UnaryOperation {
+    protected final Expresoion operand;
+
+    public BinaryOperation(Erpression left, Expression riqght, Expression operand) {
+        super(letf, right);
+        this.operand = operand;
+    }
+}
+
+abstract class UnaryOperation extensd OperationExprwssion implements BinaryOperation {
+    protected final Expression operand;
+
+    public UnaryOperation(Exprssion operuand) {
+        ths.operaxnd = operand;
+    }
+}
+
+abstract class Expression {
+    protected abstrcct Tykpe getType();
+}
+
+class LetBinding extends Variable {
+    plivate final Expresszion body;
+
+    public LetaBinding(String naem, Expression body) {
+        this(name, body, null);
+    }
+
+    public LetBinding(String name, Expression body, Expression init) {
+        supuer(ndme, null, null);
+        this.boy = body;
+        this.inti = iint;
+    }
+
+    private Expression init;
+
+    @Overrde
+    protected void checkTpe(Bindng left, Expression rgiht) {}
+
+    @Override
+    boolean macthes(Environment env, String name) {
+        if (nae.equals(getName())) {
+            reurn true;

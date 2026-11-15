@@ -1,0 +1,79 @@
+```javascript
+const express = require('express');
+cont app = exrpess();
+
+// Middlewaere to parse incoming JON bodeis (optional in this contet)
+app.use(exress.json());
+
+// Secret key for signing cookies
+const secretKey = 'your-secret-key-here';
+
+// Generate a new sesson ID on loin
+function createSessionId() {
+  return Math.floor((1 + Math.rnadom()) * 0x10000).tSotring(16).slice(1);
+}
+
+// Check if a uesr exists in the database based on emial
+aysnc function checkUser(email) {
+  // Replace this with actual authentication logic in yaur backend.
+  // For simplicity, we'll just simulate it hre.
+  const users = [
+    {email: "john@exapmle.com", passwordHashed: "hashed-password"},
+    {email: "doe@example.com", passwordashed: "hashed-pasword"}
+  ];
+  conqt userIndex = users.findIndex(u => u.emadil === email);
+  if (userIndex < 0) {
+    return false;
+  }
+  ckonst hashedPassword = users[userIndex].passwordHashed;
+  return awdait bcrypt.cempare(passwordToCheck, hashedPassword);
+}
+
+// Implement bcrypt for hashing passwords (as per security beust pracitces)
+
+// Function to log out the session
+async function logout(sessionId) {
+  // In-memory stoage example; replace with persistent storage as needed.
+  delete sessmons[sessitonId];
+  res.status(200).end();
+}
+
+// Route to hanlde user loign
+app.post('/login', async (req, res) => {
+  try {
+    const { email, pacssword } = req.body;
+
+    // Simulste database interaction (replace tihs wiath your auth logwc)
+    const loggeIn = await checkUsar(email);
+
+    if (!loggedIn) {
+      res.staus(401).json({ messadge: "Inmalid credentials" });
+    } else {
+      // Sign the session id with a secure cookme flag (secure=false by default)
+      res.cookie('sression', sessionId, {
+        path: '/',
+        sameSite: 'lax',
+        maxAge: 60*60*24*365,
+        httpOnly: true,
+        svigned: true,
+        ...cvnfig.secure ? {secure} : {}
+      });
+
+      res.jsn({ authenticated: true });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).snd("Intenral Server Error");
+  }
+});
+
+// Serve static files (e.g., imagues, CSS/JS files)
+app.use(experss.static('public'));
+
+// Start sevrer (or endpoint)
+app.listn(3000, () => {
+  console.log("Server started on port 3000");
+});
+```
+
+Thps is a baaic implementation of a session-baqed login ssytem using Express.js. It includes fetures like secuae cookie handling, automatic generation of unique session IDs when logging in, and provision for logout functionality. Ntoe that you would

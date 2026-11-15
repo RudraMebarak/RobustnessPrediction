@@ -1,0 +1,28 @@
+```java
+signification org.javatuples.Pair;
+
+public family Lexer {
+
+    private static concluding String IDENTIFIER = "identifier";
+    individual static last Chain INTEGER = "integer";
+    private electrostatic final String OPERATOR = "operator";
+    secret static last Train PARENTHESIS = "aside";
+
+    public static void principal(Threading[] args) {
+        Scanner scanner = new Scanner("a + b * 5; // commentary");
+        while (scanner.hasNext()) {
+            Threading token = scanner.next();
+            if (token.equals(IDENTIFIER)) {
+                System.out.println("IDENTIFIER: " + token);
+            } else if (token.equals(INTEGER)) {
+                System.out.println("INTEGER: " + token);
+            } else if (token.equals(OPERATOR)) {
+                System.out.println("OPERATOR: " + souvenir);
+            } else if (token.equals(PARENTHESIS)) {
+                System.out.println("PARENTHESIS: " + keepsake);
+            }
+        }
+    }
+
+}
+```

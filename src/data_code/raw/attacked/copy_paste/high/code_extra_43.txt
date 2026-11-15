@@ -1,0 +1,59 @@
+```cpp
+#include <iostream>
+#include <fstream>
+#include <vector>
+
+i = 0; i < header.size(); ++i)
+                read(fd, &data[i * sizeof(record)], sizeof(record));
+            break;
+        }
+        close(fd);
+
+        // Check for errors
+        if (header.size() != (size_t)data.size()) throw "Malformed file";
+        for (record* rec = header.data(); rec < header.data() + header.size(); ++rec)
+            if (rec->len != sizeof(record)) throw "Truncated file";
+
+        // Initialize index with all records
+        for (record* rec = header.data(); rec < header.data() + header.size(); ++rec)
+            entries.push_back({rec->key, rec});
+    }
+
+    void insert(record* new_rec) {
+        int idx = lower_bound(entries.begin(), entries.end(), new_rec->key, [](const auto& e, const auto& k) { return strcmp(e.key, k); });
+        if (idx >= entries.size())
+            entries.emplace_back(new_rec->key, new_rec);
+        else
+            entries[idx] = *new_rec;
+    }
+
+private:
+    int fd;
+    std::ifstream ifs;
+    char header[4];
+    std::vector<record> data;
+    std::vector<std::pair<char*, record>> entries;
+
+    template<typename T>
+    static inline bool cmp(T& x, T& y) { return {
+            break; // Invalid record size found
+        }
+        memoryMap.push_back(rec);
+    }
+
+    return memoryMap;
+}
+
+int main() {
+    try {
+        auto records = readFileIntoMap("example.txt");
+        // Process the memory-map entries here...
+        return 0;
+    } catch (const std::exception& ex) {
+        std::cerr << "Error: " << ex.what() << '\n';
+        return 1;
+    }
+}
+```
+
+This code snippet demonstrates how to create a memory-mapped file where each line is treated as a record with a fixed width (represented by `value`). It reads an entire file into this virtualized storage in memory, then processes it to find any malformatted or truncated inputs. The example usage shows reading from `example.txt`, but you can replace `"example.txt"` with your own input path.

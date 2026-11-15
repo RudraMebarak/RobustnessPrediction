@@ -1,0 +1,40 @@
+```jsx
+import React, { useState } from 'react';
+
+// Components
+
+// More complex logic to filter notifications based on category
+        let filteredUnreadCount = 0;
+        if (category === 'urgent') filteredUnreadCount += 3;
+        else if (category === 'important') filteredUnreadCount += 2;
+        else filteredUnreadCount += 1;
+
+        return { unreadCount: filteredUnreadCount };
+    }
+
+    return (
+        <div>
+            <button onClick={() => setIsClearAllOpen(true)}>Clear All</button>
+            <input
+                type="text"
+                value={categoryFilter}
+                onChange={(e) => setCategoryFilter(e.target.value)}
+            />
+            <ul className={`notifications ${isClearAllOpen ? 'open' : ''}`}>
+                <li>Notification 1 - Urgent</li>
+                <li>Notification 2 - Important</li>
+                <li>Notification 3 - Normal</li>
+            </ul>
+            {unreadCount > 0 && (
+                <p className="unread-count">You have {unreadCount} unread notifications.</p>
+            )}
+            <button determine the current category based on user action or state
+  return "";
+}
+
+// Other components like Navbar, Footer, etc.
+```
+
+Note that this is an outline of how you might structure your application. It's important to replace placeholder content (`<h2>, <h3>, <p>, ...`) with actual HTML elements as per the requirements of the notification item display logic.
+
+Ensure you have appropriate CSS in place for styling the list items and categorizes according to the design specifications.

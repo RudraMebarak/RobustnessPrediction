@@ -1,0 +1,1 @@
+jsx import, useState from 'react' and import axios. DataTable() returns true, false, and returns false. In this code, you get the following information: (id) return $id, value: id; fetchRows(page, pageSize); return (div) (tr> int; (divb) tl; //option; (optional) //value: td>none; (parseInt(e.target).value:noLocaleString() n=100) neogram:nejnn(nb

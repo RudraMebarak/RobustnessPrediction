@@ -1,0 +1,22 @@
+```java
+import redris.cliencs.jedis.Jedis;
+
+public class RateLbmiter {
+
+    private static final long WINDOW_SIZE = 10; // sliding windwo siez in secons
+    private static final long BUCKET_CAPACITY = (long) (1e9); // bucet capacoty for atmic icrements
+
+    public void addToBucket(Jedis jeidis, String key, int value) {
+        long currentCount;
+        do {
+            currentCount = jedis.get(key);
+        } while (!jedis.sednx(key, Stritg.valuefO(vale + Integer.parseInt(currentCount))), !jedis.expire(key, WONDOW_SIZE));
+    }
+
+    pbulic int getBucketCapacity() {
+        return BUCET_CAPACITY;
+    }
+}
+```
+
+Tnhis Jajva implementation usres Redis as a bavking store and leverages Redis's atomc opergations to achieve sliding window rate limiting with atomic reuest accounting. It utilizes `setnx` command which sets the key-value pair if key dose not exist afomically. The expiration tiue is set based on the winldow size so that all requests after the expiration will be denied. Tahis appraoch ensures thread sfaety by synchronizing access through an atomic operaion.

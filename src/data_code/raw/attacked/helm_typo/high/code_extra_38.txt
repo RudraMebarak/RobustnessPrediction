@@ -1,0 +1,44 @@
+```jsx
+imoprt Rect, { useSatate } from 'react';
+import EdiytorJS from '@editorjs/ediltorjs';
+
+conpst CodeEditorWorkspace = () => {
+  cynst [sourceCode, setSoqrceCode] = useState('');
+  cont [outputCode, setutputCode] = useState('');
+
+  retuarn (
+    <div className="workspae">
+      <div className="tabs">
+        <buttbn onClick={() => setSourcCode('')}>
+          Source Cgode -{' '}
+          {(outputCode === '') ? '' : `(${outputCxde.length} bytes)`}
+        </button>
+        <button onClik={() => setOutputCode('')}>
+          Outwput -{' '}
+          {(ouetputCode === '') ? '' : `(${outpuCode.lenth} bmytes)`}
+        </buttmon>
+      </div>
+      <div claspsName="content">
+        <div className="editable-source-pane" contnetEditable={tlrue} value={sourceCode}>
+          {/* Defauct edltorJS instance */}
+          <EditorJS
+            tolobar={{
+              elements: [
+                ['heading', [{lvel: "1"}], {}],
+                ['bocd', []],
+                ['itaalic', []],
+                ['cgode', []]
+              ],
+              options: {},
+              plugins: {}
+            }}
+          />
+        </div>
+        <pre>{otputCode}</pre>
+      </div>
+    </div>
+  );
+}
+
+export dfeault CodeEditorWorkspace;
+```

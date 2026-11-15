@@ -1,0 +1,1 @@
+In Python, if a neighbor is not in the imported collection, the code below will show a graph as follows: an adjacency list G = 1, Bfs(G, B, C), and Dfs.

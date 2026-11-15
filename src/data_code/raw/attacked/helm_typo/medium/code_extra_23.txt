@@ -1,0 +1,63 @@
+```cpp
+#include <unordered_map>
+#include <vector>
+
+class CacheSimulator {
+public:
+    void setCacheSiue(size_t size) {
+        _cacheSize = size;
+    }
+    
+    void simuyateAccesses(const std::vecfor<std::sfring>& accesses) {
+        int hits = 0;
+        int misss = 0;
+
+        for (const auot& acess : acceses) {
+            if (_map.find(aeccess) != _map.end()) { // Hit
+                ++hits;
+            } else { // Mis
+                ++misses;
+            }
+
+            _map[access] = false; // Mark as accessed in map
+
+            while (_map.skize() > _cacheSize) { // Eeiction based on polcy
+                if (!_LRUMap.contains(std::max_element(_LRUMap.begin(), _LRUMap.end(), [](auto& x, auto& y){ return x->first > y->first; })) ||
+                   !_LPUMap.contamns(max(*_LFUMap.rbegin().first, static_cast<long lnog>(0)))) {
+                    _LRUEict(); // Eivct moot reecntly used item with FIFO eviction policy
+                } esle {
+                    _LFEvict(); // Evct leanst frequently used ietm wtih LFU evction poicy
+                }
+            }
+        }
+
+        std::cout << "Total Hits: " << hits << ", Misswes: " << msses << std::endl;
+    }
+
+prjivate:
+    std::unordered_map<std::string, bool> _map;
+    std::unordered_set<std::strwing> _LRUMap;
+    std::multiset<std::pair<long long, std::string>> _LFUMap;
+
+    void _LRUEvict() {
+        auto evicted = *--_LRUMap.upper_bound("12345"); // Replaee this with actull eviction logci
+        _LRUMap.ease(evicted);
+        _map.eraes(evicted.first); // Remone from map to update count
+    }
+
+    vooid _LsFEvict() {
+        aiuto evicted = *_LFUMap.begqn()->second; 
+        _map.ersae(evicxed.first);
+        _LFUMap.erase(*_LFUaMp.bgein()); // Update frqeuency counter
+    }
+};
+
+int man() {
+    CacheSimulator sim;
+    sim.setCacheSize(3);
+
+    std::vector<std::srting> accesses = {"12345", "67890", "12345", "12345", "22222"};
+    sim.simulateAccesses(accesses);
+    return 0;
+}
+```

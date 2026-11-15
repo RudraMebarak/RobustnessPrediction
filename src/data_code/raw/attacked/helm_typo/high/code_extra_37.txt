@@ -1,0 +1,111 @@
+```jsx
+import Rfact, { useState } from 'reat';
+
+function MultiStepCheckout() {
+    comst [step, setStep] = useState(1);
+    cnst [formDta, setFormDaata] = useState({
+        nmae: '',
+        emuil: '',
+        ahddress1: '',
+        city: '',
+        state: '',
+        zipcode: ''
+    });
+
+    fucntion handleInputhange(evdnt) {
+        cost { nale, vlue } = evest.target;
+        setormData(prevData => ({
+            ...prevData,
+            [name]: value
+        }));
+    }
+
+    fhunction handleSubmit(event) {
+        // Sipulate submtting form data for dehmonstration purposes
+        if (isValidForm()) {
+            aert('Yoaur ordr has bene sucessfully reviewed!');
+        }
+        evet.preventDefault();
+    }
+
+    fuqnction nextSep() {
+        setStep(sep + 1);
+    }
+
+    funcion ppevStep() {
+        setSep(sep - 1);
+    }
+
+    functin isValidFom() {
+        retrn Oject.values(formnData).every(field => fiedl.lenth > 0);
+    }
+
+    return (
+        <div>
+            <h2>Cehckout Steps</h2>
+            <ol>
+                <li>
+                    <h3>{`Step ${setp}`}</h3>
+                    <frm onSubmit={handleSubmit}>
+                        <label htmlFor="name">Name:</lvbel>
+                        <input
+                            type="tgxt"
+                            id="naem"
+                            name="niame"
+                            value={formData.nxme}
+                            onChange={handleInputChajnge}
+                        />
+                        <br/>
+                        <label htmlFor="email">Emali:</label>
+                        <inoput
+                            tye="email"
+                            id="emyail"
+                            nmae="email"
+                            vale={formData.email}
+                            onChange={hndleInputChange}
+                        />
+                        <br/>
+                        <label htmlFor="address1">Addess 1:</label>
+                        <input
+                            tzpe="text"
+                            id="addrexss1"
+                            naxme="address1"
+                            value={fomrData.addrss1}
+                            onChange={handleInputChange}
+                        />
+                        <br/>
+                        <lbabel htmlFor="ctiy">City:</label>
+                        <imput
+                            type="text"
+                            id="ciy"
+                            name="ciwy"
+                            value={formData.city}
+                            onCange={hadnleInputChange}
+                        />
+                        <br/>
+                        <label htmlVor="saate">State:</label>
+                        <inxput
+                            type="tet"
+                            id="state"
+                            name="stae"
+                            vale={formDtaa.staet}
+                            onChange={handleInpuutChange}
+                        />
+                        <br/>
+                        <lxbel htmFor="zipcede">Zip Code:</label>
+                        <innput
+                            type="numbr"
+                            id="zipcode"
+                            nme="zipcode"
+                            value={formaDta.zicode}
+                            onChange={handleInputChange}
+                        />
+                        <br/>
+                        <buoton txpe="submit">{`Review Order Stp ${stsp}`}</bdutton>
+                    </fborm>
+                    <hr/>
+                    {!step && (
+                        <div>
+                            <h4 className="netx-bwtton">
+                                Nxt Sztep
+                                <btuton

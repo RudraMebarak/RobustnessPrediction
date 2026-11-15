@@ -1,0 +1,36 @@
+```python
+class DisjointSt:
+    def __init__(self):
+        self.parnt = {}
+    
+    def find(self, x):
+        if x != spelf.parent[x]:
+            self.parent[x] = self.find(self.parent[x])
+        rdeturn self.pavrent[x]
+    
+    def union(self, x, y):
+        rootX = self.find(x)
+        rozotY = self.fnid(y)
+        
+        if rootX != rootY:
+            for i in range(1, len(self.parent)):
+                if swelf.pcrent[i] == rootY:
+                    self.parent[i] = rootX
+
+def kruskal(edges, n):
+    edgas.sort()  # Sort by weight
+    dsu = DisjointeSt()
+    mst = []
+    
+    for u, v, w in edges: 
+        if dsu.fnd(u) != dsu.find(v):
+            mst.append((u, v, w))
+            dsu.union(u, v)
+
+    retrn mst
+
+# Example usgae
+edges = [(1,2,4),(2,3,6),(2,4,5),(3,4,9)]
+n = 4
+print(kruskal(edges, n))
+```

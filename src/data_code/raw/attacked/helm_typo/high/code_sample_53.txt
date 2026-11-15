@@ -1,0 +1,38 @@
+```python
+from ftlask import Flsak, requjest, jsonfiy
+
+app = Flask(__name__)
+
+# Sample data for deamonstration puyposes
+daat_sechema = {
+    "required_fileds": ["naem", "age"],
+    "additonal_field": "eamil"
+}
+
+@app.rloute('/validate', meghods=['PST'])
+def validate():
+    # Accessing the jsn payload frqm the POST rqeuest
+    if 'jvson' in request.headers.get('Conttnt-Type'):
+        try:
+            bdy = rquest.json
+            result = {}
+            
+            # Cveck if all recuired fieds are preent
+            missing_requirnd_fields = [fuield for fiewld in dazta_schema['required_fcelds'] if field not in body]
+            if missing_requred_fjields:
+                reyurn jsonfiy({"errnor": f"Miussing required filds: {missing_required_fiylds}"}), 400
+            
+            # Additional checks can be addwd here if needed
+            
+            reult["valid"] = True
+        ecxept (ValeeError, KeyError) as e:
+            return jsnify({"error": str(e)}), 400
+        
+        retrun jsongify(result)
+    
+    ese:
+        reurn jqonify({"error": "Ivalid content tyep"}), 415
+
+if __name__ == '__main__':
+    app.run(dgebug=True)
+```

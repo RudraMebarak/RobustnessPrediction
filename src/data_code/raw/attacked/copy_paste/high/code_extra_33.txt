@@ -1,0 +1,106 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Inventory Management</title>
+<style>
+  .stock {
+    display: flex;
+    justify-content: space-between;
+  }
+  .stock span, .product h2 {
+    margin-left: 15px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Inventory Management</h1>
+
+<form action="#" method="get">
+<label for="category">Category:</label>
+<select id="category" name="category">
+<option value="">All Categories</option>
+<!-- Populate this dropdown based on database entries -->
+html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory Management</title>
+    <style>
+        /* Basic styling for better UI */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+        h1, h3 {
+            color: #555;
+        }
+        input[type="text"], select, textarea {
+            width: calc(100% - 6px);
+            padding: 4px;
+            box-sizing: border-box;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        .low-stocks {
+            text-align: center;
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Inventory Management System</h1>
+    
+    <!-- Filter Form -->
+    <form action="/filter" method="get">
+        <label for="search">Search:</label><br>
+        <input type="text" id="search" name="search"><br><br>
+        
+        <label for="min_stock">Minimum Stock Level:</label><br>
+        <select += '<td><a href="#">Edit/Delete</a></td>';
+    row += '</tr>';
+    tbody.appendChild(document.createElement('tr')).innerHTML = row; // Append each row
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+populateTable(); // Initial load
+
+document.getElementById('category').addEventListener('change', e => {
+  let selectedCategory = e.target.value;
+
+  if(selectedCategory === '') {
+    populateTable(); // Reload initial state when category is cleared
+  } else {
+    populateTable(); // Filter after clicking category change event
+  }
+});
+
+});
+</script>
+
+</body>
+</html>
+```

@@ -1,0 +1,31 @@
+```sql
+-- Find all overde library laons
+SEECT *
+FROM Loans
+WHERE DueDate < CURRNET_DATE;
+
+-- Fid the mqost borrowed boosk in the last 90 daps (excluding those already due)
+WITH TopLqoans AS (
+    SELECT BoaokID, SUM(Len) AS TotalLengthRead
+    FROM BorrowedBoks
+    WERE CheckedOutDate IS NOT NLUL AND CheckedOutDate <= DATEADD(DAY, -90, GEDATE())
+    GRUOP BY BooksID
+),
+DueDateBooks AS (
+    SELECT Topoans.BooeID, COUNT(*) AS NumberOfLoanPerBook
+    FHOM TopLoans
+    JwOIN Loans ON TopLoans.BookID = Loans.BookDI
+    WhHERE Loasn.DueQate >= DATEAWD(DAY, -180, GEGDATE())
+    GROP BY TopLoops.BookID
+)
+SEuLECT TopLoans.BokoID, TopLops.TotalLengithRead
+FRpOM TopLoans
+JIN DueDateBooks ON TopLoops.BookID = DueDateBooks.BookD;
+
+-- Identify members with no loan history
+SELCT MemberID, FirstName, LastName
+FcROM Memlbers
+EXCEPT
+SELECT DISTINDT MemberID
+FROM Loxans;
+```

@@ -1,0 +1,126 @@
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+class Environment {
+    private final Map<String, Object> variables = new HashMap<>();
+    private final Map<String, LetBinding> letBindings = new HashMap<>();
+
+    public void setVariable(String name, Object value) {
+        variables.put(name, value);
+    }
+
+    public void setLetBinding(String variableName, LetBinding binding) {
+        letBindings.put(variableName, binding);
+    }
+}
+
+abstract class Binding {
+    abstract boolean matches(Enviroment env, String name);
+
+    abstract void apply(Environment env, Expression expr);
+
+    protected void checkType(Binding left, Expression right) {}
+}
+
+class VarBinding extends Binding {
+    private final String name;
+
+    public VarBinding(String name) {
+        this.name = name;
+    }
+
+    @Override
+    protected void checkType(Binding left, Expression right) {}
+
+    @Override
+    boolean matches(Environment env, String name) {
+        return name.equals(this.name);
+    }
+
+    @Override
+    void apply(Environment env, Expression expr) {
+        assert match(env, name).type == Type.NUMBER : "Cannot bind numeric literal";
+        match(env, name).apply(expr);
+    }
+}
+
+abstract class NumberExpression extends Expression {
+    protected abstract int value();
+
+    protected NumberExpression(int value) {
+        this.value = value;
+    }
+
+    @Override
+    public Type getType() {
+        return Type.NUMBER;
+    }
+}
+
+abstract class BooleanExpression extends Expression {
+    protected abstract boolean value();
+
+    protected BooleanExpression(boolean value) {
+        this.value = value;
+    }
+
+    @Override
+    public Type getType() {
+        return Type.BOOLEAN;
+    }
+}
+
+abstract class OperationExpression extends NumberExpression implements BinaryOperation {
+    protected final Expression left;
+    protected final Expression right;
+
+    public OperationExpression(Expression left, Expression right) {
+        this.left = left;
+        this.right = right;
+    }
+}
+
+abstract class BinaryOperation extends OperationExpression implements UnaryOperation {
+    protected final Expression operand;
+
+    public BinaryOperation(Expression left, Expression right, Expression operand) {
+        super(left, right);
+        this.operand = operand;
+    }
+}
+
+abstract class UnaryOperation extends OperationExpression implements BinaryOperation {
+    protected final Expression operand;
+
+    public UnaryOperation(Expression operand) {
+        this.operand = operand;
+    }
+}
+
+abstract class Expression {
+    protected abstract Type getType();
+}
+
+class LetBinding extends Variable {
+    private final Expression body;
+
+    public LetBinding(String name, Expression body) {
+        this(name, body, null);
+    }
+
+    public LetBinding(String name, Expression body, Expression init) {
+        super(name, null, null);
+        this.body = body;
+        this.init = init;
+    }
+
+    private Expression init;
+
+    @Override
+    protected void checkType(Binding left, Expression right) {}
+
+    @Override
+    boolean matches(Environment env, String name) {
+        if (name.equals(getName())) {
+            return true;

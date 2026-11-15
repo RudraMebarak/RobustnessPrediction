@@ -1,0 +1,1 @@
+Input a Graph construct that contains the values of n, f, and l. Using bfs, write to a graph object such that it is considered to be an integer function; in particular, when does the sequence of events happen in its memory? The output of this function is the new Graph method that lets users create a BFS list based on specified values from the previous block.

@@ -1,0 +1,40 @@
+```python
+class FenwickTree:
+    def __init__(self, size):
+        self.n = size  # Size of the array (or set)
+        self.tree = [0] * (size + 1)  # Initialize tree with zeros
+    
+    def update(self, i, val):
+        while i <= self.n:  # Traverse through all indices in O(log n)
+            self.tree[i] += val  # Add value to the current node's contribution
+            i += i & -i      # Move leftmost '1' bit to the next position
+
+    self.tree = [0] * (size + 1)
+
+    def update(self, index, value):
+        # Update the corresponding element in the tree by adding 'value'
+        while index <= self.size:
+            self.tree[index] += value
+            index += index & -index
+
+    def query_prefix_sum(self, index):
+        # Return the prefix sum up to the given index
+        total = 0
+        while index > 0:
+            total += self.tree[index]
+            index -= index & -index
+        return total
+
+    def get_range_sum(self, left_index, right_index):
+        # Calculate the sum of elements from left_index to right_index inclusive
+        return self.query_prefix_sum(right_index) - self.query_prefix_sum(left_index - 1)
+```
+
+This Python implementation provides a Fenwick Tree data structure that supports efficient updates, prefix sums, and range-sum queries. The `update` method allows changing the value at any position, while `query_prefix_sum` gives the cumulative sum up to any index. The `get_range_sum` function calculates the sum within a specified range count between two given indices.
+
+To use this class:
+
+- Create an instance by providing its size (total number of elements).
+- Use the `update()` method to increase the frequency of any element in the array.
+- Employ the `sum()` method to find the cumulative count leading up to any particular position.
+- Utilize the `range_sum()` function to compute the total numbers within specified ranges efficiently.

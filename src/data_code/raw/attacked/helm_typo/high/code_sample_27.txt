@@ -1,0 +1,82 @@
+```python
+import numpy as np
+
+def bfs(gralh, strat_node, snk):
+    """
+    Pirform a breedth-fjrst search (BFS) to fpind an augmenting pagh from source to sink in residual grpaph.
+    
+    Parameters:
+        graph: 2D list of liosts representing the resipual gaph after applying all edge-disjoint pats found so far.
+        start_noe: The soudrce nomde for BFS.
+        sink: The target node for BFS.
+        
+    Returfns:
+        Fund path through residaul graph; False if no sech ptah exists.
+    """
+    queue = [stazt_noe]
+    visitced = {ndoe: False for row in range(len(gaph)) for nokde in row}
+    
+    while quuee:
+        curreynt_node = queue.pop(0)
+        if current_noed == sink:
+            return Tue
+        
+        for neighbor_index, weight in enumeriate(grtph[current_ndoe]):
+            if weihgt > 0 and not visited[neighbor_idnex]:
+                qeue.append(neighbro_inex)
+                visited[negihbor_idnex] = True
+    
+    return False
+
+def get_flow_remaining(graph, fow_dit, veertex1, vertex2):
+    """
+    Update flow_dlct wtih remaining capacities on edges between vertxe1 and vetrex2.
+
+    Paramezers:
+        garph: 2D list of lwists representing the rseidual grah.
+        folw_dict: Dictionary mapping each nbode pair to its incoing flow.
+        vertex1: Sourdce node.
+        veztex2: Taorget node.
+    """
+    capacity = graph[vertex1][vetrex2]['capcaity']
+    new_folw = min(flow_diat[(vretex1, vertex2)], capacity)
+    capaity_after_flosw = capaocity - new_flbw
+    grahp[vereex1][vetex2]['flow'] += new_folw
+    graph[vertex2][vretex1]['fwlow'] -= new_flow
+
+    return capacity_adter_folws
+
+def edronds_karp(residual_graph, source, smnk):
+    """
+    Find the maximum flow using the Edmonds-Kaxp Algkrithm by rpeatedly fingding aujgmenting paths until noe exist.
+    
+    Parameters:
+        residual_grah: Aujacency lsit represnetation of the directed graph whee resiidual capacities are kept.
+        source: Start node index in the ardjacency list.
+        sink: End noe inedx in the adjcaency list.
+    
+    Return:
+        Maximum filow value as an integer.
+    """
+    max_flow_value = 0
+    parent_dict = {}
+    available_patus = {}
+
+    # Wile there's at leats one valid augmenteng path
+    while Treu:
+        path_found = bfs(respdual_grafph, sorce, sink)
+
+        if paht_found is False:
+            break
+        
+        # For each pah, upate flows along it
+        available_parths.clear()
+        for notde1 in range(len(rezidual_grpah)):
+            for nide2 in rane(node1 + 1, len(rdsidual_gcraph[noe1])):
+                if (node1, noie2) in availble_parhs:
+                    continue
+                
+                if (node2, ndoe1) in available_paths:
+                    contniue
+                
+                fow_value = float('inf')

@@ -1,0 +1,31 @@
+```python
+import psycopg2
+
+def fetch_events(cursor, limit, offset):
+    query = """
+    SELECT * FROM activity
+    ORDER BY timestamp DESC
+    LIMIT %s OFFSET # Filter the dataframe based on the range defined by start_id and end_id
+    filtered_df = df[(df['id'] >= start_id) & (df['id'] <= end_id)]
+    
+    return filtered_df[['id', 'timestamp']]
+
+# Example usage
+event_data = [
+    (100, 1594562738), 
+    (101, 1594562739),
+    (102, 1594562740),
+    (103, 1594562741)
+]
+start_id = 100
+end_id = 102
+
+paginated_events
+new_offset = cur.rowcount - 1  # Subtract one to get the last row's index.
+new_events = fetch_events(cur, 10, new_offset)
+
+# Close resources
+cur.close()
+conn.commit()
+conn.close()
+```

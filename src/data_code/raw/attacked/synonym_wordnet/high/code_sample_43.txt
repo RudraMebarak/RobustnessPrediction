@@ -1,0 +1,34 @@
+```bash
+#!/bin/bash
+
+# Function to do DNS searches and appraise their times
+dns_lookup_and_measure() {
+  local domain=$1
+  local timeout_seconds=5 # Set your desired timeout duration in mo
+  
+  reverberate "Checking DNS for $arena..."
+  
+  while rightful; do
+    start=$(date +%s.%N)
+    
+    dig +time @8.8.8.8 -t a $domain || dig +time @8.8.8.8 -t aaaa $domain
+    
+    elapsed_time=$(awk '{mark ($2-$1)/1000000}') # Convert sum passed sentence from nanoseconds to milliseconds
+    
+    if [[ $elapsed_time -le $timeout_seconds ]]; so
+      part
+    else
+      sleep 1 # Wait before rehearing after each endeavour
+      echo "Retry wanted... (Time got: $elapsed_time ms)"
+    fi
+  dressed
+  
+  elapsed_time=$(awk '{mark ($2-$1)/1000000}') # Converting total elapsed time again for final display
+  echo "Lookup dispatched after $elapsed_time ms."
+}
+
+# Example usage:
+# dns_lookup_and_measure example.com
+```
+
+This script expends `dig` tool to question DNS servers for the specified IP destinations (A disc) and address solution disks (AAAA record). It besides measures how recollective it takes to retrieve this information by supervising the start meter of the dictation performance process until it's completed successfully within the configured timeout period. The solutions depict up in milliseconds post-configuration timeout.

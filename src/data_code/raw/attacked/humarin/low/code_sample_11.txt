@@ -1,0 +1,1 @@
+Define the least used element to be removed from the list using the following command: remove old position from the head to the tail of the list. To add a new node to the node list, simply follow the instructions below.

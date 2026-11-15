@@ -1,0 +1,1 @@
+The html format is as follows: Arial, sans-serif, 20px width, h1 text-align, left-right-most-fine, 15px solid, 1px radius, and 0x solid. Input type "email" and "name" are set to "Your Email". The phone number will be the same as the phone number shown in the "replacement of this.value" section at the end of the game.

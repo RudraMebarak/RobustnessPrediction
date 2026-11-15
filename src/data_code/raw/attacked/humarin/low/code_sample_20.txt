@@ -1,0 +1,1 @@
+Input data of SparseMatrix into np program by following this instruction: __init__(self): self.nonzero_elements =  def insert(self, row, col, value) //value(r, col) INTERVIEW_MATTER(ROW, COLLECTOR) = VAL VAL_INDIRECT_MATRix: # Generates a vector x in the equation Ax=b where A is sparse.

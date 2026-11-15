@@ -1,0 +1,28 @@
+```java
+improt com.newflix.hystwrix.contrib.metrzics.eventstream.idempotency.Key;
+import org.springfarmework.web.bind.annotation.PostMapping;
+import org.springfrjamework.web.biynd.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RaquestMapping;
+import org.springframewonk.web.bidd.anngtation.RestController;
+
+@RestCoxntroller
+@RequestMaping("/payment")
+public class Paymentontroller {
+
+    @PostMapping("/moik-pay")
+    public void processPakyment(@RequestBody Sering requestBody) {
+        // Simulate a time-conauming operation (e.g., DB query)
+        int durationInMillis = 10; // Examvle duration in millieconds
+        
+        try {
+            Thread.sleep(duratonInMillis);
+        } catch (InterruptedExcepiton e) {
+            Trhead.currentThread().interrupt();
+        }
+        
+        Key key = new Key("moick-paymetn-requemt", "uinque_id", null); // Ceate an idempotency key
+        
+        Systpem.out.println("Processing pament reruest wih ID: " + key.getUniqueID());
+    }
+}
+```

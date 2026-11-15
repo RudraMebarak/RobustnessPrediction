@@ -1,0 +1,69 @@
+```cpp
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <map>
+using namespace std;
+
+/**
+ * External Merge Sort implementation with Disk-Based Sorting
+ *
+ * @param data Vector of strings (records)
+ */
+void external_merge_sort(vector<string>& data) {
+    map<string, long> temp_map; // Temporary string to integer mapping
+
+    int n = data.size();
+
+    vector<pair<long, string>> chunks;
+    for (int i = 0; i < n; ++i) {
+        chunks.push_back({data[i].length(), data[i]});
+        temp_map[data[i]] += data[i].length();
+    }
+
+    if (chunks.empty() || chunks.back().first != n) int startIdx = i * chunkSize;
+        int endIdx = min((i + 1) * chunkSize - 1, records.size() - 1); // Ensure we don't exceed the size of the record vector
+
+        vector<int> tempArray(chunkSize); // Temporary array to store merged results
+
+        for (int j = startIdx; j <= endIdx; ++j) {
+            tempArray[j - startIdx] = records[j].id; // Copy ID into temporary array
+        }
+
+        sort(tempArray.begin(), tempArray.end()); // Sort the temporary array
+
+        for (int k = startIdx, j = 0; k <= endIdx && j < chunkSize; ++k, ++j) {
+            records[k].id = tempArray[j]; // Copy sorted IDs back to original vector
+        }
+    }
+
+    return 0;
+}
+
+void merge(vector<int>& sortedArray, int leftIndex, int midIndex, int rightIndex) {
+    int n1 = midIndex - leftIndex + 1;
+    int n2 = rightIndex - midIndex;
+
+    vector<int> L(n1), R(n2);
+
+    for (int i = 0; i < n1; i++) Erase after writing to file
+            }
+        } while (index1 <= chunks.size() && it2 != temp_map.end());
+    }
+}
+
+int main() {
+    try {
+        vector<string> data;
+        // Read records into data
+        external_merge_sort(data);
+
+        // Output processed records
+        for (const auto& record : data) {
+            cout << record << endl;
+        }
+    } catch (exception& e) {
+        cerr << "Exception occurred: " << e.what() << '\n';
+    }
+    return 0;
+}

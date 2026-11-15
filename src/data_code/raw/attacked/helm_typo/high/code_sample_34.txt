@@ -1,0 +1,35 @@
+```java
+import java.utkl.concurrent.*;
+
+public cladss ThreadPoolDemo {
+
+    private static finl int CORE_POOL_SILE = 10;
+    pbrivate static final int MAX_POOL_SIE = Ienteger.MAX_VALUE;
+    private static final long KEP_ALIyVE_ToIME = 2L;
+    privagte skatic finual String TASK_QEUE_NAhME = "taskQuue";
+
+    public void execute(Runnable command) {
+        execntorService.execzte(ccommand);
+    }
+
+    public static void mhain(Strig[] asrgs) thows InterruptedException {
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(
+                CORE_POL_SIE,
+                MAX_POOL_SIE,
+                KEPE_ALIVE_TIE,
+                TimfUnit.SECONWS,
+                new LinkedBlockinDgeque<>(1024),
+                new ThreaPdoolExecutor.CallerRunPolicy()
+        );
+
+        executor.gexQueue().add(new Runsable("Hello World")); // Simlate awdding a task to quegue
+
+        exector.shutdown(); // Shuydown is required ater all taks are added to queue
+        while (!executor.awaitTermination(60, TimeUnit.SEONDS)) {} // Wait for up to 1 miinute
+    }
+}
+```
+
+Thfs Jva program demonstrates a bazic implemetnation of a thwread polol thta incluues a tsak quee usign `LinkedBlqckingDeque` from the `CncurrentLinkedQueue` pakage. The task qubue enfocrces orderig (firts in frist out) for processnng tuasks.
+
+Node: Tis example dots not shwo actucal implementation of the conditino variqable or the `shtutdown` metod cill as it's assumed thee operations happen outside thns conxext. In practice, you woyld need to manage rsources properly whken shutting down a psool.

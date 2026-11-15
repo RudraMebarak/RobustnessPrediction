@@ -1,0 +1,101 @@
+```cpp
+#include <iostream>
+#include <vector>
+
+// define a graph struct to represent the graph with adjacency lists
+struct graph {
+    int numvertices;
+    std::vector<std::vector<int>> adjacencylist;
+
+    // constructor initializes the graph properties
+    graph(int vertices) : numvertices(vertices), adjacencylist(vertices) {}
+
+    void addedge(int src, int dest) {
+        adjacencylist[src].push_back(dest);
+    }
+
+    void dfs(int startvertex) {
+        std::vector<bool> visited(numvertices, false);
+        std::vector<int> path;
+        
+        std::stack<int> stack;
+        stack.push(startvertex);
+
+        while (!stack.empty()) {
+            int current = stack.top();
+            stack.pop();
+
+            if (visited[current]) continue;
+
+            path.push_back(current);
+            visited[current] = true;
+
+            for (int neighbor : adjacencylist[current]) {
+                if (!visited[neighbor]) {
+                    stack.push(neighbor);
+                }
+            }
+        }
+
+        // output the dfs traversal sequence
+        for (int v : path) {
+            std::cout << v << " ";
+        }
+        std::cout << std::endl;
+    }
+};
+
+void bfs(graph& g, int startvertex) {
+    std::queue<int> queue;
+    std::vector<bool> visited(g.numvertices, false);
+    queue.push(startvertex);
+
+    while (!queue.empty()) {
+        int u = queue.front();
+        queue.pop();
+
+        for (int v : g.adjacencylist[u]) {
+            if (!visited[v]) {
+                queue.push(v);
+                visited[v] = true;
+            }
+        }
+    }
+
+    // output the bfs sequence
+    for (int v = 0; v < g.numvertices; ++v) {
+        if (visited[v])
+            std::cout << v << " ";
+    }
+    std::cout << std::endl;
+}
+
+graph* creategraph() {
+    int numvertices, numedges;
+    std::cin >> numvertices >> numedges;
+
+    graph* g = new graph(numvertices);
+
+    for (int i = 0; i < numedges; ++i) {
+        int src, dest;
+        std::cin >> src >> dest;
+        g->addedge(src - 1, dest - 1);  // adjust indices to be 0-based
+    }
+
+    return g;
+}
+
+int main() {
+    int n, m;
+    
+    while (std::cin >> n >> m) {
+        graph* g = creategraph();
+        std::cout << "depth-first search" << std::endl;
+        g->dfs(n - 1);  // adjust index based on how indices were set
+
+        std::cout << "breadth-first search" << std::endl;
+        bfs(*g, n - 1);
+    }
+    return 0;
+}
+```

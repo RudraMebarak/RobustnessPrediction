@@ -1,0 +1,82 @@
+```jsx
+import React, { useState } from 'react';
+import axios from 'axios';
+
+function DataTable() {
+  const [rows, setRows] = useState([]);
+  const [selectedRowIds, setSelectedRowIds] = useState([]);
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+
+  function handleSortColumn(editorial) {
+    if (column.id === "auto-sort") {
+      return;
+    }
+    const sortedData = rows.sort((a, b) => new Date(a[column.id]) - new Date(b[column.id]));
+    setRows(sortedData);
+  }
+
+  async function fetchRows(pageNumber, pageSize) {
+    try {
+      const response = await axios.get('your-api-url', {
+        params: {
+          q: '',
+          per_page: pageSize,
+          page: pageNumber
+        }
+      });
+      setRows(response.data.data.map(item => ({
+        ...item,
+        createdAt: item.createdAt.toDate().toLocaleString(),
+        updatedAt: item.updatedAt.toDate().toLocaleString()
+      }));
+      setPage(pageNumber);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+
+  function handlePageChange(newPage) {
+    setPage(newPage);
+  }
+
+  function handlePageSizeChange(newPageSize) {
+    setPageSize(newPageSize);
+  }
+
+  function handleSelection(ids) {
+    setSelectedRowIds(ids);
+  }
+
+  function createRowObject(id) {
+    return { id, text: `Row ${id}`, value: id };
+  }
+
+  fetchRows(page, pageSize);
+
+  return (
+    <div>
+      <h2>Data Table</h2>
+      <table border="1">
+        <thead>
+          <tr>
+            {/* Headers for your columns */}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, index) => (
+            <tr key={row.id} onClick={() => handleSelection([row.id])}>
+              <td>{index + 1}</td>
+              <td>{row.text}</td>
+              <td>{new Date(row.value).toLocaleString()}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <button onClick={() => fetchRows(++page, pageSize)}>Next Page</button>
+      <input type="number" min="1" max="100" value={pageSize} onChange={(e) => handlePageSizeChange(parseInt(e.target.value))} placeholder="Rows per page"/>
+      <select value={pageSize} onChange={(e) => handlePageSizeChange(parseInt(e.target.value))} title='Select Rows'>
+        {[...Array(Math.ceil(rows.length / pageSize)).keys()].map(x => (<option key={x+1} value={`${x+1}`}> { x+1} </option>))}
+      </select>
+      <hr />
+      Selected Row IDs: {selectedRowIds.map(id

@@ -1,0 +1,1 @@
+In python import requests, private URLs (e.g., local files) are rejected if they start with url.startswith('http'): request: response = requests.get(url) except Exception: If response is not None and response is 'localhost' in response, please check if it is a loopback request (localhost or 127.0.0.1) If location_header =="https://localhost.1/">log_response_stat_resum

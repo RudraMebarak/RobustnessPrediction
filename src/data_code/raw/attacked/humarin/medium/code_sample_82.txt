@@ -1,0 +1,1 @@
+Incorporate iose> // Create a cache-based matrices method for storing data from top-right to bottom-left. Initiate a new loop by filling the gaps in the submatrix.

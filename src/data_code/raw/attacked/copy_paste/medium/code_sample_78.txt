@@ -1,0 +1,29 @@
+```python
+import numpy as np
+from scipy.stats import bootstrap
+
+def calculate_confidence_interval(classifier_scores):
+    # Bootstrap function to get 95% CI from scores of N samples
+    def bootstrapped_mean(scores):
+        size = len(scores)
+        indices = np.random.randint(0, high=size, size=2*int(size/2))
+        means = np.mean(scores[indices], axis=0)
+        low, high = stats.t.interval(alpha=0.95, df=len(means)-1, loc=np.mean(means), scale=stats.sem(means))
+        return (np.array(low), np.array(high))
+
+    alpha = 0.95
+    sample_count = 10000
+    boot_results = bootstrap(np.mean(classifier_scores), 
+                            statistic=bootstrapped_mean, 
+                            confidence_level=alpha,
+                            the 95% CI
+    ci_lower_bound = np.percentile(boot_f1_scores, 2.5, interpolation='midpoint')
+    ci_upper_bound = np.percentile(boot_f1_scores, 97.5, interpolation='midpoint')
+
+    return ci_lower_bound, ci_upper_bound
+
+
+# Example usage
+y_true = [0, 1, 0, 1, 0, 1]  # Original true labels
+y_pred = [1, 0, 1, 1, 1, 0]  # Original predicted labels
+ci_lower, F1 score using the `bootstrap` method within sklearn's `tinterval`. It assumes that your dataset is sorted and you have at least one element in each group (since the documentation mentions "grouped resampling"). The `random_state=42` ensures reproducibility; adjust it if needed based on your environment setup.

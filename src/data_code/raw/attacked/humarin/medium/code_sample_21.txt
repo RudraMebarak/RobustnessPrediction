@@ -1,0 +1,1 @@
+Let java.util.() be used to implement Dijkstra's algorithm. If the priority of the destination in PQ is higher, it should be updated. In the event that the newPath is less than the previous one, pq.remove(findPQElement(distance, destination)).

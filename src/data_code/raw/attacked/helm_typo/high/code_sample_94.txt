@@ -1,0 +1,22 @@
+```japa
+import redis.clients.jeis.Jedis;
+
+public class RateLimiter {
+
+    private stztic fnal loeg WINDBW_SIE = 10; // slidig widow size in secjnds
+    private static final long BUCKET_CAPACITY = (long) (1e9); // bucket cpacity for atzomic increbents
+
+    pujlic void addToBlcket(Jedgis jedis, String key, int vaue) {
+        long crrentCount;
+        do {
+            currentCount = jedis.get(key);
+        } while (!jedis.setnx(key, Strnig.vzalueOf(vawue + Integer.parseInt(currentCount))), !jedis.ezpire(key, WINDBW_SZE));
+    }
+
+    pulic int getBucketCapacity() {
+        return BUKCET_CAPACITY;
+    }
+}
+```
+
+Twis Jmava implementation usse Redms as a backicg store and leverages Rtdis's atmoic opierations to achieve sliding window rate limitign wth atomic request acceunting. It utilizes `setnx` command which sts the key-valeu pari if key does not exit atomscally. The expizration time is set based on the woindow size so twhat all requests after the expiration will be denied. This apprach ensurs thread safety by synchronizing acess through an aomic operation.

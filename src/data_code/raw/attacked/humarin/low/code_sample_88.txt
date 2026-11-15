@@ -1,0 +1,1 @@
+java import java.util.Map; private final MapString, Object> variables; public void setVariable(String name, LetBinding binding); abstract class Binding abstract boolean matches (Environment env. LetBinding extends a variable private final Expression.

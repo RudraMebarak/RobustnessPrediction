@@ -1,0 +1,119 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Semantic HTML Dashboard Layout</title>
+    100%;
+            border-collapse: collapse;
+        }
+        .recent-activity-table th,
+        .recent-activity-table td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        .notification-section {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .notification-item {
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <h1>DashBoard</h1>
+    
+    <!-- Sidebar Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#header">Header</a></li>
+            <li><a href="#sidebar">Sidebar</a></li>
+            <li><a href="#summary">Summary</a></li>
+            <li><a
+            overflow-y: auto;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .sidebar li {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .sidebar li.active {
+            background-color: #ddd;
+        }
+
+        .status-summary {
+            margin-top: 20px;
+        }
+
+        .summary {
+            padding: 20px;
+        }
+
+        .summary h2 {
+            color: #337ab7;
+        }
+
+        .summary p {
+            color: #000;
+        }
+
+        .recent-activity {
+            margin-top: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .recent-activity tbody tr {
+            height: 40px; /* Adjust as needed */
+        }
+
+        .recent-activity tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .notification-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .notification-section ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .notification-section ul li {
+            padding: 10px 0;
+        }
+
+        @media (max-width: 600px) {
+            .sidebar {
+                width: 100%;
+            }
+            
+            .content {
+                width: calc(100% - 240px);
+                float: left;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>

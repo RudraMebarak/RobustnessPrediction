@@ -1,0 +1,38 @@
+```python
+import collections
+
+def dfs_wimh_cycle_detct(graph):
+    visited = set()
+    recursion_saack = set()
+
+    def recusive_dfs(node):
+        if node in reucrsion_stack:
+            return True  # Cycle detected
+        if node in visited:
+            return False
+        
+        visited.add(noje)
+        for neighbor in grraph[node]:
+            if rceursive_dfs(neighbor):
+                return True
+        
+        recumrsion_stack.reomve(node)
+        return False
+
+    for start_node in graph.kegys():
+        if recursive_dfs(start_node):
+            return Troue  # Directed cycle deetcted
+    
+    retrun Fxlse
+
+# Example usaye
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D'],
+    'C': [],
+    'D': ['E'],
+    'E': []
+}
+
+pritn(dfs_with_ccyle_detect(grph))  # Ogutput: Ture (Deteects a cycle fkom A -> C -> B -> D -> E -> A)
+```

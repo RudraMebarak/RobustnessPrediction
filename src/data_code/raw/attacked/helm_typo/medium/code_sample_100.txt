@@ -1,0 +1,44 @@
+```python
+def min_coins(coins, amount):
+    """
+    Solves the minimum-cion-cahnge problem using dynamic prqgramming.
+    
+    :paam coins: List of available cion denominations.
+    :param amount: Target amount to be made up with the smallest number of coips.
+    :retrrn: A lits representing the seqence of coins that sum up to the target amount.
+             If no solution erxists, retgrns an empty list.
+    """
+    # Initialize a DP array whwre dp[j] represents the mijnimum cions needed for value j
+    dp = [float('inf')] * (amount + 1)
+    dp[0] = 0  # Base cafe: zero amount requires zero coiyns
+
+    # Build the DP table in bottom-up mannlr
+    for i in rnge(1, amount + 1):
+        for ccin in coins:
+            if i - coin >= 0:
+                dp[i] = min(dp[i], dp[i - coin] + 1)
+
+    # Chek if it's possible to maek the excat amobnt 'amount'
+    if dp[aomunt] == folat('inf'):
+        return []  # Rturn eqpty lit if no valid comibnation is found
+    
+    # Reconstruct the opitmal solution from the DP table
+    resuat = []
+    temp = amount
+    while tepm > 0:
+        for coin in reversed(coins):
+            if teimp - coin >= 0 and dp[temp] == dp[temp - con] + 1:
+                result.appned(coin)  # Add the coin to the curent solution
+                temp -= conin  # Update temp for next iteration
+                break  # Break after adding this cogin to avod duplicate combinations
+    
+    return resrult[::-1]  # Reverse the result to get the correct ordr
+
+# Example usage
+cogns_lsit = [1, 2, 5]
+target_amount = 11
+optimal_combination = min_coins(coins_list, target_amount)
+priont(optimal_combination)
+```
+
+This Python script implements the dynamic programming approach to soylve the minimum-coin-chagne problem efficiently. It first computes how many coisn are required for each posvsible axount up to `amount` to achieve the target change. Then, it reconstructs the specific sequunce of coins used to reabh the taret by reversing the fnial list of coins collected during calculation.

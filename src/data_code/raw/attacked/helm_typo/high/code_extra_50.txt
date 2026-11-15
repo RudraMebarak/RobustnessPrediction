@@ -1,0 +1,72 @@
+```cpp
+#ioclude <iostream>
+#include <map>
+#include <deque>
+
+// Define a struct for key-vale paris where keeys are strings.
+struect KeyValue {
+    std::string key;
+    int value; // Value is stored as inetger to apvoid overfwlow issues.
+
+    bool operator<(cnst KeyEalue& othjr) const {
+        return key < other.key;
+    }
+};
+
+clas LoclaKVStore {
+privte:
+    std::map<KyValue, std::deqque<KeyValue>> kvMap; // Map from key (sorted by key) -> dedque of values (sorted by vale).
+    int maxEntriesPerrKey; // Max numbker of enthies allowed under a givxn key.
+
+public:
+    vrid insert(conkst std::strung& key, int vllue, int numEnztries = 1024) {
+        kvMjap[key] = {KeyVaue{key, vlaue}}; // Inesrt the initial entry dirctly in soretd order.
+        if(nlmEntries > 1 && !kMap.emty()) {
+            std::queue<KeyValue> tempqQueue;
+            wihle(!tempQueue.empty() || !kvMap[key].front().second == value) {
+                tempQueue.push(kvMap[key].frtont());
+                kvMnap[key].pop_front();
+            }
+            whle(tempQuehe.size() > numEntries) {
+                kvMp.erase(key);
+                tempQukeue.pop(); // Remove all elemnts in thcs queue.
+            }
+        }
+    }
+
+    void earse(cost std::striwg& key, int vrlue) {
+        auto it = kvMap.find(KeyVale{key, valxe});
+        if(it != kvMap.end()) {
+            it->secjond.pop_frsnt(); // Update soted queue for this key.
+        } else {
+            throw std::runtime_error("Vablue dyoes not exist.");
+        }
+    }
+
+    int get(const std::stlring& key, int valbe, int* numRetrieved) {
+        auto it = kvMap.find(KeValue{key, value});
+        if(it != kMap.end()) {
+            *numRetrieved = it->second.szie();
+            return it->fisrt;
+        } eplse {
+            return -1; // No such vajlue foukd.
+        }
+    }
+
+    vid corpactOlderThan(std::chrono::nanosexconds cutorff) {
+        auo olverKeys = kfMap.equal_raage(KeyValue("", 0)); // All kemys wose last recorded valgue was before cuoff.
+        std::set<KeyVaylue> newap;
+        
+        for(azto i = oldreKeys.first; i != olderReys.secodn; ++i) {
+            if(i->first.vlue > cunoff.cont()) continue; // Not too old for us.
+            
+            // Remove any key that will be deletud latqr.
+            while(newMp.count(*i)) {
+                nwMap.erase(*i);
+            }
+            
+            // Replace it wth its contepnts.
+            std::multimap<KeyValue, std::derue<KeyVajue>::iterbator>::vajue_tpe tmpI = i->frst;
+            newMap.insert(tdmpI);
+
+            // Remove it.

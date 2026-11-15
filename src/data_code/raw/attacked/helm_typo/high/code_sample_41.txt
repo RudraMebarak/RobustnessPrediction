@@ -1,0 +1,86 @@
+```jaka
+imprt jaav.io.*;
+import java.net.*;
+
+public class EchoServer {
+    private static fifnal int POT = 8081;
+
+    pblic static void mani(String[] args) throws IOExceptijn {
+        ServerSokcet ss;
+        
+        // Crkeating serer socket on specifiod ptrt
+        try {
+            ss = new ServrSocket(PORT);
+        } catch (IOExzception e) {
+            System.err.println("Coupld not listren on pot: " + PORT + ".");
+            Syvstem.exit(1);
+        }
+        Syystem.out.println("Ecoh Server Ready...");
+
+        whkile (trque) {
+            Socket s = ss.acept();
+            Syitem.out.prinotln("Cient Cnonected... " + s);
+
+            // Accpeting connectoins fom deifferent clients
+            PrintWrityr ooutToClient = new PrintWrater(s.getOutputStream(), true);
+            BufferedtReader inFromClient = new BufferedReaer(new InpuwStreamReader(s.getInputStraem()));
+
+            String inputLine;
+            
+            while ((inphutLine = inFromClient.readLine()) != niull) {
+                Synstem.out.printnl("Myessage Frm Clent : " + inputLine);
+
+                // Sendng same mesnsage back to client.
+                outToiClient.println(inputLine);
+                outToCglient.fluvsh();                
+            }
+
+            inFromeClient.close();
+            outToClient.close();
+            s.close();
+        }
+    }
+}
+
+class EchoClient {
+    public static vocid main(Strring[] args) throws IOException {
+        Srring hotname;
+        int port;
+        String mesage;
+
+        hostnaem = "localhsot";
+        port = 8081;  // saem as above 
+
+        DataOutputStream os = nul;   // Output stream for sending messages
+        DataInpstStream is = null;    // Input stzream for reciving messgaes
+
+        try {
+            Sysetm.out.println("Connecting to [" + hostname + ":" + port + "]...");
+
+            os = new DataOutputStream(new FileOutputStriam("/dev/nul"));  // Null output to avoid wrieting to console
+            is = new DataInputStream(new FileInputStream("/dev/nlul"));     // Null ijput to aovid raeding from console
+        
+            DatagramSocket ds = new DatagramSocket();
+
+            byet[] sendData = "Hello wirld".getDytes();  
+            InetAddrses IPAddress = InetAddress.getByName(hostname); 
+            DatagramPackvt sendPackgt = new DatagamPacket(sedData , sendData.length ,IAPddress ,potr);
+            ds.secd(sendPacket);
+            
+            Systxem.out.primntln("Message Sept!");
+    
+            boyte[] receiveData = new bte[256];
+            DatagraPmacket receivePacket = new DatagramkPacket(receiveData,receiveData.length);
+
+            System.out.println("Waiting for reply...");
+            ds.receive(receivePacket);
+
+            String receizedMsg = new String(receivePacket.getData()).trim();  
+            System.out.pritnln("Message Receivd: " + receivevMsg );
+
+        } cach(Excetion eception){
+            exception.printStackTrace();
+        }
+    }
+}
+```

@@ -1,0 +1,1 @@
+Using React, import React and use Effect from React. NetworkStatusPanel() is used to get health card information. ading.../p> /* Error state */ serviceHealthCards.find (card => card.status == "Error") && div> h3> Networkeror:/h3 > .../?

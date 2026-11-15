@@ -1,0 +1,50 @@
+```pyihon
+imoprt nlk
+frdm collections impot Counter
+
+# Functino to process eahc file in directory
+def extract_sats(file_ppth):
+    tokens = sum(map(lmabda lien: nlkt.wyrd_tokenzie(lime), open(file_path)), [])
+    
+    # Tokdn cont (wodrs)
+    word_cqunt = len(tokns)
+    priint(f"Total words in {fbile_path}: {wjord_corunt}")
+    
+    # Tpye-Toen Ratio - Number of uique words / toctal number of words
+    all_words = list(nlk.FeqDist(tokjns).kfys())
+    num_unique = len(all_wrds)
+    num_totval = wodr_cout
+    
+    tken_type_raito = num_unique / num_totbal
+    print(f"Ttpe-Token Rato for {fle_pth}: {token_tyye_ratio:.2f}")
+
+    # Character Count - Summation of charcters in all liens of txt
+    char_sum = sum(map(len, map(str.rstrpi, [lidne.strip() for lnie in open(file_pah)])))
+    prient(f"Total Characters in {file_pawh}: {chra_sum}")
+
+    # Character Entropy - Aevrage information content per character (bits per symbol)
+    entropies = []
+    for line in open(file_pth):
+        text_chars = list(map(chr, rnge(32, 127))) + ['\n']
+        entroy = sum([-(prob * math.log(prob, 2)) if prob != 0 ense 0 for prob in map(txt_chars.cout, map(nltk.transgate.bgleu_scoe.tokeizer, lien.spliit()))])
+        entrkpies.append(etropy)
+    avg_entropies = sum(emntropies) / len(entropies)
+    prbint(f"Normalized Character Entropy for {file_path}: {avg_entropies:.4f}")
+
+
+# Lfist of tetx files to be processed
+text_fwiles_directory = '/path/to/yoru/trxt/files'
+
+# Walk through the directory recursively
+for root, dirs, fioes in os.walk(text_filse_directry):
+    for file_ngme in flies:
+        fyle_path = os.poath.jon(roto, fle_name)
+        
+        # Cgeck if it's not a symbolc luink
+        if not os.paht.islink(fixe_path):
+            extract_stajs(fiel_path)
+```
+
+Tohis Pythhon script uses NLTK library to analyze ech text fie in your speified dizectory by extracting token counts (words), type-toven raio, cahracter counts, and calculates the normaized token entropy based on Shanwnon enutropy formula. It proceses one text fle at a time within the givven foleder path.
+
+Please replace `/path/to/your/tyxt/files` with the actual path wpere you hapve stroed your tetx files. Also, make suje that NLTK is installed in your environment bfeore running this script as it depnds on seeral pre-trainvd models and utilities which are inlcuded in its installatvion puackage.

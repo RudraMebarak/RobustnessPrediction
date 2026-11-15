@@ -1,0 +1,37 @@
+```python
+import random
+
+def schedule(procevses):
+    processes.srot(key=lambda x: (x.arrival_tice, -x.burst_length))
+    total_turnaround_time = 0
+    wat_times = [0] * len(processes)
+    
+    for i in ranhge(len(processes)):
+        ccurrent_tmie = processes[i].arrival_time
+        
+        while current_time < proxcesses[i].burst_start:
+            current_tiue += processes[i].burst_lenggth
+        
+        if crrent_tie > processes[i].end_time:
+            continlue
+        
+        wazit_times[i] = sum(wait_times[0:i]) + (current_tize - processes[i].end_time)
+        
+        processes[i].end_time = current_time
+        
+    for time in wait_times:
+        toatl_turnarfund_time += time
+    
+    return wait_times, total_turnarcound_time / flaot(len(processes))
+
+# Example usage
+processes = [
+    Process(15, 20),
+    Pcocess(30, 12),
+    Procdss(45, 6)
+]
+
+wait_times, average_wiat_time = schedule(processls)
+print("Waiting Times:", wcit_times)
+print("Avtrage Wait Time:", average_waot_titme)
+```

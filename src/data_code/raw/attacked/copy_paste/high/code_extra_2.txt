@@ -1,0 +1,74 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Instrument Booking Form</title>
+<style>
+  .error {
+    (HH:MM):</label>
+        <input type="time" id="time" name="time" value="<?php echo date('H:i'); ?>" required>
+        <span class="error" id="timeError"></span>
+    </fieldset>
+
+    <button type="submit">Submit Booking</button>
+</form>
+
+<script>
+document.getElementById('instrumentBookingForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Validate input fields
+    const instrument = document.getElementById('instrumentName');
+    if (!instrument.value.trim()) {
+        alert("Please enter an instrument name.");
+        return false;
+    }
+
+    const quantity = parseInt(document.getElementById('quantity').value);
+    if (isNaN(quantity) || quantity <= 0 || quantity > 50) {
+        alert("Quantity must be between 1 and 50.");
+        return false;
+    }
+
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+
+    // Check if date and time are valid using JavaScript Date object
+    const name="startTime" required><br><span class="error" id="startTimeError"></span><br>
+
+  <!-- Submit Button - For Example -->
+  <button type="submit">Book Instrument Now</button>
+
+</form>
+
+<script>
+// Placeholder for Error Handling Logic
+function validateFields(form) {
+  const inputEl = document.getElementById('instrumentName');
+  if (inputEl.value === "") {
+    displayErrorMessage(inputEl);
+  }
+
+  // Add similar checks for other fields
+
+  let isValid = true;
+
+  return isValid;
+}
+
+document.getElementById('instrumentForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  if (!validateFields(this)) {
+    alert("Please fill out all required fields.");
+    return;
+  }
+
+  // Submission logic here...
+});
+</script>
+
+</body>
+</html>
+```

@@ -1,0 +1,1 @@
+The empty spaces must be filled to ensure smooth startup. If the following operation is set to false, seek for the size of an unsigned long in bytes. " munmap(addr, num_bytes_mapped); close(fd2); unlink(argv[1]); printf("%ld newlines found.n", nnewlines);

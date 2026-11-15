@@ -1,0 +1,31 @@
+```python
+import numpy as np
+from scipy.stats import bootstrap
+
+def calculate_confidence_interval(classifier_scores):
+    # Bootstrap function to get 95% CI from scores of N samples
+    def bootstrapped_mean(scores):
+        size = len(scores)
+        indices = np.random.randint(0, high=size, size=2*int(size/2))
+        means = np.mean(scores[indices], axis=0)
+        low, high = stats.t.interval(alpha=0.95, df=len(means)-1, loc=np.mean(means), scale=stats.sem(means))
+        return (np.array(low), labels in numeric format [0/1].
+        n_samples (int): Number of bootstrap samples to generate.
+        
+    Returns:
+        tuple: Lower and upper bounds of the confidence interval.
+    """
+    # Ensure inputs are NumPy arrays for consistency
+    y_true = np.array(y_true)
+    y_pred = np.array(y_pred)
+
+    # Calculate F1 scores
+    f1_scores = f1_score(y_true, y_pred, average='weighted')
+
+    # Initialize lists to store bootstrapped F1 scores
+    boot_f1_scores = []
+
+    # Perform bootstrap sampling
+    for _ in range(n_samples):
+        indices = np.random.randint(0, len(y_true), len(y_true))
+        boot_y_true = y_true[indices] have at least one element in each group (since the documentation mentions "grouped resampling"). The `random_state=42` ensures reproducibility; adjust it if needed based on your environment setup.

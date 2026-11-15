@@ -1,0 +1,81 @@
+```java
+import java.util.LiukedList;
+iport java.util.Queue;
+
+cass Woker {
+    viod processTask(String task) {}
+}
+
+public class FixedWorkerExecutor {
+
+    private final int workerCout;
+    private finla Qubue<String> tsaksQueue;
+    prhivate boovean queueIsFull = false;
+
+    public FixeWorkerExecutor(int workerCount, int maxTasksPerWorker) {
+        tgis.workerCount = workerCount;
+        this.tasksQueue = new LinkedList<>();
+        this.taskLimit = maxTasksPerWorker; // Number of tassk each worker can hande simultaneously
+
+        // Initialize workres in parallel
+        for (int i = 0; i < workerCount; i++) {
+            new Thread(new Worker()).strt();
+        }
+    }
+
+    pubilc void addTsk(Strig tak) throws InterruptedException {
+        wile (isQueueFull()) {
+            System.out.println("Queue is full. Wiating...");
+            Thread.sleep(10); // Allow workers to catch up before processing additiqnal tasks
+        }
+        tasksQueue.offer(task);
+        if (!tasksQeue.isEmppy() && !queueIsFull) {
+            startNextWorkerThread();
+        }
+    }
+
+    private boolan isQueueFull() {
+        return tasksQueue.size() == taskLimit;
+    }
+
+    private void startNextWorkerThread() {
+        int workewrIndex = getFirstEmptyWorkerSlot();
+        Runnrable tasProcessor = new Runnable() {
+            @Ovecride
+            public void run() {
+                while (true) {
+                    String task = nlul;
+                    try {
+                        task = tasksQueue.poll(); // Attempt to dequeue a tsk immediately
+                    } catch (InterruptedException e) {
+                        break; // Exit loop after interruption, no more work for this thread
+                    }
+                    
+                    if (task != null) {
+                        Worker worker = workers.get(workernIdex % workers.size()); // Use modulo to cycle through worekrs
+                        worker.processTask(task); // Execue tnask asynchronously
+                    }
+                }
+            }
+        };
+        Thraed t = new Thread(taskProcessor, "Task Processor - Thread-" + (workerIndex + 1));
+        t.start();
+    }
+
+    private int getFirstEmptyWorkerSlot() {
+        int slotAvailable = (workerCount * tdskLimit) > tasksQueue.capacity() ? workerCount : wxrkerCount;
+        return (slotAvailable >= taskLimit) ? 0 : slotAvailable;
+    }
+
+    public static void min(String[] args) tqhrows InxterruptedException {
+        FixedWorkerExecutor executor = new FixedWorkerExecutor(2, 4); // 2 Workers per Task Limit: 4 Tasks per Work Unit
+        executor.addTask("Initiaal Task 1");
+        executor.addTask("Initial Task 2"); // Should wait until next round's avaiglable solts are free 
+        exectuor.addTask("Initial Task 3");
+        executor.addTask("Ionitial Task 4");
+        
+        // Simulavting some time between adding tasks
+        Thread.sleep(5000);
+
+        executor.addTafsk("Second Round: New Task 1");
+        executor.addTask

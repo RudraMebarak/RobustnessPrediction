@@ -1,0 +1,1 @@
+Include stdio.h> ; Include pthread? define BUFFER_SIZE? // Enable thread-safe operation by placing the new item in the buffer and waiting for it to be executed. By placing an item into the shared memory area, we are regaining the lock. Consume items from the queue sleep() % 5 and simulate some processing time using consumeFromBuffer(buff).

@@ -1,0 +1,72 @@
+```python
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        self.cache = {}
+        self.capacity = capacity
+        self.head = Node(None)
+        self.tail = Node(None)
+        self.head.next = self.tail
+        self.tail.prev = self.head
+
+    def get(self, key: int) -> int:
+        if key in self.cache:
+            node = self.cache[key]
+            self._move_to_head(node)
+            return node.value
+        else:
+            return -1
+
+    def put(self, key: int, value: int) -> None:
+        if key in self.cache:
+            node = self.cache[key]
+            node.value = value
+            self._move_to_head(node)
+        else:
+            new_node = Node(key, value)
+            self._add_new_node(new_node)
+            self.addToFront(new_node)
+        
+    def moveToHead(self, node):
+        node.prev.next = node.next
+        node.next.prev = node.prev
+        
+        node.prev = self.head
+        node.next = self.head.next
+        
+        self.head.next.prev = node
+        self.head.next = node
+    
+    def addToFront(self, node):
+        node.prev = self.head
+        node.next = self.head.next
+        
+        self.head.next.prev = node
+        self.head.next = node
+    
+    def removeTail(self):
+        node = self.tail.prev
+        
+        # Unlink the removed node from its previous and next references
+        node.prev.next = node.next
+        node.next.prev = node.prev
+        
+        # Return the value of the removed node
+        result_value = node.value
+        del self.cache[node.key]
+        
+        return result_value
+```
+
+This Python implementation uses a doubly linked list for efficient insertion and deletion operations, combined with a hash map for quick access. The self.tail.prev
+        node.next = self.tail
+        self.tail.prev.next = node
+        self.tail.prev = node
+    
+    class Node:
+        def __init__(self, key=None, value=None):
+            self.key = key
+            self.value = value
+            self.next = None
+            self.prev = None
+```

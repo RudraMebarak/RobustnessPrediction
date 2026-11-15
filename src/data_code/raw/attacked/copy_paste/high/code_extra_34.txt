@@ -1,0 +1,93 @@
+```jsx
+import React, { useState } from 'react';
+import axios from 'axios';
+
+function ImageUploader() {
+  const [files, setFiles] = useState([]);
+  
+  const handleFileChange = (event) => {
+    const filesList = event.target.files;
+    setFiles([...files, ...filesList]);
+  };
+
+  const handleRemoveFile = (fileIndexToRemove) => {
+    const newFiles = [...files];
+    newFiles.splice(fileIndexToRemove, 1);
+    setFiles(newFiles);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (files.length === 0 || !files.every(file => /\.(jpg|jpeg|png|gif)$/i.test(file.name))) {
+      alert('Please select at least one valid image file.');
+      return;
+    }
+    
+    try {
+      await axios.post('/api/upload', { images: files.map(file => ({ name: file.name, url: URL.createObjectURL(file) })) });
+      window.location.reload(); // Reload page after successful submission to array
+      await Promise.all(
+        files.map(async (file) => {
+          let response;
+          
+          // Upload each file individually
+          response = await axios.post('https://api.example.com/upload', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+            onUploadProgress: (progressEvent) => {
+              uploadingFile && (uploadingFile.progress = Math.round((100 * (progressEvent.loaded / progressEvent.total)) / files.length));
+            }
+          });
+          
+          // Update state after successful upload
+          setFiles(files.filter(file => file !== file));
+          setError('');
+        })
+      );
+      
+      // Handle success
+      console.log('All files uploaded successfully');
+    } catch (error) {
+      setError(error.response ? error.response.data : 'An error occurred during file upload.');
+    }
+  };
+
+  const handleRemove = (index) => {
+    const updatedFiles = [...files];
+    updatedFiles.splice(index, 1);
+    setFiles(updatedFiles);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="file" multiple onChange={handleFileChange} />
+      <button disabled={!files.length || uploadingFile}>Upload</button>
+      {uploadingFile &&
+        <>
+          <p>Uploading...</p>
+          <progress value={uploadingFile.progress} max="100"></progress>
+        </>
+      }
+      {error &&
+        <div className="alert alert-danger">{error}</div>
+      }
+      <ul>
+        {files.map((file, index) => (
+          <li key={index}>
+            <img src={`data:image/jpeg;base64,${btoa(file.previewBase64())}`} alt="" onClick={() => handleRemove(index)} />
+            <span>{file.name}</span>
+          </li>
+        ))}
+      </ul>
+    </form>
+  );
+};
+
+export default ImageUploader;
+```
+
+Note: This code is simplified for demonstration purposes and does not include all possible edge cases `multiple` property in input element.
+- Basic error handling and feedback to the user regarding what went wrong should there be issues validating or uploading specific types of media formats.
+
+Note: For actual deployment and security reasons, especially for real-time processing like file uploads over HTTP requests directly between browsers and servers, consider implementing server-side file processing logic instead of relying solely on client-side operations.

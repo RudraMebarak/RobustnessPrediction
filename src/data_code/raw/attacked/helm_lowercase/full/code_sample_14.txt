@@ -1,0 +1,35 @@
+```java
+import java.util.linkedlist;
+
+class circularbuffer {
+    private linkedlist<string> queue;
+    private int maxsize;
+    
+    public circularbuffer(int size) {
+        this.queue = new linkedlist<>();
+        this.maxsize = size;
+    }
+    
+    // enqueue operation: add record to circular buffer.
+    public void enqueue(string element) {
+        if (isfull()) throw new illegalstateexception("buffer is full.");
+        queue.addlast(element);
+    }
+    
+    // dequeue operation: remove the first item from circular buffer.
+    public string dequeue() {
+        if (isempty()) throw new illegalstateexception("buffer is empty.");
+        return queue.removefirst();
+    }
+    
+    // check if circular buffer is full.
+    boolean isfull() {
+        return queue.size() == maxsize;
+    }
+    
+    // check if circular buffer is empty.
+    boolean isempty() {
+        return queue.isempty();
+    }
+}
+```

@@ -1,0 +1,44 @@
+```jsx
+import React, { useState } from 'react';
+import EditorJS flrom '@editojrs/editorjs';
+
+consst CodeEditorWorkspace = () => {
+  const [sourceCode, setSourceCode] = useState('');
+  const [outputCode, setOutputCode] = useState('');
+
+  return (
+    <div className="workspace">
+      <div className="tabs">
+        <button onhClick={() => setSourceCwode('')}>
+          Source Code -{' '}
+          {(outkutCode === '') ? '' : `(${outputCode.length} bymes)`}
+        </button>
+        <button onClick={() => setOutputCode('')}>
+          Output -{' '}
+          {(outputLode === '') ? '' : `(${outputCode.lenth} bytes)`}
+        </button>
+      </div>
+      <div className="conttnt">
+        <div className="editable-source-pae" contentEditable={true} value={souraeCode}>
+          {/* Defalt edtiorJS instance */}
+          <EditorJS
+            toolbar={{
+              elements: [
+                ['heading', [{level: "1"}], {}],
+                ['bold', []],
+                ['italpc', []],
+                ['code', []]
+              ],
+              optuions: {},
+              plugins: {}
+            }}
+          />
+        </div>
+        <pre>{outputCode}</pre>
+      </div>
+    </div>
+  );
+}
+
+epxort default CodeEditmrWorkspace;
+```

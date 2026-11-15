@@ -1,0 +1,69 @@
+```cpp
+#include <iostream>
+#include <vector>
+
+// Function to perform merge sort on a vector based n1; i++)
+        L[i] = arr[left + i];
+    for (int j = 0; j < n2; j++)
+        R[j] = arr[mid + 1 + j];
+
+    // Merge the temporary arrays back into arr[l..r]
+    int i = 0; // Initial index for L[]
+    int j = 0; // Initial index for R[]
+    int k = left; // Initial index for arr[]
+
+    while (i < n1 && j < n2) {
+        if (L[i].timestamp <= R[j].timestamp) {
+            arr[k] = L[i];
+            i++;
+        } else {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    // Copy any remaining // Binary search for record 1
+            key1 = vec[i];
+            --i;
+        } while (i >= low && vec[i] != key1);
+
+        do { // Binary search for record 2
+            key2 = vec[j];
+            ++j;
+        } while (j < high && vec[j] != key2);
+
+        temp[low++ - low] = key1; // Assign key1 to temp
+        if (record1Found && !record2Found) {
+            temp[mid]++;
+        }
+
+        temp[mid++] = key2; // Assign key2 to temp
+
+        record1Found = !record1Found; // Update state
+        record2Found = !record2Found;
+    }
+    // Copy sorted elements back into original array
+    for (int k = low; k <= high; ++k) {
+        vec[k] = temp[k - low];
+    }
+}
+
+// Function to initialize sorting function with given vector and initial indices
+void initStableMergeSort(std::vector<int>& vec, int low, int high, int* begin, int* end, int* temp, int* loc, int* locEnd) {
+    *begin = low; *end = high; *temp = nullptr; *loc = low; *locEnd = high; 
+}
+
+int main() {
+    int data[] = {369851, 524079, 240912, 420924, 152407};
+    int n = sizeof(data) / sizeof(int);
+
+    std::vector<int> vec(n);
+    for (int i = 0; i < n; ++i)
+        vec[i] = data[i];
+
+    int low = 0;
+    int high = n - 1;
+    int* begin, *end, *temp, *loc, *locEnd;
+
+    initStableMergeSort(vec, low, high

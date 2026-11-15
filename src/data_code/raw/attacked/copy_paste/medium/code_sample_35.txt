@@ -1,0 +1,21 @@
+```python
+import subprocess
+
+class ProcessSupervisor:
+    def __init__(self, timeout_s):
+        self.timeout_s = timeout_s
+    
+    def start_process(self, command_line):
+        # Execute the process and get its output
+        result = subprocess.run(command_line, capture_output=True)
+        
+        if result.returncode != 0:
+            print(f"Process failed with error: {result.stderr.decode()}")
+            
+        return_code = result.returncode
+        
+        # Record runtime (time since start of process process and monitors its runtime using a timeout feature. If the process fails within the given time frame, it will be terminated forcefully. The `record_runtime_and_exit` function records the == "__main__":
+    superviser = ProcessSupervisor(3600) # Timeout is set to an hour
+    result = superviser.start_process(["sleep", "120"])
+    print(result)
+```

@@ -1,0 +1,66 @@
+```javascript
+// Import required modules
+const express = require('express');
+const bodyParser = require('body-parser');
+
+// Initialize Express app
+const app = express();
+
+// Middleware to parse incoming JSON request bodies
+app.use(bodyParser.json());
+
+// tasks
+ * @returns {Promise<object[]>} A promise that resolves to an array of tasks
+ */
+async function readTasks() {
+    return tasks;
+}
+
+/**
+ * Update a task by ID
+ * @param {number} taskId - The ID of the task to be updated
+ * @param {object} req.body - The updated task properties
+ * @returns {Promise<object>} A promise that resolves to the updated task
+ */
+async function updateTask(taskId, req) {
+    const index = tasks.findIndex(task => task.id === taskId);
+    if (index !== -1) {
+        Object.assign(tasks[index], req.body);
+        return tasks[index];
+    } else {
+        throw new Error(`Task with ID ${taskId} not found`);
+    }
+}
+
+/**
+ * Delete a task by ID
+ * @param {number} taskId - The ID of the task to be deleted
+ * @returns {Promise<void>} A promise that is resolved without any value when successful
+ */
+async function deleteTask(taskId) {
+    const index = tasks.findIndex(task => task.id === taskId);
+    if (index !== -1) {
+        tasks.splice(index, 1);
+    } else
+
+  // Remove task by matching its ID in an array of task objects
+  tasks.forEach((item, i) => {
+    if (i !== 0 && item.id === parseInt(taskId)) {
+      index = i; // Store index of task to remove after loop ends
+    }
+  });
+
+  // If task is deleted, replace rest of array elements with last element before deletion
+  if (index < tasks.length) {
+    tasks[index] = tasks[tasks.length - 1]; // Replace current position with last remaining element
+    tasks.pop(); // Remove last element (because no more needed)
+  }
+
+  // Respond based on status of task being removed
+  res.status(!tasks.includes(parseInt(taskId)) ? 204 : 200).end();
+});
+
+// Start server on port 3000
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+```

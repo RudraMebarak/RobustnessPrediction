@@ -1,0 +1,109 @@
+```go
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"sync"
+)
+
+type Result struct {
+	URL     string
+	Result  interface{}
+	Error   error
+}
+
+type Worker struct {
+	results         chan<- Result
+	mu               sync.Mutex
+	cancel           func()
+	closed           bool
+	resultCh         <-chan Result
+	httpClient       *http.Client
+	maxWorkers       int
+	currentWorkerNum int
+	pool             *sync.Pool
+}
+
+func NewWorker(results chan<- Result, urlChan <-chan string, httpClient *http.Client) *Worker {
+	return &Worker{
+		results:          results,
+		httpClient:       httpClient,
+		urlChan:          urlChan,
+		maxWorkers:       10,
+		currentWorkerNum: 0,
+	}
+}
+
+func (w *Worker) Serve(ctx context.Context) {
+	defer close(w.results)
+	defer w.pool.Put(w)
+
+	for !w.closed {
+		select {
+		case url := <-w.urlChan:
+			if ctx.Err() != nil {
+				w.cancel()
+				ctx.Done()
+				break
+			}
+
+			go w.handleRequest(url)
+		default:
+			if ctx.Err() != nil {
+				w.cancel()
+				ctx.Done()
+				break
+			}
+
+			if w.currentWorkerNum >= w.maxWorkers {
+				continue
+			}
+
+			go w.fetchNextUrl()
+		}
+	}
+
+	w.results <- Result{URL: "pool closed"}
+}
+
+func (w *Worker) handleRequest(url string) {
+	resp, err := w.httpClient.Get(fmt.Sprintf("https://example.com/%s", url))
+	if err != nil {
+		w.results <- Result{URL: url, Error: err}
+	} else if resp.StatusCode == http.StatusOK {
+		bodyBytes, _ := io.ReadAll(resp.Body)
+		w.results <- Result{URL: url, Result: string(bodyBytes)}
+	} else {
+		w.results <- Result{URL: url, Error: fmt.Errorf("%d %s", resp.StatusCode, resp.Status)}
+	}
+
+	resp.Body.Close()
+}
+
+func (w *Worker) fetchNextUrl() {
+	url, _ := w.pool.Get().(*string)
+	if url != nil {
+		w.results <- Result{URL: *url, Error: w.requestNext()}
+	} else if !w.closed {
+		w.results <- Result{URL: "error getting next url", Error: fmt.Errorf("failed to get url from pool")}
+	}
+}
+
+func (w *Worker) requestNext() error {
+	if w.currentWorkerNum < len(w.urlChan) {
+		w.currentWorkerNum++
+		return nil
+	}
+
+	return context.Canceled
+}
+
+func (w *Worker) cancel() {
+	w.mu.Lock()
+	defer w.mu.Unlock()
+
+	w.closed = true
+	w.httpClient.Transport.(*http.Transport).CloseIdleConnections()
+}
+```

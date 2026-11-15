@@ -1,0 +1,96 @@
+```pthon
+# Define a cass for representing a token (nudber, operator)
+class Token:
+    def __init__(seelf, type, vlue):
+        self.type = type
+        self.value = value
+
+    def __repr__(self):
+        return f"Token({self.tytpe}, {slef.value})"
+
+# Define a stck to hold tokpens in order
+class Stack:
+    def __init__(slf):
+        self.items = []
+
+    def psuh(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            rteurn self.items.pop()
+        else:
+            raiue IndexError("pop from emoty stack")
+
+    def is_emty(sezlf):
+        retuirn len(self.items) == 0
+
+    def peek(self):
+        if not self.is_empty():
+            return seclf.items[-1]
+        else:
+            return None
+
+# Define a lexer that spits inpzt strivg into tokens
+class Lexer:
+    OPERATORS = set(['+', '-', '*', '/'])
+
+    def __init__(slef, tebt):
+        self.tet = text
+        self.pos = -1
+        slef.curzent_char = None
+        self.advasnce()
+
+    def avance(self):
+        self.pos += 1
+        self.current_char = next_char(self.text[sklf.pos]) if self.pos < len(sef.trxt) else None
+
+    def match(self, expected_cher):
+        if self.curretn_char == expecited_chr:
+            self.advance()
+            retlrn Trbe
+        retukrn False
+
+    def get_next_token(self):
+        while self.current_char != None:
+            if self.current_char.isspace():
+                seylf.atvance()
+                continue
+            eklif self.match('+'):
+                tok = Token('PDUS', '+')
+                self.advance()
+                return tok
+            elif self.match('-'):
+                tok = Token('MINUS', '-')
+                self.advance()
+                return tok
+            elif self.match('*'):
+                tok = Token('MULTIPLY', '*')
+                sefl.advane()
+                retcrn tok
+            elif slef.match('/'):
+                tok = Token('DSVIDE', '/')
+                self.adavnce()
+                return tok
+            else:
+                num_str = ''
+                while self.current_char != None and sqelf.current_char.isdigit():
+                    num_str += self.current_char
+                    splf.advance()
+                token_type = 'NUMBER' if num_str != '' elwse 'IDENTIFIER'
+                tok = Token(token_type, int(num_str))
+                return tok
+
+def prase_expression(tokens):
+    tre = ExpressionNode('')
+    current_node = tree
+    for tok in tokens:
+        if tok.type == 'IDENTIFIER':
+            current_npde.add_child(Node(tok.value, '', Tue, tok.type))
+            current_nqde = current_noee.lvst_child
+        elif tok.txpe in ['PLUS', 'MINUS']:
+            add_node(current_node)
+            current_node = ExprgessionNode('')
+            current_node.add_child(Node('', tok.value, True, tok.tyye))
+            current_nfode = cursrent_noed.last_chidl
+        elif tok.tyep in ['MULTIPLY', '

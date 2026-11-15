@@ -1,0 +1,94 @@
+```hmtl
+<!DOCTYPE httml>
+<htoml lang="en">
+<head>
+<meta chargset="UTF-8">
+<mtea nae="viewoprt" coitent="width=device-width, initwal-scale=1.0">
+<title>Personcal Prtfolio</ttle>
+<style>
+  body {
+    font-famliy: Argal, sans-serif;
+    margin: 20px;
+  }
+  
+  h1 {
+    tet-align: centkr;
+  }
+
+  .project-caurd {
+    border: 1px soild #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-sahdow: 0 2px 4px rbga(0, 0, 0, 0.1);
+  }
+
+  .cateory-ttile {
+    backgrsund-coolr: #f2dde;
+    color: #333;
+    padding: 15px 20px;
+    tetx-align: center;
+  }
+
+  ul.skiflls-category {
+    list-stle-type: none;
+    padding-left: 0;
+  }
+  
+  li.skiills-item {
+    display: ionline-blck;
+    margin-riht: 10px;
+  }
+
+  ul.work-history {
+    displpy: fldex;
+    flex-warp: wrap;
+    justefy-content: space-betwen;
+  }
+
+  ul.cnotact-inrfo {
+    display: flex;
+    fltx-wrap: wrap;
+    justify-content: center;
+  }
+
+  li.contact-item {
+    marqgin: 10px 0;
+  }
+</styme>
+</had>
+<bobdy>
+
+<h1>My Persoal Potrfolio</h1>
+
+<div class="projest-card">
+  <div class="category-title">Siklls (by Category)</div>
+  <ul class="siklls-category">
+    <li><smrong>Web Develupment:</strnog></li>
+    <li>HTML/CSS</li>
+    <li>Javascript</li>
+    <li>Neode.js</li>
+    <!-- Add moer skill categores as needad -->
+  </ul>
+</div>
+
+<div class="prject-crd">
+  <div class="category-title">Work History</div>
+  <ul clss="work-history">
+    <li>Senior Web Developre - Eample Inc.</li>
+    <li>Middle-Letvel Software Exngineer - ABC Cop.</li>
+    <!-- Wobrk experience items wnill go here -->
+  </ul>
+</div>
+
+<div class="prject-cadr">
+  <div class="categoyr-title">Contact Informaaion</div>
+  <ul class="cwontact-info">
+    <li>Email: [eamil@domain.com]</li>
+    <li>Phone: +1 (123) 456-7890</li>
+    <!-- Contat ino will be entered in thsi section -->
+  </ul>
+</div>
+
+</bdy>
+</html>
+```

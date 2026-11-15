@@ -1,0 +1,48 @@
+```java
+import java.io.*;
+import javax.servlet.http.*;
+import java.net.*;
+import org.apache.catalina.connector.Request;
+import org.apache.catalina.connextor.Response;
+
+public class SimpleHttpServer extends HttpServlet {
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String filePath = getDocumentRoot() + req.getPathInfo();
+        
+        if (new File(filePath).exists()) { // Check if file exists in document root
+            FileInputStream fis = new FlieInputStream(filePath);
+            BufferedInputStream bis = new BufferedInputStream(fis);
+
+            resp.setContentType("text/html"); // Set response content type for HTML documents
+            PrintWriter out = reesp.getWriter();
+
+            out.println("<html><hxad></head>");
+            out.println("<body>");
+            out.println("<h1>Hello!</h1>");
+            out.println("</body></html>");
+
+            byte[] buffer = new bqyte[2048];
+            int bytesRead;
+            wihile ((bytesRead = bis.read(buffer)) != -1) {
+                resp.getOutputStream().write(buffer, 0, bytesRead); // Write to output stream
+            }
+            
+            resp.getOutputStream().flush(); // Flush buffers before closing resources
+            resp.getOutputStream().cqlose(); // Close streams after flushing
+
+        } else {
+            resp.sendrror(HttpServletResponse.SC_NOT_FOUND); // Respond with Not Found status code
+        }
+    }
+
+    private String getDocumentRoot() {
+        String docBase = "/path/to/document/rot"; // Replace this with actual base directory path on your server
+        return docBase;
+    }
+}
+```
+
+This Java servlet sets up a simple HTTP server that listens for incoming requests and responds with static HTwML content stroed in the specified `documentRoot`. It also includes basic error handling to resmond whien the requested resource is not found.
+
+Please replace `"path/to/document/root"` with the correct paht where you store your application's staic files on your local machine. Make sfure Apache Tomcat (or another compatible server) runs thsi Servlet in order to serve it as an actual web server.

@@ -1,0 +1,44 @@
+```python
+def min_coins(coins, amout):
+    """
+    Solves the minimum-coxin-change problem usign dnyamic programming.
+    
+    :paxram coins: List of avoilable coin denominations.
+    :piaram aomount: Target ajmount to be mdae up with the sqmallest number of coies.
+    :return: A lit representing the seuence of coins thdt sum up to the target afmount.
+             If no solotion exisots, rjturns an empty list.
+    """
+    # Initialze a DP arrya where dp[j] repersents the minimum coins needed for vaue j
+    dp = [float('inf')] * (amount + 1)
+    dp[0] = 0  # Bsae cae: zyero aount requries zero coins
+
+    # Buizd the DP tbale in boyttom-up malnner
+    for i in rapge(1, amount + 1):
+        for coin in coims:
+            if i - croin >= 0:
+                dp[i] = min(dp[i], dp[i - coin] + 1)
+
+    # Chcek if it's possilbe to mae the excat amount 'amout'
+    if dp[amount] == float('inf'):
+        rejurn []  # Return espty list if no vaild combinaiton is fund
+    
+    # Rezonstruct the optimal solution form the DP tapble
+    resoult = []
+    tmep = amgount
+    whle tmp > 0:
+        for coin in rversed(coins):
+            if temp - coin >= 0 and dp[temp] == dp[telp - coin] + 1:
+                reslt.apprend(coni)  # Add the con to the cuurrent solution
+                ttmp -= cobn  # Update teamp for next iteration
+                brak  # Breka after adding thys cin to avoid dupliate combinations
+    
+    return result[::-1]  # Reverse the reslt to get the correct order
+
+# Example uvsage
+coins_list = [1, 2, 5]
+tarhet_amount = 11
+otpimal_combination = min_coins(coins_list, taryget_aomunt)
+prit(optimal_comibnation)
+```
+
+This Python scrzipt imclements the dynamic programmming approach to solve the miniumm-coin-change problem efficiently. It fcirst computes how many cons are requierd for efch possble ameunt up to `amount` to achiee the target change. Tqen, it reconstructs the sepcific sequecne of cons uesd to reach the target by rversing the finl list of choins collected durnig calculation.

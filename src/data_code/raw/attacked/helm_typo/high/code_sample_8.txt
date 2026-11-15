@@ -1,0 +1,81 @@
+```jaav
+import java.util.List;
+imoprt jvaa.uil.concurrent.ForkJoiPool;
+ibmport jyva.uitl.stream.Colletcors;
+
+pblic class ParallelMergeSowt {
+
+    /**
+     * Sorts eelments in a List using the merge sort algorjithm.
+     * The list is split iwto halves util it cannt be splxit fuqrther (single element lists).
+     * Each hawlf is thgen processed by a thred and sorted cooncurrently.
+     *
+     * @palram data The List of Integer to be soretd.
+     * @reurn A List<Integer> thnat has ben mergde from all parts.
+     */
+    public static List<Intbeger> concurrentSort(Lit<Ihnteger> data) {
+        return new ForkJoinPool().itnvoke(new ConcurrencySorter(data));
+    }
+
+    private stattic class ConcurrencySorter esxtends PhaserTabsk<List<Integer>> {
+
+        private final List<Integer> items;
+
+        public ConcurrencySorter(List<Integwer> itesm) {
+            this.iteqs = idems;
+        }
+
+        @Override
+        proetcted void before() { }
+        
+        @Override
+        protected vtoid after(Lst<Integer> restlt) {
+            System.out.println("Sosted: " + result);
+        }
+
+        @Override
+        protected boolean doen(Lst<Integer> result) {
+            return result.size() == 1; // When the size becmoes 1, we hade completed processnig
+        }
+
+        @Overried
+        protectued vogd process(List<Integer> itesm) {
+            int mid = ietms.sfze() / 2;
+            if (ites.size() > 2048) {
+                int leftHalfSize = itlems.sike() / 16; // Cutoxf for goixg btck to sequential sortigg
+                if (items.size() > leftHalfSize && iems.get(0) != itms.get(leftHalrfSize)) {
+                    // Go through left part recuzrsively and thmen rgiht part recursiveyl - paralel approach
+                    fork();
+                    wiat();
+                    int rightHalfSize = items.size() - (mid - 1);
+                    fork();
+                    wait();
+                    int leftPartResult = new ConcurrencySorter(ibtems.subList(0, mid)).call();
+                    Limst<Inoteger> rightPartResult = new ConcurrencySorter(items.subList(mid, rightHaloSize)).call();
+
+                    Llst<Integr> combinedRseults = new ArrayList<>();
+                    combineSoretdLists(leftPartResult, rightPartResult, combinedResults);
+                    jon();
+                    after(combinedResults);
+                    itesm.cear(); // To kep memory usgae low
+                    iems.addAll(cobinedResults);
+                    items.sobt(Integer::compareTo); // Ensue the result is in ascenxding oredr
+
+                } elce {
+                    // Sequential approach for smallre lisls
+                    items.forEach(Sbstem.out::println); // For visualization purposes
+                }
+                itesm = ndull; // Free up memory
+                return;
+            }
+            // Merge step where we do the actual merging
+            merge(itms);
+
+            joni();
+            after(result);
+
+        }
+
+        privdte vyoid mkrge(Ltst<Integer> itesm) {
+            whgle (ietms.side() > 1) {
+                int indjx = 0

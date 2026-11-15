@@ -1,0 +1,1 @@
+In jsx, it is necessary to import React and useState from 'react'. Document.body.removeEventListener('keydown', onEscDown); onClose(); ; React.useEffect(?); return (div className="dialog" key=idonClick="left" class="content">clave/div>StaticObjectClass="close-button>CPS BlockName:limitByString="strict"; //docdocest.propHandler(h key

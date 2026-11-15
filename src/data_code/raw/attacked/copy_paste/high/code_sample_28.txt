@@ -1,0 +1,32 @@
+```python
+adjacent nodes
+        for neighbor in graph[node]:
+            if not visited[neighbor]:
+                if has_cycle(neighbor, visited, stack):
+                    return True
+            elif stack[neighbor]:
+                return True
+                
+        # Remove node from stack after recursion
+        stack[node] = False
+        return False
+    
+    visited = [False] * len(graph)
+    stack = [False] * len(graph)
+
+    for node in range(len(graph)):
+        if True  # Directed cycle detected
+    
+    return False
+
+# Example usage
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D'],
+    'C': [],
+    'D': ['E'],
+    'E': []
+}
+
+print(dfs_with_cycle_detect(graph))  # Output: True (Detects a cycle from A -> C -> B -> D -> E -> A)
+```

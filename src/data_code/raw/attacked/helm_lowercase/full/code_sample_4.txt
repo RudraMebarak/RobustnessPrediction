@@ -1,0 +1,60 @@
+```java
+import java.io.*;
+import java.util.*;
+
+class externalmergesort {
+    /**
+     * sorts an array of long integers using the external merge sort algorithm.
+     *
+     * @param data an array of long integers to be sorted.
+     * @return the sorted array.
+     */
+    static list<long> sort(long[] data) {
+        int n = data.length;
+        if (n <= 1024) { // small range threshold
+            return arrays.stream(data).boxed().sorted(comparator.reverseorder()).collect(collectors.tolist());
+        } else {
+            list<long> tempdata = new arraylist<>(arrays.aslist(data));
+            return mergesort(tempdata);
+        }
+    }
+
+    private static list<long> mergesort(list<long> tempdata) {
+        if (tempdata.size() > 1) {
+            int mid = tempdata.size() / 2;
+            list<long> lefthalf = tempdata.sublist(0, mid);
+            list<long> righthalf = tempdata.sublist(mid, tempdata.size());
+
+            lefthalf = mergesort(lefthalf);
+            righthalf = mergesort(righthalf);
+
+            return merge(lefthalf, righthalf);
+        } else {
+            return tempdata;
+        }
+    }
+
+    private static list<long> merge(list<long> lefthalf, list<long> righthalf) {
+        list<long> merged = new arraylist<>();
+        int i = 0, j = 0;
+
+        while (i < lefthalf.size() && j < righthalf.size()) {
+            if (lefthalf.get(i) >= righthalf.get(j)) {
+                merged.add(righthalf.get(j++));
+            } else {
+                merged.add(lefthalf.get(i++));
+            }
+        }
+
+        while (i < lefthalf.size()) {
+            merged.add(lefthalf.get(i++));
+        }
+
+        while (j < righthalf.size()) {
+            merged.add(righthalf.get(j++));
+        }
+
+        return merged;
+    }
+}
+```

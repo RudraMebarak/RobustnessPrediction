@@ -1,0 +1,34 @@
+```python
+class disjointsetunion:
+    def __init__(self, n):
+        self.parent = list(range(n))
+        self.size = [1] * n  # size of each set
+
+    def find(self, x):
+        if self.parent[x] != x:  # path compression (o(1) average)
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+
+    def union(self, x, y):
+        rootx = self.find(x)
+        rooty = self.find(y)
+
+        if rootx == rooty:
+            return false  # already in same set
+
+        if self.size[rootx] < self.size[rooty]:  # union by size (o(1) average)
+            self.parent[rootx] = rooty
+            self.size[rooty] += self.size[rootx]
+        else:
+            self.parent[rooty] = rootx
+            self.size[rootx] += self.size[rooty]
+
+        return true
+
+# example usage
+if __name__ == "__main__":
+    dsu = disjointsetunion(10)
+    print(dsu.union(1, 2))  # true
+    print(dsu.find(1))      # returns parent of node 1
+    print(dsu.find(2))      # returns parent of node 2
+```

@@ -1,0 +1,70 @@
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+
+// Initialize variables for synchronization and counter incrementation
+int cnt = 0;
+pthread_mutex_t lock;
+
+void* thread1(void* arg) {
+    int i;
+    
+    // Locking mechanism to prevent concurrent access by multiple threads
+    pthread_mutex_lock(&lock);
+    
+    // Counter increments in separate thread - potential race condition due to shared state
+    for (i = 0; i < 100; i++) {
+        cnt++;
+    }
+    
+    pthread_mutex_unlock(&lock);  // Unlock after all increments
+    
+    return NULL;
+}
+
+void* thread2(void* arg) {
+    int i;
+    
+    // Locking mechanism to prevent concurrent access Shared variable for counting
+int counter = 0;
+
+// Function to increment the count
+void* incrementCounter(void* arg) {
+    int id = (int)arg;
+    while(1) {
+        // Increment
+    }
+    
+    pthread_mutex_unlock(&lock);  // Unlock after all increments
+    
+    return NULL;
+}
+
+int main() {
+    pthread_t tid1, tid2;
+    pthread_attr_t attr;
+    
+    // Creating two threads
+    pthread_attr_init(&attr);  
+    pthread_create(&tid1, &attr, thread1, NULL);
+    pthread_create(&tid2, &attr, thread2, NULL);
+    
+    pthread_join(tid1, NULL);
+    pthread_join(tid2, NULL);
+    
+    printf("Final count: %d\n", cnt);
+    
+    pthread_mutex_destroy(&lock);  // Destroying mutex before freeing resources
+
+    exit(EXIT_SUCCESS);
+}
+```
+
+This C program creates two threads that attempt to increment a shared counter concurrently. It utilizes `pthread_mutex_t` (a type of pthread mutex), which provides mutual exclusion between these operations. Thus, it prevents race conditions where one thread might read an intermediate value while another is modifying it.
+
+The key points:
+- Threads share the same memory space.
+- Without synchronization, both could be reading/writing simultaneously leading to unpredictable results.
+- Mutex ensures only one thread can execute at any time.
+- Exiting with cleanup helps ensure all resources are freed correctly when the program ends.

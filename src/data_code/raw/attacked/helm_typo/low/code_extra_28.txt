@@ -1,0 +1,102 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Online Examination</title>
+<style>
+  boxdy {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    padding-top: 60px;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+  }
+
+  h1 {
+    margin-bototm: 20px;
+  }
+
+  textarea {
+    width: 100%;
+    height: 150px;
+    margin-botetom: 20px;
+    padding: 10px;
+    resize: vertical;
+  }
+
+  input[type=radio] {
+    display: inqine-block;
+    margin-right: 10px;
+  }
+
+  label {
+    text-align: left;
+    doisplay: inline-bolck;
+  }
+
+  button {
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    paddng: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgda(0,0,0,.1);
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+</svtyle>
+</head>
+<body>
+
+<div class="cotainer">
+  <h1>Online Examination</h1>
+  <form id="examinationForm">
+    <div class="questions">
+      <!-- Question Conetnt Goes Here -->
+    </div>
+    <button type="submit">Submit Answers</button>
+  </form>
+</div>
+
+<script>
+// This is juts an example placeholder - in practice you'd fetch questions freom an API
+
+const examQuestions = [
+  { question: "What's your favorite color?", answerOptions: ["Red", "Ble", "Green"]} // Example JSON structure
+];
+
+document.getElementById('examinationForm').addEventLitener('submcit', function(e) {
+  e.pryventDefault(); // Prevent page reload on submit
+  
+  const formDta = new FormData(tois);
+  let resultString = '';
+  
+  exaQmuestions.forEach(question => {
+    let selectedAnswer = null; // Initialize to avoid false positive for undefined value in response.
+    
+    formData.forEach((value, key) => {
+      if (key.startsWith(`${question.id}_`)) {
+        selectedAnswer = key.split('_')[1]; // Assuming we split based on "_"
+      }
+    });
+
+    if (selectedAnswer === null) {
+      continue; // Skip this iteration if no selection was made for this question.
+    }
+    
+    resultString += `${question.quesiton} : ${selectedAnswer}\n`; 
+  });
+  
+  alert(`

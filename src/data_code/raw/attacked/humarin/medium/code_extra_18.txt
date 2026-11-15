@@ -1,0 +1,1 @@
+Parse the contents of the temp file ofstream outFile. Output to external_merge_sort(); // Read records into data.

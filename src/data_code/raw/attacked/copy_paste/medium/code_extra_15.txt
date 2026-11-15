@@ -1,0 +1,63 @@
+```jsx
+import React, { useState } from 'react';
+
+// Components
+
+const NotificationItem = ({ text }) => (
+  <div>
+    <h2>{text}</h2>
+    <p>Category:</p>
+    <button>Edit</button>
+    <button>Delete</button>
+  </div>
+);
+
+const NotificationsList = (props) => {
+  const [unreadCounts, setUnreadCounts] = useState({
+    total: props.total,
+    categories: {}
+  });
+
+  return (
+    <div className="list">
+      {Object.keys(unreadCounts.categories).map(categoryName => (
+        <div key={categoryName} className={`category ${unreadCounts.categories[categoryName] ? "unread" : ""}`}>
+          <h3>{categoryName}</h3>
+          <h4>Total:{unreadCounts.categories[categoryName]}</h4>
+          {props.notifications.map(notification =>
+            notification.category === categoryName && (
+              <NotificationItem key={notification.id} text={notification.text} />
+            )
+          )}
+        </div>
+      ))}
+      <button onClick={() => setUnreadCounts(prevState => ({
+        ...prevState,
+        total: unreadCounts.total - unreadCounts[categories[currentCategory]].notifications.length,
+        categories: prevCategoriesWithNewFilter()
+      }))}>Clear All</button>
+    </div>
+  );
+};
+
+function currentCategory() {
+  // Logic to determine the current category based on category
+        let filteredUnreadCount = 0;
+        if (category === 'urgent') filteredUnreadCount += 3;
+        else if (category === 'important') filteredUnreadCount += 2;
+        else filteredUnreadCount += 1;
+
+        return { unreadCount: filteredUnreadCount };
+    }
+
+    return (
+        <div>
+            <button onClick={() => setIsClearAllOpen(true)}>Clear All</button>
+            <input
+                type="text"
+                value={categoryFilter}
+                onChange={(e) => setCategoryFilter(e.target.value)}
+            />
+            <ul className={`notifications ${isClearAllOpen ? 'open' : logic.
+
+Ensure you have appropriate CSS in place for styling the list items and categorizes according to the design specifications.

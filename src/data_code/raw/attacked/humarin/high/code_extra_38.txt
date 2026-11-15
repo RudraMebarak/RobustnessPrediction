@@ -1,0 +1,1 @@
+We need to import React and add EditorJS. In that case, our project was left untouched and the code was imported to editorjs using CodeEditorWorkspace.

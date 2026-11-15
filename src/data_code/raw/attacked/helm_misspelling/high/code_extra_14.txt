@@ -1,0 +1,74 @@
+```jsx
+import React, { useState } from 'react';
+
+// Define custom hook to handle selection change event for each item
+const useSelectionChange = (items) => {
+  const [selectedIndex, setSelectedIndex] = useState(null);
+
+  return ({ key }) => {
+    if (key === 'select') {
+      setSelectedIndex(items.findIndex(item => item.value === items[key].value));
+    }
+    return selectedIndex;
+  };
+};
+
+function MultiSelectDropdown() {
+  // Mock data for demonstration purposes
+  const mockData = [
+    { value: 'Option 1', label: 'Option 1' },
+    { value: 'Option 2', label: 'Option 2' },
+    { value: 'Option 3', label: 'Option 3' }
+  ];
+
+  const selectItems = ['Option 1', ...mockData.map(item => item.value)];
+
+  return (
+    <div>
+      <input type="hidden" id="selected-chip" value={null} />
+      <ul role="listbox">
+        {selectItems.map((item, i) => (
+          <li key={i} ref={(node) => (chipInputRef.current = node)} className="selected-chip">
+            <span>{item}</span>
+            <button type="submit">x</button> {/* Placeholder for "remove" button */}
+          </li>
+        ))}
+      </ul>
+      <label htmlFor="select-chip">{mockData[0].label}</label>
+      <script defer dangerouslySetInnerHTML={{ __html: `window.addEventListener('keydown', onKeydown);` }}></script>
+      <script dangerouslySetInnerHTML={{__html='window.onselectionchange = onChange;'}}></script>
+
+      <script defer dangerouslySetInnerHTML={{
+        __html:
+          `
+              window.onselectionchange = function(e){
+                var chipElm = document.getElementById("selected-chip");
+                var index = chipElm.getAttribute("aria-setsize") - 1;
+                chipElm.setAttribute("aria-selected", e.type !== 'blur');
+                if (e.type === 'keyup') {
+                    console.log(index)
+                    window.onkeydown();
+                }
+              }
+              
+              window.onChange = function (index) {
+                let newValue = "";
+                for (var i = 0; i <= index; i++) {
+                  newValue += selectItems[i];
+                }
+                window.onselect(newValue);
+              }
+          
+              window.onkeydown = () => {
+                document.querySelector("#select-chip").click();  
+              };
+          `
+      }}></script>
+    </div>
+  );
+}
+
+export default MultiSelectDropdown;
+```
+
+This exmaple demonstrates how to create a React component that mimics the behavior of a multi-select dropdown with search functionality using JSX. It includes features like autocomplete (search), ability to navigate between options via keys (like arrow keys), removing selected values throught the UI, and handling accessibility requirements such as the `aria-selected

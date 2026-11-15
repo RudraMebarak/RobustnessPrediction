@@ -1,0 +1,47 @@
+```java
+import java.io.*;
+import javax.servlet.http.*;
+import java.net.*;
+import org.apache.catalina.connector.Request;
+import org.apache.catalina.connector.Response;
+
+public class SimpleHttpServer extends HttpServlet {
+
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String filePath = getDocumentRoot() + req.getPathInfo();
+        
+        if (new File(filePath).exists()) { // Check if file exists in document root
+            FileInputStream fis = new FileInputStream(filePath);
+            BufferedInputStream bis = new BufferedInputStream(fis);
+
+            resp.setContentType("text/html"); // Set response content type for HTML documents
+            PrintWriter out = java.io.*;
+import javax.servlet.http.*;
+import java.net.*;
+
+public class MinimalHttpServer extends HttpServlet {
+
+    private static final String DOCUMENT_ROOT = "path/to/document/root";
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Set up basic response headers
+        response.setContentType("text/html");
+        response.setCharacterEncoding("UTF-8");
+
+        // Check if the requested file exists in the root directory
+        File requestedFile = new File(DOCUMENT_ROOT + request.getPathInfo());
+
+        // Serve the file directly if it exists
+        if (requestedFile.exists()) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(requestedFile))) {
+                PrintWriter out = response.getWriter();
+                char[] buffer = new char[4096];
+                int bytesRead;
+                while ((bytesRead = reader.read(buffer)) != -1) {
+                    out.write(buffer, 0, bytesRead);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e); // For simplicity, we just log the exception the requested resource is not found.
+
+Please replace `"path/to/document/root"` with the correct path where you store your application's static files on your local machine. Make sure Apache Tomcat (or another compatible server) runs this Servlet in order to serve it as an actual web server.

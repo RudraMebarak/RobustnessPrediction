@@ -1,0 +1,1 @@
+By inserting a record into the circular buffer using the java import function, a new LinkedList element is created.

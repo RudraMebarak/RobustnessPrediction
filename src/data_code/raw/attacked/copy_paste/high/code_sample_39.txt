@@ -1,0 +1,68 @@
+```c
+#include <sys/mman.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
+
+void handle_errors() {
+    perror("mmap");
+    exit(EXIT_FAILURE);
+}
+
+int main(int argc, char* argv[]) {
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s filename\n", argv[0]);
+        return EXIT_FAILURE;
+    }
+
+    int fd = open(argv[1], O_RDONLY);
+    if (fd == -1)
+        handle_errors();
+
+    off_t size = lseek(fd, SEEK_END, SEEK_SET);
+    close(fd);
+
+    if (size < 0) {
+        handle_errors();
+    }
+    
+    long num_bytes_mapped = size;
+
+    void* addr;
+    int fd2;
+    struct stat buf;
+    fd2 = creat("/dev/zero", S_IREAD|S_IWRITE);
+    if (fd2 == -1)
+        handle_errors();
+    if (fstat(fd2, &buf) == -1)
+        handle_errors();
+    if (mmap(NULL, #include <sys/mman.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#define FILENAME "example.txt"
+
+int main() {
+    int fd;
+    size_t len = 0;
+    
+    // Open the file for reading
+    if ((fd = open(FILENAME, O_RDONLY)) == -1) {
+        perror("Error opening file");
+        exit(EXIT_FAILURE);
+    }
+    
+    // Get the length of the file
+    fstat(fd, &len);
+
+    // Map the file into memory using mmap with MAP_PRIVATE flag
+    char *addr = (char *)mmap(NULL, len, PROT_READ, MAP_PRIVATE, fd, 0);
+
+    // Count newline characters
+    int newline_count = 0;
+    char *endptr;
+    for (size_t i = 0; i < len; ++i) {
+        endptr newlines found.\n", nnewlines);
+}
+```

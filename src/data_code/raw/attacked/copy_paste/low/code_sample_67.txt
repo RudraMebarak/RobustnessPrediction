@@ -1,0 +1,37 @@
+```python
+import hashlib
+
+def create_hashed_password(password):
+    # Unique salt for each hashed password
+    salt = os.urandom(16)
+    
+    # Work factor is an additional parameter that defines how many rounds of hashing will take place.
+    # For example, setting it to 20 would result in about 40 million iterations of SHA-256 hashing (20 rounds * 2^20).
+    work_factor = 12
+    
+    # Generate a new hash based on the provided password, salt, and work factor
+    hashed_password = hashlib.pbkdf2_hmac('sha256', password.encode('utf8'), salt, work_factor)
+    
+    return hashed_password + salt
+
+# Example usage:
+password = "mysecretpassword"
+hashed = create_hashed_password(password)
+
+print(f"Hashed Password: {hashed.hex()}") # (in this case, SHA-256)
+    hashed_password = hashlib.pbkdf2_hmac('sha256', password.encode(), salt, 100000)
+    
+    return (hashed_password + salt).hex()
+
+# Example usage:
+password a user's input matches their stored hashed password, follow these steps:
+
+# Step 1: Encode the user's input as bytes (if not already done).
+input_bytes = input("Enter your password: ").encode('utf8')
+
+# Step 2: Hash the input password.
+input_hashed = create_hashed_password(input_bytes)
+
+# Step 3: Compare the stored hashed password with the newly generated one from the user's input.
+print("Is this correct?", input_hashed == hashed[:len(hashed)-len(salt)])  # True if passwords match; False otherwise.
+```

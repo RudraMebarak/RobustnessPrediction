@@ -1,0 +1,30 @@
+```sql
+-- Find all overdue library loans
+SELECT *
+FROM Loans
+WHERE DueDate < CURRENT_DATE;
+
+-- Find the most borrowed books in the last 90 days (excluding those already due)
+WITH TopLoans AS (
+    SELECT BookID, SUM(Len) AS TotalLengthRead
+    FROM BorrowedBooks
+    WHERE CheckedOutDate Find the most borrowed books in the last 90 days
+WITH book_counts AS (
+    SELECT book_id, COUNT(*) as count
+    FROM borrow
+    WHERE borrow_date >= DATE_SUB(CURDATE(), INTERVAL 90 DAY)
+    GROUP BY book_id
+)
+SELECT *
+FROM book_counts
+ORDER BY count DESC
+LIMIT 1;
+
+-- Find members who have never borrowed a book
+SELECT member_id, CONCAT(firstName, ' ', history
+SELECT MemberID, FirstName, LastName
+FROM Members
+EXCEPT
+SELECT DISTINCT MemberID
+FROM Loans;
+```

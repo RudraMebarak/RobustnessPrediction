@@ -1,0 +1,30 @@
+```python
+import select
+
+def create_socket():
+    # Create client
+        import threading
+        client_thread = threading.Thread(target=handle_client, args=(client_socket,))
+        client_thread.daemon = True
+        client_thread.start()
+```
+
+This Python script creates a simple non-blocking TCP server that listens for incoming connections on `localhost` at port `9999`. It uses the `select` module to monitor for new incoming connections in non-blocking mode
+    sock.listen(3)  # Buffer size of at most 1 pending connection
+        
+def accept_connections(sock):
+    while True:
+        try:
+            conn, addr = sock.accept()  # Accept new client connections in non-blocking mode
+            conn.setblocking(False)  # Non-blocking state for handling multiple clients
+            yield conn  # Yield to another coroutine (or function call) if needed
+        except BlockingIOError:  # Handle potential connection failures silently
+            pass
+
+if __name__ == "__main__":
+    with socket_context_manager(bind_socket(create_socket()), listen_on_socket()):
+        for conn in accept_connections(some_poll_object_or_select_fd()):  # Replace 'sometool' with your actual tool/socket
+            print("New connection from", conn.getpeername())
+            
+    conn.close()
+```

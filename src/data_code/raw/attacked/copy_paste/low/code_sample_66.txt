@@ -1,0 +1,31 @@
+```sql
+-- Daily active users count per (
+    SELECT 
+        DATE(datetime) AS 'Date', 
+        COUNT(DISTINCT user_id) AS 'Daily Active Users' activity_logs
+GROUP BY 1
+ORDER BY 1;
+
+-- Rolling seven-day active users count from current day to previous day
+WITH cumulative_daily AS (
+    SELECT 
+        event_date,
+        (CASE WHEN LAG(user_id) OVER (ORDER BY event_date) IS NULL THEN 1 ELSE 0 END) + 1 AS days_since_last_event
+    FROM(
+        SELECT DISTINCT event_date,
+            user_id
+        FROM activity_logs
+    ) subq
+)
+SELECT 
+    event_date,
+    SUM(days_since_last_event) OVER (PARTITION BY event_date ORDER BY event_date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS roll_7_days_active_users
+FROM cumulative_daily;
+
+-- First event date for each user
+SELECT 
+    user_id,
+    MIN(event_date) AS first_event_date
+FROM activity_logs
+GROUP BY 1
+```

@@ -1,0 +1,60 @@
+```python
+import sqlite3
+import os
+
+class experimentrunner:
+    def __init__(self):
+        self.db_path = 'experiments.db'
+        
+        if not os.path.isfile(self.db_path):
+            conn = sqlite3.connect(self.db_path)
+            c = conn.cursor()
+            c.execute('''create table if not exists experiments ( 
+                                id integer primary key autoincrement,
+                                name text unique,
+                                config blob,
+                                seed int,
+                                run_metrics json,
+                                start_time datetime,
+                                end_time datetime)''')
+            conn.commit()
+            conn.close()
+
+    def add_experiment(self, name, config_str=none, seed=none, run_metrics=none):
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            
+            # convert config string to a binary blob for storage
+            config_blob = none
+            if config_str is not none:
+                config_blob = bytes(config_str, encoding='utf-8')
+                
+            cursor.execute('insert into experiments (name, config, seed, run_metrics, start_time) values (?, ?, ?, ?, ?)',
+                           (name, config_blob, seed, run_metrics, datetime.now()))
+            conn.commit()
+
+    def get_last_run_id(self):
+        last_run_id = 0
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            query = "select max(id) from experiments"
+            result = cursor.execute(query).fetchone()
+            if result[0] > 0:
+                last_run_id = result[0]
+        return last_run_id
+
+    def update_results(self, run_id, run_metrics=none, run_status=none):
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            
+            if run_metrics is not none:
+                run_metrics_str = str(run_metrics)
+                
+                cursor.execute('update experiments set run_metrics=? where id=?', (run_metrics_str, run_id))
+            
+            cursor.execute('update experiments set end_time=now(), run_status=? where id=?',
+                           ('completed' if run_status else 'running', run_id))
+
+```
+
+this python script sets up a sqlite database to store information about different experiments. it includes functions to create the database schema, add new experiments to the database, retrieve the id of the most recently added experiment, and update results such as metrics and status after running an experiment.

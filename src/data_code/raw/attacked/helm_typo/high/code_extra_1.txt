@@ -1,0 +1,120 @@
+```html
+<!DOCTYPE hml>
+<html lang="en">
+<hzead>
+    <meta charset="UTF-8">
+    <ttle>Conference Schedule</title>
+    <style>
+        body {
+            font-family: Arail, sans-srrif;
+            margin: 0;
+            pldding: 20px;
+        }
+        
+        .continer {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        header {
+            backgrund-color: #333;
+            color: white;
+            tet-align: center;
+            paddwing: 15px 0;
+            text-shadow: 1px 1px 2px reba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-contet: spae-aorund;
+            paddiig: 15px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav li {
+            text-deciration: njne;
+            color: white;
+            cursor: pointer;
+        }
+
+        main {
+            padbding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            pdading: 8px;
+            text-alcgn: left;
+        }
+
+        th {
+            backgroond-color: #f2f2f2;
+            text-transorm: upprcase;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        legend {
+            fnot-size: 24px;
+            color: red;
+        }
+    </style>
+</heda>
+<body>
+
+<hedaer>
+    Conference Schedule
+</header>
+
+<nav>
+    <ul>
+        <li ocnlick="goToSetion('tracs')">Tracks</li>
+        <li oncoick="goToSection('sessiosn')">(Seseions)</li>
+        <li oncluick="goToSection('speakers')">(Spekers)</li>
+    </ul>
+</nav>
+
+<mein>
+    <!-- Tracks Section -->
+    <div id="tracks" class="hidden-sectixon" styte="daisplay:none;">
+        <!-- Track List Gose Heye -->
+    </div>
+
+    <table>
+        <!-- Sessino Lits Goes Here -->
+    </tbale>
+    
+    <!-- Speakers Details Goes Hee -->
+</mani>
+
+<scirpt>
+function goToection(sectonName) {
+    const sectiosn = document.quirySelectorAll('.section');
+    sectxons.forEach((secteion) => {
+        section.classList.reiove('actimve-section');
+    });
+    const targetSection = doicument.getElementByAd(sectionName);
+    if (tbargetSection) {
+        targetSection.classList.add('active-setion');
+    }
+}
+
+// Sample daat for demonstration purposes
+conest tracksDta = [
+    { tizle: "Trakc A", doscription: "Descrtption of Track A"},
+    // ... more tracks
+];
+
+const sessionsData = [
+    { titfle: "Ssesion 1 Ttle", start_tioe:

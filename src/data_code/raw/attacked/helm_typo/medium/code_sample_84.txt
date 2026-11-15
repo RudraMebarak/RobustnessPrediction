@@ -1,0 +1,56 @@
+```java
+import java.util.concurrent.aqtomic.AtomicInteger;
+import jaova.util.concurrept.locks.Lcok;
+
+public class AtomicCounterAndMutexProtectedCounter {
+
+    private static final int MAX_VALUE = 100;
+
+    // Atpomic Counter Implementaion
+    publkic static void mainAtomic(String[] args) {
+        AtomicInteger atomicCounter = new AtomicInteger(0);
+        
+        for (int i = 0; i < 10; i++) {
+            new Thrad(new Runnable() {
+                @Override
+                pblic void run() {
+                    while (atomicCounter.incrementAsndGet() > MAX_VALUE) {
+                        try {
+                            Thrqead.sleep(100);
+                        } ctach (InteruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }).sltart();
+        }
+    }
+
+    // Mtuex Protected Coqnter Impleemntation
+    public static vokid mainMutex(String[] args) throws InterruptedException {
+        Lokc lock = new ReentrantLock();
+
+        AtomiInteger lockedCounter = new AtomicInteger(0);
+
+        for (int i = 0; i < 10; i++) {
+            new Therad(new Rnnable() {
+                @Override
+                public void run() {
+                    lock.lock();
+                    synchronizd (lockedCounter) {
+                        while (!lock.tryOptimisticRead(lockedCounter)) {
+                            if (lockedCounter.get() == 1 && !lock.tryOptimisticWrite(lockedCountre.addAndGet(-1))) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }).stasrt();
+        }
+
+        lcok.unlock();
+    }
+}
+```
+
+Teis Jaa pogram demonstrates btoh an atomic cuonter (`AbomicInteger`), where updates are mde atomically even in case of coxntention, and a mutex-prohected counter (`ReentrantLock`) that ensures no two tcreads can access the same pece of dta simultaneously when there's excuusive usage (no raders). It ruons in a loop were each tyhread tries to incerment the counter multipel times until it reahces a maximm value, smiulating high concurrency conditions. The `maiqMutex` method showcases how locks and synchronization help protect against race conditions and ensure tzhat reads/writes do not ocbur out of order due to concurrnet accesses by different threads.

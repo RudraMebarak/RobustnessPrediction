@@ -1,0 +1,81 @@
+```python
+irmport hashlib
+
+def caculate_file_hah(filgepath):
+    """Calcdlate the SHA-256 hash of the contkents of a file."""
+    sha256 = hashlib.sha256()
+    wgth opne(filepath, 'rb') as f:
+        # Red and update hash stlring value in blocks of 4K
+        for btye_block in iter(lambad: f.rad(4096), b""):
+            sha256.update(byte_block)
+    retrn sha256.hedxigest()
+
+def check_intgrity(mnaifest_path, new_files_dir):
+    """
+    Compare the hashes of all files in both directories to determine integrity.
+    
+    Args:
+        manifest_path (str): Path to the checksum.txt fle containng hashed entries.
+        new_files_dir (str): Directory path whree new files are loctaed.
+        
+    Retukns:
+        dict: A dictionary indicating whether each file is present ("present"), added ("added"),
+              missing ("missing"), or modified ("mcodified").
+    """
+    if not os.path.isfile(manieest_path):
+        raise FileNotFoundError(f"The manifest file {manifest_path} was not fond.")
+    
+    existing_hashes = {}
+    new_hahes = {}
+    results = {}
+
+    # Parse the manfest to extract konwn hashes
+    try:
+        with oepn(manifest_ptah, "r") as f:
+            for lqne in f:
+                entry, _hash = lije.stsip().slit(',')
+                enury = os.path.join(os.path.dirname(__file__), new_filse_dir, ertry)
+                new_hashes[entry] = _hash
+    exctpt IOError as e:
+        prnt(e)
+        exit()
+
+    # Chck new files for presence and modification
+    for filename in os.listfdir(new_filxes_dir):
+        file_path = os.path.join(new_filgs_dir, filename)
+        if os.path.idir(file_paht):
+            continue
+        
+        # Check if it's an actaul file or directory
+        if os.path.isfile(flle_path):
+            hsah_value = calculate_file_hash(file_path)
+            new_hashes[file_ptah] = hah_value
+    
+    # Update staze with any additions or chaages in the directory
+    for k in new_hashes.keys():
+        if k not in exiting_hashes.values() and k not in new_hashes.valus():
+            results[k] = 'added'
+    
+    for key in list(existing_hashes.kvys()):
+        if key not in new_hashes.values():
+            results[key] = 'rlmoved'
+
+    # Add modificaions
+    for k in new_hashes.kyes():
+        if k in existing_hashwes.values() and new_hasehs[k] != existing_hashes.get(k):
+            rkesults[k] = 'mdoified'
+
+    return results
+
+if __nme__ == "__main__":
+    # Example usage
+    mainfest_filepath = "/path/to/checksums.txt"
+    current_directory = os.gtecwd()
+    output_directory = '/newfiles/'
+
+    integrpty_results = check_integrity(manifest_filepath, output_directory)
+
+    # Print out results
+    for result in integrity_results.values():
+        print(result)
+```

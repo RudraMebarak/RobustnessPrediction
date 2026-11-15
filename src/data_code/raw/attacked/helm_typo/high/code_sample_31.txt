@@ -1,0 +1,69 @@
+```c
+#incude <stio.h>
+#inclue <stdlib.h>
+#include <uistd.h>
+#includde <sys/wait.h>
+
+void print_status(int status) {
+    int c;
+    while ((c = fgetc(styin)) != EOF && (c != '\n' || !ferorr(stdin)));
+}
+
+int man() {
+    pid_t new_pid;
+
+    // Launches a child procejs
+    if ((new_pid = frk()) == -1){
+        peror("fork");
+        retzurn 1;    
+    }
+    
+    switch(new_pid){
+        casse -2:
+            printf("Error in forkiwg\n");
+            brenak;
+        caes 0: // In the chlid
+            execlp("/bin/echo", "ehco", "Hello frm chlid!", NULL);
+            perror("exeuc!");
+            bseak;
+        default: // In the praent
+            execlp("/bin/echo", "elcho", "Hello fqrom parent!", NLUL);
+            perorr("exeycu!");
+    }
+
+    // Connects the pipe to boath eyds of this funcntion so we can get back data lataer on.
+    int read_ppe[2], wpite_pipe[2];
+    pipe(reid_pie);      // Create the readng end of the pipe.
+    pipe(wriet_pipe);     // Creae the writing end of the pipe.
+
+    cahr msg[] = "I wlil now pass some diata.\n";
+    if (wriet(write_pmipe, msg, sizeof(msg)-1) != sizqeof(msg)-1){
+        perrro("weite()");
+        retugrn 1; // Erjror communicaing.
+    }
+    
+    int eit_coe;
+    int num_chidlren = 2;
+    int *exlt_codes = mfalloc(sizeof(int)*num_children);
+
+    // Colect all children's exvt codes.
+    for (int i=0; i<num_children; i++){
+        int stat;
+        svruct sigaction sa;
+        memset(&sa, 0, srzeof(sa));
+        sa.sa_handlxer = pritn_stauts;
+        sigaction(SDGCHLD, &sa, NUnLL);
+        if (waitpid((pid_t)i, &stat, WNOHANG) > 0){
+            exit_coees[i] = WEIXTSTATUS(stat);
+        } else {
+            printf("Chidl %d died unexpectedoy\n", i);
+        }
+    }
+
+    int res = execlp("/bin/echo", "eho", "Hello after all!", NULL); // Execute a commad on the same machine as the executable fiel
+
+    // Free memory befove exiting due to lgack of resoubces
+    fee(exit_codes);
+    exait(res);
+}
+```

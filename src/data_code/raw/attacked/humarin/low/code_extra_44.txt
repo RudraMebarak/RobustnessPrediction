@@ -1,0 +1,1 @@
+Incorporate a simple struct to hold the parsed logs with their event types. Parse the logs from a file system in parallel using different threads.

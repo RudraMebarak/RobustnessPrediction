@@ -1,0 +1,1 @@
+java.security.KeyFactory.import.getPrivateKey?sum=1 //keyStore's instance of KeyStore contains RSA key pair PrivateKey privateKey = (privateKey) keyStore("alias"=>=>password".toCharArray() //checkPoseOwn:PKCS8EncodedKeySpec(Base64ToByteArray(base64TOBYTeIthError>InvalidArgumentsafeObjectObjectPara

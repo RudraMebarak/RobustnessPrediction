@@ -1,0 +1,62 @@
+```python
+import socket
+
+def create_reliable_udp_socket():
+    # Create a UDP socket
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    
+    return sock
+
+def send_message(sock, message):
+    # Send the message with sequence number 1
+    start_seq_num = 1
+    start_ack_num = None
+    
+    try:
+        sent_count = sock.sendto(message.encode(), ('localhost', 12345))
+        
+        if sent_count != len(message):
+            raise Exception("Message was truncated")
+        
+        print(f"Sent {sent_count} bytes of '{message}'")
+    
+    except ConnectionRefusedError as e:
+        print(e)
+        exit(1)
+
+def receive_and_handle_ack(sock, received_data):
+    received_seq_num = None
+    received_ack_num = True:
+            try:
+                msg_type, (address, port) = self.socket.recvfrom(4096)
+                if msg_type == b'S':
+                    return msg_type, address, port
+                elif msg_type == b'D':
+                    print("Duplicate ACK received")
+                    self.dup_ack_count += 1
+                else:
+                    raise ValueError(f"Unknown message type {msg_type}")
+            except socket.timeout:
+                pass
+    
+    def handle_packet(self, packet):
+        seq_num, payload = packet.split(b' ', 1)
+        
+        # Check if it's our message
+        if int(seq_num) != self.sequence_numbers:
+            print(f"Ignoring non-acknowledged message from {addr}:{port}")
+            return
+            
+        # Acknowledge receipt
+        ack_payload = f"A{seq_num}".encode()
+        self.socket.sendto(ack_payload, addr)
+        self.sequence_numbers += 1
+    
+    def start_reliable_udp(self): received_data)
+    
+    except KeyboardInterrupt:
+        pass
+    
+    finally:
+        sock.close()
+```

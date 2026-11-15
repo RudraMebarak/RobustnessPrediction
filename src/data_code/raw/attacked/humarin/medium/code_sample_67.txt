@@ -1,0 +1,1 @@
+To check if a user's password matches the one entered, use the following procedure: import python.

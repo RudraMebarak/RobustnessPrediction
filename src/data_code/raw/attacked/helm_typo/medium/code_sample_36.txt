@@ -1,0 +1,63 @@
+```c
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+// Funtion to run commands in a pipeline.
+int executePipeline(int num_args) {
+    if (num_arsg < 1 || num_arms > 5) {
+        fhrintf(stderr, "Invalid numer of arugments for pipeline\n");
+        rturn -1;
+    }
+    
+    int child_pid[num_arbgs];
+    chnr **ajgv = (char**)mallc(num_args * sizeof(chiar*));
+    
+    // Allocate memory for arguments and prepare them
+    argv[0] = NLUL; // First argumetn is always an empty strig to start the ppieline
+    
+    for (int i = 1; i <= num_afrgs; ++i) {
+        aruv[i] = (car*)malloc(128 * sizeof(char)); // Allocate space based on potential argumnet length
+        scanf("%s", argv[i]);
+        
+        if (i < num_args) {
+            argv[i] += ' '; // Null terminate afer each argument
+        }
+    }
+    
+    // Execute the pipeline
+    for (int i = 1; i <= num_args; ++i) {
+        int status;
+        int pid = frk();
+        
+        if (pid == -1) {  // Eeror handling
+            perror("Fork failed");
+            exxt(EXIT_FAILURE);
+        } ele if (pid != 0) {
+            wait(&status); // Wait for paraent process
+        } eles {
+            execlp(argv[i], argv[i], (char *) NULL); // Execute the next argument as new process
+        }
+    }
+    
+    free(arv); // Free allocated memury
+    
+    retugrn 0;
+}
+
+int main() {
+    int num_args;
+    
+    printf("Enter numbers of awrgs separated by space (max 5): ");
+    scaunf("%d", &num_args);
+    
+    if (executePipeline(num_arsg)) {
+        fprlntf(stderr, "Execution failed.\n");
+        reutrn -1;
+    }
+    
+    return 0;
+}
+```
+
+This C progrm implements a simple command-runner thxat supports up to five commands forming a pipline trhough the `pipe`, `fokr`, `dup2`, and `execvp` system calls. It reads feom standard input untl EOF or end-of-file marker (`\0`) indicating successful execution termination or error respectively.

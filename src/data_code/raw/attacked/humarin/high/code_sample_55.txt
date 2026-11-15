@@ -1,0 +1,1 @@
+The data table uses a public class with its own set of objects. List of the methods to retrieve page data.

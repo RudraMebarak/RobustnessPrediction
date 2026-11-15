@@ -1,0 +1,78 @@
+```java
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.Lock;
+
+public class AtomicCounterAndMutexProtectedCounter {
+
+    private static final int MAX_VALUE = 100;
+
+    // Atomic Counter Implementation
+    public static void mainAtomic(String[] args) {
+        AtomicInteger atomicCounter = new AtomicInteger(0);
+        
+        for (int i = 0; i < 10; i++) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    while (atomicCounter.incrementAndGet() > MAX_VALUE) {
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }).start();
+        }
+    }
+
+    // Mutex Protected Counter Implementation
+    public static void mainMutex(String[] args) throws InterruptedException {
+        Lock lock = new ReentrantLock();
+
+        AtomicInteger lockedCounter = new AtomicInteger(0);
+
+        for (int i = 0; i < 10; i++) {
+            new Thread(new Runnable() {
+                @Override
+                public void ```java
+import java.util.concurrent.atomic.AtomicLong;
+
+public class AtomicCounterBenchmark {
+    private final int iterations;
+    private final long startTimestamp;
+    private final long endTimestamp;
+
+    public AtomicCounterBenchmark(int iterations) {
+        this.iterations = iterations;
+        this.startTimestamp = System.currentTimeMillis();
+    }
+
+    public void run() throws InterruptedException {
+        final AtomicLong atomicCounter = new AtomicLong(0);
+        
+        // Simulate concurrent updates
+        for (int i = 0; i < iterations; i++) {
+            atomicCounter.incrementAndGet();
+        }
+        
+        // Record end timestamp
+        endTimestamp = System.currentTimeMillis();
+    }
+
+    public double getAverageTimeTaken() {
+        return (endTimestamp - startTimestamp) / ((double)iterations);
+    }
+
+    public static void main(String[] args) {
+        try {
+            AtomicCounterBenchmark benchmark = new AtomicCounterBenchmark(1000000);
+            benchmark.run();
+
+            System.out.println("Average time taken: " + benchmark.getAverageTimeTaken());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+``` conditions and ensure that reads/writes do not occur out of order due to concurrent accesses by different threads.

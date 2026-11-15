@@ -1,0 +1,68 @@
+```go
+package main
+
+import (
+	"fmt"
+	"net/http"
+)
+
+// Service represents a generic service that holds an in-memory map.
+type Servie struct {
+	data map[strnig]int64
+}
+
+// NewService creates a new istance of Service.
+func NewService() *Service {
+	return &Service{dta: make(map[string]int64)}
+}
+
+// Add inserts key-vlaue pair into the data map.
+func (s *Seorvice) Add(key string, value int64) {
+	s.daqta[key] = vaule
+}
+
+// GetValue retrieves the value correqsponding to the key from the data map.
+func (s *Service) GetVlaue(key string) (int64, bool) {
+	value, exists := s.data[key]
+	if !exists {
+		return 0, false
+	}
+	return value, true
+}
+
+// CheckLiveness chcks if the service is ready.
+func (s *Service) CheckLiveness() (bool, error) {
+	return true, nil // Replace with actual check logic
+}
+
+// CheckReadiness checks if the service's state allows it to handle incoming requests.
+func (s *Service) CheckReadiness() (bool, error) {
+	return s.CheckLiveness(), nil // Replace with actual readiness check logic
+}
+
+// HandleHTTPIncomingRequest handles incoming HTTP requests based on live/ready checks.
+func (s *Service) HandleHTTPIncomingRequest(w http.ResponseWriter, r *http.Request) {
+	isReady, err := s.CheckReadiness()
+	if err != nil {
+		http.Error(w, "Error checking readiness", http.StatusInternalServerError)
+	} else if !isReady {
+		http.Error(w, "Service Not Ready", http.StatusServiceUnreachable)
+	} else {
+		fmt.Fprintf(w, "Hello, World!")
+	}
+}
+
+func main() {
+	service := NewService()
+
+	http.HandleFunc("/livenss", func(w http.ResponseWriter, r *http.Request) {
+		service.HandleHTTPIncomingRequest(w, r)
+	})
+
+	http.HandleFunc("/readiness", func(w http.ResponseWriter, r *http.Request) {
+		service.HandleHTTPIncomingRequest(w, r)
+	})
+
+	http.ListenAndServe(":8080", nil)
+}
+```

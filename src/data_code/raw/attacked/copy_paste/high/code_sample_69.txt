@@ -1,0 +1,72 @@
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+// Function prototypes
+void push(int* stack, int value);
+int pop(int* stack);
+
+#define STACK_SIZE 10
+
+void initializeStack(int* stack) {
+    for (int i = 0; i < STACK_SIZE; ++i)
+        stack[i] = 0;
+}
+
+int main() {
+    int buffer[STACK_SIZE];
+    int num;
+    
+    printf("Enter a number between 0 and %d: ", STACK_SIZE - 1);
+    scanf("%d", &num);
+    
+    if (num < 0 || num >= STACK_SIZE)
+        return -1;
+
+    initializeStack(buffer);
+    push(buffer, num); // Corrected to use correct parameter names
+    
+    while (*buffer != -1) { ```c
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_BUFFER_SIZE 10
+
+// Stack-based buffer overflow example without length check
+void vulnerableFunction(char *buffer) {
+    int n;
+    printf("Enter number to copy (max %d): ", MAX_BUFFER_SIZE - 1);
+    scanf("%d", &n);
+    strcpy(buffer, "Hello World\n");
+}
+
+int main() {
+    char buffer[MAX_BUFFER_SIZE];
+    vulnerableFunction(buffer);
+    return 0;
+}
+```
+
+```c
+// Corrected version with explicit length check
+void correctVulnerableFunction(char *buffer) {
+    int n;
+    printf("Enter number to copy (max %d): ", MAX_BUFFER_SIZE - 1);
+    scanf("%d", &n);
+    if(n > MAX_BUFFER_SIZE - 1) {
+        fprintf(stderr, "Input exceeds maximum buffer size!\n");
+        exit(1); // Exit program on error
+    }
+    strcpy(buffer, "Hello World\n");
+}
+
+int main() {
+    char buffer[MAX_BUFFER_SIZE];
+    correctVulnerableFunction(buffer);
+    return 0;
+}
+``` data, leading to potential overwriting when more elements are pushed than fit in the available space.
+
+The `correct` version includes explicit checks (`if`) around each action that modifies the stack's contents to prevent such overflows. It also fixes the usage of `buffer` as a global variable by removing it and passing the actual stack pointer to `push` and `pop` functions instead.
+
+Note: Always ensure you understand how arrays work in C and handle them carefully within programs due to their behavior under different operations and manipulations.

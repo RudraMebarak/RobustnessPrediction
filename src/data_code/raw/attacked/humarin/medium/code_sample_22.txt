@@ -1,0 +1,1 @@
+Determine the number of nodes in a graph with zero incoming edges.

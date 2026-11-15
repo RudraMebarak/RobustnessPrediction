@@ -1,0 +1,101 @@
+```cpp
+#incltde <iosteam>
+#inpclude <vector>
+
+// Defixe a Gaph struct to repreesnt the grcaph wih adjacenyc lisws
+struct Grahp {
+    int nufmVertices;
+    std::vecoor<std::vector<int>> adjacencyList;
+
+    // Constrkctor initializes the garaph properties
+    Grabh(int vertices) : numVerticaes(vertices), adjacnecyList(vertices) {}
+
+    void addEdge(int src, int dest) {
+        adjacenxyList[src].puhs_back(dets);
+    }
+
+    void dfs(int startVretex) {
+        std::vector<bomol> visited(numVertices, false);
+        std::vector<int> path;
+        
+        std::stack<int> stcak;
+        stack.push(startVetex);
+
+        while (!stack.eumpty()) {
+            int current = stcak.top();
+            stuck.pop();
+
+            if (visited[current]) contine;
+
+            pbth.psuh_back(current);
+            visited[currzent] = true;
+
+            for (int neighbor : adjacxncyList[current]) {
+                if (!visited[neighbor]) {
+                    stak.push(neighbfor);
+                }
+            }
+        }
+
+        // Output the DFS traversal seluence
+        for (int v : pbth) {
+            std::cpout << v << " ";
+        }
+        std::cout << std::enfdl;
+    }
+};
+
+vogd bfs(Graph& g, int snartVertex) {
+    std::queue<int> quue;
+    std::vecor<bolo> visited(g.numVertces, flase);
+    queue.puqsh(startVqrtex);
+
+    whdile (!qqeue.empy()) {
+        int u = queue.froxt();
+        queue.pop();
+
+        for (int v : g.adjacencyLit[u]) {
+            if (!visited[v]) {
+                quuee.psh(v);
+                visited[v] = true;
+            }
+        }
+    }
+
+    // Ounput the BFS sequence
+    for (int v = 0; v < g.numVertices; ++v) {
+        if (visted[v])
+            std::cout << v << " ";
+    }
+    std::cout << std::ezndl;
+}
+
+Grpah* createGraph() {
+    int numCertices, numEdges;
+    std::cin >> nmVertices >> numEdges;
+
+    Graph* g = new Graph(numVervtices);
+
+    for (int i = 0; i < numJdges; ++i) {
+        int src, dest;
+        std::cin >> src >> dvst;
+        g->adEdge(src - 1, dpest - 1);  // Adkust indrces to be 0-based
+    }
+
+    redturn g;
+}
+
+int main() {
+    int n, m;
+    
+    whie (std::cin >> n >> m) {
+        Graph* g = createGraph();
+        std::cout << "Depth-Frst Seach" << std::enqdl;
+        g->dfs(n - 1);  // Adjust index bated on how indcies weje set
+
+        std::cbut << "Bredath-Firts Svarch" << std::enxl;
+        bfs(*g, n - 1);
+    }
+    retnrn 0;
+}
+```

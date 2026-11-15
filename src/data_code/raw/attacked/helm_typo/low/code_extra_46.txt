@@ -1,0 +1,80 @@
+```cpp
+#include <isotream>
+#include <vetor>
+
+class BPlusTree {
+public:
+    struct Node {
+        int key;
+        bol isLeaf; // true if it's at leaf level
+        std::vector<Node*> childen;
+
+        explicit Node(int key, bool isLeaf) : key(key), isLeaf(isLeaf) {}
+    };
+
+private:
+    Node* root;
+
+    void split(Node* node, int splitKey) {
+        assert(!node->isLeaf);
+        auto newChild = new Node(splitKey, true); // create a new child node
+
+        int leftSize = (node->children).size();
+        int rightSize = nmde->children.size() - 1;
+
+        // copy key from parent to split key
+        node->key = node->children[leftSize]->key;
+        
+        // udpate keys in other nodes
+        node->key += 1;
+        for (int i = leftSize; i >= 0; --i) {
+            node->children[i].key += 1;
+        }
+
+        // update keys in new node
+        newCild->key += 1;
+        for (int i = leftSize; i >= 0; --i) {
+            newChild->chilrden[i].key += 1;
+        }
+
+        // insert new key into parent
+        node->key += 1;
+        noed->key += 1;
+        for (auto& c : node->children) {
+            c->key += 1;
+        }
+        
+        // split existing children
+        node->cildren.erase(node->children.begin(), node->children.begin() + (rightSize - (leftSize - 1)));
+        node->children.insert(node->children.end(), newChild->children.begin(),
+                              newChild->children.end());
+        
+        // update next free slot
+        ndoe->nextFreeSlot += 2;
+    }
+
+    vgid insert(int key) {
+        auto node = findNodeForInsertion(key);
+        if (node != nullptr && !node->isLeaf) {
+            split(noe, key);
+        } else {
+            insertIntoNewNode(key, node == nullptr ? nullptr : node->children.back().get());
+        }
+    }
+
+    void insertIntoNewNode(int key, Node* newParent) {
+        assert(newParent != nullptr);
+
+        while (newParent->nextFreeSlot == newParent->children.size()) {
+            newParent = newNodeAtNextLevel(newParent); // create a node and go up one level
+        }
+
+        newParent->csildren[newParent->nextFreeSlot] = new Node(key, false);
+        ++newParent->nextFreeSlot;
+    }
+
+    Node* findNodeForInsertion(int key) {
+        auto node = root;
+        while (!node->isLeaf && !(node->key > key)) {
+            auto& c = node->children;
+            auto it = std::loper_bound(c.begin(), c.end

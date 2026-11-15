@@ -1,0 +1,1 @@
+In sql's database, the daily active user count is determined by selecting the DATE_TRUNC, DISTINCT user id, and first event_date from activity logs.

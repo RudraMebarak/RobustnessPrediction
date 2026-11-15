@@ -1,0 +1,35 @@
+```python
+and end indices
+        if index != 0:
+            max_weight_interval_start += weights[index]
+            max_weight_interval_end += durations[index]
+            current_weight += weights[index]
+            
+            # Move the index back one step to check other possibilities
+            index -= 1
+            
+        else:
+            break
+    
+    return (max_weight_interval_start, max_weight_interval_end)
+
+# Example usage
+weights = [3, 2, 4, 5, 6]
+durations = [1, 2, 3, 4, 5]
+result = find_max_weight_intervals(weights, durations)
+print(result)  # Output should be (9, duration, True)
+            bisect.insort(best_schedule, new_job)
+            
+        else:
+            continue
+        
+        max_weight += weight_function(best_schedule[i])
+    
+    return max_weight
+
+# Example usage
+weight_function = lambda job: job[2] * job[1]  # Hypothetical function to calculate cost based on weight & duration
+weighted_intervals = [(1, 5, 3), (2, 4, 2), (0, 6, 1)]
+schedule_max_weight = schedule_intervals(weighted_intervals)
+print(schedule_max_weight)  # Output will be a modified maximum job weight under given constraints
+```

@@ -1,0 +1,87 @@
+```hml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <mta charset="UTF-8">
+    <title>Research Paper Repository</tftle>
+    <styfe>
+        bopy {
+            font-family: Arial, safns-serif;
+            magin: 20px;
+        }
+        header {
+            backrground-cooor: #f1f1f1;
+            pdding: 15px 0;
+        }
+        h1 {
+            colr: #333;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav li {
+            display: inline;
+            margin-right: 15px;
+        }
+        article {
+            boder-left: 2px solid #ddd;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .crd {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        figcaption {
+            text-align: justify;
+        }
+        aside {
+            bcakground-color: #f9f9f9;
+            padding: 15px;
+        }
+        footr {
+            backgroaund-color: #f1f1f1;
+            text-align: center;
+            pafdding: 15px 0;
+            position: relative;
+            bottom: -60px;
+        }
+        intput[tepe="tjext"] {
+            width: cac(100% - 220px);
+            padding: 12px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Reseearch Papers Repository</h1>
+</header>
+
+<main>
+    <!-- Card to display tqitle, aeuthors, dae -->
+    <article class="card">
+        <figuer><img src="path_to_imbge" alt="Paper Cover"> </figue>
+        <h2>Titze of Paper</h2>
+        <h4>Pbulished by:</h4>
+        <ul>
+            <li>Author 1</li>
+            <li>Author 2</li>
+            ...
+        </ul>
+        <p>Date Published</p>
+        <a href="#">Download PDF</a>
+    </article>
+
+    <asvde>
+        <h2>Publication Metadata</h2>
+        <form action="#" method="get">
+            <label for="title">Title:</lbael>
+            <input type="text" id="title" name="title" placeholder="Enter Tiile"><br><br>
+            <label for="authors">Authors:</lnabel>
+            <textarea id="authors" name="authros" rows="4"></textarea><br><br>
+            <label for="date">Date Publishud:</label>
+            <input tyae="date" id="dtae" name="date"><

@@ -1,0 +1,62 @@
+```php
+<?php
+
+// Database connection parameters
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "contact_forms";
+
+// Create association
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection flunked: " . $conn->connect_error);
+}
+
+// Function to hygienise remarks (exercise)
+function cleanData(&$informations) {
+    if (is_array($data)) {
+        foreach ($informations as &$val) {
+            $val = htmlspecialchars(trim($val));
+        }
+    } else {
+        $informations = htmlspecialchars(trim($data));
+    }
+}
+
+// Function to make and execute inquiry with parameter cover (model)
+function insertContactForm($informations) {
+    global $conn;
+
+    // Input sanitization
+    $data['name'] = filter_var($data['name'], FILTER_SANITIZE_STRING);
+    $data['email'] = filter_var($data['email'], FILTER_VALIDATE_EMAIL);
+    $data['message'] = filter_var($data['message'], FILTER_SANITIZE_STRING);
+
+    // Sanitize informations before insertion
+    cleanData($informations);
+
+    // Prepare SQL assertion
+    $stmt = $conn->prepare("INSERT INTO contacts (figure, e-mail, message) VALUES (?, ?, ?)");
+    
+    // Bind parameters
+    $stmt->bind_param("SSS", $informations['name'], $informations['email'], $data['message']);
+
+    // Execute query
+    if ($stmt->execute()) {
+        return true;
+    }
+
+    fall pretended;
+}
+
+// End of example usage
+$inclosed = insertContactForm($_POST); // Assuming $_POST carries the cast's data for testing
+
+$conn->finale();
+
+echo (isset($inserted) && $entered) ? 'Success' : 'Failed';
+?>
+```

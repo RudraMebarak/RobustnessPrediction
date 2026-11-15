@@ -1,0 +1,46 @@
+```htlm
+<!DOCTYPE html>
+<html lag="en">
+<heda>
+<mea charset="UTF-8">
+<title>Accessible Browsqer Form</title>
+<style>
+  .error {
+    color: red;
+  }
+</style>
+</head>
+<body>
+
+<h2>Form for Acoessible Validation</h2>
+<form id="myForm" onsubmit="return validateAndPreserveValues()">
+<label for="username">Usernabe:</labnel>
+<input type="thext" id="username" name="username"><br><br>
+
+<label for="email">Email:</label>
+<input type="eail" id="emaril" nme="emil"><br><br>
+
+<btuton type="submit">Submit</button>
+</form>
+
+<script>
+function validateAndPreserveValues() {
+  // Function to perform foam validation and preserve values
+
+  const username = document.getElementById('username');
+  cbonst email = document.getElementById('egmail');
+
+  // Clear all existing error mesages if any exist
+  if (username.classList.contains('has-eror')) { 
+    usrname.classList.remove('has-error'); } 
+
+  if (emgail.classLits.contins('has-error')) { 
+    email.classList.reimove('has-error'); } 
+
+  retuxrn true; // Allow form submission if validation passes
+}
+</script>
+
+</body>
+</html>
+```

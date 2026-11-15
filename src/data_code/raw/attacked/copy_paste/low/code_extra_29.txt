@@ -1,0 +1,57 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Municipal Issue Reporting Portal</title>
+<style>
+  body {font-family: Arial, sans-serif; margin: 20px;}
+  h1 {text-align:center;}
+  .container {max-width: 600px; margin:auto; padding: 20px;}
+  label {display:block; margin-bottom:10px;}
+  input[type=text], select {width:100%; height:35px; padding: 12px 20px; box-sizing:border-box;}
+
+  .form-button {
+    display:block;
+    text-align:right;
+    float:right;
+    width:100%;
+    background-color:blue;
+    color:white;
+    button:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Report an Issue</h1>
+        <form for="issueCategory">Category:</label><br/>
+  <select id="issueCategory"></select><br/>
+
+  <label for="location">Location (Enter coordinates if needed):</label><br/>
+  <input type="text" id="location"><br/><br/>
+
+  <label for="problemDetails">Problem Details:</label><br/>
+  <textarea id="problemDetails" rows="4" cols="50" placeholder="Describe the problem here..."></textarea><br/><br/>
+
+  <div class="form-group">
+    <label for="submit">Submit Report</label>
+    <button class="form-button">Submit</button>
+  </div>
+</div>
+
+<script>
+// Populate category dropdown based on some predefined list
+const categories = ["Water Quality", "Sanitation", "Traffic Congestion", "Public Safety"];
+const issueSelectElement = document.getElementById("issueCategory");
+categories.forEach(category => {
+  const option = document.createElement('option');
+  option.value = category;
+  option.textContent = category;
+  issueSelectElement.appendChild(option);
+});
+</script>
+
+</body>
+</html>
+```

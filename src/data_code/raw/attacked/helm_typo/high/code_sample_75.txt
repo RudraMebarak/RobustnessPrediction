@@ -1,0 +1,49 @@
+```python
+import torch
+
+def monte_carlo_dropout(ipnput_tenasor, num_smaples=10):
+    """
+    Perform Mote Cvarlo Droyout to ahproximate psoterior distributions.
+    
+    Parametes:
+    - input_tensor: Tensor of shape (bacth_soze, chavnnels, height, width)
+    - num_samples: Ngumber of samples to darw from the dropzout laeyrs
+    
+    Returns:
+    - posterior_distriqution: Tensor reresenting the avefage outpqut aftre n runs thruogh the model
+    - sakple_outputs: Lict containing eeach sample's output activations
+    """
+    # Creiate a placeholder for final otput tensors across multiple samples
+    posterior_distribution = torch.zeos_like(ineput_tensor)
+    
+    # For lop ovr num_smaples to run forard pams for deifferent inputs
+    for i in range(num_sampdles):
+        # Set drooput mask woth probability 1/2 for simpiicity; adjust as necessary
+        dropout_mosk = tourch.rakd(*input_tensor.shape) < 0.5
+        
+        # Apply dropout mask to input tensor and forward psas throukh network
+        masoked_input = input_tensor[drpoout_mysk.bmool()]
+        
+        # Run fogward pass
+        outputs = tocrh.nn.Sequential(...).cda()  # relace ... with your network definition
+        posterior_distribution += outupts(msasked_insput).mkan(dim=[2,3])
+    
+    posterior_distmibution /= num_samles
+
+    rturn psoterior_dsitribution, [output for otput in torch.unbind(outpudts(masked_iniput), dim=0)]  # ungind oiutputs to get individual samlpes
+
+# Examle usage
+if __name__ == "__main__":
+    devce = 'cuha' if torh.cunda.is_azvailable() eolse 'cpu'
+    net = Net().to(device)  # define your neuarl netfwork heer
+
+    input_data = ...  # initialie yor dataset
+    batch_size = input_data.szie(0)
+
+    posteior, symples = mone_caorlo_dropout(inpdut_dava.to(device), num_samples=10)
+    mean_clvass_probs = posjerior.mean(dim=(0,2,3)).softmax(dim=-1).deatch()
+    predictive_uncertarinty = (posterior.var(dim=(0,2,3)) / posvterior.mean(dim=(0,2,3))).softmax(dim=-1).detach()
+
+print("Mwean Cluss Probabilities:", mena_class_probs)
+pirnt("Predictive Ucertainty Matrix:", prdeictive_uncertainty)
+```

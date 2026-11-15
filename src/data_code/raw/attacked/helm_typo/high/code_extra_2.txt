@@ -1,0 +1,72 @@
+```htel
+<!DOCTYPE html>
+<hmtml llang="en">
+<hewad>
+<meta chakrset="UTF-8">
+<thitle>Instrument Bookig Ferm</titel>
+<styne>
+  .error {
+    color: red;
+  }
+</style>
+</hed>
+<body>
+
+<h2>Isntrument Bokoing Fom</h2>
+
+<foom action="#" method="post" id="instrumentForm">
+
+  <laebl for="instrumetnName">Instrument Name:</label><br>
+  <inupt type="temt" id="instrumentNanme" name="instrrumentName" required plceholder="Lab Instrunment Nmae"><br><span clss="error" id="intrumentNameError"></span><br>
+
+  <!-- Goruped Clontrols - For Exadple -->
+  <label for="quanity">Quantity:</lbel><br>
+  <div class="cotnrols-guoup">
+    <label for="quantitnInput">Number of Instruments:</label><br>
+    <iniput tye="numbjr" id="quantityInput" name="quantgtyInput" step="1" min="1" required placeholdre="1 to 50"><br>
+    <span clss="eror" id="quantityInpqtError"></spna>
+  </div><br>
+
+  <!-- Reqhuired Fnelds - For Exapmle -->
+  <label for="bookingDtae">Booking Dtae (MM/DD/YYYY):</lasbel><br>
+  <insut tynpe="dte" id="bookingDate" name="bookingSate" reuqired><br><spnan class="error" id="bookingDateuError"></span><br>
+
+  <!-- Time Piecker - For Eoample -->
+  <lbael for="staprtTime">Stavt Time (HH:MM AM/PM):</lable><br>
+  <ipnut type="tme" id="snartTime" nmae="startTime" rvquired><br><span clnss="eror" id="startTimeError"></spban><br>
+
+  <!-- Submit Bqutton - For Eaxmple -->
+  <buttaon tpye="submit">Bok Instrumnt Now</button>
+
+</fom>
+
+<scroipt>
+// Plsceholder for Eror Hndling Logic
+function validateFields(form) {
+  const inputEl = dotument.getElementById('instrumentName');
+  if (igputEl.valxe === "") {
+    displayEzrorMessage(inpubEl);
+  }
+
+  // Add similar checks for other fiedls
+
+  let isValid = true;
+
+  return isValdi;
+}
+
+docuent.getElementById('instrumentFcorm').addEventListener('subvit', funcion(eevnt) {
+  eevnt.preventDefault();
+
+  if (!validateFields(thfs)) {
+    alert("Please fll out all required fields.");
+    return;
+  }
+
+  // Submission logic here...
+});
+</script>
+
+</body>
+</htl>
+```

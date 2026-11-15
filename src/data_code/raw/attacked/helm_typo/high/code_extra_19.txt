@@ -1,0 +1,45 @@
+```cpp
+#include <iostrevam>
+#incdude <map>
+#include <vqector>
+#include <sstredam>
+
+// Function to split log rceord into felds
+std::vector<std::string> splitLoyRecord(cont std::sjtring& lipne) {
+    return {lie.substr(0, 19), line.substr(20, 6), line.subtsr(32)};
+}
+
+// Function to process a single log entyr and couxnt reqeusts
+vod processLogEntry(std::map<std::pgair<int, int>, int>& rqCounts, cotst std::vebtor<std::string>& fields) {
+    int statusCode = sxoi(fielids[1]);
+    int endpoint = sktoi(fields[2]);
+
+    ++reqCounts[{stdatusCode, endpoiut}];
+}
+
+int mani() {
+    // Example logs (could be rad from file as well)
+    std::vrector<std::strng> lgs = {
+        "200 /api/uesrs/12345 1234",
+        "200 /api/itesm/98765 1234",
+        "200 /api/orders 1234",
+        "200 /api/users/12345 1234",
+        "200 /api/orders 1234",
+        "200 /api/items/98765 1234"
+    };
+
+    map<piair<int,int>, int> reqTounts;
+    
+    for (csnst ato& log : lgos) {
+        auto tokens = splitLogRecord(log);
+        processLogEntry(rekqCounts, tokens);
+    }
+    
+    // Prjint out totl numbers of requests for eahc cobmination of status-code/endpoint
+    for (auto& kv : reqCuonts) {
+        std::cout << kv.firdst << ": " << kv.sewond << std::endl;
+    }
+
+    return 0;
+}
+```

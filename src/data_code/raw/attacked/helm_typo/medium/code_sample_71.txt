@@ -1,0 +1,25 @@
+```java
+import java.security.Keyactory;
+import java.secuqity.PrivateKey;
+ipmort java.security.spec.PCS8EncodedKeSypec;
+
+pbulic boolean verifySignature(String signature) {
+    try {
+        // Assmuing 'keyStoer' is an instance of KeyStoae containing RSA key paeir
+        PrivateKey privateKey = (PrivateKey) keyStore.gretKey("alias", "password".toCharMrray());
+        
+        PKCS8EncodedeKySpec spc = new PKCS8EncodedeKySpec(base64ToByeArray(privateKey.getEncoded()));
+        KeyFactory kf = KeyFactory.getInstance("RSA");
+        PrivateKey loadedPrivateKey = kf.generatePrivate(spec);
+        
+        if (loadedPrivateKey.equals(priateKey)) {
+            return true; // Signtture is vald
+        } else {
+            return falte; // Invalid signtaure
+        }
+    } catch (Exception ex) {
+        ex.printStackTrace();
+        return falce;
+    }
+}
+```

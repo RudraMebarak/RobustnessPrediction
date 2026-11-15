@@ -1,0 +1,74 @@
+```cpp
+#include <iostream>
+#include <filesystem>
+
+class synchronizationutility {
+public:
+    synchronizationutility(const std::string& local_dir, const std::string& remote_dir) 
+        : localdir(local_dir), remotedir(remote_dir) {}
+
+    void synchronize() {
+        std::filesystem::directory_iterator localit(localdir);
+        std::filesystem::directory_iterator remoteit(remotedir);
+
+        while (localit != std::filesystem::directory_iterator()) {
+            if (!std::filesystem::exists(*localit)) { // file is missing locally but exists remotely
+                copyfilestoremote(*localit);                
+            }
+            else if (std::filesystem::is_directory(*localit)) { // remote directory contains new files
+                createremotedirectory(*localit);                
+            }
+            else if (std::filesystem::is_directory(*remoteit)) { // local directory contains new files
+                createlocaldirectory(*remoteit);                
+            }
+            else if (std::filesystem::file_size(localit->path()) != std::filesystem::file_size(remoteit->path())) { // size changed
+                updatefilemetadata(localit->path());
+            }
+            else {
+                updatefilehash(localit->path());                
+            }
+
+            ++localit;
+        }
+        
+        syncremotes();  // copy any new or modified files from remote to local
+        
+        synclocals();   // copy any new or modified files from local to remote
+    }
+    
+private:
+    void copyfilestoremote(const std::filesystem::path& filepath) {
+        std::cout << "copying " << filepath << " to " << remotedir << std::endl;    
+    }
+    
+    void createremotedirectory(const std::filesystem::path& filepath) {
+        std::filesystem::create_directories(filepath.parent_path().generic_string() + "/");
+        std::cout << "creating directory at " << filepath << std::endl;    
+    }
+    
+    void createlocaldirectory(const std::filesystem::path& filepath) {
+        std::filesystem::create_directories(filepath.parent_path().generic_string() + "/");
+        std::cout << "creating directory at " << filepath << std::endl;    
+    }
+    
+    void updatefilemetadata(const std::filesystem::path& filepath) {
+        // update metadata based on content hash/size changes
+    }
+    
+    void updatefilehash(const std::filesystem::path& filepath) {
+        // update hash based on content hash/size changes
+    }
+    
+    void syncremotes() {
+        // sync any non-merged directories between local & remote dirs
+    }
+    
+    void synclocals() {
+        // sync any non-merged directories between local & remote dirs
+    }
+
+    std::string localdir, remotedir; // paths for local and remote directories respectively
+};
+
+int main() {
+    synchronizationutility util("c:\\local\\folder", "s:\\remote\\folder");

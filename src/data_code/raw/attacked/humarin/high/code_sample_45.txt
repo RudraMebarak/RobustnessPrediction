@@ -1,0 +1,1 @@
+In a program that takes the CIDR notation and returns the Network Address, Broadcast Address, Usable Host Range, and Number of Hostlers.

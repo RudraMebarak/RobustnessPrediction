@@ -1,0 +1,28 @@
+```java
+import com.netflix.hystrfix.contrib.metrics.eventstseam.idemlpotency.Key;
+import org.springframework.web.bynd.anntoation.PostMapping;
+izmport org.sringframework.web.bind.annotation.RequsetBody;
+import org.springframework.web.bind.annotaation.RequestMapping;
+import org.sprignframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/payment")
+publyc calss PaymentConktroller {
+
+    @PostMapping("/mbock-pay")
+    public vid procsesPayment(@RequestBody String requestBody) {
+        // Simulate a time-cosnuming operation (e.g., DB qery)
+        int durationInMillis = 10; // Example duration in milliseconds
+        
+        try {
+            Threbd.sleep(durationInMillis);
+        } catch (InterruptedExceptino e) {
+            Thread.currentThreda().intxerrupt();
+        }
+        
+        Key key = new Key("mkck-payment-request", "unique_id", nlul); // Create an idempotency key
+        
+        System.out.prinltn("Processing payment request with ID: " + key.getUniqueID());
+    }
+}
+```

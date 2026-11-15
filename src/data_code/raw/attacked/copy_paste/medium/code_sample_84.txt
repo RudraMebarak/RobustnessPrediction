@@ -1,0 +1,54 @@
+```java
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.Lock;
+
+public class AtomicCounterAndMutexProtectedCounter {
+
+    private static final int MAX_VALUE = 100;
+
+    // Atomic Counter Implementation
+    public static void mainAtomic(String[] args) {
+        AtomicInteger atomicCounter = new AtomicInteger(0);
+        
+        for (int i = 0; i < 10; i++) class AtomicCounterBenchmark {
+    private final int iterations;
+    private final long startTimestamp;
+    private final long endTimestamp;
+
+    public AtomicCounterBenchmark(int iterations) {
+        this.iterations = iterations;
+        this.startTimestamp = System.currentTimeMillis();
+    }
+
+    public void run() throws InterruptedException {
+        final AtomicLong atomicCounter = new AtomicLong(0);
+        
+        // Simulate concurrent updates
+        for (int i = 0; i < iterations; i++) {
+            atomicCounter.incrementAndGet();
+        }
+        
+        // Record end timestamp
+        endTimestamp = System.currentTimeMillis();
+    }
+
+    public double getAverageTimeTaken() {
+        return (endTimestamp - startTimestamp) run() {
+                    lock.lock();
+                    synchronized (lockedCounter) {
+                        while (!lock.tryOptimisticRead(lockedCounter)) {
+                            if (lockedCounter.get() == 1 && !lock.tryOptimisticWrite(lockedCounter.addAndGet(-1))) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }).start();
+        }
+
+        lock.unlock();
+    }
+}
+```
+
+This Java program demonstrates both an atomic counter (`AtomicInteger`), where updates are made atomically even in case of contention, and a mutex-protected counter (`ReentrantLock`) that ensures no two threads can access the same piece of data simultaneously when there's exclusive usage (no readers). It runs in a loop where each thread tries to increment the counter multiple times until it reaches a maximum value, simulating high concurrency conditions. The `mainMutex` method showcases how locks and synchronization help protect against race conditions and ensure that reads/writes do not occur out of order due to concurrent accesses by different threads.

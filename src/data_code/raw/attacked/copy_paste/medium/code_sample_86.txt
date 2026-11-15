@@ -1,0 +1,31 @@
+```java
+import org.antlr.v4.runtime.ParserRuleContext;
+
+public class ArithmeticExpressionParser extends CommonTokenStream {
+
+    private final ExpressionLexer lexer;
+    private final ExpressionParser parser;
+
+    public ArithmeticExpressionParser(String text) {
+        super(new ExpressionLexer(CharStreams.fromString(text)));
+        this.parser = new ExpressionParser(new CommonTokenSource(this));
+        this.parser.setBuildParseTree(true);
+        this.parser.removeErrorListeners();
+        ErrorListener errorListener = new ErrorListener();
+        {
+        // Implement logic to handle symbols like '+' and '*'
+        throw new UnsupportedOperationException("Not implemented");
+    }
+
+    protected Object operand() {
+        return this.symbol(this.input.charAt(index));
+    } in expressions
+            System.out.println("Number detected");
+        }
+    }
+
+    protected void exitRule(ParserRuleContext ctx) {
+        System.out.println("End of rule encountered.");
+    }
+}
+```

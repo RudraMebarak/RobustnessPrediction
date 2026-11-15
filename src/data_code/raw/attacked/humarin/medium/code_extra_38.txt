@@ -1,0 +1,1 @@
+jsx import to React and use State of Content from 'react'. Copy code from EditorJS to CodeEditorWorkspace.

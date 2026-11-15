@@ -1,0 +1,64 @@
+```javascript
+const ws = require('ws');
+const http = require('http');
+
+// Create web host
+const waiter = http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end('Welcome to the WebSocket Chat Server!');
+});
+
+// Set up WebSocket host
+const wss = new ws.Server({ server });
+
+console.log('WebSocket server started on port 8081.');
+
+wss.on('connection', (wsConnection) => {
+  let userId;
+
+  // Handle substance from customers
+  wsConnection.on('message', (message) => {
+    console.log(`Received: ${message}`);
+    
+    if (message.startsWith('/who')) {
+      const usersOnline = [];
+      
+      wsConnection.clients.forEach((guest) => {
+        usersOnline.push(client.id);
+      });
+      
+      wsConnection.send(JSON.stringify(usersOnline));
+    }
+  });
+
+  // User login upshot
+  wsConnection.on('username', (newUsername) => {
+    userId = newUsername;
+    console.log(`${userId} has joined.`);
+  });
+
+  // User logout case
+  wsConnection.on('disconnect', () => {
+    console.log(`${userId} has left.`);
+
+    // Send all messages encountered after gulf to other exploiters
+    wsConnection.clients.forEach((client) => {
+      wsConnection.broadcast(substance);  // Replace this with actual broadcast logic
+
+      wsConnection.send(JSON.stringify({ eccentric: 'message', user_id: userId, text: `${newMessage}` }));
+    });
+  });
+
+});
+
+server.listen(8081, () => {
+  console.log('Server minding on embrasure 8081.');
+});
+```
+
+This introductory implementation of a WebSocket schmooze server supports:
+
+- Basic input proof through logging (though no specific checks are exercised in this lesson)
+- Handling client-disconnect upshots by sending programs of new contents to former affiliated users.
+  
+Note that in a output environs, you would need to care more complex scenarios like authentication, proper error-handling, and potentially use a dogged connection rather of broadcasting all informations alterations.

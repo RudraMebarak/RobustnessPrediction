@@ -1,0 +1,65 @@
+```python
+import sqlite3
+import os
+
+class ExperimentRunner:
+    def __init__(self):
+        self.db_path = 'experiments.db'
+        
+        if not os.path.isfile(self.db_path):
+            conn = sqlite3.connect(self.db_path)
+            c = conn.cursor()
+            c.execute('''CREATE TABLE IF NOT EXISTS end_time TIMESTAMP
+            )
+        ''')
+        self.conn.commit()
+
+    def add_experiment(self, config, seed, metrics=None):
+        """Add a new experiment entry."""
+        if metrics is None:
+            metrics = {}
+        
+        data = {'config': str(config), 
+                'seed': seed,
+                'metrics': metrics}
+        
+        query = "INSERT INTO experiments (config, seed, metrics) VALUES (?, ?, ?)"
+        self.c.execute(query, tuple(data.values()))
+        self.conn.commit()
+
+    def get_metrics(self, experiment_id):
+        """Get metrics for a specific experiment."""
+        query = "SELECT * FROM experiments WHERE id=?"
+        self.c.execute(query, (experiment_id,))
+        result = self.c.fetchone()
+        return result[2] if result else {}
+
+    def close_connection(self):
+        """Close the database connection."""
+        self.conn.close()
+
+
+# Example usage:
+
+runner = ExperimentRunner()
+
+# Add some experiments
+runner.add_experiment({'model': 'RNN', 'epochs': 10}, 42, {'loss': 0.5})
+runner.add_experiment({'model': 'LSTM'}, 47, {'accuracy': 0.9})
+
+# Get metrics of an experiment
+print(runner.get_metrics(1))  # Output: {'config':
+        with sqlite3.connect(self.db_path) as conn:
+            cursor = conn.cursor()
+            
+            if run_metrics is not None:
+                run_metrics_str = str(run_metrics)
+                
+                cursor.execute('UPDATE experiments SET run_metrics=? WHERE id=?', (run_metrics_str, run_id))
+            
+            cursor.execute('UPDATE experiments SET end_time=NOW(), run_status=? WHERE id=?',
+                           ('COMPLETED' if run_status else 'RUNNING', run_id))
+
+```
+
+This Python script sets up a SQLite database to store information about different experiments. It includes functions to create the database schema, add new experiments to the database, retrieve the ID of the most recently added experiment, and update results such as metrics and status after running an experiment.

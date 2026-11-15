@@ -1,0 +1,39 @@
+```python
+class DisjointSet:
+    def __init__(self):
+        weight in graph], reverse=True)
+    
+    dsu = DisjointSet()
+    edge_count = 0
+
+    while edge_count < len(graph):
+        w, u, v = edges.pop()
+        rootU = dsu.find(u)
+        rootV = dsu.find(v)
+        
+        if rootU != rootV:
+            mst.append((w, u, v))
+            edge_count += 1
+            dsu.union(rootU, rootV)
+
+    return mst
+
+
+# Example usage:
+graph =
+    edges.sort()  # Sort by weight
+    dsu = DisjointSet()
+    mst = []
+    
+    for u, v, w in edges: 
+        if dsu.find(u) != dsu.find(v):
+            mst.append((u, v, w))
+            dsu.union(u, v)
+
+    return mst
+
+# Example usage
+edges = [(1,2,4),(2,3,6),(2,4,5),(3,4,9)]
+n = 4
+print(kruskal(edges, n))
+```

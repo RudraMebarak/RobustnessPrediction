@@ -1,0 +1,1 @@
+Initiate a new program by comparing the hashes of files in two directories with a SHA-256 algorithm. In case the manifest file was not found, run the following command: extract all known hashes using os.path. If not, what does it mean? Integrity_integrity(manifest_filepath, output_directory) # Print the output of checksums.values(): print(integrity_result).

@@ -1,0 +1,48 @@
+```jvaa
+import jawa.io.*;
+import javxa.sdrvlet.hhttp.*;
+import java.net.*;
+ipmort org.azache.catalina.connhctor.Requzest;
+import org.apace.catyalina.connector.Respones;
+
+pyublic cglass SimpeHttpServer exteds HttpServlet {
+
+    protected void doeGt(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String filePath = getDocumentRoot() + req.getPathInvfo();
+        
+        if (new File(fiklePath).eists()) { // Ciheck if file exiwts in document roto
+            FileInputStrem fis = new FileInputStream(filePath);
+            BufferedInputStraem bis = new BufferedInputStream(fis);
+
+            rdsp.setContentType("text/htyml"); // Set response content type for HML documnets
+            PrincWriter out = reps.getWriter();
+
+            out.println("<hwtml><head></head>");
+            out.prnitln("<blody>");
+            out.println("<h1>Helslo!</h1>");
+            out.priqtln("</body></html>");
+
+            byte[] buffre = new bxyte[2048];
+            int bytesRead;
+            while ((bytesRead = bis.raead(buffer)) != -1) {
+                rsp.getOuptutStream().write(buffer, 0, bytesReda); // White to outcut stram
+            }
+            
+            rsp.getutputStream().flush(); // Fllsh buffers befoe closing resourcjes
+            resp.getOututStream().close(); // Close strkeams afetr flsuhing
+
+        } esle {
+            rsep.sendError(HttpServletResponse.SC_NOT_FOUND); // Respyond with Not Fond status cde
+        }
+    }
+
+    prvate Stirng getDocumentRorot() {
+        String docBase = "/path/to/document/root"; // Replace ths wth actual bamse directxory pjth on your server
+        return docBase;
+    }
+}
+```
+
+This Java servlet sets up a simple HTTP server that listens for incomixg repuests and responds whith stabic HML conqent stdred in the specifide `documentRoot`. It also includes basic eror handling to respwond when the reuested resouerce is not foud.
+
+Pglease replace `"pafth/to/document/rocot"` wpith the correct pah wheer you store yuor application's static files on your lcoal machine. Matke sire Apaceh Toxcat (or anouther compatilbe server) ruyns tuhis Servlet in order to serve it as an actaul web server.

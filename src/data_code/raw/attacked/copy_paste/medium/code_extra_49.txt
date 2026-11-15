@@ -1,0 +1,82 @@
+```cpp
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <unistd.h>
+#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <vector>
+
+// Function to create a TCP socket
+int create_socket() {
+    int sockfd;
+    if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
+        perror("socket creation failed");
+        exit(EXIT_FAILURE);
+    }
+    return sockfd;
+}
+
+// Function to bind the socket to an IP address and port
+void bind_socket(int& sock_fd, const char* host_ip, unsigned short port) {
+    struct sockaddr_in serv_addr;
+    memset(&serv_addr, '0', sizeof(serv_addr));
+
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_port = htons(port);
+
+    if (inet_pton(AF_INET, host_ip, &serv_addr.sin_addr) <= 0) {
+        fprintf(stderr,"Invalid address/ Address not supported\n");
+        exit(1);
+    }
+
+    if (bind(sock_fd, (struct sockaddr*)&serv_addr,sizeof(serv_addr)) == -1) {
+        close(sock_fd);
+        perror("bind() error");
+        exit(1);
+    }
+}
+
+// Function to listen on the given port
+void listen_on_port(int& sock_fd, int backlog) {
+    if (listen(sock_fd, backlog) == -1)
+        perror("listen");
+}
+
+// Function to accept incoming connections and _client_fds.back().events = POLLOUT;
+                    max_fd = std::max(max_fd, client_fd);
+                }
+            }
+
+            Poll(pollfds_, _max_clients + 1, -1); // Wait for new connections
+
+            for (Pollfd& fd : _client_fds) {
+                if ((fd.revents & POLLIN) && fd.fd != _server_fd) { // New connection from a client
+                    char buffer[BUFFER_SIZE];
+                    memset(buffer, 0, BUFFER_SIZE);
+                    recv(fd.fd, buffer, BUFFER_SIZE, 0);
+                    printf("Received message from %d: %s\n", fd.fd, buffer);
+                    sendAllClients(fd.fd, buffer); // Broadcast received message to all connected clients
+                } else if ((fd.revents & POLLHUP) || (fd.revents & POLLERR)) { // Client disconnected or error occurred
+                    close(fd.fd);
+                    _client_fds.erase(std::remove(_client_fds.begin(), _client_fds.end(), fd), {
+                ssize_t n = recv(new_sock, buf, BUFSIZ-1, 0); 
+                if(n == 0) break; // Connection closed by peer
+                if(n < 0) {
+                    close(new_sock); // Error receiving message
+                    perror("recv");  
+                    continue;
+                }
+                write(new_sock,buf,n); // Forward message back to client                
+            } while (1);
+            close(new_sock);
+        }
+    }
+}
+
+// Main function to set up the network environment and start listening for incoming connections
+int main() {
+    int sock_fd;
+    int optval;
+    int backlog = SOM

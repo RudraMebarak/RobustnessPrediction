@@ -1,0 +1,52 @@
+```jsx
+import React from 'react';
+import moment from 'moment';
+
+class Calendar extends React.Component {
+  state = {
+    year: new Date().getFullYear(),
+    monthIndex: new Date().getMonth(), // Current month index (0-based)
+    selectedDate: new Date()
+  };
+
+  handlePreviousMonth = () => {
+    this.setState((state) => ({
+      monthIndex: state.monthIndex - 1 >= 0 ? state.monthIndex - 1 : 11,
+      selectedDate: new Date(state.year, state.monthIndex - 1)
+    }));
+  };
+
+  handleNextMonth = () => {
+    this.setState((state) => ({
+      monthIndex: state.monthIndex + 1 <= 11 ? state.monthIndex + 1 : 0,
+      selectedDate: new Date(state.year, state.monthIndex)
+    }));
+  };
+
+  render() {
+    const { year, monthIndex } = this.state;
+
+    return (
+      <div>
+        <h2>{new Date(year, monthIndex).toLocaleString('default', { month: 'short' })}</h2>
+        <button onClick={this.handlePreviousMonth}>Previous Month</button>
+        <button onClick={this.handleNextMonth}>Next Month</button>
+
+        {/* Months are rendered in an unordered list */}
+        <ul>
+          {Array.from({ length: 6 }, (_, i) => i % 2 === 0 ? null : (<li key={i} className="month-item">
+            <p>{new Date(year, monthIndex + (i / 2), 1).toLocaleDateString('default', { day: 'numeric' })}
+              {' - '}
+              {new Date(year, monthIndex + (i / 2), new Date(year, monthIndex + (i / 2), 32)).toLocaleDateString('default', { day: 'numeric' })}
+            </p>
+          </li>))}
+        </ul>
+      </div>
+    );
+  }
+}
+
+export default Calendar;
+```
+
+This React component `Calendar` creates a simple monthly grid where you can select dates with event markers. It utilizes `useState` for managing the current date's year, month index, and selected date. The user can navigate between months through buttons, and the grid is dynamically rendered based on the current view month's days. Each row in the grid represents two weeks of days, with even indices being blank to represent gaps between full months.

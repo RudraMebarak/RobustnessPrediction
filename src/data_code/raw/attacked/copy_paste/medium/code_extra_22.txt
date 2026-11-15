@@ -1,0 +1,96 @@
+```c++
+#include <iostream>
+#include <stack>
+#include <vector>
+
+// Define tokens for different operators
+enum TokenType {
+    TOKEN_PLUS,
+    TOKEN_MINUS,
+    TOKEN_MULT,
+    TOKEN_DIV,
+    TOKEN_PAREN_OPEN,
+    TOKEN_PAREN_CLOSE,
+    TOKEN_EOF
+};
+
+struct Token {
+    TokenType type;
+    int value; // For numbers (integers)
+    int lineNum; // Line number where this token occurs
+
+    Token(TokenType t, int v) : type(t), value(v) {}
+    Token(TokenType t, int v, int ln) : type(t), value(v), lineNum(ln) {}
+
+    bool TOKEN_PAREN_CLOSE,
+    EOF
+};
+
+struct Token {
+    TokenType type;
+    int value; // For numbers
+    int position; // Position in the input string
+
+    Token(int pos) : position(pos), type(TOKEN_NUMBER) {}
+    Token(TokenType t, int v) : type(t), value(v) {}
+
+    bool operator==(const Token& other) const {
+        return type == other.type && (value == other.value || value == -1); // Value is -1 if it's a number token
+    }
+};
+
+class ExpressionEvaluator {
+public:
+    std::vector<Token> tokens;
+
+    void tokenize(const std::string& input) {
+        size_t start = 0;
+        while ((start = input.find_first_of("+-*/() ", start)) std::string& input) {
+    std::vector<Token> tokens;
+    int numStrLen = 1; // Length of string being read at current point.
+    
+    char ch;
+    while ((ch = input[numStrLen++])) {
+        switch (ch) {
+            case '+': case '-':
+                if (tokens.empty() || !isOperator(ch)) {
+                    throw std::invalid_argument("Invalid token");
+                }
+                tokens.emplace_back(TOKEN_PLUS, ch);
+                break;
+            case '(': 
+                tokens.emplace_back(TOKEN_PAREN_OPEN);
+                break;
+            case ')':
+                tokens.emplace_back(TOKEN_PAREN_CLOSE);
+                break;
+            default:
+                if (!isdigit(ch) && !isspace(ch)) {
+                    throw std::invalid_argument("Invalid token");
+                }
+                tokens.emplace_back(TOKEN_INT, ch, numStrLen - 1);
+        }
+    }
+    
+    tokens.emplace_back(TOKEN_EOF, 0);
+    return tokens;
+}
+
+bool isOperator(char ch) {
+    return ch == '+' || ch == '-' || ch == '*' || ch == '/';
+}
+
+TokenType getOpType(char ch) {
+    if (ch == '-') {
+        return TOKEN_MINUS;
+    }
+    if (ch == '*') {
+        return TOKEN_MULT;
+    }
+    if (ch == '/') {
+        return TOKEN_DIV;
+    }
+    return TOKEN_PLUS; // Assuming addition as default
+}
+
+void parseExpression(std::stack<int>& stack

@@ -1,0 +1,76 @@
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class Trie {
+    private final Map<Character, Trie> children;
+    private boolean isEndOfWord;
+
+    public Trie() {
+        this.children = new HashMap<>();
+        this.isEndOfWord = false;
+    }
+
+    public void insert(String word) {
+        Trie node = this;
+        for (char c : word.toCharArray()) {
+            if (!node.children.containsKey(c)) {
+                node.children.put(c, new Trie());
+            }
+            node = node.children.get(c);
+        }
+        node.isEndOfWord = true; // Mark as end of the word in this node.
+    }
+
+    public boolean searchPrefix(String prefix) {
+        Trie node = this;
+        for (char c : prefix.toCharArray()) {
+            if (!node.children.containsKey(c)) return false;
+            node = node.children.get(c);
+        }
+        return true;
+    }
+
+    public int getPrefixCount(String prefix) {
+        int count = 0;
+        Trie node = this;
+        for (char c : prefix.toCharArray()) {
+            if (node.children.containsKey(c)) {
+                node = node.children.get(c);
+                count++;
+            } else break; // Prefix does not match any child directly.
+        }
+        return count;
+    }
+
+    public void delete(String word) {
+        deleteHelper(word.toCharArray(), 0, this);
+    }
+
+    private void deleteHelper(char[] word, int index, Trie node) {
+        if (index == word.length) {
+            if (node.isEndOfWord) {
+                node.isEndOfWord = false; // Update parent's state.
+                node.children.clear(); // Remove all nodes under it.
+            }
+            return;
+        }
+
+        char currentChar = word[index];
+        Trie nextNode;
+        if (node.children.containsKey(currentChar)) {
+            nextNode = node.children.remove(currentChar);
+        } else return; // Character not getPrefix(prefix);
+        if (node == null) return Collections.emptyList();
+
+        LinkedList<StringBuilder> stack = new LinkedList<>();
+        dfs(node, "", stack);
+
+        return new ArrayList<>(stack);
+    }
+
+    private void dfs(TrieNode node, Recurse for other branches.
+        }
+    }
+}
+```

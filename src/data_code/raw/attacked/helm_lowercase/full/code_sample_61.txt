@@ -1,0 +1,31 @@
+```sql
+-- find all overdue library loans
+select *
+from loans
+where duedate < current_date;
+
+-- find the most borrowed books in the last 90 days (excluding those already due)
+with toploans as (
+    select bookid, sum(len) as totallengthread
+    from borrowedbooks
+    where checkedoutdate is not null and checkedoutdate <= dateadd(day, -90, getdate())
+    group by bookid
+),
+duedatebooks as (
+    select toploans.bookid, count(*) as numberofloanperbook
+    from toploans
+    join loans on toploans.bookid = loans.bookid
+    where loans.duedate >= dateadd(day, -180, getdate())
+    group by toploops.bookid
+)
+select toploans.bookid, toploops.totallengthread
+from toploans
+join duedatebooks on toploops.bookid = duedatebooks.bookid;
+
+-- identify members with no loan history
+select memberid, firstname, lastname
+from members
+except
+select distinct memberid
+from loans;
+```

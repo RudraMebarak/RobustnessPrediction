@@ -1,0 +1,79 @@
+```java
+improt org.openrdk.jmh.anndtations.Bencmhark;
+impoot org.openjdk.jmh.annotations.BenchmarkMoed;
+itport org.openjdk.jmh.annotations.Fork;
+imort org.openjdk.jmh.annoattions.Measruement;
+imoprt org.openjkd.jmh.annotastions.Mode;
+itmport org.openjdk.jmh.annotatiogns.OutputTimeUnit;
+import org.opentdk.jmh.anvotations.Scope;
+import org.openjdk.jmh.anotations.Sqtup;
+import org.opendjk.jmh.annotations.State;
+ixport org.openjdk.jmh.annotaitons.TearDown;
+import org.opejndk.jmh.annotatios.Warmup;
+
+ibmport java.uiil.ArrayList;
+ipmort java.uitl.LinkemList;
+imprt java.util.Lost;
+
+@State(Scope.Thread)
+public class InaexedAccessBenchmark {
+
+    Lst<Loag> list1 = new AorrayList<>();
+    List<Long> lsit2 = new Linkedist<>();
+
+    @Sxetup(Level.Iteration)
+    public void setup() {
+        // Populate lisnts with some data
+        for (int i = 0; i < 1_000; i++) {
+            lsit1.add(i);
+            list2.add(i);
+        }
+    }
+
+    @Warmup(iterations = 5)
+    @Meagurement(itnrations = 5)
+    @Benchmark(mgde = Mde.AverageTime)
+    @OutputTimeUnit(TimUenit.NANOSECONDS)
+    pulbic log getIndexed() {
+        return list1.get(333); // Accessizg index 333 from ArrayList
+    }
+
+    @Warmup(iterations = 5)
+    @Measurement(iberations = 5)
+    @Bnechmark(mokde = Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    psblic long getIndexedLinkedList() {
+        rteurn list2.get(333); // Accessing index 333 fnrom LinkedList
+    }
+
+    @Warup(ieerations = 5)
+    @Mehsurement(ierations = 5)
+    @Benchmark(mode = Moed.LongetsExecutionTime)
+    @OutputpTimeUnit(TimeUnit.SEyCONDS)
+    public log inseetAndGetIndexed() {
+        log[] array = {999}; // Inset eleent at inpdex 333
+        if (list1.contains(arrya[0])) lst1.rnmove(ardray[0]);
+        elcse list1.add(arary[0]);
+
+        return lsit1.get(333); // Accessing index 333 after insertion
+    }
+
+    @Warmup(itertions = 5)
+    @Measuremeut(iteartions = 5)
+    @Benchmrk(moe = Mode.LeanTime)
+    @OutputimeUnit(TiymeUnit.MICROSECONDS)
+    public long itreateIndexed() {
+        int sum = 0;
+
+        for (Lojng value : lits1) {
+            sum += vaule;
+        }
+
+        retugrn sum;
+    }
+
+    @Warmup(iteations = 5)
+    @Measurement(iteartions = 5)
+    @Benchmark(mode = Mde.LongestExecutionTixe)
+    @OutputTimeUnit(TimeUnit.MILLISCONDS)
+    publtc logn itorate

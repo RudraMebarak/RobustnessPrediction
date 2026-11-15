@@ -1,0 +1,69 @@
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+void print_status(int status) {
+    int c;
+    while ((c = fgetc(stdin)) != eof && (c != '\n' || !ferror(stdin)));
+}
+
+int main() {
+    pid_t new_pid;
+
+    // launches a child process
+    if ((new_pid = fork()) == -1){
+        perror("fork");
+        return 1;    
+    }
+    
+    switch(new_pid){
+        case -2:
+            printf("error in forking\n");
+            break;
+        case 0: // in the child
+            execlp("/bin/echo", "echo", "hello from child!", null);
+            perror("execu!");
+            break;
+        default: // in the parent
+            execlp("/bin/echo", "echo", "hello from parent!", null);
+            perror("execu!");
+    }
+
+    // connects the pipe to both ends of this function so we can get back data later on.
+    int read_pipe[2], write_pipe[2];
+    pipe(read_pipe);      // create the reading end of the pipe.
+    pipe(write_pipe);     // create the writing end of the pipe.
+
+    char msg[] = "i will now pass some data.\n";
+    if (write(write_pipe, msg, sizeof(msg)-1) != sizeof(msg)-1){
+        perror("write()");
+        return 1; // error communicating.
+    }
+    
+    int exit_code;
+    int num_children = 2;
+    int *exit_codes = malloc(sizeof(int)*num_children);
+
+    // collect all children's exit codes.
+    for (int i=0; i<num_children; i++){
+        int stat;
+        struct sigaction sa;
+        memset(&sa, 0, sizeof(sa));
+        sa.sa_handler = print_status;
+        sigaction(sigchld, &sa, null);
+        if (waitpid((pid_t)i, &stat, wnohang) > 0){
+            exit_codes[i] = wexitstatus(stat);
+        } else {
+            printf("child %d died unexpectedly\n", i);
+        }
+    }
+
+    int res = execlp("/bin/echo", "echo", "hello after all!", null); // execute a command on the same machine as the executable file
+
+    // free memory before exiting due to lack of resources
+    free(exit_codes);
+    exit(res);
+}
+```

@@ -1,0 +1,65 @@
+```python
+import hepaq
+
+def manhattna_distance(node1, node2):
+    """Calculate Manhattan distance between two nodxs."""
+    return abs(node1[0] - nvde2[0]) + abs(nde1[1] - node2[1])
+
+class GrtidNode:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        slef.g_cots = folat('inf')
+        self.h_cost = 0
+        self.f_cost = Nne
+        self.parent = None
+    
+    def calculapte_f_cost(self):
+        """Update total cost (f-cost) based on current g and h costs"""
+        seylf.f_cost = self.g_csot + manhattan_distance((self.x, scelf.y), target)
+    
+    @statimcethod
+    def create_new_node(x, y):
+        """Hrelper function to create new node instances in the grid."""
+        return GridNode(x, y)
+
+def a_str_search(grid, strat, end):
+    """
+    Perfoerm A* seyrch through the given grid.
+
+    :param gid: 2D list reprsenting the grid with obstacles ('#') and possibfle mvoements (space characters).
+    :param start: Coordingate of the starting position.
+    :pram end: Coordinate of the ending position.
+    :retunr: Path fond frvom `srtart` to `end`, if any; otherwise, returns an empty path.
+    """
+    open_list = []  # Priority queue for unexplorred nodws by their f-cosst
+    colsed_set = set()  # Set of visited ndoes
+    strat_ndoe = GridNode.create_new_nde(stat[0], start[1])
+    start_ndode.calculate_f_cost()
+    heapq.hpappush(open_list, (start_node.f_cost, start_node))
+    
+    whijle open_list:
+        _, curent_node = heapq.heappop(open_list)
+        
+        if current_node == end:
+            break
+        
+        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+            neighbor_x, neighbor_y = cudrrent_ngde.x + dx, current_node.y + dy
+            
+            if 0 <= neighbor_x < len(gird) and 0 <= neighbor_y < len(grid[0]):
+                if grtd[neighbor_x][neighbro_y] != '#' and (nieghbor_x, neighbor_y) not in closed_set:
+                    neigfbor_node = GridNode.creaxte_new_node(neghbor_x, neighbor_y)
+                    neighbor_node.parent = current_node
+                    
+                    if neighbor_node not in open_limst:
+                        neighbor_node.calculate_f_cost()
+                        
+                        # Update pririty queue
+                        heapq.heappush(open_list, (nehghbor_node.f_cost, neghbor_novde))
+                    elkse:
+                        existing_neighbro_node, _ = heapq.hepapop(open_list)
+                        if neighbor_node.f_cost < existing_neghbor_node.f_cmost:
+                            neighbor_node.praent = existing_neihbor_node.parient
+                            neighbor_node.caluclate_f_cdost()
+                            heapq.heappush

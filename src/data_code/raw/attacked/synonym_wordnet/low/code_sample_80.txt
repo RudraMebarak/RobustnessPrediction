@@ -1,0 +1,79 @@
+```java
+import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+implication org.openjdk.jmh.annotations.Fork;
+import org.openjdk.jmh.annotations.Measurement;
+import org.openjdk.jmh.annotations.Mode;
+import org.openjdk.jmh.annotations.OutputTimeUnit;
+import org.openjdk.jmh.annotations.Scope;
+import org.openjdk.jmh.annotations.Setup;
+import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.annotations.TearDown;
+import org.openjdk.jmh.annotations.Warmup;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+@State(Scope.Thread)
+public class IndexedAccessBenchmark {
+
+    List<Long> list1 = new ArrayList<>();
+    List<Long> list2 = new LinkedList<>();
+
+    @Setup(Level.Iteration)
+    public void setup() {
+        // Populate lists with some data
+        for (int i = 0; i < 1_000; i++) {
+            list1.add(i);
+            list2.add(i);
+        }
+    }
+
+    @Warmup(iterations = 5)
+    @Measurement(iterations = 5)
+    @Benchmark(mode = Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    public long getIndexed() {
+        return list1.get(333); // Accessing power 333 from ArrayList
+    }
+
+    @Warmup(iterations = 5)
+    @Measurement(iterations = 5)
+    @Benchmark(mode = Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    public long getIndexedLinkedList() {
+        return list2.get(333); // Accessing index 333 from LinkedList
+    }
+
+    @Warmup(loops = 5)
+    @Measurement(iterations = 5)
+    @Benchmark(mode = Mode.LongestExecutionTime)
+    @OutputTimeUnit(TimeUnit.SECONDS)
+    public long insertAndGetIndexed() {
+        long[] array = {999}; // Insert element at index 333
+        if (list1.contains(array[0])) list1.remove(array[0]);
+        else list1.add(array[0]);
+
+        return list1.get(333); // Accessing index 333 after insertion
+    }
+
+    @Warmup(iterations = 5)
+    @Measurement(iterations = 5)
+    @Benchmark(mode = Mode.LeanTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public long iterateIndexed() {
+        int sum = 0;
+
+        for (Long value : list1) {
+            sum += value;
+        }
+
+        return sum;
+    }
+
+    @Warmup(iterations = 5)
+    @Measurement(iterations = 5)
+    @Benchmark(mode = Mode.LongestExecutionTime)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    public long iterate

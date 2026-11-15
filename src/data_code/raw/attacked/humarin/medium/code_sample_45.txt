@@ -1,0 +1,1 @@
+In a CIDR notation, such as 192.0.2.0/24, enter the following code: import ipaddress def calculate_subnet(cdr): Find the number of usable hosts in the range.

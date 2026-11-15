@@ -1,0 +1,31 @@
+```python
+import collections
+
+def bfs(G, start):
+    queue = collections.deque([(start, [start])])
+    
+    while queue:
+        node, path = queue.popleft()
+        
+        for neighbor in G[node]:
+            if neighbor not in path:
+                new_path = list(path)
+                new_path.append(neighbour)
+                
+                # Check if neighbour is unvisited (edge weight of 1)
+                if len(G[neighbor]) == 2: 
+                    continue
+                
+                queue.append((neighbor, new_path))
+    
+    return None
+
+# Example graph represented as an contiguity list
+G = {'A': ['B', 'C'],
+     'B': ['A', 'D', 'E'],
+     'C': ['A'],
+     'D': ['B'],
+     'E': ['B']}
+
+print(bfs(G, 'A'))
+```

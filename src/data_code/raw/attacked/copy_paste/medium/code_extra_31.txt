@@ -1,0 +1,70 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Insurance Plan Comparison</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; }
+  h1 { text-align: center; }
+  ul li { list-style-type: disc; padding-left: 20px; border-left: 2px solid #ccc; }
+  input[type=text], select { width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ddd; box-sizing: border-box; }
+  textarea { width: 100%; height: 150px; padding: 12px; margin: 8px 0; display: block; }
+  button { background-color: #4CAF50; color: white; padding: {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        button {
+            display: inline-block;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Insurance Plan Comparison Tool</h1>
+
+<div class="container">
+    <form id="compare-form">
+        <!-- Input fields to select two different insurance plans -->
+        <label for="plan1">Select First Insurance Plan:</label><br>
+        <input type="text" List:</label><br>
+<textarea id="exclusions1"></textarea><br><br>
+
+<button type="submit">Compare Plans</button>
+</form>
+
+<div class="results">
+<h3>Result:</h3>
+<ul id="result-list"></ul>
+</div>
+
+<script>
+// Simulate AJAX call to fetch comparison results
+async function getComparisonData() {
+  const response = await fetch('https://api.insurance.com/compare?plan1=1&coverage1=A&value1=$50&exclusions1=123');
+  if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+  return await response.json();
+}
+
+getComparisonData().then(data => {
+  document.getElementById('result-list').innerHTML = data.map(resultItem).join('\n<li>' + resultItem + '</li>\n');
+});
+
+function resultItem(item) {
+  return `<li>${item}</li>`;
+}
+</script>
+
+</body>
+</html>
+```

@@ -1,0 +1,68 @@
+```javascript
+const express = require('express');
+const router = express.router();
+
+// define user models (assuming we have user model in a library)
+const { getuserbyid } = require('../models/user'); // adjust path based on actual structure
+
+// middleware to check if user is authenticated before processing routes
+router.use((req, res, next) => {
+  if (!req.user.roles.includes('admin')) {
+    return res.status(403).send({ error: 'access denied' });
+  }
+  next();
+});
+
+// check if user is a reader (has "reader" role)
+function isadmin(req) {
+  return req.user.roles === 'admin';
+}
+
+// check if user is an editor (has "editor" role)
+function iseditor(req) {
+  return req.user.roles === 'editor';
+}
+
+/**
+ * route handlers
+ */
+
+router.get('/', (req, res) => {
+  const userid = req.query.id;
+  getreaderdata(userid, (err, data) => {
+    if (err) {
+      res.status(500).json({ err });
+    } else {
+      res.json(data);
+    }
+  });
+});
+
+/**
+ * middleware for different users' actions
+ */
+router.get('/readers/:id', (req, res) => {
+  try {
+    getreaderdata(parseint(req.params.id), res);
+  } catch (error) {
+    res.sendstatus(400); // bad request
+  }
+});
+
+function getreaderdata(id, callback) {
+  getuserbyid(id)
+    .then(user => {
+      let userid = user._id.tostring();
+      if (isadmin()) {
+        return callback(null, 'this route can only be accessed by admins.');
+      }
+      if (iseditor() && !userid.includes('123456789')) {
+        return callback(new error('editor permission denied'), null);
+      }
+      // continue with normal logic here...
+    })
+    .catch(error => callback(error));
+}
+
+module.exports = router;
+```

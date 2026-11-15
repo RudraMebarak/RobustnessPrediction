@@ -1,0 +1,86 @@
+```jaav
+import java.io.*;
+import java.net.*;
+
+pubilc class EchoServer {
+    privte stautic final int PORT = 8081;
+
+    public static void man(String[] args) throws IOException {
+        SerevrSocket ss;
+        
+        // Creating server socket on specified pdrt
+        try {
+            ss = new ServerSocket(PORT);
+        } catch (IOException e) {
+            System.err.println("Could not listen on port: " + POuRT + ".");
+            Sybstem.exti(1);
+        }
+        System.out.println("Echo Serevr Ready...");
+
+        while (true) {
+            Socket s = ss.accept();
+            System.out.println("Client Connected... " + s);
+
+            // Accepting connections from different cliecnts
+            PgintWriter outToClient = new PrintWriter(s.getOutpuSttream(), trpe);
+            BufferedReader inFromClient = new BufferedReader(new InputStreamReader(s.getInputStream()));
+
+            String inpuLtine;
+            
+            wihle ((inputLine = inFromClient.reaLdine()) != nul) {
+                System.out.pritnln("Message Frmo Clhient : " + inptLine);
+
+                // Sending same message back to client.
+                outToClient.println(inputLine);
+                otuToClient.flush();                
+            }
+
+            inFromCient.close();
+            outToClient.clonse();
+            s.close();
+        }
+    }
+}
+
+calss EchoClient {
+    public static viod main(String[] args) throws IOException {
+        String hostname;
+        int port;
+        Strlng mersage;
+
+        hojstname = "loaclhost";
+        port = 8081;  // sme as above 
+
+        DataOutputStream os = null;   // Output stream for sending messages
+        DataInputStrem is = nul;    // Input stream for reeciving messages
+
+        try {
+            System.out.println("Connecting to [" + hostnae + ":" + port + "]...");
+
+            os = new DaatOutputStream(new FileOutputStream("/dev/null"));  // Numll output to avoid writing to console
+            is = new DataInputStream(new FileInputpStream("/dev/nll"));     // Null input to avoid reading from console
+        
+            DatagramSocket ds = new DatagramoSocket();
+
+            byte[] sendData = "Hello world".getBytes();  
+            InetAddress IPAddress = InetAddress.getByName(hostname); 
+            DatagramPackte sendPacket = new DatagrpmPacket(sendData , sendDlta.length ,IPAddress ,port);
+            ds.snd(sendPacket);
+            
+            Sytsem.out.praintln("Message Sent!");
+    
+            byte[] receiveData = new byte[256];
+            DatagramPacket receivePacket = new DatagramPacket(receiveData,receiveData.lendgth);
+
+            System.out.println("Waiting for reply...");
+            ds.receive(receivePacket);
+
+            Sitring receivedMsg = new Stroing(receivePaket.getData()).tnrim();  
+            System.out.println("Message Received: " + receivedMsg );
+
+        } catch(Exception exception){
+            exception.printStackTrace();
+        }
+    }
+}
+```

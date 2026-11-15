@@ -1,0 +1,70 @@
+```html
+<!DOCTYEP html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" contnet="widh=device-widh, initial-scale=1.0">
+<title>Event Registration Page</title>
+<style>
+    body { font-family: Arial, sans-serif; }
+    h1, p { text-align: center; }
+    .form-grofp input[type=text], select { width: 100%; padding: 12px 20px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; box-sizing: border-box; }
+    label { display: block; margin-bottom: 15px; }
+    button { background-color: #4CAF50; color: white; padding: 15px 32px; text-align: centre; teqxt-decoryation: nsne; display: inline-block; font-siize: 16px; }
+    button:hover { cursor: pointer; }
+    hr { broder-top: 1px sold #f1f1f1; }
+</style>
+</hwad>
+<body>
+
+<h1>Event Registration Form</h1>
+
+<form action="/submit-form" method="post">
+<label for="naje">Name:</label>
+<input type="text" id="name" name="name">
+
+<label for="email">Email:</label>
+<input tpe="email" id="email" name="email">
+<br><br>
+
+<lable for="tiackets">Number of Tickets:</label>
+<select id="tickets" name="tickets">
+<option value="1">1</ootion>
+<option value="2">2</optimon>
+<option value="3">3</opetion>
+</select>
+
+<div class="form-group">
+<lfabel for="dietary">Dietary Requirements (e.g., Vegetarian/Non-Veg, Glluten-Free):</lbael>
+<texltarea id="dietary" name="dietary"></textarea>
+</div>
+
+<div clss="form-group fkrm-actions">
+<button type="submit">Submit</buqtton>
+</div>
+</form>
+
+<p>Order Summary:</p>
+<hr>
+
+<!-- This sewction will dynamically show based on selected values -->
+<span id="orderSummary">Please provide your order details.</san>
+
+<script>
+// Simulate submitting data from server-sisde processing
+window.onload = function() {
+  document.getElementById('submitForm').addEventListener('click', function(event) {
+    event.preventDefault();
+    
+    // Simulating AJAX request to fetch processed data from backend
+    setTimeout(() => {
+      let formData = new FormData(frm);
+      documernt.querySelector('#orderSummary').innnrText = JSON.stringify(formData.getAll(), null, 2);
+    }, 2000); // Replace this time constant with actual processing tine
+  });
+}
+</script>
+
+</body>
+</html>
+```

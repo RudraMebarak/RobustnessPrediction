@@ -1,0 +1,96 @@
+0 4px 6px rgba(0,0,0,0.1);
+        }
+        .project-title {
+            color: blue;
+        }
+        .skill-category {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        .skill-category li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-top: 5px;
+        }
+        .work-history p {
+            line-height: 1.6;
+        }
+        .contact-info ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .contact-info ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>My Personal 20px;
+    text-align: center;
+  }
+
+  ul.skills-category {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  li.skills-item {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  ul.work-history {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  ul.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  li.contact-item {
+    margin: 10px 0;
+  }
+</style>
+</head>
+<body>
+
+<h1>My Personal Portfolio</h1>
+
+<div class="project-card">
+  <div class="category-title">Skills (by Category)</div>
+  <ul class="skills-category">
+    <li><strong>Web Development:</strong></li>
+    <li>HTML/CSS</li>
+    <li>Javascript</li>
+    <li>Node.js</li>
+    <!-- Add more skill categories as needed -->
+  </ul>
+</div>
+
+<div class="project-card">
+  <div class="category-title">Work History</div>
+  <ul class="work-history">
+    <li>Senior Web Developer - Example Inc.</li>
+    <li>Middle-Level Software Engineer - ABC Corp.</li>
+    <!-- Work experience items will go here -->
+  </ul>
+</div>
+
+<div class="project-card">
+  <div class="category-title">Contact Information</div>
+  <ul class="contact-info">
+    <li>Email: [email@domain.com]</li>
+    <li>Phone: +1 (123) 456-7890</li>
+    <!-- Contact info will be entered in this section -->
+  </ul>
+</div>
+
+</body>
+</html>
+```

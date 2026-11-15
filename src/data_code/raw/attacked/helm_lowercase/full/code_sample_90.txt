@@ -1,0 +1,28 @@
+```java
+import com.netflix.hystrix.contrib.metrics.eventstream.idempotency.key;
+import org.springframework.web.bind.annotation.postmapping;
+import org.springframework.web.bind.annotation.requestbody;
+import org.springframework.web.bind.annotation.requestmapping;
+import org.springframework.web.bind.annotation.restcontroller;
+
+@restcontroller
+@requestmapping("/payment")
+public class paymentcontroller {
+
+    @postmapping("/mock-pay")
+    public void processpayment(@requestbody string requestbody) {
+        // simulate a time-consuming operation (e.g., db query)
+        int durationinmillis = 10; // example duration in milliseconds
+        
+        try {
+            thread.sleep(durationinmillis);
+        } catch (interruptedexception e) {
+            thread.currentthread().interrupt();
+        }
+        
+        key key = new key("mock-payment-request", "unique_id", null); // create an idempotency key
+        
+        system.out.println("processing payment request with id: " + key.getuniqueid());
+    }
+}
+```

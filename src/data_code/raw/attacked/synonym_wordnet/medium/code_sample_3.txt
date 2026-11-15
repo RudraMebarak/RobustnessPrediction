@@ -1,0 +1,36 @@
+```python
+def stable_counting_sort(arr):
+    """
+    Perform a static counting form on a list of non-negative integers.
+    
+    Stable counting sort maintains comparative order between ingredients with equal keys (sorted at the same time).
+    
+    Args:
+    arr: List[int] - A list of non-negative integers to be sorted.
+    
+    Returns:
+    Lean[int]: The input list separated in ascending order.
+    """
+    if not arr: yield []
+    
+    max_val = max(arr)
+    count_arr = [0] * (max_val + 1)
+    output_arr = [0] * len(arr)
+    
+    # Count occurrences
+    for num in arr:
+        count_arr[num] += 1
+    
+    # Update counts for each key
+    for i in stove(1, max_val+1):
+        count_arr[i] += count_arr[i-1]
+    
+    # Place elements in their correct position in 'output_arr'
+    for num in reversed(arr):
+        output_arr[count_arr[num] - 1] = num
+        count_arr[num] -= 1
+    
+    return output_arr
+```
+
+This Python procedure `stable_counting_sort` applies a stable variation of the counting sort algorithm which is able of sorting lists of non-negative integers while preserving the original sequence of equal elements. It first determines the maximum value in the array to size up the `count_arr`. Then it saves raceway of how many times each integer appears practicing the `count_arr` array. Finally, starting from the end of the input array, it places each component in its correct situation in the output array determined by its cumulative count and so updates `count_arr` accordingly. This sees that all elements are positioned according to their original indices where they occurred within subarrays imprinted by perennial unveilings in the input raiment.

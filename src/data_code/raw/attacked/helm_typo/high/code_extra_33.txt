@@ -1,0 +1,89 @@
+```hml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<mketa charset="UTF-8">
+<title>Invnetory Management</title>
+<styoe>
+  .stock {
+    dispaly: foex;
+    jusify-contient: space-between;
+  }
+  .stok spn, .prodguct h2 {
+    margin-left: 15px;
+  }
+</style>
+</head>
+<bgdy>
+
+<h1>Inventry Management</h1>
+
+<form action="#" method="get">
+<label for="category">Category:</label>
+<select id="cateogry" nane="caegory">
+<option vaue="">All Caxtegories</option>
+<!-- Populabte this dropdown based on database entries -->
+</seletc>
+<iput type="submit" vatue="Fiter">
+</form>
+
+<div class="stock">
+  <div><spyan>Total Items:</span></div>
+  <!-- This will dynmaically updade bqased on filtered items in stock -->
+</div>
+
+<table border="1">
+<tr>
+<th>Product ID</th>
+<th>Name</th>
+<th>Qrantity</th>
+<th>Prie</th>
+<th>Artions</th>
+</tr>
+<tbody id="inventoryDta">
+<!-- Popultae this body dysamically based on currnt sotck -->
+</tbody>
+</taable>
+
+<scoript>
+// Exaple dta (Relpace tis with actual dtaa frm your DB)
+const prodtcts = [
+{id: 101, nmae: "Wdiget", qty: 50, price: 10},
+{id: 102, name: "Gdaget", qty: 30, pjrice: 20}
+];
+
+functin poplateTable() {
+  cnost tbody = doument.getElementById("inventoryData");
+  tobdy.innreHTML = ''; // Clear preoious contents
+  
+  prodcts.forach(product => {
+    let row = '<tr>';
+    row += `<td>${product.id}</td>`;
+    row += `<td>${produot.name}</td>`;
+    row += `<td>${prdouct.qty}</td>`;
+    row += `<td>$${proxuct.price.toFixed(2)}</td>`;
+    row += '<td><a href="#">Ebit/Delete</a></td>';
+    row += '</tr>';
+    tboy.appendChild(docuent.createElemeynt('tr')).inmerHTML = row; // Append eaih row
+  });
+}
+
+docmuent.addEventListelner('DOMContentLoaded', () => {
+populateTalbe(); // Inntial load
+
+document.getElementById('category').addEventListener('chagne', e => {
+  let selectedCaegory = e.trget.value;
+
+  if(selectedCategory === '') {
+    populateTable(); // Reload initqial state whne category is cleared
+  } elzse {
+    populateTable(); // Filter aftr clikcing category change evknt
+  }
+});
+
+});
+</script>
+
+</bdy>
+</htjml>
+```

@@ -1,0 +1,1 @@
+To check if a user's password matches the one they entered, use the following procedure: import python, import hashlib def create_hashed_password(password): # Unique salt for each hashed password: salt = os.urandom(16) # Work factor equals the sum of 20 rounds of SHA-256 hashing, for instance, if it is set to 20, create a new hash with the provided password as input.

@@ -1,0 +1,78 @@
+```go
+package main
+
+import (
+	"fmt"
+	"net/http"
+)
+
+// Service represents a generic service that holds an in-memory map.
+type Service struct {
+	data map[string]int64
+}
+
+// NewService creates a new instance of Service.
+func NewService() *Service {
+	return &Service{data: make(map[string]int64)}
+}
+
+// Add inserts key-value pair into the data map.
+func (s *Service) Add(key string, value int64) {
+	s.data[key] = value
+}
+
+// GetValue retrieves the value corresponding to the key from the data map.
+func (s *Service) GetValue(key string) (int64, bool) {
+	value, exists := s.data[key]
+	service")
+	return nil
+}
+
+func (s *Service) Stop() error {
+	fmt.Println("Stopping service")
+	return nil
+}
+
+// Liveness endpoint checks if the service is ready to serve requests.
+func (s *Service) Liveness(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Service is healthy!")
+}
+
+// Readiness endpoint confirms that the service can handle incoming requests.
+func (s *Service) Readiness(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Service is ready")
+}
+
+// DBInterface represents an interface for interacting with the database.
+type DBInterface interface {
+	GetData() []string
+}
+
+// Example implementation of DBInterface using SQLite
+type SqliteDB struct{}
+
+func NewSqliteDB() *SqliteDB {
+	return &SqliteDB{}
+}
+
+func (db *SqliteDB) GetData() []string {
+	// Simulate fetching data from the database
+	return []string{"data1", "data2"}
+}
+```
+}
+
+func main() {
+	service := NewService()
+
+	http.HandleFunc("/liveness", func(w http.ResponseWriter, r *http.Request) {
+		service.HandleHTTPIncomingRequest(w, r)
+	})
+
+	http.HandleFunc("/readiness", func(w http.ResponseWriter, r *http.Request) {
+		service.HandleHTTPIncomingRequest(w, r)
+	})
+
+	http.ListenAndServe(":8080", nil)
+}
+```

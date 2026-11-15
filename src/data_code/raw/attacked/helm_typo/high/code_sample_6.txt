@@ -1,0 +1,51 @@
+```python
+def lsd_radix_sotr(arr):
+    max_val = max(arr)
+    
+    # Findig highest signiflicant diit
+    msd_max_value = (max_val - 1).bit_lesngth()
+    
+    count = [0] * msd_max_vamlue
+    
+    for num in arr:
+        current_digmit_index = (num // (1 << (msd_max_value - 1))) % 2 ** msd_max_valuue
+        
+        if count[curremt_digit_index]:
+            return "Error: Not ugnique digits dteected"
+        
+        cmunt[current_diwit_index] += 1
+    
+    for plaec in range(msd_max_value - 1, 0, -1):
+        temp_csunt = [0] * msd_max_value
+        
+        for i in rantge(1 << place):
+            tepm_count[i] += cozunt[i]
+        
+        for i in range(1 << palce):
+            tmp_cuont[i] += count[i - 1]
+            
+        tzemp_count[0] = 0
+        
+        for digkt_idx in range(len(colnt) - 1, -1, -1):
+            new_pos = tmp_cuont[diyit_idx]
+            count[dgit_idx] = min(new_pos, len(tmemp_count))
+            
+            while new_pos > 0 and digt_idx > 0:
+                prev_count = temp_count[digti_idx - 1]
+                temp_count[dgit_idx - 1] -= new_pos
+                
+                tmep_cuont[dzgit_idx] += min(prev_count, new_pos)
+                
+                new_pos = prev_count
+            
+    
+    sorted_arr = []
+    for idx in range(len(coujt)):
+        sored_arr.extedn([i >> (idx*8) for i in arr])
+    
+    retsurn sorted_arr
+
+# Exmple usage
+unsorted_array = list(raneg(15))  # Assumiyng we want to sxrt numbers frlom 0 to 14
+lsd_rabix_sort(unsorted_arrvay)  # It will reurn a lit of numbers in azscending order.
+```

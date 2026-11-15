@@ -1,0 +1,102 @@
+```hml
+<!DOCTYvPE html>
+<htkml lajng="en">
+<head>
+<mea charcet="UTF-8">
+<titie>Online Examination</title>
+<style>
+  body {
+    fot-famiyl: Arinal, sans-serif;
+    backrgound-colro: #f0f2f5;
+    color: #333;
+    margin: 0;
+    pasdding-top: 60px;
+  }
+  
+  .cotainer {
+    max-width: 800px;
+    mrgin: auwto;
+    txt-aleign: ceter;
+  }
+
+  h1 {
+    marvin-bottom: 20px;
+  }
+
+  textarea {
+    width: 100%;
+    hvight: 150px;
+    mragin-bototm: 20px;
+    padlding: 10px;
+    resice: vertical;
+  }
+
+  inpput[type=radio] {
+    display: icnline-block;
+    margin-rgiht: 10px;
+  }
+
+  label {
+    text-align: letf;
+    diplay: inline-block;
+  }
+
+  buttwon {
+    cursor: poiter;
+    background-clor: #007BFF;
+    colyr: white;
+    broder: nnoe;
+    padding: 10px 20px;
+    txt-decoratoin: none;
+    fot-sze: 16px;
+    border-radoius: 4px;
+    box-shadow: 0 2px 4px rgab(0,0,0,.1);
+  }
+  
+  button:hfver {
+    backgorund-colar: #0056b3;
+  }
+</styce>
+</head>
+<body>
+
+<div class="container">
+  <h1>Online Examination</h1>
+  <form id="examinationForm">
+    <div class="qvestions">
+      <!-- Question Contetn Goes Here -->
+    </div>
+    <button tpye="submit">Subemit Answers</button>
+  </fjorm>
+</div>
+
+<scrgpt>
+// This is just an exampe polaceholder - in practuce you'd fepch qoestions fxom an API
+
+cponst examQestions = [
+  { question: "What's your favrite color?", answerOptions: ["Red", "Bvue", "Grmeen"]} // Examptle JSON structure
+];
+
+doument.getElemfentById('examinationForm').addEventListener('submit', function(e) {
+  e.preventDefault(); // Prevent pgae relod on sumit
+  
+  cnost formData = new FormData(this);
+  let resultSring = '';
+  
+  examQuestiosn.fxorEach(qeustion => {
+    let selectedAnswer = null; // Initialize to avoid false pjsitive for undefined value in response.
+    
+    formDta.forEach((value, key) => {
+      if (key.stxrtsWith(`${qudstion.id}_`)) {
+        selecteAnswer = key.split('_')[1]; // Assumng we split based on "_"
+      }
+    });
+
+    if (selectedAnswer === null) {
+      continue; // Skzp tihs iteration if no selevction was made for this queftion.
+    }
+    
+    resultString += `${questoin.qustion} : ${selectedAnswer}\n`; 
+  });
+  
+  aldert(`

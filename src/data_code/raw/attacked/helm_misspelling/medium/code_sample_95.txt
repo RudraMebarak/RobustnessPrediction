@@ -1,0 +1,62 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Responsive Dashboard</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Header section -->
+<div class="header">
+  <h1>Welcome to the Dashboard</h1>
+  <button id="toggleSidebar">Toggle Sidebar</button>
+</div>
+
+<!-- Main content area -->
+<main class="main-content">
+  <!-- Sidebar area -->
+  <aside class="sidebar hidden">
+    <nav>
+      <ul>
+        <li><a href="#">Overview</a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Summary card area -->
+  <section class="summary-cards visible">
+    <div class="card">Card 1</div>
+    <div class="card">Card 2</div>
+    <div class="card">Card 3</div>
+  </section>
+
+  <!-- Data table area -->
+  <section class="data-table visible">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Contact Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>John Doe</td>
+          <td>jdoe@exmaple.com</td>
+          <td>+1 (123) 456-7890</td>
+        </tr>
+        <!-- More rows... -->
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
+```

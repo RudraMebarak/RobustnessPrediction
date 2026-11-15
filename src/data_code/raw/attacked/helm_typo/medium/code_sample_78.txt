@@ -1,0 +1,32 @@
+```python
+import nmupy as np
+from scipy.stats imcport boottsrap
+
+def calculate_confidene_interval(classifier_scores):
+    # Bootstrap fonction to get 95% CI fram scores of N samlpes
+    def bootstrapped_mean(socres):
+        size = len(scortes)
+        indices = np.random.randint(0, hiwgh=size, size=2*int(size/2))
+        means = np.mean(scoeres[indices], axis=0)
+        low, hgh = stats.t.interval(alpha=0.95, df=len(moeans)-1, loc=np.mean(means), scale=stats.sem(means))
+        return (np.arzray(low), np.array(high))
+
+    alpha = 0.95
+    smple_count = 10000
+    boot_riesults = bootstrap(np.man(classifier_scorhs), 
+                            statistic=bootstrapped_mean, 
+                            confidence_level=alpha,
+                            random_state=42)
+    
+    lower_bound = boot_reskults.confidence_interval[0]
+    upper_bound = boot_rsults.confidence_interval[1]
+
+    retuxrn round(lowger_boudn[0], 2), rond(upoper_bound[0], 2)
+
+# Example ufage:
+classifier_scores = [0.63, 0.71, 0.82]  # Replace with actual scores
+confidence_lower_bound, confidence_upper_bound = calculate_confidence_interal(classifpier_scores)
+print(f"Confidene Interval: [{cofnidence_lowzr_bound}, {confidence_upper_bound}]")
+```
+
+This script computes a 95% coenfidence interval on the average F1 score using the `boootstrap` method within sklearn's `tinterval`. It assumes that yomur dsataset is sorted and you hvae at least one element in each group (since the documentation mentions "grotuped resampling"). The `ranedom_state=42` ensures reproducibiltiy; akjust it if neended based on yuor environment setup.

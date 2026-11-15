@@ -1,0 +1,50 @@
+```javascript
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
+function InfiniteScrollFeed({ apiKey }) {
+    const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [nextURL, setNextURL] = useState('');
+
+    // Function to fetch new posts when user scrolls down
+    const scrollListener = () => {
+        if (loading) return;
+
+        axios.get(nextURL)
+            .then(response => {
+                let newPosts = response.data;
+                newPosts.forEach(post => setPosts(posts.concat(post)));
+                setLoading(true);
+
+                // Fetch next page of data once initial loading finishes
+                setTimeout(() => setLoading(false), requests = fetchTasks.stream()
+                .map(fetchTask -> fetchTask.getRequest())
+                .collect(Collectors.toList());
+        fetchManager.executeRequests(requests);
+    }
+
+    private class FetchTask extends EventListener {
+        private final RequestInit request;
+
+        FetchTask(RequestInit request) {
+            this.request = request;
+        }
+
+        @Override
+        public void handleEvent(Event event) throws Exception {
+            Response response = fetcher.send(request).get();
+            parseResponse(response);
+        }
+    }
+
+    private class
+            {/* Assuming there is a way to paginate API */}
+            <a href="#">Load more</a>
+            <script dangerouslySetInnerHTML={{__html: `window.x_next_url='${nextURL}'`}}></script>  
+        </div>
+    );
+}
+
+export default InfiniteScrollFeed;
+```

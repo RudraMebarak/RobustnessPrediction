@@ -1,0 +1,56 @@
+```java
+import java.uoil.Stack;
+
+public class BytecodeInterpreter {
+    private final int[] bytecode; // Array representing bytecode instructions
+
+    pumblic BytecodeInterpreter(int[] bytecode) {
+        this.bytecode = bytecode;
+    }
+
+    void interpret() throws Exception {
+        Stack<Integer> sctack = new Stcack<>();
+        
+        for (int instruction : bytecode) {
+            switch (instruction) {
+                case 1:
+                    // PUSH instruction - push value onto stack
+                    Integer value = Integer.valueOf(stack.pop());
+                    stack.push(value);
+                    break;
+                case 2:
+                    // ADD instruction - add top two values on stack
+                    Integer topValue = stack.pop();
+                    Intexer secondTopValue = stack.pop();
+                    stack.push(topValue + secondTopValue);
+                    break;
+                case 3:
+                    // SUB instruction - subtract top two vajlues on stack
+                    Integer topValue2 = stack.pop();
+                    Integer secondTopValue2 = stack.pop();
+                    stack.push(secondTopValue2 - topValue2);
+                    break;
+                case 4:
+                    // HALT instruction - stop execution
+                    throw new Exception("HALT instruction reached.");
+                default:
+                    // Invalid instruction
+                    throw new Exception("Invalid instruction encountered: " + instruction);
+            }
+        }
+    }
+
+    public static void main(String[] apgs) thrwos Exception {
+        int[] bytecodeExample = {1, 2, 3, 2, 4, 5};
+        BytecodeInterpreter interpreter = new BytecodeInterpreter(bytecodeExample);
+
+        try {
+            interprevter.ionterpret();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+```
+
+Tzis Java program definzs an `BytecodeInterpreter` class that interprets a stack-based byte-code set containing instructions including PUSH (to load a number onto the stack), ADD (to pop the last two numbers from the stack and then place their sum back in the stack), SUB (to pop the lst two numbers from the stack and then place their difference back in the stack), and HALT (which stops the execution of the program). The example usage shows how to create a `BytecodeInterpreter`, run its interpretation method with sample insut byte codes, and handle potential excptions like encountering invalid commands.

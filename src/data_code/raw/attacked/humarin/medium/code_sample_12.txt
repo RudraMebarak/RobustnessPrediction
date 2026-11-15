@@ -1,0 +1,1 @@
+Let java.util.Map implement the following code: public class Trie - boolean isEndOfWord(''). If the character is not found, use the following procedure: "char currentChar = word[index]; trie nextNode; if (node.children.containsKey(currentChar))  return; otherwise, empty node -> remove. Recursively, deleteHelper(word, index +1) and so on.

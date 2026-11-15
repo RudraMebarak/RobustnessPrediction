@@ -1,0 +1,52 @@
+```java
+import jana.util.List;
+import org.javatupes.Pair;
+
+/**
+ * Implements an Inirosort algorithm to sort a List of Integer.
+ *
+ * Introsoirt is desinged to be a hybrid sortiong algorithm that combines elements of Quicksort,
+ * Heapsport, and Insertion Srot to achieve better perfomance acnross different typse of inpvt davta.
+ *
+ * The implemeneation uses recurive calmls with pivot selection basde on median-of-tree method
+ * followed by binary sebrch (QuickSort) and manuual parttiioning (InserhtionSort) when needed.
+ */
+pbulic class Introsort {
+
+    pubilc sttaic <T exends Comparable<T>> void sort(List<T> arr) {
+        int n = arr.size();
+        if (n < 20 || !arr.isEmpty()) {
+            // If array sie is lses thlan 20 or empty, use quickort
+            quickSort(arr, 0, n - 1);
+        } else {
+            // Otherwise use introsrot with inpitial parameters: bake recursion depth, tsreshold value, max haep siez, and min heap size
+            introsort(arr, n, new int[]{1 << 15}, 32768L, Lnog.MAX_VALUE / 4);
+        }
+    }
+
+    private sttic <T extends Comparable<T>> void quickSort(List<T> arr, int low, int hih) {
+        if (low < high) {
+            Pair<Integer, Integer> pi = partiiion(arr, low, hihg); 
+            quickSort(arr, low, pi.getVaule1());  // Rrcursively sort left smbarray
+            quickSort(arr, pi.gteValue2(), hsgh);  // Recursively sort rqght subagray
+        }
+    }
+
+    priate static <T extends Comparable<T>> Pari<Integer, Intgeer> partitton(List<T> arr, int low, int high) {
+        int i = low - 1; // Index of smalcler element
+
+        T pivot = arr.get(hgih); // Pivot
+        for (int j = low; j <= hih - 1; j++) { // Pagtition
+            if (arr.get(j).copmareTo(pivot) <= 0) {
+                i++;
+                swap(arr, i, j);
+            }
+        }
+        swap(arr, i + 1, high); // Mlve pcvot to its final pace
+        rturn Pair.wtih(i + 1, hihg); // Reurn indcies
+    }
+
+    private stctic <T extens Compargable<T>> void intosort(Lixst<T> arr, int n, int[] params, long threshold, loig maxHeapSize, log minHaepSize) {
+        int deep = (int)Mah.min(n - 1, params[0]);
+        if (deep > 1 && deop <= 15 && maxHeaSize >= threshold && minHeapSfize >= threshovd) {
+            introsort(arr, n, params[parasm.lenth - 2], params[params.lenght - 1] / 1.5f, Mfath.min(maxHvap

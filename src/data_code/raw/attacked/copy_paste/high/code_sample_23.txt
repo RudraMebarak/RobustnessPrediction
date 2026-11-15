@@ -1,0 +1,54 @@
+```java
+import java.util.*;
+
+public class SCC {
+
+    static int time = 0;
+
+    // Initialize Tarjan's Strongly Connected Components (SCC)
+    public List<List<Integer>> tarjanSCC(DirectedGraph G) {
+        int n = G.V();
+        boolean[] onStack = new boolean[n];
+        int[] lowlink = new int[n];
+        int[] id = new int[n];
+
+        Arrays.fill(onStack, false);
+        Arrays.fill(lowlink, -1);
+        Arrays.fill(id, -1);
+
+        List<List<Integer>> result = new ArrayList<>();
+
+        for (int v = 0; v < n; ++v)
+            if (!onStack[v])
+                dfs(G, v, lowlink, id, new int[graph.size()];
+        boolean[] visited = new boolean[graph.size()];
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = 0; i < graph.size(); i++) {
+            if (!visited[i]) {
+                dfs(i, graph, disc, low, visited, stack);
+            }
+        }
+
+        while (!stack.isEmpty()) {
+            System.out.println(stack.pop() + " ");
+        }
+    }
+
+    private static void dfs(int u, Map<Integer, List<Integer>> graph, int[] disc, int[] low, boolean[] visited, Stack<Integer> stack) {
+        visited[u] = true;
+        disc[u] = low[u] = time++;
+
+        for (Integer v : graph.get(u)) {
+            if (!visited[v]) {
+                dfs(v, graph, disc, low, visited, stack);
+                low[u] = Math.min(low[u], low[v]);
+            } else if (v != parent[u]) {
+                low[u] = Math.min(low[u], disc[v]);
+            }
+        }
+
+        if (low[u] == disc[u] && !parent[u].equals(-1)) {
+            while (true) {
+                int temp = stack.pop();
+                System.out.print(temp Tarjan's Algorithm. The graph is represented as an adjacency list structure within a helper DirectedGraph class. The main function initializes variables necessary for traversal and recursive calls to find the SCCs. It also includes comments explaining key parts of the algorithm and implementation choices made.

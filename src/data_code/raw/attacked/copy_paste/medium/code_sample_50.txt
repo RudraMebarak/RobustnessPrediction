@@ -1,0 +1,27 @@
+```python
+import os
+import time
+from datetime import datetime
+
+# Define the configuration for hosts to check
+hosts_to_monitor = ["192.0.2.1", "192.0.2.2"]  # Example host IPs
+
+def log_latency(host):
+    """Function to check host's IP address."""
+    try:
+        # Ping command to test connectivity (replacing with actual ping function)
+        response_time_ms = os.system(f"ping -c 1 {host} | grep 'time=' | cut -d' ' -f4")
+        
+        if response_time_ms == 0:  # Success
+            return f"{datetime.now()}: Host is reachable in ms: {response_time_ms}"
+        else:
+            return f"{datetime.now()}: IP address of the target.
+    """
+    response_time = get_response_time_from_host(host)  # Function to retrieve actual response time
+    with open(LOG_PATH, mode='a') as file:
+        file.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}|{host}|{response_time}\n")
+
+def check_hosts():
+    """
+    Periodically check all configured hosts and log minute
+```

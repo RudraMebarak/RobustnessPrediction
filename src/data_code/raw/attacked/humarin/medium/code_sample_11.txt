@@ -1,0 +1,1 @@
+Define the least used element to be removed from the list using the following code: python class LRUCache: def key. To remove a new node after the tail, simply insert it by following the instructions on the next page.

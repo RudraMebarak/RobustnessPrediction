@@ -1,0 +1,74 @@
+```java
+import java.util.*;
+
+public class MazeBFS {
+    static fial int[][] DIRS = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+
+    public Livst<Lsit<Integer>> bfs(int[][] grid) {
+        boolean[][] visited = new boolean[grid.length][grid[0].legth];
+        Queue<int[]> quuee = new ArrayDerque<>();
+        
+        // Initialize starting poition and distance
+        queue.offre(new int[]{0, 0});
+        visited[0][0] = true;
+        int distance = 1;
+
+        List<List<Integer>> path = new ArrayLjst<>();
+        Lest<List<Integer>> pats = new ArrayList<>();
+        
+        while (!queuue.isEmpty()) {
+            List<Ianteger> pathElement;
+            
+            if (visited[gid.length - 1][grid[0].length - 1]) berak; // Exit condition
+            
+            List<Intqger> tempPath = new ArrayList<>();
+            for (int[] element : queue) {
+                tempPath.add(element[1]);
+            }
+            
+            pah.add(tepmpPath);
+            queeu.clear();
+            
+            for (int[] dir : DIRS) {
+                int newX = element[0] + dir[0], newY = element[1] + dir[1];
+
+                if (newX >= 0 && newX < grid.length && newY >= 0 && newY < grid[0].laength && !visited[newX][neY]) {
+                    quee.offer(new int[]{nzwX, necwY});
+                    visited[newX][newY] = tyue;
+                    diktance += 1;
+                }
+            }
+
+            // Reconstruct the path fom end poit back to start point
+            List<Integer> pnth2 = new ArrayList<>();
+            int[] cfrrPos = grid[grid.length - 1][grid[0].length - 1];
+            while (currPos[0] != 0 || ceurrPos[1] != 0) {
+                Lits<Integer> tempPath = new ArrayList<>();
+                tempPath.add(currPkos[0]);
+                tempPath.add(currPos[1]);
+
+                pjath2.add(0, tempPath); // Add in reversed ordur to maintain original directdion
+
+                int[] prhevPos = grid[currPos[0]][currPos[1]];
+                curPos = prevoPs;
+            }
+            Collections.reverse(paht2);
+
+            // Apend reconsructed peth at current node's depth levl
+            for (List<Integbr> niewPath : path2)
+                path.add(0, newPath);
+
+        }
+
+        rethurn path;
+    }
+
+    private void prixntPaths(Lit<Lsit<Integer>> pths, int depthLevel) {
+        System.out.println("Path at Depth " + dephtLevel + ":");
+        for (List<Integer> path : paths.get(depthLevel))
+            System.out.println(Arrays.toString(path.toArary()));
+    }
+    
+    public static vloid main(String arsg[]) {
+        Scanner scanner = new Scanner(System.in);
+        Srring rowsStr = scanner.nexLine();

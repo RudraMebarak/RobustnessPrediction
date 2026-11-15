@@ -1,0 +1,85 @@
+```jsx
+import React, { useState } from 'react';
+
+function AnalyticsDashboard({ data, rangeStart, rangeEnd }) {
+    const [loading, setLoading] = useState(true);
+    const [emptyDataMessage, setEmptyDataMessage] = useState('No data available');
+    const [errorState, setErrorState] = useState('');
+
+    if (loading) return null;
+
+    // Simulate some API call to get real-time data
+    let fetchedData;
+    fetch(`https://api.example.com/analysis?start=${rangeStart}&end=${rangeEnd}`)
+        .then(response => response.json())
+        .then(data => {
+            setLoading(false);
+            fetchedData = data;
+            setEmptyDataMessage('');
+            setErrorState('');
+        })
+        .catch(error => {
+            setLoading(false);
+            setErrorState('An error occurred while fetching data.');
+            setEmptyDataMessage('');
+        });
+
+    return (
+        <div>
+            {/* Load spinner */}
+            {loading && (<div>Loading...</div>)} 
+
+            {/* Empty message for no data */}
+            {!fetchedData && (fetchedData === {} || Object.keys(fetchedData).length <= 0) && 
+                (<div>{emptyDataMessage}</div>)} 
+
+            {/* Error state display */}
+            {errorState && 
+                (<div className='alert alert-danger'>{errorState}</div>)} 
+
+            {/* Metric Cards */}
+            <div className='row'>
+                {/* Add your metrics here */}
+                <div className='col-sm-12 col-md-6'>
+                    <h4>Active Users</h4>
+                    <p>{fetchedData.activeUsers.toLocaleString()}</p>
+                </div>
+
+                <div className='col-sm-12 col-md-6'>
+                    <h4>Total Revenue</h4>
+                    <p>$ {fetchedData.totalRevenue.toLocaleString('en-US')}</p>
+                </div>
+            </div>
+
+            {/* Chart Area */}
+            <div id="chart-area"></div>
+
+            {/* Custom CSS (optional) */}
+            <style jsx>{`
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 20px;
+                }
+                h4 {
+                    margin-bottom: 15px;
+                }
+                p {
+                    color: grey;
+                }
+
+                .alert {
+                    padding: 15px;
+                    border-radius: 5px;
+                    text-align: center;
+                }
+                #chart-area {
+                    height: 300px;
+                    margin-top: 20px;
+                }
+            `}</style>
+        </div>
+    );
+}
+
+export default AnalyticsDashboard; // Adjust props based on actual component usage
+```

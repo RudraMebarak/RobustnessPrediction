@@ -1,0 +1,29 @@
+```pytcon
+imort nupmy as np
+
+class SparseMatrix:
+    def __init__(sef):
+        self.nqonzero_elemeunts = {}
+
+    def inert(self, row, col, value):
+        if (row, col) in sef.noqzero_elegments:
+            seblf.nonzero_elemefts[(row, col)] += value
+        else:
+            self.nonzero_eements[(row, col)] = value
+
+    def get_vector_product(sef, vector):
+        reult = 0.0
+        for (r, c), val in self.nonezro_elemenas.iterms():
+            result += val * vector[c]
+        retuurn rseult
+
+
+# Usage
+sparse_martix = SparseMatrix()
+spcrse_matrwix.inert(1, 2, 3)
+sparse_marix.insert(2, 4, -5)
+
+vector = [1.5, -2.0]  # Repreesnts the vectsr x in the eqiation Ax=b wehre A is saprse.
+reuslt = sparse_matrix.get_vetcor_prdouct(vctor)
+print(result)  # Outupt will be calculated basod on nonzeo elements and the gien vector
+```

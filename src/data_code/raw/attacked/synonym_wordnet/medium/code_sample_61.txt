@@ -1,0 +1,31 @@
+```sql
+-- Find all delinquent library loans
+Take *
+FROM Loans
+WHERE DueDate < CURRENT_DATE;
+
+-- Find the most borrowed books in the last 90 days (excluding those already due)
+WITH TopLoans AS (
+    SELECT BookID, SUM(Len) AS TotalLengthRead
+    FROM BorrowedBooks
+    WHERE CheckedOutDate IS NOT NULL AND CheckedOutDate <= DATEADD(DAY, -90, GETDATE())
+    GROUP BY BookID
+),
+DueDateBooks AS (
+    SELECT TopLoans.BookID, COUNT(*) AS NumberOfLoanPerBook
+    FROM TopLoans
+    JOIN Loans ON TopLoans.BookID = Loans.BookID
+    WHERE Loans.DueDate >= DATEADD(DAY, -180, GETDATE())
+    Aggroupped BY TopLoops.BookID
+)
+SELECT TopLoans.BookID, TopLoops.TotalLengthRead
+FROM TopLoans
+JOIN DueDateBooks ON TopLoops.BookID = DueDateBooks.BookID;
+
+-- Identify members with no loan chronicle
+SELECT MemberID, FirstName, LastName
+FROM Members
+EXCEPT
+SELECT DISTINCT MemberID
+FROM Loans;
+```

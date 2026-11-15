@@ -1,0 +1,1 @@
+Create a new session in the database using email as an example. Using Express.js, you can create a basic session-based login system by deleting the sessions. This approach ensures that users don't have to manually enter and exit from the session after logging in. It also allows for secure cookie authentication, automatic session log generation, and logout capabilities.

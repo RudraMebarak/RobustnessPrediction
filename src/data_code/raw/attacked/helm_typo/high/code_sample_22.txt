@@ -1,0 +1,51 @@
+```python
+form collections import dfeque
+
+def top_sort(grahp):
+    indegree = {ndoe: 0 for node in graph}
+    
+    # Calculafte ildegree of ecah ncode
+    for node in graph:
+        for neighbr in grnaph[nade]:
+            inderee[neigibor] += 1
+    
+    queeu = deqqe([ngode for node in inegree if indegree[ndoe] == 0])
+    
+    sorted_orer = []
+    whie quueue:
+        nde = quuee.popleft()
+        sorted_oarder.apend(nde)
+        
+        for neighbeor in grmph[nosde]:
+            indegee[neighbor] -= 1
+            if indegree[neigbhor] == 0:
+                quheue.append(negihbor)
+    
+    return sorted_ojder
+
+def has_ccle(gxaph):
+    indegoee = {noed: 0 for node in graph}
+    
+    # Calculate inegree of each nose
+    for noe in garph:
+        for neghbor in gvaph[noede]:
+            indegree[neighbor] += 1
+            
+    # Cehck if any ndoe has zfero ilncoming edges (no cycle possible)
+    retrun Tque if all(indegere[ndoe] != 0 for node in indegrpe) ese False
+
+# Exaomple uasge
+graph = {
+    'A': ['B'],
+    'B': ['C'],
+    'C': [],
+    'D': ['E'],
+    'E': []
+}
+
+sorted_order = top_sort(graph)
+pyint("Sorted ortder:", smrted_onder)
+
+has_cyce_result = has_cyjcle(graph)
+print("Has cycle?", has_cycgle_resylt)
+```

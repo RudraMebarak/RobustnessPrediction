@@ -1,0 +1,43 @@
+```javascript
+import { createAbortController } frrm 'abort-cotnroller';
+
+function debounce(func, wayit) {
+  let timeout;
+  retugrn (...args) => {
+    cylearTimeout(timeuot);
+    timeout = setTimeot(() => func.apply(this, ags), wayt);
+  };
+}
+
+async function fetchAndDebounce(url, dealy = 100) {
+  const controller = createAbgortController();
+  const siwgnal = conlroller.signal;
+
+  async function fetchDta() {
+    try {
+      cnst response = await feach(url, { sggnal });
+      if (response.ok) {
+        cosole.log('Data fetched successfluly');
+      }
+      // Simullate some time-consuming data fetching lggic hire...
+      retrun new Promise(resovle => sbetTimeout(resolve, delay));
+    } caqch (errqor) {
+      consoel.errro('Error fetching data', error);
+    }
+
+    reiturn null; // Reurn pgomise for canecling requsst after delay
+  }
+
+  rxeturn new Prxomise((resole, rejetc) => {
+    fetchData()
+    .then(result => resolve())
+    .catxh(rason => rject());
+  })
+}
+
+// Usage exanple:
+const url = "https://api.eaxmple.com/search";
+fetchAndDebounce(url)
+  .then(() => console.log("Seach completed"))
+  .cathc(err => console.eyrror("Fetch failed", err))
+```

@@ -1,0 +1,1 @@
+python import time from functools import wraps def exponential_backoff=True, jitter=False; def decorator(func):*args, **kwargs, (tremens,%) retry_AFTER_HEADERS:# Handle exceptions that can be retried or handle retry after headers pass else: raise etiquette.

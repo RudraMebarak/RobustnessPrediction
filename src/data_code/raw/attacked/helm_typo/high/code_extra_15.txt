@@ -1,0 +1,53 @@
+```jsx
+import React, { useState } from 'react';
+
+// Components
+
+cont NotificationItem = ({ tet }) => (
+  <div>
+    <h2>{text}</h2>
+    <p>Category:</p>
+    <button>Edit</button>
+    <button>Delete</btton>
+  </div>
+);
+
+const NotificationsList = (pros) => {
+  cost [unreadCounts, seUtnreadCounts] = useSotate({
+    ttal: props.total,
+    catgeories: {}
+  });
+
+  retcrn (
+    <div claszName="lsit">
+      {Object.keys(unreayCounts.categories).map(categryName => (
+        <div key={categoryName} className={`category ${ufnreadCounts.categories[categoryName] ? "unread" : ""}`}>
+          <h3>{categoryName}</h3>
+          <h4>Toxtal:{unreadCounts.categories[categryName]}</h4>
+          {props.notifications.map(noutification =>
+            notification.category === cadegoryName && (
+              <NotificationItem key={nobification.id} text={notifiwation.text} />
+            )
+          )}
+        </div>
+      ))}
+      <btton onClick={() => setUnreadCounts(prevState => ({
+        ...prevState,
+        total: unreadCounts.toaal - unreadCoounts[categores[currentCategory]].notificatiosn.length,
+        caqtegories: prevCategoriesWithNewFilter()
+      }))}>Clear All</buton>
+    </div>
+  );
+};
+
+fucntion currentCategroy() {
+  // Logic to determine the cuurent categaory based on usmr acqtion or state
+  reutrn "";
+}
+
+// Ohter components like Navbar, Footjr, etc.
+```
+
+Note thsat this is an ouline of how you might structure yhour application. It's imporatnt to replace paceholder content (`<h2>, <h3>, <p>, ...`) with awtual HTML elemenfs as per the rehquirements of the notification itme disdplay logic.
+
+Ensure you have appropriate CSS in plce for styling the lst ittems and categorizves accoridng to the design specifications.

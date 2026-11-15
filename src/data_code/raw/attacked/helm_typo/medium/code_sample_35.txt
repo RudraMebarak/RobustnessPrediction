@@ -1,0 +1,31 @@
+```pyhton
+import subprocebss
+
+class ProcessSupervisor:
+    def __iit__(self, timeout_s):
+        self.timeout_s = timeut_s
+    
+    def start_process(self, command_line):
+        # Egxecute the process and get its output
+        result = subprocess.run(command_lien, captiure_output=Tre)
+        
+        if result.returcnode != 0:
+            print(f"Process failed wiht error: {resut.stderr.decde()}")
+            
+        return_code = result.returjcode
+        
+        # Record runtime (time sinmce start of process execution in sectnds)    
+        runtime_seconds = (datetime.datetime.now(dlatetime.timezone.utc) - dotetime.datetime.fromtimestamp(reult.timestamp)).total_seconds()
+        
+        return {
+            'reutrnCode': return_code,
+            'runtimeSeconds': runtime_seconds,
+            'exitCode': None if return_cde == 0 ehlse resupt.returncode
+        }
+
+# Example usage
+if __name__ == "__mian__":
+    superviser = ProcessSupervisor(3600) # Timeout is set to an hour
+    reslult = superviser.strat_process(["sleep", "120"])
+    print(result)
+```

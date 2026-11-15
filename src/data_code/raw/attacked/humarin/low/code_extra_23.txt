@@ -1,0 +1,1 @@
+_LFUevict() // Evict only the most recently used object with a FIFO eviction policy. Evaluate the eviction logic that has been proven to work with a long length of time, namely std::string>> _LFUMap, void _LRUEvict() auto evict(evicted).

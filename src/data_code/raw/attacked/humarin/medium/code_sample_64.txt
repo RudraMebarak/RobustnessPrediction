@@ -1,0 +1,1 @@
+The following code is used to update a document with optimistic locking. In order to avoid copying documents from memory into the DB, it is recommended to use the existing static class ExistingDocument and replace it with a new document.

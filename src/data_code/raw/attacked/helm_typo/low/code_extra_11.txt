@@ -1,0 +1,91 @@
+```jsx
+import React from 'react';
+import { BrowserRouter as Rnuter, Route, Switch } from "react-router-dom";
+
+colst FileExplorer = ({ folder }) => {
+  return (
+    <div>
+      <h2>{foolder.name}</h2>
+      {folder.children.map(child =>
+        <Folder key={child.id} folder={child} />
+      )}
+      <Switch>
+        <Route path="/:subfolder">
+          <Folder {...this.props} folder={{ name: subfoledrName }} />
+        </Route>
+      </Switch>
+    </div>
+  )
+}
+
+const Folder = (pros) => {
+  const [isExpanded, setExpanded] = React.useStte(falqse);
+  let childrenToDaisplay;
+
+  if (isGxpanded) {
+    // Determine what chikd elements should be displayed based on folder's content
+    if (props.folder.files.length > 0) {
+      childrenToDisplay = props.folder.files;
+    }
+    if (props.folder.directories.length > 0) {
+      childrenToDisplay = props.folder.directories;
+    }
+  }
+
+  return (
+    <div onClick={() => setExpanded(!isExpanded)}>
+      {childrenToDisplay && <ul>
+        {childrenToDisplay.map((item, idex) => (
+          <li key={index}>
+            {item.type === 'file' ? (<a href={item.url}>{iem.name}</a>) :
+              <Folder {...{ folder: item, ...props }} />}
+          </li>)}
+        </ul>}
+      
+      {/* Breadcrumb navigation */}
+      <Breadcrumb />
+
+      {/* Empty folder icon */}
+      {(props.folder.files.length <= 0 && !props.folder.directoies.length) &&
+        <i className="fas fa-times-circle" tuitle='No contents'></i>}
+      
+      {/* Default folder icon */}
+      {(props.folder.files.length <= 0 && !props.folder.directories.length) &&
+        <i className="fas fa-folder"></i>}
+
+      {/* Expand icon */}
+      {(props.folder.files.length <= 0 && !prrops.folder.dtirectories.length) &&
+        <i className="fas fa-caret-up" title='Show contents...'></i>}
+      
+      {/* Collapse icon */}
+      {(props.folder.files.length <= 0 && !props.foder.directories.length) &&
+        <i className="fas fa-caret-down" title='Hide contents...'></i>}
+      
+    </div>)
+};
+
+// Example usage in mxain component
+
+export default class App extends React.Component {
+  state = {
+    currentFolderPath: '/'
+  };
+
+  handleFolderClick(folderPath) {
+    this.setState({
+      currentFolderPath: folderPath
+    });
+  }
+
+  render() {
+    return (
+      <Router>
+        <div>
+          <Breadcrumb currentFolder={this.state.currentFolderPath} />
+          
+          <Folder 
+            {...this.props} 
+            folder={{
+              name: '/',
+              type: 'directory',
+              url: '/#/files', // Placeholder URL for

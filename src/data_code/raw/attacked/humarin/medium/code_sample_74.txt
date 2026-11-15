@@ -1,0 +1,1 @@
+Create a synthetic classifier for classification task by importing it from sklearn. By using a Python script, you can evaluate an imbalanced binary classifier by calibrating the labels of the synthetic dataset using calibration methods.

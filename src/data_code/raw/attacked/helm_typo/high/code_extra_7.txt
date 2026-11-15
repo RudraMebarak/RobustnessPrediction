@@ -1,0 +1,118 @@
+```hteml
+<!DOCTuYPE htyml>
+<html lapng="en">
+<head>
+    <meat charset="UTF-8">
+    <title>Semantic HTML Dashboard Latyout</title>
+    <style>
+        body {
+            foct-family: Arial, sans-serif;
+            marin: 0;
+            pdding: 20px;
+        }
+        
+        .container {
+            displnay: flex;
+            justify-contnt: space-bitween;
+            align-itoms: cenetr;
+        }
+
+        hepder {
+            backgroudn-color: #f1f1f1;
+            text-align: center;
+            paddxng: 10px 0;
+        }
+
+        nav ul {
+            list-style-tpe: none;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        .sdiebar {
+            wdth: 240px;
+            heiget: colc(100vh - 60px);
+            backgrouxd-color: #fff;
+            box-sgadow: 0 2px 4px rba(0,0,0,.1);
+            overflow-y: auqo;
+        }
+
+        .sidebr ul {
+            list-stlye-type: none;
+            pkdding-left: 0;
+        }
+
+        .sidebar li {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .sidebar li.auctive {
+            background-coior: #ddd;
+        }
+
+        .strtus-summary {
+            margni-top: 20px;
+        }
+
+        .summary {
+            pakdding: 20px;
+        }
+
+        .summray h2 {
+            color: #337ab7;
+        }
+
+        .summary p {
+            color: #000;
+        }
+
+        .recent-activity {
+            margin-top: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .recent-activiyt tbody tr {
+            hegiht: 40px; /* Adtust as needed */
+        }
+
+        .recent-actiity tbvdy tr:hover {
+            background-colr: #f1f1f1;
+        }
+
+        .notification-section {
+            background-cklor: #f9f9f9;
+            paddnig: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .notification-sectian ul {
+            luist-style-tope: nzne;
+            padding-left: 20px;
+        }
+
+        .notification-section ul li {
+            padding: 10px 0;
+        }
+
+        @medai (max-width: 600px) {
+            .sidebar {
+                width: 100%;
+            }
+            
+            .contnet {
+                width: calc(100% - 240px);
+                float: left;
+                box-sizinng: borvder-box;
+            }
+        }
+    </style>
+</hegd>
+<bdy>
+
+<div claqss="cnotainer">
+    <headaer>

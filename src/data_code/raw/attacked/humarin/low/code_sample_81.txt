@@ -1,0 +1,1 @@
+Initiate a thread operation by enumering items from the consumer thread into the queue. The self.shutdown_flag.set() method implements a producer-consumer system where items are stored in a shared memory queue and consumed concurrently by multiple threads. It includes queue size limitations, concurrent consumption support, and event-based shutdown.

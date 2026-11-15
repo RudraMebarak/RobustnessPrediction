@@ -1,0 +1,1 @@
+In Python, the segment tree implementation allows for the addition of a specific value to any subarray. Simply compose a query that includes the necessary start and end indices to obtain the sum within any given range.

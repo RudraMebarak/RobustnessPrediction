@@ -1,0 +1,66 @@
+```c
+#include <sys/mman.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
+
+void handle_errors() {
+    perror("mmap");
+    exit(EXIT_FAILURE);
+}
+
+int main(int argc, char* argv[]) {
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s filename\n", argv[0]);
+        return EXIT_FAILURE;
+    }
+
+    int fd = open(argv[1], O_RDONLY);
+    if (fd == -1)
+        handle_errors();
+
+    off_t size = lseek(fd, SEEK_END, SEEK_SET);
+    close(fd);
+
+    if (size < 0) {
+        handle_errors();
+    }
+    
+    long num_bytes_mapped = size;
+
+    void* addr;
+    int fd2;
+    struct stat buf;
+    fd2 = creat("/dev/zero", S_IREAD|S_IWRITE);
+    if for reading
+    if ((fd = open(FILENAME, O_RDONLY)) == -1) {
+        perror("Error opening file");
+        exit(EXIT_FAILURE);
+    }
+    
+    // Get the length of the file
+    fstat(fd, &len);
+
+    // Map the file into memory using mmap with MAP_PRIVATE flag
+    char *addr = (char *)mmap(NULL, len, PROT_READ, MAP_PRIVATE, fd, 0);
+
+    // Count newline characters
+    int newline_count = 0;
+    char
+        char ch = getc(fd2);
+        if (ch != EOF && ch == '\n') {
+            ++nnewlines;
+        }
+        
+        // Seek forward by one byte for next iteration
+        seek(fd2, newl_offset + 1, SEEK_CUR);
+        newl_offset += sizeof(long) << 3; // Size of an unsigned long in bytes.
+    }
+    
+    munmap(addr, num_bytes_mapped);
+    close(fd2);
+    unlink(argv[1]);
+
+    printf("%ld newlines found.\n", nnewlines);
+}
+```

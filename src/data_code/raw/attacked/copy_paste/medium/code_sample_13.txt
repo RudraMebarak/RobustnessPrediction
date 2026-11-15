@@ -1,0 +1,38 @@
+```python
+class DisjointSetUnion:
+    def __init__(self, n):
+        self.parent = list(range(n))
+        self.size = [1] * n  # Size of each set
+
+    def find(self, x):
+        if self.parent[x] != x:  # Path compression (O(1) average)
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+
+    def union(self, x, y):
+        rootX = self.find(x)
+        rootY = self.find(y)
+
+        if rootX == rootY:
+            return False  # Already in same set
+
+        if self.size[rootX] < self.size[rootY]:  # Union by size (O(1) average)
+            self.parent[rootX] = rootY
+            self.size[rootY] += self.size[rootX]
+        else:
+            x, y):
+        root_x = self.find(x)
+        root_y = self.find(y)
+
+        if root_x == root_y:
+            return False
+
+        if self.size[root_x] < self.size[root_y]:
+            self.parent[root_x] = root_y
+            self.size[root_y] += self.size[root_x]
+        else:
+            self.parent[root_y] = root_x
+            self.size[root_x] += self.size[root_y]
+
+        return True of node 2
+```

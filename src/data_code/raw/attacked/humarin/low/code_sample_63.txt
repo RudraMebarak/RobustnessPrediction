@@ -1,0 +1,1 @@
+sql "Create a Table" to store customers.

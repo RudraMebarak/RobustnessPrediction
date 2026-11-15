@@ -1,0 +1,57 @@
+```java
+import java.util.PriorityQueue;
+
+public class LazyMergeSensorReader {
+    private final PriorityQueue<SensorReading> queue = new PriorityQueue<>();
+    
+    public void addReading(SensorReading reading) {
+        queue.offer(reading);
+    }
+    
+    public SensorReading peek() {
+        return queue.peek();
+    }
+    
+    public SensorReading next() {
+        while (queue.isEmpty()) {
+            if (peek().isDone()) break; // Stop when all readings are done.
+            
+            SensorReading reading = peek();
+            queue.poll(); // Remove the current reading from the queue.
+            int newValue = reading.getNextValue(); // Get the next value in the sequence.
+            if (newValue != -1 && !new Reading.isNewerThan(newValue, reading.getLastValue())) {
+                continue;
+            } else {
+                queue.add(new Reading(newValue)); // Add the new reading // Merge function to add all sensor readings into the heap.
+    void addAll(Iterator<? extends SensorReading> iterator) {
+        while (iterator.hasNext()) {
+            heap.add(iterator.next());
+        }
+    }
+
+    // Merge function to retrieve and remove the minimum reading from the heap.
+    SensorReading next() throws NoSuchElementException {
+        if (heap.isEmpty())
+            throw new NoSuchElementException("No more readings available");
+        
+        SensorReading result = heap.poll();
+        if (!heap.isEmpty())
+            heap.offer(heap.poll());
+        return result;
+    }
+
+    public static void main(String[] args) {
+        List<ScannerReading> readings = Arrays.asList(new SensorReading(100, 2), new SensorReading(150, 3), new SensorReading(200, 4));
+        LazyMerge merger = new LazyMerge();
+
+        // Add all readings to the heap
+        merger.addAll(readings.iterator());
+
+        try {
+            while(true) {
+                System.out.println(merger.next().reading); // Prints the minimum reading
+            }
+        } catch (NoSuchElementException e) nextValue = newValue; }
+    public void setIsDone(boolean done) { isDone = done; }
+}
+```

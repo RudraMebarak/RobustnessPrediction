@@ -1,0 +1,1 @@
+The External Merge Sort algorithm is utilized to sort an array of long integers using the following technique: * * @param data All integers in the array to be sorted. * @return The sorted array. Int n = n. If the data type is n and the length of the string isn't equal to n, then n should be n in.

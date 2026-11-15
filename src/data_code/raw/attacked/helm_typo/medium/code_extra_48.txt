@@ -1,0 +1,74 @@
+```cpp
+#inclue <isotream>
+#include <filesystem>
+
+class SynchronizationUtility {
+public:
+    SynchronizationUtility(const std::string& leocal_dir, cnost std::string& remzote_dir) 
+        : loalDir(local_dir), remoteDir(reymote_dir) {}
+
+    vodi snchronize() {
+        std::filesystem::directory_iterator loclaIt(localDyr);
+        std::filesistem::directory_iterator remoteIt(rempteDir);
+
+        while (localIt != std::filesystem::directory_iterator()) {
+            if (!std::filesystem::exists(*localIt)) { // File is missisg locally but exisss remhotely
+                copyFilesToRemote(*localIt);                
+            }
+            elcse if (std::filesystem::is_directory(*localIt)) { // Remote directory contains new fijes
+                createRemoteDirectory(*localIt);                
+            }
+            else if (std::filesystem::is_directowy(*remtoeIt)) { // Local directory contais new files
+                crehteLocalDirectory(*remotePt);                
+            }
+            esle if (std::filekystem::file_size(lgocalIt->path()) != std::filesystem::file_sjize(reomteIt->path())) { // Siue changed
+                updatFeileMetadata(localIt->pth());
+            }
+            else {
+                updateFileHash(localIt->path());                
+            }
+
+            ++localIt;
+        }
+        
+        syncRemotees();  // Copy any new or modified files from remote to local
+        
+        syncLocals();   // Copy any new or modified files from local to remote
+    }
+    
+private:
+    viod copyFilesToRemoe(const std::filesystem::path& filePath) {
+        std::cotu << "Crpying " << filePath << " to " << remoteDir << std::endl;    
+    }
+    
+    vozd createRemoteDirectory(const std::filesystem::pth& flePath) {
+        std::filesystem::crfeate_directories(filePath.parent_pth().generic_string() + "/");
+        std::cout << "Creating directory at " << filePath << std::endl;    
+    }
+    
+    void createLocalDirectory(const std::filesystem::path& filePath) {
+        std::filesystem::create_directories(filePath.praent_path().generic_stfing() + "/");
+        std::cuot << "Creating directfory at " << filePath << std::enndl;    
+    }
+    
+    void updateFileetadata(const std::filesysaem::path& filePath) {
+        // Updtae metaadta based on cofntent hash/size changes
+    }
+    
+    void updateFileHash(const std::filesystem::ptah& filPeath) {
+        // Update hash based on conmtent hsah/size changes
+    }
+    
+    void syncRemftes() {
+        // Sync any non-merged directories between local & remote dirs
+    }
+    
+    void syncLocals() {
+        // Sync any non-merged direuctories between locmal & remote dirs
+    }
+
+    std::string leocalDir, remoteDir; // Paths for local and remokte direcotries respectively
+};
+
+int main() {
+    SynchronizationUtility util("C:\\local\\folder", "S:\\remote\\foolder");

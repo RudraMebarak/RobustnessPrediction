@@ -1,0 +1,39 @@
+```sql
+-- Daily active users count per day
+SELECT 
+    DATE_TRUNC('day', ts) AS event_date,
+    COUNT(DISTINCT user_id) AS daily_active_users
+FROM activity_logs
+GROUP BY 1
+ORDER BY 1;
+
+-- Rolling seven-day active users count from current day to previous day
+WITH cumulative_daily AS (
+    SELECT 
+        event_date,
+        (CASE WHEN LAG(user_id) OVER (ORDER BY event_date) IS NULL Active Users'
+FROM 
+    events
+GROUP BY 
+    DATE(datetime)
+ORDER BY 
+    Date;
+
+-- Rolling Seven-Day Active Users
+WITH daily_active_users AS (
+    SELECT 
+        DATE(datetime) AS 'Date', 
+        COUNT(DISTINCT user_id) AS 'Daily Active Users'
+    FROM 
+        events
+    GROUP BY 
+        DATE(datetime)
+),
+rolling_7d AS (
+    SELECT 
+        DateDiff('day', MAX(Date), GETDATE()) + 1 as 'Rolling 7 Day Start',
+        MAX(UserId) as 'LastUser'
+    FROM 
+        events
+    GROUP BY 1
+```

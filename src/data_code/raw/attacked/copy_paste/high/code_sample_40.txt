@@ -1,0 +1,72 @@
+```java
+import java.util.LinkedList;
+import java.util.Queue;
+
+class Worker {
+    void processTask(String task) {}
+}
+
+public class FixedWorkerExecutor {
+
+    private final int workerCount;
+    private final Queue<String> tasksQueue;
+    private boolean queueIsFull = false;
+
+    public FixedWorkerExecutor(int workerCount, int maxTasksPerWorker) {
+        this.workerCount = workerCount;
+        this.tasksQueue = new LinkedList<>();
+        this.taskLimit = maxTasksPerWorker; // Number of tasks each worker can handle simultaneously
+
+        // Initialize workers in parallel
+        for {
+                e.printStackTrace();
+            }
+            
+            result.append(nextTask).append("\n");
+            
+            // Check if queue size has reached max limit
+            if (tasksQueue.size() >= maxQueueSize) {
+                break;
+            }
+        }
+        
+        return result.toString();
+    }
+
+    public static void main(String[] args) {
+        TaskExecutor executor = new TaskExecutor();
+
+        // Adding tasks to the queue
+        executor.addTask("Task 1");
+        executor.addTask("Task 2");
+        executor.addTask("Task 3");
+
+        // Execute tasks up to a maximum queue size of 2
+        String result = executor.executeTasks(2);
+
+        System.out.println(result);
+    }
+}
+```
+
+This Java program implements a simple task execution system that uses a bounded queue (`LinkedList`) to manage tasks. The `addTask` method adds tasks to the queue, checking if it's full before adding another one. The `executeTasks` method simulates task processing by sleeping for a short period after each task is executed, ensuring no immediate completion of tasks in the queue. The `main` method demonstrates how to use this system by adding tasks to the queue and then attempting to process them up to a specified maximum + 1));
+        t.start();
+    }
+
+    private int getFirstEmptyWorkerSlot() {
+        int slotAvailable = (workerCount * taskLimit) > tasksQueue.capacity() ? workerCount : workerCount;
+        return (slotAvailable >= taskLimit) ? 0 : slotAvailable;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        FixedWorkerExecutor executor = new FixedWorkerExecutor(2, 4); // 2 Workers per Task Limit: 4 Tasks per Work Unit
+        executor.addTask("Initial Task 1");
+        executor.addTask("Initial Task 2"); // Should wait until next round's available slots are free 
+        executor.addTask("Initial Task 3");
+        executor.addTask("Initial Task 4");
+        
+        // Simulating some time between adding tasks
+        Thread.sleep(5000);
+
+        executor.addTask("Second Round: New Task 1");
+        executor.addTask

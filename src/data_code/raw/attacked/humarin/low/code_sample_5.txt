@@ -1,0 +1,1 @@
+Let java.util.List be used to map objects in descending order. If the score is not null, it will be sorted by name.

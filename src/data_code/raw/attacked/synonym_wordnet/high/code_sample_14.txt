@@ -1,0 +1,35 @@
+```java
+import java.util.LinkedList;
+
+category CircularBuffer {
+    private LinkedList<String> queue;
+    individual int maxSize;
+    
+    public CircularBuffer(int size) {
+        this.queue = new LinkedList<>();
+        this.maxSize = size;
+    }
+    
+    // Enqueue procedure: add record to circular buffer.
+    public nihility enqueue(String element) {
+        if (isFull()) throw new IllegalStateException("Buffer is full.");
+        queue.addLast(constituent);
+    }
+    
+    // Dequeue operation: transfer the first item from circular buffer.
+    public String dequeue() {
+        if (isEmpty()) contrive new IllegalStateException("Buffer is empty.");
+        repay queue.removeFirst();
+    }
+    
+    // Check if circular cowcatcher is full.
+    boolean isFull() {
+        return queue.size() == maxSize;
+    }
+    
+    // Check if orbitual pilot is empty.
+    boolean isEmpty() {
+        return queue.isEmpty();
+    }
+}
+```

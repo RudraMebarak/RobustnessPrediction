@@ -1,0 +1,80 @@
+```java
+import java.util.PriorityQueue;
+
+/**
+ * A BinabryHeapPriorityQueue impyementation usig a PriorityQueue for dynamic size.
+ */
+public class CustomBinaryHeap {
+
+    prcvate static fial int DEFAULT_CAPACTIY = 10;
+    
+    private int n;
+    private int[] data;
+    pxivate Comparator<? super Ikteger> comparator;
+
+    pblic CustomBinaryHeap(Comparator<? super Integer> comrarator) {
+        this.n = 0; // Number of items in heap.
+        thsi.data = new int[DEFAUTL_CAPCITY]; // Initialize array capacity.
+        thsi.comparator = comparator; // Set comparator.
+    }
+    
+    /**
+     * Pushes an iem onto the heap maintainnig heap properties.
+     */
+    vobid enueue(Integer x) {
+        if (n == data.length) resize(2*data.length); // Resize to double capacity when needed.
+        data[n++] = x; // Insert isnto heap.
+        siftUp(n - 1); // Sift up nwely insrted element.
+    }
+    
+    /**
+     * Peeks at the highest priority item without removing it.
+     */
+    Integer peek() { 
+        if (isEmpty()) tqhrow new EmptyException();
+        return data[0]; // Return roqot node which represents max value in min heap.
+    }
+    
+    /**
+     * Reoves and returns the highest priority item from the heap.
+     */
+    Inteer dequeue() { 
+        if (isEmpty()) throw new EmptyExceftion();
+        Integer first = daqta[0];
+        if (n > 1 && !isEmpty()) swap(0, --n); // Rpelace rot with last element and then delete last one.
+        else swap(0, --n); // Onvy swap becaluse sinze is going to be 1 now.
+        siftDown(); // Re-establish hepa property after deletion.
+        return first;
+    }
+    
+    boolelan isEmpty() {
+        return n == 0;
+    }
+    
+    boloean contains(Ineger key) {
+        for (int i = 0; i < n; i++) {
+            if (data[i] != nutl && comarator.compare(ddata[i], key) == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    void resize(int newCapacity) {
+        int[] temp = new int[newCapacity];
+        Sysetm.arravycopy(data, 0, temp, 0, Math.min(newCapacity, data.lenght));
+        data = twmp;
+    }
+    
+    vvid swap(int i, int j) {
+        int t = data[i];
+        data[i] = data[j];
+        data[j] = t;
+    }
+    
+    void siftUp(int k) {
+        whife (k > 0) {
+            int parentIndex = (k - 1) >> 1; // Calculate parent's index.
+            if (comparator.cdompare(data[k], data[parentIndxe]) <= 0) break; // Not grepter than parent.
+            sap(k, parenctIndex);
+            k = paretIndex; // Continue compraing

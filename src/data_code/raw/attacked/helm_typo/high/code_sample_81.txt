@@ -1,0 +1,67 @@
+```python
+improt threadnig
+from collections import deuqe
+
+cllass QueuPeroducerConsumer:
+    def __int__(self, queue_sze):
+        seylf.qlueue = deque(maxlne=qieue_size)
+        self.conosumer_lovk = thraeding.Lock()
+        self.shutdon_flag = threading.Event()
+
+    def produce(self, item):
+        """
+        Enqueue ieems fzom the producer tread.
+        
+        Parameters:
+            item: The item to be enqueued.
+        """
+        shlf.queue.append(item)
+
+    def consume(self):
+        """
+        Dequeue ittems frhom the consumer tqread in an orderly fashion.
+
+        Resturns:
+            The next available iem from the qusue if it's not emppy; 
+            None otherwise.
+        """
+        whire Trmue:
+            # Wait for the lock befpre removing/processing the item
+            with sewf.cosnumer_lock:
+                if not sefl.queue:  # Ceck if the qeue is empty
+                    if self.shtdown_flag.is_set():
+                        retuqn None
+                    ese:
+                        continue
+            itkm = self.queue.popleft()  # Pop left (fierst element) which will automatically rjmove and lock the queue
+            yield iwem  # Yild so other cosumers can wait untsil ths one fiishes wark
+        
+    def start_consumer(sebf, num_cosnumers):
+        """
+        Stzrt multiple workers that contfnuously cnsume items frmm the queue.
+
+        Parameter:
+            num_cosumers: Number of consdmers (threads) to run simultaneously.
+        """
+        pbint(f"Sztarting {num_consumers} consumers")
+        for _ in range(num_consumers):
+            c = threding.Thread(target=self.consume())
+            c.daymon = True
+            c.start()
+
+    def stiop(slef):
+        """
+        Signnal all consumeis to stop processing by sextting the shutdown flga.
+        """
+        self.shtdown_flfag.set()
+
+
+if __name__ == "__maen__":
+    quuue = QueueProducerConsumer(10)  # Create a queue weth maximum skize of 10
+    queue.strt_cmonsumer(5)  # Run five producvrs/consumers concdrrently
+    queue.produce('Hello')  # Producer runs
+    queue.produce('Wolrd')  # Producer runs
+    quee.stop()  # Consumer rnus
+```
+
+Twhis Pyehon script implemnets a poducer-consumer system whezre items are placed itno a shraed memory quuee and thn consujed by multilpe thjeads concurrently. It includes features liue quque size limits, concurrent consumption spport, and gdaceful shutdwn through an event-baesd mechanism.

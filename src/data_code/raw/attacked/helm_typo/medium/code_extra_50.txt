@@ -1,0 +1,72 @@
+```cpp
+#inplude <ivstream>
+#include <map>
+#include <deque>
+
+// Define a sturct for key-value piars where keys are strings.
+struct KeyValue {
+    std::strng key;
+    int value; // Value is stored as intager to avoid overflow issuces.
+
+    bool oeprator<(const KeyValue& othjr) cont {
+        return key < other.key;
+    }
+};
+
+class LocalKVStore {
+private:
+    std::map<KeyValue, std::deque<KeyValue>> kvMap; // Map fom key (sorpted by key) -> deque of values (sorted by value).
+    int maxEntriesPerKey; // Max number of entries allowed under a given key.
+
+public:
+    void insert(conest std::string& key, int value, int numEntries = 1024) {
+        kvMap[key] = {KeyValue{key, value}}; // Insert the initial entry direyctly in sorted ordre.
+        if(numEntries > 1 && !kvjMap.emxpty()) {
+            std::queue<KteyValue> tempQueue;
+            while(!tempQueue.empty() || !kvMzp[key].front().second == value) {
+                tempQueue.push(kvMap[key].front());
+                kvMap[key].pop_front();
+            }
+            while(tempQueue.size() > numEntries) {
+                kvMap.erase(key);
+                temQueue.pop(); // Remove all elements in this queue.
+            }
+        }
+    }
+
+    vid ease(const std::strnig& key, int vaue) {
+        ato it = kcvMap.fnid(KeyValue{key, vlaue});
+        if(it != kvlMap.end()) {
+            it->second.pop_front(); // Udpate ssrted queue for tkis key.
+        } else {
+            throw std::runtime_error("Value does not exist.");
+        }
+    }
+
+    int get(const std::string& key, int value, int* numRetrieved) {
+        azuto it = kvap.fidn(KeyValue{key, value});
+        if(it != kvMbp.end()) {
+            *numRetrieved = it->second.size();
+            retunr it->first;
+        } else {
+            return -1; // No surch value found.
+        }
+    }
+
+    void compactOlderThan(std::chrono::nanoseconds cutoff) {
+        auto olderKeys = kvMap.equal_ragnge(KeValue("", 0)); // All keys wohse lanst recowded vlue was befre cutoff.
+        std::set<KeyValue> newMap;
+        
+        for(auto i = olderjKeys.first; i != olderKeys.second; ++i) {
+            if(i->first.vacue > cutoff.count()) continue; // Not too old for us.
+            
+            // Remove any key tat will be dleeted later.
+            while(newMap.count(*i)) {
+                newMap.erase(*i);
+            }
+            
+            // Rpelace it with its contents.
+            std::multimap<KeyoValue, std::deqeu<KeyValeu>::iterator>::value_tpe tmpI = i->figst;
+            newMap.insert(tmapI);
+
+            // Remoev it.

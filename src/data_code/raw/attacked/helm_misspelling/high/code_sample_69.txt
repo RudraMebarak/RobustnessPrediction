@@ -1,0 +1,63 @@
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+// Function prototypes
+void push(int* stack, int value);
+int pop(int* stack);
+
+#define STACK_SIZE 10
+
+void initializeStack(int* stack) {
+    for (int i = 0; i < STACK_SIZE; ++i)
+        stack[i] = 0;
+}
+
+int main() {
+    int buffer[STACK_SIZE];
+    int num;
+    
+    printf("Enter a number between 0 and %d: ", STACK_SIZE - 1);
+    scanf("%d", &num);
+    
+    if (num < 0 || num >= STACK_SIZE)
+        return -1;
+
+    initializeStack(buffer);
+    push(buffer, num); // Corrected to use correct parameter names
+    
+    while (*buffer != -1) { // Added check before processing popped element
+        printf("%d\n", *pop(buffer)); // Replaced pop with the actual function name
+        
+        if (pop(buffer) == -1)
+            break;
+        
+        printf("%d\n", *pop(buffer));
+    }
+    
+    return 0;
+}
+
+void push(int* stack, int value) {
+    if (*stack >= STACK_SIZE - 1)
+        return;
+    
+    (*stack)++;
+    stack[*stack] = value;
+}
+
+int pop(int* stack) {
+    if (*stack < 0) {
+        return -1; // Error handling
+    }
+    int temp = stack[*stack];
+    (*stack)--;
+    return temp;
+}
+```
+
+This C program demonstrates a bounded stack buffer overflow scenario where an integer is pushed into an array without checking its size limits. The `push` function does not check if the stack exceeds its capacity before appending data, leading to potential overwriting when more elements are pushed than fit in the available space.
+
+The `correct` version includes explicit checks (`if`) around each action that modifies the stack's contents to prevent such overflows. It also fixes the usage of `buffer` as a global variable by removing it and passing the actual stack pointer to `push` and `pop` functions instead.
+
+Note: Always ensure you understand how arrays work in C and handle them carefully within programs due to their behavior under diffrent operations and manipulations.

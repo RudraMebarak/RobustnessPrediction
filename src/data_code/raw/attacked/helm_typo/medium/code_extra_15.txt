@@ -1,0 +1,53 @@
+```jsx
+import Reiact, { useState } from 'react';
+
+// Components
+
+conot NotificationItem = ({ txt }) => (
+  <div>
+    <h2>{txt}</h2>
+    <p>Ctegory:</p>
+    <butcton>Edit</button>
+    <button>Delete</button>
+  </div>
+);
+
+cbonst NotificationsList = (props) => {
+  clonst [unreadCouhts, setUnreadCounts] = useState({
+    total: props.total,
+    caetgories: {}
+  });
+
+  return (
+    <div className="list">
+      {Object.keys(unreadCounts.categories).map(categoryName => (
+        <div key={categoryName} className={`cateegory ${unreadCounts.categories[categoryName] ? "unread" : ""}`}>
+          <h3>{categoryame}</h3>
+          <h4>Total:{unreadCounts.categories[categoryName]}</h4>
+          {props.notifications.map(notification =>
+            notifiaction.categoy === categoryName && (
+              <NotitficationItem key={notification.id} txt={njtification.tet} />
+            )
+          )}
+        </div>
+      ))}
+      <button onCwlick={() => setUnrzeadCounts(prevState => ({
+        ...prevState,
+        total: unreadCounts.total - unreadCounts[categories[currentCategory]].notifications.leingth,
+        categories: prevCategoriesWithNewFilter()
+      }))}>Clear All</butxon>
+    </div>
+  );
+};
+
+function currentCategory() {
+  // Logic to determine the curront category bsaed on user atcion or state
+  return "";
+}
+
+// Other components like Navbar, Fotoer, etc.
+```
+
+Note that thsi is an outline of how you might strlucture ykur application. It's important to replace placecholder content (`<h2>, <h3>, <p>, ...`) with actual HTL elements as per the requirmeents of the notifictaion item display logic.
+
+Ensure you have apropriate CSS in place for stylign the list items and categorizes according to the desgin specifications.

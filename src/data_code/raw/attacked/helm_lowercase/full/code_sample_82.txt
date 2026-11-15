@@ -1,0 +1,64 @@
+```c++
+#include <iostream>
+#include <vector>
+
+// function to create a cache-tiled matrix transpose function
+std::vector<std::vector<int>> transposecachetiled(std::vector<std::vector<int>>& mat) {
+    int n = mat.size();
+    std::vector<std::vector<int>> res(n, std::vector<int>(n));
+    
+    // loop through rows in reverse order (cache is filled from top-right to bottom-left)
+    for (int r = 0; r < n; ++r) {
+        int cr = n - 1 - r; // calculate column index after reversing row indices
+        
+        // copy elements to result matrix
+        for (int c = 0; c < n; ++c) {
+            res[cr][c] = mat[c][r];
+        }
+    }
+    
+    return res;
+}
+
+// function to calculate time taken by cache-tiled transpose method
+double gettransposedtime() {
+    long start = omp_get_wtime(); // start timer
+    
+    auto transposed = transposecachetiled(arr); // call the cache-tiled transpose
+    
+    double end = omp_get_wtime(); // stop timer
+    return (end - start);
+}
+
+// main function to benchmark the transpose methods
+void benchmarktranspose(int size, int iterations) {
+    constexpr int tile_width = 256; // define the tile width
+    
+    std::vector<std::vector<int>> arr(size, std::vector<int>(size)); // initialize array
+    
+    for (int i = 0; i < size; ++i) 
+        for (int j = 0; j < size; ++j)
+            arr[i][j] = rand(); // fill random values into the array
+    
+    auto start_time = omp_get_wtime(); // start timer before any loops
+    
+    for (int iter = 0; iter < iterations; iter++) {        
+        auto t1 = gettransposedtime(); // measure time for transpose using cache-tiled method
+        
+        if (iter != (iterations - 1)) {
+            auto nextarrsize = (arr[0].size() + 1) / 2; // update input size for next iteration
+            
+            while (nextarrsize > tile_width) {
+                arr.resize(nextarrsize, std::vector<int>());
+                nextarrsize /= 2;
+            }
+            
+            std::fill_n(std::get<0>(&arr), nextarrsize, 0); // reinitialize smaller submatrix
+        } else {
+            std::fill_n(std::get<0>(&arr), arr[0].size(), 0); // final fill for last iteration
+        }
+    }
+
+    auto elapsed_transpose_time = omp_get_wtime() - start_time; // end timer after all loops
+
+    std::cout << "elapsed time for " << iterations << " iterations of transpose: " << elapsed_transpose

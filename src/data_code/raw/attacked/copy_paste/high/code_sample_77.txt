@@ -1,0 +1,74 @@
+```python
+import nltk
+from collections import Counter
+
+# Function to process each file in directory
+def extract_stats(file_path):
+    tokens = sum(map(lambda line: nltk.word_tokenize(line), open(file_path)), [])
+    
+    # Token count (words)
+    word_count = len(tokens)
+    print(f"Total words in {file_path}: {word_count}")
+    
+    # Type-Token Ratio - Number of unique words / total number of words
+    all_words = list(nltk.FreqDist(tokens).keys())
+    num_unique = len(all_words)
+    num_total = word_count
+    
+    token_type_ratio = num_unique / num_total
+    print(f"Type-Token Ratio for {file_path}: {token_type_ratio:.2f}")
+
+    # Character Count - Summation of characters in all lines of text
+    char_sum = sum(map(len, map(str.rstrip, [line.strip() for line in open(file_path)])))
+    print(f"Total Characters in {file_path}: {char_sum}")
+
+    # Character Entropy - Average information content per character (bits per symbol)
+    entropies = []
+    for line in open(file_path):
+        text_chars = list(map(chr, range(32, 127))) + ['\n']
+        entropy = sum([-(prob * math.log(prob, 2)) if prob != 0 else 0 for prob in import nltk
+from collections import Counter
+
+def extract_statistics(file_path):
+    """
+    Extracts token counts, types, type-token ratio (TTR), 
+    character count, and normalized token entropy.
+    
+    Parameters:
+        file_path (str): The path to the text file.
+        
+    Returns:
+        dict: A dictionary containing extracted statistics.
+    """
+    # Initialize counters for tokens and types
+    tokens = []
+    types = []
+
+    with open(file_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+        words = nltk.word_tokenize(content)
+        tokens.extend(words)
+
+        types_set = set(tokens)
+        types.extend(types_set)
+
+    # Calculate Token Count and Types
+    num_tokens = len(tokens)
+    num_types = len(types)
+
+    # Calculate Type-Token Ratio (TTR)
+    ttr = num_types / num_tokens if num_tokens > 0 else 0
+
+    # Character Count
+    char_count = sum(len(word) for word in tokens)
+
+    # Normalized Token Entropy
+    nte = -sum((freq/num_tokens)**2 * math.log((freq/num_tokens)**2, 2) for freq in Counter(tokens).values()) / math.log(2)
+
+    return {
+        "Token Count": num_tokens,
+        "Type Count": num_types,
+        "Type-Tokens Ratio (TTR)": ttr,
+        "Character Count": char_count,
+        "Normalized Token Entropy": nte
+    } utilities which are included in its installation package.

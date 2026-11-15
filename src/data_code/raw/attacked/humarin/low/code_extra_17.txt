@@ -1,0 +1,1 @@
+The TrieNode class manages prefixes with suffix arrays and frequency counts. In a Trie class, the insertion of a new node results in an empty string. If we don't reach the node at the end of the string, the argument "node->isEndOfWord()" should be ignored. Trie trie returns 0 when node->cnt is marked as deleted.

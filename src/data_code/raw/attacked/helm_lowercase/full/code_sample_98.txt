@@ -1,0 +1,34 @@
+```python
+import bisect
+
+def schedule_intervals(weighted_intervals):
+    # sort by weight in ascending order within each time interval
+    weighted_intervals.sort(key=lambda x: (x[1] - x[0], -x[2]))
+
+    max_weight = 0
+    best_schedule = []
+
+    for start, end, duration in weighted_intervals:
+        i = bisect.bisect_left(best_schedule, (start, start + duration, false))
+        
+        if i == len(best_schedule):
+            new_job = (start, start + duration, true)
+            best_schedule.append(new_job)
+            
+        elif start >= best_schedule[i][1]:
+            new_job = (best_schedule[i][1], start + duration, true)
+            bisect.insort(best_schedule, new_job)
+            
+        else:
+            continue
+        
+        max_weight += weight_function(best_schedule[i])
+    
+    return max_weight
+
+# example usage
+weight_function = lambda job: job[2] * job[1]  # hypothetical function to calculate cost based on weight & duration
+weighted_intervals = [(1, 5, 3), (2, 4, 2), (0, 6, 1)]
+schedule_max_weight = schedule_intervals(weighted_intervals)
+print(schedule_max_weight)  # output will be a modified maximum job weight under given constraints
+```

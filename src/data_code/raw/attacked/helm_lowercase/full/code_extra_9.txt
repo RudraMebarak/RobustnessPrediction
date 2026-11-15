@@ -1,0 +1,42 @@
+```jsx
+import react, { usestate } from 'react';
+
+function kanbanboard() {
+  const [tasks, settasks] = usestate([
+    { text: "task1", column: null },
+    { text: "task2", column: null }
+  ]);
+
+  function handleaddtask() {
+    if (tasks.length < 10) {
+      settasks([...tasks, { text: `new task ${tasks.length}`, column: null }]);
+    }
+  }
+
+  return (
+    <div>
+      <h1>kanban board</h1>
+      <button onclick={handleaddtask}>add new task</button>
+      <ul>
+        {tasks.map(task => (
+          <li key={task.text}>
+            <p>{task.text}</p>
+            <button>edit</button>
+            <button>delete</button>
+            <span style={{ marginright: '5px' }}>next</span>
+            <select onchange={(e) => updatecolumn(e.target.value)}>
+              <option value="to-do">to-do</option>
+              <option value="doing">doing</option>
+              <option value="done">done</option>
+            </select>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function updatecolumn(columnid) {
+  // logic to update task's column based on selected columnid.
+}
+```

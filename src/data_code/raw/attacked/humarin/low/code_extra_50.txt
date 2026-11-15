@@ -1,0 +1,1 @@
+In order to avoid overflows, it is necessary to define a struct that can handle all key-value pairs. In the event of a runtime error failure, such as "error no longer exists," simply return true and try again.

@@ -1,0 +1,50 @@
+```javascript
+import { createAbortController } from 'abort-controller';
+
+function debounce(func, wait) {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
+}
+
+async function fetchAndDebounce(url, delay = 100) {
+  const controller = createAbortController();
+  const signal = controller.signal;
+
+  async function fetchData() {
+    try {
+      const response = await fetch(url, { signal });
+      if (response.ok) {
+        console.log('Data fetched successfully');
+      org.apache.http.HttpResponse;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+
+import javax.swing.*;
+import java.io.IOException;
+import java.net.URI;
+import java.nio.charset.StandardCharsets;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
+public class DebouncedSearchBox {
+
+    private final String SEARCH_URL = "https://example.com/search";
+    private static final int ABORT_TIMEOUT_MS = => {
+    fetchData()
+    .then(result => resolve())
+    .catch(reason => reject());
+  })
+}
+
+// Usage example:
+const url = "https://api.example.com/search";
+fetchAndDebounce(url)
+  .then(() => console.log("Search completed"))
+  .catch(err => console.error("Fetch failed", err))
+```

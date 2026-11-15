@@ -1,0 +1,52 @@
+```java
+import org.javatuples.Pair;
+import org.springframework.data.domain.ExclusivePrefixFilter;
+
+public class EventConsumer {
+
+    public void processEvents(Iterable<Event> events) {
+        List<Pair<Long, Long>> eventIDs = new ArrayList<>();
+        
+        // Step 1: Deduplicate event ```java
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+public class EventConsumer {
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    public void consumeEvent(YourEventDTO event) {
+        String eventId = event.getEventID();
+
+        // Check if event ID already exists in the database
+        Optional<Event> existingEvent = entityManager.createQuery("SELECT e FROM Event e WHERE e.eventId = :eventId", Event.class)
+                .setParameter("eventId", eventId)
+                .getResultList()
+                .stream()
+                .findFirst();
+
+        if (existingEvent.isPresent()) {
+            throw new RuntimeException("Duplicate event ID detected!");
+        }
+
+        try (EntityManager txManager = entityManager.getTransaction().begin()) {
+            // Perform business logic for updating the event
+
+            // Commit the transaction after performing the business operation
+            txManager.commit();
+        } catch (Exception ex) {
+            // Rollback the transaction on error
+            txManager.rollback();
+            throw new RuntimeException(ex);
+        }
+    }
+}
+``` // Replace connection with actual database connection object
+    }
+}
+```
+
+This Java method `processEvents` processes a collection of `Event` objects and updates them in the database after deduplicating their IDs within the same transaction. It utilizes Spring Data's `ExclusivelyPrefixFilter` to uniquely identify each event by comparing event IDs in a single query.
+
+Please replace `"SELECT ... FROM Events WHERE id LIKE %?"`, where `?` is a placeholder representing the event ID being selected, with your actual SQL query to fetch event IDs from the database. The actual implementation will depend on how you handle different types of entities like `Event`.

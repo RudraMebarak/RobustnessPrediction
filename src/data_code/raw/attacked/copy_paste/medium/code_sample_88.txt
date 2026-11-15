@@ -1,0 +1,117 @@
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+class Environment {
+    private final Map<String, Object> variables = new HashMap<>();
+    private final Map<String, LetBinding> letBindings = new HashMap<>();
+
+    public void setVariable(String name, Object value) {
+        variables.put(name, value);
+    }
+
+    public void setLetBinding(String variableName, LetBinding binding) {
+        letBindings.put(variableName, binding);
+    }
+}
+
+abstract class Binding {
+    abstract boolean matches(Environment env, String name);
+
+    abstract void apply(Environment env, Expression expr);
+
+    protected void checkType(Binding left, Expression right) {}
+}
+
+class VarBinding extends Binding {
+    private final String name;
+
+    public VarBinding(String name) {
+        this.name = name;
+    }
+
+    @Override
+    protected void checkType(Binding left, Expression right) {}
+
+    @Override
+    boolean matches(Environment env, String name) {
+        return name.equals(this.name);
+    }
+
+    @Override
+    void apply(Environment env, Expression expr) {
+        assert match(env, name).type == Type.NUMBER : "Cannot Map<String, String> environment = new HashMap<>();
+
+    public void checkType(String name) throws UnresolvedVariableException {
+        if (environment.containsKey(name)) {
+            System.out.println("Found in environment: " + environment.get(name));
+        } else {
+            throw new UnresolvedVariableException(name);
+        }
+    }
+
+    class UnresolvedVariableException extends Exception {
+        public UnresolvedVariableException(String name) {
+            super("Unresolved variable: " + name);
+        }
+    }
+
+    // Example usage
+    public static void main(String[] args) {
+        TypeChecker checker = new TypeChecker();
+        
+        try {
+            checker.checkType("x");
+        } catch (UnresolvedVariableException e) {
+            System.out.println(e.getMessage());
+        }
+
+        // Add bindings to the environment
+        checker.environment.put("x", "int");
+        checker.environment.put("y", "boolean");
+
+        try {
+            checker.checkType("y"); // Should print "Found in environment: boolean"
+            checker.checkType("z"); // Should throw an exception because 'z' {
+    protected final Expression operand;
+
+    public BinaryOperation(Expression left, Expression right, Expression operand) {
+        super(left, right);
+        this.operand = operand;
+    }
+}
+
+abstract class UnaryOperation extends OperationExpression implements BinaryOperation {
+    protected final Expression operand;
+
+    public UnaryOperation(Expression operand) {
+        this.operand = operand;
+    }
+}
+
+abstract class Expression {
+    protected abstract Type getType();
+}
+
+class LetBinding extends Variable {
+    private final Expression body;
+
+    public LetBinding(String name, Expression body) {
+        this(name, body, null);
+    }
+
+    public LetBinding(String name, Expression body, Expression init) {
+        super(name, null, null);
+        this.body = body;
+        this.init = init;
+    }
+
+    private Expression init;
+
+    @Override
+    protected void checkType(Binding left, Expression right) {}
+
+    @Override
+    boolean matches(Environment env, String name) {
+        if (name.equals(getName())) {
+            return true;

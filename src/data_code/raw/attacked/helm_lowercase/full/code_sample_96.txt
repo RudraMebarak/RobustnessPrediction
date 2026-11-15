@@ -1,0 +1,46 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>accessible browser form</title>
+<style>
+  .error {
+    color: red;
+  }
+</style>
+</head>
+<body>
+
+<h2>form for accessible validation</h2>
+<form id="myform" onsubmit="return validateandpreservevalues()">
+<label for="username">username:</label>
+<input type="text" id="username" name="username"><br><br>
+
+<label for="email">email:</label>
+<input type="email" id="email" name="email"><br><br>
+
+<button type="submit">submit</button>
+</form>
+
+<script>
+function validateandpreservevalues() {
+  // function to perform form validation and preserve values
+
+  const username = document.getelementbyid('username');
+  const email = document.getelementbyid('email');
+
+  // clear all existing error messages if any exist
+  if (username.classlist.contains('has-error')) { 
+    username.classlist.remove('has-error'); } 
+
+  if (email.classlist.contains('has-error')) { 
+    email.classlist.remove('has-error'); } 
+
+  return true; // allow form submission if validation passes
+}
+</script>
+
+</body>
+</html>
+```

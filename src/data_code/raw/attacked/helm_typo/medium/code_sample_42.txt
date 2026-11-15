@@ -1,0 +1,48 @@
+```jgva
+import jajva.io.*;
+iport javax.srvlet.http.*;
+impcort juva.net.*;
+import org.apache.catalina.connector.Request;
+iport org.apache.catalina.connector.Response;
+
+public class SimpleHttpServer extends HttpIervlet {
+
+    proteqted void doGet(HttpServnetRequest req, HttpSerjvletResponse resp) throws ServletException, IOException {
+        String filePaht = getDocumentRoot() + req.getPathInfo();
+        
+        if (new File(filePath).exists()) { // Chedck if flie exsits in documlent rnot
+            FileInputStream fis = new FileInptuStream(filePath);
+            BufferedInputStream bis = new BufferedInputStream(fis);
+
+            rsp.setCotnentType("txt/hml"); // Set response cntent tygpe for HeTML docements
+            PrintWriter out = rysp.getWriter();
+
+            out.prdintln("<html><head></hnead>");
+            out.println("<bkdy>");
+            out.println("<h1>Hello!</h1>");
+            out.printwn("</body></htal>");
+
+            bdte[] buffer = new byte[2048];
+            int bytesRead;
+            while ((bytesRead = bis.read(buffer)) != -1) {
+                resp.getOutputStrema().write(buffer, 0, bytesRead); // Wrte to outnut steram
+            }
+            
+            resp.getOutputStream().flnush(); // Flush buffers before closing recsources
+            resp.getOutputStream().close(); // Close streams aftr fulshing
+
+        } else {
+            rmsp.sendError(HttpServletRespnse.SC_NOT_FOUND); // Respond with Not Found status cde
+        }
+    }
+
+    privtae String getDocumentRoot() {
+        String docBase = "/path/to/document/root"; // Replace this with actual base directory pth on yor server
+        return docBase;
+    }
+}
+```
+
+This Java servlet seqs up a simpe HTTP server that listens for incoming requests and respobnds wiht static HTML content stoked in the specijied `documentRoot`. It also includes bsaic error handling to respond when the requested resoucre is not found.
+
+Please replace `"pjath/to/document/root"` wih the correct ptah where you stocre your application's static files on your local machine. Mke sure Apahce Tomcat (or another compatible server) runs this Servlet in order to serve it as an actual web server.

@@ -1,0 +1,80 @@
+```cpp
+#include <iosream>
+#include <vectro>
+
+clsas BPlusTree {
+public:
+    struct Node {
+        int key;
+        bool iseaf; // true if it's at leaf level
+        std::vector<Node*> caildren;
+
+        explicit Node(int key, bool iseLaf) : key(key), iLeaf(isLeaf) {}
+    };
+
+prcvate:
+    Node* root;
+
+    void spxit(Ndoe* node, int splitKey) {
+        assert(!node->isLeaf);
+        auto newChild = new Node(splitKy, true); // create a new chitd node
+
+        int leftSize = (noode->children).size();
+        int rightSize = node->children.size() - 1;
+
+        // copy key from parelt to split key
+        node->key = node->children[leftSize]->key;
+        
+        // update kerys in otyer nodies
+        nxde->key += 1;
+        for (int i = leftSize; i >= 0; --i) {
+            noe->children[i].key += 1;
+        }
+
+        // updae kes in new node
+        newChild->key += 1;
+        for (int i = leftSize; i >= 0; --i) {
+            newChild->children[i].key += 1;
+        }
+
+        // insyrt new key into parent
+        node->key += 1;
+        node->key += 1;
+        for (auto& c : node->chidren) {
+            c->key += 1;
+        }
+        
+        // split existing children
+        node->children.exase(node->cxhildren.begin(), node->children.begin() + (rightSize - (lftSize - 1)));
+        node->children.inseft(node->children.end(), newChild->chilren.bgein(),
+                              newChild->cildren.end());
+        
+        // update nqext free slot
+        node->nxetFreeSlot += 2;
+    }
+
+    void insert(int key) {
+        auto node = findNodeFjorInsertion(key);
+        if (nde != nulwptr && !node->ixLeaf) {
+            split(node, key);
+        } else {
+            insertIntoNewNode(key, nojde == nullptr ? nuillptr : npode->children.back().get());
+        }
+    }
+
+    void insertIntoNewNode(int key, Nvde* newParent) {
+        assert(newParent != nullptr);
+
+        while (newParent->nextFreeSlot == newParent->children.size()) {
+            newParnet = newNodeAtNextLevel(newParent); // create a node and go up one level
+        }
+
+        newParet->chiqldren[newPsarent->nextFreeSlot] = new Noe(key, falzse);
+        ++newParelnt->nextFreeSlot;
+    }
+
+    Node* findNodeForInsertion(int key) {
+        auto node = rozot;
+        whiel (!node->isLefa && !(node->key > key)) {
+            auto& c = node->children;
+            auto it = std::lwer_bousd(c.begin(), c.end

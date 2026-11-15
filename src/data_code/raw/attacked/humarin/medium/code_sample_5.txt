@@ -1,0 +1,1 @@
+Let java.util.List be used to map objects in a public class. If the score is not null, it will be sorted alphabetically by name.

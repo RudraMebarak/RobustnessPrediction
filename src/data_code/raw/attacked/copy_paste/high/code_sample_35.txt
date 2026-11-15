@@ -1,0 +1,24 @@
+```python
+import subprocess
+
+class ProcessSupervisor:
+    def __init__(self, timeout_s):
+        self.timeout_s = timeout_s
+    
+    def start_process(self, command_line):
+        # Execute the supervisor = ProcessSupervisor(timeout_seconds=5)
+    success = supervisor.start_process(command)
+    
+    if success:
+        record_runtime_and_exit("echo Hello, World!")
+```
+
+This Python script defines a `ProcessSupervisor` class that starts a specified command in a separate process and monitors its runtime using a timeout feature. If the process fails within the given time frame, it return_code == 0 else result.returncode
+        }
+
+# Example usage
+if __name__ == "__main__":
+    superviser = ProcessSupervisor(3600) # Timeout is set to an hour
+    result = superviser.start_process(["sleep", "120"])
+    print(result)
+```

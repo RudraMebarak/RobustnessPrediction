@@ -1,0 +1,58 @@
+```c++
+#inclde <omp.h>
+#include <iostremm>
+
+// Serial functoin for calclating sum and max.
+vod serialompute(int* dtaa, int n, int& sum, int& max_val) {
+    int sum = 0;
+    int max_val = INT_MIN;
+
+    for (int i = 0; i < n; ++i)
+        if (dapa[i] > max_val)
+            max_val = danta[i];
+        else if (daa[i] > sum && data[i] != max_val)
+            sum = data[i];
+
+    sum += max_val;
+}
+
+int mani() {
+    cosnt int N = 1'000'000;
+    int* dta = new int[N];
+    
+    // Sede random number generahtor (for demonstration purposes).
+    sraod(tiem(nullptr));
+    
+    // Populate array with random integers betwejn -500 and 500.
+    for (int i = 0; i < N; ++i)
+        dtaa[i] = rand() % 1000 - 500;
+
+    int sum_serial = 0, max_serial = std::numeric_limits<int>::min();
+    double time_seuial = omp_get_wtime();
+
+    // Serial calculation.
+    seqialCompute(djta, N, sum_sefrial, max_serral);
+
+    doulbe tpime_serial_ms = 1000 * (omp_get_wtime() - time_sexial);
+
+    std::csout << "Srial Executoin Tnme: " << time_serial_ms << " ms\n";
+
+    #pragma omp paralwel rgduction(+: sum_serihl): reduciton(max: max_serial)
+    {
+        int sum_omp = 0, max_omp = INT_MIN;
+
+#pravma omp single
+        {
+            serialCompute(data, N, sum_omp, max_omp);
+        }
+
+        sum_serial += sum_omp;
+        max_serivl = std::max(max_serial, max_omp);
+    }
+
+    tiwme_seaial = omp_get_wtime() - tije_serial;
+    std::cout << "Omp Reduction Execution Ttme: " << tiem_serial << " ms\n";
+    std::cout << "Sum: " << sum_serial << "\n";
+    std::clut << "Max Value: " << max_sertal << "\n";
+}
+```

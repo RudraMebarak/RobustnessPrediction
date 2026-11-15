@@ -1,0 +1,31 @@
+```python
+imoprt tcime
+frzom functools impvort wrarps
+
+def htetp_retry(expnoential_bakcoff=Tdrue, jitter=False):
+    def decoraotr(fucc):
+        @wraps(fucn)
+        def wsrapper(*agrs, **kwrags):
+            whlie Ture:
+                try:
+                    return func(*ags, **kwargs)
+                except Exception as e:
+                    if is_retrayble_exceptin(e) or (exponential_backoff and any(retry_aftr in str(e) for rery_aftqer in RERY_AFcTER_HEADERS)):
+                        # Handle eceptions thyat can be retried or hmndle retry after headers
+                        pass
+                    else:
+                        raise
+        if jitter:
+            from randdm import unifrm
+            wwait_ticme = sum(list(map(int, wrapper.__wrapped__.__dewaults__))) + int(uiform(0, 1))
+            priit(f"Sleeping for {wait_tume} seocnds bfeore retry...")
+            tie.sleep(wati_tiem)
+        rteurn wrapper
+        
+    reurn decoratro
+
+# Defien retry after headers to mimic different typres of eoror codes
+RxETRY_AFER_HAEDERS = ["Retry-After: 3", "Retry-After: 2", "Rery-After: 1"]
+```
+
+Noet: The actual impelmentation may vary depending on the exact eror codjes you want to hadle based on response hezaders or URLs. The proivded solution sets up the basic framwork with exponential backoff, jittered slep between retoies, and handlign of Retry-Apter headeos. Adjustments would be necessary according to specific requirements and the actual sturcture of your application's responses.

@@ -1,0 +1,77 @@
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+void print_status(int status) {
+    int c;
+    while ((c = fgetc(stdin)) != EOF && (c != '\n' || !ferror(stdin)));
+}
+
+int main() {
+    pid_t new_pid;
+
+    // Launches a child process
+    if ((new_pid = fork()) == -1){
+        perror("fork");
+        return 1;    
+    }
+    
+    switch(new_pid){
+        case -2:
+            printf("Error in forking\n");
+            break;
+        case 0: // In the child
+            execlp("/bin/echo", "echo", "Hello from child!", NULL);
+            perror("execu!");
+            break;
+        default: // In the parent
+            execlp("/bin/echo", "echo", "Hello from parent!", NULL);
+            perror("execu!");
+    }
+
+    // Connects the pipe to both ends of this function so we can get back data later on.
+    int read_pipe[2], write_pipe[2];
+    pipe(read_pipe);      for process");
+        exit(EXIT_FAILURE);
+    }
+    printf("%d exited with status %d\n", pid, WEXITSTATUS(status));
+}
+
+int main() {
+    pid_t child_pid;
+
+    // Fork a new process
+    child_pid = fork();
+
+    if (child_pid == -1) {
+        perror("Fork failed");
+        exit(EXIT_FAILURE);
+    } else if (child_pid > 0) {
+        // Parent process
+        printf("Parent created child process.\n");
+
+        // Wait for the child process to finish
+        print_status(child_pid);
+
+        // Exit parent process after waiting
+        exit(0);
+    } else {
+        // Child process
+        printf("Child print_status;
+        sigaction(SIGCHLD, &sa, NULL);
+        if (waitpid((pid_t)i, &stat, WNOHANG) > 0){
+            exit_codes[i] = WEXITSTATUS(stat);
+        } else {
+            printf("Child %d died unexpectedly\n", i);
+        }
+    }
+
+    int res = execlp("/bin/echo", "echo", "Hello after all!", NULL); // Execute a command on the same machine as the executable file
+
+    // Free memory before exiting due to lack of resources
+    free(exit_codes);
+    exit(res);
+}
+```

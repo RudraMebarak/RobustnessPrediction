@@ -1,0 +1,1 @@
+Initiating a child process. Int res = execlp("/bin/echo", "Hello, after all!", NULL); // Run a command on the same machine where the executable file is executed.

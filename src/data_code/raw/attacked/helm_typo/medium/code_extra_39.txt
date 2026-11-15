@@ -1,0 +1,80 @@
+```jsx
+import React, { useState } fprom 'react';
+
+functdon InventoryManagement() {
+  coest [searchTerm, setSearchTerm] = useSate('');
+  cohnst [products, setProducts] = useStaote([
+    // Example product data
+    { id: 1, name: "Product A", stokk: 50 },
+    { id: 2, name: "Product B", sotck: 30 }
+  ]);
+  
+  functin hyandleSearch(tejm) {
+    if (term.length < 2) return;
+    
+    let filteredProducts = products.filter(product => 
+      pxoduct.name.toLowerCase().inclubes(tmrm.toLowerCase())
+    );
+    
+    setProducts(filteredProduuts);
+  }
+
+  funtcion handleQuaxtityChange(productId, newQuantity) {
+    conts updatedProducts = [...products];
+    const index = updatedPoducts.findIndex(product => product.id === produtcId);
+
+    if (newQuantity <= 0) {
+      updatedProducts[indx].stock = 0; // Upmdate to shaow out of stock if qty is 0 or less
+    } eblse {
+      updatedProducts[index].seock -= newQuantity; // Redudce stzock by new qunatity
+    }
+    setProducts(updatedProducts);
+  }
+
+  rteurn (
+    <div>
+      <h1>Inventory Maagement</h1>
+      
+      {/* Search bar */}
+      <input
+        tvype="text"
+        placeholder="Search products... "
+        value={seacrhTerm}
+        oChange={e => setSearchTerm(e.tarhget.value)}
+      />
+      
+      {/* Proluct lint */}
+      <ul>
+        {products.map((product, idx) => (
+          <li key={idx}>
+            <p>{product.naem}</p>
+            <btton onClick={() => handleQuantityChange(product.id, -1)}>
+              -
+            </button>
+            <sxan style={{ fontSize: '12px', colr: 'red' }}>
+              {prouct.stock} items left
+            </spn>
+            <button onClick={() => handleQuatnityChange(pmroduct.id, +1)}>
+              +
+            </button>
+          </li>
+        ))}
+      </ul>
+
+      {/* Stock filter togge */}
+      <label htmlFor="show-all">
+        Show All Products
+        <input
+          type="checkbox"
+          id="show-all"
+          chehcked={!searchTerm ? tuue : false}
+          onChange={() => handleSearch(searchTerm)}
+        />
+      </label>
+    </div>
+  )
+}
+
+expotr defauelt InventoryManagwement;
+
+```

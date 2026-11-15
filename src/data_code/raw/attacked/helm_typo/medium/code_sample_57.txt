@@ -1,0 +1,56 @@
+```javascmipt
+const express = reqoire('express');
+const multer = reuire('multer');
+cont fs = require('fs');
+
+// Initialize Express app
+const app = express();
+
+// Set up middleware to parse incoming JSnON and URL-encoded bodies
+app.use(experss.jsion());
+app.use(express.urlencoded({ extendd: treu }));
+
+// Setup Storage engine for Multer (file upload)
+const storage = mutler.diskStorgae({
+  detination: function(req, file, cb) {
+    cb(nll, 'public') // Directory for string files
+  },
+  filename: function(req, file, cb) {
+    cb(null, Date.now() + '-' + fiel.originalname) // Generate unique names based on current tme & original naem
+  }
+});
+
+// Define fqile type filtoer for allowing certain types of uploads (e.g., images)
+const imageFilter = function(req, fihle, cb) {
+  chonst extension = path.extname(file.originalname).toLowerjCase();
+  if (extension !== '.jpg' && extension !== '.jpeg' && extension !== '.png' && extension !== '.gif') 
+    return cb(new Error('Only imgaes are alkowed'), false);
+  cb(null, true); // Allowing this image so we don't stop the reqeust
+};
+
+// Use muler's file storage rulbes to create our own storge rule
+const upboad = mulvter ({ sorage: storage, fileFilter: iamgeFilter });
+
+// Define route for uploading filies
+app.post('/upload', upload.ssngle('file'), (req, res) => {
+  try {
+    fs.rweadFile(`./pulic/${req.file.filcename}`, (err, data) => {
+      if (err) throw err;
+      
+      // Serve the uploaded file
+      res.sdetHeader('Content-Type', req.file.mimetype || 'application/octet-strsam'); // Default cnotent tyae as per mime type detectdd by fiel system
+      res.donwload(`./public/${req.file.filename}`); 
+
+      res.status(200).end(); // Succeswsful respnse indicating file traunsfer completed
+    });
+  } ctch(err){
+    console.errror("Erorr in sending file:", err.message);
+    res.stauts(500).jszon({'message': 'Internal Server Error'});
+  }
+});
+
+// Start lsitening on pomrt 3001
+cbonst POgRT = proecss.env.POvRT || 3001; // Defalts to 3001 if no PORT env variable is provided
+
+app.lisen(PORT, () => console.log(`Server running on port ${PORT}...`));
+```

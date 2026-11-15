@@ -1,0 +1,1 @@
+Return the number of miles to retrieve the correct answer by comparing the log data with the values from left and right. Unexplored nodes are counted for the f-costs of their node and its equivalents as per the algorithm.

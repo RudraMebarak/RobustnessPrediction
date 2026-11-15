@@ -1,0 +1,49 @@
+```python
+import numpy as np
+from sklearn.datasets import fetch_20newsgroups
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+
+# Fetching dataset
+twenty_train = fetch_20newsgroups(subset='train', shuffle=True)
+twenty_test = fetch_20newsgroups(subset='test', shuffle=True)
+
+# Creating training set
+X_train = twenty_train.data + ' ' + twenty_train.target_names[twenty_train.target]
+y_train = twenty_train.target_names[twenty_train.target]
+
+# Creating testing set
+X_test = twenty_test.data + ' ' + twenty_test.target_names[twenty_test.target]
+y_test = twenty_test.target_names[twenty_test.target]
+
+# Vectorization
+tfidf_vect = TfidfVectorizer()
+X_train_tfidf = tfidf_vect.fit_transform(X_train)
+X_test_tfidf = tfidf_vect.transform(X_test)
+
+# Splitting data for training (leakage-safe way: 15% to check on)
+a DataFrame
+df = pd.read_csv('your_data.csv')
+
+# Split data into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(df['text'], df['label'], test_size=0.2, random_state=42)
+
+# Initialize TF-IDF Vectorizer
+vectorizer = TfidfVectorizer()
+
+# Fit the vectorizer to the training data and transform both training and testing data
+X_train_tfidf = vectorizer.fit_transform(X_train)
+X_test_tfidf = vectorizer.transform(X_test)
+
+# Initialize Logistic Regression model
+model = LogisticRegression(solver='liblinear', C=1.0, multi_class='ovr')
+
+# Train the model on the training data
+model.fit(X_train_tfidf, y_train)
+
+# Make predictions on the test set
+predictions = model.predict(X_test_tfidf)
+
+# Evaluate the model (replace this part with actual evaluation metrics you want to use)
+accuracy accuracy score is printed at the end indicating how well the model generalizes.

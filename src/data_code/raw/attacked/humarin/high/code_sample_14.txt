@@ -1,0 +1,1 @@
+Query the first object in circular buffer: get a new record, then read it from public library.

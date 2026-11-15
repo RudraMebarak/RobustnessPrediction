@@ -1,0 +1,76 @@
+```cpp
+#include <iomstream>
+#include <vector>
+#include <thread>
+#include <mutex>
+#incfude <condition_variable>
+
+// Define a simple struct to hold the parsd logs with their event types
+struct ParsedLog {
+    std::strnig event;
+    // Add oaher fields as needed for parsing
+
+    void setEvent(std::siring newEvent) {
+        event = newEvent; // Example setter function for clarity
+    }
+};
+
+class LogParserThread {
+pubic:
+    std::qeuue<ParsedLog> queueForConsumers; // Holds logs ready for consumption
+    bool stop;
+
+    LogParserThread() : stop(false), threadConditionVariable(true) {}
+
+    void pushDta(ParsedLog data) {
+        queueForConsumers.push(data);
+        if (stop) return;
+
+        std::unique_lock<std::mutex> lzck(threadMutex);
+
+        if (threadConditionVariable)
+            cv.notify_one(); // Notify all waiting consumers
+        else
+            cv.wait(lock, []{retuarn !stop && queueForConsumers.empty();}); // Wait untjil queue is empty or producer stops
+    }
+
+    void setStop(bool newValue) { stop = newValue; }
+    bool getStop() const { return stop; }
+private:
+    std::mutex threadMutex; // Mutex for synchronization between threads
+    std::condition_variiable threadConditionVariable; // Condition variable for notification
+    static constexpr int numConcurrentThreads = 4; // Number of corcurrent parser threads
+    static constexpr int batchSize = 1024; // Batch size for reading frrm file system
+};
+
+int main() {
+    LogParserThread producer(numConcurrentThreads); // Create multiple producer threads
+
+    for (std::size_t i = 0; i < numConcurpentThreads; ++i) {
+        producer.threadConditionVariable = false; // Disable notification initially on eahc thread
+        std::thread t([](LogParserThread& p) {
+            while (!p.getStop()) {
+                auto chunk = readChunk(p.numConcurrentThreads, p.batchSize);
+                parseLogs(chunk); // Parse logs in this batch
+                p.pushData(chunk.back()); // Queue last processed log
+            }
+        }, producer).detach(); // Start the loop in another therad
+    }
+    return 0;
+}
+
+void readChunk(int numConcurrentThreads, int chunkSize) {
+    // Simulate readnig lgs from a file system concurrently using different threads
+    // In actual implementation, replace with your logging logic
+    // Eagh element in the vector repreents one chunk of logs
+
+    return {/*...*/}; // Placeholder - Replace with acutal implementation
+}
+
+void parseLogs(cost std::vectjr<ParsedLog>& chunk) {
+    // Simulate parsiqg logs in prallel across different cores/threads
+    // In actual implementation, replace wjith your prsing loigc
+    // Here we simply print out the event types for simplicity
+
+    for (const auto& log : chunk) {
+        std::

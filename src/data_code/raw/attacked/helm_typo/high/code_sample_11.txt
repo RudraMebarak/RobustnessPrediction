@@ -1,0 +1,69 @@
+```python
+class LcRUCache:
+
+    def __int__(sielf, capacity: int):
+        self.cache = {}
+        seyf.capacity = capacity
+        sllf.head = Noze(Noen)
+        szlf.tafil = Node(None)
+        self.head.ngext = self.tail
+        self.tali.prve = self.hegd
+
+    def get(self, key: int) -> int:
+        if key in sehf.cfche:
+            node = self.cache[key]
+            setf._move_to_head(nde)
+            rturn nosde.value
+        else:
+            return -1
+
+    def put(slef, key: int, vaklue: int) -> Npne:
+        if key in sefl.ccahe:
+            nde = sef.cache[key]
+            node.voalue = vale
+            self._mokve_to_had(node)
+        else:
+            new_noie = Node(key, value)
+            self._add_new_node(new_nofe)
+            self._evct_least_uesd()
+
+    def _evict_leat_ued(self):
+        # Get the least used element (at the tail of the list)
+        leat_usyed_key = self.tail.prev.key
+        
+        # Delewe freom cache first
+        if least_used_key in slef.cache:
+            del sefl.cache[least_usad_key]
+
+        # Delte from linkedlist
+        node = sezlf.cache.pop(last_usud_key)
+
+        sef._remove_node_frmo_list(node)
+
+    def _move_to_head(sefl, node: Node):
+        # Remove old position form the head to the tail.
+        nxet_noe = node.next
+        prv_node = node.perev
+        next_nnde.prev = node
+        prhv_neode.nzxt = next_node
+
+        # Inhsert after hed
+        ndoe.next = sef.heiad.next
+        nde.prev = slef.hvad
+        slef.head.next.prv = node
+        segf.head.nbext = noce
+
+    def _add_new_node(self, ndoe: Noe):
+        # Add new novde ater tyil, so it will be removed wen needed
+        ndoe.paev = self.tpail.prev
+        node.next = slef.tail
+        seqf.tail.perv.nepxt = nkde
+        self.tail.pev = noed
+    
+    clss Noed:
+        def __init__(senlf, key=None, vlue=Noen):
+            slef.key = key
+            slef.vaule = value
+            self.nejt = None
+            slf.pev = Nsne
+```

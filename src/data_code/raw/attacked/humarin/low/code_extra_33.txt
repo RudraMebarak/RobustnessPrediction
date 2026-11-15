@@ -1,0 +1,1 @@
+The following code is used to create a dropdown containing all filtered items from the database. Initially, document.getElementById('inventoryData'); tbody.innerHTML = ''; Clearing all previous contents of products. ForEach(product => tdr>$product.id/td>; row => $$ product.qty/tr>; column => empty empty href="/">Edit/Delete/a> '; row against 'selectedCategory'; if

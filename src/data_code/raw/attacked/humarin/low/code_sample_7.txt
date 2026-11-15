@@ -1,0 +1,1 @@
+Logger.getLogger(LogEntrySorter.class) // A list of Map.Entry('timestamp', 'severity', and 'originalInput') // Sorts log entries according to their severity level, timestamp, and original order, using a set of criteria. How would you define a custom comparator for a public List? LogEntrySorter sorter returns a set of boolean values for sorting, including private Boolean maps.

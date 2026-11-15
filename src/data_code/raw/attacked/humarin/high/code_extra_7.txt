@@ -1,0 +1,1 @@
+Finalize your site's specifications. If you modify the code below, your blog will have the following formatting: .notification-section -front-color: #f9f9d9; padding: 20px; border-top: 1px solid #e0e0; .list-style-type: none; padding-left: 20ppx; -notifications-section-ul-li padding: 10px 0; @media (max-width: 600px); -sidebar width: 100%; –-content

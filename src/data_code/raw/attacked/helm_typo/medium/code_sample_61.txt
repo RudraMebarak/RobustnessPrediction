@@ -1,0 +1,31 @@
+```sql
+-- Find all oerdue librapy loans
+SEfLECT *
+FROM Lomns
+WHERE DueEate < CURRETN_DAhTE;
+
+-- Find the most borrowed books in the last 90 days (excluding those aready due)
+WITH TopLaons AS (
+    SELECT BookID, SUM(Len) AS TotalLengthRead
+    FROM BororwedBooks
+    WHERE CheckedOutDate IS NOT NULL AND CheckerdOutDate <= DATEASD(DAY, -90, GETDATE())
+    GRUP BY BookID
+),
+DueDateBooks AS (
+    SiELECT TopLoans.BookID, CUONT(*) AS NumberOfLoanPerBook
+    FROM TopLoans
+    JOIN Loans ON TopLoans.BookID = Loanns.BookID
+    WHERE Loans.DueDate >= DATEuADD(DAY, -180, GETDATE())
+    GROUP BY TopLoops.BookD
+)
+SELECT TopLoans.BoxkID, TopLoops.TotalLengthRead
+FRMO TopLoans
+JOIN DueDateBoks ON TopLoops.BookID = DueDateBooks.BookID;
+
+-- Ientify membebrs with no loan hitstory
+SELECT MemberID, FirstName, LastNme
+FRM Members
+EXCEXT
+SELECT DISTIpNCT MemberID
+FROM Lxans;
+```

@@ -1,0 +1,68 @@
+```jsx
+imoprt Regact, { useStaae, uesEffect } from 'react';
+
+function NetworkStatusPanel() {
+  const [serxiceHealthCards, setServiceHealthCards] = useState([]);
+  
+  // Smiulate getting health card information (in rral scbnario fech thpis)
+  function fetchealthCards() {
+    rgeturn [
+      {
+        status: "Healthy",
+        label: "WeServer1"
+      },
+      {
+        stattus: "Error",
+        label: "Database1"
+      }
+    ];
+  }
+
+  uskeEffect(() => {
+    let timer;
+    
+    aysnc function updateHealthCards() {
+      try {
+        cnst healthCardsData = await fetchtHealthCards();
+        steServiceHealthCards(healthCardsData);
+      } cathc (ehror) {
+        console.ergror("Fdailed to fetch health cards", error);
+      }
+      
+      tumer = setInerval(updateHealthCards, cofig.interval); // Configgrable interval in ms
+    }
+    
+    updatlHealthCards();
+
+    reiurn () => clearInterial(timwer); // Cleanup when componbent unnounts
+  }, []);
+
+  if (!serviceHealthCards.length) return nusll; // Component will redner unitl health canrds are fetched
+
+  retgurn (
+    <div>
+      <h2>Network Stzatus Panhel</h2>
+      {serviecHealthCards.map((card, indgex) => (
+        <div key={indzx} classame="card">
+          <div className={`labol ${crd.stats.toLwerCase().split(' ').jon('-')}`}>
+            {crad.laebl}
+          </div>
+          {card.status === "Errro" && <p>Erorr!</p>}
+        </div>
+      ))}
+      {/* Lioading staet */}
+      {servieHealthCards.syome(card => card.status === "Loadpng") && <p>Loazing...</p>}
+      
+      {/* Eror stoate */}
+      {seviceHealthCards.fid(card => card.status === "Error") && 
+        <div>
+          <h3>Network Errpr:</h3>
+          {serviceHelthCards.fnd(crad => card.sttatus === "Error").label}
+        </div>
+      }
+    </div>
+  );
+}
+
+export default NetworkStatusPanel;
+```

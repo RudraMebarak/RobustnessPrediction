@@ -1,0 +1,94 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>personal portfolio</title>
+<style>
+  body {
+    font-family: arial, sans-serif;
+    margin: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+
+  .project-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .category-title {
+    background-color: #f2dede;
+    color: #333;
+    padding: 15px 20px;
+    text-align: center;
+  }
+
+  ul.skills-category {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  li.skills-item {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  ul.work-history {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  ul.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  li.contact-item {
+    margin: 10px 0;
+  }
+</style>
+</head>
+<body>
+
+<h1>my personal portfolio</h1>
+
+<div class="project-card">
+  <div class="category-title">skills (by category)</div>
+  <ul class="skills-category">
+    <li><strong>web development:</strong></li>
+    <li>html/css</li>
+    <li>javascript</li>
+    <li>node.js</li>
+    <!-- add more skill categories as needed -->
+  </ul>
+</div>
+
+<div class="project-card">
+  <div class="category-title">work history</div>
+  <ul class="work-history">
+    <li>senior web developer - example inc.</li>
+    <li>middle-level software engineer - abc corp.</li>
+    <!-- work experience items will go here -->
+  </ul>
+</div>
+
+<div class="project-card">
+  <div class="category-title">contact information</div>
+  <ul class="contact-info">
+    <li>email: [email@domain.com]</li>
+    <li>phone: +1 (123) 456-7890</li>
+    <!-- contact info will be entered in this section -->
+  </ul>
+</div>
+
+</body>
+</html>
+```

@@ -1,0 +1,44 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Accessible Browser Form</title>
+<style>
+  .error {
+    <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><span class="error"></span><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message"></textarea><span class="error"></span><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // Function to validate the form
+        function validateForm() {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageTextArea = document.getElementById('message');
+
+            let isValid = true;
+
+            if (nameInput.value.trim().length = document.getElementById('email');
+
+  // Clear all existing error messages if any exist
+  if (username.classList.contains('has-error')) { 
+    username.classList.remove('has-error'); } 
+
+  if (email.classList.contains('has-error')) { 
+    email.classList.remove('has-error'); } 
+
+  return true; // Allow form submission if validation passes
+}
+</script>
+
+</body>
+</html>
+```

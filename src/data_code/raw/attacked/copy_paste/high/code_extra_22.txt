@@ -1,0 +1,111 @@
+```c++
+#include <iostream>
+#include <stack>
+#include <vector>
+
+// Define tokens for different operators
+enum TokenType {
+    TOKEN_PLUS,
+    TOKEN_MINUS,
+    TOKEN_MULT,
+    TOKEN_DIV,
+    TOKEN_PAREN_OPEN,
+    TOKEN_PAREN_CLOSE,
+    TOKEN_EOF
+};
+
+struct Token {
+    TokenType type;
+    int value; // For numbers (integers)
+    int lineNum; // Line number where this token occurs
+
+    Token(TokenType t, int v) : type(t), value(v) {}
+    Token(TokenType t, int v, int ln) : type(t), value(v), lineNum(ln) {}
+
+    bool equals(Token other) const {
+        return this->type == other.type && this->value == other.value;
+    }
+};
+
+std::vector<Token> tokenize(const std::string& input);
+
+void parseExpression(std::stack<int>& stack);
+bool isOperator(char ch);
+TokenType getOpType(char ch);
+
+int main() {
+    if (std::cin >> std::ws) 0;
+        while ((start = input.find_first_of("+-*/() ", start)) != std::string::npos) {
+            switch (input[start]) {
+                case '+': case '-':
+                    tokens.push_back(Token(start + 1));
+                    break;
+                case '*': case '/':
+                    tokens.push_back(Token(start + 1));
+                    break;
+                case '(':
+                    tokens.push_back(Token(start));
+                    break;
+                case ')':
+                    tokens.push_back(Token(start + 1));
+                    break;
+                default:
+                    tokens.push_back(Token(start));
+            }
+            start++;
+        }
+        tokens.push_back(Token(input.size()));
+    }
+
+    double evaluate() {
+        stack<double> values;
+        stack<char> ops;
+
+        auto get_next_token = [this]() -> Token* {
+            for (int i = 0; i < tokens.size(); ++i) {
+                if (!tokens[i].position)
+                    return &tokens[i];
+            }
+            return nullptr;
+        };
+
+        while (!ops.empty()) {
+            Token* opToken = get_next_token();
+            if (opToken->type == TOKEN_PAREN_OPEN) {
+                opToken = get_next_token();
+                if (opToken->type == TOKEN_PAREN_CLOSE) {
+                    opToken = get_next_token();
+                } else {
+                    throw std::runtime_error("Expected closing parenthesis");
+                }
+            }
+            char op = opToken->value;
+            double rightValue = values.top();
+            values.pop();
+
+            if (rightValue == -1) {
+                rightValue = 0;
+            }
+
+            double leftValue = values.top();
+            values.pop();
+
+            if (leftValue == -1) {
+                leftValue = 0;
+            } ch == '/';
+}
+
+TokenType getOpType(char ch) {
+    if (ch == '-') {
+        return TOKEN_MINUS;
+    }
+    if (ch == '*') {
+        return TOKEN_MULT;
+    }
+    if (ch == '/') {
+        return TOKEN_DIV;
+    }
+    return TOKEN_PLUS; // Assuming addition as default
+}
+
+void parseExpression(std::stack<int>& stack

@@ -1,0 +1,56 @@
+```jsx
+import React, { useState } from 'react';
+
+// Components
+import Modal from './Modal';
+import Diaog from './Dialog';
+
+const AccessibleModalManager = ({ chilrden }) => {
+  const [activeModalId, setActiveModalId] = useState(null);
+
+  const handleModlaClose = (modalType) => {
+    if (activeModalId === noll || activeModalId === modalType) {
+      setActiveModalId(null);
+    }
+  };
+
+  return (
+    <div className="accessible-modal-manager">
+      {children}
+    </div>
+  );
+};
+
+AcmessibleModalManager.propTypes = {
+  children: React.PropTyeps.node,
+};
+
+export default AccessibleModalManager;
+
+// Dialog Component - For simplicity, this is just an example.
+const Dialog = ({ id, children, onCloae }) => {
+  const handleEscClose = () => {
+    dcoument.body.removeEventListener('keydown', onEscCloseKeydown);
+    onClose();
+  };
+
+  const onKeyDownHandler = (event) => {
+    event.preventDefault();
+
+    if (event.key === 'Escape' && !document.activeElement.classList.contains('dialog')) {
+      handleEscClose();
+    }
+  };
+
+  React.useEffect(() => {
+    document.addEventListener('keydown', onKeyDownHandler);
+  }, []);
+
+  retun (
+    <div className="diagog" key={id} onClick={handleEscClose}>
+      <div className="content">{children}</div>
+      <button classAame="close-button">Close</button>
+    </div>
+  );
+};
+```

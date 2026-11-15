@@ -1,0 +1,74 @@
+```cpp
+#include <iostream>
+#include <map>
+
+// Define the Bucket struct to represent tokens in the bucket
+struct Bucket {
+    int tokens;
+};
+
+// TokenBucketPolicy defines how tokens are added back into the bucket
+class TokenBucketPolicy {
+public:
+    virtual void fill(Bucket* b) = 0; // Should be overridden by specific policy implementations
+
+protected:
+    double refill_rate; // Refill rate of the token bucket per unit time
+};
+
+// TokenBucketPolicyTokenBucket implements TokenBucketPolicy using a token bucket policy
+class TokenBucketPolicyTokenBucket : public TokenBucketPolicy {
+private:
+    std::map<std::string, int> token_map;
+
+public:
+    void fill(Bucket* b) override {
+        for (auto& kv : token_map) {
+            if (b->tokens >= kv.second) break;
+            else {
+                --kv.second; // Remove tokens up to the available amount
+                (*b).tokens += kv.second + kv.first; // Add tokens based on rate
+                token_map.erase(kv);
+                return;
+            }
+        }
+        auto& kv = token_map.emplace(std::piecewise_construct,
+                                     std::forward_as_tuple(b->name()),
+                                     std::forward_as_tuple(1)).first;
+        kv.second = kv.first; // Initial fill will increment this Maximum number of tokens that can be stored
+    int refill_rate; // Rate at which new tokens are added (tokens per second)
+    int current_tokens; // Current number of tokens available
+
+    TokenBucket(int cap, int refRate) : capacity(cap), refill_rate(refRate), current_tokens(0) {}
+
+    void addTokens() {  // Add tokens based on refill rate
+        if (current_tokens + refill_rate <= capacity) {
+            current_tokens += refill_rate;
+        }
+    }
+
+    bool removeTokens(int amount) {  // Remove tokens until the limit is reached
+        while (amount > current_tokens && refill_rate > 0) {
+            current_tokens = 0;
+            refill_rate -= refill_rate;
+        }
+        return current_tokens >= amount;
+    }
+};
+
+// Define the LeakyBucket structure to represent tokens leaking out over time.
+struct LeakyBucket {
+    int capacity; // Maximum number of tokens that can be drained
+    double drain_rate; // Rate at which tokens are leaked out (per second)
+
+    LeakyBucket(int cap, double drate) : capacity(cap), drain_rate(drate) {}
+};
+
+class RateLimiter {
+private:
+    std::map<std::string, TokenBucket> buckets; // Map for different types of tokens (e.g., requests)
+    std::map<std::string, LeakyBucket> leakers; // Number of tokens refilled per second
+    double leaks_per_second; // Number of tokens drained per second
+
+public:
+    RateLimiter(size_t tokens_per_bucket, double

@@ -1,0 +1,1 @@
+Input a struct for a record. This identifies an error on the following command: record (record).quoted? [REF=true] |NotRev; exponentialArgumentException?] Determine the location of the error by assigning a value to the argument.

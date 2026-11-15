@@ -1,0 +1,68 @@
+```jsx
+import react, { usestate, useeffect } from 'react';
+
+function networkstatuspanel() {
+  const [servicehealthcards, setservicehealthcards] = usestate([]);
+  
+  // simulate getting health card information (in real scenario fetch this)
+  function fetchhealthcards() {
+    return [
+      {
+        status: "healthy",
+        label: "webserver1"
+      },
+      {
+        status: "error",
+        label: "database1"
+      }
+    ];
+  }
+
+  useeffect(() => {
+    let timer;
+    
+    async function updatehealthcards() {
+      try {
+        const healthcardsdata = await fetchhealthcards();
+        setservicehealthcards(healthcardsdata);
+      } catch (error) {
+        console.error("failed to fetch health cards", error);
+      }
+      
+      timer = setinterval(updatehealthcards, config.interval); // configurable interval in ms
+    }
+    
+    updatehealthcards();
+
+    return () => clearinterval(timer); // cleanup when component unmounts
+  }, []);
+
+  if (!servicehealthcards.length) return null; // component will render until health cards are fetched
+
+  return (
+    <div>
+      <h2>network status panel</h2>
+      {servicehealthcards.map((card, index) => (
+        <div key={index} classname="card">
+          <div classname={`label ${card.status.tolowercase().split(' ').join('-')}`}>
+            {card.label}
+          </div>
+          {card.status === "error" && <p>error!</p>}
+        </div>
+      ))}
+      {/* loading state */}
+      {servicehealthcards.some(card => card.status === "loading") && <p>loading...</p>}
+      
+      {/* error state */}
+      {servicehealthcards.find(card => card.status === "error") && 
+        <div>
+          <h3>network error:</h3>
+          {servicehealthcards.find(card => card.status === "error").label}
+        </div>
+      }
+    </div>
+  );
+}
+
+export default networkstatuspanel;
+```

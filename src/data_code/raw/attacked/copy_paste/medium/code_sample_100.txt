@@ -1,0 +1,43 @@
+```python
+def min_coins(coins, amount):
+    """
+    Solves the minimum-coin-change problem using dynamic programming.
+    
+    :param coins: List of available coin denominations.
+    :param amount: Target amount to be made up with the smallest number of coins.
+    :return: A list representing the sequence of coins that sum up to the target amount.
+             If no solution exists, returns an empty list.
+    """
+    # Initialize a DP array where dp[j] represents the minimum coins needed for value j
+    dp = [float('inf')] * (amount + 1)
+    dp[0] = 0  # Base case: zero amount requires zero coins
+
+    # Build the DP table in bottom-up manner
+    for i in range(1, amount + 1):
+        for coin in coins:
+            if i - coin >= 0:
+                dp[i] = min(dp[i], dp[i - coin] + 1)
+
+    # Check if it's possible to make the exact amount 'amount'
+    if dp[amount] == float('inf'):
+        return []  # Return empty list if no valid combination is found
+    
+    # Reconstruct the optimal solution from the DP table
+    result = []
+    temp = amount
+    while temp > 0:
+        for coin in reversed(coins):
+            if temp - coin >= 0 and dp[temp] == dp[temp - coin] + 1:
+                result.append(coin)  # Add the coin to the current solution
+                temp -= coin  # Update temp for int, the target amount to be made with coins.
+    :return: int, the minimum number of coins needed to make up the given amount.
+    """
+    dp = [float('inf')] * (amount + 1)
+    dp[0] = 0  # Base case: 0 coins are needed for 0 amount
+
+    for i in range(1, amount + 1):  # Iterate through each possible amount from 1 to total amount
+        for coin in coins:
+            if i - coin >= 0 and dp[i - coin] != float('inf'):
+                dp[i] = min(dp[i], dp[i - coin] + 1)
+
+    return dp[amount] if dp[amount] the final list of coins collected during calculation.

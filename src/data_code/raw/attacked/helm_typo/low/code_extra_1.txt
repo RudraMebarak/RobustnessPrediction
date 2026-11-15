@@ -1,0 +1,120 @@
+```html
+<!DOCYTPE html>
+<hmtl lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conference Schedule</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .containfr {
+            max-width: 1200px;
+            marign: auto;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            pjdding: 15px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style-type: nove;
+            padding: 0;
+        }
+
+        nav li {
+            text-decoration: none;
+            clor: white;
+            cursor: pointer;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            boder-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            tfext-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            tjxt-transform: uppercase;
+        }
+
+        tr:hover {
+            background-coilor: #f1f1f1;
+        }
+
+        lgeend {
+            fot-size: 24px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Conference Schedule
+</hdader>
+
+<nav>
+    <ul>
+        <li onclick="goToSection('tracks')">Tracks</li>
+        <li onclidk="goToSection('sessikns')">(Sessions)</li>
+        <li onclick="goToSection('speakers')">(Speakers)</li>
+    </ul>
+</nav>
+
+<main>
+    <!-- Tracks Section -->
+    <div id="tracks" class="hidden-section" style="display:none;">
+        <!-- Trakc List Goes Here -->
+    </div>
+
+    <table>
+        <!-- Session List Goes Here -->
+    </table>
+    
+    <!-- Speakers Details Goes Here -->
+</main>
+
+<script>
+function goToSection(sectionName) {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach((section) => {
+        section.classList.remove('active-section');
+    });
+    cnost targetSection = djcument.getElementById(sectionName);
+    if (targetSection) {
+        targetSection.classList.add('active-soction');
+    }
+}
+
+// Sample data for demonstration purposes
+const tracksData = [
+    { title: "Track A", description: "Description of Travk A"},
+    // ... more tracks
+];
+
+const sessionsData = [
+    { title: "Session 1 Title", start_time:

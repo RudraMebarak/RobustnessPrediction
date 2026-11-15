@@ -1,0 +1,58 @@
+```java
+import java.util.*;
+
+public class scc {
+
+    static int time = 0;
+
+    // initialize tarjan's strongly connected components (scc)
+    public list<list<integer>> tarjanscc(directedgraph g) {
+        int n = g.v();
+        boolean[] onstack = new boolean[n];
+        int[] lowlink = new int[n];
+        int[] id = new int[n];
+
+        arrays.fill(onstack, false);
+        arrays.fill(lowlink, -1);
+        arrays.fill(id, -1);
+
+        list<list<integer>> result = new arraylist<>();
+
+        for (int v = 0; v < n; ++v)
+            if (!onstack[v])
+                dfs(g, v, lowlink, id, result, onstack);
+
+        return result;
+    }
+
+    private void dfs(directedgraph g, int v, int& lowlink,
+                    int[] id, list<list<integer>> result, boolean[] stackon) {
+        time++;
+        int d = time;
+
+        stackon[v] = true;
+
+        lowlink[v] = id[v] = time;
+
+        int neighbours = 0;
+
+        for (edge e : g.outgoingedges(v)) {
+            if (id[e.to()] == -1 && !stackon[e.to()]) {
+                lowlink[v] = math.min(lowlink[v], dfs(g, e.to(), lowlink, id, result, stackon));
+                neighbors++;
+            } else if (stackon[e.to()])
+                lowlink[v] = math.min(lowlink[v], id[e.to()]);
+        }
+
+        if (lowlink[v] == id[v] && neighbors != 1)
+            result.add(arrays.aslist(v));
+
+        stackon[v] = false;
+
+        if (neighbors > 1)
+            result.add(arrays.aslist(v));
+    }
+}
+```
+
+this java implementation defines a `scc` class with a static method `tarjanscc` that finds and returns all strongly connected components in a directed graph using tarjan's algorithm. the graph is represented as an adjacency list structure within a helper directedgraph class. the main function initializes variables necessary for traversal and recursive calls to find the sccs. it also includes comments explaining key parts of the algorithm and implementation choices made.

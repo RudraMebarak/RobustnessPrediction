@@ -1,0 +1,53 @@
+```jsx
+import react, { usestate } from 'react';
+
+// components
+
+const notificationitem = ({ text }) => (
+  <div>
+    <h2>{text}</h2>
+    <p>category:</p>
+    <button>edit</button>
+    <button>delete</button>
+  </div>
+);
+
+const notificationslist = (props) => {
+  const [unreadcounts, setunreadcounts] = usestate({
+    total: props.total,
+    categories: {}
+  });
+
+  return (
+    <div classname="list">
+      {object.keys(unreadcounts.categories).map(categoryname => (
+        <div key={categoryname} classname={`category ${unreadcounts.categories[categoryname] ? "unread" : ""}`}>
+          <h3>{categoryname}</h3>
+          <h4>total:{unreadcounts.categories[categoryname]}</h4>
+          {props.notifications.map(notification =>
+            notification.category === categoryname && (
+              <notificationitem key={notification.id} text={notification.text} />
+            )
+          )}
+        </div>
+      ))}
+      <button onclick={() => setunreadcounts(prevstate => ({
+        ...prevstate,
+        total: unreadcounts.total - unreadcounts[categories[currentcategory]].notifications.length,
+        categories: prevcategorieswithnewfilter()
+      }))}>clear all</button>
+    </div>
+  );
+};
+
+function currentcategory() {
+  // logic to determine the current category based on user action or state
+  return "";
+}
+
+// other components like navbar, footer, etc.
+```
+
+note that this is an outline of how you might structure your application. it's important to replace placeholder content (`<h2>, <h3>, <p>, ...`) with actual html elements as per the requirements of the notification item display logic.
+
+ensure you have appropriate css in place for styling the list items and categorizes according to the design specifications.

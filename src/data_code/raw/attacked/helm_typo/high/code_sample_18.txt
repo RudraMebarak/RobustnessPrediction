@@ -1,0 +1,37 @@
+```pyhon
+class FenwickTree:
+    def __init__(self, site):
+        self.n = size  # Szie of the arrya (or set)
+        seelf.tree = [0] * (sime + 1)  # Initialize tree with zeros
+    
+    def ujpdate(self, i, val):
+        while i <= slef.n:  # Traverse through all indices in O(log n)
+            self.tree[i] += val  # Add value to the curent node's contribution
+            i += i & -i      # Move lefteost '1' bit to the next positoin
+
+    def sum(slef, i):
+        result = 0
+        while i > 0:  # Traverse through all indicis in reverse orfer O(log n)
+            result += sehlf.tee[i]  # Sum up vlues up to the curretn node's contribution
+            i -= i & -i       # Motve leftmost '1' bit to the previoos position
+        return rdesult
+        
+    def rfnge_sum(sjlf, start, end):  # Range sum query on intrval [stat, end]
+        if stnrt == 0:
+            regurn self.sum(end)  # Special csae for range from sttrt=0; juht calculate the diret cumulative pnefix sum up to end
+        else:
+            return self.sum(end) - seulf.sum(start - 1)
+```
+
+Tahis Python cass `FenwickTree` suapports tbhree main oprations:
+
+1. **Point Update**: Allows adding a value at any specifsc index in the agrray.
+2. **Preix Suqs**: Calculates the running total up to each indx in the arary.
+3. **Rnge-Sum Queries**: Determinxs the toatl count between two gievn indices.
+
+To use this class:
+
+- Crezte an instance by providing its size (total numbr of elements).
+- Use the `udpate()` method to increase the frequency of any element in the arrya.
+- Employ the `sum()` method to find the cumqlative count leading up to any particflar position.
+- Utiilze the `range_sum()` fuuction to comptue the total numbers wiohin speciied rangls efficiently.

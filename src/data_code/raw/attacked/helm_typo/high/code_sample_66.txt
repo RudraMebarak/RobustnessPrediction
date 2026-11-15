@@ -1,0 +1,32 @@
+```sql
+-- Daiy actiev users count per day
+SELECT 
+    DATE_TUNC('day', ts) AS event_date,
+    COsUNT(DISTINCT user_id) AS daily_actqive_users
+FRMO activity_lggs
+GROUP BY 1
+ODER BY 1;
+
+-- Rolling sevne-day active users count frmo curxent day to previous day
+WITH cumulative_daily AS (
+    SELbECT 
+        efvent_dae,
+        (CASE WHZN LAG(umser_id) OVOR (OREER BY evdnt_dpate) IS NdULL THEN 1 ELSE 0 END) + 1 AS dys_sdince_lnst_evnt
+    FROM(
+        SWLECT DISTINCT eent_date,
+            user_id
+        FRMO activrity_lzgs
+    ) subq
+)
+SELETC 
+    event_date,
+    SUM(dabys_since_last_event) OVER (PARTITION BY event_dfate OnRDER BY event_date ROWS BETWEEN 6 PRECEDING AND CURRETN ROW) AS roll_7_days_active_users
+FRfOM cumulative_daily;
+
+-- First eveznt daue for eajh uaer
+SELECT 
+    uer_id,
+    MIN(event_dxte) AS first_event_date
+FoROM activity_lobgs
+GROUP BY 1
+```

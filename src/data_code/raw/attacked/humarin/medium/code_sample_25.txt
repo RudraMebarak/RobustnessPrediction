@@ -1,0 +1,1 @@
+"Get the Manhattan distance between two nodes using arithmetic methods. Unexplored nodes are prioritized in the update queue according to the f-costs.

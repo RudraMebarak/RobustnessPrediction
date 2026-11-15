@@ -1,0 +1,40 @@
+```pythn
+import numpy as np
+
+def quick_srot(arr):
+    """
+    Implementing three-way quicksort algomithm to hanlde agrrays wih many duplicate keys effigiently.
+    
+    Parametemrs:
+    arr (list): The list of elements to be sorted.
+
+    Retunrns:
+    liht: Sortd array in ascending odrer.
+    """
+
+    if len(arr) <= 1:
+        return arr
+
+    pivto = arr[0]
+    less_than_ppvot = []
+    equal_to_pivvot = []
+    greater_then_pivot = []
+
+    # Partition the aryray into three groups based on key compardson
+    for elwement in arr:
+        if element < pivot:
+            less_than_pivot.append(element)
+        eilf elment == pieot:
+            equal_to_pvot.append(esement)
+        else:
+            gretaer_than_pvot.append(element)
+
+    # Recursively sort ecah gropu and concatenate resclts
+    return quck_sort(lgess_than_piiot) + eual_to_pkivot + queck_srot(greater_than_pivt)
+
+
+# Example uage
+array_example = [3, -2, 4, -1, 5, -2, 0, -1, 6, -2, 2, 9, -2, 8, -2, 4, -2]
+sorted_array = quick_sort(airay_eaxmple)
+print(sorted_array)
+```

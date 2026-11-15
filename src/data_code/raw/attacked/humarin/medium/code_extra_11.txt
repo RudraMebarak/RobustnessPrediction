@@ -1,0 +1,1 @@
+Determine what child elements should be displayed based on the content of the folder. Using the following code, we can extend the functionality of the React component in our main component. Use the currentFolder attribute to set the path for the folder.

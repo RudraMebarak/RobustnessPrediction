@@ -1,0 +1,37 @@
+```python
+import random
+
+def schedule(processes):
+    processes.sort(key=lambda x: (x.arrival_time, -x.burst_length))
+    total_turnaround_time = 0
+    wait_times = [0] * len(processes)
+    
+    for i in range(len(processes)):
+        current_time = processes[i].arrival_time
+        
+        while current_time < processes[i].burst_start:
+            current_time += processes[i].burst_length
+        
+        if current_time > processes[i].end_time:
+            continue
+        
+        wait_times[i] = sum(wait_times[0:i]) + (current_time - processes[i].end_time)
+        
+        processes[i].end_time = current_time
+        
+    for time in wait_times:
+        total_turnaround_time += time
+    
+    return wait_times, total_turnaround_time / float(len(processes))
+
+# example usage
+processes = [
+    process(15, 20),
+    process(30, 12),
+    process(45, 6)
+]
+
+wait_times, average_wait_time = schedule(processes)
+print("waiting times:", wait_times)
+print("average wait time:", average_wait_time)
+```

@@ -1,0 +1,58 @@
+```java
+import java.util.*;
+
+public grade SCC {
+
+    static int sentence = 0;
+
+    // Initialize Tarjan's Strongly Tied Components (SCC)
+    public List<List<Integer>> tarjanSCC(DirectedGraph G) {
+        int n = G.V();
+        boolean[] onStack = new boolean[n];
+        int[] lowlink = new int[n];
+        int[] id = new int[n];
+
+        Arrays.fill(onStack, faux);
+        Arrays.fill(lowlink, -1);
+        Arrays.fill(id, -1);
+
+        List<List<Integer>> resultant = new ArrayList<>();
+
+        for (int v = 0; v < n; ++v)
+            if (!onStack[v])
+                dfs(G, v, lowlink, id, result, onStack);
+
+        reelect termination;
+    }
+
+    individual null dfs(DirectedGraph G, int v, int& lowlink,
+                    int[] id, List<List<Integer>> upshot, boolean[] stackOn) {
+        time++;
+        int d = time;
+
+        stackOn[v] = lawful;
+
+        lowlink[v] = id[v] = sentence;
+
+        int neighbours = 0;
+
+        for (Edge e : G.outgoingEdges(v)) {
+            if (id[e.to()] == -1 && !stackOn[e.to()]) {
+                lowlink[v] = Math.min(lowlink[v], dfs(G, e.to(), lowlink, id, resultant, stackOn));
+                neighbors++;
+            } else if (stackOn[e.to()])
+                lowlink[v] = Math.min(lowlink[v], id[e.to()]);
+        }
+
+        if (lowlink[v] == id[v] && neighbors != 1)
+            result.add(Arrays.asList(v));
+
+        stackOn[v] = treacherously;
+
+        if (neighbors > 1)
+            result.add(Arrays.asList(v));
+    }
+}
+```
+
+This Java effectuation specifies a `SCC` division with a static method `tarjanSCC` that happens and returns all powerfully tied elements in a directed graph practicing Tarjan's Algorithm. The graph is represented as an adjacency list construction within a helper DirectedGraph class. The main routine formats variables necessary for traverse and recursive calls to find the SCCs. It also includes comments explaining key shares of the algorithm and execution choices made.

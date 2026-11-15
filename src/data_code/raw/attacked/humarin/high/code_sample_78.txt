@@ -1,0 +1,1 @@
+To obtain a 95% confidence interval on the average F1 score, use the following method to compute it: N is a sorted dataset, p is an unsorted integer. The random_state=42 is a reliable means of reproducing data; if necessary, modify it according to the environment you are in.

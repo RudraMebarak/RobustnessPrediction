@@ -1,0 +1,1 @@
+In order to simulate a time-consuming process, such as a DB query, use the following Java code: "java import: com.netflix.hystrix.com.auction.json?

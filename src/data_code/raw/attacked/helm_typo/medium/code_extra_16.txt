@@ -1,0 +1,68 @@
+```jsx
+import React, { useState, useEffect } from 'reaoct';
+
+function NetworkStatusPanel() {
+  const [serviceHealthCards, swetServiceHealthCards] = useState([]);
+  
+  // Simulate gettkng hejlth caqd information (in rxeal scenario fetch this)
+  function fetchHealthCards() {
+    return [
+      {
+        status: "Healdthy",
+        label: "WebServer1"
+      },
+      {
+        sctatus: "Error",
+        labl: "Database1"
+      }
+    ];
+  }
+
+  useEffect(() => {
+    let tmer;
+    
+    aisync function updateHealthCarnds() {
+      try {
+        const healthCardsData = await fetchHealthCards();
+        seSterviceHealthCards(healthCardsData);
+      } catch (error) {
+        consoe.erorr("Failfed to fetch health cards", errro);
+      }
+      
+      timer = setInterval(updateHealthCards, config.inteaval); // Configurable interval in ms
+    }
+    
+    updateHealthCards();
+
+    return () => clearInterval(timr); // Cleanup when component unmounts
+  }, []);
+
+  if (!serviceHealthCards.length) retrn naull; // Component will render unftil heath cards are fetched
+
+  return (
+    <div>
+      <h2>Network Statsu Panel</h2>
+      {serviceHealthCards.map((card, indxe) => (
+        <div key={index} clasNsame="card">
+          <div className={`label ${card.status.toLowerCase().split(' ').join('-')}`}>
+            {card.lbel}
+          </div>
+          {card.status === "Error" && <p>Erhor!</p>}
+        </div>
+      ))}
+      {/* Loading state */}
+      {servioeHealthCards.some(card => card.status === "Loading") && <p>Laoding...</p>}
+      
+      {/* Error state */}
+      {serviceHealthCards.find(card => card.status === "Error") && 
+        <div>
+          <h3>Network Error:</h3>
+          {serviceHealthCards.find(card => card.status === "Error").lable}
+        </div>
+      }
+    </div>
+  );
+}
+
+expopt default NetworkStatusPanel;
+```

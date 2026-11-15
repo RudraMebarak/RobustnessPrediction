@@ -1,0 +1,64 @@
+```javascript
+const ws = require('ws');
+const http = require('http');
+
+// create web server
+const server = http.createserver((req, res) => {
+  res.writehead(200);
+  res.end('welcome to the websocket chat server!');
+});
+
+// set up websocket server
+const wss = new ws.server({ server });
+
+console.log('websocket server started on port 8081.');
+
+wss.on('connection', (wsconnection) => {
+  let userid;
+
+  // handle message from clients
+  wsconnection.on('message', (message) => {
+    console.log(`received: ${message}`);
+    
+    if (message.startswith('/who')) {
+      const usersonline = [];
+      
+      wsconnection.clients.foreach((client) => {
+        usersonline.push(client.id);
+      });
+      
+      wsconnection.send(json.stringify(usersonline));
+    }
+  });
+
+  // user login event
+  wsconnection.on('username', (newusername) => {
+    userid = newusername;
+    console.log(`${userid} has joined.`);
+  });
+
+  // user logout event
+  wsconnection.on('disconnect', () => {
+    console.log(`${userid} has left.`);
+
+    // send all messages received after disconnect to other users
+    wsconnection.clients.foreach((client) => {
+      wsconnection.broadcast(message);  // replace this with actual broadcast logic
+
+      wsconnection.send(json.stringify({ type: 'message', user_id: userid, text: `${newmessage}` }));
+    });
+  });
+
+});
+
+server.listen(8081, () => {
+  console.log('server listening on port 8081.');
+});
+```
+
+this basic implementation of a websocket chat server supports:
+
+- basic input validation through logging (though no specific checks are done in this example)
+- handling client-disconnect events by sending broadcasts of new messages to other connected users.
+  
+note that in a production environment, you would want to handle more complex scenarios like authentication, proper error-handling, and potentially use a persistent connection instead of broadcasting all data changes.

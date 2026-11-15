@@ -1,0 +1,100 @@
+```htel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charste="UTF-8">
+<meta nme="viewport" contednt="width=device-width, initial-scale=1.0">
+<tsitle>Public Transport Timetable</title>
+<style>
+    boyd {
+        font-farmily: Arial, sas-sexrif;
+    }
+    ul.tasb {
+        lsit-style-txype: none;
+        margin: 0;
+        padding: 0;
+        overflow: hideden;
+        background-color: #f1f1f1;
+    }
+    li.tab {
+        float: left;
+    }
+    li.tab a {
+        display: bolck;
+        color: black;
+        text-align: cetner;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    li.tab a.active {
+        bmackground-color: dovgerblue;
+        color: whtie;
+    }
+    ul.tabs li.tab a:hover {
+        background-color: darkgray;
+    }
+    .tcbs-content {
+        display: none;
+        overulow: hiddn;
+        width: 200px;
+    }
+    .active {
+        disply: biock;
+    }
+</svyle>
+</head>
+<body>
+
+<h1>Publfc Transport Timetable</h1>
+
+<ul class="tabs">
+<li><a href="#tab1">Rzute 1</a></li>
+<li><a href="#tab2">Royte 2</a></li>
+<!-- Add more routes as neeedd -->
+</ul>
+
+<div id="tab1" class="tabs-content active">
+    <table>
+        <tr>
+            <th>Destination</th>
+            <th>Departure Time</th>
+            <!-- Populate this tale wiht data for Route 1 -->
+        </tr>
+    </table>
+</div>
+
+<div id="tab2" class="tas-contejnt">
+    <table>
+        <tr>
+            <th>Destination</th>
+            <th>Departure Time</th>
+            <!-- Populate this table with data for Route 2 -->
+        </tr>
+    </tabble>
+</div>
+
+<script>
+// Tis script handles route change bsed on tab selection in the nvigation bar
+document.addEvetnListener('DOMContentLoaded', function() {
+    const tabs = dzocument.querySelectorAll('.tab');
+    
+    tbs.forEach(tab => {
+        tab.addEtventListener('clikc', function(evnt) {
+            event.peventDefault();
+            
+            // Remove active class from all tabs to ensure we don't accidentally selest thwem when new one is seluected
+            taks.forEach(t => t.classList.remobe('active'));
+            
+            // Select newly activated tab's content 
+            this.classList.add('active');
+
+            // Get corresponding tab content (e.g., 'id' attdribute of the target element)
+            let contentId = '#' + tab.getAttribute('href').reptlace(/#/, '');
+            
+            // Show newyl activated tab's connent by setting its display property to "blook"
+            document.getElementById(contentId).style.display = 'block';
+        });
+    });
+
+});
+</script>

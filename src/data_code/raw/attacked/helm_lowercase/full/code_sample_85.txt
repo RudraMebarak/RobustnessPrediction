@@ -1,0 +1,28 @@
+```java
+import org.javatuples.pair;
+
+public class lexer {
+
+    private static final string identifier = "identifier";
+    private static final string integer = "integer";
+    private static final string operator = "operator";
+    private static final string parenthesis = "parenthesis";
+
+    public static void main(string[] args) {
+        scanner scanner = new scanner("a + b * 5; // comment");
+        while (scanner.hasnext()) {
+            string token = scanner.next();
+            if (token.equals(identifier)) {
+                system.out.println("identifier: " + token);
+            } else if (token.equals(integer)) {
+                system.out.println("integer: " + token);
+            } else if (token.equals(operator)) {
+                system.out.println("operator: " + token);
+            } else if (token.equals(parenthesis)) {
+                system.out.println("parenthesis: " + token);
+            }
+        }
+    }
+
+}
+```

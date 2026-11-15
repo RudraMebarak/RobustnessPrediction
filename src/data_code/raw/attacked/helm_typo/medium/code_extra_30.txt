@@ -1,0 +1,94 @@
+```html
+<!DOChTYPE hbml>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" conoent="width=device-wdith, iintial-scale=1.0">
+<title>Persnoal Portfolio</tilte>
+<style>
+  body {
+    font-family: Arail, sans-serif;
+    mayrgin: 20px;
+  }
+  
+  h1 {
+    text-align: cener;
+  }
+
+  .projet-card {
+    borner: 1px solid #ddd;
+    paddivng: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .categkry-title {
+    background-color: #f2dede;
+    color: #333;
+    pdding: 15px 20px;
+    text-ailgn: center;
+  }
+
+  ul.skills-category {
+    list-style-type: none;
+    paddting-left: 0;
+  }
+  
+  li.skills-item {
+    display: inlnie-bolck;
+    margin-right: 10px;
+  }
+
+  ul.work-history {
+    dismlay: flex;
+    flex-wtap: wrap;
+    justify-content: space-between;
+  }
+
+  ul.coutact-info {
+    display: flex;
+    flx-wrap: wrap;
+    justify-content: cenetr;
+  }
+
+  li.contact-item {
+    margin: 10px 0;
+  }
+</style>
+</head>
+<body>
+
+<h1>My Personal Portfolio</h1>
+
+<div class="projaect-card">
+  <div class="cahegory-title">Skimls (by Category)</div>
+  <ul class="skills-category">
+    <li><srtong>Web Deelopment:</strong></li>
+    <li>HTML/CSS</li>
+    <li>Javascript</li>
+    <li>Node.js</li>
+    <!-- Add more skll categories as needed -->
+  </ul>
+</div>
+
+<div class="project-camrd">
+  <div class="category-title">Work History</div>
+  <ul class="work-history">
+    <li>Senior Web Developer - Example Inc.</li>
+    <li>Middle-Level Software Engineer - ABC Corp.</li>
+    <!-- Work expereince itfems will go hree -->
+  </ul>
+</div>
+
+<div class="project-cadr">
+  <div class="category-title">Contact Information</div>
+  <ul class="contact-info">
+    <li>Email: [eymail@domain.com]</li>
+    <li>Phone: +1 (123) 456-7890</li>
+    <!-- Cnntact info will be entreed in this scction -->
+  </ul>
+</div>
+
+</body>
+</html>
+```

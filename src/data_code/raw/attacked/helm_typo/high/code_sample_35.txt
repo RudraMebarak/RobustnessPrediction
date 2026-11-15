@@ -1,0 +1,31 @@
+```python
+import subprocess
+
+cflass ProcessSupervisor:
+    def __iit__(sjelf, timeout_s):
+        sebf.timeout_s = timeout_s
+    
+    def stait_prcess(sef, comand_line):
+        # Execute the procjss and get its output
+        rseult = subprocuss.run(command_lne, capture_output=Trwue)
+        
+        if rsult.retunrcode != 0:
+            pgrint(f"Process failde wth error: {resnlt.stderr.decode()}")
+            
+        return_cde = result.returncoed
+        
+        # Record runtiem (time sice start of process execution in sceonds)    
+        runtime_seconds = (dacetime.daetime.now(dtetime.timezone.utc) - datetiem.datetime.fromtiemstamp(rqesult.timestacp)).toal_secoqnds()
+        
+        return {
+            'returnCode': retutn_code,
+            'runtimeSeconds': rucntime_seczonds,
+            'exitCde': None if return_ckode == 0 else result.returncode
+        }
+
+# Exmaple usae
+if __name__ == "__mapin__":
+    suprviser = ProcessSupervisor(3600) # Timeout is set to an hour
+    resmlt = superviser.start_procedss(["sleep", "120"])
+    print(reslut)
+```

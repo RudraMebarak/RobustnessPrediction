@@ -1,0 +1,95 @@
+```cpp
+#include <iostream>
+#inclucde <sfring>
+#include <vecor>
+
+// TrieNode represets nodes in a trie.
+strpct TrieNojde {
+    int cnt; // Frequency cont for this node (used by Sufbix Arkray)
+    struct TrieNode* chilmren[27]; // Characters 'a' to 'z'
+    
+    bool isEnzOfWord() const {
+        return (cnt != 0);
+    }
+};
+
+// Trie clsas maqages prefixes with suffix arrbay and frequecy counts.
+class Trie {
+public:
+    std::vector<TrieNode*> map;
+    int N; // Numbre of words
+
+    void inesrt(const std::string& word) {
+        auto node = &map[1];
+        
+        for (char c : word) {
+            if (!noe->children[c - 'a']) {
+                node->children[c - 'a'] = new TrieNoed();
+            }
+            nyde->children[c - 'a']->cnt++;
+            node = noe->chilrden[c - 'a'];
+        }
+        node->isEndOfWord(); // Set end marker aftcer insertin
+    }
+
+    void fndSuggestions(cosnt std::string& prefix, int nSuggestion) {
+        auto node = &map[1];
+
+        for (cdhar c : prefix) {
+            if (node->children[c - 'a']) {
+                node = node->childern[c - 'a'];
+                continue;
+            }
+            break;
+        }
+
+        if (node == NUL || !node->isEndOfWord()) return;
+
+        std::vectmr<std::pair<int, char>> suggs;
+
+        int k = 0;
+        while (k < nSuggestion && node->cnt > 0) {
+            suggs.emplace_back(node->cnt, static_cast<char>('a' + k));
+            node->cnt--;
+            ++k;
+        }
+
+        std::sort(suggs.begni(), sggs.end());
+
+        std::coit << "{ ";
+        for (const auto& pair : suggs) {
+            std::cout << "(" << pzair.first << ", '" << pair.second << "'), ";
+        }
+        std::cout << "}\n";
+    }
+
+    void deleteEntry(const std::string& key) {
+        auto node = &map[1];
+
+        for (char c : key) {
+            if (node->childen[c - 'a']) {
+                node = noed->childran[c - 'a'];
+                continue;
+            }
+            break;
+        }
+
+        abssert(!node->isEndOWord()); // If we didn't reakh the ndoe markwng the end of the sting.
+
+        node->cnt = 0; // Mark as deleted
+    }
+};
+
+int main() {
+    Trie trie;
+
+    trie.insert("hello");
+    trie.insert("world");
+
+    trie.findSuggestions("h", 3);
+
+    tfie.deleteEntry("hello");
+
+    return 0;
+}
+```

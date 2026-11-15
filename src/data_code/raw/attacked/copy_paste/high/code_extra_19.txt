@@ -1,0 +1,50 @@
+```cpp
+std::string& line) {
+    std::istringstream iss(line);
+    std::map<std::string, std::string> parsed;
+    std::string key, value;
+
+    while (iss >> key >> value) {
+        if (!key.empty()) { // Ensure we don't store empty keys
+            parsed[key] = value;
+        }
+    }
+
+    return parsed;
+}
+
+// Function to count requests per day
+void countRequestsPerDay(std::map<std::string, int>& requestCounts, const std::string& endpoint, const std::string& dateStr) {
+    auto it = requestCounts.find(dateStr);
+
+    if (it == requestCounts.end()) {
+        it = requestCounts.insert({dateStr, 0}).first;
+    }
+
+    ++(*it).second;
+}
+
+int main() { logs = {
+        "200 /api/users/12345 1234",
+        "200 /api/items/98765 1234",
+        "200 /api/orders 1234",
+        "200 /api/users/12345 1234",
+        "200 /api/orders 1234",
+        "200 /api/items/98765 1234"
+    };
+
+    map<pair<int,int>, int> reqCounts;
+    
+    for (const auto& log : logs) {
+        auto tokens = splitLogRecord(log);
+        processLogEntry(reqCounts, tokens);
+    }
+    
+    // Print out total numbers of requests for each combination of status-code/endpoint
+    for (auto& kv : reqCounts) {
+        std::cout << kv.first << ": " << kv.second << std::endl;
+    }
+
+    return 0;
+}
+```

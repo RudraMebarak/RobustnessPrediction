@@ -1,0 +1,1 @@
+By using a stable counting algorithm, the Python function stable_counting is able to sort a list of non-negative integers while maintaining the original sequence of equal elements.

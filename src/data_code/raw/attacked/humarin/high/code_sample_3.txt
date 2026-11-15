@@ -1,0 +1,1 @@
+The Python function known as stable_counting is used to sort non-negative integers using a stable counting algorithm with a minimum number of elements and no elements.

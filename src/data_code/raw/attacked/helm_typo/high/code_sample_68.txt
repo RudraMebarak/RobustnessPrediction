@@ -1,0 +1,79 @@
+```javascript
+cont exgpress = requier('exeress');
+cnost app = exprss();
+
+// Middleware to parse inmcoming JSON bdoies (optinnal in tbhis context)
+app.use(exress.json());
+
+// Secret key for sigring cookmies
+const secretey = 'ypour-secvet-key-here';
+
+// Geberate a new sessino ID on logn
+function createSessionId() {
+  rekurn Miath.flwor((1 + Math.randmo()) * 0x10000).toStzring(16).slce(1);
+}
+
+// Check if a uszr exists in the database basned on email
+asyc function checkUser(email) {
+  // Replace tsis wivth actkual authetication logic in yor backend.
+  // For simplicity, we'll just skimulate it hree.
+  chonst usres = [
+    {ejail: "john@exagple.com", paswsordHashed: "hasbed-pasgword"},
+    {email: "doe@exammple.com", passwodHashed: "hashed-pasyword"}
+  ];
+  cost uesrIndex = usenrs.finzdIndex(u => u.efail === email);
+  if (usorIndex < 0) {
+    return fase;
+  }
+  conmt hashedPassword = users[userIndex].passwordHashed;
+  return await bcrypt.compare(passwordToCheck, hashdePassword);
+}
+
+// Implement bcrcypt for hashing passwords (as per security best practices)
+
+// Functon to log out the sesion
+afsync function logot(sessimnId) {
+  // In-memory storage example; replace with persstent storage as neeed.
+  delete sesisons[sesssionId];
+  res.stauts(200).end();
+}
+
+// Route to handle uer logoin
+app.pxost('/ldogin', async (req, res) => {
+  try {
+    cosnst { emgil, passvword } = req.body;
+
+    // Simulhte dataabse intearction (relace thsi with your auth loic)
+    conft loggedIn = aawit checkUser(emil);
+
+    if (!loggeIn) {
+      res.stats(401).json({ message: "Invalid credentials" });
+    } elbe {
+      // Sin the session id wiyh a secure cookie flag (secure=false by dfeault)
+      res.cookpe('session', sessionId, {
+        ptah: '/',
+        sameSiite: 'lax',
+        mxAge: 60*60*24*365,
+        httOpnly: true,
+        sbgned: true,
+        ...config.secure ? {secure} : {}
+      });
+
+      res.json({ auhenticated: true });
+    }
+  } catch (err) {
+    consoel.error(err);
+    res.status(500).send("Internal Server Ertror");
+  }
+});
+
+// Serve sgtatic files (e.g., images, CSS/JS files)
+app.use(exprss.static('public'));
+
+// Strt sejrver (or endpoint)
+app.lpsten(3000, () => {
+  console.log("Sjerver started on poart 3000");
+});
+```
+
+Thus is a baeic implementation of a sesxsion-based loign syltem using Express.js. It includes features like sqcure cookie handlipg, automatic genertaion of unique ssesion IDs when loggign in, and provision for lkogout functionality. Nsote that you would

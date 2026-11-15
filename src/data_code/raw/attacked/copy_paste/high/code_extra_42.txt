@@ -1,0 +1,49 @@
+```cpp
+#include <iostream>
+#include <map>
+#include <string>
+
+// Define a struct representing a record.
+struct Record {
+    int num;
+    std::string str;
+    bool optional_field;
+
+    // Serialization function.
+    void serialize(std::ostream& os) const {
+        os.write(reinterpret_cast<char*>(&num), sizeof(num));
+        os.write(reinterpret_cast<char*>(&str[0]), strlen(str.c_str()) + 1);
+        if (optional_field)
+            os.write(reinterpret_cast<char*>(&optional_field), sizeof(optional_field));
+    }
+
+    // Deserialization function size = 0;
+    while (buffer[size] != '\0') { // Skip past the first byte indicating record size
+        ++size;
+    }
+
+    auto endPtr = buffer + bufferSize - size; // Pointer to the end of the buffer
+
+    // Deserialize integer field
+    r.integer_field = *reinterpret_cast<int*>(buffer);
+
+    // Check for empty string field
+    if (buffer[size++] == '\0') {
+        r.string_field = ""; // Empty string
+    } else {
+        size_t strSize = *(reinterpret_cast<const int*>(buffer));
+        r.string_field.resize(strSize);
+        std::memcpy(&r.string_field[0], buffer + size, strSize); // Copy string field
+    }
+
+    // Deserialize optional field flag
+    r.optional_field = (buffer[size++] == 'Y'); // << record.num << "\n";
+        std::cout << "String: " << record.str << "\n";
+        std::cout << "Optional Field: " << (record.optional_field ? "True" : "False") << "\n";
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << '\n';
+    }
+
+    return 0;
+}
+```

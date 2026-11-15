@@ -1,0 +1,1 @@
+java import org.javatuples.Pair; public class Lexer: Private static final String IDENTIFIER = "identifier"; private statically, the final string is integer; the OPERATOR is "operator", and the public static object is parenthesis.

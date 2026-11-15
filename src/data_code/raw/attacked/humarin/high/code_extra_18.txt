@@ -1,0 +1,1 @@
+Uncategorize all objects in the given file. Check for errors in the data structure.

@@ -1,0 +1,31 @@
+```python
+import subprocess
+
+class processsupervisor:
+    def __init__(self, timeout_s):
+        self.timeout_s = timeout_s
+    
+    def start_process(self, command_line):
+        # execute the process and get its output
+        result = subprocess.run(command_line, capture_output=true)
+        
+        if result.returncode != 0:
+            print(f"process failed with error: {result.stderr.decode()}")
+            
+        return_code = result.returncode
+        
+        # record runtime (time since start of process execution in seconds)    
+        runtime_seconds = (datetime.datetime.now(datetime.timezone.utc) - datetime.datetime.fromtimestamp(result.timestamp)).total_seconds()
+        
+        return {
+            'returncode': return_code,
+            'runtimeseconds': runtime_seconds,
+            'exitcode': none if return_code == 0 else result.returncode
+        }
+
+# example usage
+if __name__ == "__main__":
+    superviser = processsupervisor(3600) # timeout is set to an hour
+    result = superviser.start_process(["sleep", "120"])
+    print(result)
+```

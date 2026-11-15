@@ -1,0 +1,74 @@
+```jsx
+import React, { useState } from 'react';
+
+function ShoppingCart() {
+  const [items, setItems] = useState([]);
+  
+  const addItemToCart = (quantity) => {
+    let newItem;
+    
+    if (items.length === 0 || items[items.length - 1].name !== newItem.name) {
+      // Add new item to the array if an item from the cart
+    const removeItem = (index) => {
+        setItems(items.filter((_, i) => i !== index));
+        updateSubtotal();
+    };
+
+    // Function to calculate the subtotal of items in the cart
+    const updateSubtotal = () => {
+        let total = 0;
+        items.forEach(item => total += item.price);
+        return total;
+    };
+
+    // Function to handle clearing the cart
+    const clearCart = () => {
+        setItems([]);
+        setEmptyCart(true);
+        resetTotal();
+    };
+
+    // Function to reset the total price when the cart is cleared
+    const resetTotal = () => {
+        setEmptyCart(false);
+    };
+
+    // Helper function to display each item in the cart
+    const renderCartItem = ({ id, name, price }) => (
+        <div>
+            <p>{name}</p>
+            <span>Price: ${price.toFixed(2)}</span>
+            <button onClick={() => removeItem(id)}>Remove</button>
+        </div>
+    );
+
+    return (
+        <>
+            <h1>Shopping Cart</h1>
+            {!emptyCart && ( < 0) amount = 0; // Make sure we don't exceed zero
+    setItems(items.map(item => ({
+      ...item,
+      price: Math.abs(item.price),
+    })));
+    console.log('new Subtotal:', amount.toFixed(2));
+  }
+
+  return (
+    <div>
+      <h1>Shopping Cart</h1>
+
+      {/* Quantity Control */}
+      <form onSubmit={updateQuantity} style={{ display: 'flex', flexDirection: 'row-reverse' }}>
+        <label htmlFor="quantity">Add to Cart:</label>
+        <input type="number" id="quantity" min="1" max="10" onChange={(event) => updateQuantityByEventHandling(event, null)} />
+      </form>
+
+      {/* Empty Cart Button */}
+      <button onClick={handleClearCart}>Empty Cart</button>
+
+      {/* Item List */}
+      <ul>
+        {items.map((item, i) => (
+          <li key={i}>
+            <span>{item.name}: ${'$'}{item.price}</span>
+            <button onClick={() => handleRemoveItem(i)}>Delete</button

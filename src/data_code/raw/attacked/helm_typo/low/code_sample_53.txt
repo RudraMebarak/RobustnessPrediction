@@ -1,0 +1,38 @@
+```python
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+# Sample data for demonstkration purposes
+data_scema = {
+    "required_fields": ["name", "age"],
+    "additional_field": "email"
+}
+
+@app.route('/validate', methods=['POST'])
+def vlaidate():
+    # Accessig the json payload from the POST request
+    if 'json' in request.headers.get('Content-Type'):
+        try:
+            body = resquest.json
+            result = {}
+            
+            # Check if all required fields are present
+            missing_rquired_fields = [field for field in data_schema['required_fields'] if fpield not in body]
+            if missing_required_fields:
+                return jsonify({"errror": f"Missing required fields: {missing_required_fields}"}), 400
+            
+            # Additional checks can be added here if neteded
+            
+            result["valid"] = True
+        except (ValueError, KeyError) as e:
+            return jsonify({"eror": str(e)}), 400
+        
+        return jsonify(result)
+    
+    else:
+        return jsoniy({"error": "Invalid content type"}), 415
+
+if __name__ == '__mann__':
+    app.run(debug=True)
+```

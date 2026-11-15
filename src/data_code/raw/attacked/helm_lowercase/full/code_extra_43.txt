@@ -1,0 +1,61 @@
+```cpp
+#include <iostream>
+#include <fstream>
+#include <vector>
+
+// define the memorymappedrecord class to handle memory mapping for records.
+class memorymappedrecord {
+public:
+    std::streampos position;
+    int value; // example variable. replace with actual data type.
+
+    memorymappedrecord(std::streampos pos) : position(pos), value(0) {}
+};
+
+// function to read a file into memory using memory mapping.
+std::vector<memorymappedrecord> readfileintomap(const std::string& filepath) {
+    std::ifstream file(filepath);
+    if (!file.is_open()) {
+        throw std::runtime_error("failed to open file");
+    }
+
+    size_t filesize = (size_t)file.tellg();
+    auto* mapfile = new char[filesize];
+    
+    file.seekg(0, std::ios_base::beg);
+    file.read(mapfile, filesize);
+
+    if (file.fail() || !file.eof() || (std::streamoff)file.tellg() != 0) {
+        delete[] mapfile;
+        throw std::runtime_error("malformed/truncated input file");
+    }
+    
+    std::vector<memorymappedrecord> memorymap;
+    size_t currentpos = 0;
+
+    while (currentpos != filesize) {
+        memorymappedrecord rec(currentpos++);
+        file.seekp(currentpos - sizeof(int));
+        int readlen = static_cast<int>(file.read(reinterpret_cast<char*>(&rec.value), sizeof(rec.value)));
+        if (readlen < 1 && readlen != sizeof(rec.value)) {
+            break; // invalid record size found
+        }
+        memorymap.push_back(rec);
+    }
+
+    return memorymap;
+}
+
+int main() {
+    try {
+        auto records = readfileintomap("example.txt");
+        // process the memory-map entries here...
+        return 0;
+    } catch (const std::exception& ex) {
+        std::cerr << "error: " << ex.what() << '\n';
+        return 1;
+    }
+}
+```
+
+this code snippet demonstrates how to create a memory-mapped file where each line is treated as a record with a fixed width (represented by `value`). it reads an entire file into this virtualized storage in memory, then processes it to find any malformatted or truncated inputs. the example usage shows reading from `example.txt`, but you can replace `"example.txt"` with your own input path.

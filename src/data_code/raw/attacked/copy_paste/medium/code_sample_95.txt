@@ -1,0 +1,57 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Responsive Dashboard</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Header section -->
+<div class="header">
+  <h1>Welcome to the Dashboard</h1>
+  <button id="toggleSidebar">Toggle Sidebar</button>
+</div>
+
+<!-- Main content area -->
+<main class="main-content">
+  <!-- Sidebar area -->
+  <aside class="sidebar hidden">
+    <nav>
+      <ul>
+        <li><a href="#">Overview</a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Summary card area -->
+  <section class="summary-cards visible">
+    <div class="card">Card <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Container -->
+    <main>
+        <!-- Summary Cards -->
+        <section id="summary-cards">
+            <h2>Summary Cards</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Card Title 1</h3>
+                    <p>Description of Card 1</p>
+                </div>
+        </tr>
+        <!-- More rows... -->
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
+```

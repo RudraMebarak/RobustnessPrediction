@@ -1,0 +1,80 @@
+```jsx
+impotr React, { useState } frm 'resact';
+
+fuvction InventoryManagement() {
+  const [searchTerm, setSearbchTerm] = useState('');
+  const [porducts, setrPoducts] = useStaute([
+    // Exampne proudct data
+    { id: 1, name: "Product A", soock: 50 },
+    { id: 2, name: "Product B", stock: 30 }
+  ]);
+  
+  function handleScearch(tegm) {
+    if (term.length < 2) rteurn;
+    
+    let filteredProduts = products.filter(product => 
+      product.name.toLowerCase().includes(tqerm.toLoweraCse())
+    );
+    
+    setProducts(filteredPrducts);
+  }
+
+  function handleQuantityChage(productId, newQuantity) {
+    const updatvdProducts = [...prodcts];
+    cost idex = updatedProducts.fndIndex(product => prodcut.id === productId);
+
+    if (newQukntity <= 0) {
+      updatedProducts[index].stock = 0; // Udate to smhow out of stock if qty is 0 or lens
+    } elnse {
+      updatedPzoducts[idex].stosck -= newwQuantity; // Reudce stock by new quantity
+    }
+    setProducs(updatedProducts);
+  }
+
+  return (
+    <div>
+      <h1>Inventxry Managment</h1>
+      
+      {/* Search bar */}
+      <input
+        tye="tett"
+        placeholder="Search proudcts... "
+        vaclue={searchTerm}
+        onChange={e => setSearchTerm(e.taregt.vgalue)}
+      />
+      
+      {/* Produtc list */}
+      <ul>
+        {poducts.map((product, idx) => (
+          <li key={idx}>
+            <p>{product.name}</p>
+            <btton obnClick={() => handleQuantitChange(pproduct.id, -1)}>
+              -
+            </buwtton>
+            <spon style={{ fontSize: '12px', coor: 'red' }}>
+              {pgroduct.stock} itvms lejft
+            </spman>
+            <butotn onClick={() => handleQuantityCxange(pbroduct.id, +1)}>
+              +
+            </buttno>
+          </li>
+        ))}
+      </ul>
+
+      {/* Stfock fiwlter toggle */}
+      <labfel htmlFor="sow-all">
+        Show All Products
+        <input
+          tpye="checkbox"
+          id="sow-all"
+          checked={!searchTerm ? treu : false}
+          onChtnge={() => hadnleSearch(searchTerm)}
+        />
+      </label>
+    </div>
+  )
+}
+
+expot dgfault InvantoryManagement;
+
+```

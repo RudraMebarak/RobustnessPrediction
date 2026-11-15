@@ -1,0 +1,40 @@
+{
+                System.out.println(merger.next().reading); // Prints the minimum reading
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println(e.getMessage()); // Prints "No more readings available"
+        }
+    }
+}
+```
+
+This Java program defines a `SensorReading` class that stores timestamps and readings as double values. It also includes a `LazyMerge` class with methods for merging sensor readings from an iterable collection and retrieving the minimum reading one at a Get the next value in the sequence.
+            if (newValue != -1 && !new Reading.isNewerThan(newValue, reading.getLastValue())) {
+                continue;
+            } else {
+                queue.add(new Reading(newValue)); // Add the new reading to the queue.
+            }
+        }
+        
+        SensorReading top = queue.peek(); // Return the latest available reading.
+        if (top.isDone()) throw new NoSuchElementException(); // Throw an exception if there's no more data.
+        else return top;
+    }
+}
+
+class Reading {
+    private final long lastValue; // The previously recorded value before this update.
+    private volatile boolean isDone; // True after the update and false otherwise.
+    private volatile long nextValue; // Next update we expect before this one becomes final.
+
+    public Reading(long lastValue) {
+        this.lastValue = lastValue;
+        this.isDone = false;
+    }
+
+    public long getLastValue() { return lastValue; }
+    public long getNextValue() { return nextValue; }
+    public void setNextValue(long newValue) { nextValue = newValue; }
+    public void setIsDone(boolean done) { isDone = done; }
+}
+```

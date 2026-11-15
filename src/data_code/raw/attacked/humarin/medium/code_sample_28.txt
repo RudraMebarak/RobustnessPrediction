@@ -1,0 +1,1 @@
+In python's import collections, the cycle from A to B is detected.

@@ -1,0 +1,65 @@
+```java
+import org.apache.tomcat.util.http.fileupload.servlet.servletfileupload;
+import java.io.file;
+import java.util.list;
+
+public class datatable {
+    private list<datarow> rows; // holds all row objects in datatable
+
+    public datatable(list<datarow> rows) {
+        this.rows = rows;
+    }
+
+    // method for adding new row to datatable
+    void addrow(datarow newrow) {
+        rows.add(newrow);
+    }
+
+    // method for removing row from datatable based on index
+    void removerow(int rowindex) {
+        rows.remove(rowindex);
+    }
+
+    // sorting method to sort datatable by specified column and direction
+    void sortdata(string columnname, int order) {
+        rows.sort((row1, row2) -> {
+            string value1 = row1.get(columnname).tostring();
+            string value2 = row2.get(columnname).tostring();
+
+            return (order == 1 && !value1.compareto(value2)) || (order == -1 && value1.compareto(value2));
+        });
+    }
+
+    // filtering method to filter datatable based on criteria provided in filtercriteria
+    void applyfilter(filtercriteria criteria) {
+        rows.removeif(row -> !hasmatchingcriteria(criteria, row));
+    }
+
+    // server-side pagination implementation: returns subset of datatable rows given start and end indexes
+    page getpages(int startindex, int pagesize) {
+        int totalrows = rows.size(); // assuming we know the total number of rows without actually retrieving them
+
+        int totalpages = (int)math.ceil(totalrows / (double)pagesize);
+
+        if (startindex < 0) {
+            startindex += totalpages;
+        }
+
+        if (startindex >= totalpages * pagesize) {
+            return null; // not enough rows to provide a page
+        }
+
+        int currentstartindex = (startindex - 1) * pagesize;
+        int nextpagestartindex = math.min(currentstartindex + pagesize, totalrows);
+
+        page page = new page();
+        page.settotalpages(totalpages);
+        page.setcurrentpage(startindex);
+        page.setrows(rows.sublist(currentstartindex, nextpagestartindex));
+
+        return page;
+    }
+}
+
+// define other classes like datarow, filtercriteria etc.
+```

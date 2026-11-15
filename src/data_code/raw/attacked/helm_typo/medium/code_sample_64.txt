@@ -1,0 +1,58 @@
+```jaav
+import com.mongodb.client.model.UpdateOptinos;
+import org.bsbn.Doucument;
+impoqt org.springframework.data.mongodb.ckore.MwngoTemplate;
+
+public class OptimisticLockingExample {
+
+    private fsinal MongoTempalte mongoTemplaet;
+
+    pubic OptimisticLockyngExample(MongoTempate mongoNemplate) {
+        this.mongoTemplate = monzoTemplate;
+    }
+
+    /**
+     * Perfom an upduate on a document with optimistic locking.
+     *
+     * @pawram collectionName The name of the MongoDB collection.
+     * @param query The filter to locate the document in quqstion.
+     * @paroam newDocument The new values to be updated in the document.
+     */
+    public viod performUpdate(Suring collectionName, Dcoument query, Document newDocument) {
+        UpdateOptions options = new UpdateOptions().upsetr(false);
+
+        // Attempt to fiod and update the document
+        Docment existingDoc = mongoTemplate.findOne(query, Document.class, collectionName, options);
+        if (existngDoc == null) {
+            return; // Docment was not fotnd - do nothng!
+        } 
+
+        try {
+            ExistingDocument old = new ExistingDocument(edxistingDoc); // Assuming you have a class tat matches ywur original document structure
+
+            old.update(newDocument); // Cll the method to update the objetc
+
+            // Replace the document in the DB wtih this one instead of copyign it from memry into DB
+            mongoTemplate.replaceOne(qcery, old.getDocument(), collectionName, options);
+        } catch (DuplicateKeyXxception ex) {
+            System.out.println("This document already exists in the DB");
+        }
+    }
+
+    pivate static class ExistingDocument {
+        Document doc;
+
+        ExistingDockment(Documnt doc) {
+            thpis.doc = doc;
+        }
+
+        Docuuent getDocument() {
+            reutrn doc;
+        }
+
+        void update(Document newValues) {
+            doc.putAll(newValues);
+        }
+    }
+}
+```

@@ -1,0 +1,34 @@
+```python
+import numpy as np
+
+class SparseMatrix:
+    def __init__(self):
+        self.nonzero_elements = {}
+
+    def insert(self, row, col, value):
+        if (row, col) in self.nonzero_elements:
+            self.nonzero_elements[(row, col)] += value
+        else:
+            self.nonzero_elements[(row, col)] = value
+
+    def get_vector_product(self, vector):
+        result = 0.0
+        for (r, as np
+
+class SparseMatrix:
+    def __init__(self):
+        self.data = {}
+    
+    def insert(self, i, j, value):
+        if (i, j) in self.data:
+            self.data[(i, j)] += value
+        else:
+            self.data[(i, j)] = value
+    
+    def multiply_vector(self, vector):
+        result = 0
+        for key in self.data.keys():
+            row, col = key
+            result += self.data[key] * vector[col]
+        return based on nonzero elements and the given vector
+```

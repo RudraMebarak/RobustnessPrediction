@@ -1,0 +1,57 @@
+```javascript
+const express = require('express');
+const multer = require('multer');
+const fs = require('fs');
+
+// Initialize Express app
+const app = express();
+
+// Set up middleware to parse incoming JSON and URL-encoded bodies
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Setup Storage engine for Multer (file upload)
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, 'public') // Directory for storing files
+  },
+  filename: function(req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname) // Generate unique names based on current time & original name
+  }
+});
+
+// Define file type filter for allowing certain types of uploads (e.g., images)
+const imageFilter = function(req, file, cb) {
+  const extension = path.extname(file.originalname).toLowerCase();
+  if (extension !== '.jpg' && extension !== '.jpeg' && extension !== '.png' && extension !== '.gif') 
+    return cb(new Error('Only images are allowed'), false);
+  cb(null, true); // Allowing this image so we don't stop the request
+};
+
+// Use multer's file storage rules to create our own storage rule
+const upload = multer ({ storage: storage, require('multer');
+const fs = require('fs');
+
+// Initialize Express app
+const app = express();
+app.use(express.json());
+
+// Set up Multer to handle file uploads
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/');
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random()*1000);
+    cb(null, file.fieldname + '-' + uniqueSuffix);
+  }
+});
+
+const upload = multer({ storage });
+
+// Endpoint for uploading files
+app.post('/upload', upload.single('file'), async (req, res) => {
+  if (!req.file || !req.body.type.includes(req.file.mimetype)) { || 3001; // Defaults to 3001 if no PORT env variable is provided
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}...`));
+```

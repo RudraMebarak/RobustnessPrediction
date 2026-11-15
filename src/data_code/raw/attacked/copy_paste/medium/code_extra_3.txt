@@ -1,0 +1,78 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Comparison Table</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        
+        .product-table {
+            width: 100%;
+            colspan="2">Recommended Product</th>
+        </tr>
+        <tr>
+            <th>Product A</th>
+            <th>Product B</th>
+            <th>Product C</th>
+            <th>Recommended</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <!-- Data rows will go here -->
+        <tr>
+            <td>Feature 1A</td>
+            <td>Feature 1B</td>
+            <td>Feature 1C</td>
+            <td><span class="recommended"></span></td>
+        </tr>
+        <tr>
+            <td>Feature 2A</td>
+            <td>Feature 2B</td>
+            <td>Feature 2C</td>
+            <td><span class="recommended"></span></td>
+        </tr>
+        <!-- More data rows will be added
+    </style>
+</head>
+<body>
+
+<table class="product-table">
+    <thead>
+        <tr>
+            <!-- Feature Group Headers -->
+            <th colspan="2" class="caption-label">Features & Specifications:</th>
+        </tr>
+        <tr>
+            <!-- Row Headers -->
+            <td rowspan="4">Brand A</td>
+            <td rowspan="4">Features & Specifications:</td>
+            <td rowspan="4">Price ($)</td>
+            <td rowspan="4">Rating (out of 10)</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td rowspan="4">&nbsp;</td>
+            <td

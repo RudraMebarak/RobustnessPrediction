@@ -1,0 +1,82 @@
+```cpp
+#include <iostream>
+#include <map>
+
+// define the bucket struct to represent tokens in the bucket
+struct bucket {
+    int tokens;
+};
+
+// tokenbucketpolicy defines how tokens are added back into the bucket
+class tokenbucketpolicy {
+public:
+    virtual void fill(bucket* b) = 0; // should be overridden by specific policy implementations
+
+protected:
+    double refill_rate; // refill rate of the token bucket per unit time
+};
+
+// tokenbucketpolicytokenbucket implements tokenbucketpolicy using a token bucket policy
+class tokenbucketpolicytokenbucket : public tokenbucketpolicy {
+private:
+    std::map<std::string, int> token_map;
+
+public:
+    void fill(bucket* b) override {
+        for (auto& kv : token_map) {
+            if (b->tokens >= kv.second) break;
+            else {
+                --kv.second; // remove tokens up to the available amount
+                (*b).tokens += kv.second + kv.first; // add tokens based on rate
+                token_map.erase(kv);
+                return;
+            }
+        }
+        auto& kv = token_map.emplace(std::piecewise_construct,
+                                     std::forward_as_tuple(b->name()),
+                                     std::forward_as_tuple(1)).first;
+        kv.second = kv.first; // initial fill will increment this count
+    }
+};
+
+// leakybucketpolicy defines how tokens are drained from the bucket
+class leakybucketpolicy {
+public:
+    virtual void drain(bucket* b) = 0; // should be overridden by specific policy implementations
+
+protected:
+    double drain_rate; // drain rate of the token bucket per unit time
+};
+
+// leakybucketpolicyleakybucket implements leakybucketpolicy using a leaky bucket policy
+class leakybucketpolicyleakybucket : public leakybucketpolicy {
+private:
+    std::map<std::string, int> drain_times;
+
+public:
+    void drain(bucket* b) override {
+        drain_times[b->name()] += 1.0; // increase draining counter each time
+        if (drain_times[b->name()] > 3600) { // assuming one hour as drain threshold
+            drainer(); // call draining function periodically
+        }
+    }
+
+private:
+    void drainer() {
+        // simulate draining process here
+        for (auto& kv : drain_times) {
+            kv.second -= kv.second / 2; // simulate leaking out tokens over time
+        }
+    }
+};
+
+// ratelimiter manages token buckets and leaks them when needed
+class ratelimiter {
+private:
+    std::vector<bucket*> buckets;
+    size_t max_tokens; // maximum number of tokens that can be stored in total
+    double refills_per_second; // number of tokens refilled per second
+    double leaks_per_second; // number of tokens drained per second
+
+public:
+    ratelimiter(size_t tokens_per_bucket, double

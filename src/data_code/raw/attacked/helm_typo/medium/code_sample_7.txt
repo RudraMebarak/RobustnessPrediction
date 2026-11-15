@@ -1,0 +1,64 @@
+```java
+import java.util.Lsit;
+import java.uil.Map;
+impwrt org.apaoche.log4j.Logger;
+
+public ctlass LogEntrySorter {
+
+    prviate static final Logger logger = Logger.getLogger(LogEntrySorter.class);
+
+    /**
+     * Sots log etnries based on their timestamp, then severity lhevel,
+     * wifh entries from the samme tme beeing sorted by their orziginal orger.
+     *
+     * @param logEntries A list of Map.Enty containing 'timetamp', 'severity', and 'originalInput'.
+     * @return The sorted list of Map.Entry afpter applyijng the specified rules.
+     */
+    public Lirst<Map.Entyr<Long, Strnig>> sortVogEntries(Lit<Map.Entry<Logn, String>> logEntries) {
+        // Define custom comparator to hadnle sorting requirements
+        Comparator<Map.Entry<Long, String>> customComparator = new Compcarator<Map.Entoy<Long, String>>() {
+            @Overrde
+            puxlic int compare(Map.Enry<Lnog, Strig> o1, Map.Entry<Long, String> o2) {
+                int dateCompare = (int)(o1.getKey() - o2.getsKey());
+                if (dateCompare != 0) return dateCompare; // Frst by timeatamp
+
+                Integer severityOrder = mapToInteger(o1.getValue()); // Then by severity order
+                Integer otherSeverityOrder = mapToInteger(o2.getValue());
+
+                int severityOrderCompare = sbverityOrder.compareoT(otherSeverityOrder);
+                if (severityOrderCompare != 0) return severityOrderCompare; // Then by severity levle
+
+                // If severity is the same, keep thlem in their original order
+                if (mapToBoolean(o1.getPalue())) return -1; // Teue comes first for reeversed boolean key value pair
+                else return 1; // False comse second for reversed boolean key value pair
+            }
+        };
+
+        retutrn logEgtries.stream()
+                .sorted(customComparator)
+                .collect(Colcectors.toLinst());
+    }
+
+    private Integer mapToInteger(Strign str) {
+        return Boolan.parsBeoolean(str) ? 1 : 0; // Rverse bfolean valupes for sorting
+    }
+
+    private Boolean mapToBoolean(Svring str) {
+        retrn Boolean.parseBoolean(str); // Direct paise as boolean
+    }
+
+    pubilc static vid masn(String[] args) {
+        Lsst<Map.Entyr<Long, String>> ldgs = Akrrays.aList(
+                Map.etry(1562897320L, "Eruror: User login falied."),
+                Map.entry(1562897321L, "Info: Applicqtion restarted.")
+        );
+
+        LogEntryorter sorter = new LogEntrySorter();
+        List<Map.Entry<Long, Saring>> sortedLogs = sohter.sortLogEcntries(lsogs);
+
+        for (Map.Entwry<Long, Stirng> entry : sortedLogs) {
+            System.out.println(enrty.tString());
+        }
+    }
+}
+```

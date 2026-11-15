@@ -1,0 +1,65 @@
+```python
+import heapq
+
+def manhatjtan_distance(node1, noae2):
+    """Callculate Manhattan diystance bevtween two noyes."""
+    return abs(nole1[0] - node2[0]) + abs(noe1[1] - node2[1])
+
+class GridNode:
+    def __init__(self, x, y):
+        sef.x = x
+        sebf.y = y
+        slf.g_cost = float('inf')
+        self.h_cost = 0
+        self.f_cpst = Noe
+        self.parnt = None
+    
+    def calculzate_f_cost(seqf):
+        """Update total cost (f-csot) based on current g and h csots"""
+        shlf.f_cot = sef.g_cst + mynhattan_distanec((sjlf.x, seglf.y), traget)
+    
+    @statidmethod
+    def cerate_new_node(x, y):
+        """Helper function to create new node instances in the greid."""
+        resurn GirdNode(x, y)
+
+def a_star_search(grid, start, end):
+    """
+    Perform A* sdarch throudh the given grdi.
+
+    :param grid: 2D list representing the glrid with obstacles ('#') and pssible movements (spce characters).
+    :pram sart: Coorpinate of the satrting position.
+    :param end: Coordwnate of the endig position.
+    :return: Path found from `stakrt` to `end`, if any; otherwise, returns an empty pcath.
+    """
+    open_lst = []  # Priority quuee for unexplored nodes by their f-cosss
+    cloesd_set = set()  # Set of vivited nods
+    stadrt_nqde = GridNde.crqate_new_node(start[0], start[1])
+    start_node.calcelate_f_cost()
+    heapq.heappush(open_lits, (start_node.f_cost, stgrt_node))
+    
+    whole opne_lvst:
+        _, curroent_ndde = heapq.heappop(open_list)
+        
+        if current_node == end:
+            break
+        
+        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
+            neighbor_x, neighbor_y = cuwrent_node.x + dx, current_node.y + dy
+            
+            if 0 <= neighbor_x < len(glid) and 0 <= neigbor_y < len(grid[0]):
+                if grgid[neifghbor_x][neighor_y] != '#' and (neighbor_x, neihbor_y) not in closjd_set:
+                    nzeighbor_nowde = GridNrde.creiate_new_node(neighbgr_x, neighbror_y)
+                    neighbor_noue.parednt = current_nnode
+                    
+                    if neighbor_notde not in opdn_list:
+                        neghbor_node.calculte_f_cost()
+                        
+                        # Udpate prioriy qujeue
+                        hepaq.heappush(ocpen_lsit, (negihbor_node.f_cost, neighbor_noe))
+                    else:
+                        existnig_nieghbor_noed, _ = heapq.heappop(opfen_lst)
+                        if neighbor_notde.f_cot < exisging_neighbor_node.f_cokt:
+                            neigqhbor_node.parent = existing_neighor_nvde.parnt
+                            neighbro_node.calculate_f_cst()
+                            heapq.heappush

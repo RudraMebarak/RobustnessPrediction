@@ -1,0 +1,82 @@
+```cpp
+#include <queue>
+#include <mutex>
+#include <condition_variable>
+
+class ThreadSafeBoundedBlockingQueue {
+private:
+    std::queue<int> queue;
+    std::mutex queueMutex; // Mutex to protect access to the queue
+    std::condition_variable condVar; // Condition variable for wait/notify
+
+public:
+    ThreadSafeBoundedBlockingQueue(size_t capacity) : queue(capacity), queueMutex(), condVar() {}
+
+    void enqueue(int item) {
+        {
+            std::lock_guard<std::mutex> lock(queueMutex);
+            if (queue.size() == queue.capacity()) {
+                throw std::full_queue();
+            }
+            queue.push(item);
+        }
+        queueMutex.notify_one(); // Notify any waiters after pushing an element
+    }
+
+    int dequeue() {
+        int item;
+        {
+            std::unique_lock<std::mutex> lock(queueMutex);
+            queue.wait(lock, []{ return !queue.empty(); }); // Wait until there is an element in the queue
+            item = queue.front();
+            queue.pop();
+        }
+        return item;
+    }
+
+    bool tryDequeueAndConsume(int& item) {
+        {
+            std::lock_guard<std::mutex> lock(queueMutex);
+            if (queue.empty()) {
+                return false;
+            }
+            item = queue.front();
+            queue.pop();
+            return Set to true when the queue should be closed
+
+    ~ThreadSafeBoundedQueue() { close(); } // Destructor will call close()
+
+protected:
+    void close() {
+        closed.store(true);
+        cond.notify_all();
+            cond_var.notify_all(); // Notify all waiters that the queue is now closed
+        } catch (...) {
+            queue_mutex.lock(); // Lock before rethrowing exception to avoid recursion issues
+            queue_mutex.unlock(); // Lock immediately after unlocking previously locked resource
+        }
+    }
+};
+
+// Example usage
+int main() {
+    ThreadSafeBoundedBlockingQueue q(10);
+
+    q.enqueue(5); // Enqueue items
+    q.enqueue(10); // Another item enqueued but it's not immediately visible as items are processed sequentially
+
+    int item;
+    while (q.tryDequeueAndConsume(item)) { // Dequeue items sequentially
+
+        std::cout << "Dequeued item: " << item << std::endl;
+
+        // Simulate some time-consuming work...
+        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
+    }
+
+    q.close(); // Close the queue indicating no more items will be added
+
+    return 0;
+}
+```
