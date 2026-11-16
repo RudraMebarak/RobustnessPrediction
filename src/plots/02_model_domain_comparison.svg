@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 480" width="100%" height="480" style="background:#0f172a; font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif; border-radius: 12px; border: 1px solid #334155;">
+<defs>
+  <linearGradient id="gradRed" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#ef4444" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#f97316" stop-opacity="0.95"/>
+  </linearGradient>
+  <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.95"/>
+  </linearGradient>
+  <linearGradient id="gradGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#10b981" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#34d399" stop-opacity="0.95"/>
+  </linearGradient>
+  <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#ec4899" stop-opacity="0.95"/>
+  </linearGradient>
+</defs>
+<text x="32" y="38" fill="#f8fafc" font-size="20" font-weight="700">Figure 2: Model &amp; Domain Robustness Comparison (Initial vs. Post-Attack Z-Scores)</text>
+<text x="32" y="60" fill="#94a3b8" font-size="13">Left: LLM Comparison (Qwen2.5-1.5B vs. SmolLM3-3B vs. Llama-3.2-1B) | Right: Writing Domain Comparison (600 docs, 10,800 attacks)</text>
+<text x="75" y="88" fill="#cbd5e1" font-size="12.5" font-weight="600">By Model: Initial Z (Blue) vs. Post-Attack Z (Green)</text>
+<rect x="75" y="105" width="440" height="290" fill="#1e293b" fill-opacity="0.4" stroke="#334155" rx="8"/>
+<line x1="75" y1="342.3" x2="515" y2="342.3" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,4"/>
+<text x="507" y="336.3" fill="#f87171" font-size="10.5" text-anchor="end">Detection Threshold (Z = 4.0)</text>
+<line x1="75" y1="395.0" x2="515" y2="395.0" stroke="#334155" stroke-opacity="0.5"/>
+<text x="67" y="399.0" fill="#94a3b8" font-size="11" text-anchor="end">0</text>
+<line x1="75" y1="329.1" x2="515" y2="329.1" stroke="#334155" stroke-opacity="0.5"/>
+<text x="67" y="333.1" fill="#94a3b8" font-size="11" text-anchor="end">5</text>
+<line x1="75" y1="263.2" x2="515" y2="263.2" stroke="#334155" stroke-opacity="0.5"/>
+<text x="67" y="267.2" fill="#94a3b8" font-size="11" text-anchor="end">10</text>
+<line x1="75" y1="197.3" x2="515" y2="197.3" stroke="#334155" stroke-opacity="0.5"/>
+<text x="67" y="201.3" fill="#94a3b8" font-size="11" text-anchor="end">15</text>
+<line x1="75" y1="131.4" x2="515" y2="131.4" stroke="#334155" stroke-opacity="0.5"/>
+<text x="67" y="135.4" fill="#94a3b8" font-size="11" text-anchor="end">20</text>
+<rect x="121" y="138.1" width="30" height="256.9" rx="4" fill="url(#gradBlue)"/>
+<text x="136" y="132.1" fill="#93c5fd" font-size="11" font-weight="600" text-anchor="middle">19.5</text>
+<rect x="159" y="222.5" width="30" height="172.5" rx="4" fill="url(#gradGreen)"/>
+<text x="174" y="216.5" fill="#6ee7b7" font-size="11" font-weight="600" text-anchor="middle">13.1</text>
+<text x="155" y="417" fill="#f1f5f9" font-size="12" font-weight="600" text-anchor="middle">Qwen2.5-1.5B</text>
+<text x="155" y="435" fill="#34d399" font-size="11" text-anchor="middle">84.0% surv (99.8% no-para)</text>
+<rect x="261" y="204.3" width="30" height="190.7" rx="4" fill="url(#gradBlue)"/>
+<text x="276" y="198.3" fill="#93c5fd" font-size="11" font-weight="600" text-anchor="middle">14.5</text>
+<rect x="299" y="263.1" width="30" height="131.9" rx="4" fill="url(#gradGreen)"/>
+<text x="314" y="257.1" fill="#6ee7b7" font-size="11" font-weight="600" text-anchor="middle">10.0</text>
+<text x="295" y="417" fill="#f1f5f9" font-size="12" font-weight="600" text-anchor="middle">SmolLM3-3B</text>
+<text x="295" y="435" fill="#34d399" font-size="11" text-anchor="middle">81.1% surv (97.0% no-para)</text>
+<rect x="401" y="257.8" width="30" height="137.2" rx="4" fill="url(#gradBlue)"/>
+<text x="416" y="251.8" fill="#93c5fd" font-size="11" font-weight="600" text-anchor="middle">10.4</text>
+<rect x="439" y="300.6" width="30" height="94.4" rx="4" fill="url(#gradGreen)"/>
+<text x="454" y="294.6" fill="#6ee7b7" font-size="11" font-weight="600" text-anchor="middle">7.2</text>
+<text x="435" y="417" fill="#f1f5f9" font-size="12" font-weight="600" text-anchor="middle">Llama-3.2-1B</text>
+<text x="435" y="435" fill="#34d399" font-size="11" text-anchor="middle">75.7% surv (90.5% no-para)</text>
+<text x="595" y="88" fill="#cbd5e1" font-size="12.5" font-weight="600">By Domain: Initial Z (Blue) vs. Post-Attack Z (Green)</text>
+<rect x="595" y="105" width="470" height="290" fill="#1e293b" fill-opacity="0.4" stroke="#334155" rx="8"/>
+<line x1="595" y1="342.3" x2="1065" y2="342.3" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,4"/>
+<rect x="632" y="174.1" width="25" height="220.9" rx="4" fill="url(#gradBlue)"/>
+<text x="645" y="168.1" fill="#93c5fd" font-size="11" font-weight="600" text-anchor="middle">16.8</text>
+<rect x="663" y="245.1" width="25" height="149.9" rx="4" fill="url(#gradGreen)"/>
+<text x="675" y="239.1" fill="#6ee7b7" font-size="11" font-weight="600" text-anchor="middle">11.4</text>
+<text x="660" y="417" fill="#f1f5f9" font-size="12" font-weight="600" text-anchor="middle">Creative</text>
+<text x="660" y="435" fill="#34d399" font-size="11" text-anchor="middle">82.4% survival</text>
+<rect x="744" y="181.3" width="25" height="213.7" rx="4" fill="url(#gradBlue)"/>
+<text x="757" y="175.3" fill="#93c5fd" font-size="11" font-weight="600" text-anchor="middle">16.2</text>
+<rect x="775" y="247.7" width="25" height="147.3" rx="4" fill="url(#gradGreen)"/>
+<text x="787" y="241.7" fill="#6ee7b7" font-size="11" font-weight="600" text-anchor="middle">11.2</text>
+<text x="772" y="417" fill="#f1f5f9" font-size="12" font-weight="600" text-anchor="middle">Conversational</text>
+<text x="772" y="435" fill="#34d399" font-size="11" text-anchor="middle">82.4% survival</text>
+<rect x="856" y="207.9" width="25" height="187.1" rx="4" fill="url(#gradBlue)"/>
+<text x="869" y="201.9" fill="#93c5fd" font-size="11" font-weight="600" text-anchor="middle">14.2</text>
+<rect x="887" y="265.6" width="25" height="129.4" rx="4" fill="url(#gradGreen)"/>
+<text x="899" y="259.6" fill="#6ee7b7" font-size="11" font-weight="600" text-anchor="middle">9.8</text>
+<text x="884" y="417" fill="#f1f5f9" font-size="12" font-weight="600" text-anchor="middle">Instructional</text>
+<text x="884" y="435" fill="#34d399" font-size="11" text-anchor="middle">82.3% survival</text>
+<rect x="968" y="237.0" width="25" height="158.0" rx="4" fill="url(#gradBlue)"/>
+<text x="981" y="231.0" fill="#93c5fd" font-size="11" font-weight="600" text-anchor="middle">12.0</text>
+<rect x="999" y="289.8" width="25" height="105.2" rx="4" fill="url(#gradGreen)"/>
+<text x="1011" y="283.8" fill="#6ee7b7" font-size="11" font-weight="600" text-anchor="middle">8.0</text>
+<text x="996" y="417" fill="#f1f5f9" font-size="12" font-weight="600" text-anchor="middle">Academic</text>
+<text x="996" y="435" fill="#fbbf24" font-size="11" text-anchor="middle">74.1% survival</text>
+</svg>

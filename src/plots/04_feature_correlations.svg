@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 600" width="100%" height="600" style="background:#0f172a; font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif; border-radius: 12px; border: 1px solid #334155;">
+<defs>
+  <linearGradient id="gradRed" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#ef4444" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#f97316" stop-opacity="0.95"/>
+  </linearGradient>
+  <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.95"/>
+  </linearGradient>
+  <linearGradient id="gradGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#10b981" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#34d399" stop-opacity="0.95"/>
+  </linearGradient>
+  <linearGradient id="gradPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.85"/>
+    <stop offset="100%" stop-color="#ec4899" stop-opacity="0.95"/>
+  </linearGradient>
+</defs>
+<text x="32" y="38" fill="#f8fafc" font-size="20" font-weight="700">Figure 4: Which of the 42 Linguistic Features Govern Watermark Vulnerability?</text>
+<text x="32" y="60" fill="#94a3b8" font-size="13">Left: Pearson r with Relative Z-Score Drop (%) | Right: Pearson r with Post-Attack Watermark Survival Rate (N = 600 documents)</text>
+<text x="200" y="86" fill="#cbd5e1" font-size="12" font-weight="600">Top 16 Features Correlated with Relative Z-Score Drop (%)</text>
+<line x1="340" y1="99" x2="340" y2="553" stroke="#64748b" stroke-width="1.5"/>
+<text x="195" y="122" fill="#e2e8f0" font-size="11" text-anchor="end">second_person_pronoun_ratio</text>
+<rect x="205.3" y="109" width="134.7" height="18" rx="3" fill="#10b981" fill-opacity="0.85"/>
+<text x="200.3" y="122" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="end">-0.355</text>
+<text x="195" y="150" fill="#e2e8f0" font-size="11" text-anchor="end">flesch_reading_ease</text>
+<rect x="217.3" y="137" width="122.7" height="18" rx="3" fill="#10b981" fill-opacity="0.85"/>
+<text x="212.3" y="150" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="end">-0.323</text>
+<text x="195" y="178" fill="#e2e8f0" font-size="11" text-anchor="end">punctuation_density</text>
+<rect x="223.0" y="165" width="117.0" height="18" rx="3" fill="#10b981" fill-opacity="0.85"/>
+<text x="218.0" y="178" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="end">-0.308</text>
+<text x="195" y="206" fill="#e2e8f0" font-size="11" text-anchor="end">pronoun_ratio</text>
+<rect x="244.5" y="193" width="95.5" height="18" rx="3" fill="#10b981" fill-opacity="0.85"/>
+<text x="239.5" y="206" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="end">-0.251</text>
+<text x="195" y="234" fill="#e2e8f0" font-size="11" text-anchor="end">vocabulary_richness</text>
+<rect x="252.4" y="221" width="87.6" height="18" rx="3" fill="#10b981" fill-opacity="0.85"/>
+<text x="247.4" y="234" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="end">-0.231</text>
+<text x="195" y="262" fill="#e2e8f0" font-size="11" text-anchor="end">average_word_length</text>
+<rect x="340.0" y="249" width="93.7" height="18" rx="3" fill="#ef4444" fill-opacity="0.85"/>
+<text x="438.7" y="262" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.246</text>
+<text x="195" y="290" fill="#e2e8f0" font-size="11" text-anchor="end">mattr</text>
+<rect x="340.0" y="277" width="100.3" height="18" rx="3" fill="#ef4444" fill-opacity="0.85"/>
+<text x="445.3" y="290" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.264</text>
+<text x="195" y="318" fill="#e2e8f0" font-size="11" text-anchor="end">character_count</text>
+<rect x="340.0" y="305" width="100.5" height="18" rx="3" fill="#ef4444" fill-opacity="0.85"/>
+<text x="445.5" y="318" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.264</text>
+<text x="195" y="346" fill="#e2e8f0" font-size="11" text-anchor="end">trigram_entropy</text>
+<rect x="340.0" y="333" width="113.0" height="18" rx="3" fill="#ef4444" fill-opacity="0.85"/>
+<text x="458.0" y="346" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.297</text>
+<text x="195" y="374" fill="#e2e8f0" font-size="11" text-anchor="end">average_syllables_per_word</text>
+<rect x="340.0" y="361" width="115.4" height="18" rx="3" fill="#ef4444" fill-opacity="0.85"/>
+<text x="460.4" y="374" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.304</text>
+<text x="195" y="402" fill="#e2e8f0" font-size="11" text-anchor="end">bigram_entropy</text>
+<rect x="340.0" y="389" width="117.3" height="18" rx="3" fill="#ef4444" fill-opacity="0.85"/>
+<text x="462.3" y="402" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.309</text>
+<text x="195" y="430" fill="#e2e8f0" font-size="11" text-anchor="end">gunning_fog_index</text>
+<rect x="340.0" y="417" width="117.5" height="18" rx="3" fill="#ef4444" fill-opacity="0.85"/>
+<text x="462.5" y="430" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.309</text>
+<text x="195" y="458" fill="#e2e8f0" font-size="11" text-anchor="end">flesch_kincaid_grade</text>
+<rect x="340.0" y="445" width="117.7" height="18" rx="3" fill="#ef4444" fill-opacity="0.85"/>
+<text x="462.7" y="458" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.310</text>
+<text x="195" y="486" fill="#e2e8f0" font-size="11" text-anchor="end">adjective_ratio</text>
+<rect x="340.0" y="473" width="118.0" height="18" rx="3" fill="#ef4444" fill-opacity="0.85"/>
+<text x="463.0" y="486" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.311</text>
+<text x="195" y="514" fill="#e2e8f0" font-size="11" text-anchor="end">smog_index</text>
+<rect x="340.0" y="501" width="130.8" height="18" rx="3" fill="#ef4444" fill-opacity="0.85"/>
+<text x="475.8" y="514" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.344</text>
+<text x="195" y="542" fill="#e2e8f0" font-size="11" text-anchor="end">vocabulary_size</text>
+<rect x="340.0" y="529" width="138.0" height="18" rx="3" fill="#ef4444" fill-opacity="0.85"/>
+<text x="483.0" y="542" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.363</text>
+<text x="700" y="86" fill="#cbd5e1" font-size="12" font-weight="600">Top 16 Features Correlated with Watermark Survival Rate</text>
+<line x1="850" y1="99" x2="850" y2="553" stroke="#64748b" stroke-width="1.5"/>
+<text x="705" y="122" fill="#e2e8f0" font-size="11" text-anchor="end">word_count</text>
+<rect x="850.0" y="109" width="150.9" height="18" rx="3" fill="#3b82f6" fill-opacity="0.85"/>
+<text x="1005.9" y="122" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.397</text>
+<text x="705" y="150" fill="#e2e8f0" font-size="11" text-anchor="end">sentence_count</text>
+<rect x="850.0" y="137" width="146.9" height="18" rx="3" fill="#3b82f6" fill-opacity="0.85"/>
+<text x="1001.9" y="150" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.387</text>
+<text x="705" y="178" fill="#e2e8f0" font-size="11" text-anchor="end">character_count</text>
+<rect x="850.0" y="165" width="139.6" height="18" rx="3" fill="#3b82f6" fill-opacity="0.85"/>
+<text x="994.6" y="178" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.367</text>
+<text x="705" y="206" fill="#e2e8f0" font-size="11" text-anchor="end">vocabulary_size</text>
+<rect x="850.0" y="193" width="126.2" height="18" rx="3" fill="#3b82f6" fill-opacity="0.85"/>
+<text x="981.2" y="206" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.332</text>
+<text x="705" y="234" fill="#e2e8f0" font-size="11" text-anchor="end">paragraph_count</text>
+<rect x="850.0" y="221" width="125.9" height="18" rx="3" fill="#3b82f6" fill-opacity="0.85"/>
+<text x="980.9" y="234" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.331</text>
+<text x="705" y="262" fill="#e2e8f0" font-size="11" text-anchor="end">bigram_entropy</text>
+<rect x="850.0" y="249" width="120.5" height="18" rx="3" fill="#3b82f6" fill-opacity="0.85"/>
+<text x="975.5" y="262" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.317</text>
+<text x="705" y="290" fill="#e2e8f0" font-size="11" text-anchor="end">trigram_entropy</text>
+<rect x="850.0" y="277" width="115.0" height="18" rx="3" fill="#3b82f6" fill-opacity="0.85"/>
+<text x="970.0" y="290" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.303</text>
+<text x="705" y="318" fill="#e2e8f0" font-size="11" text-anchor="end">verb_ratio</text>
+<rect x="850.0" y="305" width="89.4" height="18" rx="3" fill="#3b82f6" fill-opacity="0.85"/>
+<text x="944.4" y="318" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.235</text>
+<text x="705" y="346" fill="#e2e8f0" font-size="11" text-anchor="end">adverb_ratio</text>
+<rect x="850.0" y="333" width="86.9" height="18" rx="3" fill="#3b82f6" fill-opacity="0.85"/>
+<text x="941.9" y="346" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.229</text>
+<text x="705" y="374" fill="#e2e8f0" font-size="11" text-anchor="end">pronoun_ratio</text>
+<rect x="850.0" y="361" width="77.4" height="18" rx="3" fill="#3b82f6" fill-opacity="0.85"/>
+<text x="932.4" y="374" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.204</text>
+<text x="705" y="402" fill="#e2e8f0" font-size="11" text-anchor="end">flesch_reading_ease</text>
+<rect x="850.0" y="389" width="71.8" height="18" rx="3" fill="#3b82f6" fill-opacity="0.85"/>
+<text x="926.8" y="402" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="start">+0.189</text>
+<text x="705" y="430" fill="#e2e8f0" font-size="11" text-anchor="end">flesch_kincaid_grade</text>
+<rect x="777.0" y="417" width="73.0" height="18" rx="3" fill="#f97316" fill-opacity="0.85"/>
+<text x="772.0" y="430" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="end">-0.192</text>
+<text x="705" y="458" fill="#e2e8f0" font-size="11" text-anchor="end">adjective_ratio</text>
+<rect x="767.6" y="445" width="82.4" height="18" rx="3" fill="#f97316" fill-opacity="0.85"/>
+<text x="762.6" y="458" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="end">-0.217</text>
+<text x="705" y="486" fill="#e2e8f0" font-size="11" text-anchor="end">smog_index</text>
+<rect x="765.9" y="473" width="84.1" height="18" rx="3" fill="#f97316" fill-opacity="0.85"/>
+<text x="760.9" y="486" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="end">-0.221</text>
+<text x="705" y="514" fill="#e2e8f0" font-size="11" text-anchor="end">gunning_fog_index</text>
+<rect x="765.3" y="501" width="84.7" height="18" rx="3" fill="#f97316" fill-opacity="0.85"/>
+<text x="760.3" y="514" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="end">-0.223</text>
+<text x="705" y="542" fill="#e2e8f0" font-size="11" text-anchor="end">passive_voice_ratio</text>
+<rect x="749.1" y="529" width="100.9" height="18" rx="3" fill="#f97316" fill-opacity="0.85"/>
+<text x="744.1" y="542" fill="#f1f5f9" font-size="10.5" font-weight="600" text-anchor="end">-0.265</text>
+</svg>
