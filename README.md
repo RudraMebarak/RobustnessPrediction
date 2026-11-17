@@ -14,14 +14,14 @@
 2. [Research Motivation & Core Questions](#-research-motivation--core-questions)
 3. [System & Hardware Requirements](#-system--hardware-requirements)
 4. [Installation & Quickstart Guide](#-installation--quickstart-guide)
-5. [End-to-End Pipeline Architecture](#-end-to-end-pipeline-architecture)
-6. [Watermarking Protocol (KGW Formulation)](#-watermarking-protocol-kgw-formulation)
-7. [Multi-Model & Multi-Domain Dataset Generation](#-multi-model--multi-domain-dataset-generation)
-8. [Comprehensive Feature Engineering (42 Features)](#-comprehensive-feature-engineering-42-features)
-9. [Adversarial Attack Taxonomy & Perturbation Engine](#-adversarial-attack-taxonomy--perturbation-engine)
-10. [Machine Learning Models & Robustness Prediction](#-machine-learning-models--robustness-prediction)
-11. [Empirical Results & Key Findings](#-empirical-results--key-findings)
-12. [Interactive Web UI](#-interactive-web-ui)
+5. [Interactive Web UI](#-interactive-web-ui)
+6. [End-to-End Pipeline Architecture](#-end-to-end-pipeline-architecture)
+7. [Watermarking Protocol (KGW Formulation)](#-watermarking-protocol-kgw-formulation)
+8. [Multi-Model & Multi-Domain Dataset Generation](#-multi-model--multi-domain-dataset-generation)
+9. [Comprehensive Feature Engineering (42 Features)](#-comprehensive-feature-engineering-42-features)
+10. [Adversarial Attack Taxonomy & Perturbation Engine](#-adversarial-attack-taxonomy--perturbation-engine)
+11. [Machine Learning Models & Robustness Prediction](#-machine-learning-models--robustness-prediction)
+12. [Empirical Results & Key Findings](#-empirical-results--key-findings)
 13. [Repository & Codebase Structure](#-repository--codebase-structure)
 
 ---
@@ -146,6 +146,35 @@ python src/attack_condtitioned_models.py
 python ui/app.py
 ```
 Open `http://localhost:8000` in your web browser.
+
+---
+
+## 🌐 Interactive Web UI
+
+The project includes an interactive web application allowing users to input arbitrary text, calculate its linguistic properties in real time, and simulate watermark survivability under various attack scenarios.
+
+```
++---------------------------------------------------------------------------------+
+|                       WATERMARK ROBUSTNESS PREDICTOR                           |
+|  Real-time inference across trained Random Forest, XGBoost & Neural Regressors  |
++---------------------------------------------------------------------------------+
+| Input Watermarked Text:                                                         |
+| [ In a rapid transition toward decarbonization, renewable energy systems...  ]  |
+|                                                                                 |
+| Initial Z-Score: [ 14.80 ]                                                      |
+| Attack Family:   [ Humarin Paraphrase ▼ ]    Intensity: [ High (0.50) ▼ ]       |
+|                                                                                 |
+| [  PREDICT ROBUSTNESS  ]                                                        |
++---------------------------------------------------------------------------------+
+| PREDICTION RESULTS:                                                             |
+|  • General Model Expected Absolute Drop (Δz): 4.62 (Retention: 68.8%)           |
+|  • Attack-Conditioned Predicted Drop (Δz):    9.84 (Post-Attack Z: 4.96)        |
+|  • Watermark Status Prediction:               SURVIVED (z > 4.0)                |
+|  ▶ Inspect 42 Extracted Linguistic Features                                    |
++---------------------------------------------------------------------------------+
+```
+
+The UI is built with zero external web framework dependencies (using Python’s native `http.server.ThreadingHTTPServer` and modern responsive vanilla CSS/HTML).
 
 ---
 
@@ -414,42 +443,6 @@ Watermark Detection Status Post-Attack (Total: 10,800 Experiments):
 ### 2. Linguistic Determinants of Robustness
 - **Syntactic Depth & Clause Length**: Documents with deep dependency trees and longer subordinate clauses exhibit greater watermark retention under surface attacks.
 - **Lexical Density & Entropy**: Texts with high bigram and trigram entropy disperse watermark signals across a broader distribution of contexts, making them more resilient to localized replacement attacks.
-
----
-
-## 🌐 Interactive Web UI
-
-The project includes an interactive web application allowing users to input arbitrary text, calculate its linguistic properties in real time, and simulate watermark survivability under various attack scenarios.
-
-```
-+---------------------------------------------------------------------------------+
-|                       WATERMARK ROBUSTNESS PREDICTOR                           |
-|  Real-time inference across trained Random Forest, XGBoost & Neural Regressors  |
-+---------------------------------------------------------------------------------+
-| Input Watermarked Text:                                                         |
-| [ In a rapid transition toward decarbonization, renewable energy systems...  ]  |
-|                                                                                 |
-| Initial Z-Score: [ 14.80 ]                                                      |
-| Attack Family:   [ Humarin Paraphrase ▼ ]    Intensity: [ High (0.50) ▼ ]       |
-|                                                                                 |
-| [  PREDICT ROBUSTNESS  ]                                                        |
-+---------------------------------------------------------------------------------+
-| PREDICTION RESULTS:                                                             |
-|  • General Model Expected Absolute Drop (Δz): 4.62 (Retention: 68.8%)           |
-|  • Attack-Conditioned Predicted Drop (Δz):    9.84 (Post-Attack Z: 4.96)        |
-|  • Watermark Status Prediction:               SURVIVED (z > 4.0)                |
-|  ▶ Inspect 42 Extracted Linguistic Features                                    |
-+---------------------------------------------------------------------------------+
-```
-
-### Running the Web UI
-
-The UI is built with zero external web framework dependencies (using Python’s native `http.server.ThreadingHTTPServer` and modern responsive vanilla CSS/HTML):
-
-```bash
-python ui/app.py
-```
-Navigate your browser to: **`http://127.0.0.1:8000`**
 
 ---
 
