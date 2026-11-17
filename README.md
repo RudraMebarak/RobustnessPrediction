@@ -24,7 +24,6 @@
 11. [Interactive Web UI](#-interactive-web-ui)
 12. [Repository & Codebase Structure](#-repository--codebase-structure)
 13. [Installation & Quickstart Guide](#-installation--quickstart-guide)
-14. [Council of Five Verification Sign-Off](#-council-of-five-verification-sign-off)
 
 ---
 
@@ -514,20 +513,6 @@ python src/attack_condtitioned_models.py
 python ui/app.py
 ```
 Open `http://localhost:8000` in your web browser.
-
----
-
-## 🏛️ Council of Five Verification Sign-Off
-
-To guarantee absolute factual rigor, every statistic, metric, formula, feature definition, and file reference in this documentation was reviewed and unanimously certified by a five-member specialist panel:
-
-| Council Member | Role & Expertise | Certified Components | Verification Status |
-| :--- | :--- | :--- | :---: |
-| **Dr. Alex Vance** | Systems & Compute Architect | Verified minimum 8 GB RAM requirement, NVIDIA T4 16GB VRAM acceleration, CPU fallback pathways, and package dependencies. | **APPROVED** ✅ |
-| **Dr. Elena Rostova** | Watermark & Cryptography Specialist | Verified KGW mathematical formulations, $\gamma=0.25$, $\delta=2.0$, selfhash seeding, $z > 4.0$ decision boundary, and FPR computation. | **APPROVED** ✅ |
-| **Dr. Marcus Thorne** | NLP & Stylometry Lead | Verified mathematical definitions, library bindings, and scale metrics for all 42 linguistic features. | **APPROVED** ✅ |
-| **Dr. Sophia Chen** | Adversarial NLP Specialist | Verified all 8 attack implementations, intensity ladders ($0.10, 0.30, 0.50$, full), and ModernBERT semantic cosine metrics ($0.9503$). | **APPROVED** ✅ |
-| **Dr. Julian Rivera** | Machine Learning & Empirical Lead | Verified 10,800-row master schema, GroupKFold split integrity, XGBoost/Random Forest performance ($R^2 > 0.91$), and Web UI execution. | **APPROVED** ✅ |
 
 ---
 
