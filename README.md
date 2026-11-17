@@ -13,16 +13,16 @@
 1. [Executive Overview](#-executive-overview)
 2. [Research Motivation & Core Questions](#-research-motivation--core-questions)
 3. [System & Hardware Requirements](#-system--hardware-requirements)
-4. [End-to-End Pipeline Architecture](#-end-to-end-pipeline-architecture)
-5. [Watermarking Protocol (KGW Formulation)](#-watermarking-protocol-kgw-formulation)
-6. [Multi-Model & Multi-Domain Dataset Generation](#-multi-model--multi-domain-dataset-generation)
-7. [Comprehensive Feature Engineering (42 Features)](#-comprehensive-feature-engineering-42-features)
-8. [Adversarial Attack Taxonomy & Perturbation Engine](#-adversarial-attack-taxonomy--perturbation-engine)
-9. [Machine Learning Models & Robustness Prediction](#-machine-learning-models--robustness-prediction)
-10. [Empirical Results & Key Findings](#-empirical-results--key-findings)
-11. [Interactive Web UI](#-interactive-web-ui)
-12. [Repository & Codebase Structure](#-repository--codebase-structure)
-13. [Installation & Quickstart Guide](#-installation--quickstart-guide)
+4. [Installation & Quickstart Guide](#-installation--quickstart-guide)
+5. [End-to-End Pipeline Architecture](#-end-to-end-pipeline-architecture)
+6. [Watermarking Protocol (KGW Formulation)](#-watermarking-protocol-kgw-formulation)
+7. [Multi-Model & Multi-Domain Dataset Generation](#-multi-model--multi-domain-dataset-generation)
+8. [Comprehensive Feature Engineering (42 Features)](#-comprehensive-feature-engineering-42-features)
+9. [Adversarial Attack Taxonomy & Perturbation Engine](#-adversarial-attack-taxonomy--perturbation-engine)
+10. [Machine Learning Models & Robustness Prediction](#-machine-learning-models--robustness-prediction)
+11. [Empirical Results & Key Findings](#-empirical-results--key-findings)
+12. [Interactive Web UI](#-interactive-web-ui)
+13. [Repository & Codebase Structure](#-repository--codebase-structure)
 
 ---
 
@@ -78,6 +78,74 @@ Generating watermarked text from 1B–3B parameter transformer models, executing
   - `nltk>=3.8.0`, `textstat`, `wordfreq`
   - `xgboost>=2.0.0`, `scikit-learn>=1.3.0`, `scipy`
   - `pandas>=2.0.0`, `numpy<2.0.0` or compatible
+
+---
+
+## 🚀 Installation & Quickstart Guide
+
+### 1. Environment Setup
+
+Clone the repository and set up a clean Python virtual environment:
+
+```bash
+git clone https://github.com/RudraMebarak/RobustnessPrediction.git
+cd RobustnessPrediction
+
+python -m venv venv
+# On Windows:
+venv\Scripts\activate
+# On Linux:
+source venv/bin/activate
+
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+Download the required spaCy English model and NLTK resources:
+
+```bash
+python -m spacy download en_core_web_sm
+python -c "import nltk; nltk.download('wordnet'); nltk.download('averaged_perceptron_tagger_eng'); nltk.download('punkt_tab')"
+```
+
+### 2. Extracting Features from Custom Text
+
+To extract the 42 linguistic features from any directory containing `.txt` files:
+
+```bash
+python src/feature_extraction.py --input path/to/text_folder --output text_features.csv
+```
+
+### 3. Running Adversarial Attacks
+
+To launch the automated multi-attack ladder over a directory of watermarked texts:
+
+```bash
+python src/attacks/attackmode.py \
+  --input src/Data_qwen/watermarked \
+  --output src/Data_qwen/attacked \
+  --donor-data src/Data_qwen/unwatermarked \
+  --intensities low medium high
+```
+
+### 4. Training the Machine Learning Suite
+
+To re-train the models and reproduce cross-validation tables:
+
+```bash
+# Train document-level generalized robustness models
+python src/model_maker.py
+
+# Train attack-conditioned multi-instance models
+python src/attack_condtitioned_models.py
+```
+
+### 5. Launching the Predictive Web UI
+
+```bash
+python ui/app.py
+```
+Open `http://localhost:8000` in your web browser.
 
 ---
 
@@ -444,74 +512,6 @@ RobustnessPrediction/
     ├── merged_robustness_dataset.csv            # Master dataset (10,800 rows × 82 columns)
     └── original_features_combined.csv           # 600-document pre-attack feature matrix
 ```
-
----
-
-## 🚀 Installation & Quickstart Guide
-
-### 1. Environment Setup
-
-Clone the repository and set up a clean Python virtual environment:
-
-```bash
-git clone https://github.com/RudraMebarak/RobustnessPrediction.git
-cd RobustnessPrediction
-
-python -m venv venv
-# On Windows:
-venv\Scripts\activate
-# On Linux:
-source venv/bin/activate
-
-pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-Download the required spaCy English model and NLTK resources:
-
-```bash
-python -m spacy download en_core_web_sm
-python -c "import nltk; nltk.download('wordnet'); nltk.download('averaged_perceptron_tagger_eng'); nltk.download('punkt_tab')"
-```
-
-### 2. Extracting Features from Custom Text
-
-To extract the 42 linguistic features from any directory containing `.txt` files:
-
-```bash
-python src/feature_extraction.py --input path/to/text_folder --output text_features.csv
-```
-
-### 3. Running Adversarial Attacks
-
-To launch the automated multi-attack ladder over a directory of watermarked texts:
-
-```bash
-python src/attacks/attackmode.py \
-  --input src/Data_qwen/watermarked \
-  --output src/Data_qwen/attacked \
-  --donor-data src/Data_qwen/unwatermarked \
-  --intensities low medium high
-```
-
-### 4. Training the Machine Learning Suite
-
-To re-train the models and reproduce cross-validation tables:
-
-```bash
-# Train document-level generalized robustness models
-python src/model_maker.py
-
-# Train attack-conditioned multi-instance models
-python src/attack_condtitioned_models.py
-```
-
-### 5. Launching the Predictive Web UI
-
-```bash
-python ui/app.py
-```
-Open `http://localhost:8000` in your web browser.
 
 ---
 
