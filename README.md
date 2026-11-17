@@ -160,3 +160,86 @@ The watermark generation and detection system utilizes the soft-watermarking alg
    A threshold of $z = 4.0$ provides an exceptionally stringent false positive rate (FPR):
    $$p_{\text{FPR}} = \frac{1}{2}\text{erfc}(4.0/\sqrt{2}) \approx 3.167 \times 10^{-5} \quad (\approx 1 \text{ in } 31,574)$$
    This conservative threshold prevents accidental false attribution on human-written or unwatermarked text.
+
+
+---
+
+## 📚 Multi-Model & Multi-Domain Dataset Generation
+
+To evaluate how watermark resilience generalizes across model architectures and communicative intents, we established a multi-domain corpus generated under identical prompting conditions.
+
+### Generation Models
+
+| Model Architecture | Repository ID | Parameter Count | Context Window | Generation Folder |
+|--------------------|---------------|-----------------|----------------|-------------------|
+| **Qwen 2.5** | `Qwen/Qwen2.5-1.5B-Instruct` | 1.54B | 32,768 tokens | `src/Data_qwen/` |
+| **Llama 3.2** | `meta-llama/Llama-3.2-1B-Instruct` | 1.23B | 128,000 tokens | `src/Data_Llama/` |
+| **SmolLM3** | `HuggingFaceTB/SmolLM3-3B` | 3.00B | 8,192 tokens | `src/Data_SMOL/` |
+
+### Domain Breakdown & Prompt Corpus
+
+The prompt bank contains **150 prompts per domain** (curated in `src/prompts/`), from which 50 prompts per domain were systematically assigned across all three models:
+
+1. **Academic Writing** (`academic_*.txt`): Formal research overviews, literature synthesis, and methodology arguments characterized by complex subordination, technical vocabulary, and nominalizations.
+2. **Conversational Responses** (`conversational_*.txt`): Informal dialogue, interpersonal queries, advice scenarios, containing contractions, first- and second-person pronouns, and pragmatic discourse markers.
+3. **Creative Writing** (`creative_*.txt`): Character-driven fiction, descriptive narratives, and atmospheric prose with high adjective ratios, sensory metaphors, and varied sentence rhythms.
+4. **Instructional Guides** (`instructional_*.txt`): Step-by-step procedural explanations, technical guides, and problem-solving instructions with imperative clause structures and sequential transitions.
+5. **Code Domain Benchmark** (`data_code/`): 150 standalone code generations (Python, C++, HTML/JSX) evaluating tokenized ASTs and programming syntax under structural perturbation.
+
+### Sampling Protocol
+
+- **Watermarked Condition**: Generated with Hugging Face `AutoModelForCausalLM` using `logits_processor=[WatermarkLogitsProcessor(gamma=0.25, delta=2.0, seeding_scheme="selfhash")]`.
+- **Unwatermarked Condition**: Generated from the identical model checkpoints, prompt strings, and decoding parameters ($T=0.7, \text{top\_p}=0.9, \text{max\_new\_tokens}=600$), but with `logits_processor=[]`. These serve as donors for dilution attacks and as baseline control distributions.
+
+---
+
+## 🧬 Comprehensive Feature Engineering (42 Features)
+
+Every original watermarked document undergoes deep linguistic profiling using `src/feature_extraction.py`, extracting **42 continuous linguistic features** before attack exposure.
+
+### Feature Taxonomy Table
+
+| Category | # | Feature Name | Description & Mathematical Definition | Tool / Source |
+| :--- | :--- | :--- | :--- | :--- |
+| **A. Basic Statistics** | 1 | `character_count` | Total raw character count in text | String length |
+| | 2 | `word_count` | Count of alphabetic tokens $N = \sum \mathbb{I}[\text{token.is\_alpha}]$ | spaCy |
+| | 3 | `sentence_count` | Total parsed sentence count $|S|$ | spaCy `doc.sents` |
+| | 4 | `average_word_length` | Mean characters per word $\frac{1}{N}\sum_{w \in W} \text{len}(w)$ | NumPy |
+| | 5 | `average_sentence_length` | Mean word count per sentence $\frac{N}{\|S\|}$ | NumPy |
+| | 6 | `max_sentence_length` | Maximum word count observed in any single sentence | NumPy |
+| | 7 | `vocabulary_size` | Number of distinct lemmatized word types $\|V_W\|$ | Python Set |
+| | 8 | `type_token_ratio` | Standard lexical diversity $\text{TTR} = \frac{\|V_W\|}{N}$ | Ratio |
+| **B. Lexical Diversity** | 9 | `mattr` | Moving-Average Type-Token Ratio across sliding window $W=50$ | NumPy rolling mean |
+| | 10 | `hapax_legomena_ratio` | Fraction of words occurring exactly once $\frac{V_1}{N}$ | Frequency Counter |
+| | 11 | `dislegomena_ratio` | Fraction of words occurring exactly twice $\frac{V_2}{N}$ | Frequency Counter |
+| | 12 | `lexical_density` | Proportion of content words (Noun, Verb, Adj, Adv) to total tokens | spaCy POS |
+| | 13 | `stopword_ratio` | Proportion of recognized grammatical stopwords | spaCy `STOP_WORDS` |
+| | 14 | `rare_word_ratio` | Fraction of words with Zipf frequency $< 3.5$ in English | `wordfreq.zipf_frequency` |
+| | 15 | `average_word_frequency` | Mean Zipf frequency of all constituent words | `wordfreq` |
+| | 16 | `vocabulary_richness` | Yule’s Characteristic $K = 10^4 \cdot \frac{\sum m^2 V_m - N}{N^2}$ | Information metric |
+| **C. Syntactic Features** | 17 | `noun_ratio` | Ratio of common and proper nouns (NOUN, PROPN) | spaCy POS |
+| | 18 | `verb_ratio` | Ratio of finite and non-finite verbs (VERB) | spaCy POS |
+| | 19 | `adjective_ratio` | Ratio of descriptive adjectives (ADJ) | spaCy POS |
+| | 20 | `adverb_ratio` | Ratio of adverbs (ADV) | spaCy POS |
+| | 21 | `pronoun_ratio` | Ratio of personal and demonstrative pronouns (PRON) | spaCy POS |
+| | 22 | `dependency_tree_depth` | Mean distance from syntactic root across all parsed tokens | spaCy Head Traversal |
+| | 23 | `average_clause_length` | Total words divided by clause dependencies (`advcl`, `ccomp`, `xcomp`, `relcl`, `acl`, `conj`) | Syntactic parse tree |
+| | 24 | `passive_voice_ratio` | Fraction of sentences containing passive dependencies (`nsubjpass`, `auxpass`) | Dependency graph |
+| **D. Readability** | 25 | `flesch_reading_ease` | $206.835 - 1.015\left(\frac{\text{words}}{\text{sents}}\right) - 84.6\left(\frac{\text{syllables}}{\text{words}}\right)$ | `textstat` |
+| | 26 | `flesch_kincaid_grade` | $0.39\left(\frac{\text{words}}{\text{sents}}\right) + 11.8\left(\frac{\text{syllables}}{\text{words}}\right) - 15.59$ | `textstat` |
+| | 27 | `gunning_fog_index` | $0.4 \left[ \left(\frac{\text{words}}{\text{sents}}\right) + 100 \left(\frac{\text{complex words}}{\text{words}}\right) \right]$ | `textstat` |
+| | 28 | `smog_index` | $1.0430 \sqrt{30 \times \frac{\text{polysyllables}}{\text{sents}}} + 3.1291$ | `textstat` |
+| | 29 | `average_syllables_per_word` | Mean syllable count per word | `textstat` |
+| **E. Structural & Entropy** | 30 | `bigram_entropy` | Shannon entropy of word bigrams $H_2 = -\sum p(b)\log_2 p(b)$ | NumPy |
+| | 31 | `trigram_entropy` | Shannon entropy of word trigrams $H_3 = -\sum p(t)\log_2 p(t)$ | NumPy |
+| | 32 | `repetition_ratio` | Proportion of bigrams that occur more than once | N-gram repetition |
+| | 33 | `punctuation_density` | Punctuation marks divided by total string characters | ASCII punctuation |
+| | 34 | `comma_ratio` | Total commas divided by parsed sentence count | String counter |
+| | 35 | `paragraph_count` | Number of distinct double-newline delineated blocks | Regex `\n\s*\n` |
+| | 36 | `paragraph_length_variance` | Variance in token length across paragraphs | NumPy variance |
+| **F. Domain & Style** | 37 | `first_person_pronoun_ratio` | Density of {I, me, my, mine, we, us, our, ours} | Set match |
+| | 38 | `second_person_pronoun_ratio` | Density of {you, your, yours, yourself, yourselves} | Set match |
+| | 39 | `technical_vocabulary_ratio` | Words with $\text{length} \ge 8$, non-stopword, and $\text{Zipf} \le 4.0$ | Lexical filter |
+| | 40 | `named_entity_density` | Identified entities (excluding numbers) divided by token count | spaCy NER |
+| | 41 | `numeric_expression_ratio` | Tokens matching numeric expressions (`token.like_num`) | Lexical flag |
+| | 42 | `conjunction_ratio` | Coordinating and subordinating conjunctions (CCONJ, SCONJ) | spaCy POS |
