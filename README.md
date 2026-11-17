@@ -15,14 +15,14 @@
 3. [System & Hardware Requirements](#-system--hardware-requirements)
 4. [Installation & Quickstart Guide](#-installation--quickstart-guide)
 5. [Interactive Web UI](#-interactive-web-ui)
-6. [End-to-End Pipeline Architecture](#-end-to-end-pipeline-architecture)
-7. [Watermarking Protocol (KGW Formulation)](#-watermarking-protocol-kgw-formulation)
-8. [Multi-Model & Multi-Domain Dataset Generation](#-multi-model--multi-domain-dataset-generation)
-9. [Comprehensive Feature Engineering (42 Features)](#-comprehensive-feature-engineering-42-features)
-10. [Adversarial Attack Taxonomy & Perturbation Engine](#-adversarial-attack-taxonomy--perturbation-engine)
-11. [Machine Learning Models & Robustness Prediction](#-machine-learning-models--robustness-prediction)
-12. [Empirical Results & Key Findings](#-empirical-results--key-findings)
-13. [Repository & Codebase Structure](#-repository--codebase-structure)
+6. [Repository & Codebase Structure](#-repository--codebase-structure)
+7. [End-to-End Pipeline Architecture](#-end-to-end-pipeline-architecture)
+8. [Watermarking Protocol (KGW Formulation)](#-watermarking-protocol-kgw-formulation)
+9. [Multi-Model & Multi-Domain Dataset Generation](#-multi-model--multi-domain-dataset-generation)
+10. [Comprehensive Feature Engineering (42 Features)](#-comprehensive-feature-engineering-42-features)
+11. [Adversarial Attack Taxonomy & Perturbation Engine](#-adversarial-attack-taxonomy--perturbation-engine)
+12. [Machine Learning Models & Robustness Prediction](#-machine-learning-models--robustness-prediction)
+13. [Empirical Results & Key Findings](#-empirical-results--key-findings)
 
 ---
 
@@ -175,6 +175,68 @@ The project includes an interactive web application allowing users to input arbi
 ```
 
 The UI is built with zero external web framework dependencies (using Python’s native `http.server.ThreadingHTTPServer` and modern responsive vanilla CSS/HTML).
+
+---
+
+## 📂 Repository & Codebase Structure
+
+```
+RobustnessPrediction/
+├── README.md                                    # Master project documentation
+├── requirements.txt                             # Core Python dependencies
+├── baseline_detect_attacked.py                  # Standalone detection script on attacked directories
+│
+├── ui/                                          # Interactive Inference Web Interface
+│   ├── app.py                                   # Native multi-threaded HTTP server & inference backend
+│   └── index.html                               # Modern, responsive client UI with feature inspector
+│
+└── src/                                         # Core source tree
+    ├── prompts/                                 # Standardized prompt repositories
+    │   ├── academic_writing_prompts_150.csv     # 150 Academic prompts
+    │   ├── conversational_writing_prompts_150.csv# 150 Conversational prompts
+    │   ├── creative_writing_prompts_150.csv     # 150 Creative writing prompts
+    │   └── instructional_writing_prompts_150.csv# 150 Instructional prompts
+    │
+    ├── generation/                              # LLM Text generation pipelines
+    │   ├── generate_documents.py                # Multi-domain generation script
+    │   ├── generate_100_code_samples_with_baseline.py # Code benchmark generation
+    │   ├── generate_50_extra.py                 # Multi-language code extensions (JSX/C++)
+    │   └── generate_unwatermarked_code_no_detection.py # Control donor code synthesis
+    │
+    ├── feature_extraction.py                    # Engine extracting 42 linguistic features
+    │
+    ├── attacks/                                 # Attack implementation modules
+    │   ├── attackmode.py                        # Central attack orchestrator & manifest recorder
+    │   ├── dilution_cp.py                       # Span-level copy-paste dilution attack
+    │   ├── helm.py                              # HELM orthographic, syntactic & typo transforms
+    │   ├── synonym_attack.py                    # WordNet/LLM POS-constrained synonym replacement
+    │   ├── paraphrase_humarin.py                # T5 chunked neural paraphraser
+    │   ├── dipper_paraphrase.py                 # DIPPER discourse paraphraser interface
+    │   └── evaluate_baseline.py                 # Pre-attack detection baseline evaluation
+    │
+    ├── combine_attack_settings.py               # Aggregates attack manifests across models
+    ├── update_and_combine_features.py           # Merges features, attack logs, and detections
+    ├── model_maker.py                           # Document-level generalized ML models
+    ├── attack_condtitioned_models.py            # Instance-level attack-conditioned ML models
+    ├── generate_eda_notebook_and_plots.py       # Automated EDA script generating 9 SVG figures
+    │
+    ├── Data_qwen/                               # Qwen2.5-1.5B corpus, attacks, and feature matrices
+    ├── Data_Llama/                              # Llama-3.2-1B corpus, attacks, and feature matrices
+    ├── Data_SMOL/                               # SmolLM3-3B corpus, attacks, and feature matrices
+    ├── data_code/                               # Source code benchmark dataset
+    │
+    ├── trained_robustness_models/               # Serialized generalized ML models & artifacts
+    │   ├── models/                              # Joblib pipelines (XGBoost, RF, MLP)
+    │   └── results/                             # Cross-validation and held-out prediction CSVs
+    │
+    ├── attack_conditioned_models/               # Serialized attack-conditioned ML models & artifacts
+    │   ├── models/                              # Joblib pipelines
+    │   └── results/                             # Test set evaluation records
+    │
+    ├── plots/                                   # 9 Publication-quality SVG figures
+    ├── merged_robustness_dataset.csv            # Master dataset (10,800 rows × 82 columns)
+    └── original_features_combined.csv           # 600-document pre-attack feature matrix
+```
 
 ---
 
@@ -443,68 +505,6 @@ Watermark Detection Status Post-Attack (Total: 10,800 Experiments):
 ### 2. Linguistic Determinants of Robustness
 - **Syntactic Depth & Clause Length**: Documents with deep dependency trees and longer subordinate clauses exhibit greater watermark retention under surface attacks.
 - **Lexical Density & Entropy**: Texts with high bigram and trigram entropy disperse watermark signals across a broader distribution of contexts, making them more resilient to localized replacement attacks.
-
----
-
-## 📂 Repository & Codebase Structure
-
-```
-RobustnessPrediction/
-├── README.md                                    # Master project documentation
-├── requirements.txt                             # Core Python dependencies
-├── baseline_detect_attacked.py                  # Standalone detection script on attacked directories
-│
-├── ui/                                          # Interactive Inference Web Interface
-│   ├── app.py                                   # Native multi-threaded HTTP server & inference backend
-│   └── index.html                               # Modern, responsive client UI with feature inspector
-│
-└── src/                                         # Core source tree
-    ├── prompts/                                 # Standardized prompt repositories
-    │   ├── academic_writing_prompts_150.csv     # 150 Academic prompts
-    │   ├── conversational_writing_prompts_150.csv# 150 Conversational prompts
-    │   ├── creative_writing_prompts_150.csv     # 150 Creative writing prompts
-    │   └── instructional_writing_prompts_150.csv# 150 Instructional prompts
-    │
-    ├── generation/                              # LLM Text generation pipelines
-    │   ├── generate_documents.py                # Multi-domain generation script
-    │   ├── generate_100_code_samples_with_baseline.py # Code benchmark generation
-    │   ├── generate_50_extra.py                 # Multi-language code extensions (JSX/C++)
-    │   └── generate_unwatermarked_code_no_detection.py # Control donor code synthesis
-    │
-    ├── feature_extraction.py                    # Engine extracting 42 linguistic features
-    │
-    ├── attacks/                                 # Attack implementation modules
-    │   ├── attackmode.py                        # Central attack orchestrator & manifest recorder
-    │   ├── dilution_cp.py                       # Span-level copy-paste dilution attack
-    │   ├── helm.py                              # HELM orthographic, syntactic & typo transforms
-    │   ├── synonym_attack.py                    # WordNet/LLM POS-constrained synonym replacement
-    │   ├── paraphrase_humarin.py                # T5 chunked neural paraphraser
-    │   ├── dipper_paraphrase.py                 # DIPPER discourse paraphraser interface
-    │   └── evaluate_baseline.py                 # Pre-attack detection baseline evaluation
-    │
-    ├── combine_attack_settings.py               # Aggregates attack manifests across models
-    ├── update_and_combine_features.py           # Merges features, attack logs, and detections
-    ├── model_maker.py                           # Document-level generalized ML models
-    ├── attack_condtitioned_models.py            # Instance-level attack-conditioned ML models
-    ├── generate_eda_notebook_and_plots.py       # Automated EDA script generating 9 SVG figures
-    │
-    ├── Data_qwen/                               # Qwen2.5-1.5B corpus, attacks, and feature matrices
-    ├── Data_Llama/                              # Llama-3.2-1B corpus, attacks, and feature matrices
-    ├── Data_SMOL/                               # SmolLM3-3B corpus, attacks, and feature matrices
-    ├── data_code/                               # Source code benchmark dataset
-    │
-    ├── trained_robustness_models/               # Serialized generalized ML models & artifacts
-    │   ├── models/                              # Joblib pipelines (XGBoost, RF, MLP)
-    │   └── results/                             # Cross-validation and held-out prediction CSVs
-    │
-    ├── attack_conditioned_models/               # Serialized attack-conditioned ML models & artifacts
-    │   ├── models/                              # Joblib pipelines
-    │   └── results/                             # Test set evaluation records
-    │
-    ├── plots/                                   # 9 Publication-quality SVG figures
-    ├── merged_robustness_dataset.csv            # Master dataset (10,800 rows × 82 columns)
-    └── original_features_combined.csv           # 600-document pre-attack feature matrix
-```
 
 ---
 
