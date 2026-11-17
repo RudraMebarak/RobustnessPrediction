@@ -14,7 +14,7 @@ data/cache/
 *.pt
 *.pth
 *.bin
-
+*.joblib
 # Editor/OS files
 .vscode/
 .idea/

@@ -1,0 +1,3 @@
+target,selected_model,MAE,RMSE,R2,Spearman,model_path
+z_score_drop,RandomForest,0.9371513496446574,1.5277314844277636,0.9191911597725922,0.9626533883054356,/home/rudru/majorproject/RobustnessPrediction/src/attack_conditioned_models/models/z_score_drop_attack_conditioned.joblib
+relative_z_drop_pct,RandomForest,4.9765064829876575,7.6476314347549454,0.9470454959493361,0.9630383083781557,/home/rudru/majorproject/RobustnessPrediction/src/attack_conditioned_models/models/relative_z_drop_pct_attack_conditioned.joblib

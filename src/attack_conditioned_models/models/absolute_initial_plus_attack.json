@@ -1,0 +1,25 @@
+{
+    "experiment": "absolute_initial_plus_attack",
+    "target": "z_score_drop",
+    "selected_model": "NeuralNetwork",
+    "numeric_features": [
+        "initial_z_score"
+    ],
+    "categorical_features": [
+        "attack_name",
+        "intensity"
+    ],
+    "initial_z_score_used": true,
+    "attack_family_used": true,
+    "attack_intensity_used": true,
+    "selection_metric": "5-fold GroupKFold MAE",
+    "cv_mae": 0.7709970423274293,
+    "cv_mae_std": 0.018156258500997127,
+    "test_metrics": {
+        "MAE": 0.7421404440797055,
+        "RMSE": 1.1476903055726209,
+        "R2": 0.9543948128407558,
+        "Spearman": 0.9633596296440509
+    },
+    "random_state": 42
+}

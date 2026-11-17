@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Watermark Robustness Predictor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --fg:#1f2328; --muted:#6b7280; --line:#e5e7eb; --accent:#2563eb; --bg:#fafafa; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif; color:var(--fg); background:var(--bg); }
+  main { max-width:820px; margin:40px auto; padding:0 20px; }
+  h1 { font-size:22px; margin:0 0 4px; }
+  .sub { color:var(--muted); margin:0 0 24px; }
+  label { display:block; font-weight:600; margin:16px 0 6px; }
+  textarea, input, select { width:100%; font:inherit; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+  .pair { display:grid; grid-template-columns:2fr 1fr; gap:16px; max-width:520px; }
+  .section { font-size:14px; color:var(--muted); font-weight:600; margin:28px 0 -12px; text-transform:uppercase; letter-spacing:.03em; }
+  textarea { min-height:200px; resize:vertical; }
+  input { max-width:200px; }
+  textarea:focus, input:focus { outline:2px solid #bfdbfe; border-color:var(--accent); }
+  .hint { color:var(--muted); font-size:13px; margin-top:4px; }
+  button { margin-top:20px; padding:10px 22px; font:inherit; font-weight:600; color:#fff; background:var(--accent); border:0; border-radius:8px; cursor:pointer; }
+  button:disabled { opacity:.6; cursor:wait; }
+  .error { color:#b91c1c; margin-top:14px; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:28px; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:10px; padding:16px 18px; }
+  .card h2 { font-size:15px; margin:0 0 10px; }
+  .row { display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; border-top:1px solid var(--line); }
+  .row:first-of-type { border-top:0; }
+  .name { font-size:14px; }
+  .meta { color:var(--muted); font-size:12px; }
+  .val { font-size:20px; font-weight:600; font-variant-numeric:tabular-nums; }
+  .na { color:var(--muted); font-size:13px; font-weight:400; }
+  details { margin-top:20px; background:#fff; border:1px solid var(--line); border-radius:10px; padding:12px 18px; }
+  summary { cursor:pointer; font-weight:600; }
+  table { width:100%; border-collapse:collapse; margin-top:10px; font-size:13px; }
+  td { padding:4px 0; border-top:1px solid var(--line); }
+  td:last-child { text-align:right; font-variant-numeric:tabular-nums; }
+  @media (max-width:640px) { .grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Watermark Robustness Predictor</h1>
+  <p class="sub">Predicts how much the watermark Z-score drops under attack.</p>
+
+  <label for="text">Text</label>
+  <textarea id="text" placeholder="Paste the watermarked text here..."></textarea>
+
+  <label for="z">Initial Z-score</label>
+  <input id="z" type="number" step="any" placeholder="e.g. 7.97">
+  <div class="hint">Optional. Without it, only the "Features only" models run.</div>
+
+  <div class="pair">
+    <div>
+      <label for="attack">Attack</label>
+      <select id="attack"><option value="">— none (general models only) —</option></select>
+    </div>
+    <div>
+      <label for="intensity">Intensity</label>
+      <select id="intensity" disabled></select>
+    </div>
+  </div>
+
+  <button id="go">Predict</button>
+  <div id="err" class="error"></div>
+
+  <div id="out" hidden>
+    <h3 class="section">General (averaged over all attacks)</h3>
+    <div class="grid">
+      <div class="card"><h2>Absolute Z-drop</h2><div id="abs"></div></div>
+      <div class="card"><h2>Relative Z-drop (%)</h2><div id="rel"></div></div>
+    </div>
+    <div id="attackOut" hidden>
+      <h3 class="section">Attack-specific · <span id="attackName"></span></h3>
+      <div class="grid">
+        <div class="card"><h2>Absolute Z-drop</h2><div id="aabs"></div></div>
+        <div class="card"><h2>Relative Z-drop (%)</h2><div id="arel"></div></div>
+      </div>
+    </div>
+    <details>
+      <summary>Extracted linguistic features (<span id="nfeat"></span>)</summary>
+      <table id="feat"></table>
+    </details>
+  </div>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+const fmt = (v, d=3) => v == null ? "–" : Number(v).toFixed(d);
+const pretty = s => s.replace(/_/g, " ");
+
+function renderRows(results, kind, z, group) {
+  return results.filter(r => r.kind === kind && r.group === group).map(r => {
+    let val;
+    if (r.prediction == null) val = `<span class="na">${r.skipped || "n/a"}</span>`;
+    else if (kind === "relative") val = `${fmt(r.prediction, 2)}%`;
+    else val = fmt(r.prediction);
+    let extra = "";
+    if (kind === "absolute" && r.prediction != null && z != null)
+      extra = ` · Z after ≈ ${fmt(z - r.prediction, 2)}`;
+    return `<div class="row">
+      <div><div class="name">${r.label}</div>
+        <div class="meta">${r.algorithm} · test MAE ${fmt(r.test_mae, 2)} · R² ${fmt(r.test_r2, 2)}${extra}</div></div>
+      <div class="val">${val}</div></div>`;
+  }).join("");
+}
+
+let ATTACKS = {};
+fetch("/attacks").then(r => r.json()).then(a => {
+  ATTACKS = a;
+  for (const name of Object.keys(a))
+    $("attack").insertAdjacentHTML("beforeend", `<option value="${name}">${pretty(name)}</option>`);
+});
+$("attack").onchange = () => {
+  const levels = ATTACKS[$("attack").value] || [];
+  $("intensity").innerHTML = levels.map(l => `<option>${l}</option>`).join("");
+  $("intensity").disabled = levels.length === 0;
+};
+
+$("go").onclick = async () => {
+  $("err").textContent = "";
+  $("go").disabled = true; $("go").textContent = "Predicting...";
+  try {
+    const res = await fetch("/predict", {
+      method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ text: $("text").value, initial_z: $("z").value,
+                             attack_name: $("attack").value, intensity: $("intensity").value })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Request failed");
+
+    const z = data.initial_z;
+    $("abs").innerHTML = renderRows(data.results, "absolute", z, "general");
+    $("rel").innerHTML = renderRows(data.results, "relative", z, "general");
+    $("attackOut").hidden = !data.attack;
+    if (data.attack) {
+      $("attackName").textContent = `${pretty(data.attack.name)} (${data.attack.intensity})`;
+      $("aabs").innerHTML = renderRows(data.results, "absolute", z, "attack");
+      $("arel").innerHTML = renderRows(data.results, "relative", z, "attack");
+    }
+    const entries = Object.entries(data.features);
+    $("nfeat").textContent = entries.length;
+    $("feat").innerHTML = entries.map(([k, v]) =>
+      `<tr><td>${pretty(k)}</td><td>${fmt(v, 4)}</td></tr>`).join("");
+    $("out").hidden = false;
+  } catch (e) {
+    $("err").textContent = e.message;
+  } finally {
+    $("go").disabled = false; $("go").textContent = "Predict";
+  }
+};
+</script>
+</body>
+</html>

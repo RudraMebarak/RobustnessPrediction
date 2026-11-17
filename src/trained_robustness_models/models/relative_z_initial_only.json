@@ -1,0 +1,19 @@
+{
+    "experiment": "relative_z_initial_only",
+    "target": "equal_family_relative_drop",
+    "selected_model": "NeuralNetwork",
+    "input_features": [
+        "initial_z_score"
+    ],
+    "number_of_features": 1,
+    "selection_metric": "5-fold GroupKFold MAE",
+    "cv_mae": 1.997526329797746,
+    "cv_mae_std": 0.10303682649233806,
+    "test_metrics": {
+        "MAE": 1.8160873103649862,
+        "RMSE": 2.3250369586721202,
+        "R2": 0.11040283539770501,
+        "Spearman": 0.2833485255031201
+    },
+    "random_state": 42
+}
