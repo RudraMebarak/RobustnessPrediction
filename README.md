@@ -327,3 +327,65 @@ Predicts the exact $z$-score degradation when a specific document is exposed to 
 | :--- | :--- | :---: | :---: | :---: | :---: |
 | **Absolute $z$-Score Drop ($\Delta z$)** | **Random Forest Regressor** | **0.937** | **1.528** | **0.919** | **0.963** |
 | **Relative $z$-Drop Percentage ($\%$)** | **Random Forest Regressor** | **4.977%** | **7.648%** | **0.947** | **0.963** |
+
+
+---
+
+## 📈 Empirical Results & Key Findings
+
+Analysis of the 10,800-instance master dataset reveals decisive patterns regarding watermark survivability:
+
+```
+Watermark Detection Status Post-Attack (Total: 10,800 Experiments):
+  ┌────────────────────────────────────────────────────────┬─────────────┐
+  │ Watermark Survived (z > 4.0)                           │ 8,671 (80.3%)│
+  │ Watermark Successfully Removed (z ≤ 4.0)               │ 2,129 (19.7%)│
+  └────────────────────────────────────────────────────────┴─────────────┘
+  Mean Initial Z-Score: 14.79  ──▶  Mean Attacked Z-Score: 10.09 (Mean Drop: -4.70)
+```
+
+### 1. Attack Hierarchy & Pareto Frontier
+- **Neural Paraphrasing (`humarin`)**: Demonstrates the highest removal efficacy. By re-synthesizing sentence structures via T5, it breaks local n-gram selfhash conditioning, driving $z$-scores below the $4.0$ threshold in over $75\%$ of high-intensity cases.
+- **Copy-Paste Dilution (`copy_paste`)**: Exhibits a linear relationship with dilution fraction. At $50\%$ unwatermarked donor insertion (`high`), watermark retention drops by over $65\%$.
+- **Lexical & Character Perturbations (`synonym_wordnet`, `helm_typo`, `helm_misspelling`)**: Degrade the signal moderately, but watermarks consistently survive due to the redundancy of green tokens across unperturbed words.
+- **Orthographic Transforms (`helm_lowercase`, `helm_contraction`, `helm_expansion`)**: Cause minimal degradation ($\Delta z < 2.0$), leaving the watermark easily detectable.
+
+### 2. Linguistic Determinants of Robustness
+- **Syntactic Depth & Clause Length**: Documents with deep dependency trees and longer subordinate clauses exhibit greater watermark retention under surface attacks.
+- **Lexical Density & Entropy**: Texts with high bigram and trigram entropy disperse watermark signals across a broader distribution of contexts, making them more resilient to localized replacement attacks.
+
+---
+
+## 🌐 Interactive Web UI
+
+The project includes an interactive web application allowing users to input arbitrary text, calculate its linguistic properties in real time, and simulate watermark survivability under various attack scenarios.
+
+```
++---------------------------------------------------------------------------------+
+|                       WATERMARK ROBUSTNESS PREDICTOR                           |
+|  Real-time inference across trained Random Forest, XGBoost & Neural Regressors  |
++---------------------------------------------------------------------------------+
+| Input Watermarked Text:                                                         |
+| [ In a rapid transition toward decarbonization, renewable energy systems...  ]  |
+|                                                                                 |
+| Initial Z-Score: [ 14.80 ]                                                      |
+| Attack Family:   [ Humarin Paraphrase ▼ ]    Intensity: [ High (0.50) ▼ ]       |
+|                                                                                 |
+| [  PREDICT ROBUSTNESS  ]                                                        |
++---------------------------------------------------------------------------------+
+| PREDICTION RESULTS:                                                             |
+|  • General Model Expected Absolute Drop (Δz): 4.62 (Retention: 68.8%)           |
+|  • Attack-Conditioned Predicted Drop (Δz):    9.84 (Post-Attack Z: 4.96)        |
+|  • Watermark Status Prediction:               SURVIVED (z > 4.0)                |
+|  ▶ Inspect 42 Extracted Linguistic Features                                    |
++---------------------------------------------------------------------------------+
+```
+
+### Running the Web UI
+
+The UI is built with zero external web framework dependencies (using Python’s native `http.server.ThreadingHTTPServer` and modern responsive vanilla CSS/HTML):
+
+```bash
+python ui/app.py
+```
+Navigate your browser to: **`http://127.0.0.1:8000`**
