@@ -9,7 +9,7 @@
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 1. [Executive Overview](#-executive-overview)
 2. [Research Motivation & Core Questions](#-research-motivation--core-questions)
 3. [System & Hardware Requirements](#-system--hardware-requirements)
@@ -26,7 +26,7 @@
 
 ---
 
-## 🔬 Executive Overview
+## Executive Overview
 
 As Large Language Models (LLMs) proliferate across academia, journalism, and programming, detecting machine-generated text is vital for mitigating plagiarism, misinformation, and copyright infringement. **Statistical watermarking**—particularly the soft watermarking scheme proposed by **Kirchenbauer et al. (KGW, 2023)**—embeds an imperceptible signal directly into token sampling distributions during text generation.
 
@@ -41,7 +41,7 @@ However, watermarks remain susceptible to adversarial post-processing attacks su
 
 ---
 
-## 🎯 Research Motivation & Core Questions
+## Research Motivation & Core Questions
 
 While prior work evaluates whether a watermark survives attacks in aggregate, practitioners cannot easily answer:
 1. *Why does a watermark survive in one document but disappear in another under the exact same attack?*
@@ -52,7 +52,7 @@ This project answers these questions by treating watermark robustness as a **sup
 
 ---
 
-## 💻 System & Hardware Requirements
+## System & Hardware Requirements
 
 Generating watermarked text from 1B–3B parameter transformer models, executing neural paraphrasing pipelines, and performing dense dependency parsing require specific hardware considerations:
 
@@ -81,7 +81,7 @@ Generating watermarked text from 1B–3B parameter transformer models, executing
 
 ---
 
-## 🚀 Installation & Quickstart Guide
+## Installation & Quickstart Guide
 
 ### 1. Environment Setup
 
@@ -149,7 +149,7 @@ Open `http://localhost:8000` in your web browser.
 
 ---
 
-## 🌐 Interactive Web UI
+## Interactive Web UI
 
 The project includes an interactive web application allowing users to input arbitrary text, calculate its linguistic properties in real time, and simulate watermark survivability under various attack scenarios.
 
@@ -178,7 +178,7 @@ The UI is built with zero external web framework dependencies (using Python’s 
 
 ---
 
-## 📂 Repository & Codebase Structure
+## Repository & Codebase Structure
 
 ```
 RobustnessPrediction/
@@ -240,7 +240,7 @@ RobustnessPrediction/
 
 ---
 
-## 🔄 End-to-End Pipeline Architecture
+## End-to-End Pipeline Architecture
 
 The experimental pipeline links text synthesis, linguistic characterization, adversarial disruption, and supervised prediction into a unified data flow:
 
@@ -280,7 +280,7 @@ flowchart TD
 
 ---
 
-## 🔒 Watermarking Protocol (KGW Formulation)
+## Watermarking Protocol (KGW Formulation)
 
 The watermark generation and detection system utilizes the soft-watermarking algorithm introduced by **Kirchenbauer et al. (ICML 2023)**.
 
@@ -319,7 +319,7 @@ The watermark generation and detection system utilizes the soft-watermarking alg
 
 ---
 
-## 📚 Multi-Model & Multi-Domain Dataset Generation
+## Multi-Model & Multi-Domain Dataset Generation
 
 To evaluate how watermark resilience generalizes across model architectures and communicative intents, we established a multi-domain corpus generated under identical prompting conditions.
 
@@ -348,7 +348,7 @@ The prompt bank contains **150 prompts per domain** (curated in `src/prompts/`),
 
 ---
 
-## 🧬 Comprehensive Feature Engineering (42 Features)
+## Comprehensive Feature Engineering (42 Features)
 
 Every original watermarked document undergoes deep linguistic profiling using `src/feature_extraction.py`, extracting **42 continuous linguistic features** before attack exposure.
 
@@ -440,7 +440,7 @@ Mean cosine semantic similarity across all 10,800 experiments remains exceptiona
 
 ---
 
-## 🤖 Machine Learning Models & Robustness Prediction
+## Machine Learning Models & Robustness Prediction
 
 The ultimate research objective is predicting watermark survival and degradation directly from document stylometry, before any attack occurs. We designed two complementary supervised learning pipelines:
 
@@ -483,7 +483,7 @@ Predicts the exact $z$-score degradation when a specific document is exposed to 
 
 ---
 
-## 📈 Empirical Results & Key Findings
+## Empirical Results & Key Findings
 
 Analysis of the 10,800-instance master dataset reveals decisive patterns regarding watermark survivability:
 
