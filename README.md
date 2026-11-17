@@ -243,3 +243,43 @@ Every original watermarked document undergoes deep linguistic profiling using `s
 | | 40 | `named_entity_density` | Identified entities (excluding numbers) divided by token count | spaCy NER |
 | | 41 | `numeric_expression_ratio` | Tokens matching numeric expressions (`token.like_num`) | Lexical flag |
 | | 42 | `conjunction_ratio` | Coordinating and subordinating conjunctions (CCONJ, SCONJ) | spaCy POS |
+
+
+---
+
+## ⚔️ Adversarial Attack Taxonomy & Perturbation Engine
+
+To benchmark watermark durability against real-world post-processing, we implemented an automated attack harness (`src/attacks/attackmode.py`) hosting **8 distinct attack modules**.
+
+```
+                           ┌── Copy-Paste Dilution (spans sampled from clean unwatermarked text)
+                           ├── Casing & Orthography (HELM Lowercase)
+        Adversarial        ├── Morpho-Syntactic Transforms (HELM Contractions & Expansions)
+        Attack Space       ├── Surface Character Perturbations (HELM Typos & Misspellings)
+                           ├── Lexical Replacement (WordNet Synonyms with POS Matching)
+                           └── Deep Neural Paraphrasing (Humarin T5 Seq2Seq Paraphraser)
+```
+
+### Attack Specifications
+
+| Attack Family | Identifier | Mechanism | Intensity Tiers | Intensity Parameter |
+| :--- | :--- | :--- | :--- | :--- |
+| **Dilution** | `copy_paste` | Replaces non-overlapping target spans with spans sampled from matched unwatermarked donor text | Low, Med, High | Target token fractions: $10\%$, $30\%$, $50\%$ |
+| **Orthography** | `helm_lowercase` | Converts all alphabetic characters to lowercase | Full | Whole-text transformation ($1.0$) |
+| **Syntax** | `helm_contraction` | Replaces word pairs with standard English contractions ("are not" $\rightarrow$ "aren't") | Full | Whole-text rule matching ($1.0$) |
+| **Syntax** | `helm_expansion` | Expands unambiguous contractions to full forms ("can't" $\rightarrow$ "cannot") | Full | Whole-text rule matching ($1.0$) |
+| **Typo** | `helm_misspelling` | Replaces dictionary words with common human spelling mistakes | Low, Med, High | Per-eligible-word probability: $0.10, 0.30, 0.50$ |
+| **Typo** | `helm_typo` | Applies random insertion, deletion, replacement, or transposition on words $\ge 4$ chars | Low, Med, High | Per-word perturbation probability: $0.10, 0.30, 0.50$ |
+| **Lexical** | `synonym_wordnet` | Substitutes open-class words (nouns, verbs, adjectives, adverbs) with WordNet synsets | Low, Med, High | Per-eligible-word probability: $0.10, 0.30, 0.50$ |
+| **Paraphrase** | `humarin` | Chunked neural paraphrasing using fine-tuned T5-base (`chatgpt_paraphraser_on_T5_base`) | Low, Med, High | Low (Beam Search), Med (Diverse Beam), High (Nucleus Sampling) |
+
+### Deterministic Seeding Protocol
+
+To ensure reproducible perturbations across arbitrary re-runs, seeds are generated deterministically per document-attack-intensity tuple:
+$$\text{Seed} = \left(\text{BaseSeed} + \text{CRC32}(\text{BaseSeed} \parallel \text{doc\_id} \parallel \text{attack\_name} \parallel \text{intensity})\right) \pmod{2^{31} - 1}$$
+
+### Semantic Fidelity Measurement
+
+Watermark removal is trivially achievable by destroying the text. Therefore, an attack is only legitimate if it maintains semantic preservation. We score semantic fidelity between the original watermarked text $x_w$ and the attacked text $x_a$ using **`Alibaba-NLP/gte-modernbert-base`** sentence embeddings:
+$$\text{Sim}(x_w, x_a) = \frac{\mathbf{e}(x_w) \cdot \mathbf{e}(x_a)}{\|\mathbf{e}(x_w)\|_2 \|\mathbf{e}(x_a)\|_2}$$
+Mean cosine semantic similarity across all 10,800 experiments remains exceptionally high at **$0.9503$**, proving that generated attack texts retain their original meaning.
