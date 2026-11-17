@@ -1,7 +1,6 @@
 # RobustnessPrediction: Predicting KGW Watermark Survival Under Adversarial Attacks
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Framework: PyTorch](https://img.shields.io/badge/Framework-PyTorch-orange.svg)](https://pytorch.org/)
 [![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97-Transformers-green)](https://huggingface.co/)
 
