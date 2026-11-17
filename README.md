@@ -1,5 +1,6 @@
 # RobustnessPrediction: Predicting KGW Watermark Survival Under Adversarial Attacks
 
+<<<<<<< HEAD
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Framework: PyTorch](https://img.shields.io/badge/Framework-PyTorch-orange.svg)](https://pytorch.org/)
@@ -80,6 +81,12 @@ Generating watermarked text from 1B–3B parameter transformer models, executing
   - `nltk>=3.8.0`, `textstat`, `wordfreq`
   - `xgboost>=2.0.0`, `scikit-learn>=1.3.0`, `scipy`
   - `pandas>=2.0.0`, `numpy<2.0.0` or compatible
+=======
+Pre requisites for system:
+Recommended 8GB RAM for swift generation, Minimum 4GB
+A Local model from Hugging-face, I have used Qwen2.5-1.5B-Instruct 
+Fork of orginial KGW implementation 
+>>>>>>> 2c527ad071a84648f2756258ad62284e447d1117
 
 
 ---
