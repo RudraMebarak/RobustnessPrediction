@@ -244,7 +244,7 @@ RobustnessPrediction/
 
 The experimental pipeline links text synthesis, linguistic characterization, adversarial disruption, and supervised prediction into a unified data flow:
 
-```mermaid
+```
 flowchart TD
     subgraph DataGen ["1. Controlled Generation"]
         P["Prompt Bank\n(150 prompts × 4 domains)"] --> LLM["3 Open-Weight LLMs\n(Qwen2.5-1.5B, Llama-3.2-1B, SmolLM3-3B)"]
