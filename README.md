@@ -511,5 +511,5 @@ Watermark Detection Status Post-Attack (Total: 10,800 Experiments):
 <div align="center">
   <b>Department of Computer Science & Engineering</b><br>
   <b>Indian Institute of Information Technology (IIIT), Nagpur</b><br>
-  <i>Major Project Academic Year 2025–2026</i>
+  <i>Major Project Academic Year 2025–26</i>
 </div>
