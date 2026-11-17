@@ -283,3 +283,47 @@ $$\text{Seed} = \left(\text{BaseSeed} + \text{CRC32}(\text{BaseSeed} \parallel \
 Watermark removal is trivially achievable by destroying the text. Therefore, an attack is only legitimate if it maintains semantic preservation. We score semantic fidelity between the original watermarked text $x_w$ and the attacked text $x_a$ using **`Alibaba-NLP/gte-modernbert-base`** sentence embeddings:
 $$\text{Sim}(x_w, x_a) = \frac{\mathbf{e}(x_w) \cdot \mathbf{e}(x_a)}{\|\mathbf{e}(x_w)\|_2 \|\mathbf{e}(x_a)\|_2}$$
 Mean cosine semantic similarity across all 10,800 experiments remains exceptionally high at **$0.9503$**, proving that generated attack texts retain their original meaning.
+
+
+---
+
+## 🤖 Machine Learning Models & Robustness Prediction
+
+The ultimate research objective is predicting watermark survival and degradation directly from document stylometry, before any attack occurs. We designed two complementary supervised learning pipelines:
+
+### 1. Document-Level Aggregate Models (`src/model_maker.py`)
+Predicts a document's generalized resilience across all attack families:
+- **Targets**:
+  - `equal_family_absolute_drop`: Unweighted mean of absolute $z$-score drop across attack families.
+  - `equal_family_relative_drop`: Unweighted mean of relative $z$-score reduction percentage.
+- **Feature Ablations**:
+  1. `initial_only` (1 feature): Baseline using only the initial pre-attack $z$-score.
+  2. `features_only` (42 features): Predictions made strictly from linguistic properties without knowing watermark strength.
+  3. `initial_plus_features` (43 features): Combined representation of watermark signal + document stylometry.
+
+#### Cross-Validation Benchmark (5-Fold GroupKFold)
+
+| Experiment | Target | Selected Regressor | Features | Test MAE | Test RMSE | Test $R^2$ | Spearman $\rho$ |
+| :--- | :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| `absolute_z_initial_only` | Absolute Drop | Neural Network (MLP) | 1 | 0.252 | 0.324 | 0.947 | 0.974 |
+| `absolute_z_features_only` | Absolute Drop | **XGBoost** | 42 | **0.562** | **0.733** | **0.726** | **0.851** |
+| `absolute_z_initial_plus_features` | Absolute Drop | **XGBoost** | 43 | **0.235** | **0.326** | **0.946** | **0.972** |
+| `relative_z_initial_only` | Relative Drop % | Neural Network (MLP) | 1 | 1.816 | 2.325 | 0.110 | 0.283 |
+| `relative_z_features_only` | Relative Drop % | **Random Forest** | 42 | **1.601** | **2.239** | **0.175** | **0.487** |
+| `relative_z_initial_plus_features` | Relative Drop % | **Random Forest** | 43 | **1.588** | **2.191** | **0.210** | **0.492** |
+
+> **Key Discovery**: Even when completely withholding the initial watermark score (`features_only`), linguistic features alone explain **$72.6\%$ of the variance** ($R^2 = 0.726, \rho = 0.851$) in how much watermark strength a document will lose!
+
+---
+
+### 2. Attack-Conditioned Instance Models (`src/attack_condtitioned_models.py`)
+Predicts the exact $z$-score degradation when a specific document is exposed to a specific attack at a specified intensity:
+- **Input Matrix**: 42 Linguistic Features + `initial_z_score` + One-Hot Encoded `attack_name` + One-Hot Encoded `intensity`.
+- **Leakage Prevention**: Evaluated with a strict `GroupShuffleSplit` (80% train / 20% test) grouped strictly by `doc_id`—ensuring no document seen during testing ever appeared in training under any attack.
+
+#### Test Set Generalization (2,160 Held-Out Instance Experiments)
+
+| Prediction Target | Best Regressor Model | Test MAE | Test RMSE | Test $R^2$ Score | Spearman Rank $\rho$ |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **Absolute $z$-Score Drop ($\Delta z$)** | **Random Forest Regressor** | **0.937** | **1.528** | **0.919** | **0.963** |
+| **Relative $z$-Drop Percentage ($\%$)** | **Random Forest Regressor** | **4.977%** | **7.648%** | **0.947** | **0.963** |
