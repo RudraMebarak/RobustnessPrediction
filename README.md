@@ -80,3 +80,83 @@ Generating watermarked text from 1B–3B parameter transformer models, executing
   - `nltk>=3.8.0`, `textstat`, `wordfreq`
   - `xgboost>=2.0.0`, `scikit-learn>=1.3.0`, `scipy`
   - `pandas>=2.0.0`, `numpy<2.0.0` or compatible
+
+
+---
+
+## 🔄 End-to-End Pipeline Architecture
+
+The experimental pipeline links text synthesis, linguistic characterization, adversarial disruption, and supervised prediction into a unified data flow:
+
+```mermaid
+flowchart TD
+    subgraph DataGen ["1. Controlled Generation"]
+        P["Prompt Bank\n(150 prompts × 4 domains)"] --> LLM["3 Open-Weight LLMs\n(Qwen2.5-1.5B, Llama-3.2-1B, SmolLM3-3B)"]
+        LLM -->|KGW Processor (γ=0.25, δ=2.0)| WText["600 Watermarked Texts\n(200 per Model)"]
+        LLM -->|Unwatermarked Sampling| UWText["600 Donor Control Texts\n(200 per Model)"]
+    end
+
+    subgraph FeatureEng ["2. Linguistic Characterization"]
+        WText --> NLP["Multi-Tier NLP Pipeline\n(spaCy, textstat, wordfreq, NLTK)"]
+        NLP --> FTable["42 Linguistic Features\n(Syntactic, Lexical, Readability, Entropy)"]
+        WText --> InitScore["Initial KGW Detector\n(initial_z_score, green_fraction)"]
+    end
+
+    subgraph Adversarial ["3. Attack Execution Engine"]
+        WText --> AttEngine["8 Adversarial Attack Modules\n(Copy-Paste, HELM Transforms, Synonym, Humarin)"]
+        UWText -.->|Donor Spans| AttEngine
+        AttEngine --> AttTexts["10,800 Attacked Documents\n(18 configurations per document)"]
+    end
+
+    subgraph Evaluation ["4. Post-Attack Detection & Semantics"]
+        AttTexts --> PostDet["KGW Evaluator\n(baseline_z_score, detection status)"]
+        AttTexts & WText --> ModernBERT["Alibaba ModernBERT-Base\n(Cosine Semantic Similarity)"]
+        PostDet & ModernBERT & FTable & InitScore --> MasterCSV["Master Robustness Dataset\n(10,800 rows × 82 features/metrics)"]
+    end
+
+    subgraph MLModeling ["5. Predictive Machine Learning"]
+        MasterCSV --> GroupSplit["GroupKFold Split (k=5)\n(Grouped strictly on doc_id)"]
+        GroupSplit --> Regressors["Regression Suite\n(XGBoost, Random Forest, MLP)"]
+        Regressors --> PredDrop["Predict Degradation:\nAbsolute Drop (Δz) & Relative Drop (%)"]
+        Regressors --> WebApp["Interactive Web App (ui/app.py)"]
+    end
+```
+
+---
+
+## 🔒 Watermarking Protocol (KGW Formulation)
+
+The watermark generation and detection system utilizes the soft-watermarking algorithm introduced by **Kirchenbauer et al. (ICML 2023)**.
+
+### Mathematical Formulation
+
+1. **Vocabulary Partitioning**:
+   At generation step $t$, given the prefix context $x_{t-h}, \dots, x_{t-1}$ (where $h$ is the context history window), a pseudo-random seed is derived:
+   $$\text{seed}_t = \text{Hash}(x_{t-1}, \dots, x_{t-h})$$
+   In our pipeline, the seeding scheme is configured as `"selfhash"`. Using this seed, the model vocabulary $V$ (size $|V|$) is partitioned into:
+   - **Green List ($G$)**: Privileged tokens of size $|G| = \gamma |V|$
+   - **Red List ($R$)**: Non-privileged tokens of size $|R| = (1 - \gamma)|V|$
+   where $\gamma \in (0, 1)$ is the green list proportion parameter (configured to $\gamma = 0.25$).
+
+2. **Logit Perturbation**:
+   The unwatermarked next-token logit vector $l_t \in \mathbb{R}^{|V|}$ produced by the language model is adjusted before softmax normalization:
+   $$l_t'(k) = \begin{cases} 
+   l_t(k) + \delta & \text{if } k \in G \\
+   l_t(k) & \text{if } k \in R 
+   \end{cases}$$
+   where $\delta > 0$ is the watermark bias strength (configured to $\delta = 2.0$). Sampling is performed over the softmax of $l_t'$ with temperature $T = 0.7$ and nucleus threshold $p = 0.9$.
+
+3. **Detection Hypothesis Testing**:
+   For any text candidate sequence $S$ containing $T$ scored tokens, the detector counts how many tokens fall into their respective green list:
+   $$|S_G| = \sum_{t=1}^T \mathbb{I}[s_t \in G(s_{t-1})]$$
+   Under the null hypothesis $H_0$ (text was generated without the watermark), $|S_G| \sim \text{Binomial}(T, \gamma)$. The standard one-tailed $z$-score statistic is computed as:
+   $$z = \frac{|S_G| - \gamma T}{\sqrt{T \gamma (1 - \gamma)}}$$
+   The corresponding one-sided $p$-value is:
+   $$p = \frac{1}{2} \text{erfc}\left(\frac{z}{\sqrt{2}}\right)$$
+
+4. **Decision Boundary ($z = 4.0$)**:
+   The hypothesis $H_0$ is rejected (watermark detected) if and only if:
+   $$z > 4.0$$
+   A threshold of $z = 4.0$ provides an exceptionally stringent false positive rate (FPR):
+   $$p_{\text{FPR}} = \frac{1}{2}\text{erfc}(4.0/\sqrt{2}) \approx 3.167 \times 10^{-5} \quad (\approx 1 \text{ in } 31,574)$$
+   This conservative threshold prevents accidental false attribution on human-written or unwatermarked text.
