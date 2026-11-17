@@ -4,4 +4,6 @@ This repo is part of my final year major project at IIIT Nagpur. We plan to anal
 Pre requisites for system:
 Recommended 8GB RAM for swift generation, Minimum 4GB
 A Local model from Hugging-face, I have used Qwen2.5-1.5B-Instruct 
-Fork of orginial kgw implementation (
+Fork of orginial kgw implementation 
+
+
